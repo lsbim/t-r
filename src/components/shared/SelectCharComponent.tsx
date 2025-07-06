@@ -4,7 +4,7 @@ import { findPersonalityByName } from "../../utils/function";
 
 const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
-    console.log(statsForSelect)
+    // console.log(statsForSelect)
 
     return (
         <div className="overflow-x-scroll overflow-y-hidden">

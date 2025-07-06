@@ -40,6 +40,9 @@ const PickRateChart = ({ data, season, setSelect }: { data: ClashSeasonData | Fr
                     const charSum = bucket.reduce((sum, b) => sum + b.lineCnt, 0);
                     const maxLineCount = Math.max(...bucket.map(({ lineCnt }) => lineCnt));
 
+                    // console.log("charSum: ", charSum)
+                    // console.log("maxLineCnt: ", maxLineCount)
+
                     bucket.sort((a, b) => b.lineCnt - a.lineCnt);
 
 
@@ -57,6 +60,8 @@ const PickRateChart = ({ data, season, setSelect }: { data: ClashSeasonData | Fr
                                     const fillPct = maxLineCount
                                         ? (lineCnt / maxLineCount) * 100
                                         : 0;
+
+                                    // console.log("item: ", item)
 
                                     return (
                                         <div
@@ -76,19 +81,25 @@ const PickRateChart = ({ data, season, setSelect }: { data: ClashSeasonData | Fr
                                                     style={{ width: `${fillPct}%` }}
                                                 />
                                             </div>
+                                            <div className="flex items-center h-full">
+                                                <span
+                                                    className="w-12 flex justify-end text-sm">
+                                                    {idxs.reduce((s, pos) => s + (item.positions[pos] || 0), 0)}
+                                                </span>
 
-                                            <span className="w-12 text-right text-sm">
-                                                {idxs.reduce((s, pos) => s + (item.positions[pos] || 0), 0)}
-                                            </span>
+                                                <span
+                                                    data-tooltip="픽률"
+                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800">
+                                                    {Math.round((item?.percentByLine[line as "전열" | "중열" | "후열"] * 3) * 10) / 10}%
+                                                </span>
 
-                                            <span className="w-12 text-right text-sm text-gray-500 hover:text-gray-800">
-                                                {item?.percentByLine[line as "전열" | "중열" | "후열"]?.toFixed(1)}%
-                                            </span>
-
-                                            {/* 3) 레이블(퍼센트) */}
-                                            <span className="w-12 text-right text-sm text-gray-300 hover:text-gray-800">
-                                                {item?.percent.toFixed(1)}%
-                                            </span>
+                                                {/* 3) 레이블(퍼센트) */}
+                                                <span
+                                                    data-tooltip={`전체 비중`}
+                                                    className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800">
+                                                    {Math.round(item?.percent * 10) / 10}%
+                                                </span>
+                                            </div>
                                         </div>
                                     );
                                 })}
