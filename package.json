@@ -1,5 +1,5 @@
 {
-  "name": "trickcal_raid_chart",
+  "name": "trickcal_record",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,13 +18,12 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
     "react-scripts": "5.0.1",
-    "recharts": "^3.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -3,7 +3,7 @@ import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import { findPersonalityByName, processCompStat, processSynergyStats } from "../../utils/function";
 
-const CompListComponent = ({ data, season }: { data: ClashSeasonData | FrontierSeasonData, season?: string }) => {
+const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | FrontierSeasonData, season?: string, userCnt?: number }) => {
 
     const compData = processCompStat(data?.data).sort((a, b) => a.rank - b.rank);
     // const compCount = compData.reduce((sum, comp) => sum + comp.count, 0);
@@ -61,11 +61,13 @@ const CompListComponent = ({ data, season }: { data: ClashSeasonData | FrontierS
                                     </div>
                                 ))}
                             </div>
-                            <div className={`w-[10%] flex justify-center items-center font-bold text-[14px] ml-3`}>
-                                <span>
-                                    {c?.count}%
-                                </span>
-                            </div>
+                            {userCnt && (
+                                <div className={`w-[10%] flex justify-center items-center font-bold text-[14px] ml-3`}>
+                                    <span>
+                                        {(c?.count / userCnt * 100).toFixed(1)}%
+                                    </span>
+                                </div>
+                            )}
                         </div>
                     )
                 })}

@@ -6,7 +6,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
     const lineGap = 10;
 
     return (
-        <div className="bg-white rounded-b-md shadow-lg max-w-full overflow-x-auto mt-8">
+        <div className="bg-white rounded-b-md shadow-lg max-w-full overflow-x-auto my-8">
             {frontierBossList.map((bossName, i) => {
                 // 해당 보스명과 일치하는 모든 데이터 항목을 찾고 시즌 정보도 함께 유지
                 const matchingEntries = Object.entries(summary)
@@ -30,21 +30,23 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                         <h3 className="text-xl font-bold mb-4">{bossName}</h3>
 
                         {/* 후열, 중열, 전열 헤더 - 보스당 한 번만 표시 */}
-                        <div
-                            style={{ gap: lineGap }}
-                            className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
-                            {lines.map(line => (
-                                <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
-                                    {line}
-                                </div>
-                            )
-                            )}
-                        </div>
+                        {matchingEntries.length !== 0 && (
+                            <div
+                                style={{ gap: lineGap }}
+                                className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
+                                {lines.map(line => (
+                                    <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
+                                        {line}
+                                    </div>
+                                )
+                                )}
+                            </div>
+                        )}
 
                         {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                         {matchingEntries.length === 0 ? (
-                            <div className="flex gap-8 mb-1">
-
+                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600">
+                                준비 중입니다.
                             </div>
                         ) : (
                             // 데이터가 있는 경우 각 시즌의 바 차트를 세로로 배치

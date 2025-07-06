@@ -7,7 +7,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     const lineGap = 10;
 
     return (
-        <div className="bg-white rounded-b-md shadow-lg max-w-full overflow-x-auto mt-8">
+        <div className="bg-white rounded-b-md shadow-lg max-w-full overflow-x-auto my-8">
             {clashBossList.map((bossName, i) => {
                 // 해당 보스명과 일치하는 모든 데이터 항목을 찾고 시즌 정보도 함께 유지
                 const matchingEntries = Object.entries(summary)
@@ -31,70 +31,74 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         <h3 className="text-xl font-bold mb-4">{bossName}</h3>
 
                         {/* 후열, 중열, 전열 헤더 - 보스당 한 번만 표시 */}
-                        <div
-                            style={{ gap: lineGap }}
-                            className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
-                            {lines.map(line => (
-                                <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
-                                    {line}
-                                </div>
-                            )
-                            )}
-                        </div>
+                        {matchingEntries.length !== 0 && (
+                            <div
+                                style={{ gap: lineGap }}
+                                className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
+                                {lines.map(line => (
+                                    <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
+                                        {line}
+                                    </div>
+                                )
+                                )}
+                            </div>
+                        )}
 
                         {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
-                        {matchingEntries.length === 0 ? (
-                            <div className="flex gap-8 mb-1">
+                        {
+                            matchingEntries.length === 0 ? (
+                                <div className="flex gap-8 mb-1 text-[12px] text-gray-600">
+                                    준비 중입니다.
+                                </div>
+                            ) : (
+                                // 데이터가 있는 경우 각 시즌의 바 차트를 세로로 배치
+                                matchingEntries.map((entry, entryIndex) => {
+                                    const { season, seasonData } = entry;
 
-                            </div>
-                        ) : (
-                            // 데이터가 있는 경우 각 시즌의 바 차트를 세로로 배치
-                            matchingEntries.map((entry, entryIndex) => {
-                                const { season, seasonData } = entry;
+                                    const seasonTooltip = seasonData.rules.join("\n");
 
-                                const seasonTooltip = seasonData.rules.join("\n");
+                                    // console.log("seasonData", seasonData)
 
-                                // console.log("seasonData", seasonData)
+                                    return (
+                                        <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
+                                            {/* 시즌 정보를 표시할 수 있는 영역 (선택사항) */}
+                                            <div className="w-full mb-1 flex items-center">
+                                                <div data-tooltip={seasonData?.personality}
+                                                    className={`w-[32px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap mr-2 cursor-pointer`}>
+                                                    <PersonalityIcon personality={seasonData?.personality} />
+                                                </div>
+                                                <div
+                                                    data-tooltip={`${seasonTooltip}`}
+                                                    className="relative w-[24px] mr-2 whitespace-nowrap font-bold text-[13px] cursor-pointer">
+                                                    규칙
+                                                </div>
 
-                                return (
-                                    <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
-                                        {/* 시즌 정보를 표시할 수 있는 영역 (선택사항) */}
-                                        <div className="w-full mb-1 flex items-center">
-                                            <div data-tooltip={seasonData?.personality}
-                                                className={`w-[32px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap mr-2`}>
-                                                <PersonalityIcon personality={seasonData?.personality} />
-                                            </div>
-                                            <div
-                                                data-tooltip={`${seasonTooltip}`}
-                                                className="relative w-[24px] mr-2 whitespace-nowrap font-bold text-[13px] cursor-pointer">
-                                                규칙
-                                            </div>
-
-                                            {/* 3개 바 차트를 가로로 배치 */}
-                                            <div style={{ gap: lineGap }} className={`flex`}>
-                                                {lines.map((line) => (
-                                                    <div
-                                                        key={`${line}_season_${season}`}
-                                                        className="w-[28vw] lg:w-[300px] flex"
-                                                    >
-                                                        <LineBarComponent
-                                                            data={seasonData.summary}
-                                                            line={line}
-                                                            season={Number(season)}
-                                                            type="clash"
-                                                        />
-                                                    </div>
-                                                ))}
+                                                {/* 3개 바 차트를 가로로 배치 */}
+                                                <div style={{ gap: lineGap }} className={`flex`}>
+                                                    {lines.map((line) => (
+                                                        <div
+                                                            key={`${line}_season_${season}`}
+                                                            className="w-[28vw] lg:w-[300px] flex"
+                                                        >
+                                                            <LineBarComponent
+                                                                data={seasonData.summary}
+                                                                line={line}
+                                                                season={Number(season)}
+                                                                type="clash"
+                                                            />
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                );
-                            })
-                        )}
+                                    );
+                                })
+                            )
+                        }
                     </div>
                 );
             })}
-        </div>
+        </div >
     );
 }
 

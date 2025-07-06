@@ -1,19 +1,18 @@
-import { ClashSeasonData } from "../../types/clashTypes";
-import { processRankingArrData } from "../../utils/function";
-import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
     BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    ChartOptions,
+    Legend,
+    LinearScale,
     Title,
     Tooltip,
-    Legend,
-    ChartOptions,
 } from 'chart.js';
 import { Bar } from "react-chartjs-2";
+import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
-
+import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
+import { processRankingArrData } from "../../utils/function";
 ChartJS.register(
     CategoryScale,
     LinearScale,

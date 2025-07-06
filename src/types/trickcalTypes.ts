@@ -10,7 +10,7 @@ export interface SynergyItem {
     qty: number;
 }
 
-export type BaseLine = "전열" | "중열" | "후열" | "모든열";
+export type BaseLine = "전열" | "중열" | "후열";
 export type AllLine = BaseLine | "모든열";
 
 
@@ -42,7 +42,7 @@ export const getPersonalityColor = (personality: Personality) => {
     return personalityColors[personality] || '#gray'; // 기본값 설정
 };
 
-type PositionIdxs = { [key: string]: number; };
+type PositionIdxs = { [key: string | number]: number; };
 type PercentByLine = Record<BaseLine, number>;
 export interface SummaryData {
     name: string;
@@ -50,6 +50,6 @@ export interface SummaryData {
     percent: number;
     personality: Personality;
     line: AllLine;
-    position: PositionIdxs;
+    positions: PositionIdxs;
     percentByLine: PercentByLine;
 }

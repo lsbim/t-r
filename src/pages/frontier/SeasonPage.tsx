@@ -1,21 +1,23 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import ScoreAndCoinChart from "../../components/chart/ScoreAndCoinChart";
-import ClashAllPickRateComponent from "../../components/chart/AllPickRateChart";
-import ClashCompComponent from "../../components/shared/CompListComponent";
-import ClashPickRateComponent from "../../components/chart/PickRateChart";
-import ClashSelectCharComponent from "../../components/shared/SelectCharComponent";
+import AllPickRateChart from "../../components/chart/AllPickRateChart";
+import CompListComponent from "../../components/shared/CompListComponent";
+import PickRateChart from "../../components/chart/PickRateChart";
+import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
 import HeaderNav from "../../layouts/HeaderNav";
 import { FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { processCompStat } from "../../utils/function";
 import Loading from "../../commons/Loading";
+import Footer from "../../layouts/Footer";
 
 
 const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
+    const [userCnt, setUserCnt] = useState<number>(0)
     const { data, isLoading, error } = useSeasonData<FrontierSeasonData>(season, 'frontier')
 
     // const data = frontierData[Number(season)];
@@ -52,14 +54,19 @@ const SeasonPage = () => {
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
     }, [select, rawRecords]);
 
-    // console.log("data:", data)
+    useEffect(() => {
+        setUserCnt(data?.data?.length || 0)
+    }, [data])
+
+    // console.log("user count: ", userCnt)
     // console.log("loading: ", isLoading)
 
     if (isLoading) {
         return (
-            <div className="flex flex-col justify-center items-center gap-4">
+            <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
                 <HeaderNav />
                 <Loading />
+                <Footer />
             </div>
         )
     }
@@ -69,20 +76,20 @@ const SeasonPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-4">
+        <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
-            <ClashAllPickRateComponent
+            <AllPickRateChart
                 season={season}
                 data={data}
                 setSelect={setSelect}
             />
-            <ClashPickRateComponent
+            <PickRateChart
                 season={season}
                 data={data}
                 setSelect={setSelect}
             />
             {select !== '' && (
-                <ClashSelectCharComponent
+                <SelectCharComponent
                     statsForSelect={statsForSelect}
                 />
             )}
@@ -90,10 +97,12 @@ const SeasonPage = () => {
                 season={season}
                 data={data!}
             />
-            <ClashCompComponent
+            <CompListComponent
                 season={season}
                 data={data}
+                userCnt={userCnt}
             />
+            <Footer />
         </div>
     );
 }

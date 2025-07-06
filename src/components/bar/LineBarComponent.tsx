@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { EnrichedChartData } from "../../utils/function";
+import { SummaryData } from "../../types/trickcalTypes";
 
 const LineBarComponent = ({ data, line, season, type }
-    : { data: EnrichedChartData[], line: string, season: number, type: string }) => {
+    : { data: SummaryData[], line: string, season: number, type: string }) => {
 
     const lineData = data.filter(d =>
         d.line === line || d.line === "모든열"
