@@ -2,8 +2,8 @@ import { Personality, SynergyItem } from "../../types/trickcalTypes";
 
 const PERSONALITY_ORDER: Personality[] = ["냉정", "우울", "활발", "광기", "순수"];
 
-export const PersonalityListComponent = ({ data, count }: { data: SynergyItem[], count: number }) => {
-    // 1) 입력받은 data를 전체 순서에 맞춰 정렬
+export const PersonalityListComponent = ({ data, count, userCnt }: { data: SynergyItem[], count: number, userCnt: number }) => {
+
     const flatList = PERSONALITY_ORDER
         .map(p => data.find(d => d.personality === p) || { personality: p, qty: 0 })
         .flatMap(d => Array.from({ length: d.qty }, () => d.personality));
@@ -32,7 +32,7 @@ export const PersonalityListComponent = ({ data, count }: { data: SynergyItem[],
                 ))}
             </div>
             <div className="flex items-center justify-center font-bold">
-                {count}%
+                {Math.round(count / userCnt * 100 * 10) / 10}%
             </div>
         </div>
     );

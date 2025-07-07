@@ -24,22 +24,26 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                 // 보스명을 키로 하는 전체 섹션을 반환합니다
                 return (
                     <div
-                        key={'차원대충돌' + bossName}
-                        className={`p-8 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
-                        {/* 보스명 헤더 - 한 번만 표시 */}
+                        key={'엘리아스프론티어' + bossName}
+                        className={`p-6 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                        {/* 보스명 */}
                         <h3 className="text-xl font-bold mb-4">{bossName}</h3>
 
-                        {/* 후열, 중열, 전열 헤더 - 보스당 한 번만 표시 */}
+                        {/* 후열, 중열, 전열 */}
                         {matchingEntries.length !== 0 && (
-                            <div
-                                style={{ gap: lineGap }}
-                                className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
-                                {lines.map(line => (
-                                    <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
-                                        {line}
-                                    </div>
-                                )
-                                )}
+                            <div className="w-full mb-1 flex items-center">
+                                {/* 왼쪽 여백을 위한 빈 div */}
+                                <div className="mr-2 w-[90px] flex-shrink-0" />
+
+                                <div
+                                    style={{ gap: lineGap }}
+                                    className="flex items-center justify-start text-[13px] text-gray-600">
+                                    {lines.map(line => (
+                                        <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
+                                            {line}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
 
@@ -59,20 +63,28 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
 
                                 return (
                                     <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
-                                        {/* 시즌 정보를 표시할 수 있는 영역 (선택사항) */}
+                                        {/* 시즌 정보 */}
                                         <div className="w-full mb-1 flex items-center">
-                                            <div
-                                                data-tooltip={`${seasonTooltip}`}
-                                                className="relative w-[64px] mr-2 whitespace-nowrap font-bold text-[13px] cursor-pointer">
-                                                교주의 권능
+                                            {/* 마진 8px + 너비 90px */}
+                                            <div className="mr-2 gap-x-1 flex items-center w-[90px] whitespace-nowrap">
+                                                <div
+                                                    data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
+                                                    className="text-[13px] font-bold cursor-pointer">
+                                                    S{season}
+                                                </div>
+                                                <div
+                                                    data-tooltip={`${seasonTooltip}`}
+                                                    className="relative w-[64px] whitespace-nowrap font-bold text-[13px] cursor-pointer">
+                                                    교주의권능
+                                                </div>
                                             </div>
 
-                                            {/* 3개 바 차트를 가로로 배치 */}
+                                            {/* 열 별 요약 바 차트 */}
                                             <div style={{ gap: lineGap }} className={`flex`}>
                                                 {lines.map((line) => (
                                                     <div
                                                         key={`${line}_season_${season}`}
-                                                        className="w-[28vw] lg:w-[300px] flex"
+                                                        className="w-[28vw] lg:w-[300px] flex flex-shrink-0 flex-grow-0"
                                                     >
                                                         <LineBarComponent
                                                             data={seasonData.summary}

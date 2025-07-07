@@ -26,21 +26,25 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                 return (
                     <div
                         key={'차원대충돌' + bossName}
-                        className={`p-8 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
-                        {/* 보스명 헤더 - 한 번만 표시 */}
+                        className={`p-6 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                        {/* 보스명 헤더 */}
                         <h3 className="text-xl font-bold mb-4">{bossName}</h3>
 
-                        {/* 후열, 중열, 전열 헤더 - 보스당 한 번만 표시 */}
+                        {/* 후열, 중열, 전열 */}
                         {matchingEntries.length !== 0 && (
-                            <div
-                                style={{ gap: lineGap }}
-                                className="flex items-center justify-start text-[13px] text-gray-600 mb-2 ml-[72px]">
-                                {lines.map(line => (
-                                    <div key={`line_text_` + line} className={`lg:w-[300px] w-[28vw]`}>
-                                        {line}
-                                    </div>
-                                )
-                                )}
+                            <div className="w-full mb-1 flex items-center">
+                                {/* 왼쪽 여백을 위한 빈 div */}
+                                <div className="mr-2 w-[80px] flex-shrink-0" />
+
+                                <div
+                                    style={{ gap: lineGap }}
+                                    className="flex items-center justify-start text-[13px] text-gray-600">
+                                    {lines.map(line => (
+                                        <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
+                                            {line}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
 
@@ -61,19 +65,27 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
 
                                     return (
                                         <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
-                                            {/* 시즌 정보를 표시할 수 있는 영역 (선택사항) */}
+                                            {/* 시즌 정보 */}
                                             <div className="w-full mb-1 flex items-center">
-                                                <div data-tooltip={seasonData?.personality}
-                                                    className={`w-[32px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap mr-2 cursor-pointer`}>
-                                                    <PersonalityIcon personality={seasonData?.personality} />
-                                                </div>
-                                                <div
-                                                    data-tooltip={`${seasonTooltip}`}
-                                                    className="relative w-[24px] mr-2 whitespace-nowrap font-bold text-[13px] cursor-pointer">
-                                                    규칙
+                                                {/* 마진 8px + 너비 80px */}
+                                                <div className="w-[80px] gap-x-1 flex items-center mr-2">
+                                                    <div
+                                                        data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
+                                                        className="whitespace-nowrap flex items-center font-bold text-[14px] cursor-pointer">
+                                                        S{season}
+                                                    </div>
+                                                    <div data-tooltip={seasonData?.personality}
+                                                        className={`w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
+                                                        <PersonalityIcon personality={seasonData?.personality} />
+                                                    </div>
+                                                    <div
+                                                        data-tooltip={`${seasonTooltip}`}
+                                                        className="relative w-[24px] whitespace-nowrap ml-[-4px] font-bold text-[13px] cursor-pointer flex items-center">
+                                                        규칙
+                                                    </div>
                                                 </div>
 
-                                                {/* 3개 바 차트를 가로로 배치 */}
+                                                {/* 열 별 요약 바 차트 */}
                                                 <div style={{ gap: lineGap }} className={`flex`}>
                                                     {lines.map((line) => (
                                                         <div

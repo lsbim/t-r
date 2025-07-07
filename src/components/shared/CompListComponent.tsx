@@ -64,7 +64,7 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                             {userCnt && (
                                 <div className={`w-[10%] flex justify-center items-center font-bold text-[14px] ml-3`}>
                                     <span>
-                                        {(c?.count / userCnt * 100).toFixed(1)}%
+                                        {Math.round(c?.count / userCnt * 100 * 10) / 10}%
                                     </span>
                                 </div>
                             )}
@@ -77,12 +77,13 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                 <div className="text-xl font-bold mb-2">
                     성격
                 </div>
-                <div >
-                    {synergyStats.map((per, i) => (
+                <div>
+                    {synergyStats && userCnt && synergyStats.map((per, i) => (
                         <PersonalityListComponent
                             key={"clash_personality" + season + i}
                             data={per.synergy}
                             count={per.count}
+                            userCnt={userCnt}
                         />
                     ))}
                 </div>
