@@ -1,6 +1,6 @@
 import { charInfo } from "../data/trickcalChar";
-import { clashPlayerData } from "../types/clashTypes";
-import { FrontierPlayerData } from "../types/frontierTypes";
+import { ClashExternalData, clashPlayerData } from "../types/clashTypes";
+import { FrontierExternalData, FrontierPlayerData } from "../types/frontierTypes";
 import { Personality, SummaryData, SynergyItem } from "../types/trickcalTypes";
 
 // // 랭킹 데이터를 차트 데이터로 변환
@@ -104,6 +104,33 @@ interface CompStat {
     front: string[];       // 전열(0,1,2)에 사용된 멤버들 (0,1,2 위치 캐릭터)
     mid: string[];       // 중열(3,4,5)
     back: string[];       // 후열(6,7,8)
+}
+
+export function processExternalData(data: ClashExternalData | FrontierExternalData) {
+    // 출전 횟수 합산
+    const total = data.data.reduce((sum, it) => sum + it.count, 0);
+
+    // 2) 가나다순 정렬
+    const sorted = data.data.slice().sort((a, b) =>
+        a.name.localeCompare(b.name, 'ko')
+    );
+
+    // 3) SummaryData 배열로 매핑
+    return sorted.map(item => {
+        const { name, count, line } = item;
+        const percent = total ? (count / total) * 100 : 0;
+
+        // charInfo 에서 personality 등 가져오기 (없으면 빈 문자열)
+        const info = charInfo[name] || {};
+
+        return {
+            name,
+            count,
+            percent,
+            personality: info.personality || '',
+            line: line, // 혹은 item.line
+        };
+    });
 }
 
 export function processCompStat(data: clashPlayerData[] | FrontierPlayerData[], select?: string): CompStat[] {

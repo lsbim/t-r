@@ -7,10 +7,11 @@ import PickRateChart from "../../components/chart/PickRateChart";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
 import HeaderNav from "../../layouts/HeaderNav";
-import { FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
+import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { processCompStat } from "../../utils/function";
 import Loading from "../../commons/Loading";
 import Footer from "../../layouts/Footer";
+import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 
 
 const SeasonPage = () => {
@@ -18,7 +19,9 @@ const SeasonPage = () => {
     const { season } = useParams();
     const [select, setSelect] = useState('');
     const [userCnt, setUserCnt] = useState<number>(0)
-    const { data, isLoading, error } = useSeasonData<FrontierSeasonData>(season, 'frontier')
+    const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier')
+
+    // console.log("data: ", data)
 
     // const data = frontierData[Number(season)];
     const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
@@ -75,35 +78,58 @@ const SeasonPage = () => {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
     }
 
+
+
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
-            <AllPickRateChart
-                season={season}
-                data={data}
-                setSelect={setSelect}
-            />
-            <PickRateChart
-                season={season}
-                data={data}
-                setSelect={setSelect}
-            />
-            {select !== '' && (
-                <SelectCharComponent
-                    statsForSelect={statsForSelect}
-                />
+            {data.type === 'external' && (
+                <>
+                    <AllPickRateChart
+                        season={season}
+                        data={data}
+                    />
+                    <ExternalPickRateChart
+                        season={season}
+                        data={data}
+                    />
+                    <div className="lg:w-[992px] w-full mx-auto flex h-4 bg-white p-4 shadow-md mt-1 text-[12px] lg:text-[13px] items-center justify-center">
+                        해당 시즌은 상세 정보를 지원하지 않습니다.
+                    </div>
+                </>
             )}
-            <ScoreAndCoinChart
-                season={season}
-                data={data!}
-            />
-            <CompListComponent
-                season={season}
-                data={data}
-                userCnt={userCnt}
-            />
+            {data.type === 'season' && (
+                <>
+                    <AllPickRateChart
+                        season={season}
+                        data={data}
+                        setSelect={setSelect}
+                    />
+                    <PickRateChart
+                        season={season}
+                        data={data}
+                        setSelect={setSelect}
+                    />
+                    {
+                        select !== '' && (
+                            <SelectCharComponent
+                                statsForSelect={statsForSelect}
+                            />
+                        )
+                    }
+                    <ScoreAndCoinChart
+                        season={season}
+                        data={data!}
+                    />
+                    <CompListComponent
+                        season={season}
+                        data={data}
+                        userCnt={userCnt}
+                    />
+                </>
+            )}
             <Footer />
-        </div>
+        </div >
     );
 }
 

@@ -22,7 +22,20 @@ interface FrontierBase {
 
 // 엘리아스 프론티어 시즌 데이터
 export interface FrontierSeasonData extends FrontierBase {
+    type: 'season';
     data: FrontierPlayerData[]; // [["비비","벨라"...], [], [], ...]
+}
+
+export interface externalData {
+    name: string;
+    count: number;
+    line: string;
+}
+
+// 엘리아스 프론티어 제보받아 하드코딩한 데이터
+export interface FrontierExternalData extends FrontierBase {
+    type: 'external';
+    data: externalData[]; // [{"name": "벨라", count: 51, line: "전열"}, {}, ...]
 }
 
 // 시즌 데이터를 담아둘 인터페이스

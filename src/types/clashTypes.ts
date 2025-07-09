@@ -1,3 +1,4 @@
+import { externalData } from "./frontierTypes";
 import { Personality, SummaryData } from "./trickcalTypes";
 
 export const clashBossList: string[] = ["릴1리", "크르브르스", "크레용사용"];
@@ -21,7 +22,14 @@ interface ClashBase {
 
 // 차원 대충돌 시즌 데이터
 export interface ClashSeasonData extends ClashBase {
+    type: 'season';
     data: clashPlayerData[]; // [["비비","벨라"...], [], [], ...]
+}
+
+// 차원 대충돌 제보받아 하드코딩한 데이터
+export interface ClashExternalData extends ClashBase {
+    type: 'external';
+    data: externalData[]; // [{"name": "벨라", count: 51, line: "전열"}, {}, ...]
 }
 
 // 시즌 데이터를 담아둘 인터페이스

@@ -64,9 +64,9 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                     // console.log("seasonData", seasonData)
 
                                     return (
-                                        <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
+                                        <div key={`${bossName}_season_${season}`} className={`flex h-[24px] mt-[-1px]`}>
                                             {/* 시즌 정보 */}
-                                            <div className="w-full mb-1 flex items-center">
+                                            <div className="w-full mb-1 flex items-center h-full">
                                                 {/* 마진 8px + 너비 80px */}
                                                 <div className="w-[80px] gap-x-1 flex items-center mr-2">
                                                     <div
@@ -74,14 +74,14 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                         className="whitespace-nowrap flex items-center font-bold text-[14px] cursor-pointer">
                                                         S{season}
                                                     </div>
+                                                    <div
+                                                        data-tooltip={`${seasonTooltip}`}
+                                                        className="relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
+                                                        규칙
+                                                    </div>
                                                     <div data-tooltip={seasonData?.personality}
                                                         className={`w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
                                                         <PersonalityIcon personality={seasonData?.personality} />
-                                                    </div>
-                                                    <div
-                                                        data-tooltip={`${seasonTooltip}`}
-                                                        className="relative w-[24px] whitespace-nowrap ml-[-4px] font-bold text-[13px] cursor-pointer flex items-center">
-                                                        규칙
                                                     </div>
                                                 </div>
 

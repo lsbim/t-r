@@ -62,11 +62,11 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                 // console.log("seasonData", seasonData)
 
                                 return (
-                                    <div key={`${bossName}_season_${season}`} className={`flex mb-2`}>
+                                    <div key={`${bossName}_season_${season}`} className={`flex h-[24px] mt-[-1px]`}>
                                         {/* 시즌 정보 */}
-                                        <div className="w-full mb-1 flex items-center">
+                                        <div className="w-full mb-1 flex items-center h-full">
                                             {/* 마진 8px + 너비 90px */}
-                                            <div className="mr-2 gap-x-1 flex items-center w-[90px] whitespace-nowrap">
+                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap">
                                                 <div
                                                     data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
                                                     className="text-[13px] font-bold cursor-pointer">

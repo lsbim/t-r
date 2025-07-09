@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
-import { FrontierSeasonData } from "../types/frontierTypes";
-import { ClashSeasonData } from "../types/clashTypes";
+import { FrontierExternalData, FrontierSeasonData } from "../types/frontierTypes";
+import { ClashExternalData, ClashSeasonData } from "../types/clashTypes";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -10,7 +10,6 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     if (!season || numSeason < 1) {
         throw new Error('유효하지 않은 시즌 번호입니다.');
     }
-
     const response = await fetch(`/data/${type}/${numSeason}.json`);
 
     if (!response.ok) {
@@ -20,12 +19,13 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     return response.json();
 };
 
-export const useSeasonData = <T extends FrontierSeasonData | ClashSeasonData>
+export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalData | ClashSeasonData | ClashExternalData>
     (season: string | undefined, type: TrickcalRaidEn) => {
 
     return useQuery<T, Error>({
         queryKey: [type, season],
         queryFn: () => fetchSeasonData(season!, type),
+
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정
         staleTime: 1000 * 60 * 60 * 1, // 1시간동간 fresh상태. 재요청이 필요없는 상태

@@ -9,10 +9,10 @@ import {
     Tooltip,
 } from 'chart.js';
 import { Bar } from "react-chartjs-2";
-import { ClashSeasonData } from "../../types/clashTypes";
-import { FrontierSeasonData } from "../../types/frontierTypes";
+import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
+import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
-import { processRankingArrData } from "../../utils/function";
+import { processExternalData, processRankingArrData } from "../../utils/function";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -22,12 +22,24 @@ ChartJS.register(
     Legend
 );
 
-const AllPickRateChart = ({ data, season, setSelect }: { data: ClashSeasonData | FrontierSeasonData, season?: string, setSelect: React.Dispatch<React.SetStateAction<string>> }) => {
+const AllPickRateChart = ({ data, season, setSelect }:
+    {
+        data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData,
+        season?: string, setSelect?: React.Dispatch<React.SetStateAction<string>>
+    }) => {
 
 
-    const sortedData = processRankingArrData(data?.data).sort((a, b) => b.count - a.count);
+    const sortedData = data.type === 'season' ?
+        processRankingArrData(data?.data).sort((a, b) => b.count - a.count)
+        : processExternalData(data).sort((a, b) => b.count - a.count);
+
+    // console.log("sortedData: ", sortedData)
 
     const handleBarClick = (event: any, elements: any[]) => {
+        if (!setSelect) {
+            return;
+        }
+        
         // 클릭된 요소가 있는지 확인
         if (elements.length > 0) {
             // 첫 번째 클릭된 요소의 인덱스를 가져옴
@@ -36,9 +48,8 @@ const AllPickRateChart = ({ data, season, setSelect }: { data: ClashSeasonData |
             // 해당 인덱스에 해당하는 캐릭터 이름을 추출
             const selectedCharacterName = sortedData[elementIndex].name;
 
-            if (setSelect) {
-                setSelect(selectedCharacterName);
-            }
+            setSelect(selectedCharacterName);
+
         }
     };
 
