@@ -1,31 +1,38 @@
 import { Link } from "react-router-dom";
 import { SummaryData } from "../../types/trickcalTypes";
+import { charInfo } from "../../data/trickcalChar";
 
 const LineBarComponent = ({ data, line, season, type }
     : { data: SummaryData[], line: string, season: number, type: string }) => {
 
     const lineData = data.filter(d =>
-        d.line === line || d.line === "모든열"
+        d.line === line
     );
+    // console.log("lineData: ", lineData)
 
-    // 2) 성격별(percent) 합산
-    const sumByPersona = lineData.reduce<Record<string, number>>((acc, d) => {
-        acc[d.personality] = (acc[d.personality] || 0) + d.percent;
+    // 성격별 count 합산
+    const sumPersonality = lineData.reduce<Record<string, number>>((acc, d) => {
+        const p = charInfo[d.name].personality;
+        acc[p] = (acc[p] || 0) + d.count
         return acc;
-    }, {});
+    }, {})
+
+    // console.log("sumPersonality: ", sumPersonality)
 
     // 3) 가나다(ko) 순 정렬된 배열로 변환
-    const segments = Object.keys(sumByPersona)
+    const segments = Object.keys(sumPersonality)
         .sort((a, b) => a.localeCompare(b, "ko"))
         .map((personality) => ({
             personality,
-            percent: sumByPersona[personality],
+            count: sumPersonality[personality],
         }));
 
-    // 총합 (라인 내 100% 재스케일 하려면 이 값을 사용)
-    const total = segments.reduce((sum, seg) => sum + seg.percent, 0);
+    // console.log(segments)
 
-    // console.log("data", data)
+    // 총합 (라인 내 100% 재스케일 하려면 이 값을 사용)
+    const total = Object.values(sumPersonality).reduce((sum, count) => sum + count, 0);
+
+    console.log("total: ", total)
 
     return (
         <Link
@@ -35,7 +42,7 @@ const LineBarComponent = ({ data, line, season, type }
             {segments.map((seg) => {
                 // (seg.percent/total)*100 으로 재스케일하거나,
                 // 전체 백분율 그대로 seg.percent 사용
-                const w = (seg.percent / total) * 100;
+                const w = (seg.count / total) * 100;
                 return (
                     <div
                         key={seg.personality}

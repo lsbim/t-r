@@ -1,9 +1,8 @@
-import { useQueryClient } from "@tanstack/react-query";
 import IndexComponent from "../../components/clash/IndexComponent";
 import { useSummaryData } from "../../hooks/useSummaryData";
+import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { ClashSummary } from "../../types/clashTypes";
-import Footer from "../../layouts/Footer";
 
 const IndexPage = () => {
 
