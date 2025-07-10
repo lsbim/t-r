@@ -32,7 +32,7 @@ const LineBarComponent = ({ data, line, season, type }
     // 총합 (라인 내 100% 재스케일 하려면 이 값을 사용)
     const total = Object.values(sumPersonality).reduce((sum, count) => sum + count, 0);
 
-    console.log("total: ", total)
+    // console.log("total: ", total)
 
     return (
         <Link

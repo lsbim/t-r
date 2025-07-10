@@ -1,3 +1,4 @@
+import { charInfo } from "../../data/trickcalChar";
 import { ClashExternalData } from "../../types/clashTypes";
 import { FrontierExternalData } from "../../types/frontierTypes";
 import { BaseLine } from "../../types/trickcalTypes";
@@ -30,7 +31,7 @@ const ExternalPickRateChart = ({ data, season }:
 
                     // 1) 이 라인에 최소 한 번이라도 등장한 캐릭터
                     let bucket = processData
-                        .filter(item => item.line === line )
+                        .filter(item => item.line === line)
                         .sort((a, b) => b.count - a.count);
 
                     if (bucket.length === 0) return null;
@@ -58,6 +59,7 @@ const ExternalPickRateChart = ({ data, season }:
                                         : 0;
 
                                     // console.log("item: ", item)
+                                    // console.log(charInfo[item.name].line === item.line)
 
                                     return (
                                         <div
@@ -86,6 +88,7 @@ const ExternalPickRateChart = ({ data, season }:
                                                     data-tooltip="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800">
                                                     {/* {Math.round((item?.percentByLine[line as "전열" | "중열" | "후열"] * 3) * 10) / 10}% */}
+                                                    {/* {Math.round((item.count / (charSum / 3)) * 100 * 10) / 10}% */}
                                                 </span>
 
                                                 {/* 3) 레이블(퍼센트) */}

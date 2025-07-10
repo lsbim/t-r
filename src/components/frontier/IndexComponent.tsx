@@ -69,7 +69,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                             <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap">
                                                 <div
                                                     data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                    className="text-[13px] font-bold cursor-pointer">
+                                                    className="text-[13px] font-bold cursor-pointer w-[24px]">
                                                     S{season}
                                                 </div>
                                                 <div

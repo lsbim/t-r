@@ -34,7 +34,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         {matchingEntries.length !== 0 && (
                             <div className="w-full mb-1 flex items-center">
                                 {/* 왼쪽 여백을 위한 빈 div */}
-                                <div className="mr-2 w-[80px] flex-shrink-0" />
+                                <div className="mr-2 w-[90px] flex-shrink-0" />
 
                                 <div
                                     style={{ gap: lineGap }}
@@ -68,10 +68,10 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                             {/* 시즌 정보 */}
                                             <div className="w-full mb-1 flex items-center h-full">
                                                 {/* 마진 8px + 너비 80px */}
-                                                <div className="w-[80px] gap-x-1 flex items-center mr-2">
+                                                <div className="min-w-[90px] gap-x-2 flex items-center mr-2">
                                                     <div
                                                         data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                        className="whitespace-nowrap flex items-center font-bold text-[14px] cursor-pointer">
+                                                        className="whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
                                                         S{season}
                                                     </div>
                                                     <div

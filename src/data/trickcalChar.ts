@@ -19,6 +19,9 @@ export const charInfo: CharInfoType = {
     "마고": { grade: 2, personality: "순수", line: "중열" },
     "빅우드": { grade: 2, personality: "순수", line: "전열" },
     "스피키": { grade: 2, personality: "순수", line: "후열" },
+    "알레트": { grade: 1, personality: "순수", line: "전열" },
+    "사리": { grade: 1, personality: "순수", line: "중열" },
+    "큐이": { grade: 1, personality: "순수", line: "중열" },
 
     // 냉정
     "이드": { grade: 3, personality: "냉정", line: "전열" },
@@ -40,6 +43,8 @@ export const charInfo: CharInfoType = {
     "에스피": { grade: 2, personality: "냉정", line: "후열" },
     "레테": { grade: 2, personality: "냉정", line: "전열" },
     "칸타": { grade: 2, personality: "냉정", line: "중열" },
+    "파트라": { grade: 1, personality: "냉정", line: "전열" },
+    "레이지": { grade: 1, personality: "냉정", line: "후열" },
 
     // 광기
     "클로에": { grade: 3, personality: "광기", line: "전열" },
@@ -59,6 +64,8 @@ export const charInfo: CharInfoType = {
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열" },
     "이프리트": { grade: 2, personality: "광기", line: "전열" },
     "마요": { grade: 2, personality: "광기", line: "후열" },
+    "메죵": { grade: 1, personality: "광기", line: "후열" },
+    "유미미": { grade: 1, personality: "광기", line: "후열" },
 
     // 활발
     "에피카": { grade: 3, personality: "활발", line: "중열" },
@@ -79,6 +86,9 @@ export const charInfo: CharInfoType = {
     "베니": { grade: 2, personality: "활발", line: "전열" },
     "쥬비": { grade: 2, personality: "활발", line: "중열" },
     "바나": { grade: 2, personality: "활발", line: "후열" },
+    "밍스": { grade: 1, personality: "활발", line: "전열" },
+    "타이다": { grade: 1, personality: "활발", line: "후열" },
+    "카렌": { grade: 1, personality: "활발", line: "후열" },
 
     // 우울
     "시온": { grade: 3, personality: "우울", line: "후열" },
@@ -99,5 +109,7 @@ export const charInfo: CharInfoType = {
     "실피르": { grade: 2, personality: "우울", line: "중열" },
     "페스타": { grade: 2, personality: "우울", line: "전열" },
     "바리에": { grade: 2, personality: "우울", line: "후열" },
+    "베루": { grade: 1, personality: "우울", line: "중열" },
+    "쵸피": { grade: 1, personality: "우울", line: "중열" },
 };
 
