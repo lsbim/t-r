@@ -12,8 +12,17 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                 const matchingEntries = Object.entries(summary)
                     .filter(([seasonKey, data]) => data.name === bossName)
                     .sort(([seasonKeyA], [seasonKeyB]) => {
-                        // 키가 이미 숫자이므로 직접 비교 (내림차순 정렬)
-                        return Number(seasonKeyB) - Number(seasonKeyA);
+                        const a = Number(seasonKeyA);
+                        const b = Number(seasonKeyB);
+                        const isBetaA = a > 10000;
+                        const isBetaB = b > 10000;
+
+                        if (isBetaA !== isBetaB) {
+                            return isBetaA ? 1 : -1;
+                        }
+
+                        // 같은 그룹끼리는 내림차순
+                        return b - a;
                     })
                     // 시즌 키와 데이터를 모두 유지하는 객체로 변환
                     .map(([seasonKey, data]) => ({
@@ -70,7 +79,16 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                                 <div
                                                     data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
                                                     className="text-[13px] font-bold cursor-pointer w-[24px]">
-                                                    S{season}
+                                                    {Number(season) > 10000 && (
+                                                        <>
+                                                            B{Number(season) - 10000}
+                                                        </>
+                                                    )}
+                                                    {Number(season) < 10000 && (
+                                                        <>
+                                                            S{season}
+                                                        </>
+                                                    )}
                                                 </div>
                                                 <div
                                                     data-tooltip={`${seasonTooltip}`}
