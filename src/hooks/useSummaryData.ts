@@ -19,14 +19,14 @@ export const useSummaryData = <T extends ClashSummary | FrontierSummary>
     (type: TrickcalRaidEn) => {
 
     return useQuery<T, Error>({
-        queryKey: [type],
+        queryKey: ["summary", type],
         queryFn: () => fetchSummaryData(type),
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정
         staleTime: 1000 * 60 * 60, // 1시간동간 fresh상태. 재요청이 필요없는 상태
         gcTime: 1000 * 60 * 60, // 1시간동안 메모리에 유지. 이후 GC가 처형
 
-        // 시즌 번호가 없으면 쿼리 실행하지 않음
+        // (조건) 쿼리 실행하지 않음
         enabled: !!type,
 
         // 백그라운드에서 리페치 비활성화 (정적 데이터이므로)

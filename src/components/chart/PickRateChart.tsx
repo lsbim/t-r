@@ -1,18 +1,17 @@
 import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
-import { BaseLine } from "../../types/trickcalTypes";
+import { BaseLine, lineList } from "../../types/trickcalTypes";
 import { processRankingArrData } from "../../utils/function";
 
 const PickRateChart = ({ data, season, setSelect }:
     {
-        data: ClashSeasonData  | FrontierSeasonData ,
+        data: ClashSeasonData | FrontierSeasonData,
         season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>
     }) => {
 
     const processData = processRankingArrData(data?.data).sort((a, b) => b.percent - a.percent)
 
-    const lineList: BaseLine[] = ["후열", "중열", "전열"];
-    const lineBuckets: Record<string, number[]> = {
+    const lineBuckets: Record<BaseLine, number[]> = {
         전열: [0, 1, 2],
         중열: [3, 4, 5],
         후열: [6, 7, 8],

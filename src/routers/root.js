@@ -4,6 +4,7 @@ const { createBrowserRouter } = require("react-router-dom");
 
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
 const ClashSeason = lazy(() => import("../pages/clash/SeasonPage"));
+const ClashStat = lazy(() => import("../pages/clash/StatPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: "clash/:season",
         element: <Suspense><ClashSeason /></Suspense>
     },
+    // {
+    //     path: "stat/clash",
+    //     element: <Suspense><ClashStat /></Suspense>
+    // },
     {
         path: "frontier",
         element: <Suspense><FrontierIndex /></Suspense>

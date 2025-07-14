@@ -155,7 +155,7 @@ const AllPickRateChart = ({ data, season, setSelect }:
 
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md mt-4 overflow-x-scroll overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-scroll overflow-y-hidden">
             <span className="text-xl font-bold">사도 종합</span>
             <Bar data={chartData} options={chartOptions} />
         </div>

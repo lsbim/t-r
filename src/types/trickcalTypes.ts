@@ -12,23 +12,24 @@ export interface SynergyItem {
 
 export type BaseLine = "전열" | "중열" | "후열";
 export type AllLine = BaseLine | "모든열";
+export const lineList: BaseLine[] = ["후열", "중열", "전열"]; // .map()용 배열
 
 
 export interface CharInfoDetail {
     grade: number;
     personality: Personality;
     line: AllLine;
+    birthdate: string;
 }
 
 export interface CharInfoType {
     [key: string]: CharInfoDetail
-
 }
 
 export type SeasonDataMap = { // 시즌데이터 맵핑
     frontier: FrontierSeasonData;
-    clash:    ClashSeasonData;
-  };
+    clash: ClashSeasonData;
+};
 
 const personalityColors = {
     '순수': '#66c17c',
@@ -42,14 +43,18 @@ export const getPersonalityColor = (personality: Personality) => {
     return personalityColors[personality] || '#gray'; // 기본값 설정
 };
 
-type PositionIdxs = { [key: string | number]: number; };
-type PercentByLine = Record<BaseLine, number>;
-export interface SummaryData {
+export interface BaseSummary {
     name: string;
     count: number;
+    line: BaseLine;
+}
+
+type PositionIdxs = { [key: string | number]: number; };
+type PercentByLine = Record<BaseLine, number>;
+export interface SummaryData extends Omit<BaseSummary, "line"> {
+    line: AllLine;
     percent: number;
     personality: Personality;
-    line: AllLine;
     positions: PositionIdxs;
     percentByLine: PercentByLine;
 }

@@ -12,16 +12,15 @@ import { processCompStat } from "../../utils/function";
 import Loading from "../../commons/Loading";
 import Footer from "../../layouts/Footer";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
+import InfoComponent from "../../components/shared/InfoComponent";
 
 
 const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
-    const [userCnt, setUserCnt] = useState<number>(0)
+    // const [userCnt, setUserCnt] = useState<number>(0)
     const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier')
-
-    // console.log("data: ", data)
 
     // const data = frontierData[Number(season)];
     const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
@@ -57,9 +56,9 @@ const SeasonPage = () => {
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
     }, [select, rawRecords]);
 
-    useEffect(() => {
-        setUserCnt(data?.data?.length || 0)
-    }, [data])
+    // useEffect(() => {
+    //     setUserCnt(data?.data?.length || 0)
+    // }, [data])
 
     // console.log("user count: ", userCnt)
     // console.log("loading: ", isLoading)
@@ -78,11 +77,19 @@ const SeasonPage = () => {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
     }
 
-
+    // console.log("data: ", data)
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
+            <InfoComponent
+                startDate={data?.startDate}
+                endDate={data?.endDate}
+                name={data?.name}
+                grade={data?.maxLvl}
+                rules={data?.power}
+                raidType="frontier"
+            />
             {data.type === 'external' && (
                 <>
                     <AllPickRateChart
@@ -124,7 +131,7 @@ const SeasonPage = () => {
                     <CompListComponent
                         season={season}
                         data={data}
-                        userCnt={userCnt}
+                        userCnt={data?.data?.length}
                     />
                 </>
             )}

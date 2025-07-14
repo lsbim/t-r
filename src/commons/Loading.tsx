@@ -1,7 +1,9 @@
 const Loading = () => {
     return (
         <>
-            <div className="animate-pulse lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md mt-8 overflow-x-scroll overflow-y-hidden">
+            <div className="animate-pulse lg:w-[992px] w-full mx-auto flex flex-col h-[180px] bg-white p-4 shadow-md mt-4 overflow-x-scroll overflow-y-hidden">
+            </div>
+            <div className="animate-pulse lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-scroll overflow-y-hidden">
             </div>
 
             <div className="flex overflow-x-scroll">

@@ -23,7 +23,7 @@ export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalDat
     (season: string | undefined, type: TrickcalRaidEn) => {
 
     return useQuery<T, Error>({
-        queryKey: [type, season],
+        queryKey: [season, type],
         queryFn: () => fetchSeasonData(season!, type),
 
 
