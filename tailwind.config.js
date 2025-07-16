@@ -1,3 +1,4 @@
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -37,7 +38,21 @@ module.exports = {
         '광기': '#eb839a',
         '활발': '#ebdb83',
         '우울': '#c683ec',
-      }
+      },
+      keyframes: {
+        slideDown: {
+          from: { height: "0px" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        slideUp: {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0px" },
+        },
+      },
+      animation: {
+        slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+      },
     },
   },
   plugins: [],

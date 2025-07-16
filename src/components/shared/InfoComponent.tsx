@@ -9,7 +9,10 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                 <div className="flex items-center mb-2">
                     <span className="text-[20px] font-bold mr-2">{name}</span>
                     {personality && (
-                        <PersonalityIcon personality={personality} />
+                        <div data-tooltip={personality}
+                            className={`w-[28px] text-[13px] font-bold text-${personality} whitespace-nowrap cursor-pointer`}>
+                            <PersonalityIcon personality={personality} size={24} />
+                        </div>
                     )}
                 </div>
                 <div className="flex gap-x-4 items-center mb-2">

@@ -84,17 +84,17 @@ const ExternalPickRateChart = ({ data, season }:
                                                     {item.count}
                                                 </span>
 
-                                                <span
+                                                {/* <span
                                                     data-tooltip="픽률"
-                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800">
-                                                    {/* {Math.round((item?.percentByLine[line as "전열" | "중열" | "후열"] * 3) * 10) / 10}% */}
-                                                    {/* {Math.round((item.count / (charSum / 3)) * 100 * 10) / 10}% */}
-                                                </span>
+                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
+                                                    {Math.round((item.count / (charSum / 3)) * 100 * 10) / 10}%
+                                                </span> */}
+                                                <div className="w-12" />
 
                                                 {/* 3) 레이블(퍼센트) */}
                                                 <span
                                                     data-tooltip={`전체 비중`}
-                                                    className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800">
+                                                    className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
                                                     {Math.round(item?.percent * 10) / 10}%
                                                 </span>
                                             </div>

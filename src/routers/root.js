@@ -2,9 +2,10 @@
 const { Suspense, lazy } = require("react");
 const { createBrowserRouter } = require("react-router-dom");
 
+const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
 const ClashSeason = lazy(() => import("../pages/clash/SeasonPage"));
-const ClashStat = lazy(() => import("../pages/clash/StatPage"));
+const ClashStat = lazy(() => import("../test/StatPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 
@@ -13,8 +14,11 @@ const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Suspense><HomePage /></Suspense>
+    },
+    {
+        path: "clash",
         element: <Suspense><ClashIndex /></Suspense>
-
     },
     {
         path: "clash/:season",
@@ -34,7 +38,7 @@ const router = createBrowserRouter([
     },
     {
         path: "*",
-        element: <Suspense><ClashIndex /></Suspense>
+        element: <Suspense><HomePage /></Suspense>
     }
 ]
     // , { basename: "/" } github pages에 사용되었음

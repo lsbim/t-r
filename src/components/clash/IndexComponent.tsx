@@ -71,17 +71,17 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                 <div className="min-w-[90px] gap-x-2 flex items-center mr-2">
                                                     <div
                                                         data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                        className="whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
+                                                        className="hover:text-gray-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
                                                         S{season}
                                                     </div>
                                                     <div
                                                         data-tooltip={`${seasonTooltip}`}
-                                                        className="relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
+                                                        className="hover:text-gray-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
                                                         규칙
                                                     </div>
                                                     <div data-tooltip={seasonData?.personality}
                                                         className={`w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
-                                                        <PersonalityIcon personality={seasonData?.personality} />
+                                                        <PersonalityIcon personality={seasonData?.personality} size={20} />
                                                     </div>
                                                 </div>
 

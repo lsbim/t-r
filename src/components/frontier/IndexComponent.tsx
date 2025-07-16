@@ -78,7 +78,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                             <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap">
                                                 <div
                                                     data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                    className="text-[13px] font-bold cursor-pointer w-[24px]">
+                                                    className="hover:text-gray-400 text-[13px] font-bold cursor-pointer w-[24px]">
                                                     {Number(season) > 10000 && (
                                                         <>
                                                             B{Number(season) - 10000}
@@ -92,7 +92,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                                 </div>
                                                 <div
                                                     data-tooltip={`${seasonTooltip}`}
-                                                    className="relative w-[64px] whitespace-nowrap font-bold text-[13px] cursor-pointer">
+                                                    className="hover:text-gray-400 w-[64px] whitespace-nowrap font-bold text-[13px] cursor-pointer">
                                                     교주의권능
                                                 </div>
                                             </div>
