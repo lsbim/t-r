@@ -11,7 +11,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
 
     const seasons = Object.entries(data);
 
-    console.log(seasons)
+    // console.log(seasons)
 
     const items = [
         {

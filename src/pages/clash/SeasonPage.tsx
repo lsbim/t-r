@@ -13,13 +13,15 @@ import Loading from "../../commons/Loading";
 import Footer from "../../layouts/Footer";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 import InfoComponent from "../../components/shared/InfoComponent";
+import useTitle from "../../hooks/useTitle";
 
 const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
     // const [userCnt, setUserCnt] = useState<number>(0);
-    const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash')
+    const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash');
+    useTitle(`차원 대충돌 시즌${season} 집계`);
 
     const rawRecords = data?.data as clashPlayerData[]; // 배열 100×9
 

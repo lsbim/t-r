@@ -1,4 +1,5 @@
 import IndexComponent from "../../components/clash/IndexComponent";
+import useTitle from "../../hooks/useTitle";
 import { useSummaryData } from "../../hooks/useSummaryData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
@@ -7,6 +8,7 @@ import { ClashSummary } from "../../types/clashTypes";
 const IndexPage = () => {
 
 	const { data } = useSummaryData<ClashSummary>('clash');
+	useTitle("차원 대충돌 시즌 목록, 요약");
 
 	if (!data) return;
 
@@ -18,7 +20,7 @@ const IndexPage = () => {
 			<IndexComponent
 				summary={data}
 			/>
-			 <Footer />
+			<Footer />
 		</div>
 	);
 }

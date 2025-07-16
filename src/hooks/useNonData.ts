@@ -18,10 +18,7 @@ export const useNonData = <T extends ClashSummary | FrontierSummary>() => {
 
     return useQuery<any, Error>({
         queryKey: ["non_data"],
-        queryFn: async () => {
-            const rawData = await fetchNonData();
-            return processNonData(rawData);
-        },
+        queryFn: () => fetchNonData(),
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정
         staleTime: 1000 * 60 * 60, // 1시간동간 fresh상태. 재요청이 필요없는 상태

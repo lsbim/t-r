@@ -13,6 +13,7 @@ import Loading from "../../commons/Loading";
 import Footer from "../../layouts/Footer";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 import InfoComponent from "../../components/shared/InfoComponent";
+import useTitle from "../../hooks/useTitle";
 
 
 const SeasonPage = () => {
@@ -21,6 +22,8 @@ const SeasonPage = () => {
     const [select, setSelect] = useState('');
     // const [userCnt, setUserCnt] = useState<number>(0)
     const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier')
+    const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
+    useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
     // const data = frontierData[Number(season)];
     const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
