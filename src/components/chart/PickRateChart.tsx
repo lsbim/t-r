@@ -1,7 +1,7 @@
 import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import { BaseLine, lineList } from "../../types/trickcalTypes";
-import { processRankingArrData } from "../../utils/function";
+import { processRankingArrData } from "../../utils/chartFunction";
 
 const PickRateChart = ({ data, season, setSelect }:
     {
@@ -63,6 +63,7 @@ const PickRateChart = ({ data, season, setSelect }:
                                         : 0;
 
                                     // console.log("item: ", item)
+                                    // console.log(charInfo[item.name].line === item.line) // 라인 검수
 
                                     return (
                                         <div

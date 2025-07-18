@@ -1,19 +1,20 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import Loading from "../../commons/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import CleartimeChart from "../../components/chart/CleartimeChart";
-import CompListComponent from "../../components/shared/CompListComponent";
+import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
+import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
+import CompListComponent from "../../components/shared/CompListComponent";
+import InfoComponent from "../../components/shared/InfoComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
+import useTitle from "../../hooks/useTitle";
+import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
-import { processCompStat } from "../../utils/function";
-import Loading from "../../commons/Loading";
-import Footer from "../../layouts/Footer";
-import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
-import InfoComponent from "../../components/shared/InfoComponent";
-import useTitle from "../../hooks/useTitle";
+import { processCompStat } from "../../utils/chartFunction";
 
 const SeasonPage = () => {
 
@@ -80,15 +81,23 @@ const SeasonPage = () => {
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
-            <InfoComponent
-                startDate={data?.startDate}
-                endDate={data?.endDate}
-                name={data?.name}
-                grade={data?.maxLvl}
-                rules={data?.rules}
-                raidType="clash"
-                personality={data?.personality}
-            />
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-scroll">
+                {data && (
+                    <PersonalityPieChart
+                        data={data}
+                    />
+                )}
+                <InfoComponent
+                    startDate={data?.startDate}
+                    endDate={data?.endDate}
+                    name={data?.name}
+                    grade={data?.maxLvl}
+                    rules={data?.rules}
+                    raidType="clash"
+                    personality={data?.personality}
+                />
+
+            </div>
             {data.type === 'external' && (
                 <>
                     <AllPickRateChart

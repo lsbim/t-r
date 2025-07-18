@@ -4,7 +4,6 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
     { name: string, grade: number | string, startDate: string, endDate: string, rules: string[], raidType: string, personality?: string }
 ) => {
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-scroll">
             <div className="">
                 <div className="flex items-center mb-2">
                     <span className="text-[20px] font-bold mr-2">{name}</span>
@@ -45,7 +44,7 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                     </div>
                 </div>
             </div>
-        </div>
+
 
     );
 }

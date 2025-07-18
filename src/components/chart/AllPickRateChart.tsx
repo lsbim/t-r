@@ -12,7 +12,8 @@ import { Bar } from "react-chartjs-2";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
-import { processExternalData, processRankingArrData } from "../../utils/function";
+import { processExternalData, processRankingArrData } from '../../utils/chartFunction';
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -39,7 +40,7 @@ const AllPickRateChart = ({ data, season, setSelect }:
         if (!setSelect) {
             return;
         }
-        
+
         // 클릭된 요소가 있는지 확인
         if (elements.length > 0) {
             // 첫 번째 클릭된 요소의 인덱스를 가져옴
@@ -54,18 +55,17 @@ const AllPickRateChart = ({ data, season, setSelect }:
     };
 
     const chartData = {
-        // Extract character names for x-axis labels
         labels: sortedData.map(item => item.name),
         datasets: [
             {
-                label: 'Pick Count', // Dataset label for legend (though we'll hide it)
-                // Extract count values for bar heights
+                label: 'Pick Count',
+
                 data: sortedData.map(item => item.count),
-                // Generate colors based on personality for each bar
+
                 backgroundColor: sortedData.map(item =>
                     getPersonalityColor(item.personality as Personality)
                 ),
-                // Add subtle border for visual enhancement
+
                 borderColor: sortedData.map(item =>
                     getPersonalityColor(item.personality as Personality)
                 ),
@@ -93,7 +93,6 @@ const AllPickRateChart = ({ data, season, setSelect }:
                 display: false, // Hide legend since we're using color coding
             },
             tooltip: {
-                // Customize tooltip to match original format
                 callbacks: {
                     label: function (context) {
                         return ` ${context.parsed.y}회`; // Format as "X회" like original
@@ -102,7 +101,6 @@ const AllPickRateChart = ({ data, season, setSelect }:
                         return context[0].label; // Show character name as title
                     }
                 },
-                // Style tooltip to match original dark theme
                 backgroundColor: 'rgba(31, 41, 55, 0.8)',
                 titleColor: 'white',
                 bodyColor: 'white',

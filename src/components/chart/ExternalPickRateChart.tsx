@@ -1,8 +1,7 @@
-import { charInfo } from "../../data/trickcalChar";
 import { ClashExternalData } from "../../types/clashTypes";
 import { FrontierExternalData } from "../../types/frontierTypes";
 import { BaseLine } from "../../types/trickcalTypes";
-import { processExternalData } from "../../utils/function";
+import { processExternalData } from "../../utils/chartFunction";
 
 const ExternalPickRateChart = ({ data, season }:
     {

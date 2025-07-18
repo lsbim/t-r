@@ -1,7 +1,8 @@
 import PersonalityListComponent from "./PersonalityListComponent";
 import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
-import { findPersonalityByName, processCompStat, processSynergyStats } from "../../utils/function";
+import { findPersonalityByName } from "../../utils/function";
+import { processCompStat, processSynergyStats } from "../../utils/chartFunction";
 
 const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | FrontierSeasonData, season?: string, userCnt?: number }) => {
 

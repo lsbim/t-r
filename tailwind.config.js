@@ -39,6 +39,10 @@ module.exports = {
         '활발': '#ebdb83',
         '우울': '#c683ec',
       },
+      screens: {
+        'xs': '480px',
+        // 기존 브레이크포인트들은 그대로 유지됩니다
+      },
       keyframes: {
         slideDown: {
           from: { height: "0px" },
