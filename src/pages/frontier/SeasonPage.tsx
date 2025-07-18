@@ -22,9 +22,13 @@ const SeasonPage = () => {
     const { season } = useParams();
     const [select, setSelect] = useState('');
     // const [userCnt, setUserCnt] = useState<number>(0)
-    const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier')
+    const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
+    const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier');
+    const { data: prevData, isLoading: prevIsLoading, error: prevError } = useSeasonData<FrontierSeasonData | FrontierExternalData>(prevSeason, 'frontier');
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
+
+    // console.log(prevSeason)
 
     // const data = frontierData[Number(season)];
     const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
@@ -67,7 +71,7 @@ const SeasonPage = () => {
     // console.log("user count: ", userCnt)
     // console.log("loading: ", isLoading)
 
-    if (isLoading) {
+    if (isLoading || prevIsLoading) {
         return (
             <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
                 <HeaderNav />
@@ -78,7 +82,12 @@ const SeasonPage = () => {
     }
 
     if (!data) {
-        return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
+        return <Navigate to={"/"} replace />
+    }
+
+    // 베타1시즌 10001의 이전시즌과, 현재 기록이 없는 3시즌은 면제
+    if (!(prevSeason === "10000" || prevSeason === "3") && !prevData) {
+        return <Navigate to={"/"} replace />
     }
 
     // console.log("data: ", data)
@@ -110,13 +119,14 @@ const SeasonPage = () => {
                     <ExternalPickRateChart
                         season={season}
                         data={data}
+                        prevData={prevData as FrontierExternalData | undefined}
                     />
                     <div className="lg:w-[992px] w-full mx-auto flex h-4 bg-white p-4 shadow-md mt-1 text-[12px] lg:text-[13px] items-center justify-center">
                         해당 시즌은 상세 정보를 지원하지 않습니다.
                     </div>
                 </>
             )}
-            {data.type === 'season' && (
+            {data.type === 'season' && prevData && (
                 <>
                     <AllPickRateChart
                         season={season}
@@ -127,6 +137,7 @@ const SeasonPage = () => {
                         season={season}
                         data={data}
                         setSelect={setSelect}
+                        prevData={prevData}
                     />
                     {
                         select !== '' && (

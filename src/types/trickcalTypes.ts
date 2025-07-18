@@ -58,3 +58,9 @@ export interface SummaryData extends Omit<BaseSummary, "line"> {
     positions: PositionIdxs;
     percentByLine: PercentByLine;
 }
+
+export interface ExternalSummaryData extends Omit<BaseSummary, "line"> {
+    line: AllLine;
+    percent: number;
+    personality: Personality;
+}

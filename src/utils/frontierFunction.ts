@@ -78,7 +78,7 @@ export function processFrontierArrData(data: FrontierPlayerData[]): EnrichedFron
         return {
             name,
             count,
-            percent: (counts[name] / total) * 100,
+            percent: Math.round((counts[name] / total) * 100 * 10) / 10,
             personality: info.personality,
             line: info.line,
             positions: positions[name],

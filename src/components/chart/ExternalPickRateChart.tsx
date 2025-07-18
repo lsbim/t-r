@@ -1,19 +1,58 @@
+import { useMemo } from "react";
 import { ClashExternalData } from "../../types/clashTypes";
 import { FrontierExternalData } from "../../types/frontierTypes";
-import { BaseLine } from "../../types/trickcalTypes";
+import { BaseLine, ExternalSummaryData, SummaryData } from "../../types/trickcalTypes";
 import { processExternalData } from "../../utils/chartFunction";
 
-const ExternalPickRateChart = ({ data, season }:
+const ExternalPickRateChart = ({ data, season, prevData }:
     {
         data: ClashExternalData | FrontierExternalData,
-        season?: string
+        season?: string,
+        prevData?: ClashExternalData | FrontierExternalData,
     }) => {
 
     const processData = processExternalData(data).sort((a, b) => b.percent - a.percent);
 
     const lineList: BaseLine[] = ["후열", "중열", "전열"];
+    let processPrevData: ExternalSummaryData[] | null = null;
+    if (prevData) {
+        processPrevData = processExternalData(prevData).sort((a, b) => b.percent - a.percent);
+    }
 
-    // console.log("pick rate processData", processData);
+    const prevSeasonPickRates = useMemo(() => {
+        if (!processPrevData) return null;
+
+        const safeProcessPrevData = processPrevData as ExternalSummaryData[];
+        const rateMap = new Map<string, number>();
+
+        lineList.forEach(line => {
+
+            const prevBucket = safeProcessPrevData
+                .filter(item => item.line === line)
+                .map(item => ({
+                    name: item.name,
+                    lineCnt: item.count
+                }));
+
+            if (prevBucket.length === 0) return;
+
+            const prevCharSum = prevBucket.reduce((sum, b) => sum + b.lineCnt, 0);
+
+            prevBucket.forEach(({ name, lineCnt }) => {
+                if (prevCharSum > 0) {
+                    const pickRate = (lineCnt / (prevCharSum / 3)) * 100;
+                    // '캐릭터이름-라인' 형태의 고유한 키로 픽률 저장
+                    rateMap.set(`${name}-${line}`, pickRate);
+                }
+            });
+        });
+
+        return rateMap;
+    }, [processPrevData]);
+
+    console.log("processPrevData: ", prevSeasonPickRates);
+
+    console.log("pick rate processData", processData);
 
     if (!processData) {
         <div>
@@ -57,8 +96,38 @@ const ExternalPickRateChart = ({ data, season }:
                                         ? (item.count / maxLineCount) * 100
                                         : 0;
 
+                                    if (item.line !== line) return null;
                                     // console.log("item: ", item)
                                     // console.log(charInfo[item.name].line === item.line)
+
+
+                                    let changeText = '-';
+                                    let changeClassName = 'text-gray-400'; // 기본 스타일
+                                    // 현재 시즌 픽률 계산
+                                    const currentPickRate = charSum > 0 ? (item.count / (charSum / 3)) * 100 : 0;
+
+                                    if (prevSeasonPickRates) {
+                                        // Map에서 이전 시즌 픽률 조회
+                                        const prevPickRate = prevSeasonPickRates.get(`${item.name}-${line}`) || 0;
+
+                                        // console.log(prevPickRate)
+
+                                        if (prevPickRate === 0) { // 이전 시즌 기록이 없는 경우
+                                            changeText = 'New';
+                                            changeClassName = 'text-red-600 font-semibold';
+                                        } else {
+                                            const pickRateChange = currentPickRate - prevPickRate;
+                                            const roundedChange = Math.round(pickRateChange * 10) / 10;
+
+                                            if (roundedChange > 0.0) {
+                                                changeText = `+${roundedChange.toFixed(1)}%`;
+                                                changeClassName = 'text-red-600';
+                                            } else if (roundedChange < 0.0) {
+                                                changeText = `-${Math.abs(roundedChange).toFixed(1)}%`;
+                                                changeClassName = 'text-blue-600';
+                                            }
+                                        }
+                                    }
 
                                     return (
                                         <div
@@ -83,18 +152,18 @@ const ExternalPickRateChart = ({ data, season }:
                                                     {item.count}
                                                 </span>
 
-                                                {/* <span
+                                                <span
                                                     data-tooltip="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
                                                     {Math.round((item.count / (charSum / 3)) * 100 * 10) / 10}%
-                                                </span> */}
-                                                <div className="w-12" />
+                                                </span>
+                                                {/* <div className="w-12" /> */}
 
-                                                {/* 3) 레이블(퍼센트) */}
                                                 <span
-                                                    data-tooltip={`전체 비중`}
-                                                    className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
-                                                    {Math.round(item?.percent * 10) / 10}%
+                                                    data-tooltip="전 시즌 대비"
+                                                    className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
+                                                >
+                                                    {changeText}
                                                 </span>
                                             </div>
                                         </div>

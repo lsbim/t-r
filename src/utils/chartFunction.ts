@@ -1,90 +1,66 @@
 import { charInfo } from "../data/trickcalChar";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../types/clashTypes";
 import { externalData, FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../types/frontierTypes";
-import { Personality, SummaryData, SynergyItem } from "../types/trickcalTypes";
+import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../types/trickcalTypes";
 
 // 범용은 제네릭으로
-export function processRankingArrData(data: Array<clashPlayerData | FrontierPlayerData>): SummaryData[] {
-    const all: string[] = data.flatMap(d => d.arr);
-    const total = all.length; // 최대 900
 
-    // { 벨라: 17.3 }
-    const counts: { [key: string]: number } = all.reduce((acc: { [key: string]: number }, name: string) => {
-        acc[name] = (acc[name] || 0) + 1;
-        return acc;
-    }, {}); // 초기값으로 빈 객체를 전달합니다.
+const lineBuckets: Record<BaseLine, number[]> = {
+    전열: [0, 1, 2],
+    중열: [3, 4, 5],
+    후열: [6, 7, 8],
+};
 
-    // 몇번째 인덱스에 위치했는지 기록
+export function processRankingArrData(
+    data: Array<clashPlayerData | FrontierPlayerData>
+): SummaryData[] {
+    // 1) 먼저 이름별 positions 집계 (기존대로)
     const positions: Record<string, Record<number, number>> = {};
-    data.forEach(({ arr }, index) => {
+    data.forEach(({ arr }) => {
         arr.forEach((name, idx) => {
-
-            // 인덱스별 등장 횟수 누적용 map 초기화
             if (!positions[name]) {
-                positions[name] = {
-                    0: 0, 1: 0, 2: 0,
-                    3: 0, 4: 0, 5: 0,
-                    6: 0, 7: 0, 8: 0,
-                };
+                positions[name] = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
             }
             positions[name][idx] += 1;
-
-            if (name === "벨라" && (idx == 6 || idx == 7 || idx == 8)) {
-                console.log(arr, index)
-            }
         });
     });
 
-    // 라인 별 출전 횟수 카운트
-    const lineBuckets: Record<"전열" | "중열" | "후열", number[]> = {
-        전열: [0, 1, 2],
-        중열: [3, 4, 5],
-        후열: [6, 7, 8],
-    };
+    // 2) 이름별 전체 count & 총합 계산
+    const totalCount = Object.values(positions)
+        .flatMap(pos => Object.values(pos))
+        .reduce((a, b) => a + b, 0);
 
-    const lineTotals: Record<"전열" | "중열" | "후열", number> = {
-        전열: 0, 중열: 0, 후열: 0
-    };
+    // 3) 이제 이름 × 라인별 SummaryData 생성
+    const result: SummaryData[] = [];
 
     for (const name in positions) {
-        for (const line of ["전열", "중열", "후열"] as const) {
-            lineTotals[line] += lineBuckets[line]
-                .reduce((sum, idx) => sum + (positions[name][idx] || 0), 0);
+        const pos = positions[name];
+        const info = charInfo[name] || { personality: "", line: "전열" as BaseLine };
+
+        for (const line of (Object.keys(lineBuckets) as BaseLine[])) {
+            // 해당 라인 인덱스들의 합
+            const lineCnt = lineBuckets[line].reduce((sum, idx) => sum + (pos[idx] || 0), 0);
+            if (lineCnt === 0) continue;  // 등장하지 않았으면 건너뜀
+
+            const percent = Math.round((lineCnt / totalCount) * 100 * 10) / 10;
+
+            // SummaryData 타입에 맞춰
+            result.push({
+                name,
+                count: lineCnt,
+                percent,
+                personality: info.personality,
+                line,                 // 전열 | 중열 | 후열
+                positions: pos,       // 기존 positions 전체 맵을 그대로 붙이셔도 되고
+                percentByLine: {      // 전열/중열/후열 비율 (옵션)
+                    전열: 0, 중열: 0, 후열: 0
+                }
+            });
         }
     }
 
-    // 가나다순 정렬
-    const categories = Object.keys(counts).sort((a, b) => a.localeCompare(b, 'ko'));
-
-    // 차트 데이터 형식으로 변환
-    const chartData: SummaryData[] = categories.map((name) => {
-        const info = (charInfo as Record<string, any>)[name] || {};
-        const count = counts[name];
-
-        const percentByLine = {
-            전열: lineTotals.전열
-                ? lineBuckets.전열.reduce((sum, idx) => sum + (positions[name][idx] || 0), 0) / lineTotals.전열 * 100
-                : 0,
-            중열: lineTotals.중열
-                ? lineBuckets.중열.reduce((sum, idx) => sum + (positions[name][idx] || 0), 0) / lineTotals.중열 * 100
-                : 0,
-            후열: lineTotals.후열
-                ? lineBuckets.후열.reduce((sum, idx) => sum + (positions[name][idx] || 0), 0) / lineTotals.후열 * 100
-                : 0,
-        };
-
-        return {
-            name,
-            count,
-            percent: (counts[name] / total) * 100,
-            personality: info.personality,
-            line: info.line,
-            positions: positions[name],
-            percentByLine
-        };
-    });
-
-    return chartData;
+    // 4) 가나다순, 혹은 퍼센트 내림차순 정렬
+    return result;
 }
 
 interface CompStat {
@@ -95,7 +71,7 @@ interface CompStat {
     back: string[];       // 후열(6,7,8)
 }
 
-export function processExternalData(data: ClashExternalData | FrontierExternalData) {
+export function processExternalData(data: ClashExternalData | FrontierExternalData): ExternalSummaryData[] {
     // 출전 횟수 합산
     const total = data.data.reduce((sum, it) => sum + it.count, 0);
 
@@ -107,7 +83,7 @@ export function processExternalData(data: ClashExternalData | FrontierExternalDa
     // 3) SummaryData 배열로 매핑
     return sorted.map(item => {
         const { name, count, line } = item;
-        const percent = total ? (count / total) * 100 : 0;
+        const percent = total ? Math.round((count / total) * 100 * 10) / 10 : 0;
 
         // charInfo 에서 personality 등 가져오기 (없으면 빈 문자열)
         const info = charInfo[name] || {};
@@ -116,8 +92,8 @@ export function processExternalData(data: ClashExternalData | FrontierExternalDa
             name,
             count,
             percent,
-            personality: info.personality || '',
-            line: line, // 혹은 item.line
+            personality: info.personality,
+            line: line as AllLine, // 혹은 item.line
         };
     });
 }
