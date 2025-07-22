@@ -32,12 +32,14 @@ const SeasonPage = () => {
 
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
-    const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
-
     // 커스텀 순위 데이터
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
         if (!data || !prevData) {
             return { data: undefined, prevData: undefined };
+        }
+
+        if (appliedRange.start === 0 && appliedRange.end === 0) {
+            return { seasonData: data, prevSeasonData: data }
         }
 
         // season/external로 나눈 타입을 체크를 해 줘야 하위 속성을 가졌다고 판단
@@ -83,13 +85,6 @@ const SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    useEffect(() => {
-        if (rawRecords && rawRecords.length > 0) {
-            const actualLength = rawRecords.length;
-            // 처음 데이터가 로드될 때만 초기값을 설정
-            setAppliedRange({ start: 1, end: actualLength });
-        }
-    }, [rawRecords]);
 
     // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
@@ -98,7 +93,7 @@ const SeasonPage = () => {
         // 선택된 캐릭터를 포함한 레코드만 필터
         const combos = (seasonSlice.data as FrontierPlayerData[]).filter(r => r.arr.includes(select));
         const totalUses = combos.length;
-        const percentOfAll = totalUses / rawRecords.length * 100;
+        const percentOfAll = totalUses / seasonSlice.data.length * 100;
 
         // 인덱스별 카운트 초기화
         const positionCounts: Record<number, number> = {
@@ -118,7 +113,7 @@ const SeasonPage = () => {
             });
         });
 
-        const selectCharComp = processCompStat(rawRecords, select);
+        const selectCharComp = processCompStat((seasonSlice.data as FrontierPlayerData[]), select);
 
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
     }, [select, seasonSlice]);

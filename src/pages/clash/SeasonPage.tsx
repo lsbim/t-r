@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
@@ -15,24 +15,67 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { processCompStat } from "../../utils/chartFunction";
+import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 
 const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
-    // const [userCnt, setUserCnt] = useState<number>(0);
     const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash');
+    const [appliedRange, setAppliedRange] = useState({ start: 0, end: 0 });
     useTitle(`차원 대충돌 시즌${season} 집계`);
 
-    const rawRecords = data?.data as clashPlayerData[]; // 배열 100×9
+    const seasonSlice = useMemo(() => {
+        if (!data) {
+            return undefined;
+        }
 
+        if (appliedRange.start === 0 && appliedRange.end === 0) {
+            return data;
+        }
+
+        // season/external로 나눈 타입을 체크를 해 줘야 하위 속성을 가졌다고 판단
+        if (data.type === 'season') {
+            const customSeasonData: ClashSeasonData = {
+                ...data,
+                data: data.data.slice(appliedRange.start - 1, appliedRange.end)
+            };
+
+            return customSeasonData;
+
+        } else { // data.type === 'external'
+            const customSeasonData: ClashExternalData = {
+                ...data,
+                data: data.data.slice(appliedRange.start - 1, appliedRange.end)
+            };
+
+            return customSeasonData;
+        }
+
+    }, [appliedRange, data])
+
+    const handleCustomRank = useCallback((start: string, end: string) => {
+        if (start === "" || end === "") return;
+
+        const startRank = Number(start);
+        const endRank = Number(end);
+
+        if (startRank < 1 || endRank < startRank) return;
+        if (data?.type === "season" &&
+            (endRank > data?.data?.length || startRank > data?.data?.length)) return;
+
+        setAppliedRange({ start: startRank, end: endRank })
+    }, [data]);
+
+
+    // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
-        if (!select) return null;
+        if (!select || !seasonSlice) return null;
 
         // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = rawRecords.filter(r => r.arr.includes(select));
+        const combos = (seasonSlice.data as clashPlayerData[]).filter(r => r.arr.includes(select));
         const totalUses = combos.length;
-        const percentOfAll = totalUses / rawRecords.length * 100;
+        const percentOfAll = totalUses / seasonSlice.data.length * 100;
 
         // 인덱스별 카운트 초기화
         const positionCounts: Record<number, number> = {
@@ -52,14 +95,10 @@ const SeasonPage = () => {
             });
         });
 
-        const selectCharComp = processCompStat(rawRecords, select);
+        const selectCharComp = processCompStat((seasonSlice.data as clashPlayerData[]), select);
 
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
-    }, [select, rawRecords]);
-
-    // useEffect(() => {
-    //     setUserCnt(data?.data?.length || 0)
-    // }, [data])
+    }, [select, seasonSlice]);
 
     if (isLoading) {
         return (
@@ -72,7 +111,7 @@ const SeasonPage = () => {
     }
 
 
-    if (!data) {
+    if (!seasonSlice) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
     }
 
@@ -88,41 +127,45 @@ const SeasonPage = () => {
                     />
                 )}
                 <InfoComponent
-                    startDate={data?.startDate}
-                    endDate={data?.endDate}
-                    name={data?.name}
-                    grade={data?.maxLvl}
-                    rules={data?.rules}
+                    startDate={seasonSlice?.startDate}
+                    endDate={seasonSlice?.endDate}
+                    name={seasonSlice?.name}
+                    grade={seasonSlice?.maxLvl}
+                    rules={seasonSlice?.rules}
                     raidType="clash"
-                    personality={data?.personality}
+                    personality={seasonSlice?.personality}
                 />
-
+                {seasonSlice.type === "season" && (
+                    <RankRangeInputComponent
+                        handleCustomRank={handleCustomRank}
+                    />
+                )}
             </div>
-            {data.type === 'external' && (
+            {seasonSlice.type === 'external' && (
                 <>
                     <AllPickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                     />
                     <ExternalPickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                     />
                     <div className="lg:w-[992px] w-full mx-auto flex h-4 bg-white p-4 shadow-md mt-1 text-[12px] lg:text-[13px] items-center justify-center">
                         해당 시즌은 상세 정보를 지원하지 않습니다.
                     </div>
                 </>
             )}
-            {data.type === 'season' && (
+            {seasonSlice.type === 'season' && (
                 <>
                     <AllPickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                         setSelect={setSelect}
                     />
                     <PickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                         setSelect={setSelect}
                     />
                     {
@@ -134,12 +177,12 @@ const SeasonPage = () => {
                     }
                     <CleartimeChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                     />
                     <CompListComponent
                         season={season}
-                        data={data}
-                        userCnt={data?.data?.length}
+                        data={seasonSlice}
+                        userCnt={seasonSlice?.data?.length}
                     />
                 </>
             )}
