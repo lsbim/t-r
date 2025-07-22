@@ -3,7 +3,6 @@ import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { BaseLine, ExternalSummaryData, lineList, SummaryData } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData } from "../../utils/chartFunction";
-import { processFrontierPickData } from "../../utils/frontierFunction";
 
 const PickRateChart = ({ data, season, setSelect, prevData }:
     {
@@ -23,37 +22,21 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
         // console.log("processPrevData: ", processPrevData);
     }
 
-    const lineBuckets: Record<BaseLine, number[]> = {
-        전열: [0, 1, 2],
-        중열: [3, 4, 5],
-        후열: [6, 7, 8],
-    };
-
     const prevSeasonPickRates = useMemo(() => {
         if (!processPrevData) return null;
 
         const rateMap = new Map<string, number>();
 
-        lineList.forEach(line => {
-            const idxs = lineBuckets[line];
+        // console.log(processPrevData)
 
-            const prevBucket = (
-                'positions' in processPrevData![0]
-                    // SummaryData[] 분기
-                    ? (processPrevData as SummaryData[])
-                        .map(item => ({
-                            name: item.name,
-                            lineCnt: idxs.reduce((s, pos) => s + (item.positions[pos] || 0), 0)
-                        }))
-                        .filter(x => x.lineCnt > 0)
-                    // ExternalSummaryData[] 분기
-                    : (processPrevData as ExternalSummaryData[])
-                        .filter(item => item.line === line)
-                        .map(item => ({
-                            name: item.name,
-                            lineCnt: item.count
-                        }))
-            );
+        lineList.forEach(line => {
+
+            const prevBucket = processPrevData!
+                .filter(item => item.line === line)
+                .map(item => ({
+                    name: item.name,
+                    lineCnt: item.count
+                }));
 
             if (prevBucket.length === 0) return;
 

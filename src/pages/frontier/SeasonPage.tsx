@@ -38,8 +38,9 @@ const SeasonPage = () => {
             return { data: undefined, prevData: undefined };
         }
 
+        // 범위가 정해지지 않으면 기본 1~100/300위 데이터 제공
         if (appliedRange.start === 0 && appliedRange.end === 0) {
-            return { seasonData: data, prevSeasonData: data }
+            return { seasonData: data, prevSeasonData: prevData }
         }
 
         // season/external로 나눈 타입을 체크를 해 줘야 하위 속성을 가졌다고 판단
@@ -56,16 +57,9 @@ const SeasonPage = () => {
             return { seasonData: customSeasonData, prevSeasonData: customPrevData };
 
         } else { // data.type === 'external'
-            const customSeasonData: FrontierExternalData = {
-                ...data,
-                data: data.data.slice(appliedRange.start - 1, appliedRange.end)
-            };
 
-            const customPrevData = prevData && prevData.type === 'external'
-                ? { ...prevData, data: prevData.data.slice(appliedRange.start - 1, appliedRange.end) }
-                : prevData;
-
-            return { seasonData: customSeasonData, prevSeasonData: customPrevData };
+            // 내가 집계하지 않은 데이터는 순위 개념이 없으므로 그대로 반환
+            return { seasonData: data, prevSeasonData: prevData };
         }
 
         // 기존 의존성배열은 appliedRange, season으로 season이 바뀌면 data/prevData가 바뀌나,
@@ -85,6 +79,7 @@ const SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
+    console.log(seasonSlice, prevSlice)
 
     // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
