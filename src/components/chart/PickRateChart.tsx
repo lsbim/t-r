@@ -3,6 +3,7 @@ import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { BaseLine, ExternalSummaryData, lineList, SummaryData } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData } from "../../utils/chartFunction";
+import { processFrontierPickData } from "../../utils/frontierFunction";
 
 const PickRateChart = ({ data, season, setSelect, prevData }:
     {
@@ -70,19 +71,17 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
         return rateMap;
     }, [processPrevData]);
 
-    console.log(prevSeasonPickRates)
+    // console.log(prevSeasonPickRates)
 
-
-    console.log("pick rate processData", processData);
-
+    // console.log("pick rate processData", processData);
 
     // const globalMax = Math.max(...processData.map((i) => i.percent));
 
+    // console.log('personality' in data)
     return (
         <div className="flex overflow-x-scroll">
             <div className="w-[1024px] flex mx-auto justify-center">
                 {lineList.map((line, li) => {
-                    const idxs = lineBuckets[line];
 
                     // 1) 이 라인에 최소 한 번이라도 등장한 캐릭터
                     let bucket = processData
@@ -90,7 +89,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                         .map(item => item);
 
                     if (bucket.length === 0) return null;
-                    console.log("bucket", bucket)
+                    // console.log("bucket", bucket)
 
                     const charSum = bucket.reduce((sum, b) => sum + b.count, 0);
                     const maxLineCount = Math.max(...bucket.map(({ count }) => count));
@@ -136,10 +135,10 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                             const roundedChange = Math.round(pickRateChange * 10) / 10;
 
                                             if (roundedChange > 0.0) {
-                                                changeText = `+${roundedChange.toFixed(1)}%`;
+                                                changeText = `+${Math.round(pickRateChange * 10) / 10}%`;
                                                 changeClassName = 'text-red-600';
                                             } else if (roundedChange < 0.0) {
-                                                changeText = `-${Math.abs(roundedChange).toFixed(1)}%`;
+                                                changeText = `-${Math.round((Math.abs(roundedChange)) * 10) / 10}%`;
                                                 changeClassName = 'text-blue-600';
                                             }
                                         }
@@ -175,12 +174,20 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                                     {Math.round((item?.count / charSum * 100 * 3) * 10) / 10}%
                                                 </span>
 
-                                                <span
-                                                    data-tooltip="전 시즌 대비"
-                                                    className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
-                                                >
-                                                    {changeText}
-                                                </span>
+                                                {'personality' in data ? (
+                                                    <span
+                                                        data-tooltip={`전체 비중`}
+                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
+                                                        {Math.round(item?.percent * 10) / 10}%
+                                                    </span>
+                                                ) : (
+                                                    <span
+                                                        data-tooltip="전 시즌 대비"
+                                                        className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
+                                                    >
+                                                        {changeText}
+                                                    </span>
+                                                )}
                                             </div>
                                         </div>
                                     );

@@ -50,9 +50,9 @@ const ExternalPickRateChart = ({ data, season, prevData }:
         return rateMap;
     }, [processPrevData]);
 
-    console.log("processPrevData: ", prevSeasonPickRates);
+    // console.log("processPrevData: ", prevSeasonPickRates);
 
-    console.log("pick rate processData", processData);
+    // console.log("pick rate processData", processData);
 
     if (!processData) {
         <div>
@@ -102,7 +102,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
 
 
                                     let changeText = '-';
-                                    let changeClassName = 'text-gray-400'; // 기본 스타일
+                                    let changeClassName = 'text-gray-800'; // 기본 스타일
                                     // 현재 시즌 픽률 계산
                                     const currentPickRate = charSum > 0 ? (item.count / (charSum / 3)) * 100 : 0;
 
@@ -159,12 +159,20 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                                 </span>
                                                 {/* <div className="w-12" /> */}
 
-                                                <span
-                                                    data-tooltip="전 시즌 대비"
-                                                    className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
-                                                >
-                                                    {changeText}
-                                                </span>
+                                                {'personality' in data ? (
+                                                    <span
+                                                        data-tooltip={`전체 비중`}
+                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
+                                                        {Math.round(item?.percent * 10) / 10}%
+                                                    </span>
+                                                ) : (
+                                                    <span
+                                                        data-tooltip="전 시즌 대비"
+                                                        className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
+                                                    >
+                                                        {changeText}
+                                                    </span>
+                                                )}
                                             </div>
                                         </div>
                                     );

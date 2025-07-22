@@ -160,6 +160,13 @@ export interface SynergyStat {
     synergy: SynergyItem[];
 }
 
+function mapToThreshold(qty: number): number | null {
+    // qty 보다 작거나 같은 기준치만 필터
+    const candidates = SYNERGY_THRESHOLDS.filter(t => t <= qty); // 3이면 2, 5면 4 반환.
+    if (candidates.length === 0) return null; // 적용할 시너지 없음
+    return candidates[candidates.length - 1];   // 가장 큰 값
+}
+
 // 3) 시너지 통계 함수
 export function processSynergyStats(
     data: clashPlayerData[] | FrontierPlayerData[]
@@ -177,9 +184,13 @@ export function processSynergyStats(
 
         // 3.2) 시너지 발동된 항목만 뽑아서 리스트로
         const synergyList: SynergyItem[] = Object.entries(freq)
-            .filter(([, qty]) => SYNERGY_THRESHOLDS.includes(qty))
-            .map(([personality, qty]) => ({ personality: personality as Personality, qty }))
-            // 정렬해서 key가 일관되게
+            .map(([personality, qty]) => {
+                const applied = mapToThreshold(qty);
+                return applied !== null
+                    ? { personality: personality as Personality, qty: applied }
+                    : null;
+            })
+            .filter((x): x is SynergyItem => x !== null)
             .sort((a, b) => a.personality.localeCompare(b.personality, "ko"));
 
         // 3.3) 키 생성 (JSON.stringify 로 간편하게)

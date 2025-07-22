@@ -61,6 +61,7 @@ export const charInfo: CharInfoType = {
     "폴랑": { grade: 3, personality: "광기", line: "후열", birthdate: "2024-11-07" },
     "림(혼돈)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-01-16" },
     "네티": { grade: 3, personality: "광기", line: "전열", birthdate: "2025-04-10" },
+    "아네트": { grade: 3, personality: "광기", line: "중열", birthdate: "2025-07-17" },
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27" },
     "이프리트": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27" },
     "마요": { grade: 2, personality: "광기", line: "후열", birthdate: "2023-09-27" },

@@ -54,7 +54,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                 pointBorderWidth: 2, // 점의 테두리 두께
                 pointRadius: 0, // 일반 상태에서 점의 크기
 
-                // 호버 상태에서의 점 스타일 - Recharts의 activeDot과 대응
+                // 호버 상태에서의 점 스타일
                 pointHoverRadius: 6, // 호버 시 점의 크기 (activeDot r=6과 동일)
                 pointHoverBackgroundColor: '#8884d8',
                 pointHoverBorderColor: '#ffffff',

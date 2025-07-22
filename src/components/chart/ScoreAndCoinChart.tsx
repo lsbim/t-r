@@ -81,6 +81,11 @@ const ScoreAndCoinChart = ({ data, season }: { data: FrontierSeasonData, season?
                 backgroundColor: 'rgba(136, 132, 216, 0.1)',
                 yAxisID: 'y_score', // 이 데이터셋이 사용할 Y축 ID
                 tension: 0.1,
+                pointRadius: 0, // 일반 상태에서 점의 크기
+                pointHoverRadius: 6, // 호버 시 점의 
+                pointHoverBackgroundColor: '#8884d8',
+                pointHoverBorderColor: '#ffffff',
+                pointHoverBorderWidth: 3,
             },
             {
                 label: '코인', // 두 번째 데이터셋: 코인(coin)

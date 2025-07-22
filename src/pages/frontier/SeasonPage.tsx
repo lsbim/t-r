@@ -1,12 +1,14 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
+import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
 import ScoreAndCoinChart from "../../components/chart/ScoreAndCoinChart";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
+import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
 import useTitle from "../../hooks/useTitle";
@@ -14,7 +16,6 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { processCompStat } from "../../utils/chartFunction";
-import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 
 
 const SeasonPage = () => {
@@ -22,22 +23,80 @@ const SeasonPage = () => {
     const { season } = useParams();
     const [select, setSelect] = useState('');
     // const [userCnt, setUserCnt] = useState<number>(0)
+
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
     const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier');
     const { data: prevData, isLoading: prevIsLoading, error: prevError } = useSeasonData<FrontierSeasonData | FrontierExternalData>(prevSeason, 'frontier');
+    const [appliedRange, setAppliedRange] = useState({ start: 0, end: 0 });
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
+
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
-    // console.log(prevSeason)
-
-    // const data = frontierData[Number(season)];
     const rawRecords = data?.data as FrontierPlayerData[]; // 배열 100×9
 
+    // 커스텀 순위 데이터
+    const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
+        if (!data || !prevData) {
+            return { data: undefined, prevData: undefined };
+        }
+
+        // season/external로 나눈 타입을 체크를 해 줘야 하위 속성을 가졌다고 판단
+        if (data.type === 'season') {
+            const customSeasonData: FrontierSeasonData = {
+                ...data,
+                data: data.data.slice(appliedRange.start - 1, appliedRange.end)
+            };
+
+            const customPrevData = prevData && prevData.type === 'season'
+                ? { ...prevData, data: prevData.data.slice(appliedRange.start - 1, appliedRange.end) }
+                : prevData;
+
+            return { seasonData: customSeasonData, prevSeasonData: customPrevData };
+
+        } else { // data.type === 'external'
+            const customSeasonData: FrontierExternalData = {
+                ...data,
+                data: data.data.slice(appliedRange.start - 1, appliedRange.end)
+            };
+
+            const customPrevData = prevData && prevData.type === 'external'
+                ? { ...prevData, data: prevData.data.slice(appliedRange.start - 1, appliedRange.end) }
+                : prevData;
+
+            return { seasonData: customSeasonData, prevSeasonData: customPrevData };
+        }
+
+        // 기존 의존성배열은 appliedRange, season으로 season이 바뀌면 data/prevData가 바뀌나,
+        // data/prevData로 변경해 의도를 정확히 해야한다고 함
+    }, [appliedRange, data, prevData])
+
+    const handleCustomRank = useCallback((start: string, end: string) => {
+        if (start === "" || end === "") return;
+
+        const startRank = Number(start);
+        const endRank = Number(end);
+
+        if (startRank < 1 || endRank < startRank) return;
+        if (data?.type === "season" &&
+            (endRank > data?.data?.length || startRank > data?.data?.length)) return;
+
+        setAppliedRange({ start: startRank, end: endRank })
+    }, [data]);
+
+    useEffect(() => {
+        if (rawRecords && rawRecords.length > 0) {
+            const actualLength = rawRecords.length;
+            // 처음 데이터가 로드될 때만 초기값을 설정
+            setAppliedRange({ start: 1, end: actualLength });
+        }
+    }, [rawRecords]);
+
+    // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
-        if (!select) return null;
+        if (!select || !seasonSlice) return null;
 
         // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = rawRecords.filter(r => r.arr.includes(select));
+        const combos = (seasonSlice.data as FrontierPlayerData[]).filter(r => r.arr.includes(select));
         const totalUses = combos.length;
         const percentOfAll = totalUses / rawRecords.length * 100;
 
@@ -62,14 +121,10 @@ const SeasonPage = () => {
         const selectCharComp = processCompStat(rawRecords, select);
 
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
-    }, [select, rawRecords]);
-
-    // useEffect(() => {
-    //     setUserCnt(data?.data?.length || 0)
-    // }, [data])
+    }, [select, seasonSlice]);
 
     // console.log("user count: ", userCnt)
-    // console.log("loading: ", isLoading)
+    // console.log("length: ", data?.data?.length);
 
     if (isLoading || prevIsLoading) {
         return (
@@ -81,12 +136,12 @@ const SeasonPage = () => {
         )
     }
 
-    if (!data) {
+    if (!seasonSlice) {
         return <Navigate to={"/"} replace />
     }
 
     // 베타1시즌 10001의 이전시즌과, 현재 기록이 없는 3시즌은 면제
-    if (!(prevSeason === "10000" || prevSeason === "3") && !prevData) {
+    if (!(prevSeason === "10000" || prevSeason === "3") && !prevSlice) {
         return <Navigate to={"/"} replace />
     }
 
@@ -96,48 +151,51 @@ const SeasonPage = () => {
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-scroll">
-                {data && (
-                    <PersonalityPieChart
-                        data={data}
-                    />
-                )}
+                <PersonalityPieChart
+                    data={seasonSlice}
+                />
                 <InfoComponent
-                    startDate={data?.startDate}
-                    endDate={data?.endDate}
-                    name={data?.name}
-                    grade={data?.maxLvl}
-                    rules={data?.power}
+                    startDate={seasonSlice?.startDate}
+                    endDate={seasonSlice?.endDate}
+                    name={seasonSlice?.name}
+                    grade={seasonSlice?.maxLvl}
+                    rules={seasonSlice?.power}
                     raidType="frontier"
                 />
+                {seasonSlice.type === "season" && (
+                    <RankRangeInputComponent
+                        handleCustomRank={handleCustomRank}
+                    />
+                )}
             </div>
-            {data.type === 'external' && (
+            {seasonSlice.type === 'external' && (
                 <>
                     <AllPickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                     />
                     <ExternalPickRateChart
                         season={season}
-                        data={data}
-                        prevData={prevData as FrontierExternalData | undefined}
+                        data={seasonSlice}
+                        prevData={prevSlice as FrontierExternalData | undefined}
                     />
                     <div className="lg:w-[992px] w-full mx-auto flex h-4 bg-white p-4 shadow-md mt-1 text-[12px] lg:text-[13px] items-center justify-center">
                         해당 시즌은 상세 정보를 지원하지 않습니다.
                     </div>
                 </>
             )}
-            {data.type === 'season' && prevData && (
+            {seasonSlice.type === 'season' && prevSlice && (
                 <>
                     <AllPickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                         setSelect={setSelect}
                     />
                     <PickRateChart
                         season={season}
-                        data={data}
+                        data={seasonSlice}
                         setSelect={setSelect}
-                        prevData={prevData}
+                        prevData={prevSlice}
                     />
                     {
                         select !== '' && (
@@ -148,12 +206,12 @@ const SeasonPage = () => {
                     }
                     <ScoreAndCoinChart
                         season={season}
-                        data={data!}
+                        data={seasonSlice}
                     />
                     <CompListComponent
                         season={season}
-                        data={data}
-                        userCnt={data?.data?.length}
+                        data={seasonSlice}
+                        userCnt={seasonSlice?.data?.length}
                     />
                 </>
             )}

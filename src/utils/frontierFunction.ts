@@ -1,5 +1,5 @@
 import { charInfo } from "../data/trickcalChar";
-import { FrontierPlayerData } from "../types/frontierTypes";
+import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../types/frontierTypes";
 
 export interface EnrichedFrontierChartData {
     name: string;
@@ -87,4 +87,11 @@ export function processFrontierArrData(data: FrontierPlayerData[]): EnrichedFron
     });
 
     return chartData;
+}
+
+export function processFrontierPickData<T extends FrontierSeasonData | FrontierExternalData>
+    (data: T, prevData: T) {
+
+        
+
 }
