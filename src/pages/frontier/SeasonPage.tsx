@@ -79,8 +79,6 @@ const SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    console.log(seasonSlice, prevSlice)
-
     // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
         if (!select || !seasonSlice) return null;

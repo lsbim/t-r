@@ -19,11 +19,11 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
             collapsible
             className="w-full rounded-lg shadow-md"
         >
-            {items.map(({ id, header, content }) => (
+            {items.map(({ id, header, content }, index) => (
                 <Accordion.Item
                     key={id}
                     value={id}
-                    className=""
+                    className={`${index === items.length - 1 || 'mb-[2px]'}`}
                 >
                     <Accordion.Header className="flex">
                         <Accordion.Trigger className='group' asChild>
