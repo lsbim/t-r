@@ -46,7 +46,7 @@ const PickRateChart = ({ data, raid }: { data: CharacterPickRateData[], raid: st
         return n > 10000 ? `B${n - 10000}` : `${n}`;
     });
 
-    console.log(data)
+    // console.log(data)
 
     const chartData = {
         // rank 값들을 x축 라벨로 사용 (순위가 x축이 됩니다)

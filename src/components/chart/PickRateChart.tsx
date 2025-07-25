@@ -14,6 +14,10 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
     const processData = processRankingArrData(data?.data).sort((a, b) => b.percent - a.percent);
     let processPrevData: SummaryData[] | ExternalSummaryData[] | null = null;
 
+    const userLength = (data.data.length >= 100 && data.type === 'season')
+        ? (data.data as any).length
+        : 100;
+
     if (prevData) {
         processPrevData = prevData?.type === 'season' ?
             processRankingArrData(prevData?.data).sort((a, b) => b.percent - a.percent) :
@@ -23,11 +27,14 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
     }
 
     const prevSeasonPickRates = useMemo(() => {
-        if (!processPrevData) return null;
+        if (!processPrevData || !prevData) return null;
 
         const rateMap = new Map<string, number>();
 
-        // console.log(processPrevData)
+        // 추후 100명 이상의 사도가 사용될 수 있지만 external 시즌은 전부 100인이기 때문에
+        const prevUserLength = (prevData.data.length >= 100 && prevData.type === 'season')
+            ? (prevData.data as any).length
+            : 100;
 
         lineList.forEach(line => {
 
@@ -40,14 +47,10 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
             if (prevBucket.length === 0) return;
 
-            const prevCharSum = prevBucket.reduce((sum, b) => sum + b.lineCnt, 0);
-
             prevBucket.forEach(({ name, lineCnt }) => {
-                if (prevCharSum > 0) {
-                    const pickRate = (lineCnt / (prevCharSum / 3)) * 100;
-                    // '캐릭터이름-라인' 형태의 고유한 키로 픽률 저장
-                    rateMap.set(`${name}-${line}`, pickRate);
-                }
+                const pickRate = (lineCnt / prevUserLength) * 100;
+                // '캐릭터이름-라인' 형태의 고유한 키로 픽률 저장
+                rateMap.set(`${name}-${line}`, pickRate);
             });
         });
 
@@ -60,7 +63,8 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
     // const globalMax = Math.max(...processData.map((i) => i.percent));
 
-    // console.log('personality' in data)
+    // console.log(data)
+    // console.log(userLength)
     return (
         <div id="pickRate" className="flex overflow-x-scroll">
             <div className="w-[1024px] flex mx-auto justify-center">
@@ -74,6 +78,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                     if (bucket.length === 0) return null;
                     // console.log("bucket", bucket)
 
+                    // 해당 열에 출전한 사도의 합
                     const charSum = bucket.reduce((sum, b) => sum + b.count, 0);
                     const maxLineCount = Math.max(...bucket.map(({ count }) => count));
 
@@ -101,8 +106,10 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
                                     let changeText = '-';
                                     let changeClassName = 'text-gray-400'; // 기본 스타일
+
                                     // 현재 시즌 픽률 계산
-                                    const currentPickRate = charSum > 0 ? (item.count / (charSum / 3)) * 100 : 0;
+                                    // 픽률은 참여한 사도가 아닌 유저 수를 기준 
+                                    const currentPickRate = Math.round(item.count / userLength * 1000) / 10;
 
                                     if (prevSeasonPickRates) {
                                         // Map에서 이전 시즌 픽률 조회
@@ -150,11 +157,11 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                                     className="w-12 flex justify-end text-sm">
                                                     {item.count}
                                                 </span>
-
+                                                {/* 픽률은 참여한 사도가 아닌 유저 수를 기준 */}
                                                 <span
                                                     data-tooltip="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
-                                                    {Math.round((item?.count / charSum * 100 * 3) * 10) / 10}%
+                                                    {Math.round((item?.count / userLength * 100) * 10) / 10}%
                                                 </span>
 
                                                 {'personality' in data ? (

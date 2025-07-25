@@ -4,6 +4,8 @@ import { FrontierExternalData } from "../../types/frontierTypes";
 import { BaseLine, ExternalSummaryData, SummaryData } from "../../types/trickcalTypes";
 import { processExternalData } from "../../utils/chartFunction";
 
+const EXTERNAL_USER_LENGTH = 100;
+
 const ExternalPickRateChart = ({ data, season, prevData }:
     {
         data: ClashExternalData | FrontierExternalData,
@@ -36,14 +38,10 @@ const ExternalPickRateChart = ({ data, season, prevData }:
 
             if (prevBucket.length === 0) return;
 
-            const prevCharSum = prevBucket.reduce((sum, b) => sum + b.lineCnt, 0);
-
             prevBucket.forEach(({ name, lineCnt }) => {
-                if (prevCharSum > 0) {
-                    const pickRate = (lineCnt / (prevCharSum / 3)) * 100;
-                    // '캐릭터이름-라인' 형태의 고유한 키로 픽률 저장
-                    rateMap.set(`${name}-${line}`, pickRate);
-                }
+                const pickRate = (lineCnt / EXTERNAL_USER_LENGTH) * 100;
+                // '캐릭터이름-라인' 형태의 고유한 키로 픽률 저장
+                rateMap.set(`${name}-${line}`, pickRate);
             });
         });
 
@@ -104,7 +102,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                     let changeText = '-';
                                     let changeClassName = 'text-gray-800'; // 기본 스타일
                                     // 현재 시즌 픽률 계산
-                                    const currentPickRate = charSum > 0 ? (item.count / (charSum / 3)) * 100 : 0;
+                                    const currentPickRate = Math.round(item.count / EXTERNAL_USER_LENGTH * 1000) / 10;
 
                                     if (prevSeasonPickRates) {
                                         // Map에서 이전 시즌 픽률 조회
@@ -155,7 +153,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                                 <span
                                                     data-tooltip="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
-                                                    {Math.round((item.count / (charSum / 3)) * 100 * 10) / 10}%
+                                                    {Math.round((item.count / EXTERNAL_USER_LENGTH) * 100 * 10) / 10}%
                                                 </span>
                                                 {/* <div className="w-12" /> */}
 

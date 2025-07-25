@@ -10,7 +10,7 @@ const CharacterPage = () => {
     const { character } = useParams();
     const { data, isLoading, error } = useCharData<CharacterPickRateObj>(character);
 
-    console.log(data)
+    // console.log(data)
 
     if (!character || isLoading) return (<></>)
 

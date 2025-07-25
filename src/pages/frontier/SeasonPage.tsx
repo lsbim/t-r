@@ -35,8 +35,9 @@ const SeasonPage = () => {
 
     // 커스텀 순위 데이터
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
-        if (!data || !prevData) {
-            return { data: undefined, prevData: undefined };
+        // 시즌 베타1 이전, 시즌3은 데이터가 없다.
+        if (!data || (!(prevSeason === "10000" || prevSeason === "3") && !prevData)) {
+            return { seasonData: undefined, prevSeasonData: undefined };
         }
 
         // 범위가 정해지지 않으면 기본 1~100/300위 데이터 제공
@@ -125,6 +126,7 @@ const SeasonPage = () => {
         )
     }
 
+    // console.log("data: ", seasonSlice, prevSlice)
     if (!seasonSlice) {
         return <Navigate to={"/"} replace />
     }
@@ -134,7 +136,6 @@ const SeasonPage = () => {
         return <Navigate to={"/"} replace />
     }
 
-    // console.log("data: ", data)
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
