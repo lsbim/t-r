@@ -21,7 +21,7 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
 
 
     return (
-        <div className="sm:flex justify-center items-start gap-4">
+        <div id="compList" className="sm:flex justify-center items-start gap-4">
 
             {/* 조합 */}
             <div className="flex flex-col items-center bg-white p-2 pt-4 mr-4 shadow-md min-w-[300px] w-full sm:w-[350px]">
@@ -74,7 +74,7 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                 })}
 
             </div>
-            <div className="flex flex-col items-center bg-white p-2 pt-4 shadow-md min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0">
+            <div id="synergyList" className="flex flex-col items-center bg-white p-2 pt-4 shadow-md min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0">
                 <div className="text-xl font-bold mb-2">
                     성격
                 </div>

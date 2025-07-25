@@ -62,7 +62,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
     // console.log('personality' in data)
     return (
-        <div className="flex overflow-x-scroll">
+        <div id="pickRate" className="flex overflow-x-scroll">
             <div className="w-[1024px] flex mx-auto justify-center">
                 {lineList.map((line, li) => {
 

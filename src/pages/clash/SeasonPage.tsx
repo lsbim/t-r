@@ -16,6 +16,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { processCompStat } from "../../utils/chartFunction";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
+import SeasonRemote from "../../layouts/SeasonRemote";
 
 const SeasonPage = () => {
 
@@ -120,6 +121,9 @@ const SeasonPage = () => {
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
+            {data?.type === 'season' && (
+                <SeasonRemote />
+            )}
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-scroll">
                 {data && (
                     <PersonalityPieChart

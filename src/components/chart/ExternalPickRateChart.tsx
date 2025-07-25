@@ -63,7 +63,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
     // const globalMax = Math.max(...processData.map((i) => i.percent));
 
     return (
-        <div className="flex overflow-x-scroll">
+        <div id="pickRate" className="flex overflow-x-scroll">
             <div className="w-[1024px] flex mx-auto justify-center">
                 {lineList.map((line, li) => {
 
