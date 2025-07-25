@@ -8,7 +8,7 @@ const RankRangeInputComponent = ({ handleCustomRank }: { handleCustomRank: (star
     // console.log(startRank, endRank)
 
     return (
-        <div className="flex-col flex justify-end ml-auto">
+        <div className="flex-col flex xs:ml-auto mt-2 justify-end">
             <div className="text-[12px] text-orange-500 font-bold mb-2">
                 순위 지정
             </div>
