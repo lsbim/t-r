@@ -62,9 +62,8 @@ async function buildSummaries() {
                     }, {})
             }
 
-
-            const total = seasonType === "season" ? records.length * records[0].arr.length
-                : records.reduce((acc, obj) => acc + obj.count, 0);
+            const total = seasonType === "season" ? records.length
+                : 100 // external은 모두 100인
 
             // 캐릭터별 픽률 계산
             for (let [name, cnt] of Object.entries(counts)) {

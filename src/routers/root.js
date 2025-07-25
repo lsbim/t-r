@@ -5,9 +5,9 @@ const { createBrowserRouter } = require("react-router-dom");
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
 const ClashSeason = lazy(() => import("../pages/clash/SeasonPage"));
-const ClashStat = lazy(() => import("../test/StatPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
+const Character = lazy(() => import("../pages/characters/CharacterPage"));
 
 
 // suspense => 컴포넌트 로딩 전까지(비동기) 보여줄 화면(fallback).
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
         path: "clash/:season",
         element: <Suspense><ClashSeason /></Suspense>
     },
-    // {
-    //     path: "stat/clash",
-    //     element: <Suspense><ClashStat /></Suspense>
-    // },
+    {
+        path: "character/:character",
+        element: <Suspense><Character /></Suspense>
+    },
     {
         path: "frontier",
         element: <Suspense><FrontierIndex /></Suspense>

@@ -5,7 +5,7 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
 ) => {
     return (
             <div className="">
-                <div className="flex items-center mb-2">
+                <div className="flex items-center mb-3">
                     <span className="text-[20px] font-bold mr-2">{name}</span>
                     {personality && (
                         <div data-tooltip={personality}
@@ -44,8 +44,6 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                     </div>
                 </div>
             </div>
-
-
     );
 }
 

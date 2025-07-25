@@ -32,13 +32,13 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                                 이후 집계된 컨텐츠의 순위를 지정할 수 있는 기능이 추가되었습니다.
                             </span>
                         </div>
-                        <div className="mb-2">
+                        <div className="mb-2 text-[13px]">
                             <div className="flex gap-x-2 items-center">
                                 <span className="font-bold">차원 대충돌 기준: </span>
                                 <span className="text-red-500">시즌34</span>
                                 <span>2025-06-12</span>
                                 <div className="flex items-center gap-x-1">
-                                    <span className="text-[13px]"> 릴1리</span>
+                                    <span className=""> 릴1리</span>
                                     <PersonalityIcon personality="광기" size={14} />
                                 </div>
                             </div>
@@ -46,7 +46,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                                 <span className="font-bold">엘리아스 프론티어 기준: </span>
                                 <span className="text-red-500">시즌10</span>
                                 <span>2025-06-25</span>
-                                <span className="text-[13px]">크레용사용</span>
+                                <span className="">크레용사용</span>
                             </div>
                         </div>
                         <span className="text-[12px]">차원 대충돌 시즌34는 최대 100위까지 검색이 가능합니다.</span>
