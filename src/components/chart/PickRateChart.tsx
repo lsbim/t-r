@@ -14,7 +14,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
     const processData = processRankingArrData(data?.data).sort((a, b) => b.percent - a.percent);
     let processPrevData: SummaryData[] | ExternalSummaryData[] | null = null;
 
-    const userLength = (data.data.length >= 100 && data.type === 'season')
+    const userLength = data.type === 'season'
         ? (data.data as any).length
         : 100;
 

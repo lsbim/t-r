@@ -39,8 +39,10 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                                 {c?.back.map(b => (
                                     <div key={"clash" + season + "comp" + ci + b}
                                         title={b}
-                                        className={`w-full bg-${findPersonalityByName(b)} p-1 truncate flex items-center max-h-[23px]`}>
-                                        {b === "시온" ? "시온 더 다크불릿" : b}
+                                        className={`w-full bg-${findPersonalityByName(b)} p-1 flex items-center max-h-[23px]`}>
+                                        <span className="truncate">
+                                            {b === "시온" ? "시온 더 다크불릿" : b}
+                                        </span>
                                     </div>
                                 ))}
                             </div>
@@ -48,8 +50,10 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                                 {c?.mid.map(m => (
                                     <div key={"clash" + season + "comp" + ci + m}
                                         title={m}
-                                        className={`w-full bg-${findPersonalityByName(m)} p-1 truncate flex items-center max-h-[23px]`}>
-                                        {m}
+                                        className={`w-full bg-${findPersonalityByName(m)} p-1 flex items-center max-h-[23px]`}>
+                                        <span className="truncate">
+                                            {m}
+                                        </span>
                                     </div>
                                 ))}
                             </div>
@@ -57,8 +61,10 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
                                 {c?.front.map(f => (
                                     <div key={"clash" + season + "comp" + ci + f}
                                         title={f}
-                                        className={`w-full bg-${findPersonalityByName(f)} p-1 truncate flex items-center max-h-[23px]`}>
-                                        {f}
+                                        className={`w-full bg-${findPersonalityByName(f)} p-1 flex items-center max-h-[23px]`}>
+                                        <span className="truncate">
+                                            {f}
+                                        </span>
                                     </div>
                                 ))}
                             </div>

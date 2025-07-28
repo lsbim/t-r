@@ -6,7 +6,7 @@ import { FrontierSummary } from "../types/frontierTypes";
 
 const fetchSummaryData = async (type: TrickcalRaidEn) => {
 
-    const response = await fetch(`/data/${type}/summary.json`);
+    const response = await fetch(`/data/${type}/summaries.json`);
 
     if (!response.ok) {
         console.log(`시즌 데이터를 찾을 수 없습니다.`);
