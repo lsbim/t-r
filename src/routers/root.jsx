@@ -1,6 +1,5 @@
-
-const { Suspense, lazy } = require("react");
-const { createBrowserRouter } = require("react-router-dom");
+import { Suspense, lazy } from "react";
+import { createBrowserRouter } from "react-router-dom";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));

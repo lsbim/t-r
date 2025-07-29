@@ -127,7 +127,7 @@ const SeasonPage = () => {
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-scroll">
                 {data && (
                     <PersonalityPieChart
-                        data={data}
+                        data={seasonSlice}
                     />
                 )}
                 <InfoComponent
