@@ -3,6 +3,7 @@ import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { BaseLine, ExternalSummaryData, lineList, SummaryData } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData } from "../../utils/chartFunction";
+import { charInfo } from "../../data/trickcalChar";
 
 const PickRateChart = ({ data, season, setSelect, prevData }:
     {
@@ -103,6 +104,11 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                     if (item.line !== line) return null;
 
                                     // console.log(charInfo[item.name].line === item.line) // 라인 검수
+
+                                    // 오인식 확인용 로그
+                                    if ((charInfo[item.name].line !== item.line) && charInfo[item.name].line !== "모든열") {
+                                        console.log(item.name + '의 라인은 ' + charInfo[item.name].line + '입니다, 현재: ' + item.line);
+                                    }
 
                                     let changeText = '-';
                                     let changeClassName = 'text-gray-400'; // 기본 스타일

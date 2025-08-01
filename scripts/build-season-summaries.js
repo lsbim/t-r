@@ -151,6 +151,6 @@ function processSummary(data) {
     });
 
     // Map 의 value 들을 배열로 만들어서 반환
-    console.log(Array.from(map.values()));
+    // console.log(Array.from(map.values()));
     return Array.from(map.values());
 }

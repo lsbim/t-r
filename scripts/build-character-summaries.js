@@ -44,7 +44,7 @@ async function buildSummaries() {
             const records = raw.data // FrontierSeasonData.data 배열
             const seasonType = raw.type;
 
-            let counts = null;
+            let counts = {};
 
             // ① 등장 횟수 계산
             if (seasonType === "season") { // 
@@ -80,10 +80,10 @@ async function buildSummaries() {
     await fs.mkdir(OUT_DIR, { recursive: true })
 
     // 5) 캐릭터별로 JSON 파일 쓰기
-    await Promise.all(Object.entries(charMap).map(([name, { summary }]) =>
+    await Promise.all(Object.entries(charMap).map(([name, summary]) =>
         fs.writeFile(
             path.join(OUT_DIR, `${name}.json`),
-            JSON.stringify(charMap[name], null, 2),
+            JSON.stringify(summary, null, 2),
             'utf-8'
         )
     ));

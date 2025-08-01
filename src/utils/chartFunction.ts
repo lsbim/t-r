@@ -151,6 +151,7 @@ export function processCompStat(data: clashPlayerData[] | FrontierPlayerData[], 
     return allStats;
 }
 
+// 성격 시너지의 기준. 2세트 4세트 6세트 ...
 const SYNERGY_THRESHOLDS = [2, 4, 6, 7, 9, 10, 11];
 
 // 2) 반환할 통계 타입

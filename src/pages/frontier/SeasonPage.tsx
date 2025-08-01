@@ -33,7 +33,7 @@ const SeasonPage = () => {
 
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
-    // 커스텀 순위 데이터
+    // 지정된 커스텀 순위 데이터
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
         // 시즌 베타1 이전, 시즌3은 데이터가 없다.
         if (!data || (!(prevSeason === "10000" || prevSeason === "3") && !prevData)) {
@@ -68,6 +68,7 @@ const SeasonPage = () => {
         // data/prevData로 변경해 의도를 정확히 해야한다고 함
     }, [appliedRange, data, prevData])
 
+    // 순위 범위 지정
     const handleCustomRank = useCallback((start: string, end: string) => {
         if (start === "" || end === "") return;
 

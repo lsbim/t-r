@@ -106,6 +106,7 @@ export const charInfo: CharInfoType = {
     "리온": { grade: 3, personality: "우울", line: "전열", birthdate: "2024-12-05" },
     "샤샤": { grade: 3, personality: "우울", line: "중열", birthdate: "2025-02-13" },
     "오르": { grade: 3, personality: "우울", line: "후열", birthdate: "2025-05-22" },
+    "로네(시장)": { grade: 3, personality: "우울", line: "중열", birthdate: "2025-07-31" },
     "레비": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-09-27" },
     "실피르": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-11-09" },
     "페스타": { grade: 2, personality: "우울", line: "전열", birthdate: "2023-09-27" },
