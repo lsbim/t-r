@@ -67,7 +67,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
     // console.log(data)
     // console.log(userLength)
     return (
-        <div id="pickRate" className="flex overflow-x-scroll">
+        <div id="pickRate" className="flex overflow-x-auto">
             <div className="w-[1024px] flex mx-auto justify-center">
                 {lineList.map((line, li) => {
 

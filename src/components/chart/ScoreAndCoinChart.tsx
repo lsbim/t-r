@@ -187,7 +187,7 @@ const ScoreAndCoinChart = ({ data, season }: { data: FrontierSeasonData, season?
     };
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-scroll overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />

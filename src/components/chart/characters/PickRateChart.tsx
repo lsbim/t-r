@@ -186,7 +186,7 @@ const PickRateChart = ({ data, raid }: { data: CharacterPickRateData[], raid: st
     };
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white p-4 shadow-md overflow-x-scroll overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
             {raid === "clash" && (
                 <span className="text-xl font-bold ">차원 대충돌 픽률</span>
             )}

@@ -21,7 +21,7 @@ const CharacterPage = () => {
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-scroll">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-auto">
                 <InfoComponent
                     name={character}
                 />

@@ -170,7 +170,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
     };
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white p-4 shadow-md overflow-x-scroll overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <span className="text-xl font-bold ">클리어 시간</span>
 
             <Line data={chartData} options={chartOptions} />

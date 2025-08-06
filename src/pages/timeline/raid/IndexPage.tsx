@@ -62,7 +62,7 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-scroll">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
                     <h1 className="text-[20px] font-bold mr-2">타임라인</h1>
                     <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
@@ -82,7 +82,7 @@ const IndexPage = () => {
                 </div>
             </div>
             {/* 타임라인 */}
-            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className=" mt-2 relative overflow-x-scroll">
+            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className=" mt-2 relative overflow-x-auto">
                 <BaseComponent
                     allDates={allDates}
                     getYOffset={getYOffset}

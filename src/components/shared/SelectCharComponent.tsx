@@ -7,7 +7,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
     // console.log(statsForSelect)
 
     return (
-        <div className="overflow-x-scroll overflow-y-hidden">
+        <div className="overflow-x-auto overflow-y-hidden">
             <div className={`mx-auto flex flex-col bg-white p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
                 <div className="flex items-center">
                     <span className="text-xl font-bold mr-4">사도 정보</span>
