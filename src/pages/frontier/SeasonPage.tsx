@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
@@ -14,9 +14,9 @@ import { useSeasonData } from "../../hooks/useSeasonData";
 import useTitle from "../../hooks/useTitle";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
+import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { processCompStat } from "../../utils/chartFunction";
-import SeasonRemote from "../../layouts/SeasonRemote";
 
 
 const SeasonPage = () => {
@@ -33,7 +33,7 @@ const SeasonPage = () => {
 
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
-    // 지정된 커스텀 순위 데이터
+    // 순위 나누기
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
         // 시즌 베타1 이전, 시즌3은 데이터가 없다.
         if (!data || (!(prevSeason === "10000" || prevSeason === "3") && !prevData)) {

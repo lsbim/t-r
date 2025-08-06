@@ -16,7 +16,7 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/clash"}
-                        className={`text-[13px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/clash") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/clash") ? "" : "text-gray-400"}`}>
                         {/* <span className="hidden xs:inline">
                             차원 대충돌
                         </span>
@@ -27,7 +27,7 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/frontier"}
-                        className={`text-[13px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
                         {/* <span className="hidden xs:inline">
                             엘리아스 프론티어
                         </span>
@@ -35,6 +35,11 @@ const HeaderNav = () => {
                             프론티어
                         </span> */}
                         엘리아스 프론티어
+                    </Link>
+                    <Link
+                        to={"/timeline/raid"}
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
+                        타임라인
                     </Link>
                     {/* <CharacterSearch /> */}
                 </div>

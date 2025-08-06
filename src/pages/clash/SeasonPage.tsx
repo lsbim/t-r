@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
@@ -8,15 +8,15 @@ import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
+import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
 import useTitle from "../../hooks/useTitle";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
+import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { processCompStat } from "../../utils/chartFunction";
-import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
-import SeasonRemote from "../../layouts/SeasonRemote";
 
 const SeasonPage = () => {
 
@@ -26,6 +26,7 @@ const SeasonPage = () => {
     const [appliedRange, setAppliedRange] = useState({ start: 0, end: 0 });
     useTitle(`차원 대충돌 시즌${season} 집계`);
 
+    // 순위 나누기
     const seasonSlice = useMemo(() => {
         if (!data) {
             return undefined;
@@ -55,6 +56,7 @@ const SeasonPage = () => {
 
     }, [appliedRange, data])
 
+    // 커스텀 순위 지정
     const handleCustomRank = useCallback((start: string, end: string) => {
         if (start === "" || end === "") return;
 
@@ -65,9 +67,10 @@ const SeasonPage = () => {
         if (data?.type === "season" &&
             (endRank > data?.data?.length || startRank > data?.data?.length)) return;
 
+        // 선택 사도 초기화
+        setSelect('');
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
-
 
     // 선택한 사도의 정보
     const statsForSelect = useMemo(() => {
