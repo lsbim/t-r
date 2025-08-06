@@ -38,7 +38,7 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/timeline/raid"}
-                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/timeline/raid") ? "" : "text-gray-400"}`}>
                         타임라인
                     </Link>
                     {/* <CharacterSearch /> */}

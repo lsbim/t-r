@@ -9,11 +9,12 @@ const InfoComponent = ({ name }: { name: string }) => {
         <div className="">
             <div className="flex items-center mb-3">
                 <span className="text-[20px] font-bold mr-2">{name}</span>
-
-                <div data-tooltip={charInfoData.personality}
-                    className={`w-[28px] text-[13px] font-bold text-${charInfoData.personality} whitespace-nowrap cursor-pointer`}>
-                    <PersonalityIcon personality={charInfoData.personality} size={24} />
-                </div>
+                    <div
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content={charInfoData.personality}
+                        className={`w-[28px] text-[13px] font-bold text-${charInfoData.personality} whitespace-nowrap cursor-pointer`}>
+                        <PersonalityIcon personality={charInfoData.personality} size={24} />
+                    </div>
             </div>
             <div className="flex gap-x-4 items-center mb-1">
                 <div className="flex-col">

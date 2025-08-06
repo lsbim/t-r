@@ -30,3 +30,20 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
     -moz-appearance: textfield;
 }
+
+#my-tooltip {
+    /* Tailwind 없이 직접 CSS 작성 */
+    line-height: 1.4;
+    white-space: pre-line;
+    user-select: none;
+    border-radius: 0.25rem;
+    /* rounded */
+    background-color: rgba(31, 41, 55, 0.9);
+    /* bg-gray-800 bg-opacity-85 */
+    padding: 0.5rem;
+    /* p-2 */
+    color: white;
+    font-size: 13px;
+    /* text-[13px] */
+    z-index: 50;
+}

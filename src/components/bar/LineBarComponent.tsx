@@ -48,7 +48,6 @@ const LineBarComponent = ({ data, line, season, type }
                         key={seg.personality}
                         className={`flex items-center justify-center bg-gradient-to-r from-${seg.personality} to-${seg.personality}/80 overflow-hidden cursor-pointer`}
                         style={{ width: `${w}%` }}
-                        // data-tooltip={`${line} ${seg.personality} ${w.toFixed(1)}%`}
                         title={`${line} ${seg.personality} ${w.toFixed(1)}%`}
                     >
                         <span className="whitespace-nowrap">

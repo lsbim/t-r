@@ -70,16 +70,20 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                 {/* 마진 8px + 너비 80px */}
                                                 <div className="min-w-[90px] gap-x-2 flex items-center mr-2">
                                                     <div
-                                                        data-tooltip={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
                                                         className="hover:text-gray-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
                                                         S{season}
                                                     </div>
                                                     <div
-                                                        data-tooltip={`${seasonTooltip}`}
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content={`${seasonTooltip}`}
                                                         className="hover:text-gray-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
                                                         규칙
                                                     </div>
-                                                    <div data-tooltip={seasonData?.personality}
+                                                    <div
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content={seasonData?.personality}
                                                         className={`w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
                                                         <PersonalityIcon personality={seasonData?.personality} size={20} />
                                                     </div>

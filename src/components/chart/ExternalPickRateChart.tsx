@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ClashExternalData } from "../../types/clashTypes";
 import { FrontierExternalData } from "../../types/frontierTypes";
-import { BaseLine, ExternalSummaryData, SummaryData } from "../../types/trickcalTypes";
+import { BaseLine, ExternalSummaryData } from "../../types/trickcalTypes";
 import { processExternalData } from "../../utils/chartFunction";
 
 const EXTERNAL_USER_LENGTH = 100;
@@ -149,23 +149,24 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                                     className="w-12 flex justify-end text-sm">
                                                     {item.count}
                                                 </span>
-
                                                 <span
-                                                    data-tooltip="픽률"
+                                                    data-tooltip-id="my-tooltip"
+                                                    data-tooltip-content="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
                                                     {Math.round((item.count / EXTERNAL_USER_LENGTH) * 100 * 10) / 10}%
                                                 </span>
                                                 {/* <div className="w-12" /> */}
-
                                                 {'personality' in data ? (
                                                     <span
-                                                        data-tooltip={`전체 비중`}
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content="전체 비중"
                                                         className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
                                                         {Math.round(item?.percent * 10) / 10}%
                                                     </span>
                                                 ) : (
                                                     <span
-                                                        data-tooltip="전 시즌 대비"
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content="전 시즌 대비"
                                                         className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
                                                     >
                                                         {changeText}

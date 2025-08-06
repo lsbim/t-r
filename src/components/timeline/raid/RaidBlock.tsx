@@ -44,7 +44,7 @@ const RaidBlock = ({ getYOffset, raidValues, BASE_DATE_HEIGHT, raidKeys }: Props
                         style={{ top: top, height: height }}
                     >
                         <div className="font-bold">{raid.name}</div>
-                        <div className="text-[10px] sm:text-[12px] flex flex-col sm:flex-row">
+                        <div className="text-[11px] sm:text-[12px] flex flex-col sm:flex-row">
                             <span>
                                 {raid.startDate} ~
                             </span>
