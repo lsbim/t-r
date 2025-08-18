@@ -83,6 +83,7 @@ export const charInfo: CharInfoType = {
     "슈로": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-02-27" },
     "벨라": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-03-27" },
     "아르코": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-06-19" },
+    "마카샤": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-08-14" },
     "마리": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27" },
     "베니": { grade: 2, personality: "활발", line: "전열", birthdate: "2023-09-27" },
     "쥬비": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27" },

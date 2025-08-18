@@ -175,7 +175,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className={`w-[10%] flex justify-center items-center font-bold text-[14px] ml-3`}>
+                                    <div className={`w-[15%] flex justify-center items-center font-bold text-[13px] ml-3`}>
                                         <span>
                                             {comp?.count}회
                                         </span>
