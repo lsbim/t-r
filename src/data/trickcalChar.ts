@@ -3,7 +3,7 @@ import { CharInfoType } from "../types/trickcalTypes";
 export const charInfo: CharInfoType = {
     // 순수
     "비비": { grade: 3, personality: "순수", line: "전열", birthdate: "2023-11-30" },
-    "다야": { grade: 3, personality: "순수", line: "후열", birthdate: "2023-09-27"},
+    "다야": { grade: 3, personality: "순수", line: "후열", birthdate: "2023-09-27" },
     "나이아": { grade: 3, personality: "순수", line: "중열", birthdate: "2023-11-09" },
     "에르핀": { grade: 3, personality: "순수", line: "후열", birthdate: "2023-09-27" },
     "캬롯": { grade: 3, personality: "순수", line: "후열", birthdate: "2024-04-25" },
@@ -40,6 +40,7 @@ export const charInfo: CharInfoType = {
     "아이시아": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-01-30" },
     "리코타": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-04-24" },
     "디아나(왕년)": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-06-05" },
+    "시저": { grade: 3, personality: "냉정", line: "중열", birthdate: "2025-08-29" },
     "에스피": { grade: 2, personality: "냉정", line: "후열", birthdate: "2023-09-27" },
     "레테": { grade: 2, personality: "냉정", line: "전열", birthdate: "2024-07-04" },
     "칸타": { grade: 2, personality: "냉정", line: "중열", birthdate: "2024-09-12" },
