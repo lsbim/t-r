@@ -3,6 +3,7 @@ import { FrontierSeasonData } from "./frontierTypes";
 
 // 성격
 export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발";
+export const PersonalityList = ["광기", "냉정", "순수", "우울", "활발"];
 // 레이드 영문명
 export type TrickcalRaidEn = "clash" | "frontier";
 // 성격 시너지용

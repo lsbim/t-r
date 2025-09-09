@@ -74,7 +74,8 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                     // 1) 이 라인에 최소 한 번이라도 등장한 캐릭터
                     let bucket = processData
                         .filter(item => item.line === line)
-                        .map(item => item);
+                        .map(item => item)
+                        .sort((a, b) => b.count - a.count); // 내림차순 확실하게
 
                     if (bucket.length === 0) return null;
                     // console.log("bucket", bucket)
