@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
@@ -8,6 +8,7 @@ const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const Character = lazy(() => import("../pages/characters/CharacterPage"));
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
+const CostumeTimelineIndex = lazy(() => import("../pages/timeline/costume/IndexPage"));
 
 
 // suspense => 컴포넌트 로딩 전까지(비동기) 보여줄 화면(fallback).
@@ -37,8 +38,18 @@ const router = createBrowserRouter([
         element: <Suspense><FrontierSeason /></Suspense>
     },
     {
-        path: "timeline/raid",
-        element: <Suspense><RaidTimelineIndex /></Suspense>
+        path: "timeline",
+        element: <Suspense><Outlet /></Suspense>,
+        children: [
+            {
+                path: "raid",
+                element: <RaidTimelineIndex />
+            },
+            {
+                path: "costume",
+                element: <CostumeTimelineIndex />
+            }
+        ]
     },
     {
         path: "*",

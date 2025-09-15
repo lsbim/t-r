@@ -16,18 +16,6 @@ export type BaseLine = "전열" | "중열" | "후열";
 export type AllLine = BaseLine | "모든열";
 export const lineList: BaseLine[] = ["후열", "중열", "전열"]; // .map()용 배열
 
-// 사도 객체 값
-export interface CharInfoDetail {
-    grade: number;
-    personality: Personality;
-    line: AllLine;
-    birthdate: string;
-}
-// 사도 객체 배열
-export interface CharInfoType {
-    [key: string]: CharInfoDetail
-}
-
 export type SeasonDataMap = { // 시즌데이터 맵핑
     frontier: FrontierSeasonData;
     clash: ClashSeasonData;

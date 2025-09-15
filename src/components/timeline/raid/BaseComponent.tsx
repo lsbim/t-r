@@ -18,7 +18,7 @@ const BaseComponent = ({ allDates, getYOffset, BASE_DATE_HEIGHT }: Props) => {
                 return (
                     <div
                         key={iso}
-                        className="absolute left-1/2 -ml-[35px] flex items-center w-[70px] z-50"
+                        className="absolute left-1/2 -ml-[35px] flex items-center w-[70px] z-50 select-none"
                         style={{ top: y, height: Number(BASE_DATE_HEIGHT) }}
                     >
 

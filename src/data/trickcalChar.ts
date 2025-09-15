@@ -1,4 +1,16 @@
-import { CharInfoType } from "../types/trickcalTypes";
+import { AllLine, Personality } from "../types/trickcalTypes";
+
+// 사도 객체 값
+export interface CharInfoDetail {
+    grade: number;
+    personality: Personality;
+    line: AllLine;
+    birthdate: string;
+}
+// 사도 객체 배열
+export interface CharInfoType {
+    [key: string]: CharInfoDetail
+}
 
 export const charInfo: CharInfoType = {
     // 순수
@@ -14,6 +26,7 @@ export const charInfo: CharInfoType = {
     "라이카": { grade: 3, personality: "순수", line: "전열", birthdate: "2025-03-13" },
     "마요(멋짐)": { grade: 3, personality: "순수", line: "중열", birthdate: "2025-05-08" },
     "캐시": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-07-03" },
+    "뮤트": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-11" },
     "가비아": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27" },
     "로네": { grade: 2, personality: "순수", line: "전열", birthdate: "2023-09-27" },
     "마고": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27" },
