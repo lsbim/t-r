@@ -83,7 +83,7 @@ const IndexPage = () => {
                 <span className="flex text-[12px]">집계되지 않은 시즌은 제외됩니다.</span>
             </div>
             {/* 타임라인 */}
-            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className=" mt-2 relative overflow-x-auto">
+            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className="mt-2 relative overflow-x-auto">
                 <BaseComponent
                     allDates={allDates}
                     getYOffset={getYOffset}

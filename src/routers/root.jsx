@@ -45,11 +45,11 @@ const router = createBrowserRouter([
                 path: "raid",
                 element: <RaidTimelineIndex />
             },
-            {
-                path: "costume",
-                element: <CostumeTimelineIndex />
-            }
         ]
+    },
+    {
+        path: "costume",
+        element: <CostumeTimelineIndex />
     },
     {
         path: "*",

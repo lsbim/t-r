@@ -1,10 +1,17 @@
-export const costumes = [
+export interface Costume {
+    charName: string;
+    cosName: string;
+    lvl: string;
+    launchDate: string;
+}
+
+export const costumes: Costume[] = [
 
     { charName: "비비", cosName: "최후의 흑막", lvl: "normal", launchDate: "2025-01-09" },
     { charName: "비비", cosName: "유혹의 용족", lvl: "normal", launchDate: "2025-01-09" },
     { charName: "비비", cosName: "풀하트 매직", lvl: "pretty", launchDate: "2025-04-03" },
     { charName: "란", cosName: "메이드 바이 메이드", lvl: "normal", launchDate: "2025-01-02" },
-    { charName: "란", cosName: "교단 행동대장", lvl: "normal", launchDate: "2025-01-02" },
+    { charName: "란", cosName: "교단 행동대장", lvl: "pretty", launchDate: "2025-01-02" },
     { charName: "마요(멋짐)", cosName: "마리너 호의 선장", lvl: "normal", launchDate: "2025-05-08" },
     { charName: "마요(멋짐)", cosName: "계속될 수집을 위해", lvl: "pretty", launchDate: "2025-07-10" },
     { charName: "라이카", cosName: "라이트닝 강속구", lvl: "normal", launchDate: "2025-03-13" },

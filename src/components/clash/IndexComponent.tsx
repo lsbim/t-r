@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PersonalityIcon from "../../commons/PersonalityIcon";
 import { clashBossList, ClashSummary } from "../../types/clashTypes";
-import { lineList, PersonalityList } from "../../types/trickcalTypes";
+import { lineList, personalityList } from "../../types/trickcalTypes";
 import { getClashSortInfo, updateClashSortInfo } from "../../utils/clashLocalStorage";
 import LineBarComponent from "../bar/LineBarComponent";
 
@@ -25,10 +25,14 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                 <div className="flex text-[14px] items-center gap-x-3">
                     <div
                         onClick={() => { handleClashSort('boss') }}
-                        className={`${clashSort === 'boss' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>보스정렬</div>
+                        className={`${clashSort === 'boss' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>
+                        보스정렬
+                    </div>
                     <div
                         onClick={() => handleClashSort('pers')}
-                        className={`${clashSort === 'pers' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>성격정렬</div>
+                        className={`${clashSort === 'pers' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>
+                        성격정렬
+                    </div>
                 </div>
             </div>
             {
@@ -136,7 +140,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                             }
                         </div>
                     );
-                }) : clashSort === 'pers' && PersonalityList.map((pers, i) => {
+                }) : clashSort === 'pers' && personalityList.map((pers, i) => {
                     // 성격별로 나누기
                     const matchingEntries = Object.entries(summary)
                         .filter(([seasonKey, data]) => data.personality === pers)
@@ -153,7 +157,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                     return (
                         <div
                             key={'차원대충돌' + pers}
-                            className={`p-6 min-w-[500px] ${PersonalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                            className={`p-6 min-w-[500px] ${personalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
                             {/* 성격명 헤더 */}
                             <div className="flex gap-x-2">
                                 <div
