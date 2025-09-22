@@ -139,7 +139,7 @@ const IndexPage = () => {
         return costumeMap;
     }, []);
 
-    console.log(costumeMap)
+    // console.log(costumeMap)
 
     const selectYearElement = () => {
         return (

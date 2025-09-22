@@ -8,7 +8,7 @@ const HeaderNav = () => {
     return (
         <div id="top" className={`bg-white py-4 flex justify-center items-center font-bold border-b-2 w-full `}>
             <div className="lg:w-[992px] w-full mx-auto flex justify-center">
-                <div className="flex justify-center items-center gap-x-3">
+                <div className="flex justify-center items-center md:gap-x-3 gap-x-2">
                     <Link
                         to={"/"}
                         className="h-[26px] w-[26px] mx-3 md:mr-1 flex" >
