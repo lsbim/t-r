@@ -41,6 +41,11 @@ const HeaderNav = () => {
                         className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/timeline/raid") ? "" : "text-gray-400"}`}>
                         타임라인
                     </Link>
+                    <Link
+                        to={"/costume"}
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/costume") ? "" : "text-gray-400"}`}>
+                        사복
+                    </Link>
                     {/* <CharacterSearch /> */}
                 </div>
             </div>

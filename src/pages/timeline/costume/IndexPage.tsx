@@ -1,13 +1,13 @@
 import { useMemo, useState } from "react";
+import CostumeBoard from "../../../components/timeline/costume/CostumeBoard";
+import MostAndLeast from "../../../components/timeline/costume/MostAndLeast";
+import PersCalendar from "../../../components/timeline/costume/PersCalendar";
+import { Costume, costumes } from "../../../data/costumes";
+import { charInfo } from "../../../data/trickcalChar";
 import Footer from "../../../layouts/Footer";
 import HeaderNav from "../../../layouts/HeaderNav";
 import TopRemote from "../../../layouts/TopRemote";
 import { personalityList } from "../../../types/trickcalTypes";
-import { Costume, costumes } from "../../../data/costumes";
-import { charInfo } from "../../../data/trickcalChar";
-import PersCalendar from "../../../components/timeline/costume/PersCalendar";
-import MostAndLeast from "../../../components/timeline/costume/MostAndLeast";
-import OldestCostume from "../../../components/timeline/costume/OldestCostume";
 
 const persList = personalityList;
 
@@ -15,6 +15,7 @@ export interface CostumeMapItem {
     charName: string;
     count: number;
     latestDate: string | null;
+    since: number;
     costumes: Costume[];
 }
 
@@ -38,13 +39,14 @@ const IndexPage = () => {
             .filter(([charName, info]) => info.grade !== 1)
             .reduce(
                 (
-                    acc: Record<string, { charName: string, count: number; latestDate: string | null; costumes: {}[] }>
+                    acc: Record<string, CostumeMapItem>
                     , [charName, info]) => {
 
                     if (!acc[charName]) {
                         acc[charName] = {
                             charName,
                             count: 0,
+                            since: 0,
                             costumes: [],
                             latestDate: null
                         };
@@ -66,15 +68,25 @@ const IndexPage = () => {
                         if (!acc[charName].latestDate || costumeDate > acc[charName].latestDate) {
                             acc[charName].latestDate = costumeDate;
                         }
+                    } else {
+                        acc[charName].latestDate = '2023-09-27'
                     }
 
+
+                    acc[charName].since = acc[charName].latestDate
+                        ? getDaysSince(acc[charName].latestDate)
+                        : getDaysSince('2023-09-27');
+
                     return acc;
+
                 }, {});
 
-        const characterStatArr = Object.values(characterStatsObj);
+        const characterStatList = Object.values(characterStatsObj);
+
+        costumeMap.set('charStatList', characterStatList);
 
         // 사복 보유 개수 정렬
-        const sortedByCount = [...characterStatArr].sort((a, b) => b.count - a.count);
+        const sortedByCount = [...characterStatList].sort((a, b) => b.count - a.count);
 
         const maxCount = sortedByCount[0].count;
         const minCount = sortedByCount[sortedByCount.length - 1].count;
@@ -88,23 +100,38 @@ const IndexPage = () => {
         // 성격 별로 나누기
         persList.forEach(p => {
 
-            const persCostume = characterStatArr.filter(item => charInfo[item.charName]?.personality === p)
+            const persCostume = characterStatList.filter(item => charInfo[item.charName]?.personality === p)
 
             costumeMap.set(p, persCostume);
         });
 
         // 출시된지 가장 오래된 코스튬(사도)들
         const oldestCostumes = (() => {
-            const charWithCostumes = characterStatArr.filter(char => char.count > 0);
+            // 사복 1개 이상
+            const charWithCostumes = characterStatList.filter(char => char.count > 0);
 
-            // 가장 오래된 날짜 찾기
-            const sortedByDate = charWithCostumes.sort((a, b) => {
-                // b.latestDate!.localeCompare(a.latestDate!)로 바꾸면 내림차순
-                return a.latestDate!.localeCompare(b.latestDate!);
-            });
+            // 마지막 사복 출시일 수집
+            const allDates = charWithCostumes.map(char => char.latestDate!);
 
-            // 사복 출시된 지 가장 오래된 사도 5인
-            return sortedByDate.slice(0, 5);
+            // Set으로 중복 제거 후 다시 배열로 변환
+            const uniqueDates = [... new Set(allDates)];
+
+            const sortedUniqueDates = uniqueDates.sort((a, b) => a.localeCompare(b));
+
+            const oldestFiveDates = sortedUniqueDates.slice(0, 5);
+
+            const result = oldestFiveDates.map(date => {
+                // 날짜가 같은 사도들 + 사복 개수 내림차순
+                const oldestChars = charWithCostumes.filter(c => c.latestDate === date).sort((a, b) => b.count - a.count);
+
+                return {
+                    date,
+                    oldestChars,
+                    since: getDaysSince(date)
+                }
+            })
+
+            return result;
         })();
 
         costumeMap.set('oldestCostumes', oldestCostumes)
@@ -174,10 +201,9 @@ const IndexPage = () => {
                 most={costumeMap.get("mostCostumes")}
                 least={costumeMap.get("leastCostumes")}
             />
-            <OldestCostume
-                oldest={costumeMap.get("oldestCostumes")}
+            <CostumeBoard
+                charStatList={costumeMap.get("charStatList")}
             />
-
             <Footer />
         </div>
     );

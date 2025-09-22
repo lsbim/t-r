@@ -1,4 +1,4 @@
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './index.html',
@@ -41,8 +41,13 @@ module.exports = {
         '우울': '#c683ec',
       },
       screens: {
+        'mini': '360px',
         'xs': '480px',
-        // 기존 브레이크포인트들은 그대로 유지됩니다
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
       keyframes: {
         slideDown: {

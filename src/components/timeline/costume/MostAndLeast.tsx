@@ -19,16 +19,16 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                             className="border-l-4 border-orange-500 pl-4 pb-2"
                             key={"costume_most" + i}>
                             <div className="flex items-center gap-x-2">
-                                <div className="text-[18px] font-bold">{c.charName}</div>
+                                <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
                                 <div className="text-orange-500 font-bold">{c.count}개</div>
                             </div>
-                            <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate}</div>
-                            <div className="text-gray-500 text-[14px] flex mt-1">
+                            <div className="text-gray-500 text-[14px] flex my-1">
                                 <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
                                 <span className="ml-1">
                                     • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                 </span>
                             </div>
+                            <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate}</div>
                         </div>
                     ))}
                     {most.length > 5 && (
@@ -54,16 +54,16 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                 className="border-l-4 border-gray-300 pl-4 pb-2"
                                 key={"costume_least" + i}>
                                 <div className="flex items-center gap-x-2">
-                                    <div className="text-[18px] font-bold">{c.charName}</div>
+                                    <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
                                     <div className="text-gray-500 font-bold">{c.count}개</div>
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate ?? '無'}</div>
-                                <div className="text-gray-500 text-[14px] flex mt-1">
+                                <div className="text-gray-500 text-[14px] flex my-1">
                                     <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
                                     <span className="ml-1">
                                         • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                     </span>
                                 </div>
+                                <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate ?? '無'}</div>
                             </div>
                         );
                     })}
