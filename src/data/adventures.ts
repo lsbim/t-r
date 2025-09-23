@@ -36,7 +36,18 @@ export const MATERIAL_YIELD_TYPES = {
     },
 }
 
-export const adventure = {
+
+
+export interface Adventure {
+    [key: string]: {
+        mainAdvSkill: string;
+        advSkills?: string[];
+        advLvl: number;
+        yieldMaterials: { name: string, yieldType: number }[]
+    }
+}
+
+export const adventure: Adventure = {
 
     '코스프레 모델': {
         mainAdvSkill: '미모',

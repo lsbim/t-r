@@ -1,6 +1,6 @@
-import PersonalityIcon from "../../../commons/PersonalityIcon";
-import { charInfo } from "../../../data/trickcalChar";
-import { CostumeMapItem } from "../../../pages/timeline/costume/IndexPage";
+import PersonalityIcon from "../../commons/PersonalityIcon";
+import { charInfo } from "../../data/trickcalChar";
+import { CostumeMapItem } from "../../pages/costume/IndexPage";
 
 const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeMapItem[] }) => {
 

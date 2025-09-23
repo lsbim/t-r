@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import PersonalityIcon from "../../../commons/PersonalityIcon";
-import { generateWeeklySchedule } from "../../../utils/weeklySchedule";
-import type { Costume } from "../../../data/costumes";
+import PersonalityIcon from "../../commons/PersonalityIcon";
+import { generateWeeklySchedule } from "../../utils/weeklySchedule";
+import type { Costume } from "../../data/costumes";
 
 interface CharacterData {
     charName: string;

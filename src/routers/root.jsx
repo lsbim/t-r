@@ -8,7 +8,8 @@ const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const Character = lazy(() => import("../pages/characters/CharacterPage"));
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
-const CostumeTimelineIndex = lazy(() => import("../pages/timeline/costume/IndexPage"));
+const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
+const LabSimIndex = lazy(() => import("../pages/sim/lab/LabIndexPage"));
 
 
 // suspense => 컴포넌트 로딩 전까지(비동기) 보여줄 화면(fallback).
@@ -49,7 +50,17 @@ const router = createBrowserRouter([
     },
     {
         path: "costume",
-        element: <CostumeTimelineIndex />
+        element: <CostumeIndex />
+    },
+    {
+        path: "sim",
+        element: <Suspense><Outlet /></Suspense>,
+        children: [
+            {
+                path: "lab",
+                element: <LabSimIndex />
+            },
+        ]
     },
     {
         path: "*",

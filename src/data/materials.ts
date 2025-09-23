@@ -183,6 +183,13 @@ export const materials: Material[] = [
             { name: '수면 안대', qty: 8 },
         ]
     }, {
+        name: '네온 사인',
+        grade: 3,
+        ingredient: [
+            { name: '구비구비 철사', qty: 3 },
+            { name: '윙크 잉크', qty: 8 },
+        ]
+    }, {
         name: '캐릭터 도장',
         grade: 4,
         ingredient: [
@@ -382,9 +389,6 @@ export const materials: Material[] = [
         grade: 1
     }, {
         name: '치즈',
-        grade: 1
-    }, {
-        name: '고로쇠 수액',
         grade: 1
     }, {
         name: '단풍 시럽',

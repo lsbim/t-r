@@ -1,13 +1,13 @@
 import { useMemo, useState } from "react";
-import CostumeBoard from "../../../components/timeline/costume/CostumeBoard";
-import MostAndLeast from "../../../components/timeline/costume/MostAndLeast";
-import PersCalendar from "../../../components/timeline/costume/PersCalendar";
-import { Costume, costumes } from "../../../data/costumes";
-import { charInfo } from "../../../data/trickcalChar";
-import Footer from "../../../layouts/Footer";
-import HeaderNav from "../../../layouts/HeaderNav";
-import TopRemote from "../../../layouts/TopRemote";
-import { personalityList } from "../../../types/trickcalTypes";
+import CostumeBoard from "../../components/costume/CostumeBoard";
+import MostAndLeast from "../../components/costume/MostAndLeast";
+import PersCalendar from "../../components/costume/PersCalendar";
+import { Costume, costumes } from "../../data/costumes";
+import { charInfo } from "../../data/trickcalChar";
+import Footer from "../../layouts/Footer";
+import HeaderNav from "../../layouts/HeaderNav";
+import TopRemote from "../../layouts/TopRemote";
+import { personalityList } from "../../types/trickcalTypes";
 
 const persList = personalityList;
 

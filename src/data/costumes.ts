@@ -38,6 +38,7 @@ export const costumes: Costume[] = [
     { charName: "가비아", cosName: "봄날의 약속", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "스피키", cosName: "퓨어 펌킨", lvl: "normal", launchDate: "2025-08-28" },
     { charName: "에르핀", cosName: "깡총이 파자마", lvl: "normal", launchDate: "2025-09-18" },
+    { charName: "마고", cosName: "양치기 소녀", lvl: "normal", launchDate: "2025-09-25" },
 
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
     { charName: "이드", cosName: "영원의 기다림", lvl: "normal", launchDate: "2025-01-30" },
@@ -69,6 +70,7 @@ export const costumes: Costume[] = [
     { charName: "피코라", cosName: "천재 영재 마녀", lvl: "normal", launchDate: "2025-05-01" },
     { charName: "에스피", cosName: "고딕 피크닉", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "엘레나", cosName: "느긋한 주말의 집냥이", lvl: "normal", launchDate: "2025-09-18" },
+    { charName: "프리클", cosName: "오늘의 날씨는 맑음", lvl: "normal", launchDate: "2025-09-25" },
 
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "럭셔리 테일러", lvl: "normal", launchDate: "2024-10-31" },
@@ -99,6 +101,7 @@ export const costumes: Costume[] = [
     { charName: "마에스트로 2호", cosName: "영 앤 와일드", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "마요", cosName: "꿈꾸는 수집가", lvl: "normal", launchDate: "2025-03-14" },
     { charName: "네티", cosName: "생선학자 길냥이", lvl: "normal", launchDate: "2025-09-18" },
+    { charName: "이프리트", cosName: "딥 다크 판타지아", lvl: "normal", launchDate: "2025-09-25" },
 
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
