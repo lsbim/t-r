@@ -1,0 +1,129 @@
+{
+    "name": "M.E.O.W",
+    "startDate": "2025-01-09",
+    "endDate": "2025-01-16",
+    "power": [
+        "찐짜 천벌",
+        "날먹 보호막",
+        "애착 담요"
+    ],
+    "maxLvl": "핵불맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 100,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 86,
+            "line": "전열"
+        },
+        {
+            "name": "죠안",
+            "count": 71,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 34,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 5,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 4,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 94,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 27,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 91,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 82,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 3,
+            "line": "중열"
+        },
+        {
+            "name": "루포",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "블랑셰",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "에스피",
+            "count": 90,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 27,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 14,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 10,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 56,
+            "line": "후열"
+        },
+        {
+            "name": "폴랑",
+            "count": 6,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "아멜리아",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "란",
+            "count": 94,
+            "line": "후열"
+        },
+        {
+            "name": "버터",
+            "count": 1,
+            "line": "후열"
+        }
+    ]
+}

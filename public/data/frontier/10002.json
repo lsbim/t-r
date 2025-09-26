@@ -1,0 +1,219 @@
+{
+    "name": "M.E.O.W",
+    "startDate": "2024-04-25",
+    "endDate": "2024-05-09",
+    "power": [
+        "찐짜 천벌",
+        "애착 담요",
+        "급발진"
+    ],
+    "maxLvl": "핵불맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 98,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 84,
+            "line": "전열"
+        },
+        {
+            "name": "로네",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "이드",
+            "count": 71,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 33,
+            "line": "전열"
+        },
+        {
+            "name": "마에스트로 2호",
+            "count": 6,
+            "line": "전열"
+        },
+        {
+            "name": "코미",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리츠",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "림",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "우이",
+            "count": 63,
+            "line": "중열"
+        },
+        {
+            "name": "가비아",
+            "count": 38,
+            "line": "중열"
+        },
+        {
+            "name": "엘레나",
+            "count": 41,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 48,
+            "line": "중열"
+        },
+        {
+            "name": "루포",
+            "count": 6,
+            "line": "중열"
+        },
+        {
+            "name": "블랑셰",
+            "count": 10,
+            "line": "중열"
+        },
+        {
+            "name": "나이아",
+            "count": 43,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 6,
+            "line": "중열"
+        },
+        {
+            "name": "디아나",
+            "count": 12,
+            "line": "중열"
+        },
+        {
+            "name": "프리클",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "힐데",
+            "count": 21,
+            "line": "중열"
+        },
+        {
+            "name": "마고",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "피코라",
+            "count": 44,
+            "line": "후열"
+        },
+        {
+            "name": "마요",
+            "count": 4,
+            "line": "후열"
+        },
+        {
+            "name": "앨리스",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "실피르",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "시온",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "캬롯",
+            "count": 56,
+            "line": "후열"
+        },
+        {
+            "name": "에르핀",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 57,
+            "line": "후열"
+        },
+        {
+            "name": "멜루나",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "제이드",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "버터",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "에슈르",
+            "count": 2,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 4,
+            "line": "후열"
+        },
+        {
+            "name": "벨리타",
+            "count": 11,
+            "line": "후열"
+        },
+        {
+            "name": "칸나",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "포셔",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 49,
+            "line": "후열"
+        },
+        {
+            "name": "아멜리아",
+            "count": 51,
+            "line": "후열"
+        }
+    ]
+}

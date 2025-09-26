@@ -1,0 +1,149 @@
+{
+    "personality": "순수",
+    "name": "릴1리",
+    "startDate": "2025-04-17",
+    "endDate": "2025-04-24",
+    "rules": [
+        "공격 속도 30% 증가",
+        "보호막 효과 60% 증가"
+    ],
+    "maxLvl": 24,
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 43,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 63,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 37,
+            "line": "전열"
+        },
+        {
+            "name": "슈로",
+            "count": 31,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 61,
+            "line": "전열"
+        },
+        {
+            "name": "벨라",
+            "count": 57,
+            "line": "전열"
+        },
+        {
+            "name": "네티",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "죠안",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리츠",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "라이카",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 93,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 96,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 52,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 42,
+            "line": "중열"
+        },
+        {
+            "name": "죠안",
+            "count": 15,
+            "line": "중열"
+        },
+        {
+            "name": "앨리스",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "벨리타",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "폴랑",
+            "count": 61,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 51,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 40,
+            "line": "후열"
+        },
+        {
+            "name": "란",
+            "count": 53,
+            "line": "후열"
+        },
+        {
+            "name": "림(혼돈)",
+            "count": 79,
+            "line": "후열"
+        },
+        {
+            "name": "버터",
+            "count": 2,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "스피키(메이드)",
+            "count": 3,
+            "line": "후열"
+        }
+    ]
+}

@@ -52,16 +52,16 @@ const router = createBrowserRouter([
         path: "costume",
         element: <CostumeIndex />
     },
-    {
-        path: "sim",
-        element: <Suspense><Outlet /></Suspense>,
-        children: [
-            {
-                path: "lab",
-                element: <LabSimIndex />
-            },
-        ]
-    },
+    // {
+    //     path: "sim",
+    //     element: <Suspense><Outlet /></Suspense>,
+    //     children: [
+    //         {
+    //             path: "lab",
+    //             element: <LabSimIndex />
+    //         },
+    //     ]
+    // },
     {
         path: "*",
         element: <Suspense><HomePage /></Suspense>

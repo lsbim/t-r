@@ -76,6 +76,7 @@ export const charInfo: CharInfoType = {
     "림(혼돈)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-01-16" },
     "네티": { grade: 3, personality: "광기", line: "전열", birthdate: "2025-04-10" },
     "아네트": { grade: 3, personality: "광기", line: "중열", birthdate: "2025-07-17" },
+    "티그(영웅)": { grade: 3, personality: "광기", line: "모든열", birthdate: "2025-09-27" },
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27" },
     "이프리트": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27" },
     "마요": { grade: 2, personality: "광기", line: "후열", birthdate: "2023-09-27" },
@@ -128,5 +129,8 @@ export const charInfo: CharInfoType = {
     "바리에": { grade: 2, personality: "우울", line: "후열", birthdate: "2024-08-01" },
     "베루": { grade: 1, personality: "우울", line: "중열", birthdate: "2023-09-27" },
     "쵸피": { grade: 1, personality: "우울", line: "중열", birthdate: "2023-09-27" },
+
+    // 공명
+    "우로스": { grade: 3, personality: "공명", line: "후열", birthdate: "2025-09-25" },
 };
 

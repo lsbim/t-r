@@ -1,0 +1,134 @@
+{
+    "name": "R41-리뉴아",
+    "startDate": "2025-04-03",
+    "endDate": "2025-04-10",
+    "power": [
+        "팝핀 스타",
+        "급발진",
+        "애착 담요"
+    ],
+    "maxLvl": "용암맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 94,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 11,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 20,
+            "line": "전열"
+        },
+        {
+            "name": "슈로",
+            "count": 32,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 46,
+            "line": "전열"
+        },
+        {
+            "name": "벨라",
+            "count": 97,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 100,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 12,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 97,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 44,
+            "line": "중열"
+        },
+        {
+            "name": "죠안",
+            "count": 46,
+            "line": "중열"
+        },
+        {
+            "name": "프리클",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "에스피",
+            "count": 17,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 42,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 2,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 66,
+            "line": "후열"
+        },
+        {
+            "name": "란",
+            "count": 96,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "림(혼돈)",
+            "count": 52,
+            "line": "후열"
+        },
+        {
+            "name": "아이시아",
+            "count": 10,
+            "line": "후열"
+        },
+        {
+            "name": "버터",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "스피키(메이드)",
+            "count": 1,
+            "line": "후열"
+        }
+    ]
+}

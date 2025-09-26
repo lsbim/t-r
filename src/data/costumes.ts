@@ -102,6 +102,8 @@ export const costumes: Costume[] = [
     { charName: "마요", cosName: "꿈꾸는 수집가", lvl: "normal", launchDate: "2025-03-14" },
     { charName: "네티", cosName: "생선학자 길냥이", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "이프리트", cosName: "딥 다크 판타지아", lvl: "normal", launchDate: "2025-09-25" },
+    { charName: "티그(영웅)", cosName: "수인마을 북부 대공", lvl: "normal", launchDate: "2025-09-27" },
+    { charName: "티그(영웅)", cosName: "창공의 하얀 날개", lvl: "pretty", launchDate: "2025-09-27" },
 
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
@@ -166,4 +168,9 @@ export const costumes: Costume[] = [
     { charName: "실피르", cosName: "풋풋한 학창시절", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "페스타", cosName: "고스 펑크", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "리스티", cosName: "꿈나라 모험가", lvl: "normal", launchDate: "2025-09-18" },
+
+    // 공명
+    { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
+    { charName: "우로스", cosName: "선도부장 선배님", lvl: "normal", launchDate: "2025-09-25" },
+    { charName: "우로스", cosName: "폭풍 속 검은 날개", lvl: "pretty", launchDate: "2025-09-25" },
 ]

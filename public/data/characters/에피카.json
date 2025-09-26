@@ -1,0 +1,142 @@
+{
+  "frontier": [
+    {
+      "season": "1",
+      "pickRate": 45
+    },
+    {
+      "season": "10",
+      "pickRate": 90.3
+    },
+    {
+      "season": "10001",
+      "pickRate": 36
+    },
+    {
+      "season": "10002",
+      "pickRate": 48
+    },
+    {
+      "season": "11",
+      "pickRate": 94.3
+    },
+    {
+      "season": "12",
+      "pickRate": 85.7
+    },
+    {
+      "season": "2",
+      "pickRate": 41
+    },
+    {
+      "season": "4",
+      "pickRate": 86
+    },
+    {
+      "season": "5",
+      "pickRate": 63
+    },
+    {
+      "season": "6",
+      "pickRate": 91
+    },
+    {
+      "season": "7",
+      "pickRate": 85
+    },
+    {
+      "season": "8",
+      "pickRate": 97
+    },
+    {
+      "season": "9",
+      "pickRate": 91
+    }
+  ],
+  "clash": [
+    {
+      "season": "10",
+      "pickRate": 14
+    },
+    {
+      "season": "11",
+      "pickRate": 19
+    },
+    {
+      "season": "12",
+      "pickRate": 4
+    },
+    {
+      "season": "13",
+      "pickRate": 23
+    },
+    {
+      "season": "14",
+      "pickRate": 12
+    },
+    {
+      "season": "15",
+      "pickRate": 6
+    },
+    {
+      "season": "16",
+      "pickRate": 6
+    },
+    {
+      "season": "17",
+      "pickRate": 4
+    },
+    {
+      "season": "20",
+      "pickRate": 30
+    },
+    {
+      "season": "31",
+      "pickRate": 52
+    },
+    {
+      "season": "32",
+      "pickRate": 27
+    },
+    {
+      "season": "33",
+      "pickRate": 53
+    },
+    {
+      "season": "34",
+      "pickRate": 12
+    },
+    {
+      "season": "35",
+      "pickRate": 29.7
+    },
+    {
+      "season": "36",
+      "pickRate": 33.3
+    },
+    {
+      "season": "37",
+      "pickRate": 51
+    },
+    {
+      "season": "38",
+      "pickRate": 11.7
+    },
+    {
+      "season": "6",
+      "pickRate": 69
+    },
+    {
+      "season": "7",
+      "pickRate": 17
+    },
+    {
+      "season": "8",
+      "pickRate": 12
+    },
+    {
+      "season": "9",
+      "pickRate": 12
+    }
+  ]
+}

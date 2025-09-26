@@ -38,12 +38,13 @@ const CharacterLine = ({ getYOffset, allDates }: Props) => {
                             className={`absolute left-[50%] flex items-center whitespace-nowrap w-1/2 sm:w-auto `}
                             style={{ top: y }}
                         >
-                            <div className={`h-[3px] bg-${charInfo[name].personality} z-10 w-full sm:w-[200px]`} />
+                            <div className={`h-[3px] ${charInfo[name].personality === '공명' ? 'resonance-bar' : `bg-${charInfo[name].personality}`} z-10 w-full sm:w-[200px]`} />
                             <div
                                 data-tooltip-id="my-tooltip"
                                 data-tooltip-content={isoDate}
                                 style={{ height: lineHeight }}
-                                className={`rounded-bl-xl rounded-tr-xl text-[11px] sm:text-[13px] bg-${charInfo[name].personality} py-[1px] px-[10px] cursor-pointer`}>
+                                className={`rounded-bl-xl rounded-tr-xl text-[11px] sm:text-[13px] py-[1px] px-[10px] cursor-pointer
+                                ${charInfo[name].personality === '공명' ? 'bg-gradient-to-r from-[rgb(131,185,235)] to-[rgb(198,131,236)]' : `bg-${charInfo[name].personality}`}`}>
                                 <span className=" font-bold mr-1">
                                     {name}
                                 </span>

@@ -18,12 +18,7 @@ interface Props {
     costumes: Costume[];
 }
 
-/**
- * 특정 연도의 활동 데이터를 목요일-수요일 기준으로 주간 집계하여 반환합니다.
- * @param year - 대상 연도 (e.g., 2025)
- * @param activityDates - 활동 날짜 문자열 배열 (e.g., ["2025-01-09", ...])
- * @returns 12개월 분량의 월별 주간 활동 데이터
- */
+// 특정 연도의 활동 일자를 목-수 기준으로 주간 집계
 export const generateWeeklySchedule = (year: number, persData: Props[]): MonthSchedule[] => {
 
     const allCostumes = persData.flatMap(char => char.costumes);

@@ -1,0 +1,139 @@
+{
+    "name": "M.E.O.W",
+    "startDate": "2024-10-17",
+    "endDate": "2024-10-24",
+    "power": [
+        "팝핀 스타",
+        "명치 꽂기",
+        "애착 담요"
+    ],
+    "maxLvl": "핵불맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 99,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 91,
+            "line": "전열"
+        },
+        {
+            "name": "죠안",
+            "count": 78,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 16,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 8,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "레테",
+            "count": 4,
+            "line": "전열"
+        },
+        {
+            "name": "루드",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "마에스트로 2호",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "림",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 98,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 98,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 86,
+            "line": "중열"
+        },
+        {
+            "name": "칸타",
+            "count": 8,
+            "line": "중열"
+        },
+        {
+            "name": "엘레나",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "죠안",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "에스피",
+            "count": 95,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 13,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 60,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 55,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "멜루나",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "칸나",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "아멜리아",
+            "count": 74,
+            "line": "후열"
+        }
+    ]
+}

@@ -16,7 +16,7 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/clash"}
-                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/clash") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash") ? "text-orange-500" : "text-gray-800"}`}>
                         {/* <span className="hidden xs:inline">
                             차원 대충돌
                         </span>
@@ -27,7 +27,7 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/frontier"}
-                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500"  : "text-gray-800"}`}>
                         {/* <span className="hidden xs:inline">
                             엘리아스 프론티어
                         </span>
@@ -38,18 +38,18 @@ const HeaderNav = () => {
                     </Link>
                     <Link
                         to={"/timeline/raid"}
-                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/timeline/raid") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline/raid") ? "text-orange-500"  : "text-gray-800"}`}>
                         타임라인
                     </Link>
                     <Link
                         to={"/costume"}
-                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-gray-800 transition duration-300 ${pathname.startsWith("/costume") ? "" : "text-gray-400"}`}>
+                        className={`text-[14px] md:text-[16px] cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500"  : "text-gray-800"}`}>
                         사복
                     </Link>
                     {/* <CharacterSearch /> */}
                 </div>
             </div>
-            {/* <Link to={"/stat/clash"} className={`cursor-pointer hover:text-gray-700 transition duration-300 ${pathname.startsWith("/frontier") ? "" : "text-gray-400"}`}>
+            {/* <Link to={"/stat/clash"} className={`cursor-pointer hover:text-gray-700 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500"  : "text-gray-800"}`}>
                 test
             </Link> */}
         </div>

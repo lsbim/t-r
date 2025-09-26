@@ -1,0 +1,189 @@
+{
+    "personality": "활발",
+    "name": "크레용사용",
+    "startDate": "2025-05-29",
+    "endDate": "2025-06-05",
+    "rules": [
+        "HP 회복량 30% 증가",
+        "고학년 스킬 재사용 대기시간 25% 감소"
+    ],
+    "maxLvl": 24,
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 76,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 71,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "슈로",
+            "count": 24,
+            "line": "전열"
+        },
+        {
+            "name": "벨라",
+            "count": 92,
+            "line": "전열"
+        },
+        {
+            "name": "네티",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 8,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리츠",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "라이카",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리코타",
+            "count": 23,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 98,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 92,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 11,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 53,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "죠안",
+            "count": 16,
+            "line": "중열"
+        },
+        {
+            "name": "마요(멋짐)",
+            "count": 24,
+            "line": "중열"
+        },
+        {
+            "name": "프리클",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "디아나",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "폴랑",
+            "count": 66,
+            "line": "후열"
+        },
+        {
+            "name": "에스피",
+            "count": 10,
+            "line": "후열"
+        },
+        {
+            "name": "아이시아",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "오르",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 47,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "바리에",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 61,
+            "line": "후열"
+        },
+        {
+            "name": "란",
+            "count": 71,
+            "line": "후열"
+        },
+        {
+            "name": "림(혼돈)",
+            "count": 14,
+            "line": "후열"
+        },
+        {
+            "name": "버터",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "스피키(메이드)",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "에르핀",
+            "count": 1,
+            "line": "후열"
+        },
+        {
+            "name": "벨리타",
+            "count": 1,
+            "line": "후열"
+        }
+    ]
+}

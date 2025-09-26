@@ -1,0 +1,299 @@
+{
+    "personality": "활발",
+    "name": "크레용사용",
+    "startDate": "2024-05-23",
+    "endDate": "2024-05-30",
+    "rules": [
+        "성격 상성으로 받는 피해량 75% 감소",
+        "스킬 공격 피해량 25% 증가"
+    ],
+    "maxLvl": 21,
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 46,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 88,
+            "line": "전열"
+        },
+        {
+            "name": "마에스트로 2호",
+            "count": 6,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "빅우드",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "로네",
+            "count": 21,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 4,
+            "line": "전열"
+        },
+        {
+            "name": "코미",
+            "count": 44,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 5,
+            "line": "전열"
+        },
+        {
+            "name": "루드",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 6,
+            "line": "전열"
+        },
+        {
+            "name": "림",
+            "count": 30,
+            "line": "전열"
+        },
+        {
+            "name": "리츠",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "셀리네",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "페스타",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "이드",
+            "count": 25,
+            "line": "전열"
+        },
+        {
+            "name": "파트라",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "벨벳",
+            "count": 9,
+            "line": "전열"
+        },
+        {
+            "name": "루포",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "레비",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "디아나",
+            "count": 9,
+            "line": "중열"
+        },
+        {
+            "name": "나이아",
+            "count": 39,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 7,
+            "line": "중열"
+        },
+        {
+            "name": "블랑셰",
+            "count": 49,
+            "line": "중열"
+        },
+        {
+            "name": "실피르",
+            "count": 39,
+            "line": "중열"
+        },
+        {
+            "name": "큐이",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "사리",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "쵸피",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "엘레나",
+            "count": 11,
+            "line": "중열"
+        },
+        {
+            "name": "앨리스",
+            "count": 8,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 6,
+            "line": "중열"
+        },
+        {
+            "name": "힐데",
+            "count": 55,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 5,
+            "line": "중열"
+        },
+        {
+            "name": "가비아",
+            "count": 30,
+            "line": "중열"
+        },
+        {
+            "name": "프리클",
+            "count": 6,
+            "line": "중열"
+        },
+        {
+            "name": "마고",
+            "count": 9,
+            "line": "중열"
+        },
+        {
+            "name": "제이드",
+            "count": 9,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 9,
+            "line": "중열"
+        },
+        {
+            "name": "벨리타",
+            "count": 8,
+            "line": "후열"
+        },
+        {
+            "name": "마요",
+            "count": 8,
+            "line": "후열"
+        },
+        {
+            "name": "롤렛",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "캬롯",
+            "count": 28,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 15,
+            "line": "후열"
+        },
+        {
+            "name": "피코라",
+            "count": 22,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 44,
+            "line": "후열"
+        },
+        {
+            "name": "스피키",
+            "count": 9,
+            "line": "후열"
+        },
+        {
+            "name": "리스티",
+            "count": 27,
+            "line": "후열"
+        },
+        {
+            "name": "칸나",
+            "count": 4,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 27,
+            "line": "후열"
+        },
+        {
+            "name": "에슈르",
+            "count": 15,
+            "line": "후열"
+        },
+        {
+            "name": "에르핀",
+            "count": 15,
+            "line": "후열"
+        },
+        {
+            "name": "포셔",
+            "count": 42,
+            "line": "후열"
+        },
+        {
+            "name": "바나",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "아멜리아",
+            "count": 14,
+            "line": "후열"
+        },
+        {
+            "name": "멜루나",
+            "count": 2,
+            "line": "후열"
+        },
+        {
+            "name": "유미미",
+            "count": 1,
+            "line": "후열"
+        }
+    ]
+}

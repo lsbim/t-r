@@ -24,3 +24,15 @@ export function findHexByName(name: string) {
             return '#c683ec';
     }
 }
+
+export function translateFacility(name: string) {
+
+    switch (name) {
+        case "lab":
+            return '생산 랩';
+        case "hq":
+            return '교단 본부';
+        case "adv":
+            return '모험회';
+    }
+}

@@ -120,13 +120,14 @@ const SeasonPage = () => {
     }
 
     // console.log("data: ", data)
+    // console.log("data: ", data?.type === 'season')
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <HeaderNav />
-            {data?.type === 'season' && (
-                <SeasonRemote />
-            )}
+            {/* {data?.type === 'season' && ( */}
+            <SeasonRemote />
+            {/* )} */}
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4 overflow-x-auto">
                 {data && (
                     <PersonalityPieChart

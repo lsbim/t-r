@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Facility, MaterialName } from "../../../types/trickcalTypes";
 import { facilities } from "../../../data/facilities";
 import { factory } from "typescript";
+import { SimRequest } from "../../../types/sim/simTypes";
+import { simFacility } from "../../../utils/simFuntions";
 
 interface LabInput {
     lab: number;
@@ -12,9 +14,6 @@ interface LabInput {
 }
 
 const labPlatformList: Facility[] = ['생산 랩', '교단 본부', '모험회'];
-const labMaterialList = ['스륵스륵 철가루', '바삭바삭 금박', '지구에서 온 납', '조각조각 기판', 'MUSIM 칩', 'S전자 반도체'
-    , '배터리 팩', 'MUSIM 칩'
-];
 
 function maxFacilityLvl(name: string): number {
     if (name in facilities) {
@@ -38,6 +37,19 @@ const LabInput = () => {
         }
     }
 
+    const handleSim = () => {
+        const simRequestObj: SimRequest = {
+            currentLab: 1,
+            currentAdv: 1,
+            currentHq: 1,
+            target: {
+                lab: 5
+            }
+        }
+
+        simFacility(simRequestObj);
+    }
+
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
@@ -55,6 +67,9 @@ const LabInput = () => {
                             className="border-2 border-black p-1 focus:outline-none w-[35px] text-center" />
                     </div>
                 ))}
+                <div className="p-2 bg-sky-400 text-[18px] font-bold cursor-pointer" onClick={() => handleSim()}>
+                    버튼
+                </div>
             </div>
         </div>
     );

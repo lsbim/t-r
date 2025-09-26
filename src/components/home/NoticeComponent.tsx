@@ -91,7 +91,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
     ]
 
     return (
-        <div className="sm:w-[600px] w-full mx-auto flex flex-col mt-2">
+        <div className="sm:w-[600px] w-full mx-auto flex flex-col mt-2 mb-[300px]">
             <div className="flex justify-center">
                 <div className="w-full mx-auto">
                     <div className="text-[15px] mb-2 flex justify-start bg-white p-4 rounded-t-md font-bold shadow-sm">

@@ -1,0 +1,194 @@
+{
+    "name": "R41-리뉴아",
+    "startDate": "2024-07-25",
+    "endDate": "2024-08-01",
+    "power": [
+        "날먹 보호막",
+        "명치 꽂기",
+        "급발진"
+    ],
+    "maxLvl": "핵불맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 98,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 94,
+            "line": "전열"
+        },
+        {
+            "name": "이드",
+            "count": 31,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 49,
+            "line": "전열"
+        },
+        {
+            "name": "마에스트로 2호",
+            "count": 16,
+            "line": "전열"
+        },
+        {
+            "name": "베니",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "레테",
+            "count": 5,
+            "line": "전열"
+        },
+        {
+            "name": "페스타",
+            "count": 2,
+            "line": "전열"
+        },
+        {
+            "name": "셰이디",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "우이",
+            "count": 46,
+            "line": "중열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 97,
+            "line": "중열"
+        },
+        {
+            "name": "루포",
+            "count": 2,
+            "line": "중열"
+        },
+        {
+            "name": "나이아",
+            "count": 4,
+            "line": "중열"
+        },
+        {
+            "name": "헤일리",
+            "count": 3,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 41,
+            "line": "중열"
+        },
+        {
+            "name": "엘레나",
+            "count": 19,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "블랑셰",
+            "count": 6,
+            "line": "중열"
+        },
+        {
+            "name": "힐데",
+            "count": 10,
+            "line": "중열"
+        },
+        {
+            "name": "코미(수영복)",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "디아나",
+            "count": 70,
+            "line": "중열"
+        },
+        {
+            "name": "피코라",
+            "count": 5,
+            "line": "후열"
+        },
+        {
+            "name": "벨리타",
+            "count": 4,
+            "line": "후열"
+        },
+        {
+            "name": "슈팡",
+            "count": 67,
+            "line": "후열"
+        },
+        {
+            "name": "에스피",
+            "count": 12,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 19,
+            "line": "후열"
+        },
+        {
+            "name": "에르핀",
+            "count": 31,
+            "line": "후열"
+        },
+        {
+            "name": "에슈르",
+            "count": 8,
+            "line": "후열"
+        },
+        {
+            "name": "리스티",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "롤렛",
+            "count": 8,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 74,
+            "line": "후열"
+        },
+        {
+            "name": "버터",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 8,
+            "line": "후열"
+        },
+        {
+            "name": "실라",
+            "count": 2,
+            "line": "후열"
+        },
+        {
+            "name": "아멜리아",
+            "count": 56,
+            "line": "후열"
+        }
+    ]
+}

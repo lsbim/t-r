@@ -1,0 +1,54 @@
+{
+  "frontier": [
+    {
+      "season": "10001",
+      "pickRate": 2
+    },
+    {
+      "season": "10002",
+      "pickRate": 1
+    },
+    {
+      "season": "4",
+      "pickRate": 1
+    }
+  ],
+  "clash": [
+    {
+      "season": "12",
+      "pickRate": 19
+    },
+    {
+      "season": "13",
+      "pickRate": 6
+    },
+    {
+      "season": "14",
+      "pickRate": 6
+    },
+    {
+      "season": "15",
+      "pickRate": 2
+    },
+    {
+      "season": "4",
+      "pickRate": 17
+    },
+    {
+      "season": "5",
+      "pickRate": 2
+    },
+    {
+      "season": "6",
+      "pickRate": 2
+    },
+    {
+      "season": "7",
+      "pickRate": 1
+    },
+    {
+      "season": "9",
+      "pickRate": 11
+    }
+  ]
+}

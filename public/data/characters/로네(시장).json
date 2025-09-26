@@ -1,0 +1,18 @@
+{
+  "frontier": [
+    {
+      "season": "11",
+      "pickRate": 0.3
+    }
+  ],
+  "clash": [
+    {
+      "season": "37",
+      "pickRate": 1
+    },
+    {
+      "season": "38",
+      "pickRate": 0.3
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+    "name": "크레용사용",
+    "startDate": "2025-02-20",
+    "endDate": "2025-02-27",
+    "power": [
+        "날먹 보호막",
+        "명치 꽂기",
+        "급발진"
+    ],
+    "maxLvl": "핵불맛2",
+    "type": "external",
+    "data": [
+        {
+            "name": "비비",
+            "count": 92,
+            "line": "전열"
+        },
+        {
+            "name": "클로에",
+            "count": 49,
+            "line": "전열"
+        },
+        {
+            "name": "죠안",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "키디언",
+            "count": 74,
+            "line": "전열"
+        },
+        {
+            "name": "티그",
+            "count": 3,
+            "line": "전열"
+        },
+        {
+            "name": "네르",
+            "count": 78,
+            "line": "전열"
+        },
+        {
+            "name": "리츠",
+            "count": 1,
+            "line": "전열"
+        },
+        {
+            "name": "리뉴아",
+            "count": 98,
+            "line": "중열"
+        },
+        {
+            "name": "우이",
+            "count": 29,
+            "line": "중열"
+        },
+        {
+            "name": "에피카",
+            "count": 85,
+            "line": "중열"
+        },
+        {
+            "name": "아야",
+            "count": 57,
+            "line": "중열"
+        },
+        {
+            "name": "프리클",
+            "count": 13,
+            "line": "중열"
+        },
+        {
+            "name": "죠안",
+            "count": 12,
+            "line": "중열"
+        },
+        {
+            "name": "엘레나",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "시스트",
+            "count": 3,
+            "line": "중열"
+        },
+        {
+            "name": "샤샤",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "블랑셰",
+            "count": 1,
+            "line": "중열"
+        },
+        {
+            "name": "란",
+            "count": 92,
+            "line": "후열"
+        },
+        {
+            "name": "에스피",
+            "count": 60,
+            "line": "후열"
+        },
+        {
+            "name": "죠안",
+            "count": 45,
+            "line": "후열"
+        },
+        {
+            "name": "림(혼돈)",
+            "count": 24,
+            "line": "후열"
+        },
+        {
+            "name": "시온",
+            "count": 18,
+            "line": "후열"
+        },
+        {
+            "name": "모모",
+            "count": 39,
+            "line": "후열"
+        },
+        {
+            "name": "폴랑",
+            "count": 7,
+            "line": "후열"
+        },
+        {
+            "name": "아이시아",
+            "count": 10,
+            "line": "후열"
+        },
+        {
+            "name": "다야",
+            "count": 3,
+            "line": "후열"
+        },
+        {
+            "name": "벨리타",
+            "count": 2,
+            "line": "후열"
+        }
+    ]
+}

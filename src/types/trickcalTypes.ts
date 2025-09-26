@@ -2,8 +2,8 @@ import { ClashSeasonData } from "./clashTypes";
 import { FrontierSeasonData } from "./frontierTypes";
 
 // 성격
-export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발";
-export const personalityList = ["광기", "냉정", "순수", "우울", "활발"];
+export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발" | "공명";
+export const personalityList = ["광기", "냉정", "순수", "우울", "활발", "공명"];
 // 레이드 영문명
 export type TrickcalRaidEn = "clash" | "frontier";
 // 성격 시너지용
@@ -27,6 +27,7 @@ const personalityColors = {
     '광기': '#eb839a',
     '활발': '#ebdb83',
     '우울': '#c683ec',
+    '공명': '#ffffff',
 };
 
 export const getPersonalityColor = (personality: Personality) => {
