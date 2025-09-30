@@ -4,6 +4,7 @@ import PickRateChart from "../../components/chart/characters/PickRateChart";
 import { CharacterPickRateData, CharacterPickRateObj, useCharData } from "../../hooks/useCharData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
+import Loading from "../../commons/Loading";
 
 const CharacterPage = () => {
 
@@ -12,7 +13,7 @@ const CharacterPage = () => {
 
     // console.log(data)
 
-    if (!character || isLoading) return (<></>)
+    if (!character || isLoading) return (<Loading />)
 
     if (!data) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.

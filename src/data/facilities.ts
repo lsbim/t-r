@@ -1,6 +1,15 @@
+import { Facility } from "../types/trickcalTypes";
 
+export type FacilityCost = {
+    [key in Facility]: {
+        [level: number]: {
+            cost: { name: string; qty: number }[];
+            gold: number;
+        };
+    };
+};
 
-export const facilities = {
+export const facilities: Partial<FacilityCost> = {
     '생산 랩': {
         2: {
             cost: [

@@ -106,11 +106,7 @@ const SeasonPage = () => {
 
     if (isLoading) {
         return (
-            <div className="flex flex-col justify-center items-center gap-4 min-h-screen">
-                <HeaderNav />
-                <Loading />
-                <Footer />
-            </div>
+            <Loading />
         )
     }
 

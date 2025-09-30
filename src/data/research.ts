@@ -25,6 +25,12 @@ export interface Research {
     }
 }
 
+export const labStatCategories = [
+    { name: '공격력', v: [23, 45, 68, 91, 113, 136, 159, 181, 204, 227, 238, 238, 238] },
+    { name: '방어력', v: [45, 45, 136, 181, 227, 272, 317, 363, 408, 453, 476, 476, 476] },
+    { name: 'HP', v: [453, 907, 1360, 1813, 2267, 2720, 3173, 3627, 4080, 4533, 4760, 4760, 4760] },
+]
+
 export const research: Research = {
     1: {
         maxStage: 41,

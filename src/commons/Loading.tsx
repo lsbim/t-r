@@ -1,22 +1,13 @@
+import Footer from "../layouts/Footer";
+import HeaderNav from "../layouts/HeaderNav";
+
 const Loading = () => {
     return (
-        <>
-            <div className="animate-pulse lg:w-[992px] w-full mx-auto flex flex-col h-[180px] bg-white p-4 shadow-md mt-4 overflow-x-auto overflow-y-hidden">
-            </div>
-            <div className="animate-pulse lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
-            </div>
-
-            <div className="flex overflow-x-auto">
-                <div className="w-[1024px] flex mx-auto justify-center">
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <div key={'loading' + index} className={`animate-pulse shadow-md p-2 w-[320px] h-[400px] bg-white ${index === 2 ? 'mr-0' : 'mr-4'}`}>
-
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </>
-
+        <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
+            <HeaderNav />
+            <div />
+            <Footer />
+        </div >
     );
 }
 

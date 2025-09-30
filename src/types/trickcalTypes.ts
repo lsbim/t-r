@@ -60,6 +60,9 @@ export interface ExternalSummaryData extends Omit<BaseSummary, "line"> {
 export type Facility = '생산 랩' | '연회장' | '교단 본부' | '모험회' | '기록실';
 export const facilityList: Facility[] = ['생산 랩', '연회장', '교단 본부', '모험회', '기록실'];
 
+export type Race = '정령' | '엘프' | '요정' | '용족' | '마녀' | '유령' | '수인';
+export const races: Race[] = ['정령', '엘프', '요정', '용족', '마녀', '유령', '수인'];
+
 // 재료 이름을 유니온 타입으로
 export type MaterialName =
     | '무지개 꽃즙'

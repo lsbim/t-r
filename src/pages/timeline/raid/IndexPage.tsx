@@ -10,6 +10,7 @@ import Footer from "../../../layouts/Footer";
 import CharacterLine from "../../../components/timeline/raid/CharacterLine";
 import RaidBlock from "../../../components/timeline/raid/RaidBlock";
 import TopRemote from "../../../layouts/TopRemote";
+import Loading from "../../../commons/Loading";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
@@ -48,10 +49,7 @@ const IndexPage = () => {
     }, [allDates]);
 
     if (!allDates || !frontier || !clash) return (
-        <div>
-            <HeaderNav />
-            <Footer />
-        </div>
+        <Loading />
     )
 
     const raidValues = [...Object.values(frontier), ...Object.values(clash)];

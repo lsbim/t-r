@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
+import Loading from "../commons/Loading";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
@@ -16,31 +17,31 @@ const LabSimIndex = lazy(() => import("../pages/sim/lab/LabIndexPage"));
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Suspense><HomePage /></Suspense>
+        element: <Suspense fallback={<Loading />}><HomePage /></Suspense>
     },
     {
         path: "clash",
-        element: <Suspense><ClashIndex /></Suspense>
+        element: <Suspense fallback={<Loading />}><ClashIndex /></Suspense>
     },
     {
         path: "clash/:season",
-        element: <Suspense><ClashSeason /></Suspense>
+        element: <Suspense fallback={<Loading />}><ClashSeason /></Suspense>
     },
     {
         path: "character/:character",
-        element: <Suspense><Character /></Suspense>
+        element: <Suspense fallback={<Loading />}><Character /></Suspense>
     },
     {
         path: "frontier",
-        element: <Suspense><FrontierIndex /></Suspense>
+        element: <Suspense fallback={<Loading />}><FrontierIndex /></Suspense>
     },
     {
         path: "frontier/:season",
-        element: <Suspense><FrontierSeason /></Suspense>
+        element: <Suspense fallback={<Loading />}><FrontierSeason /></Suspense>
     },
     {
         path: "timeline",
-        element: <Suspense><Outlet /></Suspense>,
+        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
         children: [
             {
                 path: "raid",
@@ -50,21 +51,21 @@ const router = createBrowserRouter([
     },
     {
         path: "costume",
-        element: <CostumeIndex />
+        element: <Suspense fallback={<Loading />}><CostumeIndex /></Suspense>
     },
-    // {
-    //     path: "sim",
-    //     element: <Suspense><Outlet /></Suspense>,
-    //     children: [
-    //         {
-    //             path: "lab",
-    //             element: <LabSimIndex />
-    //         },
-    //     ]
-    // },
+    {
+        path: "sim",
+        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
+        children: [
+            {
+                path: "lab",
+                element: <LabSimIndex />
+            },
+        ]
+    },
     {
         path: "*",
-        element: <Suspense><HomePage /></Suspense>
+        element: <Suspense fallback={<Loading />}><HomePage /></Suspense>
     }
 ]
     // , { basename: "/" } github pages에 사용되었음

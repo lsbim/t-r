@@ -3,7 +3,7 @@ import { Facility, MaterialName } from "../../../types/trickcalTypes";
 import { facilities } from "../../../data/facilities";
 import { factory } from "typescript";
 import { SimRequest } from "../../../types/sim/simTypes";
-import { simFacility } from "../../../utils/simFuntions";
+import { calculateRequiredAdventures, simFacility } from "../../../utils/simFuntions";
 
 interface LabInput {
     lab: number;
@@ -48,6 +48,8 @@ const LabInput = () => {
         }
 
         simFacility(simRequestObj);
+
+        
     }
 
 

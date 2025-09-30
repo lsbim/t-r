@@ -4,13 +4,14 @@ import { useSummaryData } from "../../hooks/useSummaryData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { FrontierSummary } from "../../types/frontierTypes";
+import Loading from "../../commons/Loading";
 
 const IndexPage = () => {
 
     const { data } = useSummaryData<FrontierSummary>('frontier');
     useTitle("엘리아스 프론티어 시즌 목록, 요약");
 
-    if (!data) return;
+    if (!data) return (<Loading />);
 
     // console.log(data)
 

@@ -141,6 +141,9 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         </div>
                     );
                 }) : clashSort === 'pers' && personalityList.map((pers, i) => {
+
+                    if(pers === '공명') return;
+
                     // 성격별로 나누기
                     const matchingEntries = Object.entries(summary)
                         .filter(([seasonKey, data]) => data.personality === pers)
