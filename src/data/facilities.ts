@@ -196,5 +196,35 @@ export const facilities: Partial<FacilityCost> = {
             ],
             gold: 5000000
         },
+    }, '연회장': {
+        2: {
+            cost: [
+                { name: '단단한 돌', qty: 10 },
+                { name: '가죽나무 잎', qty: 10 },
+                { name: '무지개 꽃즙', qty: 10 },
+            ],
+            gold: 10000
+        }, 3: {
+            cost: [
+                { name: '단단한 돌', qty: 20 },
+                { name: '가죽나무 잎', qty: 20 },
+                { name: '무지개 꽃즙', qty: 20 },
+            ],
+            gold: 50000
+        }, 4: {
+            cost: [
+                { name: '단단한 돌', qty: 40 },
+                { name: '가죽나무 잎', qty: 40 },
+                { name: '무지개 꽃즙', qty: 40 },
+            ],
+            gold: 200000
+        }, 5: {
+            cost: [
+                { name: '단단한 돌', qty: 60 },
+                { name: '가죽나무 잎', qty: 60 },
+                { name: '무지개 꽃즙', qty: 60 },
+            ],
+            gold: 500000
+        }
     }
 }

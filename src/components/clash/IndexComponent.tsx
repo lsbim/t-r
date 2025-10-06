@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PersonalityIcon from "../../commons/PersonalityIcon";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { clashBossList, ClashSummary } from "../../types/clashTypes";
 import { lineList, personalityList } from "../../types/trickcalTypes";
 import { getClashSortInfo, updateClashSortInfo } from "../../utils/clashLocalStorage";

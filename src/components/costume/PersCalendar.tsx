@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import PersonalityIcon from "../../commons/PersonalityIcon";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { type Costume } from "../../data/costumes";
 import { generateWeeklySchedule } from "../../utils/weeklySchedule";
 

@@ -474,7 +474,7 @@ export const materials: Material[] = [
         name: '보석 단추',
         grade: 4,
         ingredient: [
-            { name: '모카 솜', qty: 3 },
+            { name: '모카솜', qty: 3 },
             { name: '동글동글 단추', qty: 4 },
         ]
     }, {

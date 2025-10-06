@@ -13,7 +13,7 @@ import {
 import { Line } from "react-chartjs-2";
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { FrontierSeasonData } from "../../types/frontierTypes";
-import InfoIcon from '../../commons/InfoIcon';
+import InfoIcon from '../../commons/icon/InfoIcon';
 
 
 ChartJS.register(

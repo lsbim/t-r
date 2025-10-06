@@ -1,4 +1,4 @@
-import Loading from "../../commons/Loading";
+import Loading from "../../commons/component/Loading";
 import IndexComponent from "../../components/home/IndexComponent";
 import NoticeComponent from "../../components/home/NoticeComponent";
 import { useNonData } from "../../hooks/useNonData";

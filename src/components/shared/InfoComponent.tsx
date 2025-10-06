@@ -1,4 +1,4 @@
-import PersonalityIcon from "../../commons/PersonalityIcon";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 
 const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, personality }:
     { name: string, grade: number | string, startDate: string, endDate: string, rules: string[], raidType: string, personality?: string }

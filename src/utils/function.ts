@@ -30,9 +30,11 @@ export function translateFacility(name: string) {
     switch (name) {
         case "lab":
             return '생산 랩';
-        case "hq":
-            return '교단 본부';
+        case "hall":
+            return '연회장';
         case "adv":
             return '모험회';
+        case "hq":
+            return '교단 본부';
     }
 }

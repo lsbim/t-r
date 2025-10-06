@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import Loading from "../../commons/Loading";
+import Loading from "../../commons/component/Loading";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 import PersonalityPieChart from "../../components/chart/PersonalityPieChart";

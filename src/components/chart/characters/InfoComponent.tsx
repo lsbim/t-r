@@ -1,4 +1,4 @@
-import PersonalityIcon from "../../../commons/PersonalityIcon";
+import PersonalityIcon from "../../../commons/icon/PersonalityIcon";
 import { charInfo } from "../../../data/trickcalChar";
 
 const InfoComponent = ({ name }: { name: string }) => {

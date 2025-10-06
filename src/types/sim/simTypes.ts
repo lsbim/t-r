@@ -1,37 +1,44 @@
 export interface SimRequest {
     currentLab: number;
-    currentAdv: number;
+    currentHall: number;
     currentHq: number;
+    currentAdv: number;
     target: {
         lab?: number;
-        adv?: number;
+        hall?: number;
         hq?: number;
+        adv?: number;
     }
 }
 
 export interface SimResponse {
-    target: {
-        name: string; // 시설 연구단계 등 컨텐츠 이름
-        targetLvl: number;
-        createTime?: string;
-        researchTime?: string;
-        gold?: number;
-        materials: {
-            name: string;
-            qty: number;
-            // 모험에서 캘 수 없는 재료라면 제작해야 한다(모험회 레벨 부족, 제작으로만 수급 가능 등)
-            recipe?: { name: string; qty: number; adv: string; try: number; }[];
-            adv?: {
-                name: string;
-                try: number
-            };
-        }[];
-    }[];
-    totalCreateTime?: string;
-    totalResearchTime?: string;
-    totalGold?: number;
+    gold?: number;
+    krName: string;
+    name: string;
+    numlvl: number;
+    result: SimResult
+}
 
-    totalMaterials?: { name: string, qty: number }[];
-    totalAdv?: { name: string, try: number }[];
-    totalDays?: number;
+export interface SimResult {
+    acquisitionPlans: (MaterialAcquisitionPlan | null)[],
+    finalAdventureRuns?: Map<string, { min: number, max: number }>,
+    inventory?: Map<string, number>
+}
+
+// 모험 수행 결과를 담는 인터페이스
+export interface AdventureRequirement {
+    adventureName: string;         // 수행할 모험 이름
+    targetMaterial: string;        // 목표 재료 이름
+    requiredAdvLvl: number;        // 필요한 모험회 레벨
+    estimatedRuns: { min: number; max: number };         // 예상 수행 횟수
+    efficiency: number;            // 효율성 점수
+}
+
+// 재료 획득 계획을 담는 인터페이스
+export interface MaterialAcquisitionPlan {
+    material: string;              // 재료 이름
+    quantity: number;              // 필요한 수량
+    method: 'adventure' | 'craft' | 'inventory'; // 획득 방법 (모험 or 제작 or 인벤토리)
+    adventures?: AdventureRequirement[];  // 모험으로 획득하는 경우
+    craftingMaterials?: MaterialAcquisitionPlan[]; // 제작하는 경우 필요한 하위 재료들
 }

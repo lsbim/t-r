@@ -4,7 +4,7 @@ import PickRateChart from "../../components/chart/characters/PickRateChart";
 import { CharacterPickRateData, CharacterPickRateObj, useCharData } from "../../hooks/useCharData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
-import Loading from "../../commons/Loading";
+import Loading from "../../commons/component/Loading";
 
 const CharacterPage = () => {
 

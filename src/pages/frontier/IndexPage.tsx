@@ -4,7 +4,7 @@ import { useSummaryData } from "../../hooks/useSummaryData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { FrontierSummary } from "../../types/frontierTypes";
-import Loading from "../../commons/Loading";
+import Loading from "../../commons/component/Loading";
 
 const IndexPage = () => {
 

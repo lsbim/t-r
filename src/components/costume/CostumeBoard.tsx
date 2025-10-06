@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { CostumeMapItem, getDaysSince } from "../../pages/costume/IndexPage";
-import PersonalityIcon from "../../commons/PersonalityIcon";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { charInfo } from "../../data/trickcalChar";
-import SortArrowIcon from "../../commons/SortArrowIcon";
+import SortArrowIcon from "../../commons/icon/SortArrowIcon";
 
 type SortConfig = {
     key: 'count' | 'since' | 'birthDate';

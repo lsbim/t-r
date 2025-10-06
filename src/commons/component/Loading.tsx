@@ -1,5 +1,5 @@
-import Footer from "../layouts/Footer";
-import HeaderNav from "../layouts/HeaderNav";
+import Footer from "../../layouts/Footer";
+import HeaderNav from "../../layouts/HeaderNav";
 
 const Loading = () => {
     return (

@@ -8,6 +8,7 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
 import { personalityList } from "../../types/trickcalTypes";
+import useTitle from "../../hooks/useTitle";
 
 const persList = personalityList;
 
@@ -22,6 +23,7 @@ export interface CostumeMapItem {
 const IndexPage = () => {
 
     const [selectYear, setSelectYear] = useState<number>(2025);
+    useTitle("사복 집계");
 
     // 최초 사복 출시 후 오늘날까지 연도 목록
     const costumeReleaseYearSet = useMemo(() => {

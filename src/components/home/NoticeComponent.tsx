@@ -1,7 +1,6 @@
-import React from "react";
-import MyAccordion from "../../commons/MyAccordion";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
+import MyAccordion from "../../commons/rdx/MyAccordion";
 import { ClashSummary } from "../../types/clashTypes";
-import PersonalityIcon from "../../commons/PersonalityIcon";
 
 const NoticeComponent = ({ data }: { data: ClashSummary }) => {
 

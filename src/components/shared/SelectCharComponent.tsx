@@ -1,5 +1,5 @@
-import InfoIcon from "../../commons/InfoIcon";
-import PersonalityIcon from "../../commons/PersonalityIcon";
+import InfoIcon from "../../commons/icon/InfoIcon";
+import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { findPersonalityByName } from "../../utils/function";
 
 const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {

@@ -71,6 +71,7 @@ export const costumes: Costume[] = [
     { charName: "에스피", cosName: "고딕 피크닉", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "엘레나", cosName: "느긋한 주말의 집냥이", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "프리클", cosName: "오늘의 날씨는 맑음", lvl: "normal", launchDate: "2025-09-25" },
+    { charName: "엘레나", cosName: "차원이 다른 여왕님", lvl: "pretty", launchDate: "2025-10-02" },
 
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "럭셔리 테일러", lvl: "normal", launchDate: "2024-10-31" },
@@ -104,6 +105,7 @@ export const costumes: Costume[] = [
     { charName: "이프리트", cosName: "딥 다크 판타지아", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "티그(영웅)", cosName: "수인마을 북부 대공", lvl: "normal", launchDate: "2025-09-27" },
     { charName: "티그(영웅)", cosName: "창공의 하얀 날개", lvl: "pretty", launchDate: "2025-09-27" },
+    { charName: "피라", cosName: "껌 좀 씹어본 용족", lvl: "normal", launchDate: "2025-10-02" },
 
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
