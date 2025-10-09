@@ -161,7 +161,7 @@ const IndexPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-screen">
+        <div className="flex flex-col justify-center gap-4 min-h-screen max-w-[100vw]">
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}

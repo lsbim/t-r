@@ -1,13 +1,24 @@
-export interface SimRequest {
+export interface ResearchSimRequest {
+    type: 'research';
+    currentTier: number;
+    currentStep: number;
+    target: {
+        tier: number;
+        step: number;
+    }
+}
+
+export interface FacilitySimRequest {
+    type: 'facility';
     currentLab: number;
     currentHall: number;
     currentHq: number;
     currentAdv: number;
     target: {
-        lab?: number;
-        hall?: number;
-        hq?: number;
-        adv?: number;
+        lab: number;
+        hall: number;
+        hq: number;
+        adv: number;
     }
 }
 

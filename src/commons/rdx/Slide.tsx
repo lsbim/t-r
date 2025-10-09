@@ -1,8 +1,9 @@
 import * as Slider from "@radix-ui/react-slider";
+import { useCallback } from "react";
 
-const Slide = ({ max, handle }: { max: number, handle?: (v: [number, number]) => void }) => {
+const Slide = ({ max, value, handle }: { max: number, value: [number, number], handle?: (v: [number, number]) => void }) => {
 
-    const handleCommit = (v: number[]) => {
+    const handleCommit = useCallback((v: number[]) => {
         // 
         const sorted = v.slice().sort((a, b) => a - b);
         const clamped: [number, number] = [
@@ -11,14 +12,14 @@ const Slide = ({ max, handle }: { max: number, handle?: (v: [number, number]) =>
         ];
 
         handle?.(clamped);
-    };
+    }, [handle, max]);
 
 
     return (
         <div className="flex items-center gap-x-3">
             <Slider.Root
                 className="relative flex h-5 w-[200px] touch-none select-none items-center"
-                defaultValue={[1, 1]}
+                value={value}
                 min={1}
                 max={max}
                 step={1}

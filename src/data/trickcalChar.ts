@@ -132,5 +132,11 @@ export const charInfo: CharInfoType = {
 
     // 공명
     "우로스": { grade: 3, personality: "공명", line: "후열", birthdate: "2025-09-25" },
+
+    "우로스(순수)": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-25" },
+    "우로스(활발)": { grade: 3, personality: "활발", line: "후열", birthdate: "2025-09-25" },
+    "우로스(우울)": { grade: 3, personality: "우울", line: "후열", birthdate: "2025-09-25" },
+    "우로스(냉정)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-09-25" },
+    "우로스(광기)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-09-25" },
 };
 

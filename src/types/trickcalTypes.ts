@@ -64,6 +64,9 @@ export const facilityList: Facility[] = ['생산 랩', '연회장', '교단 본�
 export type Race = '정령' | '엘프' | '요정' | '용족' | '마녀' | '유령' | '수인';
 export const races: Race[] = ['정령', '엘프', '요정', '용족', '마녀', '유령', '수인'];
 
+export type ResearchIterable = '물리 공격력' | '마법 공격력' | '물리 방어력' | '마법 방어력' | 'HP'
+export const researchIterableStep = ['물리 공격력', '마법 공격력', '물리 방어력', '마법 방어력', 'HP'];
+
 // 재료 이름을 유니온 타입으로
 export type MaterialName =
     | '무지개 꽃즙'

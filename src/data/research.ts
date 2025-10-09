@@ -1,5 +1,5 @@
-export interface ResearchStage {
-    [key: number]: {
+export interface ResearchStep {
+    [step: number]: {
         name: string;
         cost: {
             name: string;
@@ -19,11 +19,12 @@ export interface ResearchStage {
     };
 }
 export interface Research {
-    [key: number]: {
-        maxStage: number;
-        stage: ResearchStage
+    [tier: number]: {
+        maxStep: number;
+        step: ResearchStep
     }
 }
+// 단계 tier 주제 step
 
 export const labStatCategories = [
     { name: '공격력', v: [23, 45, 68, 91, 113, 136, 159, 181, 204, 227, 238, 238, 238] },
@@ -33,8 +34,8 @@ export const labStatCategories = [
 
 export const research: Research = {
     1: {
-        maxStage: 41,
-        stage: {
+        maxStep: 41,
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -94,8 +95,8 @@ export const research: Research = {
             },
         },
     }, 2: {
-        maxStage: 41,
-        stage: {
+        maxStep: 41,
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -161,8 +162,8 @@ export const research: Research = {
             }
         }
     }, 3: {
-        maxStage: 42, // 6개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 42, // 6개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -238,8 +239,8 @@ export const research: Research = {
         }
     },
     4: {
-        maxStage: 41, // 5개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 41, // 5개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -306,8 +307,8 @@ export const research: Research = {
         }
     },
     5: {
-        maxStage: 41, // 5개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 41, // 5개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -374,8 +375,8 @@ export const research: Research = {
         }
     },
     6: {
-        maxStage: 42, // 6개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 42, // 6개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -451,8 +452,8 @@ export const research: Research = {
         }
     },
     7: {
-        maxStage: 41, // 5개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 41, // 5개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -519,8 +520,8 @@ export const research: Research = {
         }
     },
     8: {
-        maxStage: 41, // 5개 고유 + 35개 반복 + 1개 마지막
-        stage: {
+        maxStep: 41, // 5개 고유 + 35개 반복 + 1개 마지막
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -587,8 +588,8 @@ export const research: Research = {
         }
     },
     9: {
-        maxStage: 41,
-        stage: {
+        maxStep: 41,
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -655,8 +656,8 @@ export const research: Research = {
         }
     },
     10: {
-        maxStage: 41,
-        stage: {
+        maxStep: 41,
+        step: {
             1: {
                 name: '공물량 10% 증가',
                 cost: [{
@@ -723,8 +724,8 @@ export const research: Research = {
         }
     },
     11: {
-        maxStage: 42,
-        stage: {
+        maxStep: 42,
+        step: {
             1: {
                 name: '차원 대충돌 아티팩트 선택 횟수 1 증가',
                 cost: [{
@@ -800,8 +801,8 @@ export const research: Research = {
         }
     },
     12: {
-        maxStage: 42,
-        stage: {
+        maxStep: 42,
+        step: {
             1: {
                 name: '차원 대충돌 아티팩트 선택 횟수 1 증가',
                 cost: [{
@@ -877,8 +878,8 @@ export const research: Research = {
         }
     },
     13: {
-        maxStage: 42,
-        stage: {
+        maxStep: 42,
+        step: {
             1: {
                 name: '차원 대충돌 아티팩트 선택 횟수 1 증가',
                 cost: [{

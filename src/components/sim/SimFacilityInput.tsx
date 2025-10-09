@@ -1,33 +1,23 @@
-import { useEffect, useMemo, useState } from "react";
-import FacilityIcon from "../../commons/icon/FacilityIcon";
-import { facilities } from "../../data/facilities";
-import { SimRequest } from "../../types/sim/simTypes";
-import { Facility, FacilityEn } from "../../types/trickcalTypes";
-import Slide from "../../commons/rdx/Slide";
-import { translateFacility } from "../../utils/function";
 import { debounce } from "es-toolkit";
-
+import React, { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
+import FacilityIcon from "../../commons/icon/FacilityIcon";
+import Slide from "../../commons/rdx/Slide";
+import { facilities } from "../../data/facilities";
+import { FacilitySimRequest } from "../../types/sim/simTypes";
+import { Facility, FacilityEn } from "../../types/trickcalTypes";
+import { translateFacility } from "../../utils/function";
 
 const labPlatformList: FacilityEn[] = ['lab', 'hall', 'hq', 'adv',];
 
-const initFacilities = {
-    currentLab: 1,
-    currentHall: 1,
-    currentHq: 1,
-    currentAdv: 1,
-    target: {
-        lab: 1,
-        hall: 1,
-        hq: 1,
-        adv: 1,
+const SimFacilityInput = ({ handleSim, facilityInput, setFacilityInput }
+    : {
+        handleSim: (req?: FacilitySimRequest) => void,
+        facilityInput: FacilitySimRequest,
+        setFacilityInput: Dispatch<SetStateAction<FacilitySimRequest>>
     }
-}
+) => {
 
-const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
-
-    const [facilInput, setFacilInput] = useState(initFacilities);
-
-    const handleSlider = (name: FacilityEn, num: [number, number]) => {
+    const handleSlider = useCallback((name: FacilityEn, num: [number, number]) => {
         const [smallVal, bigVal] = num;
 
         const krName = translateFacility(name)! as Facility;
@@ -36,7 +26,7 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
         const clampedSmall = Math.max(1, Math.min(smallVal, maxlvl));
         const clampedBig = Math.max(1, Math.min(bigVal, maxlvl));
 
-        setFacilInput((prev) => {
+        setFacilityInput((prev) => {
             const next = { ...prev };
 
             switch (name) {
@@ -62,21 +52,20 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
 
             return next;
         });
-    }
+    }, [setFacilityInput])
 
     const debouncedRunSim = useMemo(() => {
-        const fn = debounce((req: typeof facilInput) => {
+        const fn = debounce((req: FacilitySimRequest) => {
             handleSim(req); // 실제 시뮬 실행
         }, 300);
 
         return fn;
-
     }, [handleSim]);
 
     // input 변경 시 debounceRunSim 호출
     useEffect(() => {
-        debouncedRunSim(facilInput);
-    }, [facilInput, debouncedRunSim]);
+        debouncedRunSim(facilityInput);
+    }, [facilityInput, debouncedRunSim]);
 
     // 언마운트 시 대기 취소
     useEffect(() => {
@@ -89,10 +78,10 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
     }, [debouncedRunSim]);
 
     const validateFacility = (name: FacilityEn) => {
-        const hqLvl = Math.max(facilInput.currentHq, facilInput.target.hq);
+        const hqLvl = Math.max(facilityInput.currentHq, facilityInput.target.hq);
 
         if (name === 'hall') {
-            const hallLvl = Math.max(facilInput.currentHall, facilInput.target.hall);
+            const hallLvl = Math.max(facilityInput.currentHall, facilityInput.target.hall);
             if (hallLvl > 1 && hqLvl / 2 < hallLvl) {
                 return (
                     <span>
@@ -101,7 +90,7 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
                 )
             }
         } else if (name === 'lab') {
-            const labLvl = Math.max(facilInput.currentLab, facilInput.target.lab);
+            const labLvl = Math.max(facilityInput.currentLab, facilityInput.target.lab);
             if (labLvl < 10 && hqLvl + 1 < labLvl) {
                 return (
                     <span>
@@ -124,7 +113,7 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
                 )
             }
         } else if (name === 'adv') {
-            const advLvl = Math.max(facilInput.currentAdv, facilInput.target.adv);
+            const advLvl = Math.max(facilityInput.currentAdv, facilityInput.target.adv);
             if (advLvl - 1 > hqLvl) {
                 return (
                     <span>
@@ -137,8 +126,8 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
 
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4">
-            <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] text-[12px] gap-x-24 w-full font-bold">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col">
+            <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] text-[15px] gap-x-20 w-full font-bold">
                 <span>
                     현재 레벨
                 </span>
@@ -154,20 +143,20 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
 
                     switch (p) {
                         case "lab":
-                            currentV = facilInput.currentLab;
-                            highV = facilInput.target.lab;
+                            currentV = facilityInput.currentLab;
+                            highV = facilityInput.target.lab;
                             break;
                         case "hall":
-                            currentV = facilInput.currentHall;
-                            highV = facilInput.target.hall;
+                            currentV = facilityInput.currentHall;
+                            highV = facilityInput.target.hall;
                             break;
                         case "hq":
-                            currentV = facilInput.currentHq;
-                            highV = facilInput.target.hq;
+                            currentV = facilityInput.currentHq;
+                            highV = facilityInput.target.hq;
                             break;
                         case "adv":
-                            currentV = facilInput.currentAdv;
-                            highV = facilInput.target.adv;
+                            currentV = facilityInput.currentAdv;
+                            highV = facilityInput.target.adv;
                             break;
                     }
 
@@ -195,6 +184,7 @@ const Sim = ({ handleSim }: { handleSim: (req?: SimRequest) => void }) => {
                                 </div>
                                 <Slide
                                     max={maxFacilityLvl(translateFacility(p)!)}
+                                    value={[currentV, highV]}
                                     handle={(v) => handleSlider(p, v)} />
                             </div>
                         </div>
@@ -216,4 +206,4 @@ function maxFacilityLvl(name: Facility): number {
 }
 
 
-export default Sim;
+export default React.memo(SimFacilityInput);

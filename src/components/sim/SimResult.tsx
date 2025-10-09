@@ -1,3 +1,4 @@
+import React from "react";
 import FacilityIcon from "../../commons/icon/FacilityIcon";
 import ItemIcon from "../../commons/icon/ItemIcon";
 import { SimResponse } from "../../types/sim/simTypes";
@@ -8,23 +9,9 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
     // console.log(simResult)
 
     return (
-        <div className="lg:w-[49.2%] w-full flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto gap-y-2">
-            {/* 인벤 */}
-            {/* <div>
-                {Array.from(simResult.result.inventory.entries()).map(([name, qty]) => {
-
-                    if (qty === 0) return null;
-
-                    return (
-                        <div key={name} className="flex items-center justify-between p-1 text-[11px] w-[50%]">
-                            <span className="">{name}</span>
-                            <span className="text-gray-500">{qty}</span>
-                        </div>
-                    )
-                })}
-            </div> */}
+        <div className="lg:w-[49.2%] w-full flex flex-col bg-white p-3 shadow-md mt-4 overflow-x-auto gap-y-2">
             {/* 시설 명 + 소모골드 */}
-            <div className="flex gap-x-5 items-center justify-center border-b-2 pb-4">
+            <div className="flex gap-x-5 items-center mx-auto border-b-2 pb-4">
                 {type !== 'research' ? (
                     <>
                         <div className="">
@@ -51,7 +38,7 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                 )}
             </div>
             {/* 요구 재료 & 계획 */}
-            <div className="flex gap-x-4 justify-center pt-2">
+            <div className="flex gap-x-3 mx-auto pt-2">
                 {(() => {
 
                     // 최대 깊이 선 계산
@@ -75,4 +62,4 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
     );
 }
 
-export default SimResult;
+export default React.memo(SimResult);
