@@ -32,11 +32,11 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
             // min이 max보다 커지면 스왑
             newMax = newMin;
             handle(rangeMax, newMin);
-
         } else {
             handle(newMin, newMax);
         }
     };
+    // console.log(input)
 
     const handleBlockMax = (blockNum: number) => {
         if (blockNum === rangeMax) return;
@@ -52,10 +52,6 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
             handle(newMin, newMax);
         }
     };
-
-    // useEffect(() => {
-    //     handle({ current: rangeMin, target: rangeMax });
-    // }, [rangeMin, rangeMax])
 
     const isMinActive = (blockNum: number) => {
         if (!sameTier) {

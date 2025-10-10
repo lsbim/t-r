@@ -15,6 +15,7 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
 
     const maxTier = parseInt(Object.keys(research).at(-1)!, 10);
 
+    // 연구 단계 변화(tier)
     const handleSlider = useCallback((num: [number, number]) => {
         const [smallVal, bigVal] = num;
 
@@ -27,14 +28,30 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
             next.currentTier = clampedSmall;
             next.target.tier = clampedBig;
 
+            if (next.currentStep > research[clampedSmall].maxStep) {
+                next.currentStep = research[clampedSmall].maxStep;
+            } else if (next.target.step > research[clampedBig].maxStep) {
+                next.target.step = research[clampedBig].maxStep;
+            }
+
             return next;
         });
-    }, [setResearchInput])
+    }, [researchInput, setResearchInput]);
 
+    // 연구 주제 변화(step)
     const handleBlock = useCallback((current: number, target: number) => {
 
-        const clampedSmall = Math.max(1, Math.min(current, research[researchInput.currentTier].maxStep));
-        const clampedBig = Math.max(1, Math.min(target, research[researchInput.target.tier].maxStep));
+
+        const currentMaxStep = research[researchInput.currentTier].maxStep;
+        const targetMaxStep = research[researchInput.target.tier].maxStep;
+
+        const clampedSmall = Math.max(1, Math.min(current, currentMaxStep));
+        const clampedBig = Math.max(1, Math.min(target, targetMaxStep));
+
+        // console.log(researchInput)
+        // console.log(`${researchInput.currentTier}단계 : ${research[researchInput.currentTier].maxStep}`)
+        // console.log(current, research[researchInput.currentTier].maxStep)
+        // console.log(`clampedSmall: ${clampedSmall}, clampedBig: ${clampedBig}`)
 
         setResearchInput((prev) => {
             const next = { ...prev };
@@ -44,7 +61,7 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
 
             return next;
         });
-    }, [setResearchInput])
+    }, [researchInput, setResearchInput])
 
     const debouncedRunSim = useMemo(() => {
         const fn = debounce((req: ResearchSimRequest) => {

@@ -5,5 +5,10 @@
       "pickRate": 56.7
     }
   ],
-  "clash": []
+  "clash": [
+    {
+      "season": "39",
+      "pickRate": 1.7
+    }
+  ]
 }

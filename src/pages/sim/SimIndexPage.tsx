@@ -58,8 +58,7 @@ const SimIndexPage = () => {
 
     // console.log(simResult)
     // console.log(simInput)
-    
-    console.log(researchInput)
+
 
     return (
         <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full">

@@ -53,10 +53,10 @@ const router = createBrowserRouter([
         path: "costume",
         element: <Suspense fallback={<Loading />}><CostumeIndex /></Suspense>
     },
-    // {
-    //     path: "sim",
-    //     element: <Suspense fallback={<Loading />}><SimIndex /></Suspense>,
-    // },
+    {
+        path: "sim",
+        element: <Suspense fallback={<Loading />}><SimIndex /></Suspense>,
+    },
     {
         path: "*",
         element: <Suspense fallback={<Loading />}><HomePage /></Suspense>

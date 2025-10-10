@@ -61,6 +61,10 @@
     {
       "season": "38",
       "pickRate": 38
+    },
+    {
+      "season": "39",
+      "pickRate": 28.3
     }
   ]
 }
