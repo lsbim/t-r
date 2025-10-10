@@ -36,32 +36,28 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
 
             return next;
         });
-    }, [researchInput, setResearchInput]);
+
+        // 함수 내부에서 상태(or 값이 바뀌는 변수)를 참조하지 않으니 바뀔 이유 X
+    }, [setResearchInput]);
 
     // 연구 주제 변화(step)
     const handleBlock = useCallback((current: number, target: number) => {
-
-
-        const currentMaxStep = research[researchInput.currentTier].maxStep;
-        const targetMaxStep = research[researchInput.target.tier].maxStep;
-
-        const clampedSmall = Math.max(1, Math.min(current, currentMaxStep));
-        const clampedBig = Math.max(1, Math.min(target, targetMaxStep));
-
-        // console.log(researchInput)
-        // console.log(`${researchInput.currentTier}단계 : ${research[researchInput.currentTier].maxStep}`)
-        // console.log(current, research[researchInput.currentTier].maxStep)
-        // console.log(`clampedSmall: ${clampedSmall}, clampedBig: ${clampedBig}`)
-
+        // setX 내부에서 prev를 읽도록 하여 해결
         setResearchInput((prev) => {
             const next = { ...prev };
+
+            const currentMaxStep = research[prev.currentTier].maxStep;
+            const targetMaxStep = research[prev.target.tier].maxStep;
+
+            const clampedSmall = Math.max(1, Math.min(current, currentMaxStep));
+            const clampedBig = Math.max(1, Math.min(target, targetMaxStep));
 
             next.currentStep = clampedSmall;
             next.target.step = clampedBig;
 
             return next;
         });
-    }, [researchInput, setResearchInput])
+    }, [setResearchInput])
 
     const debouncedRunSim = useMemo(() => {
         const fn = debounce((req: ResearchSimRequest) => {
