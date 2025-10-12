@@ -1,10 +1,9 @@
-import React, { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
+import { debounce } from "es-toolkit";
+import React, { Dispatch, SetStateAction, useCallback, useEffect, useMemo } from "react";
+import BlockSlide from "../../commons/component/BlockSlide";
 import Slide from "../../commons/rdx/Slide";
 import { research } from "../../data/research";
 import { ResearchSimRequest } from "../../types/sim/simTypes";
-import { debounce } from "es-toolkit";
-import BlockSlide from "../../commons/component/BlockSlide";
-import { getResearchStep } from "../../utils/researchFuntion";
 
 const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
     handleSim: (req?: ResearchSimRequest) => void,
@@ -59,28 +58,11 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
         });
     }, [setResearchInput])
 
-    const debouncedRunSim = useMemo(() => {
-        const fn = debounce((req: ResearchSimRequest) => {
-            handleSim(req); // 실제 시뮬 실행
-        }, 300);
-
-        return fn;
-    }, [handleSim]);
-
-    // input 변경 시 debounceRunSim 호출
+    // input 변경 시 sim 호출
     useEffect(() => {
-        debouncedRunSim(researchInput);
-    }, [researchInput, debouncedRunSim]);
+        handleSim(researchInput);
+    }, [researchInput]);
 
-    // 언마운트 시 대기 취소
-    useEffect(() => {
-        return () => {
-            // debounce가 반환한 함수는 cancel 메서드가 있음
-            if (typeof (debouncedRunSim as any).cancel === "function") {
-                (debouncedRunSim as any).cancel();
-            }
-        };
-    }, [debouncedRunSim]);
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col">
@@ -129,7 +111,6 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
                     </div>
                 </div>
                 <div className="mx-auto mt-4 w-full flex items-center justify-center md:gap-x-10 gap-x-4">
-                    <div className="min-w-[80px]" />
                     <BlockSlide
                         handle={handleBlock}
                         input={researchInput}

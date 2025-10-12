@@ -2,8 +2,9 @@ import { Adventure, adventure, AdventureDetail, MATERIAL_YIELD_TYPES, MaterialYi
 import { facilities } from "../data/facilities";
 import { materials } from "../data/materials";
 import { research } from "../data/research";
-import { MaterialAcquisitionPlan, SimRequest, SimResult } from "../types/sim/simTypes";
+import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse, SimResult } from "../types/sim/simTypes";
 import { translateFacility } from "./function";
+import { getResearchStep } from "./researchFuntion";
 
 // 게임 데이터 모음
 const allGameData = {
@@ -21,7 +22,7 @@ const materialMap = new Map(materials.map(m => [m.name, m]));
 const materialVaules = calculateMaterialValues(allGameData);
 
 // 시설 업그레이드
-export const simFacility = (request: SimRequest) => {
+export const simFacility = (request: FacilitySimRequest) => {
     const targets = Object.entries(request.target);
     const resultArr: any = [];
 
@@ -70,12 +71,78 @@ export const simFacility = (request: SimRequest) => {
                 needMaterials
             );
 
-            resultArr.push({ result, krName, name: key, numlvl, gold: needMaterials.get('gold') });
+            resultArr.push({
+                result,
+                krName,
+                name: key,
+                numlvl,
+                gold: needMaterials.get('gold')
+            });
         }
     });
 
     return resultArr;
 }
+
+// 연구 개발 (단계 단위, 주제x)
+export const simResearch = (request: ResearchSimRequest): SimResponse[] => {
+    const { currentTier, currentStep, target } = request;
+    const { tier: targetTier, step: targetStep } = target;
+
+    const resultArr: SimResponse[] = [];
+
+    // currentTier부터 targetTier까지 각 단계를 순회
+    for (let t = currentTier; t <= targetTier; t++) {
+
+        // 단계 단위 재료 Map
+        const needMaterials = new Map<string, number>();
+        const researchInfo = research[t];
+        if (!researchInfo) continue;
+
+        // currentTier의 시작 step. currentStep + 1부터 시작 ex) 1~5번 주제 => 2,3,4,5번 계산
+        const startStep = (t === currentTier) ? currentStep + 1 : 1;
+        const endStep = (t === targetTier) ? targetStep : researchInfo.maxStep;
+
+        if (startStep > endStep) {
+            continue;
+        }
+
+        // step 범위만큼 재료 구하기
+        for (let s = startStep; s <= endStep; s++) {
+            const stepInfo = getResearchStep(t, s);
+            if (!stepInfo) continue;
+
+            // 골드 누적
+            needMaterials.set('gold', (needMaterials.get('gold') || 0) + stepInfo.gold);
+            // 재료 누적
+            stepInfo.cost.forEach(item => {
+                needMaterials.set(item.name, (needMaterials.get(item.name) || 0) + item.qty);
+            });
+        }
+
+        // 해당 Tier에서 필요한 재료가 없으면 다음 Tier로 넘어감
+        if (needMaterials.size === 0) {
+            continue;
+        }
+
+        const result = createIntegratedPlan(
+            request.currentAdv || 1,
+            needMaterials
+        );
+
+
+        resultArr.push({
+            result,
+            krName: `연구 ${t}단계`,
+            name: 'research',
+            tier: t,
+            numlvl: endStep, // 해당 Tier에서 도달한 마지막 Step을 레벨로 표시
+            gold: needMaterials.get('gold') || 0,
+        });
+    }
+
+    return resultArr;
+};
 
 // 최상위 함수
 export function createIntegratedPlan(
@@ -171,7 +238,7 @@ function planAcquisitionRecursive(
                     yields[2].min +
                     yields[3].min +
                     yields[4].min
-                ); 
+                );
 
                 const gainedQty = Math.ceil(avgYield * deltaRuns.min); // 최소 획득량을 기준
 
@@ -243,7 +310,11 @@ function planAcquisitionRecursive(
     if (materialName !== 'gold') {
         console.warn(`${materialName}을(를) 획득할 방법을 찾을 수 없습니다.`);
     }
-    return null;
+    return {
+        material: materialName,
+        quantity: quantity,
+        method: 'impossible'
+    };
 }
 
 interface PlanContext {

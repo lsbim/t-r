@@ -145,7 +145,7 @@ export const research: Research = {
             'iterable': {
                 name: '종족별 스탯 증가',
                 cost: [{
-                    name: '소요 재료',
+                    name: 'MUSIM 칩',
                     qty: 4,
                 }],
                 gold: 6000, // 210000 / 35 = 6000
@@ -321,7 +321,7 @@ export const research: Research = {
             2: {
                 name: '공물 최대 누적시간 60분 증가',
                 cost: [{
-                    name: 'S전자',
+                    name: 'S전자 반도체',
                     qty: 7,
                 }],
                 gold: 100000,

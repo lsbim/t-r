@@ -97,7 +97,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
             {/* 오름차순 */}
             <div className="flex flex-col gap-y-2 mt-4">
                 {/* min */}
-                <div className="grid grid-flow-row grid-cols-[repeat(25,minmax(0,auto))] gap-x-1 gap-y-2">
+                <div className="grid grid-flow-row sm:grid-cols-[repeat(25,minmax(0,auto))] grid-cols-[repeat(15,minmax(0,auto))] gap-x-1 gap-y-2">
                     {Array.from({ length: currentTierMax }, (_, index) => (
                         <div
                             key={`block_start_${index + 1}`}
@@ -123,7 +123,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                 </div>
 
                 {/* max */}
-                <div className="grid grid-flow-row grid-cols-[repeat(25,minmax(0,auto))] gap-x-1 gap-y-2">
+                <div className="grid grid-flow-row sm:grid-cols-[repeat(25,minmax(0,auto))] grid-cols-[repeat(15,minmax(0,auto))] gap-x-1 gap-y-2">
                     {Array.from({ length: targetTierMax }, (_, index) => (
                         <div
                             key={`block_end_${index}`}

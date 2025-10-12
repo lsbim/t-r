@@ -14,7 +14,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
 
     const items = [
         {
-            id: 'item-2',
+            id: 'notice_2',
             header: (
                 <div className="">
                     순위 지정 기능 추가
@@ -54,7 +54,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
             )
         },
         {
-            id: 'item-1',
+            id: 'notice_1',
             header: (
                 <div className="">
                     일부 시즌은 기록이 제공되지 않습니다.
@@ -90,7 +90,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
     ]
 
     return (
-        <div className="sm:w-[600px] w-full mx-auto flex flex-col mt-2 mb-[300px]">
+        <div className="sm:w-[600px] w-full mx-auto flex flex-col">
             <div className="flex justify-center">
                 <div className="w-full mx-auto">
                     <div className="text-[15px] mb-2 flex justify-start bg-white p-4 rounded-t-md font-bold shadow-sm">

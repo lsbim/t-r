@@ -54,28 +54,10 @@ const SimFacilityInput = ({ handleSim, facilityInput, setFacilityInput }
         });
     }, [setFacilityInput])
 
-    const debouncedRunSim = useMemo(() => {
-        const fn = debounce((req: FacilitySimRequest) => {
-            handleSim(req); // 실제 시뮬 실행
-        }, 300);
-
-        return fn;
-    }, [handleSim]);
-
-    // input 변경 시 debounceRunSim 호출
+    // input 변경 시 sim 호출
     useEffect(() => {
-        debouncedRunSim(facilityInput);
-    }, [facilityInput, debouncedRunSim]);
-
-    // 언마운트 시 대기 취소
-    useEffect(() => {
-        return () => {
-            // debounce가 반환한 함수는 cancel 메서드가 있음
-            if (typeof (debouncedRunSim as any).cancel === "function") {
-                (debouncedRunSim as any).cancel();
-            }
-        };
-    }, [debouncedRunSim]);
+        handleSim(facilityInput);
+    }, [facilityInput]);
 
     const validateFacility = (name: FacilityEn) => {
         const hqLvl = Math.max(facilityInput.currentHq, facilityInput.target.hq);

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import SimFacilityInput from "../../components/sim/SimFacilityInput";
 import SimResearchInput from "../../components/sim/SimResearchInput";
 import SimResult from "../../components/sim/SimResult";
@@ -6,7 +6,9 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
 import { FacilitySimRequest, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
-import { simFacility } from "../../utils/simFuntions";
+import { simFacility, simResearch } from "../../utils/simFuntions";
+import MyAccordion from "../../commons/rdx/MyAccordion";
+import { debounce } from "es-toolkit";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -37,7 +39,6 @@ const SimIndexPage = () => {
     // simInput으로 input을 통합할 시 모든 자식이 새로 마운트 되면서 슬라이더에 버벅임이 발생함
     const [facilityInput, setFacilityInput] = useState<FacilitySimRequest>(initSimFacilityInput);
     const [researchInput, setResearchInput] = useState<ResearchSimRequest>(initResearch)
-    // simResult는 통합으로 추후 개발, 시설/연구 결과(상세)는 각각 아코디언에 담을 예정
     const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);
     const [researchSimResult, setResearchSimResult] = useState<SimResponse[]>([]);
     const [selectInput, setSelectInput] = useState(0)
@@ -46,28 +47,106 @@ const SimIndexPage = () => {
         if (!simRequestObj) return;
 
         if (simRequestObj.type === 'research') {
-            setResearchSimResult(
-                simFacility(simRequestObj)
-            );
+            debouncedSimResearch(simRequestObj, facilityInput.currentAdv);
         } else if (simRequestObj.type === 'facility') {
-            setFacilitySimResult(
-                simFacility(simRequestObj)
-            );
+            debouncedSimFacility(simRequestObj);
         }
-    }, [simInputArr]) // 일반 함수면 무한히 계산함
+    }, [facilityInput.currentAdv]) // 일반 함수면 무한히 계산함
+
+    const debouncedSimResearch = useMemo(() => {
+        return debounce((input: ResearchSimRequest, adv: number) => {
+            setResearchSimResult(
+                simResearch({ ...input, currentAdv: adv })
+            );
+        }, 300);
+    }, []);
+
+    const debouncedSimFacility = useMemo(() => {
+        return debounce((input: FacilitySimRequest) => {
+            setFacilitySimResult(
+                simFacility(input)
+            );
+        }, 300);
+    }, []);
+
+    // 현재 모험회 레벨이 바뀌면 연구도 재계산
+    useEffect(() => {
+        if (researchSimResult.length > 0) {
+            debouncedSimResearch(researchInput, facilityInput.currentAdv);
+        }
+    }, [facilityInput.currentAdv, researchInput]);
+
+    // 언마운트 시 디바운스 취소
+    useEffect(() => {
+        return () => {
+            if (typeof (debouncedSimResearch as any).cancel === 'function') {
+                (debouncedSimResearch as any).cancel();
+            }
+            if (typeof (debouncedSimFacility as any).cancel === 'function') {
+                (debouncedSimFacility as any).cancel();
+            }
+        };
+    }, [debouncedSimResearch, debouncedSimFacility]);
 
     // console.log(simResult)
     // console.log(simInput)
 
+    const items = [
+        {
+            id: 'sim_result_2',
+            header: (
+                <div className="">
+                    시설 레벨별 안내
+                </div>
+            ),
+            content: facilitySimResult && facilitySimResult.length > 0 && (
+                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                    {facilitySimResult.map((sim) => (
+                        <SimResult
+                            key={`${sim.krName}-${sim.numlvl}`}
+                            simResult={sim}
+                            type={sim.name}
+                        />
+                    ))}
+                </div>
+            )
+        }, {
+            id: 'sim_result_1',
+            header: (
+                <div className="">
+                    연구 단계별 안내
+                </div>
+            ),
+            content: researchSimResult && researchSimResult.length > 0 && (
+                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                    {researchSimResult.map((sim) => (
+                        <SimResult
+                            key={`${sim.krName}-${sim.numlvl}`}
+                            simResult={sim}
+                            type={sim.name}
+                        />
+                    ))}
+                </div>
+            )
+        }
+    ]
+
+    // useEffect(() => {
+    //     // 연구 sim 결과가 나온 상태에서 모험회 레벨이 바뀌면 재계산
+    //     if (researchSimResult.length > 0) {
+    //         handleSim(researchInput);
+    //     }
+    // }, [facilityInput.currentAdv]);
 
     return (
-        <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full">
+        // 알 수 없는 무언가가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
+        <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden"> 
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
             <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
-                    <h1 className="text-[20px] font-bold mr-2">재화계산</h1>
+                    <h1 className="text-[20px] font-bold mr-2">재화 계산</h1>
                     <span className="flex text-[14px]">목표에 도달하기 위한 재화를 계산합니다.</span>
                 </div>
                 <div className="flex items-center mb-2">
@@ -109,29 +188,11 @@ const SimIndexPage = () => {
                         researchInput={researchInput} />
                 )}
             </div>
-
-            {facilitySimResult && facilitySimResult.length > 0 && (
-                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap justify-between overflow-x-auto">
-                    {facilitySimResult.map((sim) => (
-                        <SimResult
-                            key={`${sim.krName}-${sim.numlvl}`}
-                            simResult={sim}
-                            type={sim.name}
-                        />
-                    ))}
-                </div>
-            )}
-            {researchSimResult && researchSimResult.length > 0 && (
-                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap justify-between overflow-x-auto">
-                    {researchSimResult.map((sim) => (
-                        <SimResult
-                            key={`${sim.krName}-${sim.numlvl}`}
-                            simResult={sim}
-                            type={sim.name}
-                        />
-                    ))}
-                </div>
-            )}
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 w-full mb-8">
+                <MyAccordion
+                    items={items}
+                />
+            </div>
             <Footer />
         </div>
     );

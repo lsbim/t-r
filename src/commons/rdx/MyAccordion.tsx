@@ -14,9 +14,8 @@ interface MyAccordionProps {
 const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
     return (
         <Accordion.Root
-            type="single"
+            type="multiple" // or single
             // defaultValue={items[0]?.id}
-            collapsible
             className="w-full rounded-lg shadow-md"
         >
             {items.map(({ id, header, content }, index) => (
