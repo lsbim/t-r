@@ -29,7 +29,7 @@ const SimMaterialPlan: React.FC<SimMaterialPlanProps> = ({
     // console.log(calculatedMaxDepth, nodeDepth, remainingDepth)
 
     return (
-        <div className={`flex flex-col gap-y-5 py-1 text-[10px]`}>
+        <div className={`flex flex-col gap-y-5 text-[10px]`}>
             <div className="flex flex-col items-center">
                 <ItemIcon name={plan.material} value={plan.quantity} />
             </div>
@@ -49,9 +49,11 @@ const SimMaterialPlan: React.FC<SimMaterialPlanProps> = ({
                 </div>
             ) : (
                 <>
-                    {/* 리프 노드까지의 여백 추가 - 이 부분이 핵심! */}
+                    {/* 공백 */}
                     {remainingDepth > 0 && (
-                        <div style={{ height: `${remainingDepth * 60}px`, marginBottom: `${(remainingDepth - 1) * 24}px` }} />
+                        <div
+                            // gap-y 만큼 marginBottom을 지정
+                            style={{ height: `${remainingDepth * 60}px`, marginBottom: `${(remainingDepth - 1) * 20}px` }} />
                     )}
 
                     {/* 최종 획득 방법 표시 */}

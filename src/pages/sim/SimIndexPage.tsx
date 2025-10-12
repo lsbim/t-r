@@ -6,7 +6,7 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
 import { FacilitySimRequest, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
-import { simFacility, simResearch } from "../../utils/simFuntions";
+import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simFuntions";
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
 
@@ -88,6 +88,37 @@ const SimIndexPage = () => {
         };
     }, [debouncedSimResearch, debouncedSimFacility]);
 
+    const allResult: SimResponse | null = useMemo(() => {
+        const allMatMap = new Map();
+        
+        facilitySimResult?.forEach(fsr => {
+            fsr?.result?.acquisitionPlans?.forEach(plan => {
+                allMatMap.set(plan?.material, plan?.quantity);
+            })
+            if (fsr.gold) {
+                allMatMap.set('gold', (allMatMap.get('gold') || 0) + fsr.gold);
+            }
+        })
+        researchSimResult?.forEach(rsr => {
+            rsr?.result?.acquisitionPlans?.forEach(plan => {
+                allMatMap.set(plan?.material, plan?.quantity);
+            })
+            if (rsr.gold) {
+                allMatMap.set('gold', (allMatMap.get('gold') || 0) + rsr.gold);
+            }
+        })
+
+        if (allMatMap.size < 1) return null;
+
+        const plans = createIntegratedPlan(facilityInput.currentAdv, allMatMap);
+
+        return {
+            gold: allMatMap.get('gold'),
+            name: '종합',
+            result: plans
+        };
+    }, [facilitySimResult, researchSimResult])
+
     // console.log(simResult)
     // console.log(simInput)
 
@@ -140,7 +171,7 @@ const SimIndexPage = () => {
 
     return (
         // 알 수 없는 무언가가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
-        <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden"> 
+        <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
@@ -186,6 +217,18 @@ const SimIndexPage = () => {
                         handleSim={handleSim}
                         setResearchInput={setResearchInput}
                         researchInput={researchInput} />
+                )}
+            </div>
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 w-full min-h-[569px]">
+                {allResult ? (
+                    <SimResult
+                        simResult={allResult}
+                        type={'all'}
+                    />
+                ) : (
+                    <div className="w-full bg-white flex items-center justify-center text-[18px] font-bold text-gray-700">
+                        선택된 시설 또는 연구 정보가 없습니다.
+                    </div>
                 )}
             </div>
             <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 w-full mb-8">

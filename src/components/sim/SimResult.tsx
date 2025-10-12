@@ -7,7 +7,7 @@ import SimMaterialPlan from "./SimMaterialPlan";
 
 const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }) => {
 
-    console.log(simResult)
+    // console.log(simResult)
 
     return (
         <div className="w-full flex flex-col bg-white p-3 shadow-md overflow-x-hidden">
@@ -20,7 +20,7 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         </div>
                         <div className="flex flex-col items-center gap-y-1">
                             <span className="font-bold">필요 재료</span>
-                            <div className="flex gap-x-1 w-full flex-wrap">
+                            <div className="grid grid-flow-row sm:grid-cols-[repeat(8,minmax(0,auto))] grid-cols-[repeat(4,minmax(0,auto))] gap-1">
                                 {simResult.gold && (
                                     <ItemIcon name="gold" value={simResult.gold} />
                                 )}
@@ -79,7 +79,7 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         return simResult.result.acquisitionPlans.map((plan, idx) => (
                             <div
                                 key={`simresult_main_plan_wrapper_${idx}`}
-                                className={`py-2 px-3 ${idx % 2 === 0 ? '' : 'bg-gray-100'}`}
+                                className={`pt-3 pb-4 px-3 ${idx % 2 === 0 ? '' : 'bg-gray-100'}`}
                             >
                                 <SimMaterialPlan
                                     plan={plan}

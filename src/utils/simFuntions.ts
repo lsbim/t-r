@@ -63,6 +63,8 @@ export const simFacility = (request: FacilitySimRequest) => {
                 needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
             });
 
+            // console.log(`needMaterials: `,needMaterials)
+
             // 현재 모험회 레벨을 전달
             const result = createIntegratedPlan(
                 krName === '모험회'
@@ -144,7 +146,7 @@ export const simResearch = (request: ResearchSimRequest): SimResponse[] => {
     return resultArr;
 };
 
-// 최상위 함수
+// sim 최상위 함수
 export function createIntegratedPlan(
     currentAdvLvl: number,
     needMaterials: Map<string, number>,
@@ -308,7 +310,7 @@ function planAcquisitionRecursive(
 
     // 재료가 모험과 제작으로 얻을 수 없으면 null
     if (materialName !== 'gold') {
-        console.warn(`${materialName}을(를) 획득할 방법을 찾을 수 없습니다.`);
+        // console.warn(`${materialName}을(를) 획득할 방법을 찾을 수 없습니다.`);
     }
     return {
         material: materialName,
