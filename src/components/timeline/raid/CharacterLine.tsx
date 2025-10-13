@@ -13,6 +13,9 @@ const CharacterLine = ({ getYOffset, allDates }: Props) => {
     }, {});
 
     Object.entries(charInfo).forEach(([name, info]) => {
+        // 성격별로 찢어놓은 우로스는 제외
+        if (name.startsWith('우로스(')) return;
+
         const date = info.birthdate;
         if (charsByDate[date]) {
             charsByDate[date].push(name);

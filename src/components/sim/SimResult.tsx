@@ -18,8 +18,8 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         <div className="">
                             <FacilityIcon name={simResult.name} value={simResult.numlvl} />
                         </div>
-                        <div className="flex flex-col items-center gap-y-1">
-                            <span className="font-bold">필요 재료</span>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <span className="font-bold text-[16px]">필요 재료</span>
                             <div className="grid grid-flow-row sm:grid-cols-[repeat(8,minmax(0,auto))] grid-cols-[repeat(4,minmax(0,auto))] gap-1">
                                 {simResult.gold && (
                                     <ItemIcon name="gold" value={simResult.gold} />
@@ -47,8 +47,8 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col items-center gap-y-1">
-                            <span className="font-bold">필요 재료</span>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <span className="font-bold text-[16px]">필요 재료</span>
                             <div className="grid grid-flow-row grid-cols-[repeat(4,minmax(0,auto))] gap-1">
                                 {simResult.gold && (
                                     <ItemIcon name="gold" value={simResult.gold} />

@@ -9,6 +9,7 @@ import { FacilitySimRequest, ResearchSimRequest, SimResponse } from "../../types
 import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simFuntions";
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
+import ItemIcon from "../../commons/icon/ItemIcon";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -90,7 +91,7 @@ const SimIndexPage = () => {
 
     const allResult: SimResponse | null = useMemo(() => {
         const allMatMap = new Map();
-        
+
         facilitySimResult?.forEach(fsr => {
             fsr?.result?.acquisitionPlans?.forEach(plan => {
                 allMatMap.set(plan?.material, plan?.quantity);
@@ -126,8 +127,8 @@ const SimIndexPage = () => {
         {
             id: 'sim_result_2',
             header: (
-                <div className="">
-                    시설 레벨별 안내
+                <div className="font-bold">
+                    시설 레벨별
                 </div>
             ),
             content: facilitySimResult && facilitySimResult.length > 0 && (
@@ -144,8 +145,8 @@ const SimIndexPage = () => {
         }, {
             id: 'sim_result_1',
             header: (
-                <div className="">
-                    연구 단계별 안내
+                <div className="font-bold">
+                    연구 단계별
                 </div>
             ),
             content: researchSimResult && researchSimResult.length > 0 && (
@@ -162,38 +163,34 @@ const SimIndexPage = () => {
         }
     ]
 
-    // useEffect(() => {
-    //     // 연구 sim 결과가 나온 상태에서 모험회 레벨이 바뀌면 재계산
-    //     if (researchSimResult.length > 0) {
-    //         handleSim(researchInput);
-    //     }
-    // }, [facilityInput.currentAdv]);
-
     return (
-        // 알 수 없는 무언가가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
+        // 하위 요소가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
         <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
             <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
-                    <h1 className="text-[20px] font-bold mr-2">재화 계산</h1>
-                    <span className="flex text-[14px]">목표에 도달하기 위한 재화를 계산합니다.</span>
+                    <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
+                    <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화를 계산합니다.</span>
                 </div>
                 <div className="flex items-center mb-2">
-                    <div className="flex-col flex">
+                    <div className="flex-col flex gap-y-1">
                         <span className="text-[12px] text-orange-500 font-bold">
                             모험은 2, 3, 4레벨 획득량을 기준
                         </span>
                         <span className="text-[12px] text-orange-500 font-bold">
                             부수재료는 최소 획득량 이월
                         </span>
+                        <span className="text-[12px] text-orange-500 font-bold">
+                            모험회 현재 레벨에 수행이 가능한 모험만 소개
+                        </span>
                     </div>
                 </div>
             </div>
 
             {/* 시설 및 연구단계 입력 */}
-            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white p-4 shadow-md mt-4">
+            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white p-4 shadow-md">
                 <div className="flex items-center justify-between w-full mb-8">
                     {simInputArr.map((sel, idx) => (
                         <div
@@ -226,8 +223,11 @@ const SimIndexPage = () => {
                         type={'all'}
                     />
                 ) : (
-                    <div className="w-full bg-white flex items-center justify-center text-[18px] font-bold text-gray-700">
-                        선택된 시설 또는 연구 정보가 없습니다.
+                    <div className="w-full gap-x-3 bg-white flex items-center justify-center text-[18px] font-bold text-gray-700">
+                        <img src={`images/item/gold.png`} className="aspect-square object-center w-[60px] grayscale select-none" />
+                        <span>
+                            선택된 시설 또는 연구 정보가 없습니다.
+                        </span>
                     </div>
                 )}
             </div>

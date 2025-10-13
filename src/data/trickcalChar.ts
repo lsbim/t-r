@@ -139,4 +139,4 @@ export const charInfo: CharInfoType = {
     "우로스(냉정)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-09-25" },
     "우로스(광기)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-09-25" },
 };
-
+// 성격별 우로스처럼 찢어놓은 사도는 타임라인, 사복 목록같은 곳에 나오지 않도록 추가 조정필요

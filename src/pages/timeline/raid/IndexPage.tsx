@@ -66,7 +66,7 @@ const IndexPage = () => {
                     <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
                 </div>
                 <div className="flex gap-x-4 items-center mb-2">
-                    <div className="flex-col flex">
+                    <div className="flex-col flex gap-y-1">
                         <span className="text-[12px] text-orange-500 font-bold">
                             차원 대충돌
                         </span>

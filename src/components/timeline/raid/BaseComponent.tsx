@@ -10,7 +10,7 @@ const BaseComponent = ({ allDates, getYOffset, BASE_DATE_HEIGHT }: Props) => {
     return (
         <>
             {/* 중앙 세로선 */}
-            <div className="absolute left-1/2 w-[2px] bg-black h-full z-50" />
+            <div className="absolute left-1/2 w-[2px] bg-black h-full z-30" />
 
             {/* 날짜 라벨 + 가로선 */}
             {allDates.map(iso => {
@@ -18,7 +18,7 @@ const BaseComponent = ({ allDates, getYOffset, BASE_DATE_HEIGHT }: Props) => {
                 return (
                     <div
                         key={iso}
-                        className="absolute left-1/2 -ml-[35px] flex items-center w-[70px] z-50 select-none"
+                        className="absolute left-1/2 -ml-[35px] flex items-center w-[70px] z-30 select-none"
                         style={{ top: y, height: Number(BASE_DATE_HEIGHT) }}
                     >
 

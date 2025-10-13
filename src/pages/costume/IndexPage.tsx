@@ -38,7 +38,8 @@ const IndexPage = () => {
         const costumeMap = new Map();
 
         const characterStatsObj = Object.entries(charInfo)
-            .filter(([charName, info]) => info.grade !== 1)
+            // 성격별 찢어놓은 우로스 제외
+            .filter(([charName, info]) => info.grade !== 1 && !charName.startsWith('우로스('))
             .reduce(
                 (
                     acc: Record<string, CostumeMapItem>

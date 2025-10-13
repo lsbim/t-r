@@ -14,6 +14,37 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
 
     const items = [
         {
+            id: 'notice_3',
+            header: (
+                <div className="">
+                    교단 레벨업 비용 계산 기능 추가
+                </div>
+            ),
+            content: (
+                <div className="px-4 py-[10px]">
+                    <div className="">
+                        <div className="mb-2">
+                            교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 모험 횟수를 계산합니다.
+                        </div>
+                        <div className="mb-4">
+                            재화의 합, 시설 레벨 별, 연구 단계 별로 제공됩니다.
+                        </div>
+                        <div className="flex-col flex text-[12px] gap-y-1 font-bold">
+                            <span>
+                                모험은 2, 3, 4레벨 획득량을 기준
+                            </span>
+                            <span>
+                                부수재료는 최소 획득량 이월
+                            </span>
+                            <span>
+                                모험회 현재 레벨에 수행이 가능한 모험만 소개
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
+        },
+        {
             id: 'notice_2',
             header: (
                 <div className="">
@@ -25,7 +56,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                     <div className="">
                         <div className="mb-4">
                             <span className="font-bold mr-1">
-                                2025-06-12 
+                                2025-06-12
                             </span>
                             <span>
                                 이후 집계된 컨텐츠의 순위를 지정할 수 있는 기능이 추가되었습니다.
