@@ -1,0 +1,6725 @@
+{
+  "비비": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 98
+      },
+      {
+        "season": "10",
+        "pickRate": 16.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 94
+      },
+      {
+        "season": "10002",
+        "pickRate": 98
+      },
+      {
+        "season": "11",
+        "pickRate": 8
+      },
+      {
+        "season": "12",
+        "pickRate": 81.3
+      },
+      {
+        "season": "2",
+        "pickRate": 98
+      },
+      {
+        "season": "4",
+        "pickRate": 99
+      },
+      {
+        "season": "5",
+        "pickRate": 99
+      },
+      {
+        "season": "6",
+        "pickRate": 100
+      },
+      {
+        "season": "7",
+        "pickRate": 92
+      },
+      {
+        "season": "8",
+        "pickRate": 94
+      },
+      {
+        "season": "9",
+        "pickRate": 95
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 98
+      },
+      {
+        "season": "11",
+        "pickRate": 62
+      },
+      {
+        "season": "12",
+        "pickRate": 24
+      },
+      {
+        "season": "13",
+        "pickRate": 63
+      },
+      {
+        "season": "14",
+        "pickRate": 52
+      },
+      {
+        "season": "15",
+        "pickRate": 46
+      },
+      {
+        "season": "16",
+        "pickRate": 27
+      },
+      {
+        "season": "17",
+        "pickRate": 48
+      },
+      {
+        "season": "20",
+        "pickRate": 16
+      },
+      {
+        "season": "31",
+        "pickRate": 43
+      },
+      {
+        "season": "32",
+        "pickRate": 24
+      },
+      {
+        "season": "33",
+        "pickRate": 76
+      },
+      {
+        "season": "34",
+        "pickRate": 6
+      },
+      {
+        "season": "35",
+        "pickRate": 33.3
+      },
+      {
+        "season": "36",
+        "pickRate": 36
+      },
+      {
+        "season": "37",
+        "pickRate": 7.3
+      },
+      {
+        "season": "38",
+        "pickRate": 2.7
+      },
+      {
+        "season": "39",
+        "pickRate": 8
+      },
+      {
+        "season": "4",
+        "pickRate": 83
+      },
+      {
+        "season": "5",
+        "pickRate": 98
+      },
+      {
+        "season": "6",
+        "pickRate": 86
+      },
+      {
+        "season": "7",
+        "pickRate": 72
+      },
+      {
+        "season": "8",
+        "pickRate": 46
+      },
+      {
+        "season": "9",
+        "pickRate": 40
+      }
+    ]
+  },
+  "키디언": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 97
+      },
+      {
+        "season": "10",
+        "pickRate": 1.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 78
+      },
+      {
+        "season": "10002",
+        "pickRate": 84
+      },
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 0.7
+      },
+      {
+        "season": "2",
+        "pickRate": 94
+      },
+      {
+        "season": "4",
+        "pickRate": 91
+      },
+      {
+        "season": "5",
+        "pickRate": 92
+      },
+      {
+        "season": "6",
+        "pickRate": 34
+      },
+      {
+        "season": "7",
+        "pickRate": 74
+      },
+      {
+        "season": "8",
+        "pickRate": 11
+      },
+      {
+        "season": "9",
+        "pickRate": 11
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 25
+      },
+      {
+        "season": "11",
+        "pickRate": 41
+      },
+      {
+        "season": "12",
+        "pickRate": 38
+      },
+      {
+        "season": "13",
+        "pickRate": 42
+      },
+      {
+        "season": "14",
+        "pickRate": 51
+      },
+      {
+        "season": "15",
+        "pickRate": 88
+      },
+      {
+        "season": "16",
+        "pickRate": 40
+      },
+      {
+        "season": "17",
+        "pickRate": 43
+      },
+      {
+        "season": "20",
+        "pickRate": 87
+      },
+      {
+        "season": "31",
+        "pickRate": 63
+      },
+      {
+        "season": "32",
+        "pickRate": 50
+      },
+      {
+        "season": "33",
+        "pickRate": 71
+      },
+      {
+        "season": "34",
+        "pickRate": 51
+      },
+      {
+        "season": "35",
+        "pickRate": 11.3
+      },
+      {
+        "season": "36",
+        "pickRate": 25.7
+      },
+      {
+        "season": "37",
+        "pickRate": 47
+      },
+      {
+        "season": "38",
+        "pickRate": 8.7
+      },
+      {
+        "season": "39",
+        "pickRate": 8.3
+      },
+      {
+        "season": "4",
+        "pickRate": 34
+      },
+      {
+        "season": "5",
+        "pickRate": 12
+      },
+      {
+        "season": "6",
+        "pickRate": 30
+      },
+      {
+        "season": "7",
+        "pickRate": 34
+      },
+      {
+        "season": "8",
+        "pickRate": 71
+      },
+      {
+        "season": "9",
+        "pickRate": 79
+      }
+    ]
+  },
+  "이드": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 93
+      },
+      {
+        "season": "10",
+        "pickRate": 0.7
+      },
+      {
+        "season": "10002",
+        "pickRate": 71
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "2",
+        "pickRate": 31
+      },
+      {
+        "season": "9",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "12",
+        "pickRate": 79
+      },
+      {
+        "season": "13",
+        "pickRate": 34
+      },
+      {
+        "season": "14",
+        "pickRate": 13
+      },
+      {
+        "season": "15",
+        "pickRate": 25
+      },
+      {
+        "season": "16",
+        "pickRate": 76
+      },
+      {
+        "season": "17",
+        "pickRate": 3
+      },
+      {
+        "season": "20",
+        "pickRate": 8
+      },
+      {
+        "season": "32",
+        "pickRate": 6
+      },
+      {
+        "season": "34",
+        "pickRate": 2
+      },
+      {
+        "season": "35",
+        "pickRate": 1.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 4.7
+      }
+    ]
+  },
+  "티그": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 7
+      },
+      {
+        "season": "10001",
+        "pickRate": 47
+      },
+      {
+        "season": "10002",
+        "pickRate": 33
+      },
+      {
+        "season": "2",
+        "pickRate": 49
+      },
+      {
+        "season": "4",
+        "pickRate": 16
+      },
+      {
+        "season": "5",
+        "pickRate": 17
+      },
+      {
+        "season": "6",
+        "pickRate": 5
+      },
+      {
+        "season": "7",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 13
+      },
+      {
+        "season": "11",
+        "pickRate": 25
+      },
+      {
+        "season": "12",
+        "pickRate": 2
+      },
+      {
+        "season": "13",
+        "pickRate": 19
+      },
+      {
+        "season": "14",
+        "pickRate": 19
+      },
+      {
+        "season": "15",
+        "pickRate": 5
+      },
+      {
+        "season": "16",
+        "pickRate": 12
+      },
+      {
+        "season": "17",
+        "pickRate": 7
+      },
+      {
+        "season": "20",
+        "pickRate": 51
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 1
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 14
+      },
+      {
+        "season": "5",
+        "pickRate": 8
+      },
+      {
+        "season": "6",
+        "pickRate": 67
+      },
+      {
+        "season": "7",
+        "pickRate": 13
+      },
+      {
+        "season": "8",
+        "pickRate": 19
+      },
+      {
+        "season": "9",
+        "pickRate": 13
+      }
+    ]
+  },
+  "루드": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 2
+      },
+      {
+        "season": "11",
+        "pickRate": 7
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 8
+      },
+      {
+        "season": "14",
+        "pickRate": 8
+      },
+      {
+        "season": "15",
+        "pickRate": 3
+      },
+      {
+        "season": "16",
+        "pickRate": 4
+      },
+      {
+        "season": "17",
+        "pickRate": 4
+      },
+      {
+        "season": "20",
+        "pickRate": 12
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 11
+      },
+      {
+        "season": "7",
+        "pickRate": 4
+      },
+      {
+        "season": "8",
+        "pickRate": 4
+      },
+      {
+        "season": "9",
+        "pickRate": 6
+      }
+    ]
+  },
+  "코미": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 15
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 3
+      },
+      {
+        "season": "11",
+        "pickRate": 21
+      },
+      {
+        "season": "12",
+        "pickRate": 24
+      },
+      {
+        "season": "13",
+        "pickRate": 17
+      },
+      {
+        "season": "14",
+        "pickRate": 12
+      },
+      {
+        "season": "15",
+        "pickRate": 44
+      },
+      {
+        "season": "16",
+        "pickRate": 12
+      },
+      {
+        "season": "17",
+        "pickRate": 11
+      },
+      {
+        "season": "20",
+        "pickRate": 9
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 32
+      },
+      {
+        "season": "5",
+        "pickRate": 5
+      },
+      {
+        "season": "6",
+        "pickRate": 22
+      },
+      {
+        "season": "7",
+        "pickRate": 23
+      },
+      {
+        "season": "8",
+        "pickRate": 24
+      },
+      {
+        "season": "9",
+        "pickRate": 29
+      }
+    ]
+  },
+  "림": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 3
+      },
+      {
+        "season": "10002",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 10
+      },
+      {
+        "season": "12",
+        "pickRate": 11
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 9
+      },
+      {
+        "season": "15",
+        "pickRate": 30
+      },
+      {
+        "season": "16",
+        "pickRate": 10
+      },
+      {
+        "season": "17",
+        "pickRate": 9
+      },
+      {
+        "season": "20",
+        "pickRate": 7
+      },
+      {
+        "season": "4",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "7",
+        "pickRate": 4
+      },
+      {
+        "season": "8",
+        "pickRate": 9
+      },
+      {
+        "season": "9",
+        "pickRate": 8
+      }
+    ]
+  },
+  "셀리네": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 2
+      },
+      {
+        "season": "10001",
+        "pickRate": 7
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 18
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 12
+      },
+      {
+        "season": "14",
+        "pickRate": 10
+      },
+      {
+        "season": "15",
+        "pickRate": 3
+      },
+      {
+        "season": "16",
+        "pickRate": 8
+      },
+      {
+        "season": "17",
+        "pickRate": 7
+      },
+      {
+        "season": "20",
+        "pickRate": 10
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "5",
+        "pickRate": 3
+      },
+      {
+        "season": "6",
+        "pickRate": 39
+      },
+      {
+        "season": "7",
+        "pickRate": 9
+      },
+      {
+        "season": "8",
+        "pickRate": 8
+      },
+      {
+        "season": "9",
+        "pickRate": 10
+      }
+    ]
+  },
+  "우이": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 82
+      },
+      {
+        "season": "10",
+        "pickRate": 42.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 46
+      },
+      {
+        "season": "10002",
+        "pickRate": 63
+      },
+      {
+        "season": "11",
+        "pickRate": 2
+      },
+      {
+        "season": "12",
+        "pickRate": 8.7
+      },
+      {
+        "season": "2",
+        "pickRate": 46
+      },
+      {
+        "season": "4",
+        "pickRate": 98
+      },
+      {
+        "season": "5",
+        "pickRate": 95
+      },
+      {
+        "season": "6",
+        "pickRate": 27
+      },
+      {
+        "season": "7",
+        "pickRate": 29
+      },
+      {
+        "season": "8",
+        "pickRate": 12
+      },
+      {
+        "season": "9",
+        "pickRate": 27
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 6
+      },
+      {
+        "season": "11",
+        "pickRate": 20
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 15
+      },
+      {
+        "season": "15",
+        "pickRate": 7
+      },
+      {
+        "season": "16",
+        "pickRate": 11
+      },
+      {
+        "season": "17",
+        "pickRate": 7
+      },
+      {
+        "season": "20",
+        "pickRate": 63
+      },
+      {
+        "season": "31",
+        "pickRate": 96
+      },
+      {
+        "season": "32",
+        "pickRate": 95
+      },
+      {
+        "season": "33",
+        "pickRate": 92
+      },
+      {
+        "season": "34",
+        "pickRate": 65
+      },
+      {
+        "season": "35",
+        "pickRate": 86.7
+      },
+      {
+        "season": "36",
+        "pickRate": 78.3
+      },
+      {
+        "season": "37",
+        "pickRate": 72
+      },
+      {
+        "season": "38",
+        "pickRate": 67.7
+      },
+      {
+        "season": "39",
+        "pickRate": 42.7
+      },
+      {
+        "season": "4",
+        "pickRate": 19
+      },
+      {
+        "season": "5",
+        "pickRate": 23
+      },
+      {
+        "season": "6",
+        "pickRate": 10
+      },
+      {
+        "season": "7",
+        "pickRate": 6
+      },
+      {
+        "season": "8",
+        "pickRate": 11
+      },
+      {
+        "season": "9",
+        "pickRate": 7
+      }
+    ]
+  },
+  "루포": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 6
+      },
+      {
+        "season": "10001",
+        "pickRate": 12
+      },
+      {
+        "season": "10002",
+        "pickRate": 6
+      },
+      {
+        "season": "2",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 19
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 11
+      },
+      {
+        "season": "14",
+        "pickRate": 12
+      },
+      {
+        "season": "15",
+        "pickRate": 4
+      },
+      {
+        "season": "16",
+        "pickRate": 6
+      },
+      {
+        "season": "17",
+        "pickRate": 5
+      },
+      {
+        "season": "20",
+        "pickRate": 37
+      },
+      {
+        "season": "35",
+        "pickRate": 0.7
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 5
+      },
+      {
+        "season": "6",
+        "pickRate": 48
+      },
+      {
+        "season": "7",
+        "pickRate": 10
+      },
+      {
+        "season": "8",
+        "pickRate": 8
+      },
+      {
+        "season": "9",
+        "pickRate": 11
+      }
+    ]
+  },
+  "나이아": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 6
+      },
+      {
+        "season": "10001",
+        "pickRate": 74
+      },
+      {
+        "season": "10002",
+        "pickRate": 43
+      },
+      {
+        "season": "2",
+        "pickRate": 4
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 97
+      },
+      {
+        "season": "11",
+        "pickRate": 58
+      },
+      {
+        "season": "12",
+        "pickRate": 24
+      },
+      {
+        "season": "13",
+        "pickRate": 57
+      },
+      {
+        "season": "14",
+        "pickRate": 36
+      },
+      {
+        "season": "15",
+        "pickRate": 39
+      },
+      {
+        "season": "16",
+        "pickRate": 16
+      },
+      {
+        "season": "17",
+        "pickRate": 21
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 6.7
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 62
+      },
+      {
+        "season": "5",
+        "pickRate": 81
+      },
+      {
+        "season": "6",
+        "pickRate": 48
+      },
+      {
+        "season": "7",
+        "pickRate": 51
+      },
+      {
+        "season": "8",
+        "pickRate": 31
+      },
+      {
+        "season": "9",
+        "pickRate": 17
+      }
+    ]
+  },
+  "에피카": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 45
+      },
+      {
+        "season": "10",
+        "pickRate": 90.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 36
+      },
+      {
+        "season": "10002",
+        "pickRate": 48
+      },
+      {
+        "season": "11",
+        "pickRate": 94.3
+      },
+      {
+        "season": "12",
+        "pickRate": 85.7
+      },
+      {
+        "season": "2",
+        "pickRate": 41
+      },
+      {
+        "season": "4",
+        "pickRate": 86
+      },
+      {
+        "season": "5",
+        "pickRate": 63
+      },
+      {
+        "season": "6",
+        "pickRate": 91
+      },
+      {
+        "season": "7",
+        "pickRate": 85
+      },
+      {
+        "season": "8",
+        "pickRate": 97
+      },
+      {
+        "season": "9",
+        "pickRate": 91
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 14
+      },
+      {
+        "season": "11",
+        "pickRate": 19
+      },
+      {
+        "season": "12",
+        "pickRate": 4
+      },
+      {
+        "season": "13",
+        "pickRate": 23
+      },
+      {
+        "season": "14",
+        "pickRate": 12
+      },
+      {
+        "season": "15",
+        "pickRate": 6
+      },
+      {
+        "season": "16",
+        "pickRate": 6
+      },
+      {
+        "season": "17",
+        "pickRate": 4
+      },
+      {
+        "season": "20",
+        "pickRate": 30
+      },
+      {
+        "season": "31",
+        "pickRate": 52
+      },
+      {
+        "season": "32",
+        "pickRate": 27
+      },
+      {
+        "season": "33",
+        "pickRate": 53
+      },
+      {
+        "season": "34",
+        "pickRate": 12
+      },
+      {
+        "season": "35",
+        "pickRate": 29.7
+      },
+      {
+        "season": "36",
+        "pickRate": 33.3
+      },
+      {
+        "season": "37",
+        "pickRate": 51
+      },
+      {
+        "season": "38",
+        "pickRate": 11.7
+      },
+      {
+        "season": "39",
+        "pickRate": 5.3
+      },
+      {
+        "season": "6",
+        "pickRate": 69
+      },
+      {
+        "season": "7",
+        "pickRate": 17
+      },
+      {
+        "season": "8",
+        "pickRate": 12
+      },
+      {
+        "season": "9",
+        "pickRate": 12
+      }
+    ]
+  },
+  "엘레나": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 69
+      },
+      {
+        "season": "10001",
+        "pickRate": 14
+      },
+      {
+        "season": "10002",
+        "pickRate": 41
+      },
+      {
+        "season": "2",
+        "pickRate": 19
+      },
+      {
+        "season": "4",
+        "pickRate": 4
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 8
+      },
+      {
+        "season": "12",
+        "pickRate": 52
+      },
+      {
+        "season": "13",
+        "pickRate": 24
+      },
+      {
+        "season": "14",
+        "pickRate": 6
+      },
+      {
+        "season": "15",
+        "pickRate": 11
+      },
+      {
+        "season": "16",
+        "pickRate": 65
+      },
+      {
+        "season": "20",
+        "pickRate": 19
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "34",
+        "pickRate": 4
+      },
+      {
+        "season": "35",
+        "pickRate": 0.7
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 17
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 3
+      },
+      {
+        "season": "9",
+        "pickRate": 31
+      }
+    ]
+  },
+  "아야": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10",
+        "pickRate": 60.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "11",
+        "pickRate": 12
+      },
+      {
+        "season": "12",
+        "pickRate": 12
+      },
+      {
+        "season": "2",
+        "pickRate": 1
+      },
+      {
+        "season": "5",
+        "pickRate": 37
+      },
+      {
+        "season": "6",
+        "pickRate": 82
+      },
+      {
+        "season": "7",
+        "pickRate": 57
+      },
+      {
+        "season": "8",
+        "pickRate": 44
+      },
+      {
+        "season": "9",
+        "pickRate": 33
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 8
+      },
+      {
+        "season": "12",
+        "pickRate": 37
+      },
+      {
+        "season": "13",
+        "pickRate": 9
+      },
+      {
+        "season": "14",
+        "pickRate": 2
+      },
+      {
+        "season": "15",
+        "pickRate": 5
+      },
+      {
+        "season": "16",
+        "pickRate": 15
+      },
+      {
+        "season": "20",
+        "pickRate": 4
+      },
+      {
+        "season": "32",
+        "pickRate": 74
+      },
+      {
+        "season": "33",
+        "pickRate": 11
+      },
+      {
+        "season": "34",
+        "pickRate": 94
+      },
+      {
+        "season": "35",
+        "pickRate": 23.3
+      },
+      {
+        "season": "36",
+        "pickRate": 3.3
+      },
+      {
+        "season": "37",
+        "pickRate": 15.3
+      },
+      {
+        "season": "38",
+        "pickRate": 56.3
+      },
+      {
+        "season": "39",
+        "pickRate": 0.7
+      },
+      {
+        "season": "4",
+        "pickRate": 15
+      },
+      {
+        "season": "5",
+        "pickRate": 3
+      },
+      {
+        "season": "6",
+        "pickRate": 4
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 30
+      }
+    ]
+  },
+  "블랑셰": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 13
+      },
+      {
+        "season": "10001",
+        "pickRate": 20
+      },
+      {
+        "season": "10002",
+        "pickRate": 10
+      },
+      {
+        "season": "2",
+        "pickRate": 6
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 1
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 23
+      },
+      {
+        "season": "12",
+        "pickRate": 25
+      },
+      {
+        "season": "13",
+        "pickRate": 23
+      },
+      {
+        "season": "14",
+        "pickRate": 15
+      },
+      {
+        "season": "15",
+        "pickRate": 49
+      },
+      {
+        "season": "16",
+        "pickRate": 17
+      },
+      {
+        "season": "17",
+        "pickRate": 13
+      },
+      {
+        "season": "20",
+        "pickRate": 24
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "힐데": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 18
+      },
+      {
+        "season": "10001",
+        "pickRate": 31
+      },
+      {
+        "season": "10002",
+        "pickRate": 21
+      },
+      {
+        "season": "2",
+        "pickRate": 10
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 13
+      },
+      {
+        "season": "11",
+        "pickRate": 25
+      },
+      {
+        "season": "12",
+        "pickRate": 29
+      },
+      {
+        "season": "13",
+        "pickRate": 26
+      },
+      {
+        "season": "14",
+        "pickRate": 20
+      },
+      {
+        "season": "15",
+        "pickRate": 55
+      },
+      {
+        "season": "16",
+        "pickRate": 19
+      },
+      {
+        "season": "17",
+        "pickRate": 14
+      },
+      {
+        "season": "20",
+        "pickRate": 24
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 1.7
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 1
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 34
+      },
+      {
+        "season": "5",
+        "pickRate": 5
+      },
+      {
+        "season": "6",
+        "pickRate": 25
+      },
+      {
+        "season": "7",
+        "pickRate": 24
+      },
+      {
+        "season": "8",
+        "pickRate": 30
+      },
+      {
+        "season": "9",
+        "pickRate": 33
+      }
+    ]
+  },
+  "코미(수영복)": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 16
+      },
+      {
+        "season": "2",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "16",
+        "pickRate": 56
+      },
+      {
+        "season": "20",
+        "pickRate": 27
+      },
+      {
+        "season": "34",
+        "pickRate": 16
+      },
+      {
+        "season": "35",
+        "pickRate": 1
+      },
+      {
+        "season": "38",
+        "pickRate": 4.3
+      }
+    ]
+  },
+  "시스트": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 6
+      },
+      {
+        "season": "10001",
+        "pickRate": 5
+      },
+      {
+        "season": "10002",
+        "pickRate": 6
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 2
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 3
+      },
+      {
+        "season": "7",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 15
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 42
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 49
+      },
+      {
+        "season": "20",
+        "pickRate": 18
+      },
+      {
+        "season": "31",
+        "pickRate": 42
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 4
+      },
+      {
+        "season": "34",
+        "pickRate": 7
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 8.7
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 27.7
+      },
+      {
+        "season": "4",
+        "pickRate": 13
+      },
+      {
+        "season": "5",
+        "pickRate": 26
+      },
+      {
+        "season": "6",
+        "pickRate": 13
+      },
+      {
+        "season": "7",
+        "pickRate": 47
+      },
+      {
+        "season": "8",
+        "pickRate": 63
+      },
+      {
+        "season": "9",
+        "pickRate": 35
+      }
+    ]
+  },
+  "앨리스": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 7
+      },
+      {
+        "season": "10001",
+        "pickRate": 8
+      },
+      {
+        "season": "10002",
+        "pickRate": 4
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 13
+      },
+      {
+        "season": "12",
+        "pickRate": 6
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 38
+      },
+      {
+        "season": "15",
+        "pickRate": 8
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 17
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "31",
+        "pickRate": 2
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 1.3
+      },
+      {
+        "season": "7",
+        "pickRate": 49
+      },
+      {
+        "season": "8",
+        "pickRate": 52
+      },
+      {
+        "season": "9",
+        "pickRate": 30
+      }
+    ]
+  },
+  "디아나": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 10
+      },
+      {
+        "season": "10001",
+        "pickRate": 5
+      },
+      {
+        "season": "10002",
+        "pickRate": 12
+      },
+      {
+        "season": "2",
+        "pickRate": 70
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 16
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "13",
+        "pickRate": 7
+      },
+      {
+        "season": "14",
+        "pickRate": 38
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 8
+      },
+      {
+        "season": "17",
+        "pickRate": 66
+      },
+      {
+        "season": "20",
+        "pickRate": 9
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 0.7
+      },
+      {
+        "season": "4",
+        "pickRate": 13
+      },
+      {
+        "season": "5",
+        "pickRate": 22
+      },
+      {
+        "season": "6",
+        "pickRate": 11
+      },
+      {
+        "season": "7",
+        "pickRate": 36
+      },
+      {
+        "season": "8",
+        "pickRate": 36
+      },
+      {
+        "season": "9",
+        "pickRate": 26
+      }
+    ]
+  },
+  "실피르": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 7
+      },
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "10002",
+        "pickRate": 2
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 5
+      },
+      {
+        "season": "11",
+        "pickRate": 11
+      },
+      {
+        "season": "12",
+        "pickRate": 23
+      },
+      {
+        "season": "13",
+        "pickRate": 11
+      },
+      {
+        "season": "14",
+        "pickRate": 9
+      },
+      {
+        "season": "15",
+        "pickRate": 39
+      },
+      {
+        "season": "16",
+        "pickRate": 9
+      },
+      {
+        "season": "17",
+        "pickRate": 5
+      },
+      {
+        "season": "20",
+        "pickRate": 12
+      },
+      {
+        "season": "4",
+        "pickRate": 30
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 20
+      },
+      {
+        "season": "7",
+        "pickRate": 19
+      },
+      {
+        "season": "8",
+        "pickRate": 23
+      },
+      {
+        "season": "9",
+        "pickRate": 25
+      }
+    ]
+  },
+  "마고": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 62
+      },
+      {
+        "season": "11",
+        "pickRate": 23
+      },
+      {
+        "season": "12",
+        "pickRate": 8
+      },
+      {
+        "season": "13",
+        "pickRate": 12
+      },
+      {
+        "season": "14",
+        "pickRate": 13
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "17",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 26
+      },
+      {
+        "season": "5",
+        "pickRate": 56
+      },
+      {
+        "season": "6",
+        "pickRate": 3
+      },
+      {
+        "season": "7",
+        "pickRate": 15
+      },
+      {
+        "season": "8",
+        "pickRate": 10
+      },
+      {
+        "season": "9",
+        "pickRate": 4
+      }
+    ]
+  },
+  "가비아": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 9
+      },
+      {
+        "season": "10001",
+        "pickRate": 37
+      },
+      {
+        "season": "10002",
+        "pickRate": 38
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 97
+      },
+      {
+        "season": "11",
+        "pickRate": 40
+      },
+      {
+        "season": "12",
+        "pickRate": 15
+      },
+      {
+        "season": "13",
+        "pickRate": 38
+      },
+      {
+        "season": "14",
+        "pickRate": 31
+      },
+      {
+        "season": "15",
+        "pickRate": 30
+      },
+      {
+        "season": "16",
+        "pickRate": 8
+      },
+      {
+        "season": "17",
+        "pickRate": 16
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 33
+      },
+      {
+        "season": "5",
+        "pickRate": 69
+      },
+      {
+        "season": "6",
+        "pickRate": 19
+      },
+      {
+        "season": "7",
+        "pickRate": 21
+      },
+      {
+        "season": "8",
+        "pickRate": 16
+      },
+      {
+        "season": "9",
+        "pickRate": 4
+      }
+    ]
+  },
+  "피코라": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 10
+      },
+      {
+        "season": "10001",
+        "pickRate": 32
+      },
+      {
+        "season": "10002",
+        "pickRate": 44
+      },
+      {
+        "season": "2",
+        "pickRate": 5
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 3
+      },
+      {
+        "season": "11",
+        "pickRate": 13
+      },
+      {
+        "season": "12",
+        "pickRate": 57
+      },
+      {
+        "season": "13",
+        "pickRate": 33
+      },
+      {
+        "season": "14",
+        "pickRate": 14
+      },
+      {
+        "season": "15",
+        "pickRate": 22
+      },
+      {
+        "season": "16",
+        "pickRate": 74
+      },
+      {
+        "season": "17",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 4
+      },
+      {
+        "season": "9",
+        "pickRate": 17
+      }
+    ]
+  },
+  "벨리타": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 5
+      },
+      {
+        "season": "10001",
+        "pickRate": 19
+      },
+      {
+        "season": "10002",
+        "pickRate": 11
+      },
+      {
+        "season": "2",
+        "pickRate": 4
+      },
+      {
+        "season": "7",
+        "pickRate": 2
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 17
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 40
+      },
+      {
+        "season": "15",
+        "pickRate": 8
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 63
+      },
+      {
+        "season": "20",
+        "pickRate": 8
+      },
+      {
+        "season": "31",
+        "pickRate": 3
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 1.7
+      },
+      {
+        "season": "4",
+        "pickRate": 9
+      },
+      {
+        "season": "5",
+        "pickRate": 20
+      },
+      {
+        "season": "6",
+        "pickRate": 12
+      },
+      {
+        "season": "7",
+        "pickRate": 54
+      },
+      {
+        "season": "8",
+        "pickRate": 51
+      },
+      {
+        "season": "9",
+        "pickRate": 30
+      }
+    ]
+  },
+  "슈팡": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 55
+      },
+      {
+        "season": "10",
+        "pickRate": 0.3
+      },
+      {
+        "season": "10002",
+        "pickRate": 49
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "2",
+        "pickRate": 67
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "13",
+        "pickRate": 15
+      },
+      {
+        "season": "14",
+        "pickRate": 15
+      },
+      {
+        "season": "15",
+        "pickRate": 5
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 7
+      },
+      {
+        "season": "20",
+        "pickRate": 11
+      },
+      {
+        "season": "31",
+        "pickRate": 3
+      },
+      {
+        "season": "32",
+        "pickRate": 11
+      },
+      {
+        "season": "33",
+        "pickRate": 7
+      },
+      {
+        "season": "34",
+        "pickRate": 2
+      },
+      {
+        "season": "35",
+        "pickRate": 27.3
+      },
+      {
+        "season": "36",
+        "pickRate": 10.7
+      },
+      {
+        "season": "37",
+        "pickRate": 12.7
+      },
+      {
+        "season": "38",
+        "pickRate": 17.7
+      },
+      {
+        "season": "39",
+        "pickRate": 1
+      }
+    ]
+  },
+  "칸나": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 19
+      },
+      {
+        "season": "10002",
+        "pickRate": 5
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 20
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 13
+      },
+      {
+        "season": "14",
+        "pickRate": 9
+      },
+      {
+        "season": "15",
+        "pickRate": 4
+      },
+      {
+        "season": "16",
+        "pickRate": 5
+      },
+      {
+        "season": "17",
+        "pickRate": 3
+      },
+      {
+        "season": "20",
+        "pickRate": 11
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 50
+      },
+      {
+        "season": "7",
+        "pickRate": 10
+      },
+      {
+        "season": "8",
+        "pickRate": 8
+      },
+      {
+        "season": "9",
+        "pickRate": 11
+      }
+    ]
+  },
+  "바나": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "14",
+        "pickRate": 8
+      },
+      {
+        "season": "15",
+        "pickRate": 7
+      },
+      {
+        "season": "16",
+        "pickRate": 3
+      },
+      {
+        "season": "17",
+        "pickRate": 4
+      },
+      {
+        "season": "20",
+        "pickRate": 18
+      },
+      {
+        "season": "38",
+        "pickRate": 0.7
+      }
+    ]
+  },
+  "에르핀": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 33
+      },
+      {
+        "season": "10",
+        "pickRate": 0.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 30
+      },
+      {
+        "season": "10002",
+        "pickRate": 3
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "2",
+        "pickRate": 31
+      },
+      {
+        "season": "9",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 92
+      },
+      {
+        "season": "11",
+        "pickRate": 37
+      },
+      {
+        "season": "12",
+        "pickRate": 13
+      },
+      {
+        "season": "13",
+        "pickRate": 27
+      },
+      {
+        "season": "14",
+        "pickRate": 23
+      },
+      {
+        "season": "15",
+        "pickRate": 15
+      },
+      {
+        "season": "16",
+        "pickRate": 3
+      },
+      {
+        "season": "17",
+        "pickRate": 18
+      },
+      {
+        "season": "20",
+        "pickRate": 4
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 5
+      },
+      {
+        "season": "36",
+        "pickRate": 1.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 33
+      },
+      {
+        "season": "5",
+        "pickRate": 70
+      },
+      {
+        "season": "6",
+        "pickRate": 13
+      },
+      {
+        "season": "7",
+        "pickRate": 27
+      },
+      {
+        "season": "8",
+        "pickRate": 21
+      },
+      {
+        "season": "9",
+        "pickRate": 5
+      }
+    ]
+  },
+  "에슈르": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 5
+      },
+      {
+        "season": "10001",
+        "pickRate": 1
+      },
+      {
+        "season": "10002",
+        "pickRate": 2
+      },
+      {
+        "season": "2",
+        "pickRate": 8
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 2
+      },
+      {
+        "season": "11",
+        "pickRate": 15
+      },
+      {
+        "season": "12",
+        "pickRate": 10
+      },
+      {
+        "season": "13",
+        "pickRate": 17
+      },
+      {
+        "season": "14",
+        "pickRate": 10
+      },
+      {
+        "season": "15",
+        "pickRate": 15
+      },
+      {
+        "season": "16",
+        "pickRate": 5
+      },
+      {
+        "season": "17",
+        "pickRate": 10
+      },
+      {
+        "season": "20",
+        "pickRate": 19
+      },
+      {
+        "season": "4",
+        "pickRate": 10
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      },
+      {
+        "season": "6",
+        "pickRate": 5
+      },
+      {
+        "season": "7",
+        "pickRate": 18
+      },
+      {
+        "season": "8",
+        "pickRate": 21
+      },
+      {
+        "season": "9",
+        "pickRate": 12
+      }
+    ]
+  },
+  "리스티": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 2
+      },
+      {
+        "season": "2",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "15",
+        "pickRate": 27
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 13
+      },
+      {
+        "season": "20",
+        "pickRate": 19
+      }
+    ]
+  },
+  "스피키": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 11
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 87
+      },
+      {
+        "season": "11",
+        "pickRate": 35
+      },
+      {
+        "season": "12",
+        "pickRate": 10
+      },
+      {
+        "season": "13",
+        "pickRate": 20
+      },
+      {
+        "season": "14",
+        "pickRate": 3
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "17",
+        "pickRate": 4
+      },
+      {
+        "season": "4",
+        "pickRate": 30
+      },
+      {
+        "season": "5",
+        "pickRate": 64
+      },
+      {
+        "season": "6",
+        "pickRate": 13
+      },
+      {
+        "season": "7",
+        "pickRate": 12
+      },
+      {
+        "season": "8",
+        "pickRate": 32
+      },
+      {
+        "season": "9",
+        "pickRate": 5
+      }
+    ]
+  },
+  "롤렛": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 1
+      },
+      {
+        "season": "10",
+        "pickRate": 27
+      },
+      {
+        "season": "11",
+        "pickRate": 0.7
+      },
+      {
+        "season": "12",
+        "pickRate": 0.7
+      },
+      {
+        "season": "2",
+        "pickRate": 8
+      }
+    ],
+    "clash": [
+      {
+        "season": "14",
+        "pickRate": 35
+      },
+      {
+        "season": "15",
+        "pickRate": 7
+      },
+      {
+        "season": "16",
+        "pickRate": 6
+      },
+      {
+        "season": "17",
+        "pickRate": 61
+      },
+      {
+        "season": "20",
+        "pickRate": 7
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 5
+      },
+      {
+        "season": "37",
+        "pickRate": 12.7
+      },
+      {
+        "season": "38",
+        "pickRate": 15.7
+      },
+      {
+        "season": "39",
+        "pickRate": 49.7
+      }
+    ]
+  },
+  "마요": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 2
+      },
+      {
+        "season": "10001",
+        "pickRate": 7
+      },
+      {
+        "season": "10002",
+        "pickRate": 4
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 14
+      },
+      {
+        "season": "12",
+        "pickRate": 5
+      },
+      {
+        "season": "13",
+        "pickRate": 8
+      },
+      {
+        "season": "14",
+        "pickRate": 35
+      },
+      {
+        "season": "15",
+        "pickRate": 8
+      },
+      {
+        "season": "16",
+        "pickRate": 5
+      },
+      {
+        "season": "17",
+        "pickRate": 58
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 13
+      },
+      {
+        "season": "5",
+        "pickRate": 23
+      },
+      {
+        "season": "6",
+        "pickRate": 12
+      },
+      {
+        "season": "7",
+        "pickRate": 38
+      },
+      {
+        "season": "8",
+        "pickRate": 47
+      },
+      {
+        "season": "9",
+        "pickRate": 27
+      }
+    ]
+  },
+  "시온": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 4
+      },
+      {
+        "season": "10",
+        "pickRate": 2
+      },
+      {
+        "season": "10001",
+        "pickRate": 30
+      },
+      {
+        "season": "10002",
+        "pickRate": 7
+      },
+      {
+        "season": "11",
+        "pickRate": 15.3
+      },
+      {
+        "season": "12",
+        "pickRate": 6
+      },
+      {
+        "season": "2",
+        "pickRate": 74
+      },
+      {
+        "season": "4",
+        "pickRate": 60
+      },
+      {
+        "season": "5",
+        "pickRate": 40
+      },
+      {
+        "season": "6",
+        "pickRate": 14
+      },
+      {
+        "season": "7",
+        "pickRate": 18
+      },
+      {
+        "season": "8",
+        "pickRate": 5
+      },
+      {
+        "season": "9",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 7
+      },
+      {
+        "season": "11",
+        "pickRate": 19
+      },
+      {
+        "season": "12",
+        "pickRate": 24
+      },
+      {
+        "season": "13",
+        "pickRate": 21
+      },
+      {
+        "season": "14",
+        "pickRate": 12
+      },
+      {
+        "season": "15",
+        "pickRate": 44
+      },
+      {
+        "season": "16",
+        "pickRate": 12
+      },
+      {
+        "season": "17",
+        "pickRate": 9
+      },
+      {
+        "season": "20",
+        "pickRate": 47
+      },
+      {
+        "season": "31",
+        "pickRate": 5
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "33",
+        "pickRate": 5
+      },
+      {
+        "season": "34",
+        "pickRate": 2
+      },
+      {
+        "season": "35",
+        "pickRate": 3.3
+      },
+      {
+        "season": "36",
+        "pickRate": 54
+      },
+      {
+        "season": "37",
+        "pickRate": 18.3
+      },
+      {
+        "season": "38",
+        "pickRate": 7
+      },
+      {
+        "season": "39",
+        "pickRate": 0.7
+      },
+      {
+        "season": "4",
+        "pickRate": 32
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 21
+      },
+      {
+        "season": "7",
+        "pickRate": 24
+      },
+      {
+        "season": "8",
+        "pickRate": 31
+      },
+      {
+        "season": "9",
+        "pickRate": 29
+      }
+    ]
+  },
+  "버터": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 3
+      },
+      {
+        "season": "10",
+        "pickRate": 0.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 3
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "2",
+        "pickRate": 3
+      },
+      {
+        "season": "6",
+        "pickRate": 1
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 17
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 5
+      },
+      {
+        "season": "16",
+        "pickRate": 5
+      },
+      {
+        "season": "17",
+        "pickRate": 6
+      },
+      {
+        "season": "20",
+        "pickRate": 31
+      },
+      {
+        "season": "31",
+        "pickRate": 2
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 1.3
+      },
+      {
+        "season": "38",
+        "pickRate": 1
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 49
+      },
+      {
+        "season": "7",
+        "pickRate": 9
+      },
+      {
+        "season": "8",
+        "pickRate": 7
+      },
+      {
+        "season": "9",
+        "pickRate": 11
+      }
+    ]
+  },
+  "다야": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 46
+      },
+      {
+        "season": "10",
+        "pickRate": 0.7
+      },
+      {
+        "season": "10001",
+        "pickRate": 77
+      },
+      {
+        "season": "10002",
+        "pickRate": 57
+      },
+      {
+        "season": "2",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 36
+      },
+      {
+        "season": "6",
+        "pickRate": 10
+      },
+      {
+        "season": "7",
+        "pickRate": 3
+      },
+      {
+        "season": "8",
+        "pickRate": 2
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 97
+      },
+      {
+        "season": "11",
+        "pickRate": 42
+      },
+      {
+        "season": "12",
+        "pickRate": 16
+      },
+      {
+        "season": "13",
+        "pickRate": 38
+      },
+      {
+        "season": "14",
+        "pickRate": 32
+      },
+      {
+        "season": "15",
+        "pickRate": 27
+      },
+      {
+        "season": "16",
+        "pickRate": 2
+      },
+      {
+        "season": "17",
+        "pickRate": 18
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 9.7
+      },
+      {
+        "season": "36",
+        "pickRate": 1.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 32
+      },
+      {
+        "season": "5",
+        "pickRate": 69
+      },
+      {
+        "season": "6",
+        "pickRate": 14
+      },
+      {
+        "season": "7",
+        "pickRate": 29
+      },
+      {
+        "season": "8",
+        "pickRate": 20
+      },
+      {
+        "season": "9",
+        "pickRate": 4
+      }
+    ]
+  },
+  "캬롯": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 41
+      },
+      {
+        "season": "10002",
+        "pickRate": 56
+      }
+    ],
+    "clash": [
+      {
+        "season": "14",
+        "pickRate": 33
+      },
+      {
+        "season": "15",
+        "pickRate": 28
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 18
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "실라": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 5
+      },
+      {
+        "season": "10",
+        "pickRate": 17.7
+      },
+      {
+        "season": "10001",
+        "pickRate": 31
+      },
+      {
+        "season": "10002",
+        "pickRate": 4
+      },
+      {
+        "season": "11",
+        "pickRate": 75
+      },
+      {
+        "season": "12",
+        "pickRate": 23
+      },
+      {
+        "season": "2",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 1
+      },
+      {
+        "season": "8",
+        "pickRate": 7
+      },
+      {
+        "season": "9",
+        "pickRate": 19
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 5
+      },
+      {
+        "season": "11",
+        "pickRate": 14
+      },
+      {
+        "season": "12",
+        "pickRate": 62
+      },
+      {
+        "season": "13",
+        "pickRate": 34
+      },
+      {
+        "season": "14",
+        "pickRate": 7
+      },
+      {
+        "season": "15",
+        "pickRate": 15
+      },
+      {
+        "season": "16",
+        "pickRate": 72
+      },
+      {
+        "season": "20",
+        "pickRate": 18
+      },
+      {
+        "season": "32",
+        "pickRate": 15
+      },
+      {
+        "season": "34",
+        "pickRate": 52
+      },
+      {
+        "season": "35",
+        "pickRate": 4
+      },
+      {
+        "season": "36",
+        "pickRate": 1
+      },
+      {
+        "season": "37",
+        "pickRate": 47.7
+      },
+      {
+        "season": "38",
+        "pickRate": 69.3
+      },
+      {
+        "season": "4",
+        "pickRate": 45
+      },
+      {
+        "season": "5",
+        "pickRate": 6
+      },
+      {
+        "season": "6",
+        "pickRate": 43
+      },
+      {
+        "season": "7",
+        "pickRate": 9
+      },
+      {
+        "season": "8",
+        "pickRate": 6
+      },
+      {
+        "season": "9",
+        "pickRate": 68
+      }
+    ]
+  },
+  "제이드": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 4
+      },
+      {
+        "season": "10001",
+        "pickRate": 3
+      },
+      {
+        "season": "10002",
+        "pickRate": 4
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 30
+      },
+      {
+        "season": "13",
+        "pickRate": 14
+      },
+      {
+        "season": "14",
+        "pickRate": 5
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 34
+      },
+      {
+        "season": "20",
+        "pickRate": 5
+      },
+      {
+        "season": "38",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 14
+      }
+    ]
+  },
+  "아멜리아": {
+    "frontier": [
+      {
+        "season": "1",
+        "pickRate": 85
+      },
+      {
+        "season": "10001",
+        "pickRate": 18
+      },
+      {
+        "season": "10002",
+        "pickRate": 51
+      },
+      {
+        "season": "2",
+        "pickRate": 56
+      },
+      {
+        "season": "4",
+        "pickRate": 74
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 7
+      },
+      {
+        "season": "12",
+        "pickRate": 48
+      },
+      {
+        "season": "13",
+        "pickRate": 19
+      },
+      {
+        "season": "14",
+        "pickRate": 5
+      },
+      {
+        "season": "15",
+        "pickRate": 14
+      },
+      {
+        "season": "16",
+        "pickRate": 69
+      },
+      {
+        "season": "20",
+        "pickRate": 22
+      },
+      {
+        "season": "32",
+        "pickRate": 21
+      },
+      {
+        "season": "34",
+        "pickRate": 13
+      },
+      {
+        "season": "35",
+        "pickRate": 2
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 1.7
+      },
+      {
+        "season": "4",
+        "pickRate": 16
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "9",
+        "pickRate": 25
+      }
+    ]
+  },
+  "디아나(왕년)": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 98.3
+      },
+      {
+        "season": "11",
+        "pickRate": 99.3
+      },
+      {
+        "season": "12",
+        "pickRate": 99
+      }
+    ],
+    "clash": [
+      {
+        "season": "34",
+        "pickRate": 97
+      },
+      {
+        "season": "35",
+        "pickRate": 82.3
+      },
+      {
+        "season": "36",
+        "pickRate": 12.7
+      },
+      {
+        "season": "37",
+        "pickRate": 62.7
+      },
+      {
+        "season": "38",
+        "pickRate": 99.3
+      },
+      {
+        "season": "39",
+        "pickRate": 4.3
+      }
+    ]
+  },
+  "벨라": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 93.3
+      },
+      {
+        "season": "11",
+        "pickRate": 96.7
+      },
+      {
+        "season": "12",
+        "pickRate": 95
+      },
+      {
+        "season": "8",
+        "pickRate": 97
+      },
+      {
+        "season": "9",
+        "pickRate": 97
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 57
+      },
+      {
+        "season": "32",
+        "pickRate": 77
+      },
+      {
+        "season": "33",
+        "pickRate": 92
+      },
+      {
+        "season": "34",
+        "pickRate": 63
+      },
+      {
+        "season": "35",
+        "pickRate": 76
+      },
+      {
+        "season": "36",
+        "pickRate": 81.7
+      },
+      {
+        "season": "37",
+        "pickRate": 85.3
+      },
+      {
+        "season": "38",
+        "pickRate": 79.7
+      },
+      {
+        "season": "39",
+        "pickRate": 90.7
+      }
+    ]
+  },
+  "리코타": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 80.3
+      },
+      {
+        "season": "11",
+        "pickRate": 89
+      },
+      {
+        "season": "12",
+        "pickRate": 9.7
+      },
+      {
+        "season": "9",
+        "pickRate": 40
+      }
+    ],
+    "clash": [
+      {
+        "season": "32",
+        "pickRate": 46
+      },
+      {
+        "season": "33",
+        "pickRate": 23
+      },
+      {
+        "season": "34",
+        "pickRate": 66
+      },
+      {
+        "season": "35",
+        "pickRate": 48.3
+      },
+      {
+        "season": "36",
+        "pickRate": 11.3
+      },
+      {
+        "season": "37",
+        "pickRate": 56.3
+      },
+      {
+        "season": "38",
+        "pickRate": 79.7
+      },
+      {
+        "season": "39",
+        "pickRate": 9.3
+      }
+    ]
+  },
+  "리뉴아": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 100
+      },
+      {
+        "season": "11",
+        "pickRate": 100
+      },
+      {
+        "season": "12",
+        "pickRate": 99.7
+      },
+      {
+        "season": "2",
+        "pickRate": 97
+      },
+      {
+        "season": "4",
+        "pickRate": 98
+      },
+      {
+        "season": "5",
+        "pickRate": 98
+      },
+      {
+        "season": "6",
+        "pickRate": 94
+      },
+      {
+        "season": "7",
+        "pickRate": 98
+      },
+      {
+        "season": "8",
+        "pickRate": 100
+      },
+      {
+        "season": "9",
+        "pickRate": 99
+      }
+    ],
+    "clash": [
+      {
+        "season": "17",
+        "pickRate": 80
+      },
+      {
+        "season": "20",
+        "pickRate": 17
+      },
+      {
+        "season": "31",
+        "pickRate": 93
+      },
+      {
+        "season": "32",
+        "pickRate": 93
+      },
+      {
+        "season": "33",
+        "pickRate": 98
+      },
+      {
+        "season": "34",
+        "pickRate": 42
+      },
+      {
+        "season": "35",
+        "pickRate": 65.7
+      },
+      {
+        "season": "36",
+        "pickRate": 95.3
+      },
+      {
+        "season": "37",
+        "pickRate": 58.7
+      },
+      {
+        "season": "38",
+        "pickRate": 83
+      },
+      {
+        "season": "39",
+        "pickRate": 98.7
+      }
+    ]
+  },
+  "죠안": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 85.3
+      },
+      {
+        "season": "11",
+        "pickRate": 93.3
+      },
+      {
+        "season": "12",
+        "pickRate": 90.7
+      },
+      {
+        "season": "4",
+        "pickRate": 13
+      },
+      {
+        "season": "5",
+        "pickRate": 85
+      },
+      {
+        "season": "6",
+        "pickRate": 27
+      },
+      {
+        "season": "7",
+        "pickRate": 45
+      },
+      {
+        "season": "8",
+        "pickRate": 42
+      },
+      {
+        "season": "9",
+        "pickRate": 21
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 51
+      },
+      {
+        "season": "32",
+        "pickRate": 37
+      },
+      {
+        "season": "33",
+        "pickRate": 47
+      },
+      {
+        "season": "34",
+        "pickRate": 51
+      },
+      {
+        "season": "35",
+        "pickRate": 29.3
+      },
+      {
+        "season": "36",
+        "pickRate": 35.7
+      },
+      {
+        "season": "37",
+        "pickRate": 63.7
+      },
+      {
+        "season": "38",
+        "pickRate": 39
+      },
+      {
+        "season": "39",
+        "pickRate": 22.7
+      }
+    ]
+  },
+  "모모": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 90
+      },
+      {
+        "season": "11",
+        "pickRate": 94.7
+      },
+      {
+        "season": "12",
+        "pickRate": 95.7
+      },
+      {
+        "season": "2",
+        "pickRate": 19
+      },
+      {
+        "season": "4",
+        "pickRate": 55
+      },
+      {
+        "season": "5",
+        "pickRate": 29
+      },
+      {
+        "season": "6",
+        "pickRate": 56
+      },
+      {
+        "season": "7",
+        "pickRate": 39
+      },
+      {
+        "season": "8",
+        "pickRate": 66
+      },
+      {
+        "season": "9",
+        "pickRate": 86
+      }
+    ],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 37
+      },
+      {
+        "season": "31",
+        "pickRate": 40
+      },
+      {
+        "season": "32",
+        "pickRate": 55
+      },
+      {
+        "season": "33",
+        "pickRate": 61
+      },
+      {
+        "season": "34",
+        "pickRate": 27
+      },
+      {
+        "season": "35",
+        "pickRate": 59
+      },
+      {
+        "season": "36",
+        "pickRate": 49.3
+      },
+      {
+        "season": "37",
+        "pickRate": 81
+      },
+      {
+        "season": "38",
+        "pickRate": 49
+      },
+      {
+        "season": "39",
+        "pickRate": 6
+      }
+    ]
+  },
+  "에스피": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 34
+      },
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "12",
+        "pickRate": 10.3
+      },
+      {
+        "season": "2",
+        "pickRate": 12
+      },
+      {
+        "season": "4",
+        "pickRate": 95
+      },
+      {
+        "season": "5",
+        "pickRate": 91
+      },
+      {
+        "season": "6",
+        "pickRate": 90
+      },
+      {
+        "season": "7",
+        "pickRate": 60
+      },
+      {
+        "season": "8",
+        "pickRate": 17
+      },
+      {
+        "season": "9",
+        "pickRate": 47
+      }
+    ],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 36
+      },
+      {
+        "season": "32",
+        "pickRate": 50
+      },
+      {
+        "season": "33",
+        "pickRate": 10
+      },
+      {
+        "season": "34",
+        "pickRate": 60
+      },
+      {
+        "season": "35",
+        "pickRate": 10
+      },
+      {
+        "season": "36",
+        "pickRate": 2
+      },
+      {
+        "season": "37",
+        "pickRate": 1.3
+      },
+      {
+        "season": "38",
+        "pickRate": 18
+      }
+    ]
+  },
+  "오르": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "33",
+        "pickRate": 5
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 1.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 1
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "마요(멋짐)": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 4
+      },
+      {
+        "season": "11",
+        "pickRate": 2.3
+      },
+      {
+        "season": "12",
+        "pickRate": 3
+      },
+      {
+        "season": "9",
+        "pickRate": 46
+      }
+    ],
+    "clash": [
+      {
+        "season": "33",
+        "pickRate": 24
+      },
+      {
+        "season": "34",
+        "pickRate": 3
+      },
+      {
+        "season": "35",
+        "pickRate": 65
+      },
+      {
+        "season": "36",
+        "pickRate": 11.3
+      },
+      {
+        "season": "37",
+        "pickRate": 5.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 0.7
+      }
+    ]
+  },
+  "란": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 25
+      },
+      {
+        "season": "11",
+        "pickRate": 13.3
+      },
+      {
+        "season": "12",
+        "pickRate": 8
+      },
+      {
+        "season": "6",
+        "pickRate": 94
+      },
+      {
+        "season": "7",
+        "pickRate": 92
+      },
+      {
+        "season": "8",
+        "pickRate": 96
+      },
+      {
+        "season": "9",
+        "pickRate": 91
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 53
+      },
+      {
+        "season": "32",
+        "pickRate": 17
+      },
+      {
+        "season": "33",
+        "pickRate": 71
+      },
+      {
+        "season": "34",
+        "pickRate": 8
+      },
+      {
+        "season": "35",
+        "pickRate": 92
+      },
+      {
+        "season": "36",
+        "pickRate": 36
+      },
+      {
+        "season": "37",
+        "pickRate": 17.7
+      },
+      {
+        "season": "38",
+        "pickRate": 5
+      },
+      {
+        "season": "39",
+        "pickRate": 1
+      }
+    ]
+  },
+  "폴랑": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 13.7
+      },
+      {
+        "season": "11",
+        "pickRate": 6
+      },
+      {
+        "season": "12",
+        "pickRate": 7.7
+      },
+      {
+        "season": "5",
+        "pickRate": 13
+      },
+      {
+        "season": "6",
+        "pickRate": 6
+      },
+      {
+        "season": "7",
+        "pickRate": 7
+      },
+      {
+        "season": "9",
+        "pickRate": 10
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 61
+      },
+      {
+        "season": "32",
+        "pickRate": 36
+      },
+      {
+        "season": "33",
+        "pickRate": 66
+      },
+      {
+        "season": "34",
+        "pickRate": 42
+      },
+      {
+        "season": "35",
+        "pickRate": 33
+      },
+      {
+        "season": "36",
+        "pickRate": 45
+      },
+      {
+        "season": "37",
+        "pickRate": 50
+      },
+      {
+        "season": "38",
+        "pickRate": 38
+      },
+      {
+        "season": "39",
+        "pickRate": 28.3
+      }
+    ]
+  },
+  "림(혼돈)": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 3.3
+      },
+      {
+        "season": "11",
+        "pickRate": 1.7
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "7",
+        "pickRate": 24
+      },
+      {
+        "season": "8",
+        "pickRate": 52
+      },
+      {
+        "season": "9",
+        "pickRate": 10
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 79
+      },
+      {
+        "season": "32",
+        "pickRate": 16
+      },
+      {
+        "season": "33",
+        "pickRate": 14
+      },
+      {
+        "season": "34",
+        "pickRate": 4
+      },
+      {
+        "season": "35",
+        "pickRate": 1.3
+      },
+      {
+        "season": "36",
+        "pickRate": 63
+      },
+      {
+        "season": "37",
+        "pickRate": 9
+      },
+      {
+        "season": "38",
+        "pickRate": 4.7
+      },
+      {
+        "season": "39",
+        "pickRate": 20
+      }
+    ]
+  },
+  "클로에": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "10001",
+        "pickRate": 5
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 0.7
+      },
+      {
+        "season": "2",
+        "pickRate": 1
+      },
+      {
+        "season": "5",
+        "pickRate": 81
+      },
+      {
+        "season": "6",
+        "pickRate": 86
+      },
+      {
+        "season": "7",
+        "pickRate": 49
+      },
+      {
+        "season": "8",
+        "pickRate": 20
+      },
+      {
+        "season": "9",
+        "pickRate": 5
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 11
+      },
+      {
+        "season": "12",
+        "pickRate": 3
+      },
+      {
+        "season": "13",
+        "pickRate": 6
+      },
+      {
+        "season": "14",
+        "pickRate": 23
+      },
+      {
+        "season": "15",
+        "pickRate": 3
+      },
+      {
+        "season": "16",
+        "pickRate": 7
+      },
+      {
+        "season": "17",
+        "pickRate": 32
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "31",
+        "pickRate": 37
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "33",
+        "pickRate": 2
+      },
+      {
+        "season": "36",
+        "pickRate": 39.3
+      },
+      {
+        "season": "37",
+        "pickRate": 1.7
+      },
+      {
+        "season": "38",
+        "pickRate": 1.3
+      },
+      {
+        "season": "39",
+        "pickRate": 23.7
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 4
+      },
+      {
+        "season": "6",
+        "pickRate": 5
+      },
+      {
+        "season": "7",
+        "pickRate": 17
+      },
+      {
+        "season": "8",
+        "pickRate": 10
+      },
+      {
+        "season": "9",
+        "pickRate": 6
+      }
+    ]
+  },
+  "슈로": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 7
+      },
+      {
+        "season": "11",
+        "pickRate": 3
+      },
+      {
+        "season": "12",
+        "pickRate": 2.3
+      },
+      {
+        "season": "8",
+        "pickRate": 32
+      },
+      {
+        "season": "9",
+        "pickRate": 23
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 31
+      },
+      {
+        "season": "32",
+        "pickRate": 46
+      },
+      {
+        "season": "33",
+        "pickRate": 24
+      },
+      {
+        "season": "34",
+        "pickRate": 7
+      },
+      {
+        "season": "35",
+        "pickRate": 27
+      },
+      {
+        "season": "36",
+        "pickRate": 34.3
+      },
+      {
+        "season": "37",
+        "pickRate": 31
+      },
+      {
+        "season": "38",
+        "pickRate": 14
+      },
+      {
+        "season": "39",
+        "pickRate": 55.7
+      }
+    ]
+  },
+  "리츠": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.3
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 0.3
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "11",
+        "pickRate": 6
+      },
+      {
+        "season": "13",
+        "pickRate": 2
+      },
+      {
+        "season": "14",
+        "pickRate": 14
+      },
+      {
+        "season": "15",
+        "pickRate": 1
+      },
+      {
+        "season": "16",
+        "pickRate": 2
+      },
+      {
+        "season": "17",
+        "pickRate": 22
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "31",
+        "pickRate": 1
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 1.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "39",
+        "pickRate": 1
+      },
+      {
+        "season": "8",
+        "pickRate": 6
+      },
+      {
+        "season": "9",
+        "pickRate": 5
+      }
+    ]
+  },
+  "아이시아": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 2.7
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "7",
+        "pickRate": 10
+      },
+      {
+        "season": "8",
+        "pickRate": 10
+      },
+      {
+        "season": "9",
+        "pickRate": 10
+      }
+    ],
+    "clash": [
+      {
+        "season": "32",
+        "pickRate": 35
+      },
+      {
+        "season": "33",
+        "pickRate": 7
+      },
+      {
+        "season": "34",
+        "pickRate": 55
+      },
+      {
+        "season": "35",
+        "pickRate": 9.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 28.7
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "네르": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.7
+      },
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 2.7
+      },
+      {
+        "season": "4",
+        "pickRate": 8
+      },
+      {
+        "season": "5",
+        "pickRate": 6
+      },
+      {
+        "season": "6",
+        "pickRate": 4
+      },
+      {
+        "season": "7",
+        "pickRate": 78
+      },
+      {
+        "season": "8",
+        "pickRate": 46
+      },
+      {
+        "season": "9",
+        "pickRate": 22
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 3
+      },
+      {
+        "season": "13",
+        "pickRate": 1
+      },
+      {
+        "season": "14",
+        "pickRate": 7
+      },
+      {
+        "season": "15",
+        "pickRate": 4
+      },
+      {
+        "season": "17",
+        "pickRate": 13
+      },
+      {
+        "season": "20",
+        "pickRate": 5
+      },
+      {
+        "season": "31",
+        "pickRate": 61
+      },
+      {
+        "season": "32",
+        "pickRate": 42
+      },
+      {
+        "season": "33",
+        "pickRate": 8
+      },
+      {
+        "season": "34",
+        "pickRate": 4
+      },
+      {
+        "season": "35",
+        "pickRate": 2
+      },
+      {
+        "season": "36",
+        "pickRate": 39
+      },
+      {
+        "season": "37",
+        "pickRate": 5.3
+      },
+      {
+        "season": "38",
+        "pickRate": 5.3
+      },
+      {
+        "season": "39",
+        "pickRate": 80.3
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "5",
+        "pickRate": 10
+      },
+      {
+        "season": "6",
+        "pickRate": 5
+      },
+      {
+        "season": "7",
+        "pickRate": 22
+      },
+      {
+        "season": "8",
+        "pickRate": 38
+      },
+      {
+        "season": "9",
+        "pickRate": 29
+      }
+    ]
+  },
+  "아르코": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "35",
+        "pickRate": 1.3
+      },
+      {
+        "season": "36",
+        "pickRate": 2
+      },
+      {
+        "season": "37",
+        "pickRate": 2
+      },
+      {
+        "season": "39",
+        "pickRate": 0.7
+      }
+    ]
+  },
+  "프리클": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.3
+      },
+      {
+        "season": "10001",
+        "pickRate": 3
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      },
+      {
+        "season": "7",
+        "pickRate": 13
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 28
+      },
+      {
+        "season": "13",
+        "pickRate": 12
+      },
+      {
+        "season": "14",
+        "pickRate": 4
+      },
+      {
+        "season": "15",
+        "pickRate": 6
+      },
+      {
+        "season": "16",
+        "pickRate": 11
+      },
+      {
+        "season": "20",
+        "pickRate": 3
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 30
+      },
+      {
+        "season": "35",
+        "pickRate": 4.7
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 10.3
+      },
+      {
+        "season": "4",
+        "pickRate": 2
+      },
+      {
+        "season": "9",
+        "pickRate": 4
+      }
+    ]
+  },
+  "라이카": {
+    "frontier": [
+      {
+        "season": "10",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 1
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 10.3
+      },
+      {
+        "season": "36",
+        "pickRate": 1
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "로네": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 19
+      },
+      {
+        "season": "10002",
+        "pickRate": 2
+      },
+      {
+        "season": "12",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 94
+      },
+      {
+        "season": "11",
+        "pickRate": 33
+      },
+      {
+        "season": "12",
+        "pickRate": 9
+      },
+      {
+        "season": "13",
+        "pickRate": 29
+      },
+      {
+        "season": "14",
+        "pickRate": 21
+      },
+      {
+        "season": "15",
+        "pickRate": 21
+      },
+      {
+        "season": "16",
+        "pickRate": 2
+      },
+      {
+        "season": "17",
+        "pickRate": 17
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 31
+      },
+      {
+        "season": "5",
+        "pickRate": 64
+      },
+      {
+        "season": "6",
+        "pickRate": 14
+      },
+      {
+        "season": "7",
+        "pickRate": 27
+      },
+      {
+        "season": "8",
+        "pickRate": 9
+      },
+      {
+        "season": "9",
+        "pickRate": 6
+      }
+    ]
+  },
+  "마에스트로 2호": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 24
+      },
+      {
+        "season": "10002",
+        "pickRate": 6
+      },
+      {
+        "season": "2",
+        "pickRate": 16
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 14
+      },
+      {
+        "season": "12",
+        "pickRate": 8
+      },
+      {
+        "season": "13",
+        "pickRate": 7
+      },
+      {
+        "season": "14",
+        "pickRate": 28
+      },
+      {
+        "season": "15",
+        "pickRate": 6
+      },
+      {
+        "season": "16",
+        "pickRate": 2
+      },
+      {
+        "season": "17",
+        "pickRate": 30
+      },
+      {
+        "season": "20",
+        "pickRate": 4
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 12
+      },
+      {
+        "season": "5",
+        "pickRate": 12
+      },
+      {
+        "season": "6",
+        "pickRate": 6
+      },
+      {
+        "season": "7",
+        "pickRate": 19
+      },
+      {
+        "season": "8",
+        "pickRate": 4
+      }
+    ]
+  },
+  "벨벳": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 7
+      },
+      {
+        "season": "12",
+        "pickRate": 50
+      },
+      {
+        "season": "13",
+        "pickRate": 20
+      },
+      {
+        "season": "14",
+        "pickRate": 3
+      },
+      {
+        "season": "15",
+        "pickRate": 9
+      },
+      {
+        "season": "16",
+        "pickRate": 53
+      },
+      {
+        "season": "20",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 18
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "9",
+        "pickRate": 27
+      }
+    ]
+  },
+  "셰이디": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "2",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 11
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "13",
+        "pickRate": 7
+      },
+      {
+        "season": "14",
+        "pickRate": 21
+      },
+      {
+        "season": "15",
+        "pickRate": 6
+      },
+      {
+        "season": "16",
+        "pickRate": 6
+      },
+      {
+        "season": "17",
+        "pickRate": 46
+      },
+      {
+        "season": "20",
+        "pickRate": 3
+      },
+      {
+        "season": "31",
+        "pickRate": 1
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "34",
+        "pickRate": 1
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 13
+      },
+      {
+        "season": "5",
+        "pickRate": 20
+      },
+      {
+        "season": "6",
+        "pickRate": 9
+      },
+      {
+        "season": "7",
+        "pickRate": 37
+      },
+      {
+        "season": "8",
+        "pickRate": 47
+      },
+      {
+        "season": "9",
+        "pickRate": 26
+      }
+    ]
+  },
+  "카렌": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 10
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 3
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      },
+      {
+        "season": "6",
+        "pickRate": 18
+      },
+      {
+        "season": "7",
+        "pickRate": 5
+      },
+      {
+        "season": "8",
+        "pickRate": 4
+      },
+      {
+        "season": "9",
+        "pickRate": 5
+      }
+    ]
+  },
+  "포셔": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 17
+      },
+      {
+        "season": "10002",
+        "pickRate": 5
+      }
+    ],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 7
+      },
+      {
+        "season": "11",
+        "pickRate": 20
+      },
+      {
+        "season": "12",
+        "pickRate": 23
+      },
+      {
+        "season": "13",
+        "pickRate": 20
+      },
+      {
+        "season": "14",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 42
+      },
+      {
+        "season": "16",
+        "pickRate": 10
+      },
+      {
+        "season": "17",
+        "pickRate": 6
+      },
+      {
+        "season": "20",
+        "pickRate": 2
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "4",
+        "pickRate": 29
+      },
+      {
+        "season": "5",
+        "pickRate": 3
+      },
+      {
+        "season": "6",
+        "pickRate": 22
+      },
+      {
+        "season": "7",
+        "pickRate": 23
+      },
+      {
+        "season": "8",
+        "pickRate": 28
+      },
+      {
+        "season": "9",
+        "pickRate": 31
+      }
+    ]
+  },
+  "멜루나": {
+    "frontier": [
+      {
+        "season": "10001",
+        "pickRate": 2
+      },
+      {
+        "season": "10002",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "12",
+        "pickRate": 19
+      },
+      {
+        "season": "13",
+        "pickRate": 6
+      },
+      {
+        "season": "14",
+        "pickRate": 6
+      },
+      {
+        "season": "15",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 17
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 11
+      }
+    ]
+  },
+  "아네트": {
+    "frontier": [
+      {
+        "season": "11",
+        "pickRate": 87.7
+      },
+      {
+        "season": "12",
+        "pickRate": 88.7
+      }
+    ],
+    "clash": [
+      {
+        "season": "36",
+        "pickRate": 56
+      },
+      {
+        "season": "37",
+        "pickRate": 69
+      },
+      {
+        "season": "38",
+        "pickRate": 58
+      },
+      {
+        "season": "39",
+        "pickRate": 94
+      }
+    ]
+  },
+  "로네(시장)": {
+    "frontier": [
+      {
+        "season": "11",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "37",
+        "pickRate": 1
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      },
+      {
+        "season": "39",
+        "pickRate": 3
+      }
+    ]
+  },
+  "네티": {
+    "frontier": [
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "9",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 3
+      },
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 1
+      },
+      {
+        "season": "36",
+        "pickRate": 8
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      },
+      {
+        "season": "38",
+        "pickRate": 2
+      },
+      {
+        "season": "39",
+        "pickRate": 9.3
+      }
+    ]
+  },
+  "쥬비": {
+    "frontier": [
+      {
+        "season": "11",
+        "pickRate": 0.3
+      }
+    ],
+    "clash": [
+      {
+        "season": "13",
+        "pickRate": 1
+      },
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 3
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      },
+      {
+        "season": "6",
+        "pickRate": 10
+      },
+      {
+        "season": "9",
+        "pickRate": 2
+      }
+    ]
+  },
+  "뮤트": {
+    "frontier": [
+      {
+        "season": "12",
+        "pickRate": 56.7
+      }
+    ],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 1.7
+      }
+    ]
+  },
+  "마카샤": {
+    "frontier": [
+      {
+        "season": "12",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "37",
+        "pickRate": 1.7
+      }
+    ]
+  },
+  "스피키(메이드)": {
+    "frontier": [
+      {
+        "season": "12",
+        "pickRate": 1.3
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "31",
+        "pickRate": 3
+      },
+      {
+        "season": "32",
+        "pickRate": 2
+      },
+      {
+        "season": "33",
+        "pickRate": 3
+      },
+      {
+        "season": "34",
+        "pickRate": 3
+      },
+      {
+        "season": "35",
+        "pickRate": 3
+      },
+      {
+        "season": "36",
+        "pickRate": 2.7
+      },
+      {
+        "season": "37",
+        "pickRate": 3.7
+      },
+      {
+        "season": "38",
+        "pickRate": 1.3
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "베니": {
+    "frontier": [
+      {
+        "season": "2",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 2
+      },
+      {
+        "season": "13",
+        "pickRate": 1
+      },
+      {
+        "season": "20",
+        "pickRate": 26
+      },
+      {
+        "season": "4",
+        "pickRate": 2
+      }
+    ]
+  },
+  "레테": {
+    "frontier": [
+      {
+        "season": "2",
+        "pickRate": 5
+      },
+      {
+        "season": "4",
+        "pickRate": 4
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 16
+      }
+    ]
+  },
+  "페스타": {
+    "frontier": [
+      {
+        "season": "2",
+        "pickRate": 2
+      }
+    ],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 2
+      },
+      {
+        "season": "20",
+        "pickRate": 6
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "헤일리": {
+    "frontier": [
+      {
+        "season": "2",
+        "pickRate": 3
+      }
+    ],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 5.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.7
+      }
+    ]
+  },
+  "칸타": {
+    "frontier": [
+      {
+        "season": "4",
+        "pickRate": 8
+      }
+    ],
+    "clash": []
+  },
+  "샤샤": {
+    "frontier": [
+      {
+        "season": "7",
+        "pickRate": 1
+      }
+    ],
+    "clash": [
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "빅우드": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 48
+      },
+      {
+        "season": "11",
+        "pickRate": 15
+      },
+      {
+        "season": "12",
+        "pickRate": 7
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 6
+      },
+      {
+        "season": "15",
+        "pickRate": 2
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "17",
+        "pickRate": 8
+      },
+      {
+        "season": "4",
+        "pickRate": 22
+      },
+      {
+        "season": "5",
+        "pickRate": 47
+      },
+      {
+        "season": "7",
+        "pickRate": 13
+      },
+      {
+        "season": "8",
+        "pickRate": 4
+      }
+    ]
+  },
+  "알레트": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 14
+      },
+      {
+        "season": "11",
+        "pickRate": 7
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "13",
+        "pickRate": 2
+      },
+      {
+        "season": "14",
+        "pickRate": 2
+      },
+      {
+        "season": "4",
+        "pickRate": 6
+      },
+      {
+        "season": "5",
+        "pickRate": 11
+      },
+      {
+        "season": "7",
+        "pickRate": 6
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      }
+    ]
+  },
+  "사리": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 1
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      }
+    ]
+  },
+  "레비": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 2
+      },
+      {
+        "season": "13",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 2
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 21
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 15
+      },
+      {
+        "season": "7",
+        "pickRate": 3
+      },
+      {
+        "season": "8",
+        "pickRate": 7
+      },
+      {
+        "season": "9",
+        "pickRate": 15
+      }
+    ]
+  },
+  "큐이": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "10",
+        "pickRate": 1
+      },
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "14",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 1
+      }
+    ]
+  },
+  "밍스": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 1
+      }
+    ]
+  },
+  "파트라": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 5
+      },
+      {
+        "season": "12",
+        "pickRate": 35
+      },
+      {
+        "season": "13",
+        "pickRate": 10
+      },
+      {
+        "season": "14",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 2
+      },
+      {
+        "season": "16",
+        "pickRate": 38
+      },
+      {
+        "season": "4",
+        "pickRate": 14
+      },
+      {
+        "season": "5",
+        "pickRate": 2
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "9",
+        "pickRate": 16
+      }
+    ]
+  },
+  "메죵": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 3
+      },
+      {
+        "season": "13",
+        "pickRate": 3
+      },
+      {
+        "season": "14",
+        "pickRate": 3
+      },
+      {
+        "season": "4",
+        "pickRate": 4
+      },
+      {
+        "season": "5",
+        "pickRate": 10
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      },
+      {
+        "season": "7",
+        "pickRate": 9
+      },
+      {
+        "season": "8",
+        "pickRate": 6
+      }
+    ]
+  },
+  "유미미": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 11
+      },
+      {
+        "season": "12",
+        "pickRate": 3
+      },
+      {
+        "season": "13",
+        "pickRate": 5
+      },
+      {
+        "season": "14",
+        "pickRate": 3
+      },
+      {
+        "season": "15",
+        "pickRate": 1
+      },
+      {
+        "season": "17",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 6
+      },
+      {
+        "season": "5",
+        "pickRate": 16
+      },
+      {
+        "season": "6",
+        "pickRate": 8
+      },
+      {
+        "season": "7",
+        "pickRate": 28
+      },
+      {
+        "season": "8",
+        "pickRate": 17
+      },
+      {
+        "season": "9",
+        "pickRate": 8
+      }
+    ]
+  },
+  "타이다": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "11",
+        "pickRate": 6
+      },
+      {
+        "season": "13",
+        "pickRate": 1
+      },
+      {
+        "season": "14",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 5
+      },
+      {
+        "season": "5",
+        "pickRate": 1
+      },
+      {
+        "season": "6",
+        "pickRate": 14
+      },
+      {
+        "season": "7",
+        "pickRate": 4
+      },
+      {
+        "season": "8",
+        "pickRate": 1
+      },
+      {
+        "season": "9",
+        "pickRate": 1
+      }
+    ]
+  },
+  "쵸피": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "12",
+        "pickRate": 1
+      },
+      {
+        "season": "15",
+        "pickRate": 1
+      }
+    ]
+  },
+  "마리": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "14",
+        "pickRate": 1
+      },
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "20",
+        "pickRate": 3
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "6",
+        "pickRate": 2
+      }
+    ]
+  },
+  "베루": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "16",
+        "pickRate": 1
+      },
+      {
+        "season": "17",
+        "pickRate": 1
+      },
+      {
+        "season": "4",
+        "pickRate": 1
+      },
+      {
+        "season": "7",
+        "pickRate": 1
+      }
+    ]
+  },
+  "스노키": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 17
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.7
+      },
+      {
+        "season": "38",
+        "pickRate": 0.7
+      },
+      {
+        "season": "39",
+        "pickRate": 1
+      }
+    ]
+  },
+  "바롱": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 18
+      },
+      {
+        "season": "34",
+        "pickRate": 2
+      },
+      {
+        "season": "38",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "바리에": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "20",
+        "pickRate": 7
+      },
+      {
+        "season": "33",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "그윈": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "32",
+        "pickRate": 1
+      },
+      {
+        "season": "35",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "캐시": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "35",
+        "pickRate": 10
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "37",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "오팔": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "35",
+        "pickRate": 4.3
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "셰럼": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "35",
+        "pickRate": 4.7
+      },
+      {
+        "season": "36",
+        "pickRate": 0.3
+      },
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "시저": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "38",
+        "pickRate": 2
+      }
+    ]
+  },
+  "우로스(광기)": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 95
+      }
+    ]
+  },
+  "티그(영웅)": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 99.3
+      }
+    ]
+  },
+  "우로스(활발)": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 3.7
+      }
+    ]
+  },
+  "우로스(냉정)": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  },
+  "우로스(우울)": {
+    "frontier": [],
+    "clash": [
+      {
+        "season": "39",
+        "pickRate": 0.3
+      }
+    ]
+  }
+}

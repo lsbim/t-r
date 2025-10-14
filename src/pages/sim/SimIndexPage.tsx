@@ -10,6 +10,7 @@ import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simF
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
 import ItemIcon from "../../commons/icon/ItemIcon";
+import useTitle from "../../hooks/useTitle";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -43,6 +44,9 @@ const SimIndexPage = () => {
     const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);
     const [researchSimResult, setResearchSimResult] = useState<SimResponse[]>([]);
     const [selectInput, setSelectInput] = useState(0)
+    useTitle("교단 시설 및 연구 재화 계산");
+
+    // console.log(facilityInput)
 
     const handleSim = useCallback((simRequestObj?: ResearchSimRequest | FacilitySimRequest) => {
         if (!simRequestObj) return;
@@ -94,7 +98,11 @@ const SimIndexPage = () => {
 
         facilitySimResult?.forEach(fsr => {
             fsr?.result?.acquisitionPlans?.forEach(plan => {
-                allMatMap.set(plan?.material, plan?.quantity);
+                if (allMatMap.has(plan?.material)) {
+                    allMatMap.set(plan?.material, allMatMap.get(plan?.material) + plan?.quantity);
+                } else {
+                    allMatMap.set(plan?.material, plan?.quantity);
+                }
             })
             if (fsr.gold) {
                 allMatMap.set('gold', (allMatMap.get('gold') || 0) + fsr.gold);
@@ -102,7 +110,11 @@ const SimIndexPage = () => {
         })
         researchSimResult?.forEach(rsr => {
             rsr?.result?.acquisitionPlans?.forEach(plan => {
-                allMatMap.set(plan?.material, plan?.quantity);
+                if (allMatMap.has(plan?.material)) {
+                    allMatMap.set(plan?.material, allMatMap.get(plan?.material) + plan?.quantity);
+                } else {
+                    allMatMap.set(plan?.material, plan?.quantity);
+                }
             })
             if (rsr.gold) {
                 allMatMap.set('gold', (allMatMap.get('gold') || 0) + rsr.gold);

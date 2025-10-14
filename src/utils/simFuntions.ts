@@ -39,9 +39,14 @@ export const simFacility = (request: FacilitySimRequest) => {
         const facilityObj = Object.entries(facilities[krName] || {});
 
         let startLvl: number = 0;
+
+        // 건물 추가 시 잊지말고 추가
         switch (key) {
             case 'lab':
                 startLvl = request.currentLab
+                break;
+            case 'hall':
+                startLvl = request.currentHall
                 break;
             case 'hq':
                 startLvl = request.currentHq
@@ -50,6 +55,7 @@ export const simFacility = (request: FacilitySimRequest) => {
                 startLvl = request.currentAdv
                 break;
         }
+
         for (const [lvl, cost] of facilityObj) {
 
             const numlvl = parseInt(lvl, 10);

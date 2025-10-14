@@ -79,14 +79,21 @@ async function buildSummaries() {
     // 4) 출력 디렉토리 준비
     await fs.mkdir(OUT_DIR, { recursive: true })
 
-    // 5) 캐릭터별로 JSON 파일 쓰기
-    await Promise.all(Object.entries(charMap).map(([name, summary]) =>
-        fs.writeFile(
-            path.join(OUT_DIR, `${name}.json`),
-            JSON.stringify(summary, null, 2),
-            'utf-8'
-        )
-    ));
+    // // 5) 캐릭터별로 JSON 파일 쓰기
+    // await Promise.all(Object.entries(charMap).map(([name, summary]) =>
+    //     fs.writeFile(
+    //         path.join(OUT_DIR, `${name}.json`),
+    //         JSON.stringify(summary, null, 2),
+    //         'utf-8'
+    //     )
+    // ));
+
+    // 파일 하나에 모든 사도 정보 집어넣기
+    await fs.writeFile(
+        path.join(OUT_DIR, 'summaries.json'),
+        JSON.stringify(charMap, null, 2),      // charMap 객체 전체를 문자열로 변환
+        'utf-8'
+    );
 
     console.log('✅ character summaries built:', Object.keys(charMap).length)
 }
