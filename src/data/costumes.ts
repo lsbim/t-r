@@ -39,6 +39,7 @@ export const costumes: Costume[] = [
     { charName: "스피키", cosName: "퓨어 펌킨", lvl: "normal", launchDate: "2025-08-28" },
     { charName: "에르핀", cosName: "깡총이 파자마", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "마고", cosName: "양치기 소녀", lvl: "normal", launchDate: "2025-09-25" },
+    { charName: "뮤트", cosName: "수온 측정의 여운", lvl: "normal", launchDate: "2025-10-16" },
 
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
     { charName: "이드", cosName: "영원의 기다림", lvl: "normal", launchDate: "2025-01-30" },
@@ -72,6 +73,7 @@ export const costumes: Costume[] = [
     { charName: "엘레나", cosName: "느긋한 주말의 집냥이", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "프리클", cosName: "오늘의 날씨는 맑음", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "엘레나", cosName: "차원이 다른 여왕님", lvl: "pretty", launchDate: "2025-10-02" },
+    { charName: "그윈", cosName: "설국의 노천탕", lvl: "normal", launchDate: "2025-10-16" },
 
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "럭셔리 테일러", lvl: "normal", launchDate: "2024-10-31" },
@@ -106,6 +108,7 @@ export const costumes: Costume[] = [
     { charName: "티그(영웅)", cosName: "수인마을 북부 대공", lvl: "normal", launchDate: "2025-09-27" },
     { charName: "티그(영웅)", cosName: "창공의 하얀 날개", lvl: "pretty", launchDate: "2025-09-27" },
     { charName: "피라", cosName: "껌 좀 씹어본 용족", lvl: "normal", launchDate: "2025-10-02" },
+    { charName: "디아나", cosName: "야산의 온천 마실", lvl: "normal", launchDate: "2025-10-16" },
 
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
@@ -136,7 +139,8 @@ export const costumes: Costume[] = [
     { charName: "슈팡", cosName: "슈파 드럼 비트", lvl: "normal", launchDate: "2025-06-26" },
     { charName: "베니", cosName: "이모 베어", lvl: "normal", launchDate: "2025-07-11" },
     { charName: "쥬비", cosName: "만우벌", lvl: "event", launchDate: "2025-04-01" },
-    { charName: "스피키(메이드)", cosName: "꼬끼옷 메이드", lvl: "event", launchDate: "2025-09-18" },
+    { charName: "스피키(메이드)", cosName: "꼬끼옷 메이드", lvl: "normal", launchDate: "2025-09-18" },
+    { charName: "마카샤", cosName: "온수통의 마녀", lvl: "normal", launchDate: "2025-10-16" },
 
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
     { charName: "시온", cosName: "어둠의 알바생", lvl: "normal", launchDate: "2024-07-25" },
@@ -170,6 +174,7 @@ export const costumes: Costume[] = [
     { charName: "실피르", cosName: "풋풋한 학창시절", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "페스타", cosName: "고스 펑크", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "리스티", cosName: "꿈나라 모험가", lvl: "normal", launchDate: "2025-09-18" },
+    { charName: "에슈르", cosName: "평온한 온천 여행", lvl: "normal", launchDate: "2025-10-16" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },

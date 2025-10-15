@@ -7,7 +7,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
 
     return (
         <div className="md:w-[768px] w-full flex mx-auto bg-white shadow-md p-2">
-            <div className="w-[50%] flex flex-col">
+            <div className="w-[50%] flex flex-col gap-y-3">
                 <div className="flex justify-center">
                     <span className="text-[18px] font-bold">
                         가장 많은 사도
@@ -38,7 +38,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                     )}
                 </div>
             </div>
-            <div className="w-[50%] flex flex-col">
+            <div className="w-[50%] flex flex-col gap-y-3">
                 <div className="flex justify-center">
                     <span className="text-[18px] font-bold">
                         가장 적은 사도
@@ -63,7 +63,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                         • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                     </span>
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate ?? '無'}</div>
+                                <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
                             </div>
                         );
                     })}

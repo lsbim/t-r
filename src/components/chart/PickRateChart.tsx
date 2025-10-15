@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { charInfo } from "../../data/trickcalChar";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
@@ -204,4 +204,4 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
     );
 }
 
-export default PickRateChart;
+export default React.memo(PickRateChart);

@@ -3,8 +3,17 @@ import { ClashSeasonData } from "../../types/clashTypes";
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import { findPersonalityByName } from "../../utils/function";
 import { processCompStat, processSynergyStats } from "../../utils/chartFunction";
+import React from "react";
 
-const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | FrontierSeasonData, season?: string, userCnt?: number }) => {
+const CompListComponent = ({
+    data,
+    season,
+    userCnt
+}: {
+    data: ClashSeasonData | FrontierSeasonData,
+    season?: string,
+    userCnt?: number
+}) => {
 
     const compData = processCompStat(data?.data).sort((a, b) => a.rank - b.rank);
     // const compCount = compData.reduce((sum, comp) => sum + comp.count, 0);
@@ -99,4 +108,4 @@ const CompListComponent = ({ data, season, userCnt }: { data: ClashSeasonData | 
     );
 }
 
-export default CompListComponent;
+export default React.memo(CompListComponent);

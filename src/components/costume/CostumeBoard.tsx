@@ -82,7 +82,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
         <div className="md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto bg-white shadow-md mb-[50px]">
             {/* 카테고리 */}
             {currentPageData && (
-                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 border-b-2 border-gray-200 md:text-[15px] text-[12px]">
+                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 border-b-2 border-gray-200 sm:text-[15px] text-[13px]">
                     <div className={`py-1 px-2 flex justify-center ${boardCategoryWidthStyle('name')}`} >
                         이름
                     </div>
@@ -106,8 +106,8 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                     </div>
                     <div
                         onClick={() => handleCostumeBoardSort('birthDate')}
-                        className={`py-1 px-2 flex cursor-pointer justify-center items-center group ${boardCategoryWidthStyle('birthDate')} mx-auto`}>
-                        사도 출시일
+                        className={`sm:flex hidden py-1 px-2 cursor-pointer justify-center items-center group ${boardCategoryWidthStyle('birthDate')} mx-auto`}>
+                        출시일
                         <SortArrowIcon
                             active={sortConfig.key === 'birthDate'}
                             orderBy={sortConfig.orderBy}
@@ -144,7 +144,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                                 {c.since}일 전
                             </span>
                         </div>
-                        <div className={`py-[2px] px-2 mx-auto flex items-center justify-center text-gray-700 ${boardCategoryWidthStyle('birthDate')}`}>
+                        <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 ${boardCategoryWidthStyle('birthDate')}`}>
                             {charInfo[c.charName].birthdate}
                         </div>
                     </div>
@@ -192,13 +192,13 @@ function boardCategoryWidthStyle(type: 'name' | 'count' | 'since' | 'birthDate')
 
     switch (type) {
         case 'name':
-            return 'md:w-[170px] w-[25%]';
+            return 'sm:w-[170px] w-[30%]';
         case 'count':
-            return 'md:w-[100px] w-[14%]';
+            return 'sm:w-[100px] w-[20%]';
         case 'since':
-            return 'md:w-[200px] w-[35%]';
-        case 'birthDate':
-            return 'md:w-[120px] w-[22%]';
+            return 'sm:w-[200px] w-[48%]';
+        case 'birthDate': // 모바일 환경에선 미출력
+            return 'sm:w-[120px]';
         default:
             return '';
     }
