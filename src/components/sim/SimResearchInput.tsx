@@ -5,8 +5,7 @@ import Slide from "../../commons/rdx/Slide";
 import { research } from "../../data/research";
 import { ResearchSimRequest } from "../../types/sim/simTypes";
 
-const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
-    handleSim: (req?: ResearchSimRequest) => void,
+const SimResearchInput = ({ researchInput, setResearchInput }: {
     researchInput: ResearchSimRequest,
     setResearchInput: Dispatch<SetStateAction<ResearchSimRequest>>
 }) => {
@@ -57,12 +56,6 @@ const SimResearchInput = ({ handleSim, researchInput, setResearchInput }: {
             return next;
         });
     }, [setResearchInput])
-
-    // input 변경 시 sim 호출
-    useEffect(() => {
-        handleSim(researchInput);
-    }, [researchInput]);
-
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col">

@@ -2,7 +2,7 @@ import { Adventure, adventure, AdventureDetail, MATERIAL_YIELD_TYPES, MaterialYi
 import { facilities } from "../data/facilities";
 import { materials } from "../data/materials";
 import { research } from "../data/research";
-import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse, SimResult } from "../types/sim/simTypes";
+import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimFacilityResult, SimResponse, SimResult } from "../types/sim/simTypes";
 import { translateFacility } from "./function";
 import { getResearchStep } from "./researchFuntion";
 
@@ -22,11 +22,12 @@ const materialMap = new Map(materials.map(m => [m.name, m]));
 const materialVaules = calculateMaterialValues(allGameData);
 
 // 시설 업그레이드
-export const simFacility = (request: FacilitySimRequest) => {
+export const simFacility = (request: FacilitySimRequest, curInventory?: Map<string, number>): SimFacilityResult => {
     const targets = Object.entries(request.target);
-    const resultArr: any = [];
+    const resultArr: SimResponse[] = [];
+    const inventory = new Map(curInventory || []);
 
-    // console.log(request)
+    // console.log("facility", inventory)
     // console.log('--------------------------------------------------')
 
     // 목표(타겟) 항목 갯수만큼 반복
@@ -66,7 +67,19 @@ export const simFacility = (request: FacilitySimRequest) => {
             needMaterials.set('gold', (needMaterials.get('gold') || 0) + cost.gold);
 
             cost.cost.forEach(({ name, qty }) => {
-                needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
+
+                const invenQty = inventory.get(name) || 0;
+
+                if (invenQty >= qty) {
+                    // 재료가 인벤토리에 충분하면 꺼내 씀
+                    inventory.set(name, invenQty - qty);
+                } else {
+                    // 인벤토리에 부족하면 쓸 수 있는 만큼 쓰기
+                    if (invenQty > 0) {
+                        inventory.delete(name);
+                    }
+                    needMaterials.set(name, (needMaterials.get(name) || 0) + (qty - invenQty));
+                }
             });
 
             // console.log(`needMaterials: `,needMaterials)
@@ -89,15 +102,20 @@ export const simFacility = (request: FacilitySimRequest) => {
         }
     });
 
-    return resultArr;
+    return {
+        result: resultArr,
+        remainingInventory: inventory
+    };
 }
 
 // 연구 개발 (단계 단위, 주제x)
-export const simResearch = (request: ResearchSimRequest): SimResponse[] => {
+export const simResearch = (request: ResearchSimRequest, curInventory?: Map<string, number>): SimResponse[] => {
     const { currentTier, currentStep, target } = request;
     const { tier: targetTier, step: targetStep } = target;
 
     const resultArr: SimResponse[] = [];
+    const inventory = new Map(curInventory || []);
+    // console.log("research", inventory)
 
     // currentTier부터 targetTier까지 각 단계를 순회
     for (let t = currentTier; t <= targetTier; t++) {
@@ -123,8 +141,20 @@ export const simResearch = (request: ResearchSimRequest): SimResponse[] => {
             // 골드 누적
             needMaterials.set('gold', (needMaterials.get('gold') || 0) + stepInfo.gold);
             // 재료 누적
-            stepInfo.cost.forEach(item => {
-                needMaterials.set(item.name, (needMaterials.get(item.name) || 0) + item.qty);
+            stepInfo.cost.forEach(({ name, qty }) => {
+
+                const invenQty = inventory.get(name) || 0;
+
+                if (invenQty >= qty) {
+                    // 재료가 인벤토리에 충분하면 꺼내 씀
+                    inventory.set(name, invenQty - qty);
+                } else {
+                    // 인벤토리에 부족하면 쓸 수 있는 만큼 쓰기
+                    if (invenQty > 0) {
+                        inventory.delete(name);
+                    }
+                    needMaterials.set(name, (needMaterials.get(name) || 0) + (qty - invenQty));
+                }
             });
         }
 

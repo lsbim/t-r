@@ -9,9 +9,8 @@ import { translateFacility } from "../../utils/function";
 
 const labPlatformList: FacilityEn[] = ['lab', 'hall', 'hq', 'adv',];
 
-const SimFacilityInput = ({ handleSim, facilityInput, setFacilityInput }
+const SimFacilityInput = ({ facilityInput, setFacilityInput }
     : {
-        handleSim: (req?: FacilitySimRequest) => void,
         facilityInput: FacilitySimRequest,
         setFacilityInput: Dispatch<SetStateAction<FacilitySimRequest>>
     }
@@ -53,11 +52,6 @@ const SimFacilityInput = ({ handleSim, facilityInput, setFacilityInput }
             return next;
         });
     }, [setFacilityInput])
-
-    // input 변경 시 sim 호출
-    useEffect(() => {
-        handleSim(facilityInput);
-    }, [facilityInput]);
 
     const validateFacility = (name: FacilityEn) => {
         const hqLvl = Math.max(facilityInput.currentHq, facilityInput.target.hq);

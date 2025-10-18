@@ -11,6 +11,7 @@ import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
 import ItemIcon from "../../commons/icon/ItemIcon";
 import useTitle from "../../hooks/useTitle";
+import MaterialBag from "../../components/shared/MaterialBag";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -44,55 +45,61 @@ const SimIndexPage = () => {
     const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);
     const [researchSimResult, setResearchSimResult] = useState<SimResponse[]>([]);
     const [selectInput, setSelectInput] = useState(0)
+    const [inventory, setInventory] = useState<Map<string, number>>(new Map());
+    const [bagOpen, setBagOpen] = useState(false);
     useTitle("교단 시설 및 연구 재화 계산");
 
     // console.log(facilityInput)
 
-    const handleSim = useCallback((simRequestObj?: ResearchSimRequest | FacilitySimRequest) => {
-        if (!simRequestObj) return;
+    // 통합 sim 함수
+    const debouncedAllSims = useMemo(() => {
+        return debounce((
+            facilityReq: FacilitySimRequest,
+            researchReq: ResearchSimRequest,
+            initialInventory: Map<string, number>
+        ) => {
 
-        if (simRequestObj.type === 'research') {
-            debouncedSimResearch(simRequestObj, facilityInput.currentAdv);
-        } else if (simRequestObj.type === 'facility') {
-            debouncedSimFacility(simRequestObj);
-        }
-    }, [facilityInput.currentAdv]) // 일반 함수면 무한히 계산함
+            let currentInventory = new Map(initialInventory || []);
+            let facilityResult: SimResponse[] = [];
+            let researchResult: SimResponse[] = [];
 
-    const debouncedSimResearch = useMemo(() => {
-        return debounce((input: ResearchSimRequest, adv: number) => {
-            setResearchSimResult(
-                simResearch({ ...input, currentAdv: adv })
+            const facilitySimOutput = simFacility(facilityReq, currentInventory);
+            if (facilitySimOutput) {
+                facilityResult = facilitySimOutput.result;
+                currentInventory = facilitySimOutput.remainingInventory || new Map();
+            }
+
+            const researchSimOutput = simResearch(
+                { ...researchReq, currentAdv: facilityReq.currentAdv },
+                currentInventory
             );
+            if (researchSimOutput) {
+                researchResult = researchSimOutput;
+            }
+
+            setFacilitySimResult(facilityResult);
+            setResearchSimResult(researchResult);
+
         }, 300);
     }, []);
 
-    const debouncedSimFacility = useMemo(() => {
-        return debounce((input: FacilitySimRequest) => {
-            setFacilitySimResult(
-                simFacility(input)
-            );
-        }, 300);
-    }, []);
-
-    // 현재 모험회 레벨이 바뀌면 연구도 재계산
+    // input과 인벤토리가 바뀌면 sim 함수 동작
     useEffect(() => {
-        if (researchSimResult.length > 0) {
-            debouncedSimResearch(researchInput, facilityInput.currentAdv);
+        if (facilityInput !== initSimFacilityInput || researchInput !== initResearch || inventory.size > 0) {
+            debouncedAllSims(facilityInput, researchInput, inventory);
         }
-    }, [facilityInput.currentAdv, researchInput]);
+    }, [facilityInput, researchInput, inventory]);
 
     // 언마운트 시 디바운스 취소
     useEffect(() => {
         return () => {
-            if (typeof (debouncedSimResearch as any).cancel === 'function') {
-                (debouncedSimResearch as any).cancel();
-            }
-            if (typeof (debouncedSimFacility as any).cancel === 'function') {
-                (debouncedSimFacility as any).cancel();
+            if (typeof (debouncedAllSims as any).cancel === 'function') {
+                (debouncedAllSims as any).cancel();
             }
         };
-    }, [debouncedSimResearch, debouncedSimFacility]);
+    }, [debouncedAllSims]);
 
+    // 시설 결과 + 연구 결과 통합
     const allResult: SimResponse | null = useMemo(() => {
         const allMatMap = new Map();
 
@@ -132,48 +139,73 @@ const SimIndexPage = () => {
         };
     }, [facilitySimResult, researchSimResult])
 
-    // console.log(simResult)
-    // console.log(simInput)
+    const items = useMemo(() => {
+        return [
+            {
+                id: 'sim_result_2',
+                header: (
+                    <div className="font-bold">
+                        시설 레벨별
+                    </div>
+                ),
+                content: facilitySimResult && facilitySimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                        {facilitySimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={sim.name}
+                            />
+                        ))}
+                    </div>
+                ) : null // jsx 반환 시 &&로 false 반환 보단 null이 더 낫다고 함
+            }, {
+                id: 'sim_result_1',
+                header: (
+                    <div className="font-bold">
+                        연구 단계별
+                    </div>
+                ),
+                content: researchSimResult && researchSimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                        {researchSimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={sim.name}
+                            />
+                        ))}
+                    </div>
+                ) : null
+            }
+        ];
+    }, [facilitySimResult, researchSimResult])
 
-    const items = [
-        {
-            id: 'sim_result_2',
-            header: (
-                <div className="font-bold">
-                    시설 레벨별
-                </div>
-            ),
-            content: facilitySimResult && facilitySimResult.length > 0 && (
-                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
-                    {facilitySimResult.map((sim) => (
-                        <SimResult
-                            key={`${sim.krName}-${sim.numlvl}`}
-                            simResult={sim}
-                            type={sim.name}
-                        />
-                    ))}
-                </div>
-            )
-        }, {
-            id: 'sim_result_1',
-            header: (
-                <div className="font-bold">
-                    연구 단계별
-                </div>
-            ),
-            content: researchSimResult && researchSimResult.length > 0 && (
-                <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
-                    {researchSimResult.map((sim) => (
-                        <SimResult
-                            key={`${sim.krName}-${sim.numlvl}`}
-                            simResult={sim}
-                            type={sim.name}
-                        />
-                    ))}
-                </div>
-            )
-        }
-    ]
+    const handleBagOpen = useCallback(() => {
+        setBagOpen((prev) => (!prev));
+    }, [])
+
+    const handleInventory = useCallback((name: string, value?: number) => {
+        setInventory((prev) => {
+
+            if (name === 'clear') {
+                return new Map();
+            }
+
+            const next = new Map(prev);
+            const newQty = value ?? 1;
+
+
+            if (newQty <= 0) {
+                next.delete(name)
+            }
+            else {
+                next.set(name, newQty)
+            }
+
+            return next;
+        })
+    }, []);
 
     return (
         // 하위 요소가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
@@ -181,22 +213,51 @@ const SimIndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
-                <div className="flex flex-col justify-start mb-3">
-                    <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
-                    <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화를 계산합니다.</span>
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4">
+                <div className="flex flex-col">
+                    <div className="flex flex-col justify-start mb-3">
+                        <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
+                        <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화를 계산합니다.</span>
+                    </div>
+                    <div className="flex items-center mb-2">
+                        <div className="flex-col flex gap-y-1">
+                            <span className="text-[12px] text-orange-500 font-bold">
+                                모험은 2, 3, 4레벨 획득량을 기준
+                            </span>
+                            <span className="text-[12px] text-orange-500 font-bold">
+                                부수재료는 최소 획득량 이월
+                            </span>
+                            <span className="text-[12px] text-orange-500 font-bold">
+                                모험회 현재 레벨에 수행이 가능한 모험만 소개
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex items-center mb-2">
-                    <div className="flex-col flex gap-y-1">
-                        <span className="text-[12px] text-orange-500 font-bold">
-                            모험은 2, 3, 4레벨 획득량을 기준
-                        </span>
-                        <span className="text-[12px] text-orange-500 font-bold">
-                            부수재료는 최소 획득량 이월
-                        </span>
-                        <span className="text-[12px] text-orange-500 font-bold">
-                            모험회 현재 레벨에 수행이 가능한 모험만 소개
-                        </span>
+                <div className="flex mt-2 relative xs:ml-auto">
+                    <div className="flex flex-col items-center justify-end">
+                        <div className="text-[12px] text-orange-500 font-bold mb-1">
+                            가방
+                        </div>
+                        <div
+                            className="cursor-pointer"
+                            onClick={handleBagOpen}>
+                            {bagOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 3.75H6.912a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859M12 3v8.25m0 0-3-3m3 3 3-3" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+                                </svg>
+                            )}
+                        </div>
+                        {bagOpen && (
+                            <MaterialBag
+                                inventory={inventory}
+                                handleInventory={handleInventory}
+                                handleBagOpen={handleBagOpen}
+                            />
+                        )}
                     </div>
                 </div>
             </div>
@@ -218,12 +279,10 @@ const SimIndexPage = () => {
                 </div>
                 {selectInput === 0 ? (
                     <SimFacilityInput
-                        handleSim={handleSim}
                         setFacilityInput={setFacilityInput}
                         facilityInput={facilityInput} />
                 ) : selectInput === 1 && (
                     <SimResearchInput
-                        handleSim={handleSim}
                         setResearchInput={setResearchInput}
                         researchInput={researchInput} />
                 )}

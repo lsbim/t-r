@@ -1,3 +1,4 @@
+import React from "react";
 import { materials } from "../../data/materials";
 
 const formatValue = (v?: number) => {
@@ -10,7 +11,19 @@ const formatValue = (v?: number) => {
 
 const matSet = new Set([...materials.map(mat => mat.name)])
 
-const ItemIcon = ({ name, size, value }: { name: string, size?: number, value?: number }) => {
+const ItemIcon = ({
+    name,
+    size,
+    value,
+    grayscale,
+    opacity
+}: {
+    name: string,
+    size?: number,
+    value?: number,
+    grayscale?: boolean,
+    opacity?: number
+}) => {
 
     if (!matSet.has(name) && name !== 'gold') {
         return null;
@@ -21,16 +34,17 @@ const ItemIcon = ({ name, size, value }: { name: string, size?: number, value?: 
 
     return (
         <div
-            className="relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex items-center justify-center"
+            className={`relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex items-center justify-center ${grayscale ? 'grayscale' : ''}`}
             style={{
                 width: size || 60,
                 height: size || 60,
-                backgroundImage: `url('${bgUrl}')`
+                backgroundImage: `url('${bgUrl}')`,
+                opacity: opacity || 1
             }}
         >
 
             <img
-                className="w-[55%] h-[55%] aspect-square object-contain pb-1"
+                className="w-[55%] h-[55%] aspect-square object-contain pb-1 select-none"
                 src={`/images/item/${itemInfo ? `${itemInfo?.name}.png` : 'gold.png'}`} />
 
             <div
@@ -44,4 +58,4 @@ const ItemIcon = ({ name, size, value }: { name: string, size?: number, value?: 
     );
 }
 
-export default ItemIcon;
+export default React.memo(ItemIcon);

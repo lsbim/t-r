@@ -29,7 +29,12 @@ export interface SimResponse {
     krName?: string; // 원본명이 영어일 경우 ex) 'adv' 한글로 바꾼 이름.
     name: string; // 원본명
     numlvl?: number; // 시설 레벨 또는 연구 단계. 종합 결과의 경우 lvl이 없음
-    result: SimResult
+    result: SimResult;
+}
+
+export interface SimFacilityResult {
+    result: SimResponse[];
+    remainingInventory?: Map<string, number>; // 쓰고 남은 인벤토리
 }
 
 export interface SimResult {

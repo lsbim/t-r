@@ -1,3 +1,4 @@
+import React from "react";
 import { adventure } from "../../data/adventures";
 import ItemIcon from "./ItemIcon";
 
@@ -30,9 +31,7 @@ const AdvIcon = ({ name, text }: { name: string, text: string }) => {
             </div>
             <div className="mt-[8%] flex gap-x-1">
                 {advInfo.yieldMaterials.map(mat => (
-                    <div key={name + mat.name} className="">
-                        <ItemIcon name={mat.name} size={30} />
-                    </div>
+                    <ItemIcon key={mat.name} name={mat.name} size={30} />
                 ))}
             </div>
             <div className="absolute text-[rgb(93,61,48)] font-bold bottom-0 h-[20px] pt-[2px] bg-[rgb(226,220,200)] w-full flex text-[13px] items-center justify-center">
@@ -42,4 +41,4 @@ const AdvIcon = ({ name, text }: { name: string, text: string }) => {
     );
 }
 
-export default AdvIcon;
+export default React.memo(AdvIcon);

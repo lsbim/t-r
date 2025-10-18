@@ -486,3 +486,5 @@ export const materials: Material[] = [
         ]
     },
 ];
+
+export const materialNames: string[] = materials.map(m => m.name);
