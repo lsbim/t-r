@@ -67,19 +67,7 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
             needMaterials.set('gold', (needMaterials.get('gold') || 0) + cost.gold);
 
             cost.cost.forEach(({ name, qty }) => {
-
-                const invenQty = inventory.get(name) || 0;
-
-                if (invenQty >= qty) {
-                    // 재료가 인벤토리에 충분하면 꺼내 씀
-                    inventory.set(name, invenQty - qty);
-                } else {
-                    // 인벤토리에 부족하면 쓸 수 있는 만큼 쓰기
-                    if (invenQty > 0) {
-                        inventory.delete(name);
-                    }
-                    needMaterials.set(name, (needMaterials.get(name) || 0) + (qty - invenQty));
-                }
+                needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
             });
 
             // console.log(`needMaterials: `,needMaterials)
@@ -89,7 +77,8 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
                 krName === '모험회'
                     ? Math.max(numlvl - 1, request.currentAdv)
                     : request.currentAdv || 1,
-                needMaterials
+                needMaterials,
+                inventory
             );
 
             resultArr.push({
@@ -142,19 +131,7 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
             needMaterials.set('gold', (needMaterials.get('gold') || 0) + stepInfo.gold);
             // 재료 누적
             stepInfo.cost.forEach(({ name, qty }) => {
-
-                const invenQty = inventory.get(name) || 0;
-
-                if (invenQty >= qty) {
-                    // 재료가 인벤토리에 충분하면 꺼내 씀
-                    inventory.set(name, invenQty - qty);
-                } else {
-                    // 인벤토리에 부족하면 쓸 수 있는 만큼 쓰기
-                    if (invenQty > 0) {
-                        inventory.delete(name);
-                    }
-                    needMaterials.set(name, (needMaterials.get(name) || 0) + (qty - invenQty));
-                }
+                needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
             });
         }
 
@@ -165,7 +142,8 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
 
         const result = createIntegratedPlan(
             request.currentAdv || 1,
-            needMaterials
+            needMaterials,
+            inventory
         );
 
 
@@ -186,12 +164,13 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
 export function createIntegratedPlan(
     currentAdvLvl: number,
     needMaterials: Map<string, number>,
+    inventory?: Map<string, number>
 ): SimResult {
 
     // 해당 단계에서 사용될 컨텍스트
     // 같은 모험에서 나올 부산물 체크 용도
     const context: PlanContext = {
-        inventory: new Map(),
+        inventory: new Map(inventory || []),
         adventureRuns: new Map(),
     };
 

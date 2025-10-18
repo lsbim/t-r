@@ -130,7 +130,7 @@ const SimIndexPage = () => {
 
         if (allMatMap.size < 1) return null;
 
-        const plans = createIntegratedPlan(facilityInput.currentAdv, allMatMap);
+        const plans = createIntegratedPlan(facilityInput.currentAdv, allMatMap, inventory);
 
         return {
             gold: allMatMap.get('gold'),
