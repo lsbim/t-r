@@ -28,7 +28,8 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                                     <ItemIcon
                                         key={`${simResult.krName}_${simResult.numlvl}_mainMaterial_${idx}`}
                                         name={matObj?.material!}
-                                        value={matObj?.quantity} />
+                                        value={matObj?.quantity}
+                                    />
                                 ))}
                             </div>
                         </div>

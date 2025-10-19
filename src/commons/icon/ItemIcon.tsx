@@ -2,7 +2,7 @@ import React from "react";
 import { materials } from "../../data/materials";
 
 const formatValue = (v?: number) => {
-    if (v == null) return "";
+    if (v == null || v < 0) return "";
     if (v >= 10_000_000_000) return `${Math.floor(v / 1_000_000_000)}B`;
     if (v >= 10_000_000) return `${Math.floor(v / 1_000_000)}M`;
     if (v >= 10_000) return `${Math.floor(v / 1_000)}K`;
@@ -42,19 +42,18 @@ const ItemIcon = ({
                 opacity: opacity || 1
             }}
         >
-
             <img
                 className="w-[55%] h-[55%] aspect-square object-contain pb-1 select-none"
                 src={`/images/item/${itemInfo ? `${itemInfo?.name}.png` : 'gold.png'}`} />
 
-            <div
-                style={{
-                    textShadow: '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)'
-                }}
-                className="absolute font-bold bottom-[2px] select-none text-[14px]">
-                {formatValue(value)}
-            </div>
-        </div >
+                <div
+                    style={{
+                        textShadow: '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)'
+                    }}
+                    className="absolute font-bold bottom-[2px] select-none text-[14px]">
+                    {formatValue(value)}
+                </div>
+        </div>
     );
 }
 

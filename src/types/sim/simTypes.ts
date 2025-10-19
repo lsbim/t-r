@@ -56,6 +56,7 @@ export interface AdventureRequirement {
 export interface MaterialAcquisitionPlan {
     material: string;              // 재료 이름
     quantity: number;              // 필요한 수량
+    inventoryQty?: number;         // 인벤토리에서 꺼내 쓴 수량
     method: 'adventure' | 'craft' | 'inventory' | 'impossible'; // 획득 방법 (모험 or 제작 or 인벤토리 or 획득불가)
     adventures?: AdventureRequirement[];  // 모험으로 획득하는 경우
     craftingMaterials?: MaterialAcquisitionPlan[]; // 제작하는 경우 필요한 하위 재료들

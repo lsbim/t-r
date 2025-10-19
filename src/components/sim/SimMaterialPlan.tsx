@@ -30,8 +30,17 @@ const SimMaterialPlan: React.FC<SimMaterialPlanProps> = ({
 
     return (
         <div className={`flex flex-col gap-y-5 text-[10px]`}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center relative">
                 <ItemIcon name={plan.material} value={plan.quantity} />
+                {(plan?.inventoryQty ?? 0) > 0 && (
+                    <div className="absolute top-[-25%] left-1/2 text-sky-600">
+                        <ItemIcon
+                            name={plan?.material!}
+                            value={plan?.inventoryQty}
+                            size={40}
+                        />
+                    </div>
+                )}
             </div>
 
             {/* 하위 재료가 있는 경우 */}

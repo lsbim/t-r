@@ -78,7 +78,8 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
                     ? Math.max(numlvl - 1, request.currentAdv)
                     : request.currentAdv || 1,
                 needMaterials,
-                inventory
+                inventory,
+                true
             );
 
             resultArr.push({
@@ -143,7 +144,8 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
         const result = createIntegratedPlan(
             request.currentAdv || 1,
             needMaterials,
-            inventory
+            inventory,
+            true
         );
 
 
@@ -164,13 +166,16 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
 export function createIntegratedPlan(
     currentAdvLvl: number,
     needMaterials: Map<string, number>,
-    inventory?: Map<string, number>
+    inventory: Map<string, number>,
+    isMutateInventory: boolean = false
 ): SimResult {
 
     // 해당 단계에서 사용될 컨텍스트
     // 같은 모험에서 나올 부산물 체크 용도
     const context: PlanContext = {
-        inventory: new Map(inventory || []),
+        inventory: isMutateInventory
+            ? (inventory || new Map())  // 원본을 직접 사용
+            : new Map(inventory || []),
         adventureRuns: new Map(),
     };
 
@@ -212,6 +217,7 @@ function planAcquisitionRecursive(
         return {
             material: materialName,
             quantity: quantity,
+            inventoryQty: quantity,
             method: 'inventory'
         };
     }
@@ -279,6 +285,7 @@ function planAcquisitionRecursive(
 
         return {
             material: materialName,
+            inventoryQty: alreadyMat,
             quantity: quantity,
             method: 'adventure',
             adventures: [{
@@ -318,6 +325,7 @@ function planAcquisitionRecursive(
         return {
             material: materialName,
             quantity: quantity,
+            inventoryQty: alreadyMat,
             method: 'craft',
             craftingMaterials: subPlans,
         };

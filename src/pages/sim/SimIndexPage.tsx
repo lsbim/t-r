@@ -130,7 +130,12 @@ const SimIndexPage = () => {
 
         if (allMatMap.size < 1) return null;
 
-        const plans = createIntegratedPlan(facilityInput.currentAdv, allMatMap, inventory);
+        const plans = createIntegratedPlan(
+            facilityInput.currentAdv,
+            allMatMap,
+            inventory,
+            false
+        );
 
         return {
             gold: allMatMap.get('gold'),
@@ -229,6 +234,9 @@ const SimIndexPage = () => {
                             </span>
                             <span className="text-[12px] text-orange-500 font-bold">
                                 모험회 현재 레벨에 수행이 가능한 모험만 소개
+                            </span>
+                            <span className="text-[12px] text-orange-500 font-bold">
+                                종합과 단계별 모험 횟수가 다를 수 있습니다.
                             </span>
                         </div>
                     </div>
