@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { materialNames } from "../../data/materials";
+import { materialNames, materials } from "../../data/materials";
 import ItemIcon from "../../commons/icon/ItemIcon";
+import { getChoseong } from "es-hangul";
 
 const MaterialBag = ({
     inventory,
@@ -16,6 +17,7 @@ const MaterialBag = ({
     const inputRef = useRef<HTMLInputElement>(null);
     const itemRef = useRef<HTMLDivElement>(null);
 
+    // 아이템 바깥 클릭 시 커밋
     useEffect(() => {
         function onClickOutside(e: MouseEvent) {
             if (itemRef.current &&
@@ -28,10 +30,26 @@ const MaterialBag = ({
         return () => document.removeEventListener('mousedown', onClickOutside);
     }, [isEdit]);
 
+    // {재료명:초성} 객체
+    const initMatMap = useMemo(() => {
+        return Object.fromEntries( // [k,v] 구조를 {k:v} 구조로 바꿈.
+            materialNames.map(mat => {
+                return [mat, getChoseong(mat.trim())]
+            })
+        );
+    }, [materialNames])
+
     const filtered = useMemo(() => {
         const key = search.trim();
         if (!key) return materialNames;
-        return materialNames.filter(n => n.includes(key));
+
+        return materialNames.filter(name => {
+            const initails = initMatMap[name];
+            return (
+                name.includes(key) ||
+                initails.includes(key)
+            )
+        });
     }, [search]);
 
     // 클릭 시 수정 활성화
@@ -70,7 +88,7 @@ const MaterialBag = ({
 
     return (
         <div
-            className="bg-white xs:h-[300px] xs:w-[300px] w-full h-[240px] md:absolute fixed md:top-32 md:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 shadow-gray-400 rounded-md flex flex-col">
+            className="bg-white xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[152px] xs:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 shadow-gray-400 rounded-md flex flex-col">
             <div className="mx-auto text-[13px] py-1">
                 보유중인 재료를 입력할 수 있습니다.
             </div>
