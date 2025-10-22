@@ -225,17 +225,17 @@ const SimIndexPage = () => {
                         <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화를 계산합니다.</span>
                     </div>
                     <div className="flex items-center mb-2">
-                        <div className="flex-col flex gap-y-1">
-                            <span className="text-[12px] text-orange-500 font-bold">
+                        <div className="flex-col flex gap-y-1 text-orange-500 font-bold text-[12px]">
+                            <span>
                                 모험은 2, 3, 4레벨 획득량을 기준
                             </span>
-                            <span className="text-[12px] text-orange-500 font-bold">
+                            <span>
                                 부수재료는 최소 획득량 이월
                             </span>
-                            <span className="text-[12px] text-orange-500 font-bold">
+                            <span>
                                 모험회 현재 레벨에 수행이 가능한 모험만 소개
                             </span>
-                            <span className="text-[12px] text-orange-500 font-bold">
+                            <span>
                                 종합과 단계별 모험 횟수가 다를 수 있습니다.
                             </span>
                         </div>

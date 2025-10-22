@@ -15,12 +15,15 @@ const fetchCharData = async (name: string) => {
     return response.json();
 };
 
-export type CharacterPickRateData = { 
+export type CharacterPickRateData = {
     season: string;
     pickRate: number;
 }
 export type CharacterPickRateObj = {
     [K in TrickcalRaidEn]: CharacterPickRateData;
+}
+export type CharacterPickRateObjMulti = {
+    [key: string]: CharacterPickRateObj;
 }
 
 export const useCharData = <CharacterPickRateData>
@@ -28,7 +31,27 @@ export const useCharData = <CharacterPickRateData>
 
     return useQuery<CharacterPickRateData, Error>({
         queryKey: [name, 'character'],
-        queryFn: () => fetchCharData(name!),
+        queryFn: async () => {
+            if (name === '우로스') {
+                const result: { [key: string]: Promise<CharacterPickRateObj> } = {};
+                const fivePers = ['순수', '냉정', '광기', '활발', '우울'];
+
+                await Promise.all(
+                    fivePers.map(async pers => {
+                        try {
+                            const data = await fetchCharData(`${name}(${pers})`);
+                            result[pers] = data;
+                        } catch (err) {
+                        }
+                    })
+                );
+
+                return result;
+            }
+            const data = fetchCharData(name!);
+
+            return data;
+        },
 
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정

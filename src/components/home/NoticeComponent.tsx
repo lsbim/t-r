@@ -39,6 +39,9 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                             <span>
                                 모험회 현재 레벨에 수행이 가능한 모험만 소개
                             </span>
+                            <span>
+                                종합과 단계별 모험 횟수가 다를 수 있습니다.
+                            </span>
                         </div>
                     </div>
                 </div>

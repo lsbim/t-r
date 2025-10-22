@@ -30,6 +30,7 @@ const personalityColors = {
     '공명': '#ffffff',
 };
 
+// 헥스코드 반환
 export const getPersonalityColor = (personality: Personality) => {
     return personalityColors[personality] || '#gray'; // 기본값 설정
 };
