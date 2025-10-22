@@ -63,8 +63,8 @@ export function processRankingArrData(
     return result;
 }
 
-interface CompStat {
-    rank: number;           // JSON.stringify(arr) 로 만든 유니크 키
+export interface CompStat {
+    rank: number;           
     count: number;          // 이 조합이 몇 번 등장했는지
     front: string[];       // 전열(0,1,2)에 사용된 멤버들 (0,1,2 위치 캐릭터)
     mid: string[];       // 중열(3,4,5)
@@ -106,7 +106,7 @@ export function processCompStat(data: clashPlayerData[] | FrontierPlayerData[], 
     >();
 
     for (const { arr } of data) {
-        // JSON 키 생성 (순서와 위치 포함해서 완전 동일한 조합만 묶임)
+        // 전중후열 단위로 쪼개기 (sort로 인해 배열 내 문자들을 알파벳 순서로 정렬하여 모두 같은 순서가 됨)
         const frontArr = arr.slice(0, 3).sort();
         const middleArr = arr.slice(3, 6).sort();
         const backArr = arr.slice(6, 9).sort();

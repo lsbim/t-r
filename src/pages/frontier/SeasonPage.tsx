@@ -16,8 +16,10 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
-import { processCompStat } from "../../utils/chartFunction";
+import { CompStat, processCompStat } from "../../utils/chartFunction";
+import BestComp from "../../components/shared/BestComp";
 
+const initRange = { start: 0, end: 0 };
 
 const SeasonPage = () => {
 
@@ -28,7 +30,7 @@ const SeasonPage = () => {
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
     const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier');
     const { data: prevData, isLoading: prevIsLoading, error: prevError } = useSeasonData<FrontierSeasonData | FrontierExternalData>(prevSeason, 'frontier');
-    const [appliedRange, setAppliedRange] = useState({ start: 0, end: 0 });
+    const [appliedRange, setAppliedRange] = useState(initRange);
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
 
     useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
@@ -117,6 +119,26 @@ const SeasonPage = () => {
     // console.log("user count: ", userCnt)
     // console.log("length: ", data?.data?.length);
 
+    // 1~100/101~200/201~300 or 지정 구간 BEST COMP
+    const bestComp = useMemo(() => {
+        if (!data || data?.type === 'external') return;
+        const result: CompStat[] = [];
+        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
+            const oneComp = processCompStat(data?.data.slice(0, 100) as FrontierPlayerData[])[0]
+            const twoComp = processCompStat(data?.data.slice(101, 200) as FrontierPlayerData[])[0]
+            const threeComp = processCompStat(data?.data.slice(201, 300) as FrontierPlayerData[])[0]
+
+            result.push(oneComp);
+            result.push(twoComp);
+            result.push(threeComp);
+            return result;
+        } else {
+            const bestComp = processCompStat(data?.data.slice(appliedRange.start, appliedRange.end) as FrontierPlayerData[])[0]
+            result.push(bestComp)
+            return result;
+        }
+    }, [data, appliedRange])
+
     if (isLoading || prevIsLoading) {
         return (
             <Loading />
@@ -187,17 +209,20 @@ const SeasonPage = () => {
                         setSelect={setSelect}
                         prevData={prevSlice}
                     />
-                    {
-                        select !== '' && (
-                            <SelectCharComponent
-                                statsForSelect={statsForSelect}
-                            />
-                        )
-                    }
+                    {select !== '' && (
+                        <SelectCharComponent
+                            statsForSelect={statsForSelect}
+                        />
+                    )}
                     <ScoreAndCoinChart
                         season={season}
                         data={seasonSlice}
                     />
+                    {bestComp && (
+                        <BestComp
+                            data={bestComp}
+                        />
+                    )}
                     <CompListComponent
                         season={season}
                         data={seasonSlice}

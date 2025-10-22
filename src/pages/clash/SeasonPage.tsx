@@ -16,14 +16,17 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
-import { processCompStat } from "../../utils/chartFunction";
+import { CompStat, processCompStat } from "../../utils/chartFunction";
+import BestComp from "../../components/shared/BestComp";
+
+const initRange = { start: 0, end: 0 };
 
 const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
     const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash');
-    const [appliedRange, setAppliedRange] = useState({ start: 0, end: 0 });
+    const [appliedRange, setAppliedRange] = useState(initRange);
     useTitle(`차원 대충돌 시즌${season} 집계`);
 
     // 순위 나누기
@@ -32,7 +35,7 @@ const SeasonPage = () => {
             return undefined;
         }
 
-        if (appliedRange.start === 0 && appliedRange.end === 0) {
+        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
             return data;
         }
 
@@ -104,12 +107,31 @@ const SeasonPage = () => {
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
     }, [select, seasonSlice]);
 
+    // 1~100/101~200/201~300 or 지정 구간 BEST COMP
+    const bestComp = useMemo(() => {
+        if (!data || data?.type === 'external') return;
+        const result: CompStat[] = [];
+        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
+            const oneComp = processCompStat(data?.data.slice(0, 100) as clashPlayerData[])[0]
+            const twoComp = processCompStat(data?.data.slice(101, 200) as clashPlayerData[])[0]
+            const threeComp = processCompStat(data?.data.slice(201, 300) as clashPlayerData[])[0]
+ 
+            result.push(oneComp);
+            result.push(twoComp);
+            result.push(threeComp);
+            return result;
+        } else {
+            const bestComp = processCompStat(data?.data.slice(appliedRange.start, appliedRange.end) as clashPlayerData[])[0]
+            result.push(bestComp)
+            return result;
+        }
+    }, [data, appliedRange])
+
     if (isLoading) {
         return (
             <Loading />
         )
     }
-
 
     if (!seasonSlice) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
@@ -172,17 +194,20 @@ const SeasonPage = () => {
                         data={seasonSlice}
                         setSelect={setSelect}
                     />
-                    {
-                        select !== '' && (
-                            <SelectCharComponent
-                                statsForSelect={statsForSelect}
-                            />
-                        )
-                    }
+                    {select !== '' && (
+                        <SelectCharComponent
+                            statsForSelect={statsForSelect}
+                        />
+                    )}
                     <CleartimeChart
                         season={season}
                         data={seasonSlice}
                     />
+                    {bestComp && (
+                        <BestComp
+                            data={bestComp}
+                        />
+                    )}
                     <CompListComponent
                         season={season}
                         data={seasonSlice}

@@ -42,11 +42,11 @@ const CompListComponent = ({
 
                     // 조합끼리 y축 gap은 mb-8
                     return (
-                        <div key={"clash" + season + "comp" + c?.rank}
+                        <div key={season + "_comp_" + c?.rank}
                             className={`w-full h-[78px] flex text-[12px] mb-8 sm:mb-4 gap-x-2 font-bold px-4`}>
                             <div className="w-[25%] flex flex-col gap-y-1">
                                 {c?.back.map(b => (
-                                    <div key={"clash" + season + "comp" + ci + b}
+                                    <div key={"back_" + season + "_comp_" + ci + b}
                                         title={b}
                                         className={`w-full bg-${findPersonalityByName(b)} p-1 flex items-center max-h-[23px]`}>
                                         <span className="truncate">
@@ -57,7 +57,7 @@ const CompListComponent = ({
                             </div>
                             <div className="w-[25%] flex flex-col gap-y-1">
                                 {c?.mid.map(m => (
-                                    <div key={"clash" + season + "comp" + ci + m}
+                                    <div key={"mid_" + season + "_comp_" + ci + m}
                                         title={m}
                                         className={`w-full bg-${findPersonalityByName(m)} p-1 flex items-center max-h-[23px]`}>
                                         <span className="truncate">
@@ -68,7 +68,7 @@ const CompListComponent = ({
                             </div>
                             <div className="w-[25%] flex flex-col gap-y-1">
                                 {c?.front.map(f => (
-                                    <div key={"clash" + season + "comp" + ci + f}
+                                    <div key={"front_" + season + "_comp_" + ci + f}
                                         title={f}
                                         className={`w-full bg-${findPersonalityByName(f)} p-1 flex items-center max-h-[23px]`}>
                                         <span className="truncate">
@@ -96,7 +96,7 @@ const CompListComponent = ({
                 <div>
                     {synergyStats && userCnt && synergyStats.map((per, i) => (
                         <PersonalityListComponent
-                            key={"clash_personality" + season + i}
+                            key={"comp_personality" + season + i}
                             data={per.synergy}
                             count={per.count}
                             userCnt={userCnt}

@@ -13,8 +13,10 @@ export interface SynergyItem {
 }
 // 범용 배치 라인
 export type BaseLine = "전열" | "중열" | "후열";
+export type BaseLineEn = "front" | "mid" | "back";
 export type AllLine = BaseLine | "모든열";
 export const lineList: BaseLine[] = ["후열", "중열", "전열"]; // .map()용 배열
+export const lineListEn: BaseLineEn[] = ["back", "mid", "front"]; // .map()용 배열
 
 export type SeasonDataMap = { // 시즌데이터 맵핑
     frontier: FrontierSeasonData;
