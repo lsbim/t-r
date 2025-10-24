@@ -11,9 +11,12 @@ const lineBuckets: Record<BaseLine, number[]> = {
     후열: [6, 7, 8],
 };
 
-export function processRankingArrData(
+// AllPickRateChart 전용. 모든열 사도(영티,죠안)를 열 별로 모두 더해 취급한다
+export function processRankingArrAllData(
     data: Array<clashPlayerData | FrontierPlayerData>
 ): SummaryData[] {
+    // console.log(data)
+
     // 1) 먼저 이름별 positions 집계 (기존대로)
     const positions: Record<string, Record<number, number>> = {};
     data.forEach(({ arr }) => {
@@ -37,6 +40,84 @@ export function processRankingArrData(
         const pos = positions[name];
         const info = charInfo[name] || { personality: "", line: "전열" as BaseLine };
 
+        if (info.line === '모든열') {
+            // 해당 라인 인덱스들의 합
+            const lineCnt = Object.values(pos).reduce((sum, idx) => sum + idx, 0);
+            if (lineCnt === 0) continue;  // 등장하지 않았으면 건너뜀
+
+            const percent = Math.round((lineCnt / totalCount) * 100 * 10) / 10;
+
+            // SummaryData 타입에 맞춰
+            result.push({
+                name,
+                count: lineCnt,
+                percent,
+                personality: info.personality,
+                line: '모든열',
+                positions: pos,
+                percentByLine: {
+                    전열: 0, 중열: 0, 후열: 0
+                }
+            });
+
+        }
+        else {
+            for (const line of (Object.keys(lineBuckets) as BaseLine[])) {
+                // 해당 라인 인덱스들의 합
+                const lineCnt = lineBuckets[line].reduce((sum, idx) => sum + (pos[idx] || 0), 0);
+                if (lineCnt === 0) continue;  // 등장하지 않았으면 건너뜀
+
+                const percent = Math.round((lineCnt / totalCount) * 100 * 10) / 10;
+
+                // SummaryData 타입에 맞춰
+                result.push({
+                    name,
+                    count: lineCnt,
+                    percent,
+                    personality: info.personality,
+                    line,                 // 전열 | 중열 | 후열
+                    positions: pos,       // 기존 positions 전체 맵을 그대로 붙이셔도 되고
+                    percentByLine: {      // 전열/중열/후열 비율 (옵션)
+                        전열: 0, 중열: 0, 후열: 0
+                    }
+                });
+            }
+        }
+    }
+
+    return result;
+}
+
+// PickRateChart 전용. 모든열 사도(영티,죠안)를 열 별로 분리한다.
+export function processRankingArrData(
+    data: Array<clashPlayerData | FrontierPlayerData>
+): SummaryData[] {
+    // console.log(data)
+
+    // 1) 먼저 이름별 positions 집계 (기존대로)
+    const positions: Record<string, Record<number, number>> = {};
+    data.forEach(({ arr }) => {
+        arr.forEach((name, idx) => {
+            if (!positions[name]) {
+                positions[name] = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
+            }
+            positions[name][idx] += 1;
+        });
+    });
+
+    // 2) 이름별 전체 count & 총합 계산
+    const totalCount = Object.values(positions)
+        .flatMap(pos => Object.values(pos))
+        .reduce((a, b) => a + b, 0);
+
+    // 3) 이제 이름 × 라인별 SummaryData 생성
+    const result: SummaryData[] = [];
+
+    for (const name in positions) {
+        const pos = positions[name];
+        const info = charInfo[name] || { personality: "", line: "전열" as BaseLine };
+
+
         for (const line of (Object.keys(lineBuckets) as BaseLine[])) {
             // 해당 라인 인덱스들의 합
             const lineCnt = lineBuckets[line].reduce((sum, idx) => sum + (pos[idx] || 0), 0);
@@ -57,31 +138,43 @@ export function processRankingArrData(
                 }
             });
         }
+
     }
 
-    // 4) 가나다순, 혹은 퍼센트 내림차순 정렬
     return result;
 }
 
 export interface CompStat {
-    rank: number;           
+    rank: number;
     count: number;          // 이 조합이 몇 번 등장했는지
     front: string[];       // 전열(0,1,2)에 사용된 멤버들 (0,1,2 위치 캐릭터)
     mid: string[];       // 중열(3,4,5)
     back: string[];       // 후열(6,7,8)
 }
 
-export function processExternalData(data: ClashExternalData | FrontierExternalData): ExternalSummaryData[] {
-    // 출전 횟수 합산
-    const total = data.data.reduce((sum, it) => sum + it.count, 0);
+// AllPickRateChart 전용. '모든열' 사도의 출전횟수를 모두 더함
+export function processExternalAllData(data: ClashExternalData | FrontierExternalData): ExternalSummaryData[] {
 
-    // 2) 가나다순 정렬
-    const sorted = data.data.slice().sort((a, b) =>
-        a.name.localeCompare(b.name, 'ko')
-    );
+    const groupedByName = data.data.reduce((acc, item) => {
+        const existing = acc.get(item.name);
+        if (existing) {
+            // 이미 존재하는 사도면 count를 합산하고, 라인이 다르면 '모든열'로 변경
+            existing.count += item.count;
+            if (existing.line !== item.line) {
+                existing.line = '모든열';
+            }
+        } else {
+            // 새로운 사도면 추가
+            acc.set(item.name, { ...item });
+        }
+        return acc;
+    }, new Map());
+
+    // 출전 횟수 합산
+    const total = Array.from(groupedByName.values()).reduce((sum, it) => sum + it.count, 0);
 
     // 3) SummaryData 배열로 매핑
-    return sorted.map(item => {
+    const result = Array.from(groupedByName.values()).map(item => {
         const { name, count, line } = item;
         const percent = total ? Math.round((count / total) * 100 * 10) / 10 : 0;
 
@@ -96,6 +189,33 @@ export function processExternalData(data: ClashExternalData | FrontierExternalDa
             line: line as AllLine, // 혹은 item.line
         };
     });
+
+    return result;
+}
+
+
+export function processExternalData(data: ClashExternalData | FrontierExternalData): ExternalSummaryData[] {
+    // 출전 횟수 합산
+    const total = data.data.reduce((sum, it) => sum + it.count, 0);
+
+    // 3) SummaryData 배열로 매핑
+    const result = data.data.map(item => {
+        const { name, count, line } = item;
+        const percent = total ? Math.round((count / total) * 100 * 10) / 10 : 0;
+
+        // charInfo 에서 personality 등 가져오기 (없으면 빈 문자열)
+        const info = charInfo[name] || {};
+
+        return {
+            name,
+            count,
+            percent,
+            personality: info.personality,
+            line: line as AllLine, // 혹은 item.line
+        };
+    });
+
+    return result;
 }
 
 export function processCompStat(data: clashPlayerData[] | FrontierPlayerData[], select?: string): CompStat[] {

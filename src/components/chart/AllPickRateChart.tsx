@@ -12,7 +12,7 @@ import { Bar } from "react-chartjs-2";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
-import { processExternalData, processRankingArrData } from '../../utils/chartFunction';
+import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
 
 ChartJS.register(
     CategoryScale,
@@ -31,8 +31,8 @@ const AllPickRateChart = ({ data, season, setSelect }:
 
 
     const sortedData = data.type === 'season' ?
-        processRankingArrData(data?.data).sort((a, b) => b.count - a.count)
-        : processExternalData(data).sort((a, b) => b.count - a.count);
+        processRankingArrAllData(data?.data).sort((a, b) => b.count - a.count)
+        : processExternalAllData(data).sort((a, b) => b.count - a.count);
 
     // console.log("sortedData: ", sortedData)
 
