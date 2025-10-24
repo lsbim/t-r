@@ -1,10 +1,10 @@
 import CharacterIcon from "../../commons/icon/CharacterIcon";
-import { BaseLineEn, lineListEn } from "../../types/trickcalTypes";
+import { lineListEn } from "../../types/trickcalTypes";
 import { CompStat } from "../../utils/chartFunction";
 
 const BestComp = ({ data }: { data: CompStat[] }) => {
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white py-4 shadow-md overflow-x-auto gap-y-3">
@@ -55,7 +55,7 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                                     {comp?.front.map(f => (
                                         <div key={"best_front_" + ci + f}
                                             className="w-[60px] h-[80px] relative"
->
+                                        >
                                             <CharacterIcon name={f} type="mini" />
                                             {changes && changes?.filter(cng => cng?.position === 'front').find(cng => cng?.added === f) && (
                                                 <div className="absolute top-[-5px] right-[-5px]">

@@ -112,16 +112,27 @@ const SeasonPage = () => {
         if (!data || data?.type === 'external') return;
         const result: CompStat[] = [];
         if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
-            const oneComp = processCompStat(data?.data.slice(0, 100) as clashPlayerData[])[0]
-            const twoComp = processCompStat(data?.data.slice(101, 200) as clashPlayerData[])[0]
-            const threeComp = processCompStat(data?.data.slice(201, 300) as clashPlayerData[])[0]
- 
-            result.push(oneComp);
-            result.push(twoComp);
-            result.push(threeComp);
-            return result;
+
+            if (data?.data.length === 300) {
+                const oneComp = processCompStat(data?.data.slice(0, 100) as clashPlayerData[])[0]
+                const twoComp = processCompStat(data?.data.slice(101, 200) as clashPlayerData[])[0]
+                const threeComp = processCompStat(data?.data.slice(201, 300) as clashPlayerData[])[0]
+
+                result.push(oneComp);
+                result.push(twoComp);
+                result.push(threeComp);
+
+                return result;
+            } else {
+                const bestComp = processCompStat(data?.data as clashPlayerData[])[0]
+
+                result.push(bestComp);
+
+                return result;
+            }
+
         } else {
-            const bestComp = processCompStat(data?.data.slice(appliedRange.start, appliedRange.end) as clashPlayerData[])[0]
+            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as clashPlayerData[])[0]
             result.push(bestComp)
             return result;
         }

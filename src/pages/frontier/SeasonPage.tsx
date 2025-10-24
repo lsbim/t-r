@@ -131,9 +131,10 @@ const SeasonPage = () => {
             result.push(oneComp);
             result.push(twoComp);
             result.push(threeComp);
+
             return result;
         } else {
-            const bestComp = processCompStat(data?.data.slice(appliedRange.start, appliedRange.end) as FrontierPlayerData[])[0]
+            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as FrontierPlayerData[])[0]
             result.push(bestComp)
             return result;
         }

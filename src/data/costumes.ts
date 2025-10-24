@@ -6,7 +6,7 @@ export interface Costume {
 }
 
 export const costumes: Costume[] = [
-
+    // 순수
     { charName: "비비", cosName: "최후의 흑막", lvl: "normal", launchDate: "2025-01-09" },
     { charName: "비비", cosName: "유혹의 용족", lvl: "normal", launchDate: "2025-01-09" },
     { charName: "비비", cosName: "풀하트 매직", lvl: "pretty", launchDate: "2025-04-03" },
@@ -41,6 +41,7 @@ export const costumes: Costume[] = [
     { charName: "마고", cosName: "양치기 소녀", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "뮤트", cosName: "수온 측정의 여운", lvl: "normal", launchDate: "2025-10-16" },
 
+    // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
     { charName: "이드", cosName: "영원의 기다림", lvl: "normal", launchDate: "2025-01-30" },
     { charName: "디아나(왕년)", cosName: "교단 군기반장", lvl: "pretty", launchDate: "2025-06-05" },
@@ -75,6 +76,7 @@ export const costumes: Costume[] = [
     { charName: "엘레나", cosName: "차원이 다른 여왕님", lvl: "pretty", launchDate: "2025-10-02" },
     { charName: "그윈", cosName: "설국의 노천탕", lvl: "normal", launchDate: "2025-10-16" },
 
+    // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "럭셔리 테일러", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "트렌디 트로피컬", lvl: "pretty", launchDate: "2025-07-31" },
@@ -110,6 +112,7 @@ export const costumes: Costume[] = [
     { charName: "피라", cosName: "껌 좀 씹어본 용족", lvl: "normal", launchDate: "2025-10-02" },
     { charName: "디아나", cosName: "야산의 온천 마실", lvl: "normal", launchDate: "2025-10-16" },
 
+    // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
     { charName: "에피카", cosName: "열심 열심 응원단장", lvl: "normal", launchDate: "2024-10-03" },
@@ -141,7 +144,9 @@ export const costumes: Costume[] = [
     { charName: "쥬비", cosName: "만우벌", lvl: "event", launchDate: "2025-04-01" },
     { charName: "스피키(메이드)", cosName: "꼬끼옷 메이드", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "마카샤", cosName: "온수통의 마녀", lvl: "normal", launchDate: "2025-10-16" },
+    { charName: "미로", cosName: "수면에 비친 동심", lvl: "normal", launchDate: "2025-10-23" },
 
+    // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
     { charName: "시온", cosName: "어둠의 알바생", lvl: "normal", launchDate: "2024-07-25" },
     { charName: "시온", cosName: "다크 넷 거너", lvl: "pretty", launchDate: "2025-05-29" },

@@ -115,6 +115,10 @@
       "pickRate": 15
     },
     {
+      "season": "40",
+      "pickRate": 65
+    },
+    {
       "season": "5",
       "pickRate": 3
     },
