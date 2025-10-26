@@ -14,6 +14,10 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
 
                     const changes = ci > 0 ? findCharacterChanges(data[ci - 1], comp) : [];
                     const rankMsg = data?.length > 1 ? ['1~100위', '101~200위', '201~300위'] : [];
+                    const isEquals = ci > 0 &&
+                        JSON.stringify(data[ci - 1]?.back) === JSON.stringify(data[ci]?.back) &&
+                        JSON.stringify(data[ci - 1]?.mid) === JSON.stringify(data[ci]?.mid) &&
+                        JSON.stringify(data[ci - 1]?.front) === JSON.stringify(data[ci]?.front);
 
                     return (
                         <div key={"best_comp_" + ci}
@@ -21,7 +25,7 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                             <span className="text-[13px] text-gray-600 font-normal">
                                 {rankMsg && rankMsg[ci]}
                             </span>
-                            <div className="flex gap-x-2">
+                            <div className={`flex gap-x-2 ${ci > 0 && isEquals ? 'opacity-60' : ''}`}>
                                 <div className="flex flex-col gap-y-2">
                                     {comp?.back.map(b => (
                                         <div key={"best_back_" + ci + b}

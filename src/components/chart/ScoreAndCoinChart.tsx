@@ -200,6 +200,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                 <Line data={chartData} options={chartOptions} />
             </div>
 
+            {/* 전 시즌 코인 비교 */}
             <div className='w-full justify-between flex items-center'>
                 <div className='w-[50%] flex justify-center gap-x-2 items-center'>
                     <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px]' />

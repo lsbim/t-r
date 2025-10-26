@@ -122,6 +122,7 @@ const SeasonPage = () => {
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
         if (!data || data?.type === 'external') return;
+        
         const result: CompStat[] = [];
         if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
             const oneComp = processCompStat(data?.data.slice(0, 100) as FrontierPlayerData[])[0]
@@ -164,7 +165,7 @@ const SeasonPage = () => {
             prev: prevSeason
         }
     }, [seasonSlice, prevSlice])
-    console.log(compareCoin)
+    // console.log(compareCoin)
 
     if (isLoading || prevIsLoading) {
         return (
