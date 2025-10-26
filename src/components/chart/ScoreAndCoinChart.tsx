@@ -28,13 +28,13 @@ ChartJS.register(
     Filler
 );
 
-const ScoreAndCoinChart = ({ data, season }: { data: FrontierSeasonData, season?: string }) => {
+const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, compareCoin: Record<string, Record<string, number> | null> }) => {
 
     const arr = data?.data;
     const coins = arr.map(item => item.coin);
 
-    const maxCoin = Math.max(...coins);
-    const minCoin = Math.min(...coins);
+    const maxCoin = compareCoin?.current?.maxCoin ?? Math.max(...coins);
+    const minCoin = compareCoin?.current?.minCoin ?? Math.min(...coins);
 
     const maxCoinIndex = coins.indexOf(maxCoin);
     const minCoinIndex = coins.indexOf(minCoin);
@@ -186,16 +186,70 @@ const ScoreAndCoinChart = ({ data, season }: { data: FrontierSeasonData, season?
         }
     };
 
+    const compareMaxCoin = maxCoin - (compareCoin?.prev?.maxCoin ?? 0)
+    const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
+
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[450px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
             </div>
+            <div className='h-[400px]'>
 
-            <Line data={chartData} options={chartOptions} />
+                <Line data={chartData} options={chartOptions} />
+            </div>
+
+            <div className='w-full justify-between flex items-center'>
+                <div className='w-[50%] flex justify-center gap-x-2 items-center'>
+                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px]' />
+                    <span className='sm:text-[15px] text-[13px]'>
+                        최다 코인
+                    </span>
+                    <span className='font-bold'>
+                        {maxCoin}
+                    </span>
+                    {compareMaxCoin !== maxCoin && (
+                        <span className={`${compareCoinStyle(compareMaxCoin)} text-[14px] flex items-center`}>
+                            {compareMaxCoin > 0
+                                ? '+' + compareMaxCoin
+                                : compareMaxCoin < 0
+                                    ? '-' + compareMaxCoin
+                                    : compareMaxCoin}
+                        </span>
+                    )}
+                </div>
+                <div className='w-[50%] flex justify-center gap-x-2 items-center'>
+                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px]' />
+                    <span className='sm:text-[15px] text-[13px]'>
+                        최소 코인
+                    </span>
+                    <span className='font-bold'>
+                        {minCoin}
+                    </span>
+                    {compareMinCoin !== minCoin && (
+                        <span className={`${compareCoinStyle(compareMinCoin)} text-[14px] flex items-center`}>
+                            {compareMinCoin > 0
+                                ? '+' + compareMinCoin
+                                : compareMinCoin < 0
+                                    ? '-' + compareMinCoin
+                                    : compareMinCoin}
+                        </span>
+                    )}
+                </div>
+            </div>
         </div>
     );
+}
+
+function compareCoinStyle(v: number) {
+    if (v > 0) {
+        return 'text-red-600'
+    } else if (v < 0) {
+        return 'text-blue-600'
+    } else {
+        return 'text-gray-400'
+    }
 }
 
 export default ScoreAndCoinChart;

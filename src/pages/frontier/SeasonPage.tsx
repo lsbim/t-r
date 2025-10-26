@@ -138,7 +138,33 @@ const SeasonPage = () => {
             result.push(bestComp)
             return result;
         }
-    }, [data, appliedRange])
+    }, [data, appliedRange]);
+
+    // 현 시즌 vs 전 시즌 실체의코인 비교
+    const compareCoin = useMemo(() => {
+        if (!seasonSlice || seasonSlice.type !== 'season') return;
+
+        const curSeason = seasonSlice.data.reduce((acc, cur) => {
+            acc.maxCoin = Math.max(acc.maxCoin, cur.coin);
+            acc.minCoin = Math.min(acc.minCoin, cur.coin);
+            return acc;
+        }, { maxCoin: 1, minCoin: 99999 });
+
+        // prevSeason의 type이 season일 때 실체의코인 정보 가져옴
+        const prevSeason = prevSlice && prevSlice.type === 'season'
+            ? prevSlice.data.reduce((acc, cur) => {
+                acc.maxCoin = Math.max(acc.maxCoin, cur.coin);
+                acc.minCoin = Math.min(acc.minCoin, cur.coin);
+                return acc;
+            }, { maxCoin: 1, minCoin: 99999 })
+            : null;
+
+        return {
+            current: curSeason,
+            prev: prevSeason
+        }
+    }, [seasonSlice, prevSlice])
+    console.log(compareCoin)
 
     if (isLoading || prevIsLoading) {
         return (
@@ -197,7 +223,7 @@ const SeasonPage = () => {
                     </div>
                 </>
             )}
-            {seasonSlice.type === 'season' && prevSlice && (
+            {seasonSlice?.type === 'season' && prevSlice && (
                 <>
                     <AllPickRateChart
                         season={season}
@@ -215,10 +241,12 @@ const SeasonPage = () => {
                             statsForSelect={statsForSelect}
                         />
                     )}
-                    <ScoreAndCoinChart
-                        season={season}
-                        data={seasonSlice}
-                    />
+                    {compareCoin && (
+                        <ScoreAndCoinChart
+                            data={seasonSlice}
+                            compareCoin={compareCoin}
+                        />
+                    )}
                     {bestComp && (
                         <BestComp
                             data={bestComp}
