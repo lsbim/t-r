@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import router from './routers/root';
 import { Tooltip } from 'react-tooltip';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,12 +13,14 @@ const root = ReactDOM.createRoot(
 const queryClient = new QueryClient();
 
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-    <Tooltip
-      noArrow={true}
-      id="my-tooltip" />
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <Tooltip
+        noArrow={true}
+        id="my-tooltip" />
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 reportWebVitals();

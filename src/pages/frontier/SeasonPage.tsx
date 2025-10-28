@@ -11,13 +11,13 @@ import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
-import useTitle from "../../hooks/useTitle";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
 import BestComp from "../../components/shared/BestComp";
+import SEO from "../../commons/component/SEO";
 
 const initRange = { start: 0, end: 0 };
 
@@ -32,8 +32,6 @@ const SeasonPage = () => {
     const { data: prevData, isLoading: prevIsLoading, error: prevError } = useSeasonData<FrontierSeasonData | FrontierExternalData>(prevSeason, 'frontier');
     const [appliedRange, setAppliedRange] = useState(initRange);
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
-
-    useTitle(`엘리아스 프론티어 ${seasonName} 집계`);
 
     // 순위 나누기
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
@@ -186,6 +184,10 @@ const SeasonPage = () => {
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
+             <SEO
+                title={`엘리아스 프론티어 ${seasonName} 집계`}
+                description={`엘리아스 프론티어 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
+            />
             <HeaderNav />
             {data?.type === 'season' && (
                 <SeasonRemote />

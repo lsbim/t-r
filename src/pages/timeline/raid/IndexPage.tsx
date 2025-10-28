@@ -1,6 +1,5 @@
 import { useCallback, useMemo } from "react";
 import { useSummaryData } from "../../../hooks/useSummaryData";
-import useTitle from "../../../hooks/useTitle";
 import HeaderNav from "../../../layouts/HeaderNav";
 import { ClashSummary } from "../../../types/clashTypes";
 import { FrontierSummary } from "../../../types/frontierTypes";
@@ -11,6 +10,7 @@ import CharacterLine from "../../../components/timeline/raid/CharacterLine";
 import RaidBlock from "../../../components/timeline/raid/RaidBlock";
 import TopRemote from "../../../layouts/TopRemote";
 import Loading from "../../../commons/component/Loading";
+import SEO from "../../../commons/component/SEO";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
@@ -18,7 +18,6 @@ const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
 const IndexPage = () => {
     const { data: frontier } = useSummaryData<FrontierSummary>('frontier');
     const { data: clash } = useSummaryData<ClashSummary>('clash');
-    useTitle("콘텐츠 출시 타임라인");
 
     // 사도 출시일, 대충돌/프론티어 시작/종료일 통합 배열
     const allDates = useMemo(() => {
@@ -57,6 +56,10 @@ const IndexPage = () => {
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
+            <SEO
+                title="콘텐츠 출시 타임라인"
+                description="차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
+            />
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}

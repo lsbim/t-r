@@ -10,8 +10,8 @@ import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simF
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
 import ItemIcon from "../../commons/icon/ItemIcon";
-import useTitle from "../../hooks/useTitle";
 import MaterialBag from "../../components/shared/MaterialBag";
+import SEO from "../../commons/component/SEO";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -47,7 +47,6 @@ const SimIndexPage = () => {
     const [selectInput, setSelectInput] = useState(0)
     const [inventory, setInventory] = useState<Map<string, number>>(new Map());
     const [bagOpen, setBagOpen] = useState(false);
-    useTitle("교단 시설 및 연구 재화 계산");
 
     // console.log(facilityInput)
 
@@ -215,6 +214,10 @@ const SimIndexPage = () => {
     return (
         // 하위 요소가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
         <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
+             <SEO
+                title="교단 시설 및 연구 재화 계산"
+                description="사교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다."
+            />
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
@@ -222,12 +225,12 @@ const SimIndexPage = () => {
                 <div className="flex flex-col">
                     <div className="flex flex-col justify-start mb-3">
                         <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
-                        <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화를 계산합니다.</span>
+                        <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다.</span>
                     </div>
                     <div className="flex items-center mb-2">
                         <div className="flex-col flex gap-y-1 text-orange-500 font-bold text-[12px]">
                             <span>
-                                모험은 2, 3, 4레벨 획득량을 기준
+                                아르바이트는 2, 3, 4레벨 획득량을 기준
                             </span>
                             <span>
                                 부수재료는 최소 획득량 이월
@@ -236,7 +239,7 @@ const SimIndexPage = () => {
                                 모험회 현재 레벨에 수행이 가능한 모험만 소개
                             </span>
                             <span>
-                                종합과 단계별 모험 횟수가 다를 수 있습니다.
+                                종합과 단계별 아르바이트 횟수가 다를 수 있습니다.
                             </span>
                         </div>
                     </div>

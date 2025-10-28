@@ -26,7 +26,7 @@ const CharRaidSummary = ({
                                 <div className="min-w-32 max-w-32 truncate flex items-center gap-x-2">
                                     <PersonalityIcon personality={charInfo[charName]?.personality} />
                                     <span className="min-w-[94px] max-w-[94px] font-bold truncate">
-                                        {charName}
+                                        {charName === '시온' ? '시온 더 다크불릿' : charName}
                                     </span>
                                 </div>
                                 <div className="gap-y-[2px] items-center flex">
@@ -36,7 +36,7 @@ const CharRaidSummary = ({
 
                                         const opacityValue = idxSeason ? idxSeason?.pickRate / 100 : 0;
                                         const backgroundColor = idxSeason ? `rgba(234, 88, 12, ${opacityValue})` : `rgb(210,210,210)`;
-                                        const tooltip = `${translateRaid(type)} 시즌${idx + 1} ${charName} ${idxSeason?.pickRate ? `픽률 ${idxSeason?.pickRate}%` : '미출전/자료없음'}`
+                                        const tooltip = `${translateRaid(type)} 시즌${idx + 1} ${charName === '시온' ? '시온 더 다크불릿' : charName} ${idxSeason?.pickRate ? `픽률 ${idxSeason?.pickRate}%` : '미출전/기록없음'}`
 
                                         return (
                                             <div

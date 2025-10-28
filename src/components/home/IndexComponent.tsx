@@ -1,9 +1,6 @@
-import useTitle from "../../hooks/useTitle";
 
 
 const IndexComponent = () => {
-
-    useTitle('트릭컬 레코드')
 
     return (
         <div className="sm:w-[600px] w-full mx-auto flex flex-col mt-4 bg-white p-4 shadow-md">

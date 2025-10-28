@@ -17,7 +17,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     // console.log(clashSort)
 
     return (
-        <div className="bg-white rounded-b-md shadow-lg max-w-full mt-8">
+        <div className="bg-white rounded-b-md shadow-lg max-w-full my-8">
             <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 gap-y-2">
                 <span className="text-[12px] text-orange-500 font-bold">
                     정렬 기준

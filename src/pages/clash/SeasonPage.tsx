@@ -11,13 +11,13 @@ import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
 import { useSeasonData } from "../../hooks/useSeasonData";
-import useTitle from "../../hooks/useTitle";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
 import BestComp from "../../components/shared/BestComp";
+import SEO from "../../commons/component/SEO";
 
 const initRange = { start: 0, end: 0 };
 
@@ -27,7 +27,6 @@ const SeasonPage = () => {
     const [select, setSelect] = useState('');
     const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash');
     const [appliedRange, setAppliedRange] = useState(initRange);
-    useTitle(`차원 대충돌 시즌${season} 집계`);
 
     // 순위 나누기
     const seasonSlice = useMemo(() => {
@@ -153,6 +152,10 @@ const SeasonPage = () => {
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
+            <SEO
+                title={`차원 대충돌 시즌${season} 집계`}
+                description={`차원 대충돌 시즌${season} 집계: ${data?.startDate} ~ ${data?.endDate}`}
+            />
             <HeaderNav />
             {/* {data?.type === 'season' && ( */}
             <SeasonRemote />
