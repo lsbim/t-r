@@ -185,6 +185,8 @@ const SimIndexPage = () => {
         ];
     }, [facilitySimResult, researchSimResult])
 
+    
+
     const handleBagOpen = useCallback(() => {
         setBagOpen((prev) => (!prev));
     }, [])

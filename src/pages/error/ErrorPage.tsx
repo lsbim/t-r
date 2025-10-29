@@ -26,6 +26,7 @@ const ErrorPage = () => {
 
         return (
             <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]">
+                <SEO />
                 <HeaderNav />
                 <div className=" flex items-center justify-center flex-col mt-16">
                     <span className="text-[48px] font-bold text-gray-400">
