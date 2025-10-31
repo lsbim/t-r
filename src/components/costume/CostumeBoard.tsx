@@ -79,10 +79,10 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
     };
 
     return (
-        <div className="md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto bg-white shadow-md mb-[50px]">
+        <div className="md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto bg-white dark:bg-zinc-900 shadow-md mb-[50px]">
             {/* 카테고리 */}
             {currentPageData && (
-                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 border-b-2 border-gray-200 sm:text-[15px] text-[13px]">
+                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 dark:bg-zinc-900 border-b-2 border-gray-200 dark:border-zinc-700 dark:text-zinc-100 sm:text-[15px] text-[13px]">
                     <div className={`py-1 px-2 flex justify-center ${boardCategoryWidthStyle('name')}`} >
                         이름
                     </div>
@@ -121,7 +121,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                 {currentPageData && currentPageData.map((c, index) => (
                     <div
                         key={"costume_board_" + currentPage + index}
-                        className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px]">
+                        className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px] dark:text-zinc-100">
 
                         <div className={`py-[2px] px-2 flex items-center gap-x-2 ${boardCategoryWidthStyle('name')} md:text-[15px] text-[13px] font-bold`}>
                             <PersonalityIcon personality={charInfo[c.charName].personality} size={16} />
@@ -134,7 +134,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                         </div>
                         <div
                             className={`cursor-pointer py-[2px] px-2 flex items-center justify-between gap-x-4 font-bold text-red-500 ${boardCategoryWidthStyle('since')}`}>
-                            <span className={`flex items-center justify-center font-normal text-gray-700 `}>
+                            <span className={`flex items-center justify-center font-normal text-gray-700 dark:text-zinc-400`}>
                                 {c.latestDate === "2023-09-27" ? "無" : c.latestDate}
                             </span>
                             <span
@@ -144,7 +144,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                                 {c.since}일 전
                             </span>
                         </div>
-                        <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 ${boardCategoryWidthStyle('birthDate')}`}>
+                        <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 dark:text-zinc-400 ${boardCategoryWidthStyle('birthDate')}`}>
                             {charInfo[c.charName].birthdate}
                         </div>
                     </div>
@@ -152,7 +152,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
             </div>
 
             {/* 페이지 */}
-            <div className="flex items-end justify-center md:gap-x-2 gap-x-1 my-2 md:text-[16px] text-[14px]">
+            <div className="flex items-end justify-center md:gap-x-2 gap-x-1 my-2 dark:text-white md:text-[16px] text-[14px]">
                 {pages.map(p => (
                     <div
                         onClick={() => {
@@ -172,15 +172,15 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
 function getSinceColor(since: number) {
 
     if (since <= 90) {
-        return 'text-blue-600';
+        return 'text-blue-600 dark:text-blue-500';
     } else if (since <= 180) {
-        return 'text-green-600';
+        return 'text-green-600 dark:text-green-500';
     } else if (since <= 365) {
-        return 'text-amber-600';
+        return 'text-amber-600 dark:text-amber-500';
     } else if (since <= 600) {
-        return 'text-red-500';
+        return 'text-red-500 dark:text-red-500';
     } else {
-        return 'text-black';
+        return 'text-black dark:text-zinc-1000';
     }
 };
 

@@ -8,6 +8,11 @@
     --madness: #eb839a;
     --vivacious: #ebdb83;
     --depressed: #c683ec;
+    --bg: #e5e7eb;
+}
+
+.dark {
+    --bg: #27272a;
 }
 
 @font-face {
@@ -17,10 +22,13 @@
     font-style: normal;
 }
 
+html {
+    transition: color 150ms ease, background-color 150ms ease;
+}
 
 body {
     font-family: "Noto Sans KR";
-    background-color: #e5e7eb;
+    background-color: var(--bg);
 }
 
 
@@ -74,7 +82,7 @@ input[type='number'] {
     user-select: none;
     border-radius: 0.25rem;
     /* rounded */
-    background-color: rgba(31, 41, 55, 0.9);
+    background-color: rgba(30, 30, 33, 0.9);
     /* bg-gray-800 bg-opacity-85 */
     padding: 0.5rem;
     /* p-2 */

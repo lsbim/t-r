@@ -88,7 +88,7 @@ const MaterialBag = ({
 
     return (
         <div
-            className="bg-white xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[152px] xs:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 shadow-gray-400 rounded-md flex flex-col">
+            className="bg-white dark:bg-zinc-900 dark:text-zinc-100 xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[152px] xs:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 dark:border-zinc-300 shadow-gray-400 dark:shadow-zinc-300 rounded-md flex flex-col">
             <div className="mx-auto text-[13px] py-1">
                 보유중인 재료를 입력할 수 있습니다.
             </div>
@@ -103,7 +103,7 @@ const MaterialBag = ({
                     onChange={(e) => {
                         setSearch(e.target.value);
                     }}
-                    className="text-[13px] focus:outline-none w-[90%]"
+                    className="text-[13px] focus:outline-none w-[90%] dark:bg-zinc-900"
                 />
             </div>
             <div className="flex m-auto p-2 overflow-y-auto">
@@ -141,7 +141,7 @@ const MaterialBag = ({
                                                     }
                                                 }}
                                                 onKeyDown={handleKeyDown}
-                                                className="bg-white border-2 border-black absolute w-full bottom-1 left-0 focus:outline-none text-[14px]"
+                                                className="bg-white text-black border-2 border-black absolute w-full bottom-1 left-0 focus:outline-none text-[14px]"
                                             />
                                         </div>
                                     )}
@@ -159,7 +159,7 @@ const MaterialBag = ({
 
                         handleInventory('clear')
                     }}
-                    className="bg-gray-200 flex items-center justify-center cursor-pointer w-[50%] hover:bg-gray-400 transition-colors duration-100">
+                    className="bg-gray-200 dark:bg-zinc-600 flex items-center justify-center cursor-pointer w-[50%] hover:bg-gray-400 dark:hover:bg-zinc-500 transition-colors duration-100">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                     </svg>
@@ -169,7 +169,7 @@ const MaterialBag = ({
                 </div>
                 <div
                     onClick={handleBagOpen}
-                    className="bg-gray-200 flex items-center justify-center cursor-pointer w-[50%] hover:bg-gray-400 transition-colors duration-100">
+                    className="bg-gray-200 dark:bg-zinc-600 flex items-center justify-center cursor-pointer w-[50%] hover:bg-gray-400 dark:hover:bg-zinc-500 transition-colors duration-100">
                     <span className="text-[14px]">
                         닫기
                     </span>

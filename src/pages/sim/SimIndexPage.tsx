@@ -153,7 +153,7 @@ const SimIndexPage = () => {
                     </div>
                 ),
                 content: facilitySimResult && facilitySimResult.length > 0 ? (
-                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200 dark:bg-zinc-800">
                         {facilitySimResult.map((sim) => (
                             <SimResult
                                 key={`${sim.krName}-${sim.numlvl}`}
@@ -223,8 +223,8 @@ const SimIndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white p-4 shadow-md mt-4">
-                <div className="flex flex-col">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 p-4 shadow-md mt-4">
+                <div className="flex flex-col dark:text-zinc-100">
                     <div className="flex flex-col justify-start mb-3">
                         <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
                         <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다.</span>
@@ -252,7 +252,7 @@ const SimIndexPage = () => {
                             가방
                         </div>
                         <div
-                            className="cursor-pointer"
+                            className="cursor-pointer dark:text-zinc-100"
                             onClick={handleBagOpen}>
                             {bagOpen ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
@@ -276,11 +276,11 @@ const SimIndexPage = () => {
             </div>
 
             {/* 시설 및 연구단계 입력 */}
-            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white p-4 shadow-md">
+            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 shadow-md">
                 <div className="flex items-center justify-between w-full mb-8">
                     {simInputArr.map((sel, idx) => (
                         <div
-                            className={`mx-auto w-[50%] flex justify-center font-bold cursor-pointer ${idx === 0 && 'border-r-2 border-gray-400'} ${selectInput === idx && 'text-orange-500'}`}
+                            className={`mx-auto w-[50%] flex justify-center dark:text-zinc-100 font-bold cursor-pointer ${idx === 0 && 'border-r-2 border-gray-400'} ${selectInput === idx && 'text-orange-500 dark:text-orange-500'}`}
                             onClick={() => {
                                 if (selectInput === idx) return null;
                                 setSelectInput(idx)
@@ -300,14 +300,14 @@ const SimIndexPage = () => {
                         researchInput={researchInput} />
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 w-full min-h-[569px]">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-100 w-full min-h-[569px]">
                 {allResult ? (
                     <SimResult
                         simResult={allResult}
                         type={'all'}
                     />
                 ) : (
-                    <div className="w-full gap-x-3 bg-white flex items-center justify-center text-[18px] font-bold text-gray-700">
+                    <div className="w-full gap-x-3 bg-white dark:bg-zinc-900 dark:text-zinc-100 flex items-center justify-center text-[17px] xs:text-[18px] font-bold text-gray-700">
                         <img src={`images/item/gold.png`} className="aspect-square object-center w-[60px] grayscale select-none" />
                         <span>
                             선택된 시설 또는 연구 정보가 없습니다.
@@ -315,7 +315,7 @@ const SimIndexPage = () => {
                     </div>
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 w-full mb-8">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-100 w-full mb-8">
                 <MyAccordion
                     items={items}
                 />

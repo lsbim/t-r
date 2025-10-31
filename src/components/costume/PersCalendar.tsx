@@ -39,7 +39,7 @@ const PersCalendar: React.FC<Props> = (
     // console.log(sumPersCostume)
 
     return (
-        <div className="w-[15%] bg-white shadow-md p-2">
+        <div className="w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-100 shadow-md p-2">
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />
@@ -69,7 +69,7 @@ const PersCalendar: React.FC<Props> = (
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={costumeTooltipText}
                                         className={`w-4 h-4 rounded-sm ${getActivityColor(week.activityCount)}
-                                        ${week.costumes?.some(item => item.lvl === 'pretty') && 'border-2 border-black'}`}
+                                        ${week.costumes?.some(item => item.lvl === 'pretty') && 'border-2 border-black dark:shadow-[0_0_4px_rgba(255,255,255,0.1)] dark:shadow-white'}`}
                                     />
                                 );
                             })}
@@ -82,10 +82,10 @@ const PersCalendar: React.FC<Props> = (
 }
 
 function getActivityColor(count: number): string {
-    if (count === 0) return 'bg-gray-200';
-    if (count <= 1) return 'bg-orange-200';
-    if (count <= 2) return 'bg-orange-400';
-    if (count <= 3) return 'bg-orange-600';
+    if (count === 0) return 'bg-gray-200 dark:bg-zinc-700';
+    if (count <= 1) return 'bg-orange-300';
+    if (count <= 2) return 'bg-orange-500';
+    if (count <= 3) return 'bg-orange-700';
     return 'bg-orange-800';
 };
 

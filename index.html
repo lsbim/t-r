@@ -20,6 +20,27 @@
   <link rel="manifest" href="/manifest.json" />
 
   <title>트릭컬 레코드</title>
+  <script>
+    (function () {
+      try {
+        let key = localStorage.getItem('theme');
+        if (key === 'dark') {
+          document.documentElement.classList.add('dark');
+          return;
+        }
+        if (!key || key === 'light') {
+          document.documentElement.classList.remove('dark');
+          return;
+        }
+        // 저장값이 없으면 시스템 우선 -> 기본을 light
+        // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //   document.documentElement.classList.add('dark');
+        // }
+      } catch (e) {
+        // localStorage 접근 불가 시 무시
+      }
+    })();
+  </script>
 </head>
 
 <body>

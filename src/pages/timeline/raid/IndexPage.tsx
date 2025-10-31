@@ -63,20 +63,20 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100 p-4 shadow-md mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
                     <h1 className="text-[20px] font-bold mr-2">보스 타임라인</h1>
                     <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
                 </div>
                 <div className="flex gap-x-4 items-center mb-2">
-                    <div className="flex-col flex gap-y-1">
-                        <span className="text-[12px] text-orange-500 font-bold">
+                    <div className="flex-col flex gap-y-1 text-orange-500 text-[12px] font-bold">
+                        <span>
                             차원 대충돌
                         </span>
-                        <span className="text-[12px] text-orange-500 font-bold">
+                        <span>
                             엘리아스 프론티어
                         </span>
-                        <span className="text-[12px] text-orange-500 font-bold">
+                        <span>
                             사도 출시일
                         </span>
                     </div>

@@ -59,7 +59,7 @@ const SimResearchInput = ({ researchInput, setResearchInput }: {
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col">
-            <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] text-[15px] gap-x-20 w-full font-bold">
+            <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] dark:text-zinc-100 text-[15px] gap-x-20 w-full font-bold">
                 <span>
                     현재 단계
                 </span>
@@ -82,7 +82,7 @@ const SimResearchInput = ({ researchInput, setResearchInput }: {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col items-center justify-start w-[240px] min-h-[80px] mb-auto">
+                    <div className="flex flex-col items-center justify-start w-[240px] dark:text-zinc-100 min-h-[80px] mb-auto">
                         <div className="min-h-[20px]" />
                         <div className="w-[200px] flex gap-x-10 justify-center mx-auto font-bold text-[16px] mb-2">
                             <div className="w-[30px] flex justify-center">

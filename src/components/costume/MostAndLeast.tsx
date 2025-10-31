@@ -6,7 +6,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
 
 
     return (
-        <div className="md:w-[768px] w-full flex mx-auto bg-white shadow-md p-2">
+        <div className="md:w-[768px] w-full flex mx-auto bg-white dark:bg-zinc-900 dark:text-zinc-100 shadow-md p-2">
             <div className="w-[50%] flex flex-col gap-y-3">
                 <div className="flex justify-center">
                     <span className="text-[18px] font-bold">
@@ -22,17 +22,17 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                 <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
                                 <div className="text-orange-500 font-bold">{c.count}개</div>
                             </div>
-                            <div className="text-gray-500 text-[14px] flex my-1">
+                            <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
                                 <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
                                 <span className="ml-1">
                                     • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                 </span>
                             </div>
-                            <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate}</div>
+                            <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-1000">마지막 사복: {c.latestDate}</div>
                         </div>
                     ))}
                     {most.length > 5 && (
-                        <div className="text-[14px] text-orange-500 my-2">
+                        <div className="text-[14px] text-orange-500 dark:text-zinc-400 my-2">
                             외 {least.length - 5}명의 사도
                         </div>
                     )}
@@ -57,18 +57,18 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                     <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
                                     <div className="text-gray-500 font-bold">{c.count}개</div>
                                 </div>
-                                <div className="text-gray-500 text-[14px] flex my-1">
+                                <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
                                     <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
                                     <span className="ml-1">
                                         • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                     </span>
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
+                                <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-1000">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
                             </div>
                         );
                     })}
                     {least.length > 5 && (
-                        <div className="text-[14px] text-gray-500 my-2">
+                        <div className="text-[14px] text-gray-500 dark:text-zinc-400 my-2">
                             외 {least.length - 5}명의 사도
                         </div>
                     )}

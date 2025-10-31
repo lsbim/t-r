@@ -6,7 +6,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
     const lineGap = 10;
 
     return (
-        <div className="bg-white rounded-b-md shadow-lg max-w-full overflow-x-auto my-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full overflow-x-auto my-8">
             {frontierBossList.map((bossName, i) => {
                 // 해당 보스명과 일치하는 모든 데이터 항목을 찾고 시즌 정보도 함께 유지
                 const matchingEntries = Object.entries(summary)
@@ -34,9 +34,9 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                 return (
                     <div
                         key={'엘리아스프론티어' + bossName}
-                        className={`p-6 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                        className={`p-6 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                         {/* 보스명 */}
-                        <h3 className="text-xl font-bold mb-4">{bossName}</h3>
+                        <h3 className="text-xl font-bold mb-4 dark:text-zinc-100">{bossName}</h3>
 
                         {/* 후열, 중열, 전열 */}
                         {matchingEntries.length !== 0 && (
@@ -46,7 +46,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
 
                                 <div
                                     style={{ gap: lineGap }}
-                                    className="flex items-center justify-start text-[13px] text-gray-600">
+                                    className="flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400">
                                     {lines.map(line => (
                                         <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
                                             {line}
@@ -58,7 +58,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
 
                         {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                         {matchingEntries.length === 0 ? (
-                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600">
+                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-100">
                                 준비 중입니다.
                             </div>
                         ) : (
@@ -75,7 +75,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                         {/* 시즌 정보 */}
                                         <div className="w-full mb-1 flex items-center h-full">
                                             {/* 마진 8px + 너비 90px */}
-                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap">
+                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap dark:text-zinc-100">
                                                 <div
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}

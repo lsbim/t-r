@@ -8,7 +8,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
     return (
         <div className="overflow-x-auto overflow-y-hidden">
-            <div className={`mx-auto flex flex-col bg-white p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
+            <div className={`mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100 p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
                 <div className="flex items-center">
                     <span className="text-xl font-bold mr-4">사도 정보</span>
                     {statsForSelect?.select && (
@@ -35,21 +35,21 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                     <div
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[6] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                         style={{
                                             backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[6] / statsForSelect.totalUses})`
                                         }} />
                                         <div
                                             data-tooltip-id="my-tooltip"
                                             data-tooltip-content={`${(statsForSelect.positionCounts[7] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                            className="relative w-6 h-6 border-[1px] border-gray-800"
+                                            className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[7] / statsForSelect.totalUses})`
                                             }} />
                                         <div
                                             data-tooltip-id="my-tooltip"
                                             data-tooltip-content={`${(statsForSelect.positionCounts[8] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                            className="relative w-6 h-6 border-[1px] border-gray-800"
+                                            className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[8] / statsForSelect.totalUses})`
                                             }} />
@@ -59,21 +59,21 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                         <div
                                             data-tooltip-id="my-tooltip"
                                             data-tooltip-content={`${(statsForSelect.positionCounts[3] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                            className="relative w-6 h-6 border-[1px] border-gray-800"
+                                            className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[3] / statsForSelect.totalUses})`
                                             }} />
                                         <div 
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[4] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[4] / statsForSelect.totalUses})`
                                             }} />
                                         <div 
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[5] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[5] / statsForSelect.totalUses})`
                                             }} />
@@ -83,21 +83,21 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                         <div 
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[0] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[0] / statsForSelect.totalUses})`
                                             }} />
                                         <div 
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[1] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[1] / statsForSelect.totalUses})`
                                             }} />
                                         <div 
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${(statsForSelect.positionCounts[2] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                                        className="relative w-6 h-6 border-[1px] border-gray-800"
+                                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
                                             style={{
                                                 backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[2] / statsForSelect.totalUses})`
                                             }} />
@@ -140,7 +140,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                             </div>
                             {statsForSelect.selectCharComp.slice(0, 3).map((comp: any, ci: number) => (
                                 <div key={"clash" + statsForSelect?.select + "comp" + ci}
-                                    className={`flex font-bold text-[12px] gap-x-2 ${ci === 2 ? "mb-0" : "mb-4"}`}>
+                                    className={`flex font-bold text-[12px] gap-x-2 dark:text-zinc-950 ${ci === 2 ? "mb-0" : "mb-4"}`}>
 
                                     <div className="min-w-[78px] w-[16%] flex flex-col gap-y-1">
                                         {comp?.back?.map((name: string, i: number) => (
@@ -175,7 +175,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className={`w-[15%] flex justify-center items-center font-bold text-[13px] ml-3`}>
+                                    <div className={`w-[15%] flex justify-center items-center font-bold text-[13px] ml-3 dark:text-zinc-100`}>
                                         <span>
                                             {comp?.count}회
                                         </span>

@@ -26,14 +26,14 @@ const Slide = ({ max, value, handle }: { max: number, value: [number, number], h
                 // onValueCommit={handleCommit} 커서를 떼면 적용
                 onValueChange={handleCommit} // 실시간 값의 변화 적용
             >
-                <Slider.Track className="relative h-[10px] grow rounded-full bg-gray-200">
-                    <Slider.Range className="absolute h-full rounded-full bg-black" />
+                <Slider.Track className="relative h-[10px] grow rounded-full bg-gray-200 dark:bg-zinc-950">
+                    <Slider.Range className="absolute h-full rounded-full bg-black dark:bg-zinc-400" />
                 </Slider.Track>
                 <Slider.Thumb
-                    className="block size-4 rounded-[10px] bg-white shadow-[0_0_0_2px] shadow-blackA4 hover:bg-violet3 focus:outline-none"
+                    className="block size-4 rounded-[10px] bg-white dark:bg-zinc-700 shadow-[0_0_0_2px] shadow-blackA4 hover:bg-violet3 focus:outline-none"
                 />
                 <Slider.Thumb
-                    className="block size-4 rounded-[10px] bg-white shadow-[0_0_0_2px] shadow-blackA4 hover:bg-violet3 focus:outline-none"
+                    className="block size-4 rounded-[10px] bg-white dark:bg-zinc-700 shadow-[0_0_0_2px] shadow-blackA4 hover:bg-violet3 focus:outline-none"
                 />
             </Slider.Root>
         </div>

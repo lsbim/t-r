@@ -127,10 +127,10 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
         <div className="sm:w-[600px] w-full mx-auto flex flex-col">
             <div className="flex justify-center">
                 <div className="w-full mx-auto">
-                    <div className="text-[15px] mb-2 flex justify-start bg-white p-4 rounded-t-md font-bold shadow-sm">
+                    <div className="text-[15px] mb-2 flex justify-start dark:bg-zinc-900 dark:text-zinc-100 bg-white p-4 rounded-t-md font-bold shadow-sm">
                         공지사항
                     </div>
-                    <div className="flex justify-between text-[13px] text-gray-800 w-full">
+                    <div className="flex justify-between text-[13px] text-gray-800 dark:text-zinc-100 w-full">
                         <MyAccordion
                             items={items}
                         />

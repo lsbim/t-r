@@ -13,6 +13,7 @@ import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
+import { useTheme } from '../../hooks/useTheme';
 
 ChartJS.register(
     CategoryScale,
@@ -29,6 +30,9 @@ const AllPickRateChart = ({ data, season, setSelect }:
         season?: string, setSelect?: React.Dispatch<React.SetStateAction<string>>
     }) => {
 
+    const { theme } = useTheme();
+    const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
+    const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const sortedData = data.type === 'season' ?
         processRankingArrAllData(data?.data).sort((a, b) => b.count - a.count)
@@ -101,7 +105,7 @@ const AllPickRateChart = ({ data, season, setSelect }:
                         return context[0].label; // Show character name as title
                     }
                 },
-                backgroundColor: 'rgba(31, 41, 55, 0.8)',
+                backgroundColor: 'rgba(30, 30, 33, 0.8)',
                 titleColor: 'white',
                 bodyColor: 'white',
                 cornerRadius: 4,
@@ -117,12 +121,14 @@ const AllPickRateChart = ({ data, season, setSelect }:
                     minRotation: 45,
                     font: {
                         size: 12 // Match original font size
-                    }
+                    },
+                    color: tickColor
                 },
                 grid: {
                     display: true,
                     drawOnChartArea: true,
                     drawTicks: true,
+                    color: gridColor
                 }
             },
             y: {
@@ -131,12 +137,14 @@ const AllPickRateChart = ({ data, season, setSelect }:
                 ticks: {
                     font: {
                         size: 12 // Match original font size
-                    }
+                    },
+                    color: tickColor
                 },
                 grid: {
                     display: true,
                     drawOnChartArea: true,
                     drawTicks: true,
+                    color: gridColor
                 }
             }
         },
@@ -153,8 +161,8 @@ const AllPickRateChart = ({ data, season, setSelect }:
 
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
-            <span className="text-xl font-bold">사도 종합</span>
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[400px] bg-white dark:bg-zinc-900 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+            <span className="text-xl font-bold dark:text-zinc-100">사도 종합</span>
             <Bar data={chartData} options={chartOptions} />
         </div>
     );

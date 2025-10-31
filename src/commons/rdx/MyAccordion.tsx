@@ -27,7 +27,7 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                     <Accordion.Header className="flex">
                         <Accordion.Trigger className='group' asChild>
                             {/* asChild 사용 시, 이 div에 all props 전달 */}
-                            <div className="w-full flex justify-between items-center p-4 cursor-pointer hover:bg-amber-50 bg-white data-[state=open]:bg-amber-50">
+                            <div className="w-full flex justify-between items-center p-4 cursor-pointer dark:bg-zinc-900 dark:hover:bg-zinc-950 dark:data-[state=open]:bg-zinc-950 hover:bg-amber-50 bg-white data-[state=open]:bg-amber-50">
                                 <span className="text-[15px] font-medium">{header}</span>
                                 {/* 아래 홑화살괄호 */}
                                 <svg
@@ -53,7 +53,7 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                         </Accordion.Trigger>
                     </Accordion.Header>
 
-                    <Accordion.Content className="bg-white overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
+                    <Accordion.Content className=" dark:bg-zinc-900 bg-white overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
                         {content}
                     </Accordion.Content>
                 </Accordion.Item>

@@ -17,12 +17,12 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     // console.log(clashSort)
 
     return (
-        <div className="bg-white rounded-b-md shadow-lg max-w-full my-8">
-            <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 gap-y-2">
+        <div className="bg-white dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
+            <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
                 <span className="text-[12px] text-orange-500 font-bold">
                     정렬 기준
                 </span>
-                <div className="flex text-[14px] items-center gap-x-3">
+                <div className="flex text-[14px] items-center gap-x-3 dark:text-zinc-100">
                     <div
                         onClick={() => { handleClashSort('boss') }}
                         className={`${clashSort === 'boss' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>
@@ -54,9 +54,9 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         return (
                             <div
                                 key={'차원대충돌' + bossName}
-                                className={`p-6 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                                className={`p-6 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                                 {/* 보스명 헤더 */}
-                                <h3 className="text-xl font-bold mb-4">{bossName}</h3>
+                                <h3 className="text-xl font-bold mb-4 dark:text-zinc-100">{bossName}</h3>
 
                                 {/* 후열, 중열, 전열 */}
                                 {matchingEntries.length !== 0 && (
@@ -66,7 +66,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
 
                                         <div
                                             style={{ gap: lineGap }}
-                                            className="flex items-center justify-start text-[13px] text-gray-600">
+                                            className="flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400">
                                             {lineList.map(line => (
                                                 <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
                                                     {line}
@@ -79,7 +79,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                 {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                                 {
                                     matchingEntries.length === 0 ? (
-                                        <div className="flex gap-8 mb-1 text-[12px] text-gray-600">
+                                        <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-100">
                                             준비 중입니다.
                                         </div>
                                     ) : (
@@ -96,17 +96,17 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                     {/* 시즌 정보 */}
                                                     <div className="w-full mb-1 flex items-center h-full">
                                                         {/* 마진 8px + 너비 80px */}
-                                                        <div className="min-w-[90px] gap-x-2 flex items-center mr-2">
+                                                        <div className="min-w-[90px] gap-x-2 flex items-center mr-2 dark:text-zinc-100">
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                                className="hover:text-gray-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
+                                                                className="hover:text-gray-400 hover:dark:text-zinc-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
                                                                 S{season}
                                                             </div>
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonTooltip}`}
-                                                                className="hover:text-gray-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
+                                                                className="hover:text-gray-400 hover:dark:text-zinc-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
                                                                 규칙
                                                             </div>
                                                             <div
@@ -161,7 +161,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         return (
                             <div
                                 key={'차원대충돌' + pers}
-                                className={`p-6 min-w-[500px] ${personalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200'}`}>
+                                className={`p-6 min-w-[500px] ${personalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                                 {/* 성격명 헤더 */}
                                 <div className="flex gap-x-2">
                                     <div
@@ -170,7 +170,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                         className={`w-[28px] text-[13px] font-bold text-${pers} whitespace-nowrap cursor-pointer`}>
                                         <PersonalityIcon personality={pers} size={28} />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-4">
+                                    <h3 className="text-xl font-bold mb-4 dark:text-zinc-100">
                                         {pers}
                                     </h3>
                                 </div>
@@ -183,7 +183,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
 
                                         <div
                                             style={{ gap: lineGap }}
-                                            className="flex items-center justify-start text-[13px] text-gray-600">
+                                            className="flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400">
                                             {lineList.map(line => (
                                                 <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
                                                     {line}
@@ -196,7 +196,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                 {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                                 {
                                     matchingEntries.length === 0 ? (
-                                        <div className="flex gap-8 mb-1 text-[12px] text-gray-600">
+                                        <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-100">
                                             준비 중입니다.
                                         </div>
                                     ) : (
@@ -213,23 +213,23 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                     {/* 시즌 정보 */}
                                                     <div className="w-full mb-1 flex items-center h-full">
                                                         {/* 마진 8px + 너비 80px */}
-                                                        <div className="min-w-[90px] gap-x-2 flex items-center mr-2">
+                                                        <div className="min-w-[90px] gap-x-2 flex items-center mr-2 dark:text-zinc-100">
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                                className="hover:text-gray-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
+                                                                className="hover:text-gray-400 hover:dark:text-zinc-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
                                                                 S{season}
                                                             </div>
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonTooltip}`}
-                                                                className="hover:text-gray-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
+                                                                className="hover:text-gray-400 hover:dark:text-zinc-400 relative w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
                                                                 규칙
                                                             </div>
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.name}`}
-                                                                className={`w-[28px] text-[12px] hover:text-gray-400  font-bold whitespace-nowrap cursor-pointer break-all overflow-hidden`}>
+                                                                className={`w-[28px] text-[12px] hover:text-gray-400 hover:dark:text-zinc-400 font-bold whitespace-nowrap cursor-pointer break-all overflow-hidden`}>
                                                                 {seasonData?.name === "크레용사용" ? '용사'
                                                                     : seasonData?.name.slice(0, 2)}
                                                             </div>

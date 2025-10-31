@@ -3,7 +3,7 @@
 const IndexComponent = () => {
 
     return (
-        <div className="sm:w-[600px] w-full mx-auto flex flex-col mt-4 bg-white p-4 shadow-md">
+        <div className="sm:w-[600px] w-full dark:bg-zinc-900 dark:text-zinc-100 mx-auto flex flex-col mt-4 bg-white p-4 shadow-md">
             <div className="flex justify-center">
                 <div>
                     <div className="font-bold text-[22px]">

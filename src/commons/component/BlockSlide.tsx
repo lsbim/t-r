@@ -80,12 +80,12 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
     const isMinBoundary = (blockNum: number) => blockNum === rangeMin;
     const isMaxBoundary = (blockNum: number) => blockNum === rangeMax;
 
-    const blackTailwindClassName = (idx: number, type: 'left' | 'right') => {
+    const blockTailwindClassName = (idx: number, type: 'left' | 'right') => {
         const blockNum = idx + 1;
         const active = type === 'left' ? isMinActive(blockNum) : type === 'right' && isMaxActive(blockNum);
         const boundary = type === 'left' ? isMinBoundary(blockNum) : type === 'right' && isMaxBoundary(blockNum);
         const cls = active ? boundary
-            ? "bg-white border-[rgb(110,142,67)] shadow-sm"
+            ? "bg-white border-[rgb(110,142,67)] shadow-sm dark:shadow-white"
             : "bg-[rgb(150,182,97)] border-none"
             : "bg-gray-200 hover:bg-gray-300";
 
@@ -104,13 +104,13 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                             onClick={() => handleBlockMin(index + 1)}
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={getResearchStep(input.currentTier, index + 1)!.name}
-                            className={`${blackTailwindClassName(index, 'left')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
+                            className={`${blockTailwindClassName(index, 'left')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
                         />
                     ))}
                 </div>
 
                 {/* 현재 선택된 범위 표시 */}
-                <div className="my-2 text-sm font-semibold text-gray-700 flex flex-col items-center justify-center min-h-[60px]">
+                <div className="my-2 text-sm font-semibold text-gray-700 dark:text-zinc-100 flex flex-col items-center justify-center min-h-[60px]">
                     <span>
                         {getResearchStep(input.currentTier, input.currentStep)?.name}
                     </span>
@@ -130,7 +130,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                             onClick={() => handleBlockMax(index + 1)}
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={getResearchStep(input.target.tier, index + 1)!.name}
-                            className={`${blackTailwindClassName(index, 'right')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
+                            className={`${blockTailwindClassName(index, 'right')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
                         />
                     ))}
                 </div>

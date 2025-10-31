@@ -111,6 +111,7 @@ export const costumes: Costume[] = [
     { charName: "티그(영웅)", cosName: "창공의 하얀 날개", lvl: "pretty", launchDate: "2025-09-27" },
     { charName: "피라", cosName: "껌 좀 씹어본 용족", lvl: "normal", launchDate: "2025-10-02" },
     { charName: "디아나", cosName: "야산의 온천 마실", lvl: "normal", launchDate: "2025-10-16" },
+    { charName: "림(혼돈)", cosName: "연회루 혼돈 마담", lvl: "pretty", launchDate: "2025-10-30" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },

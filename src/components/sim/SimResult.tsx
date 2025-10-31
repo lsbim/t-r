@@ -10,12 +10,12 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
     // console.log(simResult)
 
     return (
-        <div className="w-full flex flex-col bg-white p-3 shadow-md overflow-x-hidden">
+        <div className="w-full flex flex-col bg-white dark:bg-zinc-900 pt-3 px-3 shadow-md overflow-x-hidden">
             {/* 시설 명 + 소모골드 */}
             <div className="flex mx-auto gap-x-5 pb-4">
                 {type !== 'research' ? (
                     <>
-                        <div className="">
+                        <div className="flex items-center">
                             <FacilityIcon name={simResult.name} value={simResult.numlvl} />
                         </div>
                         <div className="flex flex-col items-center gap-y-2">
@@ -66,7 +66,7 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                 )}
             </div>
             {/* 요구 재료 & 계획 */}
-            <div className="flex w-full overflow-x-auto border-t-2">
+            <div className="flex w-full overflow-x-auto border-t-2 dark:border-zinc-700">
                 <div className="flex mx-auto">
                     {(() => {
 
@@ -80,7 +80,7 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         return simResult.result.acquisitionPlans.map((plan, idx) => (
                             <div
                                 key={`simresult_main_plan_wrapper_${idx}`}
-                                className={`pt-3 pb-4 px-3 ${idx % 2 === 0 ? '' : 'bg-gray-100'}`}
+                                className={`pt-3 pb-4 px-3 ${idx % 2 === 0 ? '' : 'bg-gray-100 dark:bg-zinc-950'}`}
                             >
                                 <SimMaterialPlan
                                     plan={plan}

@@ -14,6 +14,7 @@ import { Line } from "react-chartjs-2";
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import InfoIcon from '../../commons/icon/InfoIcon';
+import { useTheme } from '../../hooks/useTheme';
 
 
 ChartJS.register(
@@ -29,6 +30,10 @@ ChartJS.register(
 );
 
 const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, compareCoin: Record<string, Record<string, number> | null> }) => {
+
+    const { theme } = useTheme();
+    const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
+    const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const arr = data?.data;
     const coins = arr.map(item => item.coin);
@@ -60,8 +65,8 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                     content: pt.grade,      // ex) "용암맛1"
                     position: 'start',
                     yAdjust: 10,
-                    backgroundColor: 'rgba(255,255,255,0)',
-                    color: 'black',
+                    backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0)',
+                    color: tickColor,
                     font: {
                         size: 14
                     }
@@ -134,12 +139,16 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
         },
         scales: {
             x: {
+                ticks: {
+                    color: tickColor
+                },
                 title: {
                     display: true,
-                    text: '순위'
+                    text: '순위',
+                    color: tickColor
                 },
                 grid: {
-                    color: 'rgba(0, 0, 0, 0.1)',
+                    color: gridColor,
                 }
             },
             // 왼쪽 Y축 (점수)
@@ -155,7 +164,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                     color: '#8884d8',
                 },
                 grid: {
-                    color: 'rgba(0, 0, 0, 0.1)',
+                    color: gridColor,
                 }
             },
             // 오른쪽 Y축 (코인)
@@ -190,7 +199,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
     const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[450px] bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[450px] bg-white dark:bg-zinc-900 dark:text-zinc-100 p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
@@ -245,11 +254,11 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
 
 function compareCoinStyle(v: number) {
     if (v > 0) {
-        return 'text-red-600'
+        return 'text-red-600 dark:text-red-500'
     } else if (v < 0) {
-        return 'text-blue-600'
+        return 'text-blue-600 dark:text-blue-500'
     } else {
-        return 'text-gray-400'
+        return 'text-gray-400 dark:text-zinc-400'
     }
 }
 

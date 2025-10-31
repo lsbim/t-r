@@ -14,6 +14,7 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import { ClashSeasonData } from "../../types/clashTypes";
 import { Line } from 'react-chartjs-2';
 import { FrontierSeasonData } from '../../types/frontierTypes';
+import { useTheme } from '../../hooks/useTheme';
 
 ChartJS.register(
     annotationPlugin,
@@ -28,6 +29,9 @@ ChartJS.register(
 );
 
 const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeasonData, season?: string }) => {
+    const { theme } = useTheme();
+    const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
+    const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const arr = data?.data
 
@@ -100,7 +104,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                         return `순위: ${context[0].label}`; // 순위 정보 표시
                     }
                 },
-                backgroundColor: 'rgba(31, 41, 55, 0.8)',
+                backgroundColor: 'rgba(30, 30, 33, 0.8)',
                 titleColor: 'white',
                 bodyColor: 'white',
                 borderColor: '#e2e8f0',
@@ -125,11 +129,12 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                 ticks: {
                     font: {
                         size: 12
-                    }
+                    },
+                    color: tickColor
                 },
                 grid: {
                     display: true,
-                    color: 'rgba(0, 0, 0, 0.1)', // 격자선 색상
+                    color: gridColor
                 }
             },
             y: {
@@ -149,11 +154,12 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                     callback: function (value) {
                         // 예: 시간 단위 변환이 필요한 경우
                         return value; // 현재는 원본 값 그대로 표시
-                    }
+                    },
+                    color: tickColor
                 },
                 grid: {
                     display: true,
-                    color: 'rgba(0, 0, 0, 0.1)',
+                    color: gridColor
                 }
             }
         },
@@ -170,8 +176,8 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
     };
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white p-4 shadow-md overflow-x-auto overflow-y-hidden">
-            <span className="text-xl font-bold ">클리어 시간</span>
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-96 bg-white dark:bg-zinc-900 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+            <span className="text-xl font-bold dark:text-zinc-100">클리어 시간</span>
 
             <Line data={chartData} options={chartOptions} />
         </div>

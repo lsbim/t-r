@@ -75,7 +75,7 @@ const PersonalityPieChart = ({ data }: { data: ClashSeasonData | ClashExternalDa
                 position: 'nearest' as const,       // 마우스 근처로 이동
                 padding: 8,
                 caretPadding: 10,           // 화살표와 박스 사이 간격
-                backgroundColor: 'rgba(31, 41, 55, 0.8)',
+                backgroundColor: 'rgba(30, 30, 33, 0.8)',
                 titleColor: 'white',
                 bodyColor: 'white',
                 cornerRadius: 4,

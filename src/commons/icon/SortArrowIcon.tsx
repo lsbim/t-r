@@ -11,7 +11,7 @@ const SortArrowIcon = ({ active, orderBy }: SortArrowIconProps) => {
             viewBox="0 0 24 24"
             strokeWidth={3}
             stroke="currentColor"
-            className={`size-3 ml-1 text-gray-700 transition-all duration-200 
+            className={`size-3 ml-1 text-gray-700 dark:text-zinc-200 transition-all duration-200 
                 ${active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
         ${active && orderBy === 'asc' ? 'rotate-180' : 'rotate-0'}`}
         >

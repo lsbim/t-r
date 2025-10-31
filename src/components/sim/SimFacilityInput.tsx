@@ -83,7 +83,7 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
         } else if (name === 'hq') {
             if (hqLvl > 3) {
                 return (
-                    <span className="text-orange-600">
+                    <span className="text-orange-600 dark:text-orange-500">
                         {`${translateFacility(name)} ${hqLvl}레벨 조건: 교주 ${(hqLvl - 3) * 10}레벨`}
                     </span>
                 )
@@ -102,7 +102,7 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
 
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:text-zinc-100">
             <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] text-[15px] gap-x-20 w-full font-bold">
                 <span>
                     현재 레벨
@@ -142,7 +142,7 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
                             className="mx-auto w-full flex items-center justify-center md:gap-x-10 gap-x-4">
                             <FacilityIcon name={p} />
                             <div className="flex flex-col items-center justify-start w-[240px] min-h-[80px] mb-auto">
-                                <div className="min-h-[20px] text-[12px] text-red-600 font-bold">
+                                <div className="min-h-[20px] text-[12px] text-red-600 dark:text-red-500 font-bold">
                                     {validateFacility(p)}
                                 </div>
                                 <div className="w-[200px] flex gap-x-10 justify-center mx-auto font-bold text-[16px] mb-2">

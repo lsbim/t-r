@@ -29,7 +29,7 @@ const RankRangeInputComponent = ({ handleCustomRank }: { handleCustomRank: (star
                     }}
                     min={1}
                     max={300}
-                    className="border-2 border-gray-400 p-1 w-[40px] flex justify-items-center rounded-md"
+                    className="border-2 border-gray-400 dark:border-none dark:bg-zinc-600 p-1 w-[40px] flex justify-items-center rounded-md"
                 />
                 <span className="mx-1 flex items-center">
                     ~
@@ -50,11 +50,11 @@ const RankRangeInputComponent = ({ handleCustomRank }: { handleCustomRank: (star
                     }}
                     min={1}
                     max={300}
-                    className="border-2 border-gray-400 p-1 w-[40px] flex justify-items-center rounded-md"
+                    className="border-2 border-gray-400 dark:border-none dark:bg-zinc-600 p-1 w-[40px] flex justify-items-center rounded-md"
                 />
                 <div
                     onClick={() => handleCustomRank(startRank, endRank)}
-                    className="text-white bg-orange-400 w-[50px] h-[25px] hover:bg-orange-500 cursor-pointer transition-colors flex justify-center items-center rounded-sm ml-2">
+                    className="text-white dark:text-zinc-950 bg-orange-400 w-[50px] h-[25px] hover:bg-orange-500 cursor-pointer transition-colors flex justify-center items-center rounded-sm ml-2">
                     적용
                 </div>
             </div>

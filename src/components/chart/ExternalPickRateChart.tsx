@@ -80,8 +80,8 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                     // console.log("maxLineCnt: ", maxLineCount)
 
                     return (
-                        <div key={'clash' + season + line} className={`shadow-md p-2 w-[320px] bg-white ${li === 2 ? 'mr-0' : 'mr-4'}`}>
-                            <div className="text-xl font-semibold mb-2 justify-between flex items-center">
+                        <div key={'clash' + season + line} className={`shadow-md p-2 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
+                            <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-100">
                                 <span className="">{line}</span>
                                 <span className="text-[16px]">{charSum}</span>
                             </div>
@@ -132,13 +132,13 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             key={"clash" + item.name}
                                             className="flex items-center w-full">
                                             <div
-                                                className="w-[90px] whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
+                                                className="w-[90px] dark:text-zinc-100 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
                                             </div>
 
                                             {/* 2) 가로 바 컨테이너 */}
-                                            <div className="flex-1 bg-gray-200 h-4 overflow-hidden text-[12px] hover:brightness-90">
+                                            <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px] hover:brightness-90">
                                                 <div
                                                     className={`h-full bg-${item.personality}`}
                                                     style={{ width: `${fillPct}%` }}
@@ -146,13 +146,13 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             </div>
                                             <div className="flex items-center h-full">
                                                 <span
-                                                    className="w-12 flex justify-end text-sm">
+                                                    className="w-12 flex justify-end text-sm dark:text-zinc-100">
                                                     {item.count}
                                                 </span>
                                                 <span
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content="픽률"
-                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 cursor-pointer">
+                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-1000 dark:hover:text-zinc-400 cursor-pointer">
                                                     {Math.round((item.count / EXTERNAL_USER_LENGTH) * 100 * 10) / 10}%
                                                 </span>
                                                 {/* <div className="w-12" /> */}
@@ -160,7 +160,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                                     <span
                                                         data-tooltip-id="my-tooltip"
                                                         data-tooltip-content="전체 비중"
-                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 cursor-pointer">
+                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 dark:text-zinc-700 dark:hover:text-zinc-600 cursor-pointer">
                                                         {Math.round(item?.percent * 10) / 10}%
                                                     </span>
                                                 ) : (
