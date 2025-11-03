@@ -40,6 +40,7 @@ export const costumes: Costume[] = [
     { charName: "에르핀", cosName: "깡총이 파자마", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "마고", cosName: "양치기 소녀", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "뮤트", cosName: "수온 측정의 여운", lvl: "normal", launchDate: "2025-10-16" },
+    { charName: "가비아", cosName: "대지의 대마법사", lvl: "normal", launchDate: "2025-10-30" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
