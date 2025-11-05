@@ -81,7 +81,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
 
                     return (
                         <div key={'clash' + season + line} className={`shadow-md p-2 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
-                            <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-100">
+                            <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-200">
                                 <span className="">{line}</span>
                                 <span className="text-[16px]">{charSum}</span>
                             </div>
@@ -132,7 +132,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             key={"clash" + item.name}
                                             className="flex items-center w-full">
                                             <div
-                                                className="w-[90px] dark:text-zinc-100 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
+                                                className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
                                             </div>
@@ -146,13 +146,13 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             </div>
                                             <div className="flex items-center h-full">
                                                 <span
-                                                    className="w-12 flex justify-end text-sm dark:text-zinc-100">
+                                                    className="w-12 flex justify-end text-sm dark:text-zinc-200">
                                                     {item.count}
                                                 </span>
                                                 <span
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content="픽률"
-                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-1000 dark:hover:text-zinc-400 cursor-pointer">
+                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-200 dark:hover:text-zinc-400 cursor-pointer">
                                                     {Math.round((item.count / EXTERNAL_USER_LENGTH) * 100 * 10) / 10}%
                                                 </span>
                                                 {/* <div className="w-12" /> */}

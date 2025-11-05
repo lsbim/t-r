@@ -39,7 +39,7 @@ const PersCalendar: React.FC<Props> = (
     // console.log(sumPersCostume)
 
     return (
-        <div className="w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-100 shadow-md p-2">
+        <div className="w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />

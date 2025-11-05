@@ -8,7 +8,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
     return (
         <div className="overflow-x-auto overflow-y-hidden">
-            <div className={`mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100 p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
+            <div className={`mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
                 <div className="flex items-center">
                     <span className="text-xl font-bold mr-4">사도 정보</span>
                     {statsForSelect?.select && (
@@ -175,7 +175,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className={`w-[15%] flex justify-center items-center font-bold text-[13px] ml-3 dark:text-zinc-100`}>
+                                    <div className={`w-[15%] flex justify-center items-center font-bold text-[13px] ml-3 dark:text-zinc-200`}>
                                         <span>
                                             {comp?.count}회
                                         </span>

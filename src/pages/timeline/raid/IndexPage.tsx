@@ -3,7 +3,7 @@ import { useSummaryData } from "../../../hooks/useSummaryData";
 import HeaderNav from "../../../layouts/HeaderNav";
 import { ClashSummary } from "../../../types/clashTypes";
 import { FrontierSummary } from "../../../types/frontierTypes";
-import { charInfo } from "../../../data/trickcalChar";
+import { charInfo, CharInfoDetail } from "../../../data/trickcalChar";
 import BaseComponent from "../../../components/timeline/raid/BaseComponent";
 import Footer from "../../../layouts/Footer";
 import CharacterLine from "../../../components/timeline/raid/CharacterLine";
@@ -11,6 +11,8 @@ import RaidBlock from "../../../components/timeline/raid/RaidBlock";
 import TopRemote from "../../../layouts/TopRemote";
 import Loading from "../../../commons/component/Loading";
 import SEO from "../../../commons/component/SEO";
+import { Race } from "../../../types/trickcalTypes";
+import BirthTimeline from "../../../components/timeline/chara/BirthTimeline";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
@@ -47,6 +49,31 @@ const IndexPage = () => {
         return (allDates.length - 1 - idx) * PIXELS_PER_DAY;
     }, [allDates]);
 
+    const charaRaceMap: Map<Race, string[]> = new Map(
+        Object.entries(
+            Object.entries(charInfo).reduce((acc, [name, info]) => {
+                const { race, birthdate } = info;
+                if (race) {
+                    if (!acc[race]) {
+                        acc[race] = []; // 초기화
+                    }
+                    // 정렬에 쓰일 이름, 출시일 객체 추가
+                    acc[race].push({ name, birthdate: new Date(new Date(birthdate).toLocaleString('en-US', { timeZone: 'Asia/Seoul' })) });
+                }
+                return acc;
+            }, {} as Record<Race, { name: string, birthdate: Date }[]>)
+        ).map(([race, chara]) => {
+
+            const top3Names = chara
+                .sort((a, b) => b.birthdate.getTime() - a.birthdate.getTime()) // 최신순 정렬
+                .slice(0, 3) // 내림차순(최신순) top 3
+                .map(char => char.name); // 사도 명 추출
+
+            // [k:종족명, v: 사도명[]]
+            return [race as Race, top3Names];
+        })
+    );
+
     if (!allDates || !frontier || !clash) return (
         <Loading />
     )
@@ -63,7 +90,7 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-100 p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
                     <h1 className="text-[20px] font-bold mr-2">보스 타임라인</h1>
                     <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
@@ -84,6 +111,9 @@ const IndexPage = () => {
                 <span className="flex text-[12px]">집계되지 않은 시즌은 제외됩니다.</span>
             </div>
             {/* 타임라인 */}
+            <div className="md:w-[768px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 p-4 shadow-md mt-4 overflow-x-auto">
+                <BirthTimeline charaRaceMap={charaRaceMap} />
+            </div>
             <div style={{ height: allDates.length * PIXELS_PER_DAY }} className="mt-2 relative overflow-x-auto">
                 <BaseComponent
                     allDates={allDates}

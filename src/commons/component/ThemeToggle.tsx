@@ -7,7 +7,7 @@ const ThemeToggle = () => {
         <button
             onClick={toggleTheme}
             aria-pressed={theme === 'dark'}
-            className="px-4 py-3 rounded flex items-center dark:text-zinc-100"
+            className="px-4 py-3 rounded flex items-center dark:text-zinc-200"
             title="테마 전환"
         >
             {theme === 'dark' ? (

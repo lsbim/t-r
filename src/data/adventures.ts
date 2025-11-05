@@ -266,7 +266,7 @@ export const adventure: Adventure = {
             { name: '고로쇠 수액', yieldType: 3 },
         ],
         advId: 22
-    }, '빼때로에서 초코벗기기': {
+    }, '빼빼로에서 초코벗기기': {
         mainAdvSkill: '유유자적',
         advSkills: ['희생정신', '집중력'],
         advLvl: 5,

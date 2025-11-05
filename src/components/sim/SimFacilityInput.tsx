@@ -102,7 +102,7 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
 
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:text-zinc-100">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:text-zinc-200">
             <div className="flex justify-center mb-3 md:ml-[60px] ml-[50px] text-[15px] gap-x-20 w-full font-bold">
                 <span>
                     현재 레벨

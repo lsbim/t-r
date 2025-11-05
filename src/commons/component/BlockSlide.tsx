@@ -110,7 +110,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                 </div>
 
                 {/* 현재 선택된 범위 표시 */}
-                <div className="my-2 text-sm font-semibold text-gray-700 dark:text-zinc-100 flex flex-col items-center justify-center min-h-[60px]">
+                <div className="my-2 text-sm font-semibold text-gray-700 dark:text-zinc-200 flex flex-col items-center justify-center min-h-[60px]">
                     <span>
                         {getResearchStep(input.currentTier, input.currentStep)?.name}
                     </span>

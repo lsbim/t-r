@@ -1,59 +1,53 @@
-import { facilities } from "../../data/facilities";
+import React from "react";
+import { translateRaces } from "../../utils/function";
+import { Race } from "../../types/trickcalTypes";
 import { useTheme } from "../../hooks/useTheme";
-import { translateFacility } from "../../utils/function";
 
+const ItemIcon = ({
+    name,
+    size,
+    grayscale,
+    opacity
+}: {
+    name: Race,
+    size?: number,
+    grayscale?: boolean,
+    opacity?: number
+}) => {
 
+    if (!name) return null;
 
-const facilitySet = new Set([...Object.keys(facilities).map(k => k)])
-
-const FacilityIcon = ({ name, size, value }: { name: string, size?: number, value?: number }) => {
     const { theme } = useTheme();
+
+    const translateRace = translateRaces(name)
 
     const shadow = theme === 'dark'
         ? '0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0)'
         : '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)';
 
-    const krName = translateFacility(name);
-    if (!krName || !facilitySet.has(krName)) return null;
-
-    // const facilityData = facilities[krName];
-    // if (!facilityData) return null;
-
-    // const facilInfo = facilityData[value];
-    // if (!facilInfo) return null;
-
 
     return (
         <div
-            className="relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex justify-center text-black"
+            className={`relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex items-center justify-center ${grayscale ? 'grayscale' : ''}`}
             style={{
-                width: size || 80,
-                height: size || 80,
+                width: size || 60,
+                height: size || 60,
+                opacity: opacity || 1
             }}
         >
-
             <img
-                className="w-[70%] h-[70%] object-contain"
-                src={`/images/facility/${name}.png`} />
+                className="w-[55%] h-[55%] aspect-square object-contain pb-1 select-none"
+                src={`/images/race/${translateRace}.png`} />
 
             <div
                 style={{
                     textShadow: shadow
                 }}
-                className="absolute font-bold bottom-4 select-none text-[15px] dark:text-zinc-200">
-                {krName}
+                className="absolute font-bold bottom-[6px] select-none text-[14px] text-black dark:text-zinc-200">
+                {name}
             </div>
-            {value && (
-                <div
-                    style={{
-                        textShadow: shadow
-                    }}
-                    className="absolute font-bold bottom-1 select-none text-[14px] dark:text-zinc-200">
-                    Lv.{value}
-                </div>
-            )}
-        </div >
+        </div>
     );
 }
 
-export default FacilityIcon;
+export default React.memo(ItemIcon);

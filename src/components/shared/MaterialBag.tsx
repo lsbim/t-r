@@ -88,7 +88,7 @@ const MaterialBag = ({
 
     return (
         <div
-            className="bg-white dark:bg-zinc-900 dark:text-zinc-100 xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[152px] xs:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 dark:border-zinc-300 shadow-gray-400 dark:shadow-zinc-300 rounded-md flex flex-col">
+            className="bg-white dark:bg-zinc-900 dark:text-zinc-200 xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[152px] xs:left-[-260px] bottom-0 left-0 z-[999] shadow-md border-t border-gray-400 dark:border-zinc-300 shadow-gray-400 dark:shadow-zinc-300 rounded-md flex flex-col">
             <div className="mx-auto text-[13px] py-1">
                 보유중인 재료를 입력할 수 있습니다.
             </div>

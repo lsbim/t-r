@@ -8,7 +8,7 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
 
     return (
         <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 py-4 shadow-md overflow-x-auto gap-y-3">
-            <span className="font-bold text-xl ml-4 dark:text-zinc-100">인기 조합</span>
+            <span className="font-bold text-xl ml-4 dark:text-zinc-200">인기 조합</span>
             <div className="mx-auto flex md:justify-center justify-start w-full gap-x-5">
                 {data.map((comp, ci) => {
 

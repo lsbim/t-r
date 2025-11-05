@@ -34,7 +34,7 @@ const CompListComponent = ({
         <div id="compList" className="sm:flex justify-center items-start gap-4">
 
             {/* 조합 */}
-            <div className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-100 p-2 pt-4 mr-4 shadow-md min-w-[300px] w-full sm:w-[350px]">
+            <div className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pt-4 mr-4 shadow-md min-w-[300px] w-full sm:w-[350px]">
                 <div className="text-xl font-bold mb-2">
                     조합
                 </div>
@@ -87,7 +87,7 @@ const CompListComponent = ({
                                         ))}
                                     </div>
                                     {userCnt && (
-                                        <div className={`w-[10%] dark:text-zinc-100 flex justify-center items-center font-bold text-[14px] ml-3`}>
+                                        <div className={`w-[10%] dark:text-zinc-200 flex justify-center items-center font-bold text-[14px] ml-3`}>
                                             <span>
                                                 {Math.round(c?.count / userCnt * 100 * 10) / 10}%
                                             </span>
@@ -99,7 +99,7 @@ const CompListComponent = ({
                     }}
                 />
             </div>
-            <div id="synergyList" className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-100 p-2 pt-4 shadow-md min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0">
+            <div id="synergyList" className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pt-4 shadow-md min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0">
                 <div className="text-xl font-bold mb-2">
                     성격
                 </div>

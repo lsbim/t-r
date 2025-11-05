@@ -5,15 +5,15 @@ import { charInfo } from "../../data/trickcalChar";
 const LineBarComponent = ({ data, line, season, type }
     : { data: SummaryData[], line: string, season: number, type: string }) => {
 
-    const lineData = data.filter(d =>
+    const lineData = data?.filter(d =>
         d.line === line
     );
     // console.log("lineData: ", lineData)
 
     // 성격별 count 합산
     const sumPersonality = lineData.reduce<Record<string, number>>((acc, d) => {
-        const p = charInfo[d.name].personality;
-        acc[p] = (acc[p] || 0) + d.count
+        const p = charInfo[d.name]?.personality;
+        acc[p] = (acc[p] || 0) + d?.count
         return acc;
     }, {})
 
@@ -46,7 +46,7 @@ const LineBarComponent = ({ data, line, season, type }
                 return (
                     <div
                         key={seg.personality}
-                        className={`flex items-center justify-center bg-gradient-to-r from-${seg.personality} to-${seg.personality}/80 overflow-hidden cursor-pointer`}
+                        className={`flex items-center justify-center bg-${seg.personality} overflow-hidden cursor-pointer`}
                         style={{ width: `${w}%` }}
                         title={`${line} ${seg.personality} ${w.toFixed(1)}%`}
                     >

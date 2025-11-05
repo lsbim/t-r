@@ -32,11 +32,11 @@ const ErrorPage = () => {
                     <span className="text-[48px] font-bold text-gray-400 dark:text-zinc-200">
                         {errorTitle}
                     </span>
-                    <span className="font-bold dark:text-zinc-100">
+                    <span className="font-bold dark:text-zinc-200">
                         {errorMsg}
                     </span>
                     {errorData && (
-                        <span className="font-bold dark:text-zinc-100">
+                        <span className="font-bold dark:text-zinc-200">
                             {errorData}
                         </span>
                     )}
@@ -54,16 +54,16 @@ const ErrorPage = () => {
             <SEO />
             <HeaderNav />
             <div className=" flex items-center justify-center flex-col mt-16">
-                <span className="text-[48px] font-bold text-gray-400 dark:text-zinc-100">
+                <span className="text-[48px] font-bold text-gray-400 dark:text-zinc-200">
                     ERROR
                 </span>
-                <span className="font-bold dark:text-zinc-100">
+                <span className="font-bold dark:text-zinc-200">
                     {error instanceof Error
                         ? error.message
                         : "알 수 없는 오류"}
                 </span>
                 {process.env.NODE_ENV === 'development' && error instanceof Error && (
-                    <span className="dark:text-zinc-100">
+                    <span className="dark:text-zinc-200">
                         {error.stack}
                     </span>
                 )}

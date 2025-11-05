@@ -67,7 +67,7 @@ const SimMaterialPlan: React.FC<SimMaterialPlanProps> = ({
 
                     {/* 최종 획득 방법 표시 */}
                     {plan?.method === 'inventory' ? (
-                        <div className="w-[110px] h-[160px] flex flex-col items-center justify-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg text-[16px] font-bold text-[rgb(93,61,48)]">
+                        <div className="dark:brightness-90 w-[110px] h-[160px] flex flex-col items-center justify-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg text-[16px] font-bold text-[rgb(93,61,48)]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
                             </svg>
@@ -75,7 +75,7 @@ const SimMaterialPlan: React.FC<SimMaterialPlanProps> = ({
                         </div>
                     ) : plan?.method === 'impossible' ? (
                         <div
-                            className="w-[110px] h-[160px] flex flex-col items-center justify-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg text-[16px] font-bold text-[rgb(93,61,48)]">
+                            className="dark:brightness-90 w-[110px] h-[160px] flex flex-col items-center justify-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg text-[16px] font-bold text-[rgb(93,61,48)]">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
                             </svg>

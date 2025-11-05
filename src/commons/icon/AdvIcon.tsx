@@ -13,7 +13,7 @@ const AdvIcon = ({ name, text }: { name: string, text: string }) => {
     return (
         <div
             style={{ width: 110, height: 160 }}
-            className="relative flex flex-col items-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg">
+            className="dark:brightness-90 relative flex flex-col items-center border-4 border-[rgb(226,220,200)] bg-[rgb(248,253,242)] rounded-lg">
             <div
                 className="mt-[5%] mb-[5%]">
                 <div className="text-[12px] truncate font-bold text-[rgb(93,61,48)] max-w-[95px] min-w-0 mx-auto">

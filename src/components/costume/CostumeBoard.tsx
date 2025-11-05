@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import { CostumeMapItem, getDaysSince } from "../../pages/costume/IndexPage";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
-import { charInfo } from "../../data/trickcalChar";
 import SortArrowIcon from "../../commons/icon/SortArrowIcon";
+import { charInfo } from "../../data/trickcalChar";
+import { CostumeMapItem } from "../../pages/costume/IndexPage";
 
 type SortConfig = {
     key: 'count' | 'since' | 'birthDate';
@@ -82,7 +82,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
         <div className="md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto bg-white dark:bg-zinc-900 shadow-md mb-[50px]">
             {/* 카테고리 */}
             {currentPageData && (
-                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 dark:bg-zinc-900 border-b-2 border-gray-200 dark:border-zinc-700 dark:text-zinc-100 sm:text-[15px] text-[13px]">
+                <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 dark:bg-zinc-900 border-b-2 border-gray-200 dark:border-zinc-700 dark:text-zinc-200 sm:text-[15px] text-[13px]">
                     <div className={`py-1 px-2 flex justify-center ${boardCategoryWidthStyle('name')}`} >
                         이름
                     </div>
@@ -121,7 +121,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                 {currentPageData && currentPageData.map((c, index) => (
                     <div
                         key={"costume_board_" + currentPage + index}
-                        className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px] dark:text-zinc-100">
+                        className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px] dark:text-zinc-200">
 
                         <div className={`py-[2px] px-2 flex items-center gap-x-2 ${boardCategoryWidthStyle('name')} md:text-[15px] text-[13px] font-bold`}>
                             <PersonalityIcon personality={charInfo[c.charName].personality} size={16} />
@@ -180,7 +180,7 @@ function getSinceColor(since: number) {
     } else if (since <= 600) {
         return 'text-red-500 dark:text-red-500';
     } else {
-        return 'text-black dark:text-zinc-1000';
+        return 'text-black dark:text-zinc-500';
     }
 };
 

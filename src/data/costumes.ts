@@ -182,6 +182,7 @@ export const costumes: Costume[] = [
     { charName: "페스타", cosName: "고스 펑크", lvl: "normal", launchDate: "2024-07-11" },
     { charName: "리스티", cosName: "꿈나라 모험가", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "에슈르", cosName: "평온한 온천 여행", lvl: "normal", launchDate: "2025-10-16" },
+    { charName: "아사나", cosName: "따끔한 간호의 자세", lvl: "normal", launchDate: "2025-11-06" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },

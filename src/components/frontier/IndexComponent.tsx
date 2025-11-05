@@ -36,7 +36,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                         key={'엘리아스프론티어' + bossName}
                         className={`p-6 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                         {/* 보스명 */}
-                        <h3 className="text-xl font-bold mb-4 dark:text-zinc-100">{bossName}</h3>
+                        <h3 className="text-xl font-bold mb-4 dark:text-zinc-200">{bossName}</h3>
 
                         {/* 후열, 중열, 전열 */}
                         {matchingEntries.length !== 0 && (
@@ -58,7 +58,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
 
                         {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                         {matchingEntries.length === 0 ? (
-                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-100">
+                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-200">
                                 준비 중입니다.
                             </div>
                         ) : (
@@ -75,7 +75,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                         {/* 시즌 정보 */}
                                         <div className="w-full mb-1 flex items-center h-full">
                                             {/* 마진 8px + 너비 90px */}
-                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap dark:text-zinc-100">
+                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap dark:text-zinc-200">
                                                 <div
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}

@@ -6,7 +6,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
 
 
     return (
-        <div className="md:w-[768px] w-full flex mx-auto bg-white dark:bg-zinc-900 dark:text-zinc-100 shadow-md p-2">
+        <div className="md:w-[768px] w-full flex mx-auto bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">
             <div className="w-[50%] flex flex-col gap-y-3">
                 <div className="flex justify-center">
                     <span className="text-[18px] font-bold">
@@ -28,7 +28,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                     • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                 </span>
                             </div>
-                            <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-1000">마지막 사복: {c.latestDate}</div>
+                            <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate}</div>
                         </div>
                     ))}
                     {most.length > 5 && (
@@ -63,7 +63,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                         • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                     </span>
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-1000">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
+                                <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
                             </div>
                         );
                     })}
