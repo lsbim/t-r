@@ -126,17 +126,17 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
                                         if (prevPickRate === 0) { // 이전 시즌 기록이 없는 경우
                                             changeText = 'New';
-                                            changeClassName = 'text-red-600 font-semibold';
+                                            changeClassName = 'text-red-600 dark:text-red-400 font-semibold';
                                         } else {
                                             const pickRateChange = currentPickRate - prevPickRate;
                                             const roundedChange = Math.round(pickRateChange * 10) / 10;
 
                                             if (roundedChange > 0.0) {
                                                 changeText = `+${Math.round(pickRateChange * 10) / 10}%`;
-                                                changeClassName = 'text-red-600';
+                                                changeClassName = 'text-red-600 dark:text-red-400';
                                             } else if (roundedChange < 0.0) {
                                                 changeText = `-${Math.round((Math.abs(roundedChange)) * 10) / 10}%`;
-                                                changeClassName = 'text-blue-600';
+                                                changeClassName = 'text-blue-600 dark:text-blue-400';
                                             }
                                         }
                                     }

@@ -223,9 +223,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                         <span className={`${compareCoinStyle(compareMaxCoin)} text-[14px] flex items-center`}>
                             {compareMaxCoin > 0
                                 ? '+' + compareMaxCoin
-                                : compareMaxCoin < 0
-                                    ? '-' + compareMaxCoin
-                                    : compareMaxCoin}
+                                : compareMaxCoin}
                         </span>
                     )}
                 </div>
@@ -241,9 +239,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                         <span className={`${compareCoinStyle(compareMinCoin)} text-[14px] flex items-center`}>
                             {compareMinCoin > 0
                                 ? '+' + compareMinCoin
-                                : compareMinCoin < 0
-                                    ? '-' + compareMinCoin
-                                    : compareMinCoin}
+                                : compareMinCoin}
                         </span>
                     )}
                 </div>

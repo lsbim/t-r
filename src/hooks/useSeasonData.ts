@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
-import { FrontierExternalData, FrontierSeasonData } from "../types/frontierTypes";
-import { ClashExternalData, ClashSeasonData } from "../types/clashTypes";
+import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../types/frontierTypes";
+import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../types/clashTypes";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -24,7 +24,29 @@ export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalDat
 
     return useQuery<T, Error>({
         queryKey: [season, type],
-        queryFn: () => fetchSeasonData(season!, type),
+        queryFn: async () => {
+            const result = await fetchSeasonData(season!, type);
+
+            // 사도 배열 내 중복된 이름이 있는지 체크
+            if (process.env.NODE_ENV === 'development') {
+                if (result?.data && Array.isArray(result.data) && result?.type === 'season') {
+
+                    result.data.forEach((playerData: FrontierPlayerData | clashPlayerData, index: number) => {
+                        if (playerData.arr && Array.isArray(playerData.arr)) {
+                            const nameSet = new Set(playerData.arr);
+
+                            // Set과 배열 크기가 다르면 중복 사도 있음
+                            if (nameSet.size !== playerData.arr.length) {
+                                console.warn(`Rank ${playerData.rank || (index + 1)}에 중복 사도 발견`, playerData.arr);
+                            }
+                        }
+                    });
+
+                }
+            }
+
+            return result;
+        },
 
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정
