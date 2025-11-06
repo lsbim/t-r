@@ -15,7 +15,7 @@ export const PersonalityListComponent = ({ data, count, userCnt }: { data: Syner
     return (
         <div className="flex pr-8 h-[78px] mb-2">
             <div
-                className="grid grid-rows-2 grid-flow-col gap-1 justify-center items-center mb-4 h-[78px] w-[200px]"
+                className=" dark:brightness-90 grid grid-rows-2 grid-flow-col gap-1 justify-center items-center mb-4 h-[78px] w-[200px]"
                 style={{ gridAutoColumns: "auto" }}
             >
                 {flatList.map((personality, i) => (

@@ -52,7 +52,7 @@ const CompListComponent = ({
                         return (
                             <div key={season + "_comp_" + c?.rank}
                                 className={`text-[12px] font-bold px-4 pb-4`}>
-                                <div className="flex w-full h-[78px] gap-x-2 text-zinc-950">
+                                <div className="flex w-full h-[78px] gap-x-2 text-zinc-950 dark:brightness-90">
                                     <div className="w-[25%] flex flex-col gap-y-1">
                                         {c?.back.map(b => (
                                             <div key={"back_" + season + "_comp_" + ci + b}

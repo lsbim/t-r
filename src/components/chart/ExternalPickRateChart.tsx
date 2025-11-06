@@ -140,7 +140,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             {/* 2) 가로 바 컨테이너 */}
                                             <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px] hover:brightness-90">
                                                 <div
-                                                    className={`h-full bg-${item.personality}`}
+                                                    className={`h-full dark:brightness-90 bg-${item.personality}`}
                                                     style={{ width: `${fillPct}%` }}
                                                 />
                                             </div>

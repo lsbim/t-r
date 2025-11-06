@@ -11,6 +11,7 @@ import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processPersonalityPie } from "../../utils/chartFunction";
+import { useTheme } from '../../hooks/useTheme';
 // ① 필수: 사용 요소 & 플러그인 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -21,10 +22,14 @@ const PersonalityPieChart = ({ data }: { data: ClashSeasonData | ClashExternalDa
 
     if (!pieData) return null;
 
+    const { theme } = useTheme();
+
     const pieLabels = Object.keys(pieData);
     const pieDataset = Object.values(pieData);
 
     const pieDataSum = pieDataset.reduce((a, b) => a + b, 0);
+
+    const borderColor = theme === 'dark' ? 'rgb(24 24 27)' : '#FFFFFF';
 
     // console.log(pieData);
 
@@ -37,6 +42,7 @@ const PersonalityPieChart = ({ data }: { data: ClashSeasonData | ClashExternalDa
                     getPersonalityColor(item as Personality)
                 ),
                 borderWidth: 1,
+                borderColor: borderColor
             },
         ],
     };
@@ -86,7 +92,7 @@ const PersonalityPieChart = ({ data }: { data: ClashSeasonData | ClashExternalDa
     };
 
     return (
-        <div className='h-[150px] xs:mr-[20px] xs:mb-0 mb-4 flex justify-center w-full xs:w-[150px] items-center'>
+        <div className='h-[150px] dark:brightness-90 xs:mr-[20px] xs:mb-0 mb-4 flex justify-center w-full xs:w-[150px] items-center'>
             <Pie data={chartData} options={options} plugins={[ChartDataLabels]} />
         </div>
     );

@@ -140,7 +140,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                             </div>
                             {statsForSelect.selectCharComp.slice(0, 3).map((comp: any, ci: number) => (
                                 <div key={"clash" + statsForSelect?.select + "comp" + ci}
-                                    className={`flex font-bold text-[12px] gap-x-2 dark:text-zinc-950 ${ci === 2 ? "mb-0" : "mb-4"}`}>
+                                    className={`flex font-bold dark:brightness-90 text-[12px] gap-x-2 dark:text-zinc-950 ${ci === 2 ? "mb-0" : "mb-4"}`}>
 
                                     <div className="min-w-[78px] w-[16%] flex flex-col gap-y-1">
                                         {comp?.back?.map((name: string, i: number) => (

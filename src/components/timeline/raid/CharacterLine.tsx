@@ -38,7 +38,7 @@ const CharacterLine = ({ getYOffset, allDates }: Props) => {
                     return (
                         <div
                             key={`${isoDate}-${name}`}
-                            className={`absolute left-[50%] flex items-center whitespace-nowrap w-1/2 sm:w-auto `}
+                            className={`absolute dark:brightness-90 left-[50%] flex items-center whitespace-nowrap w-1/2 sm:w-auto `}
                             style={{ top: y }}
                         >
                             <div className={`h-[3px] ${charInfo[name].personality === '공명' ? 'resonance-bar' : `bg-${charInfo[name].personality}`} z-10 w-full sm:w-[200px]`} />

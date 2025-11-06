@@ -204,7 +204,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
             </div>
-            <div className='h-[400px]'>
+            <div className='h-[400px] dark:brightness-90'>
 
                 <Line data={chartData} options={chartOptions} />
             </div>

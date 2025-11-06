@@ -22,12 +22,13 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
         });
     }
 
+    // 모든 종족의 최근3사도 중 가장 오래된 사도
     const getGlobalMaxDays = () => {
         let maxDays = 0;
         charaRaceMap.forEach((names) => {
             names.forEach(name => {
                 const days = getDaysSince(charInfo[name]?.birthdate);
-                const visualDist = dayToVisual(days); // 여기도 제곱근 변환 적용
+                const visualDist = dayToVisual(days);
                 if (visualDist > maxDays) {
                     maxDays = visualDist;
                 }
@@ -94,11 +95,15 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
                                 }}
                             >
                                 {/* 수직선 */}
-                                <div className={`w-0.5 h-1/2 translate-y-[2px] ${charInfo[pos.name]?.personality === '공명' ? 'resonance-pers' : `bg-${charInfo[pos.name]?.personality}`}`} />
+                                <div className={`w-0.5 h-1/2 dark:brightness-90 translate-y-[2px] ${charInfo[pos.name]?.personality === '공명' ? 'resonance-pers' : `bg-${charInfo[pos.name]?.personality}`}`} />
                                 {/* 텍스트 (눈금선 아래로) */}
-                                <div className="text-center whitespace-nowrap mt-1">
+                                <div
+                                    data-tooltip-id="my-tooltip"
+                                    data-tooltip-content={charInfo[pos?.name]?.birthdate}
+                                    className="text-center whitespace-nowrap mt-1 cursor-pointer">
                                     <div className={`text-[13px] truncate w-[70px] dark:text-zinc-200 font-medium`}>{pos.name}</div>
-                                    <div className={`text-[12px] text-zinc-400`}>
+                                    <div
+                                        className={`text-[12px] text-zinc-400`}>
                                         {pos.days <= 0 ? '오늘' : `${pos.days}일 전`}
                                     </div>
                                 </div>

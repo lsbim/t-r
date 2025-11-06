@@ -37,7 +37,7 @@ const LineBarComponent = ({ data, line, season, type }
     return (
         <Link
             to={`/${type}/${season}`}
-            className="w-full h-[24px] flex overflow-hidden md:text-[13px] text-[11px] border border-black"
+            className="w-full h-[24px] flex overflow-hidden md:text-[13px] text-[11px] border border-black dark:brightness-90"
         >
             {segments.map((seg) => {
                 // (seg.percent/total)*100 으로 재스케일하거나,

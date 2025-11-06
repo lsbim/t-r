@@ -28,7 +28,7 @@ const ItemIcon = ({
 
     return (
         <div
-            className={`relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex items-center justify-center ${grayscale ? 'grayscale' : ''}`}
+            className={`dark:brightness-90 relative rounded-md overflow-hidden bg-center bg-no-repeat bg-contain flex items-center justify-center ${grayscale ? 'grayscale' : ''}`}
             style={{
                 width: size || 60,
                 height: size || 60,
