@@ -48,7 +48,9 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                     style={{ gap: lineGap }}
                                     className="flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400">
                                     {lines.map(line => (
-                                        <div key={`line_text_` + line} className="lg:w-[300px] w-[28vw]">
+                                        <div
+                                            key={`line_text_` + line}
+                                            className="xs:w-[300px] w-[200px] ">
                                             {line}
                                         </div>
                                     ))}
@@ -104,7 +106,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                                 {lines.map((line) => (
                                                     <div
                                                         key={`${line}_season_${season}`}
-                                                        className="w-[28vw] lg:w-[300px] flex flex-shrink-0 flex-grow-0"
+                                                        className="xs:w-[300px] w-[200px] flex flex-shrink-0 flex-grow-0"
                                                     >
                                                         <LineBarComponent
                                                             data={seasonData.summary}

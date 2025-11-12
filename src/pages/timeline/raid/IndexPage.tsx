@@ -114,7 +114,7 @@ const IndexPage = () => {
             <div className="md:w-[768px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 p-4 shadow-md mt-4 overflow-x-auto">
                 <BirthTimeline charaRaceMap={charaRaceMap} />
             </div>
-            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className="mt-2 relative overflow-x-auto">
+            <div style={{ height: allDates.length * PIXELS_PER_DAY }} className="mt-4 relative overflow-x-auto">
                 <BaseComponent
                     allDates={allDates}
                     getYOffset={getYOffset}

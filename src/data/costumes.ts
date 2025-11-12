@@ -41,6 +41,7 @@ export const costumes: Costume[] = [
     { charName: "마고", cosName: "양치기 소녀", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "뮤트", cosName: "수온 측정의 여운", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "가비아", cosName: "대지의 대마법사", lvl: "normal", launchDate: "2025-10-30" },
+    { charName: "비비", cosName: "스며드는 잿빛 장막", lvl: "normal", launchDate: "2025-11-13" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -76,6 +77,8 @@ export const costumes: Costume[] = [
     { charName: "프리클", cosName: "오늘의 날씨는 맑음", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "엘레나", cosName: "차원이 다른 여왕님", lvl: "pretty", launchDate: "2025-10-02" },
     { charName: "그윈", cosName: "설국의 노천탕", lvl: "normal", launchDate: "2025-10-16" },
+    { charName: "이드", cosName: "잠든 별의 예지몽", lvl: "normal", launchDate: "2025-11-13" },
+    { charName: "아야", cosName: "첫 눈송이의 춤사위", lvl: "normal", launchDate: "2025-11-13" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
@@ -113,6 +116,7 @@ export const costumes: Costume[] = [
     { charName: "피라", cosName: "껌 좀 씹어본 용족", lvl: "normal", launchDate: "2025-10-02" },
     { charName: "디아나", cosName: "야산의 온천 마실", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "림(혼돈)", cosName: "연회루 혼돈 마담", lvl: "pretty", launchDate: "2025-10-30" },
+    { charName: "클로에", cosName: "테디 더 나이트메어", lvl: "normal", launchDate: "2025-11-13" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
@@ -147,6 +151,8 @@ export const costumes: Costume[] = [
     { charName: "스피키(메이드)", cosName: "꼬끼옷 메이드", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "마카샤", cosName: "온수통의 마녀", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "미로", cosName: "수면에 비친 동심", lvl: "normal", launchDate: "2025-10-23" },
+    { charName: "우이", cosName: "맑은 기도의 빗방울", lvl: "normal", launchDate: "2025-11-13" },
+    { charName: "에피카", cosName: "화살촉에 실려 온 이야기", lvl: "normal", launchDate: "2025-11-13" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
@@ -183,6 +189,7 @@ export const costumes: Costume[] = [
     { charName: "리스티", cosName: "꿈나라 모험가", lvl: "normal", launchDate: "2025-09-18" },
     { charName: "에슈르", cosName: "평온한 온천 여행", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "아사나", cosName: "따끔한 간호의 자세", lvl: "normal", launchDate: "2025-11-06" },
+    { charName: "시온", cosName: "다크스타 ★ 버스트", lvl: "normal", launchDate: "2025-11-13" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },

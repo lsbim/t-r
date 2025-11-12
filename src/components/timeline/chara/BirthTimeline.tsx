@@ -80,7 +80,7 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
                 const finalPositions = adjustOverlapping(racePixelPositions);
 
                 return (
-                    <div className="relative h-20 flex items-center xs:w-[600px] w-[400px] mb-1"
+                    <div className="relative h-20 flex items-center w-[600px] mb-1"
                         key={`chara_birth_timeline_${race}`}>
                         {/* <img className="aspect-square w-12 flex items-center" src={`/images/race/${translateRaces(race)}.png`} /> */}
                         <RaceIcon name={race} />

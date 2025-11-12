@@ -11,6 +11,10 @@
     {
       "season": "12",
       "pickRate": 99
+    },
+    {
+      "season": "13",
+      "pickRate": 100
     }
   ],
   "clash": [
