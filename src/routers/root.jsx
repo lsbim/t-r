@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
+import { createBrowserRouter, Navigate, Outlet, redirect } from "react-router-dom";
 import Loading from "../commons/component/Loading";
 import { charInfo } from "../data/trickcalChar";
 
@@ -32,6 +32,18 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Navigate to="v1" replace />
+            },
+            {
+                path: ":season",
+                loader: ({ params }) => {
+                    const { season } = params;
+                    // 만약 season이 v1, v2가 아니고 숫자라면 v1 주소로 리다이렉트
+                    if (season && !isNaN(Number(season))) {
+                        return redirect(`/clash/v1/${season}`);
+                    }
+                    return null;
+                },
+                element: null
             },
             {
                 path: "v1",
