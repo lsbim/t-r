@@ -2,16 +2,17 @@ import { externalData } from "./frontierTypes";
 import { Personality, SummaryData } from "./trickcalTypes";
 
 export const clashBossList: string[] = ["릴1리", "크르브르스", "크레용사용"];
+export const clashV2BossList: string[] = ["흑화 영춘"];
 
 // 차원 대충돌 개인 데이터
-export interface clashPlayerData {
+export interface ClashPlayerData {
     rank: number;
     grade: number;
     duration: number;
     arr: string[];
 }
 
-interface ClashBase {
+export interface ClashBase {
     personality: Personality; // 성격. "광기" | "냉정" ...
     name: string; // 대충돌 몬스터 이름. "릴1리", "크르브르스" ...
     startDate: string; // "YYYY-MM-DD" 형식
@@ -23,7 +24,7 @@ interface ClashBase {
 // 차원 대충돌 시즌 데이터
 export interface ClashSeasonData extends ClashBase {
     type: 'season';
-    data: clashPlayerData[]; // [["비비","벨라"...], [], [], ...]
+    data: ClashPlayerData[]; // [["비비","벨라"...], [], [], ...]
 }
 
 // 차원 대충돌 제보받아 하드코딩한 데이터

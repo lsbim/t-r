@@ -24,10 +24,11 @@ ChartJS.register(
     Legend
 );
 
-const AllPickRateChart = ({ data, season, setSelect }:
+const AllPickRateChart = ({ data, type, setSelect }:
     {
         data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData,
-        season?: string, setSelect?: React.Dispatch<React.SetStateAction<string>>
+        type?: 'side',
+        setSelect?: React.Dispatch<React.SetStateAction<string>>
     }) => {
 
     const { theme } = useTheme();
@@ -35,7 +36,7 @@ const AllPickRateChart = ({ data, season, setSelect }:
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const sortedData = data.type === 'season' ?
-        processRankingArrAllData(data?.data).sort((a, b) => b.count - a.count)
+        processRankingArrAllData(data?.data, type).sort((a, b) => b.count - a.count)
         : processExternalAllData(data).sort((a, b) => b.count - a.count);
 
     // console.log("sortedData: ", sortedData)

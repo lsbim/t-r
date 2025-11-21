@@ -1,27 +1,30 @@
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import IndexComponent from "../../components/clash/IndexComponent";
+import ClashV2Index from "../../components/clashV2/ClashV2Index";
 import { useSummaryData } from "../../hooks/useSummaryData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
-import { ClashSummary } from "../../types/clashTypes";
+import { ClashV2Summary } from "../../types/clashV2Types";
 
 const IndexPage = () => {
 
-	const { data } = useSummaryData<ClashSummary>('clash');
+	const { data } = useSummaryData<ClashV2Summary>('clashV2');
 
 	if (!data) {
 		return (<Loading />)
 	};
 
+	// console.log(data)
+
 	return (
-		<div className="flex flex-col items-center min-h-screen">
+		<div className="flex flex-col items-center min-h-[100.5vh]">
 			<SEO
-				title="차원 대충돌 시즌 목록, 요약"
-				description="차원 대충돌의 집계된 시즌 정보를 요약하여 제공합니다."
+				title="차원 대충돌 2.0 시즌 목록, 요약"
+				description="차원 대충돌 2.0의 집계된 시즌 정보를 요약하여 제공합니다."
 			/>
 			<HeaderNav />
-			<IndexComponent
+			<ClashV2Index
 				summary={data}
 			/>
 			<Footer />

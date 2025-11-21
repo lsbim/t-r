@@ -12,13 +12,20 @@ import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTy
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processPersonalityPie } from "../../utils/chartFunction";
 import { useTheme } from '../../hooks/useTheme';
+import { ClashV2SeasonData } from '../../types/clashV2Types';
 // ① 필수: 사용 요소 & 플러그인 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
-const PersonalityPieChart = ({ data }: { data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData }) => {
+const PersonalityPieChart = ({ 
+    data,
+    type
+ }: { 
+    data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData | ClashV2SeasonData,
+    type?: 'side'
+ }) => {
 
-    const pieData = processPersonalityPie(data?.data);
+    const pieData = processPersonalityPie(data?.data, type);
 
     if (!pieData) return null;
 

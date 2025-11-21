@@ -218,7 +218,7 @@ const SimIndexPage = () => {
         <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
              <SEO
                 title="교단 시설 및 연구 재화 계산"
-                description="사교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다."
+                description="트릭컬 리바이브의 교단 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다."
             />
             <TopRemote />
             <HeaderNav />

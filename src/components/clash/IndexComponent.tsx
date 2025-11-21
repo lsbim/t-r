@@ -17,8 +17,12 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     // console.log(clashSort)
 
     return (
-        <div className="bg-white dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
+        <div className="bg-white w-[1068px] dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
             <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
+                <div className="flex flex-col justify-start mb-3 dark:text-zinc-200">
+                    <h1 className="text-[20px] font-bold mr-2">차원 대충돌 집계</h1>
+                    <span className="flex xs:text-[14px] text-[11px]">막대 차트 클릭 시 해당 시즌의 상세 집계 페이지로 이동합니다.</span>
+                </div>
                 <span className="text-[12px] text-orange-500 font-bold">
                     정렬 기준
                 </span>
@@ -37,13 +41,22 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
             </div>
             <div className="overflow-x-auto">
                 {
-                    clashSort === 'boss' ? clashBossList.map((bossName, i) => {
+                    clashSort === 'boss' ? clashBossList.map((bossName: string, i: number) => {
                         // 해당 보스명과 일치하는 모든 데이터 항목을 찾고 시즌 정보도 함께 유지
                         const matchingEntries = Object.entries(summary)
                             .filter(([seasonKey, data]) => data.name === bossName)
                             .sort(([seasonKeyA], [seasonKeyB]) => {
-                                // 키가 이미 숫자이므로 직접 비교 (내림차순 정렬)
-                                return Number(seasonKeyB) - Number(seasonKeyA);
+                                const a = Number(seasonKeyA);
+                                const b = Number(seasonKeyB);
+                                const isBetaA = a > 10000;
+                                const isBetaB = b > 10000;
+
+                                if (isBetaA !== isBetaB) {
+                                    return isBetaA ? 1 : -1;
+                                }
+
+                                // 같은 그룹끼리는 내림차순
+                                return b - a;
                             })
                             // 시즌 키와 데이터를 모두 유지하는 객체로 변환
                             .map(([seasonKey, data]) => ({
@@ -54,7 +67,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         return (
                             <div
                                 key={'차원대충돌' + bossName}
-                                className={`p-6 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
+                                className={`px-6 py-4 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                                 {/* 보스명 헤더 */}
                                 <h3 className="text-xl font-bold mb-4 dark:text-zinc-200">{bossName}</h3>
 
@@ -103,7 +116,16 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
                                                                 className="hover:text-gray-400 hover:dark:text-zinc-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
-                                                                S{season}
+                                                                {Number(season) > 10000 && (
+                                                                    <>
+                                                                        B{Number(season) - 10000}
+                                                                    </>
+                                                                )}
+                                                                {Number(season) < 10000 && (
+                                                                    <>
+                                                                        S{season}
+                                                                    </>
+                                                                )}
                                                             </div>
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
@@ -152,7 +174,17 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                             .filter(([seasonKey, data]) => data.personality === pers)
                             .sort(([seasonKeyA], [seasonKeyB]) => {
 
-                                return Number(seasonKeyB) - Number(seasonKeyA);
+                                const a = Number(seasonKeyA);
+                                const b = Number(seasonKeyB);
+                                const isBetaA = a > 10000;
+                                const isBetaB = b > 10000;
+
+                                if (isBetaA !== isBetaB) {
+                                    return isBetaA ? 1 : -1;
+                                }
+
+                                // 같은 그룹끼리는 내림차순
+                                return b - a;
                             })
                             // 시즌 키와 데이터를 모두 유지하는 객체로 변환
                             .map(([seasonKey, data]) => ({
@@ -163,7 +195,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                         return (
                             <div
                                 key={'차원대충돌' + pers}
-                                className={`p-6 min-w-[500px] ${personalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
+                                className={`px-6 py-4 min-w-[500px] ${personalityList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                                 {/* 성격명 헤더 */}
                                 <div className="flex gap-x-2">
                                     <div
@@ -222,7 +254,16 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
                                                                 className="hover:text-gray-400 hover:dark:text-zinc-400 whitespace-nowrap w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
-                                                                S{season}
+                                                                {Number(season) > 10000 && (
+                                                                    <>
+                                                                        B{Number(season) - 10000}
+                                                                    </>
+                                                                )}
+                                                                {Number(season) < 10000 && (
+                                                                    <>
+                                                                        S{season}
+                                                                    </>
+                                                                )}
                                                             </div>
                                                             <div
                                                                 data-tooltip-id="my-tooltip"

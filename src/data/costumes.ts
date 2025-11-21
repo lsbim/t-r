@@ -79,6 +79,7 @@ export const costumes: Costume[] = [
     { charName: "그윈", cosName: "설국의 노천탕", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "이드", cosName: "잠든 별의 예지몽", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "아야", cosName: "첫 눈송이의 춤사위", lvl: "normal", launchDate: "2025-11-13" },
+    { charName: "베니(베니)", cosName: "검도부 대련 일지", lvl: "normal", launchDate: "2025-11-20" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },

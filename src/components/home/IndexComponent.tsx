@@ -1,6 +1,10 @@
+import { useState } from "react";
+import FuzzyComponent from "../../commons/animation/FuzzyComponent";
 
 
 const IndexComponent = () => {
+
+    const [isActive, setIsActive] = useState(true)
 
     return (
         <div className="sm:w-[600px] w-full dark:bg-zinc-900 dark:text-zinc-200 mx-auto flex flex-col mt-4 bg-white p-4 shadow-md">

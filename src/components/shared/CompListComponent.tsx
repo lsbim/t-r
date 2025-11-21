@@ -5,21 +5,25 @@ import { findPersonalityByName } from "../../utils/function";
 import { processCompStat, processSynergyStats } from "../../utils/chartFunction";
 import React from "react";
 import { Virtuoso } from "react-virtuoso";
+import { ClashV2SeasonData } from "../../types/clashV2Types";
 
 const CompListComponent = ({
     data,
     season,
-    userCnt
+    userCnt,
+    type
 }: {
-    data: ClashSeasonData | FrontierSeasonData,
+    data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
     season?: string,
-    userCnt?: number
+    userCnt?: number,
+    type?: 'side'
 }) => {
+    // console.log(type)
 
-    const compData = processCompStat(data?.data).sort((a, b) => a.rank - b.rank);
+    const compData = processCompStat(data?.data, undefined, type).sort((a, b) => a.rank - b.rank);
     // const compCount = compData.reduce((sum, comp) => sum + comp.count, 0);
 
-    const synergyStats = processSynergyStats(data?.data)
+    const synergyStats = processSynergyStats(data?.data, type)
 
     // console.log("comp count: ", compCount)
     // console.log("comp: ", compData)

@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../types/frontierTypes";
-import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../types/clashTypes";
+import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../types/clashTypes";
+import { ClashV2SeasonData } from "../types/clashV2Types";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -10,7 +11,8 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     if (!season || numSeason < 1) {
         console.log('유효하지 않은 시즌 번호입니다.');
     }
-    const response = await fetch(`/data/${type}/${numSeason}.json`);
+    const typeDir = type === 'clashV2' ? 'clash_v2' : type
+    const response = await fetch(`/data/${typeDir}/${numSeason}.json`);
 
     if (!response.ok) {
         console.log(`시즌 ${numSeason} 데이터를 찾을 수 없습니다.`);
@@ -19,7 +21,7 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     return response.json();
 };
 
-export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalData | ClashSeasonData | ClashExternalData>
+export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalData | ClashSeasonData | ClashExternalData | ClashV2SeasonData>
     (season: string | undefined, type: TrickcalRaidEn) => {
 
     return useQuery<T, Error>({
@@ -31,7 +33,7 @@ export const useSeasonData = <T extends FrontierSeasonData | FrontierExternalDat
             if (process.env.NODE_ENV === 'development') {
                 if (result?.data && Array.isArray(result.data) && result?.type === 'season') {
 
-                    result.data.forEach((playerData: FrontierPlayerData | clashPlayerData, index: number) => {
+                    result.data.forEach((playerData: FrontierPlayerData | ClashPlayerData, index: number) => {
                         if (playerData.arr && Array.isArray(playerData.arr)) {
                             const nameSet = new Set(playerData.arr);
 

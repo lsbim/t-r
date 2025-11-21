@@ -14,7 +14,7 @@ import { useSeasonData } from "../../hooks/useSeasonData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
-import { ClashExternalData, clashPlayerData, ClashSeasonData } from "../../types/clashTypes";
+import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
 import BestComp from "../../components/shared/BestComp";
 import SEO from "../../commons/component/SEO";
@@ -79,7 +79,7 @@ const SeasonPage = () => {
         if (!select || !seasonSlice) return null;
 
         // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = (seasonSlice.data as clashPlayerData[]).filter(r => r.arr.includes(select));
+        const combos = (seasonSlice.data as ClashPlayerData[]).filter(r => r.arr.includes(select));
         const totalUses = combos.length;
         const percentOfAll = totalUses / seasonSlice.data.length * 100;
 
@@ -101,7 +101,7 @@ const SeasonPage = () => {
             });
         });
 
-        const selectCharComp = processCompStat((seasonSlice.data as clashPlayerData[]), select);
+        const selectCharComp = processCompStat((seasonSlice.data as ClashPlayerData[]), select);
 
         return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
     }, [select, seasonSlice]);
@@ -113,9 +113,9 @@ const SeasonPage = () => {
         if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
 
             if (data?.data.length === 300) {
-                const oneComp = processCompStat(data?.data.slice(0, 100) as clashPlayerData[])[0]
-                const twoComp = processCompStat(data?.data.slice(101, 200) as clashPlayerData[])[0]
-                const threeComp = processCompStat(data?.data.slice(201, 300) as clashPlayerData[])[0]
+                const oneComp = processCompStat(data?.data.slice(0, 100) as ClashPlayerData[])[0]
+                const twoComp = processCompStat(data?.data.slice(101, 200) as ClashPlayerData[])[0]
+                const threeComp = processCompStat(data?.data.slice(201, 300) as ClashPlayerData[])[0]
 
                 result.push(oneComp);
                 result.push(twoComp);
@@ -123,7 +123,7 @@ const SeasonPage = () => {
 
                 return result;
             } else {
-                const bestComp = processCompStat(data?.data as clashPlayerData[])[0]
+                const bestComp = processCompStat(data?.data as ClashPlayerData[])[0]
 
                 result.push(bestComp);
 
@@ -131,7 +131,7 @@ const SeasonPage = () => {
             }
 
         } else {
-            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as clashPlayerData[])[0]
+            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as ClashPlayerData[])[0]
             result.push(bestComp)
             return result;
         }
@@ -184,7 +184,6 @@ const SeasonPage = () => {
             {seasonSlice.type === 'external' && (
                 <>
                     <AllPickRateChart
-                        season={season}
                         data={seasonSlice}
                     />
                     <ExternalPickRateChart
@@ -199,7 +198,6 @@ const SeasonPage = () => {
             {seasonSlice.type === 'season' && (
                 <>
                     <AllPickRateChart
-                        season={season}
                         data={seasonSlice}
                         setSelect={setSelect}
                     />

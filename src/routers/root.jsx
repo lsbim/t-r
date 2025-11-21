@@ -6,6 +6,8 @@ import { charInfo } from "../data/trickcalChar";
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
 const ClashSeason = lazy(() => import("../pages/clash/SeasonPage"));
+const ClashV2Index = lazy(() => import("../pages/clashV2/ClashV2IndexPage"));
+const ClashV2Season = lazy(() => import("../pages/clashV2/ClashV2SeasonPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const Character = lazy(() => import("../pages/characters/CharacterPage"));
@@ -25,12 +27,33 @@ const router = createBrowserRouter([
     },
     {
         path: "clash",
-        element: <Suspense fallback={<Loading />}><ClashIndex /></Suspense>,
-        errorElement: <ErrorPage />
-    },
-    {
-        path: "clash/:season",
-        element: <Suspense fallback={<Loading />}><ClashSeason /></Suspense>,
+        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="v1" replace />
+            },
+            {
+                path: "v1",
+                element: <Suspense fallback={<Loading />}><ClashIndex /></Suspense>,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "v1/:season",
+                element: <Suspense fallback={<Loading />}><ClashSeason /></Suspense>,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "v2",
+                element: <Suspense fallback={<Loading />}><ClashV2Index /></Suspense>,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "v2/:season",
+                element: <Suspense fallback={<Loading />}><ClashV2Season /></Suspense>,
+                errorElement: <ErrorPage />
+            },
+        ],
         errorElement: <ErrorPage />
     },
     {

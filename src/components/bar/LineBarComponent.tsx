@@ -3,11 +3,13 @@ import { SummaryData } from "../../types/trickcalTypes";
 import { charInfo } from "../../data/trickcalChar";
 
 const LineBarComponent = ({ data, line, season, type }
-    : { data: SummaryData[], line: string, season: number, type: string }) => {
+    : { data: SummaryData[], line?: string, season: number, type: string }) => {
 
-    const lineData = data?.filter(d =>
-        d.line === line
-    );
+    const lineData = line
+        ? data?.filter(d =>
+            d.line === line
+        )
+        : data;
     // console.log("lineData: ", lineData)
 
     // 성격별 count 합산
@@ -34,9 +36,13 @@ const LineBarComponent = ({ data, line, season, type }
 
     // console.log("total: ", total)
 
+    const typeLink = type.startsWith('clash') ?
+        type.includes('V2') ? `clash/v2` : `clash/v1`
+        : type;
+
     return (
         <Link
-            to={`/${type}/${season}`}
+            to={`/${typeLink}/${season}`}
             className="w-full h-[24px] flex overflow-hidden text-[13px] border border-black dark:brightness-90"
         >
             {segments.map((seg) => {
@@ -48,7 +54,7 @@ const LineBarComponent = ({ data, line, season, type }
                         key={seg.personality}
                         className={`flex items-center justify-center bg-${seg.personality} overflow-hidden cursor-pointer`}
                         style={{ width: `${w}%` }}
-                        title={`${line} ${seg.personality} ${w.toFixed(1)}%`}
+                        title={`${type.includes('V2') ? '' : line} ${seg.personality} ${w.toFixed(1)}%`}
                     >
                         <span className="whitespace-nowrap">
                             {Math.round(w)}%

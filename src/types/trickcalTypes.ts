@@ -5,7 +5,7 @@ import { FrontierSeasonData } from "./frontierTypes";
 export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발" | "공명";
 export const personalityList = ["광기", "냉정", "순수", "우울", "활발", "공명"];
 // 레이드 영문명
-export type TrickcalRaidEn = "clash" | "frontier";
+export type TrickcalRaidEn = "clash" | "frontier" | 'clashV2';
 // 성격 시너지용
 export interface SynergyItem {
     personality: Personality;
@@ -50,7 +50,7 @@ export interface SummaryData extends Omit<BaseSummary, "line"> {
     line: AllLine;
     percent: number;
     personality: Personality;
-    positions: PositionIdxs;
+    positions?: PositionIdxs;
     percentByLine: PercentByLine;
 }
 // 제공받은 요약 데이터

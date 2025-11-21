@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 // 1) 공통 상수
 const FRONTIER_DIR = path.resolve(__dirname, '../public/data/frontier')
 const CLASH_DIR = path.resolve(__dirname, '../public/data/clash')
+const CLASH_V2_DIR = path.resolve(__dirname, '../public/data/clash_v2')
 
 // 2) 헬퍼: 폴더 내 모든 JSON 파일 경로 반환
 async function listJsonFiles(dir) {
@@ -26,10 +27,11 @@ async function listJsonFiles(dir) {
 async function buildSummaries() {
     const SOURCE_DIRS = [
         { dir: FRONTIER_DIR, key: 'frontier' },
-        { dir: CLASH_DIR, key: 'clash' }
+        { dir: CLASH_DIR, key: 'clash' },
+        { dir: CLASH_V2_DIR, key: 'clashV2' }
     ];
 
-    const dataMap = { clash: {}, frontier: {} }
+    const dataMap = { clash: {}, frontier: {}, clashV2: {} }
 
     for (let { dir, key: raidType } of SOURCE_DIRS) {
         const files = await listJsonFiles(dir);
@@ -51,21 +53,35 @@ async function buildSummaries() {
                 seasonData = records;
             }
 
-            if (raidType === "clash") {
+            if (raidType === "clash" || raidType === 'clashV2') {
                 dataMap[raidType][seasonName] = { rules: raw.rules }
             } else if (raidType === "frontier") {
                 dataMap[raidType][seasonName] = { power: raw.power }
             }
 
-            dataMap[raidType][seasonName] = {
-                personality: raw.personality,
-                name: raw.name,
-                startDate: raw.startDate,
-                endDate: raw.endDate,
-                ...dataMap[raidType][seasonName],
-                maxLvl: raw.maxLvl,
-                summary: seasonData
-            };
+            if (raidType === 'clashV2') {
+                dataMap[raidType][seasonName] = {
+                    personality: raw.personality,
+                    name: raw.name,
+                    startDate: raw.startDate,
+                    endDate: raw.endDate,
+                    ...dataMap[raidType][seasonName],
+                    maxLvl: raw.maxLvl,
+                    maxSideLvl: raw.maxSideLvl,
+                    summary: seasonData,
+                    sideSummary: processSummary(raw.data, 'side')
+                };
+            } else {
+                dataMap[raidType][seasonName] = {
+                    personality: raw.personality,
+                    name: raw.name,
+                    startDate: raw.startDate,
+                    endDate: raw.endDate,
+                    ...dataMap[raidType][seasonName],
+                    maxLvl: raw.maxLvl,
+                    summary: seasonData
+                };
+            }
 
         } // files 종료
     } // SOURCE_DIRS 종료
@@ -77,7 +93,8 @@ async function buildSummaries() {
             const outDir =
                 raid === 'clash' ? CLASH_DIR :
                     raid === 'frontier' ? FRONTIER_DIR :
-                        null;
+                        raid === 'clashV2' ? CLASH_V2_DIR :
+                            null;
             if (!outDir) return;
 
             // 시즌 키들을 숫자 기준으로 내림차순 정렬
@@ -127,7 +144,7 @@ buildSummaries().catch(err => {
     process.exit(1)
 })
 
-function processSummary(data) {
+function processSummary(data, type) {
     // 인덱스 → 줄 위치 매핑
     const getLine = idx => {
         if (idx <= 2) return '전열';
@@ -137,18 +154,31 @@ function processSummary(data) {
 
     // key: `${name}|${line}`, value: { name, line, count }
     const map = new Map();
+    if (type === 'side') {
+        data.forEach(item => {
+            item.sideArr.forEach((name, idx) => {
+                const line = getLine(idx);
+                const key = `${name}|${line}`;
 
-    data.forEach(item => {
-        item.arr.forEach((name, idx) => {
-            const line = getLine(idx);
-            const key = `${name}|${line}`;
-
-            if (!map.has(key)) {
-                map.set(key, { name, line, count: 0 });
-            }
-            map.get(key).count++;
+                if (!map.has(key)) {
+                    map.set(key, { name, line, count: 0 });
+                }
+                map.get(key).count++;
+            });
         });
-    });
+    } else {
+        data.forEach(item => {
+            item.arr.forEach((name, idx) => {
+                const line = getLine(idx);
+                const key = `${name}|${line}`;
+
+                if (!map.has(key)) {
+                    map.set(key, { name, line, count: 0 });
+                }
+                map.get(key).count++;
+            });
+        });
+    }
 
     // Map 의 value 들을 배열로 만들어서 반환
     // console.log(Array.from(map.values()));

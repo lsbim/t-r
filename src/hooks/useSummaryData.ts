@@ -2,11 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { ClashSummary } from "../types/clashTypes";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
 import { FrontierSummary } from "../types/frontierTypes";
+import { ClashV2Summary } from "../types/clashV2Types";
 
 
 const fetchSummaryData = async (type: TrickcalRaidEn) => {
 
-    const response = await fetch(`/data/${type}/summaries.json`);
+    const typeDir = type === 'clashV2' ? 'clash_v2' : type
+
+    const response = await fetch(`/data/${typeDir}/summaries.json`);
 
     if (!response.ok) {
         console.log(`시즌 데이터를 찾을 수 없습니다.`);
@@ -15,7 +18,7 @@ const fetchSummaryData = async (type: TrickcalRaidEn) => {
     return response.json();
 };
 
-export const useSummaryData = <T extends ClashSummary | FrontierSummary>
+export const useSummaryData = <T extends ClashSummary | FrontierSummary | ClashV2Summary>
     (type: TrickcalRaidEn) => {
 
     return useQuery<T, Error>({

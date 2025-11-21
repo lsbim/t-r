@@ -165,7 +165,7 @@ const IndexPage = () => {
         <div className="flex flex-col justify-center gap-4 min-h-screen max-w-[100vw]">
             <SEO
                 title="사복 집계"
-                description="사복 출시일, 사복이 가장 많은 사도, 적은 사도, 사복 개수 | 사복 집계 데이터를 제공합니다."
+                description="트릭컬 리바이브의 사복 출시일, 사복이 가장 많은 사도, 적은 사도, 사복 개수 | 사복 집계 데이터를 제공합니다."
             />
             <TopRemote />
             <HeaderNav />

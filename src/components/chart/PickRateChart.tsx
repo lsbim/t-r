@@ -3,16 +3,22 @@ import { charInfo } from "../../data/trickcalChar";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { ExternalSummaryData, lineList, SummaryData } from "../../types/trickcalTypes";
-import { processExternalData, processRankingArrData } from "../../utils/chartFunction";
+import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
+import { ClashV2SeasonData } from "../../types/clashV2Types";
 
-const PickRateChart = ({ data, season, setSelect, prevData }:
+const PickRateChart = ({ data, season, setSelect, prevData, type }:
     {
-        data: ClashSeasonData | FrontierSeasonData,
+        data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
         season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>,
-        prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData,
+        prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData,
+        type?: 'side'
     }) => {
 
-    const processData = processRankingArrData(data?.data).sort((a, b) => b.percent - a.percent);
+    // const processData = processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
+    const processData = type
+        ? processRankingArrDataV2(data?.data, type).sort((a, b) => b.percent - a.percent)
+        : processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
+
     let processPrevData: SummaryData[] | ExternalSummaryData[] | null = null;
 
     const userLength = data.type === 'season'
@@ -21,7 +27,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
 
     if (prevData) {
         processPrevData = prevData?.type === 'season' ?
-            processRankingArrData(prevData?.data).sort((a, b) => b.percent - a.percent) :
+            processRankingArrData(prevData?.data, type).sort((a, b) => b.percent - a.percent) :
             processExternalData(prevData).sort((a, b) => b.percent - a.percent);
 
         // console.log("processPrevData: ", processPrevData);
@@ -107,7 +113,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                     // console.log(charInfo[item.name].line === item.line) // 라인 검수
 
                                     // 오인식 확인용 로그
-                                    if ((charInfo[item.name].line !== item.line) && charInfo[item.name].line !== "모든열") {
+                                    if ((charInfo[item.name].line !== item.line) && charInfo[item.name].line !== "모든열" && import.meta.env.DEV) {
                                         console.log(item.name + '의 라인은 ' + charInfo[item.name].line + '입니다, 현재: ' + item.line);
                                     }
 
@@ -178,7 +184,7 @@ const PickRateChart = ({ data, season, setSelect, prevData }:
                                                     <span
                                                         data-tooltip-id="my-tooltip"
                                                         data-tooltip-content="전체 비중"
-                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 dark:text-zinc-700 dark:hover:text-zinc-600 cursor-pointer">
+                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 dark:text-zinc-500 dark:hover:text-zinc-400 cursor-pointer">
                                                         {Math.round(item?.percent * 10) / 10}%
                                                     </span>
                                                 ) : (

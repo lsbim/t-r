@@ -62,7 +62,7 @@ const ErrorPage = () => {
                         ? error.message
                         : "알 수 없는 오류"}
                 </span>
-                {process.env.NODE_ENV === 'development' && error instanceof Error && (
+                {import.meta.env.DEV && error instanceof Error && (
                     <span className="dark:text-zinc-200">
                         {error.stack}
                     </span>

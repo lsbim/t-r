@@ -213,7 +213,6 @@ const SeasonPage = () => {
             {seasonSlice.type === 'external' && (
                 <>
                     <AllPickRateChart
-                        season={season}
                         data={seasonSlice}
                     />
                     <ExternalPickRateChart
@@ -229,7 +228,6 @@ const SeasonPage = () => {
             {seasonSlice?.type === 'season' && prevSlice && (
                 <>
                     <AllPickRateChart
-                        season={season}
                         data={seasonSlice}
                         setSelect={setSelect}
                     />

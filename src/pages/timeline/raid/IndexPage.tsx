@@ -13,6 +13,7 @@ import Loading from "../../../commons/component/Loading";
 import SEO from "../../../commons/component/SEO";
 import { Race } from "../../../types/trickcalTypes";
 import BirthTimeline from "../../../components/timeline/chara/BirthTimeline";
+import { ClashV2Summary } from "../../../types/clashV2Types";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
@@ -20,10 +21,11 @@ const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
 const IndexPage = () => {
     const { data: frontier } = useSummaryData<FrontierSummary>('frontier');
     const { data: clash } = useSummaryData<ClashSummary>('clash');
+    const { data: clashV2 } = useSummaryData<ClashV2Summary>('clashV2');
 
     // 사도 출시일, 대충돌/프론티어 시작/종료일 통합 배열
     const allDates = useMemo(() => {
-        if (!frontier || !clash) return;
+        if (!frontier || !clash || !clashV2) return;
 
         const charDates = Object.values(charInfo)
             .map(c => new Date(c.birthdate).toISOString().slice(0, 10)); // "YYYY-MM-DD"
@@ -37,10 +39,14 @@ const IndexPage = () => {
                 new Date(r.startDate).toISOString().slice(0, 10),
                 new Date(r.endDate).toISOString().slice(0, 10),
             ]),
+            ...Object.values(clashV2).flatMap(r => [
+                new Date(r.startDate).toISOString().slice(0, 10),
+                new Date(r.endDate).toISOString().slice(0, 10),
+            ]),
         ];
 
         return Array.from(new Set([...charDates, ...raidDates])).sort();
-    }, [clash, frontier]);
+    }, [clash, frontier, clashV2]);
 
     // 배열길이 - 인덱스 - 1) * 간격으로 Y 위치 설정(내림차순)
     const getYOffset = useCallback((iso: string) => {
@@ -74,18 +80,18 @@ const IndexPage = () => {
         })
     );
 
-    if (!allDates || !frontier || !clash) return (
+    if (!allDates || !frontier || !clash || !clashV2) return (
         <Loading />
     )
 
-    const raidValues = [...Object.values(frontier), ...Object.values(clash)];
-    const raidKeys = [...Object.keys(frontier), ...Object.keys(clash)];
+    const raidValues = [...Object.values(frontier), ...Object.values(clash), ...Object.values(clashV2)];
+    const raidKeys = [...Object.keys(frontier), ...Object.keys(clash), ...Object.keys(clashV2)];
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <SEO
                 title="콘텐츠 출시 타임라인"
-                description="차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
+                description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
             />
             <TopRemote />
             <HeaderNav />
