@@ -91,3 +91,39 @@ input[type='number'] {
     /* text-[13px] */
     z-index: 50;
 }
+
+@keyframes jelly-jump {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    25% {
+        /* 도약 준비 (납작) */
+        transform: scale(1.25, 0.75) translateY(0);
+    }
+
+    50% {
+        /* 점프 공중 (길쭉 + 위로) */
+        transform: scale(0.85, 1.15) translateY(-20px);
+    }
+
+    65% {
+        /* 착지 직전/직후 (약간 납작) */
+        transform: scale(1.05, 0.95) translateY(0);
+    }
+
+    75% {
+        /* 반동 (약간 길쭉) */
+        transform: scale(0.95, 1.05) translateY(0);
+    }
+
+    100% {
+        /* 원상 복귀 */
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
+.animate-jelly {
+    /* 0.8초 동안 실행, 무한 반복 */
+    animation: jelly-jump 0.8s infinite;
+}

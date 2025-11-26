@@ -184,7 +184,7 @@ const ClashV2SeasonPage = () => {
                     <div className="relative cursor-pointer w-24 mx-auto">
                         <FuzzyComponent
                             isActive={v2Type === 'side'}
-                            color='rgb(22,163,74)'
+                            color='rgb(16,117,53)'
                             text="림의 이면세계"
                         />
                     </div>
@@ -195,7 +195,7 @@ const ClashV2SeasonPage = () => {
                     <div className="relative w-24 mx-auto">
                         <FuzzyComponent
                             isActive={v2Type === 'main'}
-                            color='rgb(245,158,11)'
+                            color='rgb(224,115,6)'
                             text="셰이디의 차원"
                         />
                     </div>

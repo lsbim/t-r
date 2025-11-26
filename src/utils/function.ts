@@ -84,3 +84,8 @@ export function translateRaces(race: Race) {
             return 'elemental';
     }
 }
+
+export function preload(src: string) {
+    const img = new Image();
+    img.src = src;
+}
