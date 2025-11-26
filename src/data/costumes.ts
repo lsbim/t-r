@@ -42,6 +42,7 @@ export const costumes: Costume[] = [
     { charName: "뮤트", cosName: "수온 측정의 여운", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "가비아", cosName: "대지의 대마법사", lvl: "normal", launchDate: "2025-10-30" },
     { charName: "비비", cosName: "스며드는 잿빛 장막", lvl: "normal", launchDate: "2025-11-13" },
+    { charName: "다야", cosName: "빛나는 짙은 밤", lvl: "pretty", launchDate: "2025-11-27" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },

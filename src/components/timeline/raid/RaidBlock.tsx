@@ -10,7 +10,7 @@ type Props = {
 
 const RaidBlock = ({ getYOffset, raidValues, BASE_DATE_HEIGHT, raidKeys }: Props) => {
 
-    // console.log(PIXELS_PER_DAY)
+    // console.log(raidValues)
     return (
         <>
             {raidValues.map((raid, index) => {
@@ -32,8 +32,9 @@ const RaidBlock = ({ getYOffset, raidValues, BASE_DATE_HEIGHT, raidKeys }: Props
                 const raidTextColor = 'power' in raid ? `text-white`
                     : 'rules' in raid && `text-black`;
                 const raidUrl = 'power' in raid ? `/frontier/${raidKeys[index]}`
-                    : 'rules' in raid ? `/clash/${raidKeys[index]}`
-                        : '/';
+                    : 'sideSummary' in raid ? `/clash/v2/${raidKeys[index]}`
+                        : 'rules' in raid ? `/clash/v1/${raidKeys[index]}`
+                            : '/';
 
 
                 return (
