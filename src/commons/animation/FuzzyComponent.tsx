@@ -18,7 +18,7 @@ const FuzzyComponent: React.FC<FuzzyComponentProps> = ({
 
     // 색상으로 그림자 20회 반복
     const shadow = Array(repeatCount)
-        .fill(`0px 0px 1.2px ${theme === 'dark' ? color : 'rgb(70, 70, 70)'}`)
+        .fill(`0px 0px 1.2px ${color}`)
         .join(', ');
 
 
