@@ -54,7 +54,7 @@ const LineBarComponent = ({ data, line, season, type }
                         key={seg.personality}
                         className={`flex items-center justify-center bg-${seg.personality} overflow-hidden cursor-pointer`}
                         style={{ width: `${w}%` }}
-                        title={`${type.includes('V2') ? '' : line} ${seg.personality} ${w.toFixed(1)}%`}
+                        title={`${line ? line : ''} ${seg.personality} ${w.toFixed(1)}%`}
                     >
                         <span className="whitespace-nowrap">
                             {Math.round(w)}%

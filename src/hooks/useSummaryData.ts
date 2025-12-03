@@ -1,15 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import { ClashSummary } from "../types/clashTypes";
-import { TrickcalRaidEn } from "../types/trickcalTypes";
-import { FrontierSummary } from "../types/frontierTypes";
 import { ClashV2Summary } from "../types/clashV2Types";
+import { FrontierSummary } from "../types/frontierTypes";
+import { LatestData } from "../types/latestTypes";
+import { TrickcalRaidEn } from "../types/trickcalTypes";
 
 
-const fetchSummaryData = async (type: TrickcalRaidEn) => {
+const fetchSummaryData = async (type: TrickcalRaidEn | 'latest') => {
 
     const typeDir = type === 'clashV2' ? 'clash_v2' : type
 
-    const response = await fetch(`/data/${typeDir}/summaries.json`);
+    let response = await fetch(`/data/${typeDir}/summaries.json`);
+
+    // 처음에 null로 해놓는 것보다 예외적인 부분에서만 덮어씌우는 방식이 낫다고 함
+    if (type === 'latest') {
+        response = await fetch(`/data/latest.json`);
+    }
 
     if (!response.ok) {
         console.log(`시즌 데이터를 찾을 수 없습니다.`);
@@ -18,8 +24,8 @@ const fetchSummaryData = async (type: TrickcalRaidEn) => {
     return response.json();
 };
 
-export const useSummaryData = <T extends ClashSummary | FrontierSummary | ClashV2Summary>
-    (type: TrickcalRaidEn) => {
+export const useSummaryData = <T extends ClashSummary | FrontierSummary | ClashV2Summary | LatestData>
+    (type: TrickcalRaidEn | 'latest') => {
 
     return useQuery<T, Error>({
         queryKey: ["summary", type],

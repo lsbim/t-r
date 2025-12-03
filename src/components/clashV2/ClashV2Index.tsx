@@ -1,7 +1,5 @@
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
-import { clashV2BossList } from "../../types/clashTypes";
-import { ClashV2Summary } from "../../types/clashV2Types";
-import { lineList } from "../../types/trickcalTypes";
+import { clashV2BossList, ClashV2Summary } from "../../types/clashV2Types";
 import LineBarComponent from "../bar/LineBarComponent";
 
 const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {

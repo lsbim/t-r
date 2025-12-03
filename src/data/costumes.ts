@@ -119,6 +119,7 @@ export const costumes: Costume[] = [
     { charName: "디아나", cosName: "야산의 온천 마실", lvl: "normal", launchDate: "2025-10-16" },
     { charName: "림(혼돈)", cosName: "연회루 혼돈 마담", lvl: "pretty", launchDate: "2025-10-30" },
     { charName: "클로에", cosName: "테디 더 나이트메어", lvl: "normal", launchDate: "2025-11-13" },
+    { charName: "하이디", cosName: "큐트주의보!", lvl: "normal", launchDate: "2025-12-04" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },

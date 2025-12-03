@@ -10,7 +10,6 @@ const ClashV2Index = lazy(() => import("../pages/clashV2/ClashV2IndexPage"));
 const ClashV2Season = lazy(() => import("../pages/clashV2/ClashV2SeasonPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
-const Character = lazy(() => import("../pages/characters/CharacterPage"));
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
 const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
 const SimIndex = lazy(() => import("../pages/sim/SimIndexPage"));
@@ -77,19 +76,6 @@ const router = createBrowserRouter([
         path: "frontier/:season",
         element: <Suspense fallback={<Loading />}><FrontierSeason /></Suspense>,
         errorElement: <ErrorPage />
-    },
-    {
-        path: "character/:character",
-        element: <Suspense fallback={<Loading />}><Character /></Suspense>,
-        errorElement: <ErrorPage />,
-        // 존재하지 않는 사도명이 패스파라미터에 들어오면 404 에러페이지로
-        loader: async ({ params }) => {
-            const charaName = params.character;
-            const info = charInfo[charaName]
-            if (!info) {
-                throw new Response("Not Found Character", { status: 404 });
-            }
-        }
     },
     {
         path: "timeline",

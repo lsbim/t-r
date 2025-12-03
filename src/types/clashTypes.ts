@@ -2,7 +2,6 @@ import { externalData } from "./frontierTypes";
 import { Personality, SummaryData } from "./trickcalTypes";
 
 export const clashBossList: string[] = ["릴1리", "크르브르스", "크레용사용"];
-export const clashV2BossList: string[] = ["흑화 영춘"];
 
 // 차원 대충돌 개인 데이터
 export interface ClashPlayerData {
