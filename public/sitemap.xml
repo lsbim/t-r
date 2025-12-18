@@ -3,7 +3,10 @@
     <loc>https://trickcalrecord.pages.dev/</loc>
 </url>
 <url>
-    <loc>https://trickcalrecord.pages.dev/clash</loc>
+    <loc>https://trickcalrecord.pages.dev/clash/v1</loc>
+</url>
+<url>
+    <loc>https://trickcalrecord.pages.dev/clash/v2</loc>
 </url>
 <url>
     <loc>https://trickcalrecord.pages.dev/frontier</loc>

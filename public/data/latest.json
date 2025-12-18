@@ -329,15 +329,15 @@
     ]
   },
   "frontier": {
-    "seasonNumber": 13,
-    "name": "크레용사용",
-    "startDate": "2025-10-30",
-    "endDate": "2025-11-06",
+    "seasonNumber": 14,
+    "name": "우로스",
+    "startDate": "2025-12-11",
+    "endDate": "2025-12-18",
     "summary": [
       {
         "name": "벨라",
         "line": "전열",
-        "count": 293
+        "count": 294
       },
       {
         "name": "디아나(왕년)",
@@ -347,7 +347,7 @@
       {
         "name": "리코타",
         "line": "전열",
-        "count": 275
+        "count": 287
       },
       {
         "name": "리뉴아",
@@ -357,42 +357,82 @@
       {
         "name": "아네트",
         "line": "중열",
-        "count": 297
+        "count": 295
+      },
+      {
+        "name": "제이드",
+        "line": "중열",
+        "count": 50
+      },
+      {
+        "name": "우로스(냉정)",
+        "line": "후열",
+        "count": 61
       },
       {
         "name": "티그(영웅)",
-        "line": "중열",
-        "count": 291
-      },
-      {
-        "name": "우로스(활발)",
         "line": "후열",
-        "count": 44
-      },
-      {
-        "name": "모모",
-        "line": "후열",
-        "count": 287
+        "count": 130
       },
       {
         "name": "뮤트",
         "line": "후열",
-        "count": 278
+        "count": 295
+      },
+      {
+        "name": "티그(영웅)",
+        "line": "중열",
+        "count": 167
       },
       {
         "name": "우로스(광기)",
         "line": "후열",
-        "count": 211
+        "count": 199
       },
       {
-        "name": "비비",
-        "line": "전열",
-        "count": 23
+        "name": "죠안",
+        "line": "후열",
+        "count": 153
+      },
+      {
+        "name": "우이",
+        "line": "중열",
+        "count": 47
       },
       {
         "name": "우로스(순수)",
         "line": "후열",
-        "count": 5
+        "count": 23
+      },
+      {
+        "name": "죠안",
+        "line": "중열",
+        "count": 31
+      },
+      {
+        "name": "폴랑",
+        "line": "후열",
+        "count": 12
+      },
+      {
+        "name": "우로스(활발)",
+        "line": "후열",
+        "count": 13
+      },
+      {
+        "name": "비비",
+        "line": "전열",
+        "count": 10
+      },
+      {
+        "name": "롤렛",
+        "line": "후열",
+        "count": 2
+      },
+      {
+        "name": "하이디",
+        "line": "후열",
+        "count": 3
       },
       {
         "name": "에르핀",
@@ -400,24 +440,19 @@
         "count": 1
       },
       {
-        "name": "우로스(냉정)",
-        "line": "후열",
-        "count": 36
-      },
-      {
-        "name": "네르",
-        "line": "전열",
+        "name": "에피카",
+        "line": "중열",
         "count": 2
       },
       {
-        "name": "에피카",
+        "name": "아야",
         "line": "중열",
-        "count": 4
+        "count": 6
       },
       {
-        "name": "티그(영웅)",
+        "name": "우로스(우울)",
         "line": "후열",
-        "count": 5
+        "count": 4
       },
       {
         "name": "버터",
@@ -425,39 +460,14 @@
         "count": 1
       },
       {
-        "name": "우로스(우울)",
-        "line": "후열",
-        "count": 3
-      },
-      {
-        "name": "아야",
+        "name": "디아나",
         "line": "중열",
         "count": 2
-      },
-      {
-        "name": "죠안",
-        "line": "후열",
-        "count": 18
-      },
-      {
-        "name": "우이",
-        "line": "중열",
-        "count": 4
       },
       {
         "name": "네티",
         "line": "전열",
-        "count": 2
-      },
-      {
-        "name": "폴랑",
-        "line": "후열",
         "count": 4
-      },
-      {
-        "name": "실라",
-        "line": "후열",
-        "count": 5
       },
       {
         "name": "리츠",
@@ -465,8 +475,18 @@
         "count": 1
       },
       {
-        "name": "죠안",
-        "line": "중열",
+        "name": "미로",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "클로에",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "모모",
+        "line": "후열",
         "count": 1
       },
       {
@@ -475,28 +495,13 @@
         "count": 2
       },
       {
-        "name": "미로",
-        "line": "전열",
-        "count": 1
-      },
-      {
-        "name": "에스피",
+        "name": "실라",
         "line": "후열",
-        "count": 1
-      },
-      {
-        "name": "제이드",
-        "line": "중열",
         "count": 1
       },
       {
         "name": "아이시아",
         "line": "후열",
-        "count": 1
-      },
-      {
-        "name": "티그(영웅)",
-        "line": "전열",
         "count": 1
       }
     ]
