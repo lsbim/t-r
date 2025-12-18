@@ -1,6 +1,6 @@
 import { SummaryData } from "./trickcalTypes";
 
-export const frontierBossList: string[] = ["M.E.O.W", "R41-리뉴아", "크레용사용"];
+export const frontierBossList: string[] = ["M.E.O.W", "R41-리뉴아", "크레용사용", "우로스"];
 
 // 엘리아스 프론티어 개인 데이터
 export interface FrontierPlayerData {
