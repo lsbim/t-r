@@ -199,6 +199,7 @@ export const costumes: Costume[] = [
     { charName: "아사나", cosName: "따끔한 간호의 자세", lvl: "normal", launchDate: "2025-11-06" },
     { charName: "시온", cosName: "다크스타 ★ 버스트", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "림", cosName: "나랑 둘이 나들이", lvl: "normal", launchDate: "2025-12-11" },
+    { charName: "시온", cosName: "어비스 워커 오버로드", lvl: "pretty", launchDate: "2025-12-25" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
