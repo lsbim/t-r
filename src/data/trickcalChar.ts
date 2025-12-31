@@ -7,6 +7,7 @@ export interface CharInfoDetail {
     line: AllLine;
     birthdate: string;
     race?: Race;
+    eldain?: boolean;
 }
 // 사도 객체 배열
 export interface CharInfoType {
@@ -15,7 +16,7 @@ export interface CharInfoType {
 
 export const charInfo: CharInfoType = {
     // 순수
-    "비비": { grade: 3, personality: "순수", line: "전열", birthdate: "2023-11-30", race: '용족' },
+    "비비": { grade: 3, personality: "순수", line: "전열", birthdate: "2023-11-30", race: '용족', eldain: true },
     "다야": { grade: 3, personality: "순수", line: "후열", birthdate: "2023-09-27", race: '용족' },
     "나이아": { grade: 3, personality: "순수", line: "중열", birthdate: "2023-11-09", race: '정령' },
     "에르핀": { grade: 3, personality: "순수", line: "후열", birthdate: "2023-09-27", race: '요정' },
@@ -23,7 +24,7 @@ export const charInfo: CharInfoType = {
     "헤일리": { grade: 3, personality: "순수", line: "중열", birthdate: "2024-07-04", race: '엘프' },
     "셰럼": { grade: 3, personality: "순수", line: "전열", birthdate: "2024-09-12", race: '마녀' },
     "오팔": { grade: 3, personality: "순수", line: "중열", birthdate: "2024-12-19", race: '용족' },
-    "란": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-01-02", race: '수인' },
+    "란": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-01-02", race: '수인', eldain: true },
     "라이카": { grade: 3, personality: "순수", line: "전열", birthdate: "2025-03-13", race: '정령' },
     "마요(멋짐)": { grade: 3, personality: "순수", line: "중열", birthdate: "2025-05-08", race: '요정' },
     "캐시": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-07-03", race: '엘프' },
@@ -39,8 +40,8 @@ export const charInfo: CharInfoType = {
     "큐이": { grade: 1, personality: "순수", line: "중열", birthdate: "2023-09-27" },
 
     // 냉정
-    "이드": { grade: 3, personality: "냉정", line: "전열", birthdate: "2024-03-28", race: '엘프' },
-    "아야": { grade: 3, personality: "냉정", line: "중열", birthdate: "2023-09-27", race: '마녀' },
+    "이드": { grade: 3, personality: "냉정", line: "전열", birthdate: "2024-03-28", race: '엘프', eldain: true },
+    "아야": { grade: 3, personality: "냉정", line: "중열", birthdate: "2023-09-27", race: '마녀', eldain: true },
     "벨벳": { grade: 3, personality: "냉정", line: "전열", birthdate: "2023-09-27", race: '마녀' },
     "엘레나": { grade: 3, personality: "냉정", line: "중열", birthdate: "2023-09-27", race: '엘프' },
     "제이드": { grade: 3, personality: "냉정", line: "중열", birthdate: "2023-09-27", race: '용족' },
@@ -54,7 +55,7 @@ export const charInfo: CharInfoType = {
     "그윈": { grade: 3, personality: "냉정", line: "전열", birthdate: "2024-10-24", race: '수인' },
     "아이시아": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-01-30", race: '엘프' },
     "리코타": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-04-24", race: '요정' },
-    "디아나(왕년)": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-06-05", race: '수인' },
+    "디아나(왕년)": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-06-05", race: '수인', eldain: true },
     "시저": { grade: 3, personality: "냉정", line: "중열", birthdate: "2025-08-28", race: '정령' },
     "베니(베니)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-11-20", race: '수인' },
     "에스피": { grade: 2, personality: "냉정", line: "후열", birthdate: "2023-09-27", race: '유령' },
@@ -64,7 +65,7 @@ export const charInfo: CharInfoType = {
     "레이지": { grade: 1, personality: "냉정", line: "후열", birthdate: "2023-09-27" },
 
     // 광기
-    "클로에": { grade: 3, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '요정' },
+    "클로에": { grade: 3, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '요정', eldain: true },
     "리츠": { grade: 3, personality: "광기", line: "전열", birthdate: "2024-02-08", race: '용족' },
     "셰이디": { grade: 3, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '유령' },
     "시스트": { grade: 3, personality: "광기", line: "중열", birthdate: "2023-09-27", race: '용족' },
@@ -73,13 +74,13 @@ export const charInfo: CharInfoType = {
     "네르": { grade: 3, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '요정' },
     "디아나": { grade: 3, personality: "광기", line: "중열", birthdate: "2023-09-27", race: '수인' },
     "롤렛": { grade: 3, personality: "광기", line: "후열", birthdate: "2024-05-09", race: '마녀' },
-    "리뉴아": { grade: 3, personality: "광기", line: "중열", birthdate: "2024-06-20", race: '엘프' },
+    "리뉴아": { grade: 3, personality: "광기", line: "중열", birthdate: "2024-06-20", race: '엘프', eldain: true },
     "피라": { grade: 3, personality: "광기", line: "후열", birthdate: "2024-08-29", race: '용족' },
     "폴랑": { grade: 3, personality: "광기", line: "후열", birthdate: "2024-11-07", race: '요정' },
     "림(혼돈)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-01-16", race: '유령' },
     "네티": { grade: 3, personality: "광기", line: "전열", birthdate: "2025-04-10", race: '용족' },
     "아네트": { grade: 3, personality: "광기", line: "중열", birthdate: "2025-07-17", race: '용족' },
-    "티그(영웅)": { grade: 3, personality: "광기", line: "모든열", birthdate: "2025-09-27", race: '수인' },
+    "티그(영웅)": { grade: 3, personality: "광기", line: "모든열", birthdate: "2025-09-27", race: '수인', eldain: true },
     "하이디": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-12-04", race: '엘프' },
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '엘프' },
     "이프리트": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '정령' },
@@ -88,8 +89,8 @@ export const charInfo: CharInfoType = {
     "유미미": { grade: 1, personality: "광기", line: "후열", birthdate: "2023-09-27" },
 
     // 활발
-    "에피카": { grade: 3, personality: "활발", line: "중열", birthdate: "2024-01-04", race: '수인' },
-    "우이": { grade: 3, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '정령' },
+    "에피카": { grade: 3, personality: "활발", line: "중열", birthdate: "2024-01-04", race: '수인', eldain: true },
+    "우이": { grade: 3, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '정령', eldain: true },
     "루드": { grade: 3, personality: "활발", line: "전열", birthdate: "2023-09-27", race: '용족' },
     "셀리네": { grade: 3, personality: "활발", line: "전열", birthdate: "2023-12-21", race: '유령' },
     "티그": { grade: 3, personality: "활발", line: "전열", birthdate: "2023-10-19", race: '수인' },
@@ -100,7 +101,7 @@ export const charInfo: CharInfoType = {
     "모모": { grade: 3, personality: "활발", line: "후열", birthdate: "2024-07-18", race: '수인' },
     "스피키(메이드)": { grade: 3, personality: "활발", line: "후열", birthdate: "2024-11-21", race: '유령' },
     "슈로": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-02-27", race: '수인' },
-    "벨라": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-03-27", race: '유령' },
+    "벨라": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-03-27", race: '유령', eldain: true },
     "아르코": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-06-19", race: '정령' },
     "마카샤": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-08-14", race: '마녀' },
     "미로": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-10-23", race: '정령' },
@@ -113,7 +114,7 @@ export const charInfo: CharInfoType = {
     "카렌": { grade: 1, personality: "활발", line: "후열", birthdate: "2023-09-27" },
 
     // 우울
-    "시온": { grade: 3, personality: "우울", line: "후열", birthdate: "2023-09-27", race: '유령' },
+    "시온": { grade: 3, personality: "우울", line: "후열", birthdate: "2023-09-27", race: '유령', eldain: true },
     "코미": { grade: 3, personality: "우울", line: "전열", birthdate: "2023-09-27", race: '수인' },
     "림": { grade: 3, personality: "우울", line: "전열", birthdate: "2023-09-27", race: '유령' },
     "키디언": { grade: 3, personality: "우울", line: "전열", birthdate: "2023-09-27", race: '용족' },
@@ -123,12 +124,13 @@ export const charInfo: CharInfoType = {
     "포셔": { grade: 3, personality: "우울", line: "후열", birthdate: "2023-09-27", race: '마녀' },
     "리스티": { grade: 3, personality: "우울", line: "후열", birthdate: "2024-05-23", race: '엘프' },
     "스노키": { grade: 3, personality: "우울", line: "전열", birthdate: "2024-08-15", race: '마녀' },
-    "죠안": { grade: 3, personality: "우울", line: "모든열", birthdate: "2024-09-26", race: '요정' },
+    "죠안": { grade: 3, personality: "우울", line: "모든열", birthdate: "2024-09-26", race: '요정', eldain: true },
     "리온": { grade: 3, personality: "우울", line: "전열", birthdate: "2024-12-05", race: '수인' },
     "샤샤": { grade: 3, personality: "우울", line: "중열", birthdate: "2025-02-13", race: '요정' },
     "오르": { grade: 3, personality: "우울", line: "후열", birthdate: "2025-05-22", race: '엘프' },
     "로네(시장)": { grade: 3, personality: "우울", line: "중열", birthdate: "2025-07-31", race: '엘프' },
     "아사나": { grade: 3, personality: "우울", line: "전열", birthdate: "2025-11-06", race: '마녀' },
+    "요미": { grade: 3, personality: "우울", line: "중열", birthdate: "2026-01-01", race: '미스틱', eldain: true },
     "레비": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-09-27", race: '마녀' },
     "실피르": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-11-09", race: '용족' },
     "페스타": { grade: 2, personality: "우울", line: "전열", birthdate: "2023-09-27", race: '엘프' },
@@ -137,7 +139,7 @@ export const charInfo: CharInfoType = {
     "쵸피": { grade: 1, personality: "우울", line: "중열", birthdate: "2023-09-27" },
 
     // 공명
-    "우로스": { grade: 3, personality: "공명", line: "후열", birthdate: "2025-09-25", race: '수인' },
+    "우로스": { grade: 3, personality: "공명", line: "후열", birthdate: "2025-09-25", race: '수인', eldain: true },
 
     "우로스(순수)": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-25" },
     "우로스(활발)": { grade: 3, personality: "활발", line: "후열", birthdate: "2025-09-25" },

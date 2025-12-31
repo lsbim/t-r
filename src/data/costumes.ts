@@ -161,6 +161,7 @@ export const costumes: Costume[] = [
     { charName: "우이", cosName: "맑은 기도의 빗방울", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "에피카", cosName: "화살촉에 실려 온 이야기", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "모모", cosName: "스위트 닌자 스노우", lvl: "normal", launchDate: "2025-12-11" },
+    { charName: "티그", cosName: "활발한 체육 특기생", lvl: "normal", launchDate: "2026-01-01" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
@@ -200,7 +201,9 @@ export const costumes: Costume[] = [
     { charName: "시온", cosName: "다크스타 ★ 버스트", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "림", cosName: "나랑 둘이 나들이", lvl: "normal", launchDate: "2025-12-11" },
     { charName: "시온", cosName: "어비스 워커 오버로드", lvl: "pretty", launchDate: "2025-12-25" },
-
+    { charName: "포셔", cosName: "묘약의 랩실 연구원", lvl: "normal", launchDate: "2026-01-01" },
+    { charName: "요미", cosName: "밤바다 선원", lvl: "normal", launchDate: "2026-01-01" },
+    
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "우로스", cosName: "선도부장 선배님", lvl: "normal", launchDate: "2025-09-25" },

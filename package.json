@@ -20,6 +20,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "es-hangul": "^2.3.8",
     "es-toolkit": "^1.39.10",
+    "framer-motion": "^12.23.26",
     "react": "^19.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",

@@ -4,6 +4,7 @@ import { clashBossList, ClashSummary } from "../../types/clashTypes";
 import { lineList, personalityList } from "../../types/trickcalTypes";
 import { getClashSortInfo, updateClashSortInfo } from "../../utils/clashLocalStorage";
 import LineBarComponent from "../bar/LineBarComponent";
+import SlideColorNav from "../../commons/animation/SlideColorNav";
 
 const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     const [clashSort, setClashSort] = useState<'boss' | 'pers'>(getClashSortInfo())
@@ -13,6 +14,11 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
         updateClashSortInfo(sort);
         setClashSort(sort)
     }
+
+    const tabs = [
+        { id: 'boss', label: '보스정렬' },
+        { id: 'pers', label: '성격정렬' },
+    ] as const;
 
     // console.log(clashSort)
 
@@ -26,18 +32,13 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                 <span className="text-[12px] text-orange-500 font-bold">
                     정렬 기준
                 </span>
-                <div className="flex text-[14px] items-center gap-x-3 dark:text-zinc-200">
-                    <div
-                        onClick={() => { handleClashSort('boss') }}
-                        className={`${clashSort === 'boss' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>
-                        보스정렬
-                    </div>
-                    <div
-                        onClick={() => handleClashSort('pers')}
-                        className={`${clashSort === 'pers' ? 'font-bold text-[16px]' : 'text-gray-400'} cursor-pointer select-none transition-all duration-200 h-[24px]`}>
-                        성격정렬
-                    </div>
-                </div>
+                <SlideColorNav
+                    color="text-black dark:text-zinc-200"
+                    size={16}
+                    handler={(p) => handleClashSort(p as 'boss' | 'pers')}
+                    tabs={tabs}
+                    initCategory={getClashSortInfo()}
+                />
             </div>
             <div className="overflow-x-auto">
                 {

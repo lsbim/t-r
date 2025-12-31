@@ -19,7 +19,6 @@ const HeaderNav = () => {
                     <Link to="/" className="h-[26px] w-[26px] flex-shrink-0">
                         <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
                     </Link>
-                    <ThemeToggle />
 
                     {/* PC 환경 메뉴 */}
                     <div className="hidden lg:flex text-[16px] items-center text-gray-800 dark:text-zinc-200">

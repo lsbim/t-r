@@ -12,6 +12,7 @@ import { debounce } from "es-toolkit";
 import ItemIcon from "../../commons/icon/ItemIcon";
 import MaterialBag from "../../components/shared/MaterialBag";
 import SEO from "../../commons/component/SEO";
+import Loading from "../../commons/component/Loading";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -185,7 +186,7 @@ const SimIndexPage = () => {
         ];
     }, [facilitySimResult, researchSimResult])
 
-    
+    if(!debouncedAllSims) return(<Loading />)    
 
     const handleBagOpen = useCallback(() => {
         setBagOpen((prev) => (!prev));

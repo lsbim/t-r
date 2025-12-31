@@ -64,8 +64,8 @@ export type Facility = '생산 랩' | '연회장' | '교단 본부' | '모험회
 export type FacilityEn = 'lab' | 'hall' | 'hq' | 'adv' | 'archives';
 export const facilityList: Facility[] = ['생산 랩', '연회장', '교단 본부', '모험회', '기록실'];
 
-export type Race = '정령' | '엘프' | '요정' | '용족' | '마녀' | '유령' | '수인';
-export const races: Race[] = ['요정', '수인', '엘프', '정령', '유령', '용족', '마녀']; // 인게임 종족 정렬 오피셜 순서
+export type Race = '정령' | '엘프' | '요정' | '용족' | '마녀' | '유령' | '수인' | '미스틱';
+export const races: Race[] = ['요정', '수인', '엘프', '정령', '유령', '용족', '마녀', '미스틱']; // 인게임 종족 정렬 오피셜 순서
 
 export type ResearchIterable = '물리 공격력' | '마법 공격력' | '물리 방어력' | '마법 방어력' | 'HP'
 export const researchIterableStep = ['물리 공격력', '마법 공격력', '물리 방어력', '마법 방어력', 'HP'];

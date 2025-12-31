@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useSummaryData } from "../../../hooks/useSummaryData";
 import HeaderNav from "../../../layouts/HeaderNav";
 import { ClashSummary } from "../../../types/clashTypes";
@@ -11,9 +11,12 @@ import RaidBlock from "../../../components/timeline/raid/RaidBlock";
 import TopRemote from "../../../layouts/TopRemote";
 import Loading from "../../../commons/component/Loading";
 import SEO from "../../../commons/component/SEO";
-import { Race } from "../../../types/trickcalTypes";
+import { Personality, Race, races } from "../../../types/trickcalTypes";
 import BirthTimeline from "../../../components/timeline/chara/BirthTimeline";
 import { ClashV2Summary } from "../../../types/clashV2Types";
+import { motion } from "framer-motion";
+import SlideColorNav from "../../../commons/animation/SlideColorNav";
+import ToggleSwitch from "../../../commons/component/ToggleSwitch";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
@@ -22,6 +25,11 @@ const IndexPage = () => {
     const { data: frontier } = useSummaryData<FrontierSummary>('frontier');
     const { data: clash } = useSummaryData<ClashSummary>('clash');
     const { data: clashV2 } = useSummaryData<ClashV2Summary>('clashV2');
+    const [isEldain, setIsEldain] = useState<Boolean>(false)
+    const [category, setCategory] = useState<'race' | 'pers'>('race')
+    const tabsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
+    const [clipStyle, setClipStyle] = useState({ left: 0, width: 0 });
+    const [isFirstLoad, setIsFirstLoad] = useState(true);
 
     // 사도 출시일, 대충돌/프론티어 시작/종료일 통합 배열
     const allDates = useMemo(() => {
@@ -55,30 +63,65 @@ const IndexPage = () => {
         return (allDates.length - 1 - idx) * PIXELS_PER_DAY;
     }, [allDates]);
 
-    const charaRaceMap: Map<Race, string[]> = new Map(
-        Object.entries(
-            Object.entries(charInfo).reduce((acc, [name, info]) => {
-                const { race, birthdate } = info;
-                if (race) {
-                    if (!acc[race]) {
-                        acc[race] = []; // 초기화
+    const charaMap: Map<Race | Personality, string[]> = useMemo(() => {
+        return new Map(
+            Object.entries(
+                Object.entries(charInfo).reduce((acc, [name, info]) => {
+                    const { race, personality, birthdate, eldain } = info;
+
+                    if (name.startsWith('우로스(')) return acc;
+                    if (isEldain && !eldain) return acc;
+
+                    const key = category === 'race' ? race : personality;
+
+                    if (key) {
+                        if (!acc[key]) acc[key] = [];
+                        acc[key].push({
+                            name,
+                            birthdate: new Date(new Date(birthdate).toLocaleString('en-US', { timeZone: 'Asia/Seoul' }))
+                        });
                     }
-                    // 정렬에 쓰일 이름, 출시일 객체 추가
-                    acc[race].push({ name, birthdate: new Date(new Date(birthdate).toLocaleString('en-US', { timeZone: 'Asia/Seoul' })) });
+                    return acc;
+                }, {} as Record<Race | Personality, { name: string, birthdate: Date }[]>)
+            ).sort(([keyA], [keyB]) => {
+                if (category === 'race') {
+                    const indexA = races.indexOf(keyA as Race);
+                    const indexB = races.indexOf(keyB as Race);
+                    if (indexA === -1) return 1;
+                    if (indexB === -1) return -1;
+                    return indexA - indexB;
                 }
-                return acc;
-            }, {} as Record<Race, { name: string, birthdate: Date }[]>)
-        ).map(([race, chara]) => {
+                
+                if (keyA === '공명') return 1;
+                if (keyB === '공명') return -1;
+                return keyA.localeCompare(keyB);
+            })
+                .map(([race, chara]) => {
 
-            const top3Names = chara
-                .sort((a, b) => b.birthdate.getTime() - a.birthdate.getTime()) // 최신순 정렬
-                .slice(0, 3) // 내림차순(최신순) top 3
-                .map(char => char.name); // 사도 명 추출
+                    const top3Names = chara
+                        .sort((a, b) => b.birthdate.getTime() - a.birthdate.getTime()) // 최신순 정렬
+                        .slice(0, 3) // 내림차순(최신순) top 3
+                        .map(char => char.name); // 사도 명 추출
 
-            // [k:종족명, v: 사도명[]]
-            return [race as Race, top3Names];
-        })
-    );
+                    // [k:종족명, v: 사도명[]]
+                    return [race as Race, top3Names];
+                })
+        )
+    }, [isEldain, category]);
+
+    useLayoutEffect(() => {
+        const activeTab = tabsRef.current[category];
+        if (activeTab) {
+            const { offsetLeft, offsetWidth } = activeTab;
+            setClipStyle({ left: offsetLeft, width: offsetWidth });
+
+            // 첫 계산 후 로딩 상태 해제
+            if (isFirstLoad) {
+                const timer = setTimeout(() => setIsFirstLoad(false), 50);
+                return () => clearTimeout(timer);
+            }
+        }
+    }, [category, allDates]);
 
     if (!allDates || !frontier || !clash || !clashV2) return (
         <Loading />
@@ -86,6 +129,11 @@ const IndexPage = () => {
 
     const raidValues = [...Object.values(frontier), ...Object.values(clash), ...Object.values(clashV2)];
     const raidKeys = [...Object.keys(frontier), ...Object.keys(clash), ...Object.keys(clashV2)];
+
+    const tabs = [
+        { id: 'race', label: '종족정렬' },
+        { id: 'pers', label: '성격정렬' },
+    ] as const;
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
@@ -117,8 +165,30 @@ const IndexPage = () => {
                 <span className="flex text-[12px]">집계되지 않은 시즌은 제외됩니다.</span>
             </div>
             {/* 타임라인 */}
-            <div className="md:w-[768px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 p-4 shadow-md mt-4 overflow-x-auto">
-                <BirthTimeline charaRaceMap={charaRaceMap} />
+            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 p-4 shadow-md mt-4 overflow-x-auto">
+                <div className="flex mx-auto w-full">
+                    <div className="flex flex-col gap-y-2">
+                        <span className="text-[12px] text-orange-500 font-bold">
+                            정렬 기준
+                        </span>
+                        <div className="flex items-center gap-x-2">
+                            <span className="font-bold pb-[2px]">
+                                엘다인
+                            </span>
+                            <ToggleSwitch
+                                size="sm"
+                                onChange={(checked) => setIsEldain(checked)}
+                            />
+                        </div>
+                        <SlideColorNav
+                            color="text-black dark:text-zinc-200"
+                            size={16}
+                            handler={(p) => setCategory(p as 'race' | 'pers')}
+                            tabs={tabs}
+                        />
+                    </div>
+                </div>
+                <BirthTimeline charaMap={charaMap} />
             </div>
             <div style={{ height: allDates.length * PIXELS_PER_DAY }} className="mt-4 relative overflow-x-auto">
                 <BaseComponent

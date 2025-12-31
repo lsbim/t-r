@@ -1,11 +1,11 @@
+import CharacterIcon from "../../../commons/icon/CharacterIcon";
+import PersonalityIcon from "../../../commons/icon/PersonalityIcon";
 import RaceIcon from "../../../commons/icon/RaceIcon";
 import { charInfo } from "../../../data/trickcalChar";
-import { Race } from "../../../types/trickcalTypes";
+import { Personality, personalityList, Race, races } from "../../../types/trickcalTypes";
 import { getDaysSince, translateRaces } from "../../../utils/function";
 
-const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) => {
-
-    const today = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[]> }) => {
 
     const dayToVisual = (day: number) => {
         if (day <= 0) return 0;
@@ -25,7 +25,7 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
     // 모든 종족의 최근3사도 중 가장 오래된 사도
     const getGlobalMaxDays = () => {
         let maxDays = 0;
-        charaRaceMap.forEach((names) => {
+        charaMap.forEach((names) => {
             names.forEach(name => {
                 const days = getDaysSince(charInfo[name]?.birthdate);
                 const visualDist = dayToVisual(days);
@@ -71,9 +71,13 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
         return adjusted;
     }
 
+    const isRace = (value: Race | Personality): value is Race => {
+        return races.includes(value as Race);
+    };
+
     return (
         <div className="bg-white flex dark:bg-zinc-900 flex-col">
-            {charaRaceMap.size === 7 && Array.from(charaRaceMap.entries()).map(([race, names]) => {
+            {(charaMap.size === 8 || charaMap.size === 6) && Array.from(charaMap.entries()).map(([cate, names]) => {
 
                 const racePositions = createPositions(names);
                 const racePixelPositions = pixelPositions(racePositions);
@@ -81,14 +85,27 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
 
                 return (
                     <div className="relative h-20 flex items-center w-[600px] mb-1"
-                        key={`chara_birth_timeline_${race}`}>
+                        key={`chara_birth_timeline_${cate}`}>
                         {/* <img className="aspect-square w-12 flex items-center" src={`/images/race/${translateRaces(race)}.png`} /> */}
-                        <RaceIcon name={race} />
-                        <div className="absolute ml-20 z-10 top-1/2 left-0 w-full h-0.5 bg-zinc-900 dark:bg-zinc-500 " />
+
+                        {isRace(cate)
+                            ? (
+                                <RaceIcon name={cate} />
+                            )
+                            : personalityList.includes(cate)
+                                ? (
+                                    <div className="flex items-center justify-center ml-[18px]">
+                                        <PersonalityIcon personality={cate} />
+                                    </div>
+                                )
+                                : (<></>)}
+
+
+                        <div className="absolute ml-20 top-1/2 left-0 w-full h-0.5 bg-zinc-900 dark:bg-zinc-500 " />
                         {finalPositions.map((pos, index) => (
                             <div
                                 key={pos.name}
-                                className={`absolute ml-20 top-0 h-full flex flex-col items-center`}
+                                className={`select-none absolute ml-20 top-0 h-full flex flex-col items-center animate-bounce-in`}
                                 style={{
                                     left: `${pos.leftPercent}%`,
                                     transform: 'translateX(-50%)'
@@ -99,9 +116,14 @@ const BirthTimeline = ({ charaRaceMap }: { charaRaceMap: Map<Race, string[]> }) 
                                 {/* 텍스트 (눈금선 아래로) */}
                                 <div
                                     data-tooltip-id="my-tooltip"
-                                    data-tooltip-content={charInfo[pos?.name]?.birthdate}
-                                    className="text-center whitespace-nowrap mt-1 cursor-pointer">
-                                    <div className={`text-[13px] truncate w-[70px] dark:text-zinc-200 font-medium`}>{pos.name}</div>
+                                    data-tooltip-content={`${pos?.name}\n${charInfo[pos?.name]?.birthdate}`}
+                                    className="text-center whitespace-nowrap mt-1 cursor-pointer z-50">
+                                    <div className="pointer-events-none">
+                                        <CharacterIcon
+                                            name={pos?.name}
+                                            type="micro"
+                                        />
+                                    </div>
                                     <div
                                         className={`text-[12px] text-zinc-400`}>
                                         {pos.days <= 0 ? '오늘' : `${pos.days}일 전`}

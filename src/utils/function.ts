@@ -82,6 +82,8 @@ export function translateRaces(race: Race) {
             return 'phantom';
         case '정령':
             return 'elemental';
+        case '미스틱':
+            return 'mystic';
     }
 }
 
