@@ -152,7 +152,7 @@ const IndexPage = () => {
                         onClick={() => {
                             if (y !== selectYear) setSelectYear(y)
                         }}
-                        className={`${y === selectYear ? 'font-bold' : 'text-gray-400 text-[14px]'} cursor-pointer select-none transition-all duration-200 h-[24px]`}
+                        className={`${y === selectYear ? 'font-bold' : 'text-gray-400 text-[14px]'} cursor-pointer select-none transition-all duration-100 h-[24px]`}
                         key={"timeline_costume_selectYear" + y}>
                         {y}
                     </div>
@@ -188,7 +188,7 @@ const IndexPage = () => {
                 <span className="flex text-[12px]">1성 사도는 제외됩니다.</span>
             </div>
             {/* 타임라인 */}
-            <div className="w-[992px] lg:flex hidden mx-auto gap-x-2">
+            <div className="w-[992px] lg:flex hidden mx-auto gap-x-2 min-h-[100px]">
                 {persList.map(p => {
 
                     const costumes = costumeMap.get(p)

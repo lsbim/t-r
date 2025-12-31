@@ -20,6 +20,9 @@ interface Props {
 const PersCalendar: React.FC<Props> = (
     { selectYear, pers, charData }) => {
 
+    const now = new Date();
+    const limitDate = new Date("2024-06-01");
+
     const weeklySchedule = useMemo(() => {
         // console.log(charData)
 
@@ -36,10 +39,10 @@ const PersCalendar: React.FC<Props> = (
 
 
     // console.log(charData)
-    // console.log(sumPersCostume)
+    console.log(weeklySchedule)
 
     return (
-        <div className="w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">
+        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />
@@ -49,33 +52,45 @@ const PersCalendar: React.FC<Props> = (
             </div>
 
             <div className="flex flex-col flex-wrap gap-y-2 mt-3 pb-2">
-                {weeklySchedule.map(({ monthName, weeks }) => (
-                    <div key={monthName} className="flex items-center gap-2">
-                        <span className="w-7 text-[13px] font-semibold text-right">{monthName}</span>
-                        <div className="flex gap-1">
-                            {weeks.map((week, index) => {
-                                const startDateStr = week.startDate.toLocaleDateString('ko-KR');
+                {weeklySchedule.map(({ monthName, weeks }) => {
 
-                                const costumeTooltipText = week?.costumes &&
-                                    week?.costumes.map(cos => {
-                                        if (cos.lvl === 'pretty') return `${cos.charName}: ${cos.cosName}★`;
+                    // console.log(weeks)
 
-                                        return `${cos.charName}: ${cos.cosName}`;
-                                    }).join("\n");
+                    return (
+                        <div key={monthName} className="flex items-center gap-2">
+                            <span className={`w-7 text-[13px] font-semibold text-right transition-opacity ${weeks[0]?.startDate < limitDate || weeks[0]?.startDate > now || !weeks[0]?.startDate ? 'opacity-20' : 'opacity-100'}`}>
+                                {monthName}
+                            </span>
+                            <div className="flex gap-1">
+                                {weeks.map((week, index) => {
+                                    const startDateStr = week?.startDate.toLocaleDateString('ko-KR');
 
-                                return (
-                                    <div
-                                        key={startDateStr + index + pers}
-                                        data-tooltip-id="my-tooltip"
-                                        data-tooltip-content={costumeTooltipText}
-                                        className={`w-4 h-4 rounded-sm ${getActivityColor(week.activityCount)}
-                                        ${week.costumes?.some(item => item.lvl === 'pretty') && 'border-2 border-black dark:shadow-[0_0_4px_rgba(255,255,255,0.1)] dark:shadow-white'}`}
-                                    />
-                                );
-                            })}
+                                    const isOutOfRange = week?.startDate < limitDate || week?.startDate > now || !week?.startDate;
+
+                                    const costumeTooltipText = week?.costumes &&
+                                        week?.costumes.map(cos => {
+                                            if (cos.lvl === 'pretty') return `${cos.charName}: ${cos.cosName}★`;
+
+                                            return `${cos.charName}: ${cos.cosName}`;
+                                        }).join("\n");
+
+                                    
+
+                                    return (
+                                        <div
+                                            key={startDateStr + index + pers}
+                                            data-tooltip-id={isOutOfRange ? "" : "my-tooltip"}
+                                            data-tooltip-content={costumeTooltipText}
+                                            className={`w-4 h-4 rounded-sm ${getActivityColor(week?.activityCount)}
+                                        ${week.costumes?.some(item => item.lvl === 'pretty') && 'border-2 border-black dark:shadow-[0_0_4px_rgba(255,255,255,0.1)] dark:shadow-white'}
+                                        ${isOutOfRange ? 'opacity-20' : 'opacity-100'}`}
+                                        />
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
         </div>
     );

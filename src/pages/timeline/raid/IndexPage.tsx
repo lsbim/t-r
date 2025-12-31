@@ -27,9 +27,6 @@ const IndexPage = () => {
     const { data: clashV2 } = useSummaryData<ClashV2Summary>('clashV2');
     const [isEldain, setIsEldain] = useState<Boolean>(false)
     const [category, setCategory] = useState<'race' | 'pers'>('race')
-    const tabsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
-    const [clipStyle, setClipStyle] = useState({ left: 0, width: 0 });
-    const [isFirstLoad, setIsFirstLoad] = useState(true);
 
     // 사도 출시일, 대충돌/프론티어 시작/종료일 통합 배열
     const allDates = useMemo(() => {
@@ -108,20 +105,6 @@ const IndexPage = () => {
                 })
         )
     }, [isEldain, category]);
-
-    useLayoutEffect(() => {
-        const activeTab = tabsRef.current[category];
-        if (activeTab) {
-            const { offsetLeft, offsetWidth } = activeTab;
-            setClipStyle({ left: offsetLeft, width: offsetWidth });
-
-            // 첫 계산 후 로딩 상태 해제
-            if (isFirstLoad) {
-                const timer = setTimeout(() => setIsFirstLoad(false), 50);
-                return () => clearTimeout(timer);
-            }
-        }
-    }, [category, allDates]);
 
     if (!allDates || !frontier || !clash || !clashV2) return (
         <Loading />

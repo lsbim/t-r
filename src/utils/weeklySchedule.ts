@@ -49,7 +49,8 @@ export const generateWeeklySchedule = (year: number, persData: Props[]): MonthSc
         const weekEndDate = new Date(currentDate);
         weekEndDate.setDate(currentDate.getDate() + 6); // 수요일
 
-        if (weekStartDate > today) break;
+        // '오늘' 이후는 제외
+        // if (weekStartDate > today) break;
 
         const weekCostumes = allCostumes.filter(costume => {
             if(!costume?.launchDate) return;
@@ -77,13 +78,13 @@ export const generateWeeklySchedule = (year: number, persData: Props[]): MonthSc
     }
 
     // 오늘날 이후의 주, 월 삭제
-    const filteredSchedule = schedule.filter((month, idx) => {
-        if (year > today.getFullYear()) return false;
-        if (year === 2024) {
-            return idx >= 5;
-        }
-        return idx <= today.getMonth();
-    });
+    // const filteredSchedule = schedule.filter((month, idx) => {
+    //     if (year > today.getFullYear()) return false;
+    //     if (year === 2024) {
+    //         return idx >= 5;
+    //     }
+    //     return idx <= today.getMonth();
+    // });
 
-    return filteredSchedule;
+    return schedule;
 };
