@@ -112,7 +112,7 @@ const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[
                                 }}
                             >
                                 {/* 수직선 */}
-                                <div className={`w-0.5 h-1/2 dark:brightness-90 translate-y-[2px] ${charInfo[pos.name]?.personality === '공명' ? 'resonance-pers' : `bg-${charInfo[pos.name]?.personality}`}`} />
+                                {/* <div className={`w-0.5 h-1/2 dark:brightness-90 translate-y-[2px] ${charInfo[pos.name]?.personality === '공명' ? 'resonance-pers' : `bg-${charInfo[pos.name]?.personality}`}`} /> */}
                                 {/* 텍스트 (눈금선 아래로) */}
                                 <div
                                     data-tooltip-id="my-tooltip"
@@ -121,7 +121,7 @@ const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[
                                     <div className="pointer-events-none">
                                         <CharacterIcon
                                             name={pos?.name}
-                                            type="micro"
+                                            type="mini"
                                         />
                                     </div>
                                     <div

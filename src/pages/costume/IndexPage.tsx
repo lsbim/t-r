@@ -21,9 +21,17 @@ export interface CostumeMapItem {
     costumes: Costume[];
 }
 
-const IndexPage = () => {
+const getKoreanYear = () => {
+    const koreanTime = new Intl.DateTimeFormat('ko-KR', {
+        timeZone: 'Asia/Seoul',
+        year: 'numeric'
+    }).format(new Date());
+    
+    return parseInt(koreanTime);
+};
 
-    const [selectYear, setSelectYear] = useState<number>(2025);
+const IndexPage = () => {
+    const [selectYear, setSelectYear] = useState<number>(getKoreanYear());
 
     // 최초 사복 출시 후 오늘날까지 연도 목록
     const costumeReleaseYearSet = useMemo(() => {

@@ -20,7 +20,7 @@ import BestComp from "../../components/shared/BestComp";
 import SEO from "../../commons/component/SEO";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
 import FuzzyComponent from "../../commons/animation/FuzzyComponent";
-import ClashV2Chart from "../../components/chart/ClashV2Chart";
+import ClashV2Chart from "../../components/chart/clashV2/ClashV2Chart";
 
 const initRange = { start: 0, end: 0 };
 

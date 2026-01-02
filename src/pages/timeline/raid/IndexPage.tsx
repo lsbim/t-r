@@ -155,7 +155,7 @@ const IndexPage = () => {
                             정렬 기준
                         </span>
                         <div className="flex items-center gap-x-2">
-                            <span className="font-bold pb-[2px]">
+                            <span className="font-bold pb-[2px] dark:text-zinc-200">
                                 엘다인
                             </span>
                             <ToggleSwitch

@@ -39,7 +39,7 @@ const PersCalendar: React.FC<Props> = (
 
 
     // console.log(charData)
-    console.log(weeklySchedule)
+    // console.log(weeklySchedule)
 
     return (
         <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">

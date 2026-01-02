@@ -12,10 +12,10 @@ import {
 } from 'chart.js';
 import { Line } from "react-chartjs-2";
 import annotationPlugin from 'chartjs-plugin-annotation';
-import { FrontierSeasonData } from "../../types/frontierTypes";
-import InfoIcon from '../../commons/icon/InfoIcon';
-import { useTheme } from '../../hooks/useTheme';
-import { ClashV2SeasonData } from '../../types/clashV2Types';
+import { FrontierSeasonData } from "../../../types/frontierTypes";
+import InfoIcon from "../../../commons/icon/InfoIcon";
+import { useTheme } from "../../../hooks/useTheme";
+import { ClashV2SeasonData } from "../../../types/clashV2Types";
 
 
 ChartJS.register(

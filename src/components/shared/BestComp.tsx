@@ -31,11 +31,15 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                                         <div key={"best_back_" + ci + b}
                                             className="w-[60px] h-[80px] relative"
                                         >
-                                            <CharacterIcon name={b} type="mini" />
+                                            <CharacterIcon
+                                                name={b}
+                                                type="small" />
 
                                             {changes && changes?.filter(cng => cng?.position === 'back').find(cng => cng?.added === b) && (
                                                 <div className="absolute top-[-5px] right-[-5px]">
-                                                    <CharacterIcon name={changes?.filter(cng => cng?.position === 'back').find(cng => cng?.added === b)?.removed!} type="micro" />
+                                                    <CharacterIcon
+                                                        name={changes?.filter(cng => cng?.position === 'back').find(cng => cng?.added === b)?.removed!}
+                                                        type="micro" />
                                                 </div>
                                             )}
                                         </div>
@@ -46,10 +50,14 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                                         <div key={"best_mid_" + ci + m}
                                             className="w-[60px] h-[80px] relative"
                                         >
-                                            <CharacterIcon name={m} type="mini" />
+                                            <CharacterIcon
+                                                name={m}
+                                                type="small" />
                                             {changes && changes?.filter(cng => cng?.position === 'mid').find(cng => cng?.added === m) && (
                                                 <div className="absolute top-[-5px] right-[-5px]">
-                                                    <CharacterIcon name={changes?.filter(cng => cng?.position === 'mid').find(cng => cng?.added === m)?.removed!} type="micro" />
+                                                    <CharacterIcon
+                                                        name={changes?.filter(cng => cng?.position === 'mid').find(cng => cng?.added === m)?.removed!}
+                                                        type="micro" />
                                                 </div>
                                             )}
                                         </div>
@@ -60,10 +68,14 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                                         <div key={"best_front_" + ci + f}
                                             className="w-[60px] h-[80px] relative"
                                         >
-                                            <CharacterIcon name={f} type="mini" />
+                                            <CharacterIcon
+                                                name={f}
+                                                type="small" />
                                             {changes && changes?.filter(cng => cng?.position === 'front').find(cng => cng?.added === f) && (
                                                 <div className="absolute top-[-5px] right-[-5px]">
-                                                    <CharacterIcon name={changes?.filter(cng => cng?.position === 'front').find(cng => cng?.added === f)?.removed!} type="micro" />
+                                                    <CharacterIcon
+                                                        name={changes?.filter(cng => cng?.position === 'front').find(cng => cng?.added === f)?.removed!}
+                                                        type="micro" />
                                                 </div>
                                             )}
                                         </div>

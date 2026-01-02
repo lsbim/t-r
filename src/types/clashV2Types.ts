@@ -1,3 +1,4 @@
+
 import { ClashBase } from "./clashTypes";
 import { SummaryData } from "./trickcalTypes";
 
@@ -12,6 +13,7 @@ export interface ClashV2PlayerData {
     sideGrade: number;
     arr: string[];
     sideArr: string[];
+    sideSkills?: ClashV2SideSkill[];
 }
 
 interface ClashV2Base extends ClashBase {
@@ -33,4 +35,9 @@ export interface ClashV2Data {
 export interface ClashV2Summary extends ClashV2Base {
     summary: SummaryData[];
     sideSummary: SummaryData[];
+}
+
+export interface ClashV2SideSkill {
+    name: 'clashV2Side1' | 'clashV2Side2' | 'clashV2Side3';
+    level: number;
 }
