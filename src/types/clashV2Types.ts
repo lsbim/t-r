@@ -23,6 +23,7 @@ interface ClashV2Base extends ClashBase {
 // 차원 대충돌 시즌 데이터
 export interface ClashV2SeasonData extends ClashV2Base {
     type: 'season';
+    sideSkills?: string[];
     data: ClashV2PlayerData[];
 }
 

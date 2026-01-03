@@ -21,6 +21,7 @@ import SEO from "../../commons/component/SEO";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
 import FuzzyComponent from "../../commons/animation/FuzzyComponent";
 import ClashV2Chart from "../../components/chart/clashV2/ClashV2Chart";
+import SideSkillChart from "../../components/chart/clashV2/SideSkillChart";
 
 const initRange = { start: 0, end: 0 };
 
@@ -241,6 +242,9 @@ const ClashV2SeasonPage = () => {
                     />
                 )}
                 <ClashV2Chart
+                    data={seasonSlice}
+                />
+                <SideSkillChart
                     data={seasonSlice}
                 />
                 {bestComp && bestComp?.length > 0 && (

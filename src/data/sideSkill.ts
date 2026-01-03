@@ -17,8 +17,12 @@ export const sideSkillList: sideSkill[] = [
         description: '일반 공격 25회 적중 시 n%\n의 추가 피해를 입힌다.',
     },
     {
-        name: 'clashV2Side2',
+        name: 'clashV2Side3',
         krName: '아르X의 그래X티',
         description: '스킬로 50회 피해를 입히면\n스프레이 캔이 떨어져\na~b%의 피해를 입힌다.',
     },
 ]
+
+export function getSideSkillKrName(name: string) {
+    return sideSkillList.find(s => s?.name === name)?.krName || '';
+}
