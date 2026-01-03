@@ -108,6 +108,11 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
                     autoSkip: true,
                     maxTicksLimit: 20
                 },
+                title: {
+                    display: true,
+                    text: '순위',
+                    color: tickColor
+                },
                 grid: {
                     display: false,
                 }

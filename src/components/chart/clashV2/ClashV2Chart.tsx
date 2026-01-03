@@ -43,6 +43,8 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
     let lastLabelIndex = -100; // 마지막으로 라벨을 찍은 인덱스 초기화
     let isStaggered = false;   // 지그재그 상태 스태그
 
+    const hasSideSkills = !!data?.sideSkills;
+
     arr.forEach((pt, idx) => {
         // if(pt.grade !== 17) return;
         if (pt.grade && pt.grade !== prevGrade) {
@@ -88,30 +90,42 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
         labels: arr?.map(item => item.rank) || [],
         datasets: [
             {
-                label: '점수(단위: 억)', // 첫 번째 데이터셋: 점수(score)
-                data: arr?.map(item => item.score / 100000000) || [],
-                borderColor: '#8884d8',
-                backgroundColor: 'rgba(136, 132, 216, 0.1)',
-                yAxisID: 'y_score', // 이 데이터셋이 사용할 Y축 ID
-                tension: 0.1,
-                pointRadius: 0, // 일반 상태에서 점의 크기
-                pointHoverRadius: 6, // 호버 시 점의 
-                pointHoverBackgroundColor: '#8884d8',
-                pointHoverBorderColor: '#ffffff',
-                pointHoverBorderWidth: 3,
-            },
-            {
                 label: '림의 이면세계',
                 data: arr?.map(item => item.sideGrade) || [],
-                borderWitdh: 0,
-                // borderColor: '#82ca9d',
-                // backgroundColor: 'rgba(130, 202, 157, 1)',
+                borderWidth: 0,
                 backgroundColor: '#82ca9d',
-                yAxisID: 'y_sideGrade', // 이 데이터셋이 사용할 Y축 ID
-                showLine: false, // 선을 제거하고 점만 표시
-                pointRadius: 3, // 점의 크기를 3으로 줄임 (기본값은 보통 3-4)
+                yAxisID: 'y_sideGrade',
+                showLine: false, // 점만 표시
+                pointRadius: 3,
                 tension: 0.1,
-            }
+            },
+            hasSideSkills
+                ? {
+                    label: '클리어 시간',
+                    data: arr?.map(item => item.duration) || [],
+                    borderColor: '#8884d8',
+                    backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    yAxisID: 'y_secondary',
+                    tension: 0.1,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    pointHoverBackgroundColor: '#8884d8',
+                    pointHoverBorderColor: '#ffffff',
+                    pointHoverBorderWidth: 3,
+                }
+                : {
+                    label: '점수(단위: 억)',
+                    data: arr?.map(item => item.score / 100000000) || [],
+                    borderColor: '#8884d8',
+                    backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    yAxisID: 'y_secondary',
+                    tension: 0.1,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    pointHoverBackgroundColor: '#8884d8',
+                    pointHoverBorderColor: '#ffffff',
+                    pointHoverBorderWidth: 3,
+                }
         ]
     };
 
@@ -128,13 +142,22 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
             },
             // annotation 플러그인 설정을 제거합니다.
             legend: {
-                display: false, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
-                position: 'top' as const,
+                display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
+                position: 'bottom' as const,
             },
             tooltip: {
                 callbacks: {
                     label: function (context) {
-                        // 툴팁에 데이터셋 레이블과 값을 표시합니다. (예: "점수: 12345")
+                        if (context.datasetIndex === 1) {
+                            // 두 번째 데이터셋 (클리어시간 또는 점수)
+                            if (hasSideSkills) {
+                                // 클리어시간인 경우 초 단위 표시
+                                return `클리어 시간: ${context.formattedValue}초`;
+                            } else {
+                                // 점수인 경우 억 단위 표시
+                                return `점수: ${context.formattedValue}억`;
+                            }
+                        }
                         return `${context.dataset.label}: ${context.formattedValue}`;
                     },
                     title: function (context) {
@@ -158,25 +181,9 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
                     color: tickColor
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: '순위',
                     color: tickColor
-                },
-                grid: {
-                    color: gridColor,
-                }
-            },
-            // 왼쪽 Y축 (점수)
-            y_score: {
-                type: 'linear',
-                position: 'left',
-                title: {
-                    display: false,
-                    text: '점수 (Score)',
-                    color: '#8884d8',
-                },
-                ticks: {
-                    color: '#8884d8',
                 },
                 grid: {
                     color: gridColor,
@@ -195,28 +202,59 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
                     color: '#82ca9d',
                     stepSize: 1
                 },
-                // 차트 영역에 오른쪽 축의 그리드 라인은 그리지 않아 깔끔하게 보입니다.
                 grid: {
                     drawOnChartArea: false,
                 },
+            },
+            y_secondary: {
+                type: 'linear',
+                position: 'left',
+                title: {
+                    display: false,
+                    // 조건에 따라 제목이 달라지지만 display가 false이므로 실제로는 보이지 않음
+                    text: hasSideSkills ? '클리어 시간 (초)' : '점수',
+                    color: '#8884d8',
+                },
+                ticks: {
+                    color: '#8884d8',
+                    // 클리어시간의 경우 초 단위이므로 적절한 포맷 적용 가능
+                    callback: function (value) {
+                        if (hasSideSkills) {
+                            // 클리어시간은 그대로 표시
+                            return value;
+                        } else {
+                            // 점수는 이미 억 단위로 나눈 값이므로 그대로 표시
+                            return value;
+                        }
+                    }
+                },
+                grid: {
+                    color: gridColor,
+                }
             }
         },
         layout: {
             padding: {
-                top: 25,
+                top: 5,
                 right: 10,
                 left: 0,
-                bottom: 20
+                bottom: 0
             },
         }
     };
 
-    const infoText = data?.sideSkills ? '해당 유저의 최고 난이도 점수만 제공합니다.' : '해당 유저의 종합 점수를 제공합니다.';
+    const infoText = hasSideSkills
+        ? '해당 유저의 림의 이면세계 등급과 클리어시간을 제공합니다.'
+        : '해당 유저의 림의 이면세계 등급과 종합 점수를 제공합니다.';
+
+    const chartTitle = hasSideSkills
+        ? '클리어 시간 및 림의 이면세계'
+        : '점수 및 림의 이면세계';
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[450px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] gap-y-4 bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <div className='flex items-center'>
-                <span className="text-xl font-bold mr-2">점수 및 림의 이면세계</span>
+                <span className="text-xl font-bold mr-2">{chartTitle}</span>
                 <InfoIcon text={infoText} />
             </div>
             <div className='h-[400px] dark:brightness-90'>

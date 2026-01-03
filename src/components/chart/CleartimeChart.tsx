@@ -124,13 +124,13 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                     font: {
                         size: 14,
                         weight: 'bold'
-                    }
+                    },
                 },
                 ticks: {
                     font: {
                         size: 12
                     },
-                    color: tickColor
+                    color: tickColor,
                 },
                 grid: {
                     display: true,
@@ -155,7 +155,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                         // 예: 시간 단위 변환이 필요한 경우
                         return value; // 현재는 원본 값 그대로 표시
                     },
-                    color: tickColor
+                    color: '#8884d8',
                 },
                 grid: {
                     display: true,
@@ -167,7 +167,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
         // 차트 여백 설정 - Recharts의 margin과 대응
         layout: {
             padding: {
-                top: 25,
+                top: 20,
                 right: 10,
                 left: 0,
                 bottom: 0

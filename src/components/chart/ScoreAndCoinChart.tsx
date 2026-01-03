@@ -122,8 +122,8 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
             },
             // annotation 플러그인 설정을 제거합니다.
             legend: {
-                display: false, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
-                position: 'top' as const,
+                display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
+                position: 'bottom' as const,
             },
             tooltip: {
                 callbacks: {
@@ -143,7 +143,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                     color: tickColor
                 },
                 title: {
-                    display: true,
+                    display: false,
                     text: '순위',
                     color: tickColor
                 },
@@ -187,10 +187,10 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
         },
         layout: {
             padding: {
-                top: 25,
+                top: 5,
                 right: 10,
                 left: 0,
-                bottom: 20
+                bottom: 10
             },
         }
     };
@@ -199,8 +199,8 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
     const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[450px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md overflow-x-auto overflow-y-hidden">
-            <div className='flex items-center'>
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+            <div className='flex items-center mb-4'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
             </div>
