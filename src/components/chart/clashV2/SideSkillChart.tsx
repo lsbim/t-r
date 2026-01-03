@@ -130,7 +130,7 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
                 top: 0,
                 right: 0,
                 left: 0,
-                bottom: 10
+                bottom: 30
             },
         },
         // 바 사이 간격 없애기
@@ -140,7 +140,7 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
     } as ChartOptions<'bar'>;
 
     return (
-        <div className="lg:w-[992px] dark:brightness-90 w-full mx-auto flex flex-col h-64 bg-white dark:bg-zinc-900 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] dark:brightness-90 w-full mx-auto flex flex-col h-[280px] bg-white dark:bg-zinc-900 p-4 shadow-md overflow-x-auto overflow-y-hidden">
             <span className="text-xl font-bold dark:text-zinc-200">이면의 파편</span>
             <Bar data={chartData} options={chartOptions} />
         </div>
