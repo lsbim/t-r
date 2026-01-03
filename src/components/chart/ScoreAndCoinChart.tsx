@@ -124,6 +124,9 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
             legend: {
                 display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
                 position: 'bottom' as const,
+                labels: {
+                    color: tickColor
+                }
             },
             tooltip: {
                 callbacks: {

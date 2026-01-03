@@ -144,6 +144,9 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
             legend: {
                 display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
                 position: 'bottom' as const,
+                labels: {
+                    color: tickColor
+                }
             },
             tooltip: {
                 callbacks: {
