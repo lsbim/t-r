@@ -34,7 +34,7 @@ const FacilityIcon = ({ name, size, value }: { name: string, size?: number, valu
 
             <img
                 className="w-[70%] h-[70%] object-contain"
-                src={`/images/facility/${name}.png`} />
+                src={`/images/facility/${name}.webp`} />
 
             <div
                 style={{

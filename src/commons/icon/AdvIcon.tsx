@@ -21,12 +21,12 @@ const AdvIcon = ({ name, text }: { name: string, text: string }) => {
                 </div>
             </div>
             <div className="w-[85%] relative aspect-[254/176]">
-                <img src={`/images/adventure/adventure_${advInfo.advId}_back.png`} />
+                <img src={`/images/adventure/adventure_${advInfo.advId}_back.webp`} />
                 {advInfo?.frontWidth && (
                     <img
                         style={{ width: `${advInfo.frontWidth}%` }}
                         className="absolute bottom-0"
-                        src={`/images/adventure/adventure_${advInfo.advId}_front.png`} />
+                        src={`/images/adventure/adventure_${advInfo.advId}_front.webp`} />
                 )}
             </div>
             <div className="mt-[8%] flex gap-x-1">

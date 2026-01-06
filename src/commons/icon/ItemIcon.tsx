@@ -30,7 +30,7 @@ const ItemIcon = ({
     }
 
     const itemInfo = materials.find(mat => mat.name === name);
-    const bgUrl = `/images/slot/slot_${itemInfo ? `grade_${itemInfo.grade}.png` : "gold.png"}`;
+    const bgUrl = `/images/slot/slot_${itemInfo ? `grade_${itemInfo.grade}.webp` : "gold.webp"}`;
 
     return (
         <div
@@ -44,7 +44,7 @@ const ItemIcon = ({
         >
             <img
                 className="w-[55%] h-[55%] aspect-square object-contain pb-1 select-none"
-                src={`/images/item/${itemInfo ? `${itemInfo?.name}.png` : 'gold.png'}`} />
+                src={`/images/item/${itemInfo ? `${itemInfo?.name}.webp` : 'gold.webp'}`} />
 
                 <div
                     style={{

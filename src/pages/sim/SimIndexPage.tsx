@@ -309,7 +309,7 @@ const SimIndexPage = () => {
                     />
                 ) : (
                     <div className="w-full gap-x-3 bg-white dark:bg-zinc-900 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold text-gray-700">
-                        <img src={`images/item/gold.png`} className="aspect-square object-center w-[60px] grayscale select-none" />
+                        <img src={`images/item/gold.webp`} className="aspect-square object-center w-[60px] grayscale select-none" />
                         <span>
                             선택된 시설 또는 연구 정보가 없습니다.
                         </span>

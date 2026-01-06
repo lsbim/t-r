@@ -28,7 +28,7 @@ const CharacterIcon = ({ name, type }: { name: string, type?: 'small' | 'mini' |
 
         return type === 'small'
             ? `/images/character/${charName}.webp`
-            : `/images/profile/${charName}.png`
+            : `/images/profile/${charName}.webp`
     }
 
     return (
