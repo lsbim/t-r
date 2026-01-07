@@ -10,7 +10,7 @@ const IndexComponent = ({ latest }: { latest: LatestData }) => {
             <div className="sm:w-[600px] w-full dark:bg-zinc-900 dark:text-zinc-200 mx-auto flex flex-col mt-4 bg-white p-4 shadow-md">
                 <div className="flex gap-x-3 justify-center items-center">
                     <img
-                        src="/images/boss/l1ly.webp"
+                        src="/images/boss/lil1li.webp"
                         className="object-contain aspect-square w-12 h-12 border border-black"
                     />
                     <div>

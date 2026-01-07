@@ -1,3 +1,4 @@
+import BossProfile from "../../commons/icon/BossProfile";
 import { frontierBossList, FrontierSummary } from "../../types/frontierTypes";
 import LineBarComponent from "../bar/LineBarComponent";
 
@@ -42,7 +43,12 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                         key={'엘리아스프론티어' + bossName}
                         className={`px-6 py-4 min-w-[500px] ${frontierBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                         {/* 보스명 */}
-                        <h3 className="text-xl font-bold mb-4 dark:text-zinc-200">{bossName}</h3>
+                        <div className="relative flex items-center mb-4">
+                            <h3 className="absolute z-20 text-xl font-bold dark:text-zinc-200">{bossName}</h3>
+                            <BossProfile
+                                name={bossName}
+                            />
+                        </div>
 
                         {/* 후열, 중열, 전열 */}
                         {matchingEntries.length !== 0 && (

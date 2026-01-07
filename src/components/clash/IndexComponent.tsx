@@ -5,6 +5,7 @@ import { lineList, personalityList } from "../../types/trickcalTypes";
 import { getClashSortInfo, updateClashSortInfo } from "../../utils/clashLocalStorage";
 import LineBarComponent from "../bar/LineBarComponent";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
+import BossProfile from "../../commons/icon/BossProfile";
 
 const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     const [clashSort, setClashSort] = useState<'boss' | 'pers'>(getClashSortInfo())
@@ -70,8 +71,18 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                 key={'차원대충돌' + bossName}
                                 className={`px-6 py-4 min-w-[500px] ${clashBossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                                 {/* 보스명 헤더 */}
-                                <h3 className="text-xl font-bold mb-4 dark:text-zinc-200">{bossName}</h3>
-
+                                <div className="relative flex items-center mb-4">
+                                    <h3 className="absolute z-20 text-xl font-bold dark:text-zinc-200">{bossName}</h3>
+                                    <BossProfile
+                                        name={bossName}
+                                        personality={
+                                            bossName === '릴1리' ? '순수'
+                                                : bossName === '크르브르스' ? '활발'
+                                                    : bossName === '크레용사용' ? '냉정'
+                                                        : undefined
+                                        }
+                                    />
+                                </div>
                                 {/* 후열, 중열, 전열 */}
                                 {matchingEntries.length !== 0 && (
                                     <div className="w-full mb-1 flex items-center">

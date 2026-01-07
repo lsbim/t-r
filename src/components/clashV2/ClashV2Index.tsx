@@ -1,3 +1,4 @@
+import BossProfile from "../../commons/icon/BossProfile";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { clashV2BossList, ClashV2Summary } from "../../types/clashV2Types";
 import LineBarComponent from "../bar/LineBarComponent";
@@ -43,7 +44,13 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
                             key={'차원대충돌' + bossName}
                             className={`px-6 py-4 min-w-[500px] ${clashV2BossList.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
                             {/* 보스명 헤더 */}
-                            <h3 className="text-xl font-bold mb-4 dark:text-zinc-200">{bossName}</h3>
+                            <div className="relative flex items-center mb-4">
+                                <h3 className="absolute z-20 text-xl font-bold dark:text-zinc-200">{bossName}</h3>
+                                <BossProfile
+                                    name={bossName}
+                                    personality={'광기'}
+                                />
+                            </div>
 
                             {/* 셰이디의 차원, 림의 이면세계 */}
                             {matchingEntries.length !== 0 && (
