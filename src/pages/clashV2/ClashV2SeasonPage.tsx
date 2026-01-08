@@ -1,27 +1,25 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import FuzzyComponent from "../../commons/animation/FuzzyComponent";
 import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
-import CleartimeChart from "../../components/chart/CleartimeChart";
-import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
+import ClashV2Chart from "../../components/chart/clashV2/ClashV2Chart";
+import SideSkillChart from "../../components/chart/clashV2/SideSkillChart";
 import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
+import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
-import { useSeasonData } from "../../hooks/useSeasonData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashPlayerData } from "../../types/clashTypes";
-import { CompStat, processCompStat } from "../../utils/chartFunction";
-import BestComp from "../../components/shared/BestComp";
-import SEO from "../../commons/component/SEO";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
-import FuzzyComponent from "../../commons/animation/FuzzyComponent";
-import ClashV2Chart from "../../components/chart/clashV2/ClashV2Chart";
-import SideSkillChart from "../../components/chart/clashV2/SideSkillChart";
+import { CompStat, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -29,7 +27,7 @@ const ClashV2SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
-    const { data, isLoading, error } = useSeasonData<ClashV2SeasonData>(season, 'clashV2');
+    const { data, isLoading, error } = useRaidData<ClashV2SeasonData>('clashV2', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const [v2Type, setV2Type] = useState<'main' | 'side'>('main')
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;

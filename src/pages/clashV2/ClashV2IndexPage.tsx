@@ -1,15 +1,14 @@
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
-import IndexComponent from "../../components/clash/IndexComponent";
 import ClashV2Index from "../../components/clashV2/ClashV2Index";
-import { useSummaryData } from "../../hooks/useSummaryData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { ClashV2Summary } from "../../types/clashV2Types";
 
 const IndexPage = () => {
 
-	const { data } = useSummaryData<ClashV2Summary>('clashV2');
+	const { data } = useRaidData<ClashV2Summary>('clashV2', 'summary');
 
 	if (!data) {
 		return (<Loading />)

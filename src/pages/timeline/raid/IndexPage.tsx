@@ -1,30 +1,29 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { useSummaryData } from "../../../hooks/useSummaryData";
-import HeaderNav from "../../../layouts/HeaderNav";
-import { ClashSummary } from "../../../types/clashTypes";
-import { FrontierSummary } from "../../../types/frontierTypes";
-import { charInfo, CharInfoDetail } from "../../../data/trickcalChar";
-import BaseComponent from "../../../components/timeline/raid/BaseComponent";
-import Footer from "../../../layouts/Footer";
-import CharacterLine from "../../../components/timeline/raid/CharacterLine";
-import RaidBlock from "../../../components/timeline/raid/RaidBlock";
-import TopRemote from "../../../layouts/TopRemote";
+import { useCallback, useMemo, useState } from "react";
+import SlideColorNav from "../../../commons/animation/SlideColorNav";
 import Loading from "../../../commons/component/Loading";
 import SEO from "../../../commons/component/SEO";
-import { Personality, Race, races } from "../../../types/trickcalTypes";
-import BirthTimeline from "../../../components/timeline/chara/BirthTimeline";
-import { ClashV2Summary } from "../../../types/clashV2Types";
-import { motion } from "framer-motion";
-import SlideColorNav from "../../../commons/animation/SlideColorNav";
 import ToggleSwitch from "../../../commons/component/ToggleSwitch";
+import BirthTimeline from "../../../components/timeline/chara/BirthTimeline";
+import BaseComponent from "../../../components/timeline/raid/BaseComponent";
+import CharacterLine from "../../../components/timeline/raid/CharacterLine";
+import RaidBlock from "../../../components/timeline/raid/RaidBlock";
+import { charInfo } from "../../../data/trickcalChar";
+import { useRaidData } from "../../../hooks/useRaidData";
+import Footer from "../../../layouts/Footer";
+import HeaderNav from "../../../layouts/HeaderNav";
+import TopRemote from "../../../layouts/TopRemote";
+import { ClashSummary } from "../../../types/clashTypes";
+import { ClashV2Summary } from "../../../types/clashV2Types";
+import { FrontierSummary } from "../../../types/frontierTypes";
+import { Personality, Race, races } from "../../../types/trickcalTypes";
 
 const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
 const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
 
 const IndexPage = () => {
-    const { data: frontier } = useSummaryData<FrontierSummary>('frontier');
-    const { data: clash } = useSummaryData<ClashSummary>('clash');
-    const { data: clashV2 } = useSummaryData<ClashV2Summary>('clashV2');
+    const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
+    const { data: clash } = useRaidData<ClashSummary>('clash', 'summary');
+    const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
     const [isEldain, setIsEldain] = useState<Boolean>(false)
     const [category, setCategory] = useState<'race' | 'pers'>('race')
 

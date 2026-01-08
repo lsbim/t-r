@@ -13,6 +13,7 @@ const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
 const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
 const SimIndex = lazy(() => import("../pages/sim/SimIndexPage"));
+const StatsClash = lazy(() => import("../pages/stats/ClashStatsIndex"));
 
 const ErrorPage = lazy(() => import("../pages/error/ErrorPage"));
 
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
                     }
                     return null;
                 },
-                element: null
+                element: <ErrorPage />
             },
             {
                 path: "v1",
@@ -101,7 +102,22 @@ const router = createBrowserRouter([
         path: "sim",
         element: <Suspense fallback={<Loading />}><SimIndex /></Suspense>,
         errorElement: <ErrorPage />
-    }
+    },
+    {
+        path: "stats",
+        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="clash" replace />
+            },
+            {
+                path: "clash",
+                element: <StatsClash />
+            },
+        ],
+        errorElement: <ErrorPage />
+    },
     // ,
     // {
     //     path: "*",

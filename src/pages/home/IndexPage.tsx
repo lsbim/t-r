@@ -3,7 +3,7 @@ import SEO from "../../commons/component/SEO";
 import IndexComponent from "../../components/home/IndexComponent";
 import NoticeComponent from "../../components/home/NoticeComponent";
 import { useNonData } from "../../hooks/useNonData";
-import { useSummaryData } from "../../hooks/useSummaryData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { LatestData } from "../../types/latestTypes";
@@ -11,7 +11,7 @@ import { LatestData } from "../../types/latestTypes";
 const IndexPage = () => {
 
     const { data, isLoading, error } = useNonData();
-    const { data: latest } = useSummaryData<LatestData>('latest');
+    const { data: latest } = useRaidData<LatestData>('latest', 'summary');
 
     // console.log(latest)
 

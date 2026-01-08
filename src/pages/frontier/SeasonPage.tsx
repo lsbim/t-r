@@ -1,23 +1,23 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
 import ScoreAndCoinChart from "../../components/chart/ScoreAndCoinChart";
+import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
-import { useSeasonData } from "../../hooks/useSeasonData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
-import BestComp from "../../components/shared/BestComp";
-import SEO from "../../commons/component/SEO";
 
 const initRange = { start: 0, end: 0 };
 
@@ -28,8 +28,8 @@ const SeasonPage = () => {
     // const [userCnt, setUserCnt] = useState<number>(0)
 
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
-    const { data, isLoading, error } = useSeasonData<FrontierSeasonData | FrontierExternalData>(season, 'frontier');
-    const { data: prevData, isLoading: prevIsLoading, error: prevError } = useSeasonData<FrontierSeasonData | FrontierExternalData>(prevSeason, 'frontier');
+    const { data, isLoading, error } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', season);
+    const { data: prevData, isLoading: prevIsLoading, error: prevError } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', prevSeason);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
 
@@ -120,7 +120,7 @@ const SeasonPage = () => {
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
         if (!data || data?.type === 'external') return;
-        
+
         const result: CompStat[] = [];
         if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
             const oneComp = processCompStat(data?.data.slice(0, 100) as FrontierPlayerData[])[0]
@@ -184,7 +184,7 @@ const SeasonPage = () => {
 
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
-             <SEO
+            <SEO
                 title={`엘리아스 프론티어 ${seasonName} 집계`}
                 description={`엘리아스 프론티어 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
             />

@@ -1,14 +1,14 @@
+import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
 import IndexComponent from "../../components/frontier/IndexComponent";
-import { useSummaryData } from "../../hooks/useSummaryData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { FrontierSummary } from "../../types/frontierTypes";
-import Loading from "../../commons/component/Loading";
-import SEO from "../../commons/component/SEO";
 
 const IndexPage = () => {
 
-    const { data } = useSummaryData<FrontierSummary>('frontier');
+    const { data } = useRaidData<FrontierSummary>('frontier', 'summary');
 
     if (!data) return (<Loading />);
 

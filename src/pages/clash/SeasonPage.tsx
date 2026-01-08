@@ -1,23 +1,23 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import CleartimeChart from "../../components/chart/CleartimeChart";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
 import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
+import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
-import { useSeasonData } from "../../hooks/useSeasonData";
+import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
-import BestComp from "../../components/shared/BestComp";
-import SEO from "../../commons/component/SEO";
 
 const initRange = { start: 0, end: 0 };
 
@@ -25,7 +25,7 @@ const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState('');
-    const { data, isLoading, error } = useSeasonData<ClashSeasonData | ClashExternalData>(season, 'clash');
+    const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
 
     // 순위 나누기
