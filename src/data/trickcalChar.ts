@@ -105,6 +105,7 @@ export const charInfo: CharInfoType = {
     "아르코": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-06-19", race: '정령' },
     "마카샤": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-08-14", race: '마녀' },
     "미로": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-10-23", race: '정령' },
+    "셰이디(역전)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-01-15", race: '유령' },
     "마리": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '요정' },
     "베니": { grade: 2, personality: "활발", line: "전열", birthdate: "2023-09-27", race: '수인' },
     "쥬비": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '정령' },

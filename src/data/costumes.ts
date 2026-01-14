@@ -166,6 +166,7 @@ export const costumes: Costume[] = [
     { charName: "모모", cosName: "스위트 닌자 스노우", lvl: "normal", launchDate: "2025-12-11" },
     { charName: "티그", cosName: "활발한 체육 특기생", lvl: "normal", launchDate: "2026-01-01" },
     { charName: "셀리네", cosName: "고품격 파트너", lvl: "normal", launchDate: "2026-01-08" },
+    { charName: "셰이디(역전)", cosName: "유령 수장의 이중생활", lvl: "normal", launchDate: "2026-01-15" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
