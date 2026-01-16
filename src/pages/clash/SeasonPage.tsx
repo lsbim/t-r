@@ -114,8 +114,8 @@ const SeasonPage = () => {
 
             if (data?.data.length === 300) {
                 const oneComp = processCompStat(data?.data.slice(0, 100) as ClashPlayerData[])[0]
-                const twoComp = processCompStat(data?.data.slice(101, 200) as ClashPlayerData[])[0]
-                const threeComp = processCompStat(data?.data.slice(201, 300) as ClashPlayerData[])[0]
+                const twoComp = processCompStat(data?.data.slice(100, 200) as ClashPlayerData[])[0]
+                const threeComp = processCompStat(data?.data.slice(200, 300) as ClashPlayerData[])[0]
 
                 result.push(oneComp);
                 result.push(twoComp);
