@@ -46,6 +46,7 @@ export const costumes: Costume[] = [
     { charName: "헤일리", cosName: "한겨울의 평화 사절", lvl: "normal", launchDate: "2025-12-11" },
     { charName: "아일라", cosName: "카우치 볼케이노", lvl: "normal", launchDate: "2025-12-18" },
     { charName: "캬롯", cosName: "순박한 사교 파티", lvl: "normal", launchDate: "2026-01-08" },
+    { charName: "비비", cosName: "칠흑의 다크 스완", lvl: "pretty", launchDate: "2026-01-22" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -127,6 +128,7 @@ export const costumes: Costume[] = [
     { charName: "하이디", cosName: "큐트주의보!", lvl: "normal", launchDate: "2025-12-04" },
     { charName: "벨리타", cosName: "차가운 도시 여왕님", lvl: "normal", launchDate: "2025-12-11" },
     { charName: "네르", cosName: "교단의 성찬 파티", lvl: "normal", launchDate: "2026-01-08" },
+    { charName: "다야(퓨어샤인)", cosName: "샤이닝 바니", lvl: "normal", launchDate: "2026-01-29" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
