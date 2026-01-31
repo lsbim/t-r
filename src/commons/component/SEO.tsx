@@ -20,13 +20,6 @@ const SEO: React.FC<SEOProps> = ({ title, description }) => {
         <Helmet>
             <title>{pageTitle}</title>
             <meta name="description" content={pageDescription} />
-
-            <meta property="og:title" content={pageTitle} />
-            <meta property="og:type" content="website" />
-            <meta property="og:image" content="https://trickcalrecord.pages.dev/logo.png" />
-            <meta property="og:url" content="https://trickcalrecord.pages.dev" />
-            <meta property="og:description" content={pageDescription} />
-            <meta property="og:site_name" content={DEFAULT_TITLE} />
         </Helmet>
     );
 }

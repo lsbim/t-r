@@ -335,6 +335,9 @@ export function processCompStat(
         { count: number; front: string[]; middle: string[]; back: string[] }
     >();
 
+    // const normalizeUros = (s: unknown) =>
+    //     typeof s === 'string' && s.startsWith('우로스(') ? '우로스' : s;
+
     // console.log(type)
     for (const item of data) {
         // type 매개변수의 존재 여부에 따라 사용할 배열을 결정
@@ -346,6 +349,10 @@ export function processCompStat(
         const frontArr = targetArr.slice(0, 3).sort();
         const middleArr = targetArr.slice(3, 6).sort();
         const backArr = targetArr.slice(6, 9).sort();
+
+        // const frontArr = (targetArr.slice(0, 3).map(normalizeUros) as string[]).sort();
+        // const middleArr = (targetArr.slice(3, 6).map(normalizeUros) as string[]).sort();
+        // const backArr = (targetArr.slice(6, 9).map(normalizeUros) as string[]).sort();
 
         const key =
             JSON.stringify(frontArr) + '|' +

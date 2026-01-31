@@ -40,4 +40,5 @@ export interface ClashData {
 
 export interface ClashSummary extends ClashBase {
     summary: SummaryData[];
+    stagnation?: number; // 고착화점수
 }

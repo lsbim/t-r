@@ -46,4 +46,5 @@ export interface FrontierData {
 
 export interface FrontierSummary extends FrontierBase {
     summary: SummaryData[];
+    stagnation?: number; // 고착화점수
 }

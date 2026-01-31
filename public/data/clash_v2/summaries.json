@@ -9,7 +9,6 @@
       "기본 SP 회복량 30% 증가"
     ],
     "maxLvl": 24,
-    "maxSideLvl": 24,
     "summary": [
       {
         "name": "비비",
@@ -232,6 +231,11 @@
         "count": 1
       }
     ],
+    "stagnation": {
+      "arr": 10.2,
+      "side": 0.4
+    },
+    "maxSideLvl": 24,
     "sideSummary": [
       {
         "name": "아사나",
@@ -680,7 +684,6 @@
       "성격 상성으로 받는 피해량 50% 감소"
     ],
     "maxLvl": 18,
-    "maxSideLvl": 18,
     "summary": [
       {
         "name": "벨라",
@@ -1028,6 +1031,11 @@
         "count": 1
       }
     ],
+    "stagnation": {
+      "arr": 0.6,
+      "side": 0.5
+    },
+    "maxSideLvl": 18,
     "sideSummary": [
       {
         "name": "비비",

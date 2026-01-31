@@ -45,10 +45,28 @@ async function buildSummaries() {
             const seasonType = raw.type;
 
             let seasonData = null;
+            let stagnation = null;
 
             // ① 등장 횟수 계산
             if (seasonType === "season") { // 
                 seasonData = processSummary(records);
+
+                // 고착화 점수 계산
+                if (Array.isArray(records) && records.length >= 2) {
+                    const arrScore = calculateStagnationScore(records, 'arr');
+
+                    if (raidType === 'clashV2') {
+                        const sideScore = calculateStagnationScore(records, 'sideArr');
+                        stagnation = {
+                            arr: arrScore,
+                            side: sideScore
+                        };
+                    } else {
+                        stagnation = {
+                            arr: arrScore
+                        };
+                    }
+                }
             } else if (seasonType === "external") {
                 seasonData = records;
             }
@@ -59,28 +77,25 @@ async function buildSummaries() {
                 dataMap[raidType][seasonName] = { power: raw.power }
             }
 
+            const resultData = {
+                personality: raw.personality,
+                name: raw.name,
+                startDate: raw.startDate,
+                endDate: raw.endDate,
+                ...dataMap[raidType][seasonName],
+                maxLvl: raw.maxLvl,
+                summary: seasonData,
+                stagnation: stagnation
+            }
+
             if (raidType === 'clashV2') {
                 dataMap[raidType][seasonName] = {
-                    personality: raw.personality,
-                    name: raw.name,
-                    startDate: raw.startDate,
-                    endDate: raw.endDate,
-                    ...dataMap[raidType][seasonName],
-                    maxLvl: raw.maxLvl,
+                    ...resultData,
                     maxSideLvl: raw.maxSideLvl,
-                    summary: seasonData,
                     sideSummary: processSummary(raw.data, 'side')
                 };
             } else {
-                dataMap[raidType][seasonName] = {
-                    personality: raw.personality,
-                    name: raw.name,
-                    startDate: raw.startDate,
-                    endDate: raw.endDate,
-                    ...dataMap[raidType][seasonName],
-                    maxLvl: raw.maxLvl,
-                    summary: seasonData
-                };
+                dataMap[raidType][seasonName] = resultData;
             }
 
         } // files 종료
@@ -183,4 +198,54 @@ function processSummary(data, type) {
     // Map 의 value 들을 배열로 만들어서 반환
     // console.log(Array.from(map.values()));
     return Array.from(map.values());
+}
+
+// 지니계수/자카드유사도 => 부정확
+// 고착화 점수 평가(HHI) - 조합단위
+function calculateStagnationScore(records, key) {
+    let totalEntries = 0;
+    const deckCounts = {}; // Key: 조합, Value: 횟수
+
+    // 데이터 순회하며 조합단위로 카운팅
+    records.forEach(user => {
+        const rawDeck = user[key];
+        if (Array.isArray(rawDeck) && rawDeck.length > 0) {
+
+            // 우로스 성격 통합
+            const cleanedDeck = rawDeck.map(name =>
+                name.startsWith('우로스(') ? '우로스' : name
+            );
+
+            // 조합 key (가나다 순 정렬 -> 문자열 변환)
+            // 조합이 같아도 순서가 달라서 다른 조합이 되지 않도록
+            cleanedDeck.sort();
+            const deckId = JSON.stringify(cleanedDeck);
+
+            // 카운팅
+            deckCounts[deckId] = (deckCounts[deckId] || 0) + 1;
+            totalEntries++;
+        }
+    });
+
+    if (totalEntries === 0) return 0;
+
+    // HHI (허핀달 지수) 계산
+    // 공식: 각 조합의 점유율(%)을 제곱해서 모두 더함
+    // 예) A조합 50%, B조합 50% -> 2500 + 2500 = 5000점
+    // 예) 100개 조합이 1%씩 -> 100 * 1 = 100점
+
+    let hhiSum = 0;
+
+    // 조합 순회
+    for (const deckId in deckCounts) {
+        const count = deckCounts[deckId];
+        const share = (count / totalEntries) * 100; // 점유율
+
+        // 점유율을 제곱하여 합산
+        hhiSum += Math.pow(share, 2);
+    }
+
+
+    // 표준인 10000점 만점에서 100으로 나누어 반환
+    return Number((hhiSum / 100).toFixed(1));
 }
