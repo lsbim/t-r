@@ -2,7 +2,7 @@
 import { ClashBase } from "./clashTypes";
 import { SummaryData } from "./trickcalTypes";
 
-export const clashV2BossList: string[] = ["흑화 영춘"];
+export const clashV2BossList: string[] = ["흑화 영춘", "냥만 타워"];
 
 // 차원 대충돌 개인 데이터
 export interface ClashV2PlayerData {
