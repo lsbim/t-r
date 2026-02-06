@@ -15,9 +15,10 @@ const BossProfile: React.FC<BossProfileProps> = ({
     const bossImgUrl = personality ? `/images/boss/${name}(${personality}).webp`
         : `/images/boss/${name}.webp`
 
-    const customTranslateY = personality ? '-translate-y-[25%]'
+    const customTranslateY = personality && name !== '냥만 타워' ? '-translate-y-[25%]'
         : name === '크레용사용' ? '-translate-y-[40%]'
-            : '-translate-y-[30%]';
+            : name === '냥만 타워' ? '-translate-y-[10%]'
+                : '-translate-y-[30%]';
 
 
     return (

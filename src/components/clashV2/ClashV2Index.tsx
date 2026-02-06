@@ -48,7 +48,11 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
                                 <h3 className="absolute z-20 text-xl font-bold dark:text-zinc-200">{bossName}</h3>
                                 <BossProfile
                                     name={bossName}
-                                    personality={'광기'}
+                                    personality={
+                                        bossName === '흑화 영춘' ? '광기'
+                                            : bossName === '냥만 타워' ? '순수'
+                                                : undefined
+                                    }
                                 />
                             </div>
 
