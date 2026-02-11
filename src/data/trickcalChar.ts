@@ -58,6 +58,7 @@ export const charInfo: CharInfoType = {
     "디아나(왕년)": { grade: 3, personality: "냉정", line: "전열", birthdate: "2025-06-05", race: '수인', eldain: true },
     "시저": { grade: 3, personality: "냉정", line: "중열", birthdate: "2025-08-28", race: '정령' },
     "베니(베니)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-11-20", race: '수인' },
+    "잉클": { grade: 3, personality: "냉정", line: "후열", birthdate: "2026-02-12", race: '정령' },
     "에스피": { grade: 2, personality: "냉정", line: "후열", birthdate: "2023-09-27", race: '유령' },
     "레테": { grade: 2, personality: "냉정", line: "전열", birthdate: "2024-07-04", race: '유령' },
     "칸타": { grade: 2, personality: "냉정", line: "중열", birthdate: "2024-09-12", race: '요정' },

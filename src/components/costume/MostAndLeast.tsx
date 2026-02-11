@@ -1,6 +1,8 @@
+import CharacterIcon from "../../commons/icon/CharacterIcon";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { charInfo } from "../../data/trickcalChar";
 import { CostumeMapItem } from "../../pages/costume/IndexPage";
+import CostumeAccordion from "./CostumeAccordion";
 
 const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeMapItem[] }) => {
 
@@ -23,19 +25,30 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
 
                         return (
                             <div
-                                className="border-l-4 border-orange-500 pl-4 pb-2"
+                                className="border-l-4 border-orange-500 pl-4 pb-2 pt-1 flex h-[90px]"
                                 key={"costume_most" + i}>
-                                <div className="flex items-center gap-x-2">
-                                    <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
-                                    <div className="text-orange-500 font-bold">{c.count}개</div>
+                                <div className="sm:w-1/2 w-full">
+                                    <div className="flex items-center gap-x-2">
+                                        <CharacterIcon
+                                            name={c.charName}
+                                            type="micro"
+                                        />
+                                        <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
+                                        <div className="text-orange-500 font-bold">{c.count}개</div>
+                                    </div>
+                                    <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
+                                        <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
+                                        <span className="ml-1">
+                                            • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
+                                        </span>
+                                    </div>
+                                    <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate}</div>
                                 </div>
-                                <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
-                                    <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
-                                    <span className="ml-1">
-                                        • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
-                                    </span>
+                                <div className="sm:w-1/2 sm:inline hidden mr-1">
+                                    <CostumeAccordion
+                                        items={c?.costumes.reverse()}
+                                    />
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate}</div>
                             </div>
                         )
                     })}
@@ -65,19 +78,30 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
 
                         return (
                             <div
-                                className="border-l-4 border-gray-300 pl-4 pb-2"
+                                className="border-l-4 border-gray-300 pl-4 pb-2 pt-1 flex"
                                 key={"costume_least" + i}>
-                                <div className="flex items-center gap-x-2">
-                                    <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
-                                    <div className="text-gray-500 font-bold">{c.count}개</div>
+                                <div className="sm:w-1/2 w-full">
+                                    <div className="flex items-center gap-x-2">
+                                        <CharacterIcon
+                                            name={c.charName}
+                                            type="micro"
+                                        />
+                                        <div className="text-[16px] md:text-[18px] font-bold">{c.charName}</div>
+                                        <div className="text-orange-500 font-bold">{c.count}개</div>
+                                    </div>
+                                    <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
+                                        <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
+                                        <span className="ml-1">
+                                            • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
+                                        </span>
+                                    </div>
+                                    <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate}</div>
                                 </div>
-                                <div className="text-gray-500 dark:text-zinc-400 text-[14px] flex my-1">
-                                    <PersonalityIcon personality={charInfo[c.charName].personality} size={22} />
-                                    <span className="ml-1">
-                                        • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
-                                    </span>
+                                <div className="sm:w-1/2 sm:inline hidden mr-1">
+                                    <CostumeAccordion
+                                        items={c?.costumes.reverse()}
+                                    />
                                 </div>
-                                <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate === '2023-09-27' ? '無' : c.latestDate}</div>
                             </div>
                         );
                     })}

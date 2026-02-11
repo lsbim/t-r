@@ -89,6 +89,7 @@ export const costumes: Costume[] = [
     { charName: "코미(수영복)", cosName: "호호 불어 냥구마", lvl: "normal", launchDate: "2025-12-11" },
     { charName: "피코라", cosName: "트윙클 스윗 리본", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "프리클", cosName: "크리미널 하우스키핑", lvl: "normal", launchDate: "2026-02-05" },
+    { charName: "잉클", cosName: "차원이 다른 문학소녀", lvl: "normal", launchDate: "2026-02-12" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
