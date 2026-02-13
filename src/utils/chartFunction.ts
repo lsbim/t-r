@@ -473,7 +473,7 @@ export function processPersonalityPie(
 
     const personalityData: PersonalityPieData = {};
 
-    for (const user of data) {
+    data.forEach((user, index) => {
         // console.log(user);
 
         // 내가 수집한 자료일 때
@@ -481,6 +481,9 @@ export function processPersonalityPie(
             if (type === 'side' && 'sideArr' in user) {
                 // 캐릭터 배열 순회하며 성격 수++
                 for (const name of user.sideArr) {
+                    if (name.startsWith('clashV2Side')) {
+                        console.log(`'sideArr' [index: ${index}] ${name} << 보유중`)
+                    }
                     const persty = charInfo[name].personality;
                     // null 또는 undefined 라면 0 할당
                     personalityData[persty] = (personalityData[persty] ?? 0) + 1;
@@ -488,6 +491,9 @@ export function processPersonalityPie(
             } else {
                 // 캐릭터 배열 순회하며 성격 수++
                 for (const name of user.arr) {
+                    if (name.startsWith('clashV2Side')) {
+                        console.log(`'arr' [index: ${index}] ${name} << 보유중`)
+                    }
                     const persty = charInfo[name].personality;
                     // null 또는 undefined 라면 0 할당
                     personalityData[persty] = (personalityData[persty] ?? 0) + 1;
@@ -498,8 +504,7 @@ export function processPersonalityPie(
             const persty = charInfo[user?.name].personality;
             personalityData[persty] = (personalityData[persty] ?? 0) + user?.count;
         }
-
-    }
+    });
     // console.log(personalityData);
     // console.log(Object.values(personalityData).reduce((a, b) => a + b, 0));
 

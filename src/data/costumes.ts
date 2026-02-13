@@ -87,6 +87,7 @@ export const costumes: Costume[] = [
     { charName: "아야", cosName: "첫 눈송이의 춤사위", lvl: "normal", launchDate: "2025-11-13" },
     { charName: "베니(베니)", cosName: "검도부 대련 일지", lvl: "normal", launchDate: "2025-11-20" },
     { charName: "코미(수영복)", cosName: "호호 불어 냥구마", lvl: "normal", launchDate: "2025-12-11" },
+    { charName: "아멜리아", cosName: "[아이돌: N.Y.A.N.Y.A]", lvl: "normal", launchDate: "2026-01-01" },
     { charName: "피코라", cosName: "트윙클 스윗 리본", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "프리클", cosName: "크리미널 하우스키핑", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "잉클", cosName: "차원이 다른 문학소녀", lvl: "normal", launchDate: "2026-02-12" },

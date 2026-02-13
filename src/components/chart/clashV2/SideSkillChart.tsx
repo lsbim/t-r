@@ -12,7 +12,7 @@ import { Bar } from "react-chartjs-2";
 import InfoIcon from "../../../commons/icon/InfoIcon";
 import { useTheme } from "../../../hooks/useTheme";
 import { ClashV2SeasonData } from "../../../types/clashV2Types";
-import { getSideSkillKrName } from '../../../data/sideSkill';
+import { getSideSkillBGColor, getSideSkillKrName, sideSkillList } from '../../../data/sideSkill';
 
 // Bar 차트에 필요한 요소 등록
 ChartJS.register(
@@ -37,31 +37,34 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
         return sideSkills?.find(s => s?.name === skillName)?.level || 0;
     };
 
+    const usedSkillNames = new Set<string>();
+
+    arr.forEach(item => {
+        item?.sideSkills?.forEach(skill => {
+            if (skill?.level > 0) {
+                usedSkillNames.add(skill.name);
+            }
+        });
+    });
+
+    const activeSkills = sideSkillList.filter(skill =>
+        usedSkillNames.has(skill.name)
+    );
+
+    const datasets = activeSkills.map(skill => {
+        const color = getSideSkillBGColor(skill?.name);
+
+        return {
+            label: skill?.krName,
+            data: arr.map(item => getSkillLevel(item?.sideSkills || [], skill?.name)),
+            backgroundColor: color,
+        };
+    });
+
+
     const chartData = {
         labels: arr.map(item => item.rank),
-        datasets: [
-            {
-                label: getSideSkillKrName('clashV2Side1'),
-                data: arr.map(item => getSkillLevel(item?.sideSkills || [], 'clashV2Side1')),
-                backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 0,
-            },
-            {
-                label: getSideSkillKrName('clashV2Side2'),
-                data: arr.map(item => getSkillLevel(item?.sideSkills || [], 'clashV2Side2')),
-                backgroundColor: 'rgba(255, 206, 86, 0.7)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 0,
-            },
-            {
-                label: getSideSkillKrName('clashV2Side3'),
-                data: arr.map(item => getSkillLevel(item?.sideSkills || [], 'clashV2Side3')),
-                backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 0,
-            },
-        ]
+        datasets: datasets
     };
 
     const chartOptions: ChartOptions<'bar'> = {
