@@ -1,3 +1,4 @@
+import React from "react";
 import CharacterIcon from "../../commons/icon/CharacterIcon";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { charInfo } from "../../data/trickcalChar";
@@ -46,7 +47,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                 </div>
                                 <div className="sm:w-1/2 sm:inline hidden mr-1">
                                     <CostumeAccordion
-                                        items={c?.costumes.reverse()}
+                                        items={c?.costumes.toReversed()}
                                     />
                                 </div>
                             </div>
@@ -122,4 +123,4 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
     );
 }
 
-export default MostAndLeast;
+export default React.memo(MostAndLeast);

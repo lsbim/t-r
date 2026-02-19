@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import SortArrowIcon from "../../commons/icon/SortArrowIcon";
 import { charInfo } from "../../data/trickcalChar";
@@ -204,4 +204,4 @@ function boardCategoryWidthStyle(type: 'name' | 'count' | 'since' | 'birthDate')
     }
 };
 
-export default CostumeBoard;
+export default React.memo(CostumeBoard);
