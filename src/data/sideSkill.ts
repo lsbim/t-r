@@ -39,7 +39,7 @@ export const sideSkillList: sideSkill[] = [
     },
 ]
 
-export function getSideSkillKrName(name: string) {
+export function getSideSkillKrName(name: string): string {
     return sideSkillList.find(s => s?.name === name)?.krName || '';
 }
 
