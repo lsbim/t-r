@@ -220,7 +220,8 @@ export const costumes: Costume[] = [
     { charName: "요미", cosName: "마법의 달빛", lvl: "pretty", launchDate: "2026-01-01" },
     { charName: "스노키", cosName: "와일드 파티 비기너", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "키디언", cosName: "옵시디언 메이든", lvl: "normal", launchDate: "2026-02-05" },
-    
+    { charName: "아멜리아(R41)", cosName: "푸른 숲속 엘프", lvl: "normal", launchDate: "2026-02-26" },
+
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "우로스", cosName: "선도부장 선배님", lvl: "normal", launchDate: "2025-09-25" },

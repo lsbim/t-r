@@ -1,0 +1,13 @@
+{
+  "personality": "광기",
+  "name": "릴1리",
+  "startDate": "2026-02-19",
+  "endDate": "2026-02-26",
+  "rules": [
+    "기본 SP 회복량 30% 증가",
+    "후열 사도의 피해량 25% 증가"
+  ],
+  "maxLvl": 27,
+  "type": "season",
+  "data": []
+}

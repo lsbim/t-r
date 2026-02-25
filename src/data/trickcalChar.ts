@@ -134,6 +134,7 @@ export const charInfo: CharInfoType = {
     "로네(시장)": { grade: 3, personality: "우울", line: "중열", birthdate: "2025-07-31", race: '엘프' },
     "아사나": { grade: 3, personality: "우울", line: "전열", birthdate: "2025-11-06", race: '마녀' },
     "요미": { grade: 3, personality: "우울", line: "중열", birthdate: "2026-01-01", race: '미스틱', eldain: true },
+    "아멜리아(R41)": { grade: 3, personality: "우울", line: "후열", birthdate: "2026-02-26", race: '엘프' },
     "레비": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-09-27", race: '마녀' },
     "실피르": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-11-09", race: '용족' },
     "페스타": { grade: 2, personality: "우울", line: "전열", birthdate: "2023-09-27", race: '엘프' },
