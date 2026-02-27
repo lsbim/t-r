@@ -9,6 +9,7 @@ export interface ClashPlayerData {
     grade: number;
     duration: number;
     arr: string[];
+    score?: number
 }
 
 export interface ClashBase {
