@@ -48,6 +48,7 @@ export const costumes: Costume[] = [
     { charName: "캬롯", cosName: "순박한 사교 파티", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "비비", cosName: "칠흑의 다크 스완", lvl: "pretty", launchDate: "2026-01-22" },
     { charName: "에르핀", cosName: "풀오토 고딕", lvl: "normal", launchDate: "2026-02-05" },
+    { charName: "나이아", cosName: "템포 업! 응원 루키!", lvl: "normal", launchDate: "2026-03-05" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -92,6 +93,7 @@ export const costumes: Costume[] = [
     { charName: "프리클", cosName: "크리미널 하우스키핑", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "잉클", cosName: "차원이 다른 문학소녀", lvl: "normal", launchDate: "2026-02-12" },
     { charName: "이드", cosName: "꿈속에서 다시 만난", lvl: "pretty", launchDate: "2026-02-19" },
+    { charName: "벨벳", cosName: "스윙 앤 치어", lvl: "normal", launchDate: "2026-03-05" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
@@ -135,6 +137,7 @@ export const costumes: Costume[] = [
     { charName: "네르", cosName: "교단의 성찬 파티", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "다야(퓨어샤인)", cosName: "샤이닝 바니", lvl: "normal", launchDate: "2026-01-29" },
     { charName: "롤렛", cosName: "롱 레인지 서비스", lvl: "normal", launchDate: "2026-02-05" },
+    { charName: "시스트", cosName: "응원 대행 서비스", lvl: "normal", launchDate: "2026-03-05" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
@@ -176,6 +179,7 @@ export const costumes: Costume[] = [
     { charName: "셀리네", cosName: "고품격 파트너", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "셰이디(역전)", cosName: "유령 수장의 이중생활", lvl: "normal", launchDate: "2026-01-15" },
     { charName: "버터", cosName: "에이프런 매그넘", lvl: "normal", launchDate: "2026-02-05" },
+    { charName: "루포", cosName: "치어 앤 플로우", lvl: "normal", launchDate: "2026-03-05" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
@@ -221,6 +225,7 @@ export const costumes: Costume[] = [
     { charName: "스노키", cosName: "와일드 파티 비기너", lvl: "normal", launchDate: "2026-01-08" },
     { charName: "키디언", cosName: "옵시디언 메이든", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "아멜리아(R41)", cosName: "푸른 숲속 엘프", lvl: "normal", launchDate: "2026-02-26" },
+    { charName: "블랑셰", cosName: "스타디움의 푸른 장미", lvl: "normal", launchDate: "2026-03-05" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
