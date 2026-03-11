@@ -22,7 +22,7 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     return response.json();
 };
 
-const fetchSummaryData = async (type: TrickcalRaidEn | 'latest', category: 'summary' | 'stats') => {
+export const fetchSummaryData = async (type: TrickcalRaidEn | 'latest', category: 'summary' | 'stats') => {
 
     const typeDir = type === 'clashV2' ? 'clash_v2' : type
 
