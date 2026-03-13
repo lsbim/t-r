@@ -49,6 +49,7 @@ export const costumes: Costume[] = [
     { charName: "비비", cosName: "칠흑의 다크 스완", lvl: "pretty", launchDate: "2026-01-22" },
     { charName: "에르핀", cosName: "풀오토 고딕", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "나이아", cosName: "템포 업! 응원 루키!", lvl: "normal", launchDate: "2026-03-05" },
+    { charName: "델리아", cosName: "내 꿈은 야광 공룡", lvl: "normal", launchDate: "2026-03-12" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },

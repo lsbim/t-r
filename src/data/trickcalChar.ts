@@ -30,6 +30,7 @@ export const charInfo: CharInfoType = {
     "캐시": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-07-03", race: '엘프' },
     "뮤트": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-11", race: '정령' },
     "아일라": { grade: 3, personality: "순수", line: "중열", birthdate: "2025-12-18", race: '정령' },
+    "델리아": { grade: 3, personality: "순수", line: "전열", birthdate: "2026-03-12", race: '수인' },
     "가비아": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", race: '정령' },
     "로네": { grade: 2, personality: "순수", line: "전열", birthdate: "2023-09-27", race: '엘프' },
     "마고": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", race: '요정' },
