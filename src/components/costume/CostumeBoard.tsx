@@ -141,7 +141,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                                 data-tooltip-id="my-tooltip"
                                 data-tooltip-content={c?.costumes && c?.costumes[c.costumes.length - 1]?.cosName}
                                 className={`flex items-center justify-center ${getSinceColor(c.since)}`}>
-                                {c.latestDate === "2023-09-27" ? "-" : `${c.since}일 전`}
+                                {c.latestDate === "2023-09-27" ? "없음" : `${c.since}일 전`}
                             </span>
                         </div>
                         <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 dark:text-zinc-400 ${boardCategoryWidthStyle('birthDate')}`}>

@@ -96,7 +96,9 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                             • {charInfo[c.charName].line} • {charInfo[c.charName].grade}성
                                         </span>
                                     </div>
-                                    <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">마지막 사복: {c.latestDate}</div>
+                                    <div className="md:text-[14px] text-[12px] text-gray-700 dark:text-zinc-200">
+                                        마지막 사복: {c.latestDate === '2023-09-27' ? '없음' : c.latestDate}
+                                    </div>
                                 </div>
                                 <div className="sm:w-1/2 sm:inline hidden mr-1">
                                     <CostumeAccordion
