@@ -181,6 +181,7 @@ export const costumes: Costume[] = [
     { charName: "셰이디(역전)", cosName: "유령 수장의 이중생활", lvl: "normal", launchDate: "2026-01-15" },
     { charName: "버터", cosName: "에이프런 매그넘", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "루포", cosName: "치어 앤 플로우", lvl: "normal", launchDate: "2026-03-05" },
+    { charName: "에피카", cosName: "오케스토리의 지휘자", lvl: "pretty", launchDate: "2026-03-19" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
