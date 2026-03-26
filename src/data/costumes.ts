@@ -50,6 +50,8 @@ export const costumes: Costume[] = [
     { charName: "에르핀", cosName: "풀오토 고딕", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "나이아", cosName: "템포 업! 응원 루키!", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "델리아", cosName: "내 꿈은 야광 공룡", lvl: "normal", launchDate: "2026-03-12" },
+    { charName: "에르핀(왕도)", cosName: "일일 사제장 네르핀", lvl: "normal", launchDate: "2026-03-28" },
+    { charName: "에르핀(왕도)", cosName: "왕관의 주인공", lvl: "pretty", launchDate: "2026-03-28" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -182,6 +184,8 @@ export const costumes: Costume[] = [
     { charName: "버터", cosName: "에이프런 매그넘", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "루포", cosName: "치어 앤 플로우", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "에피카", cosName: "오케스토리의 지휘자", lvl: "pretty", launchDate: "2026-03-19" },
+    { charName: "네르(빡침)", cosName: "일일 요정 여왕", lvl: "normal", launchDate: "2026-03-26" },
+    { charName: "네르(빡침)", cosName: "왕관의 수여자", lvl: "pretty", launchDate: "2026-03-26" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },

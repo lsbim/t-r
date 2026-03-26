@@ -39,6 +39,7 @@ export const charInfo: CharInfoType = {
     "알레트": { grade: 1, personality: "순수", line: "전열", birthdate: "2023-09-27" },
     "사리": { grade: 1, personality: "순수", line: "중열", birthdate: "2023-09-27" },
     "큐이": { grade: 1, personality: "순수", line: "중열", birthdate: "2023-09-27" },
+    "에르핀(왕도)": { grade: 3, personality: "순수", line: "중열", birthdate: "2026-03-28", race: '요정', eldain: true },
 
     // 냉정
     "이드": { grade: 3, personality: "냉정", line: "전열", birthdate: "2024-03-28", race: '엘프', eldain: true },
@@ -116,6 +117,7 @@ export const charInfo: CharInfoType = {
     "밍스": { grade: 1, personality: "활발", line: "전열", birthdate: "2023-09-27" },
     "타이다": { grade: 1, personality: "활발", line: "후열", birthdate: "2023-09-27" },
     "카렌": { grade: 1, personality: "활발", line: "후열", birthdate: "2023-09-27" },
+    "네르(빡침)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-03-26", race: '요정', eldain: true },
 
     // 우울
     "시온": { grade: 3, personality: "우울", line: "후열", birthdate: "2023-09-27", race: '유령', eldain: true },
