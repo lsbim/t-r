@@ -34,7 +34,7 @@ export default defineConfig(() => {
             react(),
         ],
         esbuild: {
-            drop: ['console', 'debugger'],
+            drop: ['debugger'],
         },
     };
 });

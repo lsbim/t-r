@@ -37,6 +37,18 @@ export const sideSkillList: sideSkill[] = [
         description: '일반 공격 3회 적중 시 n%의\n추가 피해를 입힌다.',
         backgroundColor: 'rgba(162, 190, 94, 0.7)',
     },
+    {
+        name: 'clashV2Side6',
+        krName: '흐에X에X엥',
+        description: '일반 공격 3회 적중 시 n%의\n추가 피해 저학년 스킬, 고학년\n스킬 피해량 5% 감소',
+        backgroundColor: 'rgba(220, 214, 203, 0.7)',
+    },
+    {
+        name: 'clashV2Side7',
+        krName: 'XX 걷기 좋은날',
+        description: '고학년 스킬 재사용 대기시간 1초\n 감소, SP회복량 12%감소,\n디버프에 걸린 적에게 주는\n피해량 10% 증가',
+        backgroundColor: 'rgba(69, 64, 64, 0.7)',
+    },
 ]
 
 export function getSideSkillKrName(name: string): string {

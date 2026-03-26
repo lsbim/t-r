@@ -166,6 +166,7 @@ export function processRankingArrDataV2(
     type?: 'side'
 ): SummaryData[] {
 
+
     const aggMap = new Map<string, {
         name: string;
         line: BaseLine;
