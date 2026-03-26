@@ -50,6 +50,7 @@ export const costumes: Costume[] = [
     { charName: "에르핀", cosName: "풀오토 고딕", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "나이아", cosName: "템포 업! 응원 루키!", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "델리아", cosName: "내 꿈은 야광 공룡", lvl: "normal", launchDate: "2026-03-12" },
+    { charName: "헤일리", cosName: "오늘도 열혈 트레이닝", lvl: "normal", launchDate: "2026-03-26" },
     { charName: "에르핀(왕도)", cosName: "일일 사제장 네르핀", lvl: "normal", launchDate: "2026-03-28" },
     { charName: "에르핀(왕도)", cosName: "왕관의 주인공", lvl: "pretty", launchDate: "2026-03-28" },
 
@@ -232,6 +233,8 @@ export const costumes: Costume[] = [
     { charName: "키디언", cosName: "옵시디언 메이든", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "아멜리아(R41)", cosName: "푸른 숲속 엘프", lvl: "normal", launchDate: "2026-02-26" },
     { charName: "블랑셰", cosName: "스타디움의 푸른 장미", lvl: "normal", launchDate: "2026-03-05" },
+    { charName: "실피르", cosName: "웨스트 블루 제독님", lvl: "normal", launchDate: "2026-03-26" },
+    { charName: "림", cosName: "차분한 파티 호스트", lvl: "normal", launchDate: "2026-03-26" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
