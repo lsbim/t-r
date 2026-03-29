@@ -18,14 +18,27 @@ const allGameData = {
 // 재료 정보를 빠르게 찾기 위한 Map
 const materialMap = new Map(materials.map(m => [m.name, m]));
 
+// 모험에서 드랍하는 재료 목록
+const adventureDropSet = new Set<string>(
+    Object.values(adventure).flatMap(adv =>
+        adv.yieldMaterials.map(m => m.name)
+    )
+);
+
 // 재료의 가치(동일 등급의 재료끼리만 한 모험 내에서 비교)
 const materialVaules = calculateMaterialValues(allGameData);
 
 // 시설 업그레이드
 export const simFacility = (request: FacilitySimRequest, curInventory?: Map<string, number>): SimFacilityResult => {
-    const targets = Object.entries(request.target);
+    // 모험회를 1순위로
+    const targetOrder: Record<string, number> = { adv: 1, hq: 2, lab: 3, hall: 4 };
+    const targets = Object.entries(request.target).sort(
+        ([keyA], [keyB]) => (targetOrder[keyA] || 99) - (targetOrder[keyB] || 99)
+    );
     const resultArr: SimResponse[] = [];
     const inventory = new Map(curInventory || []);
+
+    let dynamicAdvLvl = request?.currentAdv;
 
     // console.log("facility", inventory)
     // console.log('--------------------------------------------------')
@@ -39,7 +52,7 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
 
         const facilityObj = Object.entries(facilities[krName] || {});
 
-        let startLvl: number = 0;
+        let startLvl = request[`current${key.charAt(0).toUpperCase() + key.slice(1)}` as keyof FacilitySimRequest] as number || 1;
 
         // 건물 추가 시 잊지말고 추가
         switch (key) {
@@ -71,16 +84,21 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
             });
 
             // console.log(`needMaterials: `,needMaterials)
+            const simLvl = key === 'adv'
+                ? Math.max(numlvl - 1, request.currentAdv)
+                : dynamicAdvLvl;
 
             // 현재 모험회 레벨을 전달
             const result = createIntegratedPlan(
-                krName === '모험회'
-                    ? Math.max(numlvl - 1, request.currentAdv)
-                    : request.currentAdv || 1,
+                simLvl,
                 needMaterials,
                 inventory,
                 true
             );
+
+            if (key === 'adv') {
+                dynamicAdvLvl = Math.max(dynamicAdvLvl, numlvl);
+            }
 
             resultArr.push({
                 result,
@@ -170,6 +188,33 @@ export function createIntegratedPlan(
     isMutateInventory: boolean = false
 ): SimResult {
 
+    const globalNeeds = new Map<string, number>();
+
+    // 하위 재료까지 풀어서 등록하는 재귀함수
+    const calculateBaseNeeds = (name: string, qty: number) => {
+
+        // 모험에서 획득 가능한 재료는 분해하지 않음
+        if (adventureDropSet.has(name)) {
+            globalNeeds.set(name, (globalNeeds.get(name) || 0) + qty);
+            return;
+        }
+
+        const matInfo = materialMap.get(name);
+        if (matInfo && matInfo.ingredient && matInfo.ingredient.length > 0) {
+            matInfo.ingredient.forEach(ing => calculateBaseNeeds(ing.name, ing.qty * qty));
+        } else {
+            globalNeeds.set(name, (globalNeeds.get(name) || 0) + qty);
+        }
+    };
+
+    // 필요 재료목록 순회하여 등록
+    needMaterials.forEach((qty, name) => {
+        if (name !== 'gold') calculateBaseNeeds(name, qty);
+    });
+
+    // 필요 재료목록 확인
+    // console.log('globalNeeds:', Object.fromEntries(globalNeeds));
+
     // 해당 단계에서 사용될 컨텍스트
     // 같은 모험에서 나올 부산물 체크 용도
     const context: PlanContext = {
@@ -177,6 +222,7 @@ export function createIntegratedPlan(
             ? (inventory || new Map())  // 원본을 직접 사용
             : new Map(inventory || []),
         adventureRuns: new Map(),
+        globalNeeds: globalNeeds,
     };
 
     const acquisitionPlans = Array.from(needMaterials.entries())
@@ -222,7 +268,7 @@ function planAcquisitionRecursive(
         };
     }
 
-    const bestAdventure = findBestAdventure(materialName, currentAdvLvl, allGameData);
+    const bestAdventure = findBestAdventure(materialName, currentAdvLvl, allGameData, context);
 
     // 모험 수급 시
     if (bestAdventure) {
@@ -345,6 +391,7 @@ function planAcquisitionRecursive(
 interface PlanContext {
     inventory: Map<string, number>; // 계획상 획득할 모든 재료의 종합 인벤토리
     adventureRuns: Map<string, { min: number, max: number }>; // 모험별 최종 필요 횟수
+    globalNeeds: Map<string, number>; // 필요한 모든 재료
 }
 
 
@@ -352,59 +399,50 @@ interface PlanContext {
 function findBestAdventure(
     targetMaterial: string,
     currentAdvLvl: number,
-    data: typeof allGameData
+    data: typeof allGameData,
+    context: PlanContext
 ): BestAdventureResult | null {
 
-    // 모든 재료의 가치를 계산
-    const adventureScores = new Map<string, number>();
 
-    // 각 모험의 효율성 점수 계산
-    for (const [advName, advDetails] of Object.entries(data.adventure)) {
-        let totalEfficiencyScore = 0;
-
-        for (const materialDrop of advDetails.yieldMaterials) {
-            const { name: materialName, yieldType } = materialDrop;
-            const value = materialVaules.get(materialName) || 0;
-            const yields = (data.MATERIAL_YIELD_TYPES as MaterialYieldTypesData)[yieldType];
-
-            if (!yields) continue;
-
-            // 평균 획득량 계산 (레벨 2, 3, 4의 평균 합)
-            const avgYield = (
-                (yields[2].min + yields[2].max) / 2 +
-                (yields[3].min + yields[3].max) / 2 +
-                (yields[4].min + yields[4].max) / 2
-            );
-
-            totalEfficiencyScore += value * avgYield;
-        }
-
-        adventureScores.set(advName, totalEfficiencyScore);
-    }
-
-    // 목표 재료를 획득할 수 있는 모험들 중에서 현재 레벨로 수행 가능한 것만 필터링
     const candidateAdventures: BestAdventureResult[] = Object.entries(data.adventure)
         .filter(([_, details]) => {
-            // 목표 재료를 드롭하는지 확인
-            const dropsTarget = details.yieldMaterials.some(m => m.name === targetMaterial);
-            // 현재 모험회 레벨로 수행 가능한지 확인
-            const isAccessible = details.advLvl <= currentAdvLvl;
-
-            return dropsTarget && isAccessible;
+            return details.yieldMaterials.some(m => m.name === targetMaterial)
+                && details.advLvl <= currentAdvLvl;
         })
-        .map(([name, details]) => ({
-            name,
-            details,
-            requiredAdvLvl: details.advLvl,
-            efficiencyScore: adventureScores.get(name) || 0,
-        }));
+        .map(([name, details]) => {
+            let efficiencyScore = 0;
 
-    if (candidateAdventures.length === 0) {
-        // 현재 레벨로 수행 가능한 모험이 없으면 null 반환
-        return null;
-    }
+            for (const drop of details.yieldMaterials) {
+                const yields = (data.MATERIAL_YIELD_TYPES as any)[drop.yieldType];
 
-    // 효율성이 가장 높은 모험 선택 - 점수 내림차순으로 0번인덱스 채택
+
+                if (!yields) continue;
+
+                const avgYield =
+                    (yields[2].min + yields[2].max) / 2 +
+                    (yields[3].min + yields[3].max) / 2 +
+                    (yields[4].min + yields[4].max) / 2;
+
+                const value = materialVaules.get(drop.name) || 1;
+
+                if (drop.name === targetMaterial) {
+                    // 타겟 재료는 무조건 점수 반영
+                    efficiencyScore += value * avgYield * 1.5;
+                } else {
+                    // 부산물은 globalNeeds에 있고 인벤토리가 부족할 때만 점수 반영
+                    const totalNeeded = context.globalNeeds.get(drop.name) || 0;
+                    const currentStock = context.inventory.get(drop.name) || 0;
+                    if (totalNeeded > currentStock) {
+                        efficiencyScore += value * avgYield;
+                    }
+                    // totalNeeded === 0이면 이 부산물은 필요 없으므로 0점
+                }
+            }
+
+            return { name, details, requiredAdvLvl: details.advLvl, efficiencyScore };
+        });
+
+    if (candidateAdventures.length === 0) return null;
     candidateAdventures.sort((a, b) => b.efficiencyScore - a.efficiencyScore);
     return candidateAdventures[0];
 }

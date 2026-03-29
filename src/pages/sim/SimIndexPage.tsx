@@ -5,7 +5,7 @@ import SimResult from "../../components/sim/SimResult";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
-import { FacilitySimRequest, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
+import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
 import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simFuntions";
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { debounce } from "es-toolkit";
@@ -69,8 +69,10 @@ const SimIndexPage = () => {
                 currentInventory = facilitySimOutput.remainingInventory || new Map();
             }
 
+            const finalAdvLvl = Math.max(facilityReq.currentAdv, facilityReq.target.adv);
+
             const researchSimOutput = simResearch(
-                { ...researchReq, currentAdv: facilityReq.currentAdv },
+                { ...researchReq, currentAdv: finalAdvLvl },
                 currentInventory
             );
             if (researchSimOutput) {
@@ -101,48 +103,66 @@ const SimIndexPage = () => {
 
     // 시설 결과 + 연구 결과 통합
     const allResult: SimResponse | null = useMemo(() => {
-        const allMatMap = new Map();
+        if (!facilitySimResult?.length && !researchSimResult?.length) return null;
 
-        facilitySimResult?.forEach(fsr => {
-            fsr?.result?.acquisitionPlans?.forEach(plan => {
-                if (allMatMap.has(plan?.material)) {
-                    allMatMap.set(plan?.material, allMatMap.get(plan?.material) + plan?.quantity);
-                } else {
-                    allMatMap.set(plan?.material, plan?.quantity);
-                }
-            })
-            if (fsr.gold) {
-                allMatMap.set('gold', (allMatMap.get('gold') || 0) + fsr.gold);
+        let totalGold = 0;
+
+        // 건물 업그레이드 및 연구 결과의 모험(알바) + 재료 합산
+        const mergedAcquisitionPlansMap = new Map<string, MaterialAcquisitionPlan>();
+        const mergedAdventureRuns = new Map<string, { min: number, max: number }>();
+
+        const mergeProcess = (sim: SimResponse) => {
+            if (sim.gold) {
+                totalGold += sim.gold;
             }
-        })
-        researchSimResult?.forEach(rsr => {
-            rsr?.result?.acquisitionPlans?.forEach(plan => {
-                if (allMatMap.has(plan?.material)) {
-                    allMatMap.set(plan?.material, allMatMap.get(plan?.material) + plan?.quantity);
-                } else {
-                    allMatMap.set(plan?.material, plan?.quantity);
-                }
-            })
-            if (rsr.gold) {
-                allMatMap.set('gold', (allMatMap.get('gold') || 0) + rsr.gold);
+
+            // 모험(알바) 합산, Map은 forEach
+            if (sim.result?.finalAdventureRuns) {
+                sim.result.finalAdventureRuns.forEach((runs, advName) => {
+                    const existing = mergedAdventureRuns.get(advName) || { min: 0, max: 0 };
+                    mergedAdventureRuns.set(advName, {
+                        min: existing.min + runs.min,
+                        max: existing.max + runs.max
+                    });
+                });
             }
-        })
 
-        if (allMatMap.size < 1) return null;
+            // 재료 합산, 중복 재료 수량만
+            if (sim.result?.acquisitionPlans) {
+                sim.result.acquisitionPlans.forEach(plan => {
+                    if (!plan) return;
 
-        const plans = createIntegratedPlan(
-            facilityInput.currentAdv,
-            allMatMap,
-            inventory,
-            false
-        );
-
-        return {
-            gold: allMatMap.get('gold'),
-            name: '종합',
-            result: plans
+                    if (mergedAcquisitionPlansMap.has(plan.material)) {
+                        const existing = mergedAcquisitionPlansMap.get(plan.material)!;
+                        mergedAcquisitionPlansMap.set(plan.material, {
+                            ...existing,
+                            quantity: existing.quantity + plan.quantity,
+                            // 인벤에서 꺼내쓰는 것도 합산
+                            inventoryQty: (existing.inventoryQty || 0) + (plan.inventoryQty || 0)
+                        });
+                    } else {
+                        mergedAcquisitionPlansMap.set(plan.material, { ...plan });
+                    }
+                });
+            }
         };
-    }, [facilitySimResult, researchSimResult])
+
+        facilitySimResult?.forEach(mergeProcess);
+        researchSimResult?.forEach(mergeProcess);
+
+        // Map => Array
+        const finalAcquisitionPlans = Array.from(mergedAcquisitionPlansMap.values());
+
+        // SimResponse 타입 형태로 반환
+        return {
+            gold: totalGold,
+            name: '종합',
+            result: {
+                acquisitionPlans: finalAcquisitionPlans,
+                finalAdventureRuns: mergedAdventureRuns
+            }
+        };
+    }, [facilitySimResult, researchSimResult]);
 
     const items = useMemo(() => {
         return [
@@ -186,7 +206,7 @@ const SimIndexPage = () => {
         ];
     }, [facilitySimResult, researchSimResult])
 
-    if(!debouncedAllSims) return(<Loading />)    
+    if (!debouncedAllSims) return (<Loading />)
 
     const handleBagOpen = useCallback(() => {
         setBagOpen((prev) => (!prev));
@@ -217,7 +237,7 @@ const SimIndexPage = () => {
     return (
         // 하위 요소가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
         <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
-             <SEO
+            <SEO
                 title="교단 시설 및 연구 재화 계산"
                 description="트릭컬 리바이브의 교단 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다."
             />

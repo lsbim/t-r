@@ -37,6 +37,20 @@ export const MATERIAL_YIELD_TYPES: MaterialYieldTypesData = {
         4: { min: 7, max: 10 },
         5: { min: 8, max: 12 }
     },
+    6: {
+        1: { min: 8, max: 16 },
+        2: { min: 10, max: 20 },
+        3: { min: 12, max: 24 },
+        4: { min: 14, max: 28 },
+        5: { min: 16, max: 32 }
+    },
+    7: {
+        1: { min: 6, max: 10 },
+        2: { min: 8, max: 13 },
+        3: { min: 10, max: 16 },
+        4: { min: 12, max: 19 },
+        5: { min: 14, max: 22 }
+    },
 }
 
 interface YieldMaterial {
@@ -89,7 +103,7 @@ export const adventure: Adventure = {
         ],
         advId: 3
     }, '김장숙 부띠끄 알바': {
-        
+
         mainAdvSkill: '미묘',
         advSkills: ['에교', '말빨', '하이텐션'],
         advLvl: 8,
@@ -566,5 +580,21 @@ export const adventure: Adventure = {
             { name: '새고기', yieldType: 3 },
         ],
         advId: 59
+    },
+    '교단 출석부 부르기': {
+        mainAdvSkill: '추진력',
+        advLvl: 1,
+        yieldMaterials: [
+            { name: '바삭바삭 금박', yieldType: 6 },
+        ],
+        advId: 60
+    },
+    '교단 가계부 부르기': {
+        mainAdvSkill: '추진력',
+        advLvl: 1,
+        yieldMaterials: [
+            { name: '스륵스륵 철가루', yieldType: 7 },
+        ],
+        advId: 61
     },
 }
