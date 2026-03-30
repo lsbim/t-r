@@ -10,6 +10,7 @@ export interface FrontierPlayerData {
     grade: string;
     duration: number;
     arr: string[];
+    skinArr?: (string | null)[];
 }
 
 interface FrontierBase {

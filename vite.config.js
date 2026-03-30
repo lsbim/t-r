@@ -1,7 +1,11 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
+
+    // command는 'serve'(개발), 'build'(프로덕션) 두 가지 값을 가짐.
+    const isProd = command === 'build';
+
     return {
         build: {
             outDir: 'build',
@@ -34,7 +38,7 @@ export default defineConfig(() => {
             react(),
         ],
         esbuild: {
-            drop: ['debugger'],
+            drop: isProd ? ['console', 'debugger'] : ['debugger'],
         },
     };
 });

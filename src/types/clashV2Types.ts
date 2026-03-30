@@ -14,6 +14,8 @@ export interface ClashV2PlayerData {
     arr: string[];
     sideArr: string[];
     sideSkills?: ClashV2SideSkill[];
+    skinArr?: (string | null)[];
+    sideSkinArr?: (string | null)[];
 }
 
 interface ClashV2Base extends ClashBase {
