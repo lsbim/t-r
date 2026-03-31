@@ -220,7 +220,7 @@ const SeasonPage = () => {
                     />
                     {hasSkinArr && (
                         <CostumeRank
-                            data={seasonSlice}
+                            data={data}
                         />
                     )}
                     {bestComp && bestComp?.length > 0 && (

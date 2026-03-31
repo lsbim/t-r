@@ -250,7 +250,7 @@ const ClashV2SeasonPage = () => {
                 />
                 {hasSkinArr && (
                     <CostumeRank
-                        data={seasonSlice}
+                        data={data}
                         type={v2Type === 'side' ? v2Type : undefined}
                     />
                 )}

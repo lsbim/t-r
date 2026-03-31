@@ -253,7 +253,7 @@ const SeasonPage = () => {
                     )}
                     {hasSkinArr && (
                         <CostumeRank
-                            data={seasonSlice}
+                            data={data}
                         />
                     )}
                     {bestComp && (

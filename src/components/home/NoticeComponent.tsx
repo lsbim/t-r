@@ -29,6 +29,9 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                         <span>
                             이후 집계된 컨텐츠에 많이 사용된 사복이 집계됩니다.
                         </span>
+                        <span className="block text-[12px] mt-1">
+                            인기 사복은 1~300위 전체 범위만 집계됩니다.
+                        </span>
                     </div>
                     <div className="flex gap-x-2 items-center">
                         <span className="font-bold">차원 대충돌 2.0 기준: </span>

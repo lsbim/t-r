@@ -4,6 +4,7 @@ import { ClashV2SeasonData } from "../../types/clashV2Types";
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import { CostumeStat, processCostumeData, ProcessedCostumeData } from "../../utils/costumeFunction";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
+import InfoIcon from "../../commons/icon/InfoIcon";
 
 const CostumeRank = (
     {
@@ -29,7 +30,10 @@ const CostumeRank = (
     return (
         <div
             className="lg:w-[992px] dark:text-zinc-200 w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 py-4 shadow-md overflow-x-auto gap-y-3">
-            <span className="font-bold text-xl ml-4">인기 사복</span>
+            <div className='flex items-center'>
+                <span className="font-bold text-xl ml-4 mr-2 dark:text-zinc-200">인기 사복</span>
+                <InfoIcon text='인기 사복은 1~300위 전체 범위만 집계됩니다.' />
+            </div>
             <div className="ml-4 mb-4">
                 <SlideColorNav
                     color="text-black dark:text-zinc-200"
