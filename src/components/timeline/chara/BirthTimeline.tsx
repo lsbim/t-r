@@ -1,3 +1,4 @@
+import React from "react";
 import CharacterIcon from "../../../commons/icon/CharacterIcon";
 import PersonalityIcon from "../../../commons/icon/PersonalityIcon";
 import RaceIcon from "../../../commons/icon/RaceIcon";
@@ -10,7 +11,7 @@ const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[
     const dayToVisual = (day: number) => {
         if (day <= 0) return 0;
         return Math.sqrt(day);
-        return day;
+        // return day;
     }
 
     const createPositions = (charas: string[]) => {
@@ -138,4 +139,4 @@ const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[
     );
 }
 
-export default BirthTimeline;
+export default React.memo(BirthTimeline);

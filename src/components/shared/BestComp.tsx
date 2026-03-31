@@ -1,3 +1,4 @@
+import React from "react";
 import CharacterIcon from "../../commons/icon/CharacterIcon";
 import { lineListEn } from "../../types/trickcalTypes";
 import { CompStat } from "../../utils/chartFunction";
@@ -119,4 +120,4 @@ const findCharacterChanges = (prevComp: CompStat, currentComp: CompStat) => {
     return changes;
 };
 
-export default BestComp;
+export default React.memo(BestComp);

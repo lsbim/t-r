@@ -18,6 +18,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
+import CostumeRank from "../../components/shared/CostumeRank";
 
 const initRange = { start: 0, end: 0 };
 
@@ -32,6 +33,8 @@ const SeasonPage = () => {
     const { data: prevData, isLoading: prevIsLoading, error: prevError } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', prevSeason);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
+
+    const hasSkinArr = data?.type === 'season' && data.data[0]?.skinArr !== undefined;
 
     // 순위 나누기
     const { seasonData: seasonSlice, prevSeasonData: prevSlice } = useMemo(() => {
@@ -246,6 +249,11 @@ const SeasonPage = () => {
                         <ScoreAndCoinChart
                             data={seasonSlice}
                             compareCoin={compareCoin}
+                        />
+                    )}
+                    {hasSkinArr && (
+                        <CostumeRank
+                            data={seasonSlice}
                         />
                     )}
                     {bestComp && (

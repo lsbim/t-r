@@ -9,6 +9,7 @@ export interface CostumeStat {
     cosUsedCount: number;
     charTotalCount: number;
     rate: number;
+    launchDate: string;
 }
 
 export interface ProcessedCostumeData {
@@ -40,7 +41,7 @@ export const processCostumeData = (
             const charName = charN.startsWith('우로스') ? '우로스' : charN
             charCountMap.set(charName, (charCountMap.get(charName) || 0) + 1);
 
-            const skinName = skinList[idx];
+            const skinName = skinList[idx] === '아이돌' ? '[아이돌: N.Y.A.N.Y.A]' : skinList[idx];
             if (!skinName) return;
 
             const costumeInfo = costumeMasterMap.get(skinName);
@@ -63,8 +64,9 @@ export const processCostumeData = (
         const lvl = costumeInfo ? costumeInfo.lvl : 'normal'
         const charTotalCount = charCountMap.get(charName) || 1;
         const rate = Math.round((cosUsedCount / charTotalCount) * 100 * 10) / 10;
+        const launchDate = costumes.find(cos => cos.cosName === cosName)?.launchDate || '';
 
-        return { charName, cosName, lvl, cosUsedCount, charTotalCount, rate };
+        return { charName, cosName, lvl, cosUsedCount, charTotalCount, rate, launchDate };
     });
 
 

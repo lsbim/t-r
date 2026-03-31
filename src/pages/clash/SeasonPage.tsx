@@ -18,6 +18,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
+import CostumeRank from "../../components/shared/CostumeRank";
 
 const initRange = { start: 0, end: 0 };
 
@@ -27,6 +28,8 @@ const SeasonPage = () => {
     const [select, setSelect] = useState('');
     const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
+
+    const hasSkinArr = data?.type === 'season' && data.data[0]?.skinArr !== undefined;
 
     // 순위 나누기
     const seasonSlice = useMemo(() => {
@@ -215,6 +218,11 @@ const SeasonPage = () => {
                         season={season}
                         data={seasonSlice}
                     />
+                    {hasSkinArr && (
+                        <CostumeRank
+                            data={seasonSlice}
+                        />
+                    )}
                     {bestComp && bestComp?.length > 0 && (
                         <BestComp
                             data={bestComp}

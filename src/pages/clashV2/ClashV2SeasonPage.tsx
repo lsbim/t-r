@@ -33,7 +33,7 @@ const ClashV2SeasonPage = () => {
     const [v2Type, setV2Type] = useState<'main' | 'side'>('main')
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
 
-    const hasSkinArr = data?.data[0]?.skinArr !== undefined;
+    const hasSkinArr = data?.type === 'season' && data.data[0]?.skinArr !== undefined;
 
     // 순위 나누기
     const seasonSlice = useMemo(() => {
@@ -248,14 +248,15 @@ const ClashV2SeasonPage = () => {
                 <SideSkillChart
                     data={seasonSlice}
                 />
-                {bestComp && bestComp?.length > 0 && (
-                    <BestComp
-                        data={bestComp}
-                    />
-                )}
                 {hasSkinArr && (
                     <CostumeRank
                         data={seasonSlice}
+                        type={v2Type === 'side' ? v2Type : undefined}
+                    />
+                )}
+                {bestComp && bestComp?.length > 0 && (
+                    <BestComp
+                        data={bestComp}
                     />
                 )}
                 <CompListComponent
