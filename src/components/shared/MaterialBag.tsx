@@ -153,7 +153,7 @@ const MaterialBag = ({
             </div>
             {/* 비우기 */}
             <div className="flex mt-2 h-6 w-full font-bold">
-                <div
+                <button
                     onClick={() => {
                         if (inventory.size === 0) return;
 
@@ -166,14 +166,14 @@ const MaterialBag = ({
                     <span className="text-[14px]">
                         비우기
                     </span>
-                </div>
-                <div
+                </button>
+                <button
                     onClick={handleBagOpen}
                     className="bg-gray-200 dark:bg-zinc-600 flex items-center justify-center cursor-pointer w-[50%] hover:bg-gray-400 dark:hover:bg-zinc-500 transition-colors duration-100">
                     <span className="text-[14px]">
                         닫기
                     </span>
-                </div>
+                </button>
             </div>
         </div>
     );

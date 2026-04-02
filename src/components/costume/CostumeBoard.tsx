@@ -86,7 +86,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                     <div className={`py-1 px-2 flex justify-center ${boardCategoryWidthStyle('name')}`} >
                         이름
                     </div>
-                    <div
+                    <button
                         onClick={() => handleCostumeBoardSort('count')}
                         className={`py-1 px-2 flex cursor-pointer justify-center items-center group ${boardCategoryWidthStyle('count')}`}>
                         개수
@@ -94,8 +94,8 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                             active={sortConfig.key === 'count'}
                             orderBy={sortConfig.orderBy}
                         />
-                    </div>
-                    <div
+                    </button>
+                    <button
                         onClick={() => handleCostumeBoardSort('since')}
                         className={`py-1 px-2 flex cursor-pointer justify-center items-center group ${boardCategoryWidthStyle('since')}`}>
                         마지막 사복
@@ -103,8 +103,8 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                             active={sortConfig.key === 'since'}
                             orderBy={sortConfig.orderBy}
                         />
-                    </div>
-                    <div
+                    </button>
+                    <button
                         onClick={() => handleCostumeBoardSort('birthDate')}
                         className={`sm:flex hidden py-1 px-2 cursor-pointer justify-center items-center group ${boardCategoryWidthStyle('birthDate')} mx-auto`}>
                         출시일
@@ -112,7 +112,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                             active={sortConfig.key === 'birthDate'}
                             orderBy={sortConfig.orderBy}
                         />
-                    </div>
+                    </button>
                 </div>
             )}
 

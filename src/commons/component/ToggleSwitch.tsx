@@ -67,7 +67,7 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
             `}
         >
             {/* 원형 버튼 */}
-            <span
+            <button
                 className={`
                     ${currentSize.circle}
                     inline-block rounded-full bg-white shadow-md

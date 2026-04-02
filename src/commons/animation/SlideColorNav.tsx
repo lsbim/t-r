@@ -55,7 +55,7 @@ const SlideColorNav: React.FC<SlideColorNavProps> = ({
         <div className={`relative font-bold flex gap-x-3`}>
             {tabs.map((tab) => {
                 return (
-                    <div
+                    <button
                         key={tab.id}
                         ref={(el) => { tabsRef.current[tab.id] = el; }}
                         onClick={() => handleClick(tab.id)}
@@ -63,7 +63,7 @@ const SlideColorNav: React.FC<SlideColorNavProps> = ({
                         style={{ fontSize: `${size}px` }}
                     >
                         {tab.label}
-                    </div>
+                    </button>
                 )
             })}
             <motion.div

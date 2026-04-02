@@ -45,7 +45,7 @@ const HeaderNav = () => {
     };
 
     return (
-        <div id="top" className={`bg-white dark:bg-zinc-900 py-4 flex justify-center items-center font-bold border-b-2 dark:border-zinc-700 w-full `}>
+        <header id="top" className={`bg-white dark:bg-zinc-900 py-4 flex justify-center items-center font-bold border-b-2 dark:border-zinc-700 w-full `}>
             <div className="lg:w-[992px] w-full mx-auto flex justify-center">
                 <div className="flex items-center md:gap-x-3 gap-x-2 w-full justify-between lg:justify-center px-4">
                     {/* 로고 */}
@@ -54,7 +54,7 @@ const HeaderNav = () => {
                     </Link>
 
                     {/* PC 환경 메뉴 */}
-                    <div className="hidden lg:flex text-[16px] items-center text-gray-800 dark:text-zinc-200">
+                    <nav className="hidden lg:flex text-[16px] items-center text-gray-800 dark:text-zinc-200">
                         <Link to="/clash/v1"
                             onMouseEnter={() => handleMouseEnter('clash')}
                             onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v1") ? "text-orange-500" : ""}`}>차원 대충돌</Link>
@@ -67,21 +67,21 @@ const HeaderNav = () => {
                         <Link to="/timeline/raid" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>타임라인</Link>
                         <Link to="/costume" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>사복</Link>
                         <Link to="/sim" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>교단 계산</Link>
-                    </div>
+                    </nav>
 
                     {/* 햄버거 버튼 */}
-                    <div
+                    <button
                         onClick={handleToggle}
                         className="lg:hidden relative h-6 w-7 hover:text-orange-600 dark:text-white transition-colors duration-200 cursor-pointer"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
-                    </div>
+                    </button>
                 </div>
 
                 {/* 햄버거 메뉴 */}
-                <div
+                <nav
                     className={`flex flex-col text-[18px] lg:hidden fixed top-0 right-0 h-full w-64 bg-white dark:bg-zinc-900 text-gray-800 dark:text-white shadow-xl z-50 transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
                         }`}
                 >
@@ -94,7 +94,7 @@ const HeaderNav = () => {
                     <Link to="/timeline/raid" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>타임라인</Link>
                     <Link to="/costume" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>사복</Link>
                     <Link to="/sim" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>교단 계산</Link>
-                </div>
+                </nav>
 
                 {/* 햄버거 오픈 시 배경 어둡게 */}
                 <div
@@ -105,7 +105,7 @@ const HeaderNav = () => {
                         : "opacity-0 pointer-events-none"}`}
                 />
             </div>
-        </div>
+        </header>
     );
 }
 

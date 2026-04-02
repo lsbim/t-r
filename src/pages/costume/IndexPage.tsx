@@ -156,14 +156,14 @@ const IndexPage = () => {
         return (
             <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto shadow-md items-center pt-2">
                 {costumeReleaseYearSet.map(y => (
-                    <div
+                    <button
                         onClick={() => {
                             if (y !== selectYear) setSelectYear(y)
                         }}
                         className={`${y === selectYear ? 'font-bold' : 'text-gray-400 text-[14px]'} cursor-pointer select-none transition-all duration-100 h-[24px]`}
                         key={"timeline_costume_selectYear" + y}>
                         {y}
-                    </div>
+                    </button>
                 ))}
             </div>
         )
