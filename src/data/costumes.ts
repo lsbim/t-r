@@ -53,6 +53,7 @@ export const costumes: Costume[] = [
     { charName: "헤일리", cosName: "오늘도 열혈 트레이닝", lvl: "normal", launchDate: "2026-03-26" },
     { charName: "에르핀(왕도)", cosName: "일일 사제장 네르핀", lvl: "normal", launchDate: "2026-03-28" },
     { charName: "에르핀(왕도)", cosName: "왕관의 주인공", lvl: "pretty", launchDate: "2026-03-28" },
+    { charName: "셰럼", cosName: "픽션 앤 노벨리스트", lvl: "normal", launchDate: "2026-04-02" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -98,6 +99,7 @@ export const costumes: Costume[] = [
     { charName: "잉클", cosName: "차원이 다른 문학소녀", lvl: "normal", launchDate: "2026-02-12" },
     { charName: "이드", cosName: "꿈속에서 다시 만난", lvl: "pretty", launchDate: "2026-02-19" },
     { charName: "벨벳", cosName: "스윙 앤 치어", lvl: "normal", launchDate: "2026-03-05" },
+    { charName: "아이시아", cosName: "방구석 프로 게이머", lvl: "normal", launchDate: "2026-04-02" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
@@ -142,6 +144,7 @@ export const costumes: Costume[] = [
     { charName: "다야(퓨어샤인)", cosName: "샤이닝 바니", lvl: "normal", launchDate: "2026-01-29" },
     { charName: "롤렛", cosName: "롱 레인지 서비스", lvl: "normal", launchDate: "2026-02-05" },
     { charName: "시스트", cosName: "응원 대행 서비스", lvl: "normal", launchDate: "2026-03-05" },
+    { charName: "림(혼돈)", cosName: "유령 늪의 인기쟁이", lvl: "normal", launchDate: "2026-04-02" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
@@ -187,6 +190,7 @@ export const costumes: Costume[] = [
     { charName: "에피카", cosName: "오케스토리의 지휘자", lvl: "pretty", launchDate: "2026-03-19" },
     { charName: "네르(빡침)", cosName: "일일 요정 여왕", lvl: "normal", launchDate: "2026-03-26" },
     { charName: "네르(빡침)", cosName: "왕관의 수여자", lvl: "pretty", launchDate: "2026-03-26" },
+    { charName: "미로", cosName: "검은 머리의 대마법사", lvl: "normal", launchDate: "2026-04-02" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
@@ -235,6 +239,7 @@ export const costumes: Costume[] = [
     { charName: "블랑셰", cosName: "스타디움의 푸른 장미", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "실피르", cosName: "웨스트 블루 제독님", lvl: "normal", launchDate: "2026-03-26" },
     { charName: "림", cosName: "차분한 파티 호스트", lvl: "normal", launchDate: "2026-03-26" },
+    { charName: "리스티", cosName: "오! 나의 회장님", lvl: "normal", launchDate: "2026-04-02" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
