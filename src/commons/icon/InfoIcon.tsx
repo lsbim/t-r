@@ -2,6 +2,7 @@
 const InfoIcon = ({ text }: { text: string }) => {
     return (
         <div
+            className="mt-[3px]"
             data-tooltip-id="my-tooltip"
             data-tooltip-content={text}>
             <svg
