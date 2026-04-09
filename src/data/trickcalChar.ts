@@ -86,6 +86,7 @@ export const charInfo: CharInfoType = {
     "티그(영웅)": { grade: 3, personality: "광기", line: "모든열", birthdate: "2025-09-27", race: '수인', eldain: true },
     "하이디": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-12-04", race: '엘프' },
     "다야(퓨어샤인)": { grade: 3, personality: "광기", line: "중열", birthdate: "2026-01-29", race: '용족' },
+    "헤일리(멀쩡)": { grade: 3, personality: "광기", line: "전열", birthdate: "2026-04-09", race: '엘프' },
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '엘프' },
     "이프리트": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", race: '정령' },
     "마요": { grade: 2, personality: "광기", line: "후열", birthdate: "2023-09-27", race: '요정' },
