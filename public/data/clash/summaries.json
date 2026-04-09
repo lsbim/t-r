@@ -1,4 +1,200 @@
 {
+  "44": {
+    "personality": "냉정",
+    "name": "크레용사용",
+    "startDate": "2026-04-02",
+    "endDate": "2026-04-09",
+    "rules": [
+      "기본 SP 회복량 30% 증가",
+      "스킬 피해량 25% 증가"
+    ],
+    "maxLvl": 27,
+    "summary": [
+      {
+        "name": "벨라",
+        "line": "전열",
+        "count": 292
+      },
+      {
+        "name": "비비",
+        "line": "전열",
+        "count": 291
+      },
+      {
+        "name": "네르",
+        "line": "전열",
+        "count": 36
+      },
+      {
+        "name": "에르핀(왕도)",
+        "line": "중열",
+        "count": 300
+      },
+      {
+        "name": "우이",
+        "line": "중열",
+        "count": 289
+      },
+      {
+        "name": "리뉴아",
+        "line": "중열",
+        "count": 52
+      },
+      {
+        "name": "우로스(순수)",
+        "line": "후열",
+        "count": 295
+      },
+      {
+        "name": "뮤트",
+        "line": "후열",
+        "count": 294
+      },
+      {
+        "name": "네르(빡침)",
+        "line": "후열",
+        "count": 264
+      },
+      {
+        "name": "리코타",
+        "line": "전열",
+        "count": 231
+      },
+      {
+        "name": "마요(멋짐)",
+        "line": "중열",
+        "count": 25
+      },
+      {
+        "name": "아일라",
+        "line": "중열",
+        "count": 215
+      },
+      {
+        "name": "에르핀",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "캬롯",
+        "line": "후열",
+        "count": 4
+      },
+      {
+        "name": "요미",
+        "line": "중열",
+        "count": 19
+      },
+      {
+        "name": "스피키",
+        "line": "후열",
+        "count": 7
+      },
+      {
+        "name": "버터",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "아사나",
+        "line": "전열",
+        "count": 4
+      },
+      {
+        "name": "슈로",
+        "line": "전열",
+        "count": 7
+      },
+      {
+        "name": "우로스(냉정)",
+        "line": "후열",
+        "count": 2
+      },
+      {
+        "name": "라이카",
+        "line": "전열",
+        "count": 20
+      },
+      {
+        "name": "죠안",
+        "line": "전열",
+        "count": 4
+      },
+      {
+        "name": "란",
+        "line": "후열",
+        "count": 12
+      },
+      {
+        "name": "리츠",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "죠안",
+        "line": "후열",
+        "count": 9
+      },
+      {
+        "name": "델리아",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "우로스(활발)",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "모모",
+        "line": "후열",
+        "count": 7
+      },
+      {
+        "name": "우로스(우울)",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "셰럼",
+        "line": "전열",
+        "count": 8
+      },
+      {
+        "name": "슈팡",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "디아나(왕년)",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "스노키",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "이드",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "네티",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "오르",
+        "line": "후열",
+        "count": 1
+      }
+    ],
+    "stagnation": {
+      "arr": 24.8
+    }
+  },
   "43": {
     "personality": "광기",
     "name": "릴1리",
