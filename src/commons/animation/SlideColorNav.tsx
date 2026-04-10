@@ -19,8 +19,8 @@ type PropsTab = {
 
 const SlideColorNav: React.FC<SlideColorNavProps> = ({
     tabs,
-    prevColor = 'text-gray-400 dark:text-zinc-600',
-    prevHoverColor = 'hover:text-gray-500 dark:hover:text-zinc-500',
+    prevColor = 'text-gray-400 dark:text-zinc-500',
+    prevHoverColor = 'hover:text-gray-500 dark:hover:text-zinc-400',
     color,
     size = 14,
     handler,
