@@ -3,6 +3,7 @@ import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import SortArrowIcon from "../../commons/icon/SortArrowIcon";
 import { charInfo } from "../../data/trickcalChar";
 import { CostumeMapItem } from "../../pages/costume/IndexPage";
+import { getChoseong } from "es-hangul";
 
 type SortConfig = {
     key: 'count' | 'since' | 'birthDate';
@@ -15,19 +16,49 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
         orderBy: 'desc'
     })
     const [currentPage, setCurrentPage] = useState(1);
+    const [search, setSearch] = useState('');
+
+    const searchList = useMemo(() => {
+        const term = search.trim().toLowerCase().replace(/\s+/g, "");
+        if (!term) return charStatList;
+
+
+        return charStatList.filter(item => {
+            const itemChoseong = getChoseong(item.charName);
+
+            return (
+                item.charName.includes(term) ||
+                itemChoseong.includes(term)
+            );
+        });
+
+    }, [search, charStatList])
+
+    // console.log(search, searchList);
 
     const itemPerPage = 10; // 페이지당 몇개의 목록을
+    const pageGroupSize = 10; // 그룹당 몇개의 페이지를 
     const currentDataRange = (currentPage - 1) * itemPerPage;
 
-    const lastPage = Math.ceil(charStatList.length / 10) ?? 1;
-    const pages = useMemo(() => Array.from({ length: lastPage }, (_, i) => i + 1), [lastPage]);
+    const lastPage = Math.ceil(searchList.length / itemPerPage) || 1;
 
-    // const currentPageData = charStatList.slice(currentDataRange, currentDataRange + itemPerPage);
+    const currentGroup = Math.ceil(currentPage / pageGroupSize);
+
+    const startPage = (currentGroup - 1) * pageGroupSize + 1;
+    const endPage = Math.min(startPage + pageGroupSize - 1, lastPage);
+
+    const currentGroupPages = useMemo(() => {
+        return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+    }, [startPage, endPage]);
+
+
+
+
 
     // 정렬 로직
     const currentPageData = useMemo(() => {
 
-        const sortItems = [...charStatList];
+        const sortItems = [...searchList];
         if (sortConfig.key === 'birthDate') {
             sortItems.sort((a, b) => {
                 const aValue = charInfo[a.charName].birthdate;
@@ -65,7 +96,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
         // console.log(sortItems)
 
         return sortItems.slice(currentDataRange, currentDataRange + itemPerPage);;
-    }, [sortConfig, currentDataRange])
+    }, [sortConfig, currentDataRange, searchList])
 
     // console.log(currentPageData)
     const handleCostumeBoardSort = (key: SortConfig['key']) => {
@@ -76,6 +107,18 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
             return { ...prev, orderBy: prev.orderBy === 'desc' ? 'asc' : 'desc' };
         });
         setCurrentPage(1);
+    };
+
+    const handlePrevGroup = () => {
+        if (startPage > 1) {
+            setCurrentPage(startPage - 1);
+        }
+    };
+
+    const handleNextGroup = () => {
+        if (endPage < lastPage) {
+            setCurrentPage(endPage + 1);
+        }
     };
 
     return (
@@ -117,7 +160,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
             )}
 
             {/* 데이터 */}
-            <div className="flex flex-col md:gap-y-2 gap-y-3 flex-grow">
+            <div className="flex flex-col md:gap-y-2 gap-y-3 flex-grow h-[337px]">
                 {currentPageData && currentPageData.map((c, index) => (
                     <div
                         key={"costume_board_" + currentPage + index}
@@ -152,18 +195,58 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
             </div>
 
             {/* 페이지 */}
-            <div className="flex items-end justify-center md:gap-x-2 gap-x-1 my-2 dark:text-white md:text-[16px] text-[14px]">
-                {pages.map(p => (
-                    <div
+            <div className="flex items-center justify-center md:gap-x-2 gap-x-1 mt-4 dark:text-white md:text-[16px] text-[14px]">
+                <button
+                    onClick={handlePrevGroup}
+                    disabled={startPage === 1}
+                    className={`pt-[10px] p-2 cursor-pointer ${startPage === 1 ? 'opacity-30 cursor-not-allowed' : 'hover:text-orange-500'}`}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+
+                </button>
+                {currentGroupPages.map(p => (
+                    <button
                         onClick={() => {
                             if (p === currentPage) return;
                             setCurrentPage(p);
                         }}
-                        className={`cursor-pointer p-2 ${p === currentPage ? 'text-orange-500 shadow-sm font-bold' : ''}`}
+                        className={`cursor-pointer p-2 hover:text-orange-400 ${p === currentPage ? 'text-orange-500 shadow-sm font-bold' : ''}`}
                         key={"costume_board_page" + p}>
                         {p}
-                    </div>
+                    </button>
                 ))}
+                <button
+                    onClick={handleNextGroup}
+                    disabled={endPage === lastPage}
+                    className={`pt-[10px] p-2 cursor-pointer ${endPage === lastPage ? 'opacity-30 cursor-not-allowed' : 'hover:text-orange-500'}`}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+
+                </button>
+            </div>
+
+            {/* 검색 */}
+            <div className="w-full mt-2 mb-3 flex items-center justify-center">
+                <div className="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                        className="size-3 text-gray-600 absolute pointer-events-none left-2 top-[9px]">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                    <input
+                        type="text"
+                        placeholder="사도 검색"
+                        value={search}
+                        onChange={(e) => {
+                            setSearch(e.target.value);
+                            setCurrentPage(1);
+                        }}
+                        className="text-[13px] transition-[border] duration-250 focus:outline-none focus:border-orange-500 border-2 border-gray-400 rounded-md py-1 pl-6"
+                    />
+                </div>
             </div>
         </div>
     );
