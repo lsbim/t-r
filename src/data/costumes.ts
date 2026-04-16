@@ -146,7 +146,8 @@ export const costumes: Costume[] = [
     { charName: "시스트", cosName: "응원 대행 서비스", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "림(혼돈)", cosName: "유령 늪의 인기쟁이", lvl: "normal", launchDate: "2026-04-02" },
     { charName: "헤일리(멀쩡)", cosName: "하늘을 가르는 매버릭", lvl: "normal", launchDate: "2026-04-09" },
-
+    { charName: "클로에", cosName: "살구꽃과 어흥이", lvl: "pretty", launchDate: "2026-04-16" },
+    
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
     { charName: "벨라", cosName: "존재감 넘치는 인어", lvl: "pretty", launchDate: "2025-03-27" },
