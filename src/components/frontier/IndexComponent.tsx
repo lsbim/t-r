@@ -7,7 +7,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
     const lineGap = 10;
 
     return (
-        <div className="bg-white dark:bg-zinc-900 rounded-b-md shadow-lg w-[1068px] max-w-full overflow-x-auto my-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-b-md shadow-lg w-[992px] max-w-full overflow-x-auto my-8">
             <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
                 <div className="flex flex-col justify-start dark:text-zinc-200">
                     <h1 className="text-[20px] font-bold mr-2">엘리아스 프론티어 집계</h1>
@@ -54,7 +54,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                         {matchingEntries.length !== 0 && (
                             <div className="w-full mb-1 flex items-center">
                                 {/* 왼쪽 여백을 위한 빈 div */}
-                                <div className="mr-2 w-[90px] flex-shrink-0" />
+                                <div className="w-[90px] flex-shrink-0" />
 
                                 <div
                                     style={{ gap: lineGap }}
@@ -62,7 +62,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                     {lines.map(line => (
                                         <div
                                             key={`line_text_` + line}
-                                            className="xs:w-[300px] w-[200px] ">
+                                            className="xs:w-[275px] w-[200px] ">
                                             {line}
                                         </div>
                                     ))}
@@ -89,7 +89,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                         {/* 시즌 정보 */}
                                         <div className="w-full mb-1 flex items-center h-full">
                                             {/* 마진 8px + 너비 90px */}
-                                            <div className="mr-2 gap-x-1 flex items-center min-w-[90px] whitespace-nowrap dark:text-zinc-200">
+                                            <div className="gap-x-1 flex items-center min-w-[90px] whitespace-nowrap dark:text-zinc-200">
                                                 <div
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
@@ -118,7 +118,7 @@ const IndexComponent = ({ summary }: { summary: FrontierSummary }) => {
                                                 {lines.map((line) => (
                                                     <div
                                                         key={`${line}_season_${season}`}
-                                                        className="xs:w-[300px] w-[200px] flex flex-shrink-0 flex-grow-0"
+                                                        className="xs:w-[275px] w-[200px] flex flex-shrink-0 flex-grow-0"
                                                     >
                                                         <LineBarComponent
                                                             data={seasonData.summary}

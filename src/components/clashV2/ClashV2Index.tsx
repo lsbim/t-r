@@ -8,7 +8,7 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
     // console.log(clashSort)
 
     return (
-        <div className="bg-white w-[1068px] dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
+        <div className="bg-white w-[992px] dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
             <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
                 <div className="flex flex-col justify-start dark:text-zinc-200">
                     <h1 className="text-[20px] font-bold mr-2">차원 대충돌 2.0 집계</h1>
@@ -66,7 +66,7 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
                                         {contentList.map(c => (
                                             <div
                                                 key={`line_text_` + c}
-                                                className="xs:w-[430px] w-[280px] ">
+                                                className="xs:w-[400px] w-[280px] ">
                                                 {c}
                                             </div>
                                         ))}
@@ -94,7 +94,7 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
                                                 {/* 시즌 정보 */}
                                                 <div className="w-full mb-1 flex items-center h-full">
                                                     {/* 마진 8px + 너비 80px */}
-                                                    <div className="min-w-[90px] gap-x-2 flex items-center mr-2 dark:text-zinc-200">
+                                                    <div className="min-w-[90px] gap-x-2 flex items-center dark:text-zinc-200 pr-2">
                                                         <div
                                                             data-tooltip-id="my-tooltip"
                                                             data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
@@ -126,14 +126,14 @@ const ClashV2Index = ({ summary }: { summary: ClashV2Summary }) => {
 
                                                     {/* 림의 이면세계 / 셰이디의 차원 요약 바 차트 */}
                                                     <div className={`flex gap-x-10`}>
-                                                        <div className="xs:w-[430px] w-[280px] flex">
+                                                        <div className="xs:w-[398.5px] w-[280px] flex">
                                                             <LineBarComponent
                                                                 data={seasonData.summary}
                                                                 season={Number(season)}
                                                                 type="clashV2"
                                                             />
                                                         </div>
-                                                        <div className="xs:w-[430px] w-[280px] flex">
+                                                        <div className="xs:w-[398.5px] w-[280px] flex">
                                                             <LineBarComponent
                                                                 data={seasonData.sideSummary}
                                                                 season={Number(season)}

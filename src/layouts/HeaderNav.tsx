@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ThemeToggle from "../commons/component/ThemeToggle";
 import { fetchSummaryData } from "../hooks/useRaidData";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
 
@@ -22,12 +22,7 @@ const PRELOAD_MAP = {
 const HeaderNav = () => {
 
     const { pathname } = useLocation();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const queryClient = useQueryClient();
-
-    const handleToggle = () => {
-        setIsMenuOpen((prev) => !prev);
-    };
 
     const handleMouseEnter = (path: 'clash' | 'clashV2' | 'frontier') => {
         const preloadData = PRELOAD_MAP[path];
@@ -45,65 +40,57 @@ const HeaderNav = () => {
     };
 
     return (
-        <header id="top" className={`bg-white dark:bg-zinc-900 py-4 flex justify-center items-center font-bold border-b-2 dark:border-zinc-700 w-full `}>
+        <header id="top" className={`relative bg-white dark:bg-zinc-900 h-[48px] flex justify-center items-center font-bold border-b-[1px] dark:border-zinc-700 w-full `}>
             <div className="lg:w-[992px] w-full mx-auto flex justify-center">
-                <div className="flex items-center md:gap-x-3 gap-x-2 w-full justify-between lg:justify-center px-4">
+                {/* overflow-x-auto와 justify-center 같이 쓰지 X */}
+                <div className="flex lg:justify-center items-center lg:pl-0 lg:pr-0 pl-[30px] pr-[50px] gap-x-5 w-full overflow-x-auto scrollbar-hide min-w-0 whitespace-nowrap">
+
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-[30px] z-10 bg-gradient-to-r from-white to-transparent dark:from-zinc-900" />
+
                     {/* 로고 */}
-                    <Link to="/" className="h-[26px] w-[26px] flex-shrink-0">
+                    <Link to="/" className="h-[26px] w-[26px] lg:flex-1 flex">
                         <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
                     </Link>
 
                     {/* PC 환경 메뉴 */}
-                    <nav className="hidden lg:flex text-[16px] items-center text-gray-800 dark:text-zinc-200">
+                    <nav className="flex gap-x-4 text-[14px] items-center text-gray-800 dark:text-zinc-200 lg:flex mx-auto">
                         <Link to="/clash/v1"
                             onMouseEnter={() => handleMouseEnter('clash')}
-                            onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v1") ? "text-orange-500" : ""}`}>차원 대충돌</Link>
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v1") ? "text-orange-500" : ""}`}>
+                            차원 대충돌</Link>
                         <Link to="/clash/v2"
                             onMouseEnter={() => handleMouseEnter('clashV2')}
-                            onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v2") ? "text-orange-500" : ""}`}>차원 대충돌 2.0</Link>
-                        <Link to="/frontier"
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v2") ? "text-orange-500" : ""}`}>
+                            차원 대충돌 2.0</Link>
+                        <Link
+                            to="/frontier"
                             onMouseEnter={() => handleMouseEnter('frontier')}
-                            onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500" : ""}`}>엘리아스 프론티어</Link>
-                        <Link to="/timeline/raid" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>타임라인</Link>
-                        <Link to="/costume" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>사복</Link>
-                        <Link to="/sim" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>교단 계산</Link>
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500" : ""}`}>
+                            엘리아스 프론티어
+                        </Link>
+                        <Link
+                            to="/timeline/raid"
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>
+                            타임라인
+                        </Link>
+                        <Link
+                            to="/costume"
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>
+                            사복
+                        </Link>
+                        <Link
+                            to="/sim"
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>
+                            교단 계산
+                        </Link>
                     </nav>
 
-                    {/* 햄버거 버튼 */}
-                    <button
-                        onClick={handleToggle}
-                        className="lg:hidden relative h-6 w-7 hover:text-orange-600 dark:text-white transition-colors duration-200 cursor-pointer"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
+                    <div className="lg:flex-1 flex items-center justify-end">
+                        <ThemeToggle />
+                    </div>
+
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-[50px] z-10 bg-gradient-to-l from-white to-transparent dark:from-zinc-900" />
                 </div>
-
-                {/* 햄버거 메뉴 */}
-                <nav
-                    className={`flex flex-col text-[18px] lg:hidden fixed top-0 right-0 h-full w-64 bg-white dark:bg-zinc-900 text-gray-800 dark:text-white shadow-xl z-50 transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-                        }`}
-                >
-                    <Link to="/" className="h-[26px] w-[26px] flex-shrink-0 my-4 ml-4">
-                        <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
-                    </Link>
-                    <Link to="/clash/v1" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v1") ? "text-orange-500" : ""}`}>차원 대충돌</Link>
-                    <Link to="/clash/v2" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v2") ? "text-orange-500" : ""}`}>차원 대충돌 2.0</Link>
-                    <Link to="/frontier" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500" : ""}`}>엘리아스 프론티어</Link>
-                    <Link to="/timeline/raid" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>타임라인</Link>
-                    <Link to="/costume" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>사복</Link>
-                    <Link to="/sim" onClick={() => setIsMenuOpen(false)} className={`px-4 py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>교단 계산</Link>
-                </nav>
-
-                {/* 햄버거 오픈 시 배경 어둡게 */}
-                <div
-                    onClick={handleToggle}
-                    // inset-0 = top: 0; right: 0; bottom: 0; left: 0;. 부모의 모든 가장자리에 붙어 전 화면을 덮음
-                    className={`lg:hidden fixed inset-0  bg-black/30 z-40 transition-opacity duration-300 ease-in-out ${isMenuOpen
-                        ? "opacity-100 pointer-events-auto"
-                        : "opacity-0 pointer-events-none"}`}
-                />
             </div>
         </header>
     );
