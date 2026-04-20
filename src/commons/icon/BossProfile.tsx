@@ -26,7 +26,7 @@ const BossProfile: React.FC<BossProfileProps> = ({
             <img
                 src={bossImgUrl}
                 alt={name}
-                className={`h-[80px] object-cover object-top ${customTranslateY} z-10`}
+                className={`h-[80px] object-cover object-top ${customTranslateY} z-10 ${personality && name === '크레용사용' && 'translate-x-3'}`}
             />
             {personality && background && (
                 <img

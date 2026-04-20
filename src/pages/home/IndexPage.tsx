@@ -10,7 +10,7 @@ import { LatestData } from "../../types/latestTypes";
 
 const IndexPage = () => {
 
-    const { data, isLoading, error } = useNonData();
+    const { data } = useNonData();
     const { data: latest } = useRaidData<LatestData>('latest', 'summary');
 
     // console.log(latest)
