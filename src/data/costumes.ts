@@ -100,6 +100,7 @@ export const costumes: Costume[] = [
     { charName: "이드", cosName: "꿈속에서 다시 만난", lvl: "pretty", launchDate: "2026-02-19" },
     { charName: "벨벳", cosName: "스윙 앤 치어", lvl: "normal", launchDate: "2026-03-05" },
     { charName: "아이시아", cosName: "방구석 프로 게이머", lvl: "normal", launchDate: "2026-04-02" },
+    { charName: "아라그니아", cosName: "푸른 바다의 전학생", lvl: "normal", launchDate: "2026-04-23" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },

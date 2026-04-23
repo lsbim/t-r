@@ -23,10 +23,10 @@ const CharacterIcon = ({
     const nameConfig = type === 'small'
         ? "bg-white bg-opacity-80 font-bold w-full px-[2px] py-[2px] truncate text-[12px] z-10 flex items-center justify-center"
         : type === 'mini'
-            ? "bg-white bg-opacity-80 font-bold w-full px-[2px] py-1 truncate text-[12px] z-10 flex items-center justify-center"
+            ? "bg-white bg-opacity-80 font-bold w-full px-[2px] py-1 truncate text-[10px] z-10 flex items-center justify-center"
             : type === 'micro'
                 ? "hidden"
-                : "bg-white bg-opacity-80 font-bold w-full px-2 py-1 truncate text-[13px] z-10 flex items-center justify-center";
+                : "bg-white bg-opacity-80 font-bold w-full px-2 py-1 truncate text-[12px] z-10 flex items-center justify-center";
 
     const imgURL = (name: string) => {
 
