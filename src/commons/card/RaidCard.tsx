@@ -38,18 +38,18 @@ const RaidCard = ({ data, raidType }: {
             to={`/${typeLink}/${data.seasonNumber}`}
             className={`w-full flex flex-col rounded-lg ${borderColor} bg-white dark:bg-zinc-900`}>
             <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
-                <span className="font-bold mb-2 xs:inline hidden">
+                <span className="mb-2 xs:inline hidden text-[15px]">
                     {krName}
                 </span>
-                <span className="font-bold mb-2 xs:hidden inline">
+                <span className="mb-2 xs:hidden inline text-[15px]">
                     {krShortName}
                 </span>
-                <span className="mt-1 flex sm:flex-row flex-col gap-x-1 items-center justify-center text-[13px]">
-                    <span className="text-[12px]">
+                <div className="mt-1 flex sm:flex-row flex-col gap-x-1 items-center justify-center text-[12px]">
+                    <span className="text-[11px]">
                         {Number(data.seasonNumber) >= 10000 ? `베타 시즌${Number(data.seasonNumber) - 10000}` : `시즌${data.seasonNumber}`}
                     </span>
-                    <span className="font-bold">{data.name}</span>
-                </span>
+                    <span className="">{data.name}</span>
+                </div>
             </div>
             <div className="relative min-h-[30px] overflow-hidden">
                 <div className="absolute right-0 ml-[-60px]">

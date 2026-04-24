@@ -48,9 +48,11 @@ const HeaderNav = () => {
                     <div className="pointer-events-none absolute inset-y-0 left-0 w-[30px] z-10 bg-gradient-to-r from-white to-transparent dark:from-zinc-900" />
 
                     {/* 로고 */}
-                    <Link to="/" className="h-[26px] w-[26px] lg:flex-1 flex">
-                        <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
-                    </Link>
+                    <div className="lg:flex-1 flex">
+                        <Link to="/" className="h-[26px] w-[26px]">
+                            <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
+                        </Link>
+                    </div>
 
                     {/* PC 환경 메뉴 */}
                     <nav className="flex gap-x-4 text-[14px] items-center text-gray-800 dark:text-zinc-200 lg:flex mx-auto">
