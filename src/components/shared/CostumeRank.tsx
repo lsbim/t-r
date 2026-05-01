@@ -29,7 +29,7 @@ const CostumeRank = (
 
     return (
         <div
-            className="lg:w-[992px] dark:text-zinc-200 w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 py-4 shadow-md overflow-x-auto gap-y-3">
+            className="lg:w-[992px] dark:text-zinc-200 w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 py-4 rounded-2xl overflow-x-auto gap-y-3">
             <div className='flex items-center'>
                 <span className="font-bold text-xl ml-4 mr-2 dark:text-zinc-200">인기 사복</span>
                 <InfoIcon text='인기 사복은 1~300위 전체 범위만 집계됩니다.' />

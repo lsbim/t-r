@@ -126,7 +126,7 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 pl-6 rounded-2xl mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
                     <h1 className="text-[20px] font-bold mr-2">보스 타임라인</h1>
                     <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
@@ -147,7 +147,7 @@ const IndexPage = () => {
                 <span className="flex text-[12px]">집계되지 않은 시즌은 제외됩니다.</span>
             </div>
             {/* 타임라인 */}
-            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 p-4 rounded-2xl mt-4 overflow-x-auto">
                 <div className="flex mx-auto w-full">
                     <div className="flex flex-col gap-y-2">
                         <span className="text-[12px] text-orange-500 font-bold">

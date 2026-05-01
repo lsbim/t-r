@@ -34,11 +34,26 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
                         </span>
                     </div>
                     <div className="flex gap-x-2 items-center">
+                        <span className="font-bold">차원 대충돌 기준: </span>
+                        <span className="text-red-500">시즌44</span>
+                        <div className="flex items-center gap-x-1">
+                            <span className="">크레용사용</span>
+                            <PersonalityIcon personality="냉정" size={14} />
+                        </div>
+                    </div>
+                    <div className="flex gap-x-2 items-center">
                         <span className="font-bold">차원 대충돌 2.0 기준: </span>
-                        <span className="text-red-500">베타 시즌 4</span>
+                        <span className="text-red-500">베타 시즌4</span>
                         <div className="flex items-center gap-x-1">
                             <span className="">흑화 영춘</span>
                             <PersonalityIcon personality="냉정" size={14} />
+                        </div>
+                    </div>
+                    <div className="flex gap-x-2 items-center">
+                        <span className="font-bold">엘리아스 프론티어 기준: </span>
+                        <span className="text-red-500">시즌17</span>
+                        <div className="flex items-center gap-x-1">
+                            <span className="">크레용사용</span>
                         </div>
                     </div>
                 </div>
@@ -153,8 +168,8 @@ const NoticeComponent = ({ data }: { data: ClashSummary }) => {
     return (
         <div className="sm:w-[600px] w-full mx-auto flex flex-col">
             <div className="flex justify-center">
-                <div className="w-full mx-auto">
-                    <div className="text-[15px] mb-2 flex justify-start dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 rounded-t-md font-bold shadow-sm">
+                <div className="w-full mx-auto rounded-2xl border dark:border-none bg-white dark:bg-zinc-900 overflow-hidden">
+                    <div className="text-[15px] flex justify-start dark:text-zinc-300 p-4 font-bold">
                         공지사항
                     </div>
                     <div className="flex justify-between text-[13px] text-gray-800 dark:text-zinc-200 w-full">

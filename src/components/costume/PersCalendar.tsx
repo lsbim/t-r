@@ -42,7 +42,7 @@ const PersCalendar: React.FC<Props> = (
     // console.log(weeklySchedule)
 
     return (
-        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 shadow-md p-2">
+        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 first:rounded-tl-2xl first:rounded-bl-2xl">
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />
@@ -81,7 +81,7 @@ const PersCalendar: React.FC<Props> = (
                                             key={startDateStr + index + pers}
                                             data-tooltip-id={isOutOfRange ? "" : "my-tooltip"}
                                             data-tooltip-content={costumeTooltipText}
-                                            className={`w-4 h-4 rounded-sm ${getActivityColor(week?.activityCount)}
+                                            className={`w-4 h-4 rounded-md ${getActivityColor(week?.activityCount)}
                                         ${week.costumes?.some(item => item.lvl === 'pretty') && 'border-2 border-black dark:shadow-[0_0_4px_rgba(255,255,255,0.1)] dark:shadow-white'}
                                         ${isOutOfRange ? 'opacity-20' : 'opacity-100'}`}
                                         />

@@ -244,7 +244,7 @@ const SimIndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 p-4 shadow-md mt-4">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 p-4 pl-6 rounded-2xl mt-4">
                 <div className="flex flex-col dark:text-zinc-200">
                     <div className="flex flex-col justify-start mb-3">
                         <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
@@ -297,7 +297,7 @@ const SimIndexPage = () => {
             </div>
 
             {/* 시설 및 연구단계 입력 */}
-            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 shadow-md">
+            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 rounded-2xl">
                 <div className="flex items-center justify-between w-full mb-8">
                     {simInputArr.map((sel, idx) => (
                         <button
@@ -321,14 +321,14 @@ const SimIndexPage = () => {
                         researchInput={researchInput} />
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full min-h-[569px]">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-2xl overflow-hidden">
                 {allResult ? (
                     <SimResult
                         simResult={allResult}
                         type={'all'}
                     />
                 ) : (
-                    <div className="w-full gap-x-3 bg-white dark:bg-zinc-900 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold text-gray-700">
+                    <div className="w-full gap-x-3 bg-white dark:bg-zinc-900 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold text-gray-700 rounded-2xl">
                         <img src={`images/item/gold.webp`} className="aspect-square object-center w-[60px] grayscale select-none" />
                         <span>
                             선택된 시설 또는 연구 정보가 없습니다.
@@ -336,7 +336,7 @@ const SimIndexPage = () => {
                     </div>
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full mb-8">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full mb-8 overflow-hidden rounded-2xl">
                 <MyAccordion
                     items={items}
                 />

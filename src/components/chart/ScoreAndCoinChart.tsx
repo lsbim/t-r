@@ -202,7 +202,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
     const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-2xl overflow-x-auto overflow-y-hidden">
             <div className='flex items-center mb-4'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />

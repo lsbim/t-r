@@ -54,7 +54,7 @@ const RankRangeInputComponent = ({ handleCustomRank }: { handleCustomRank: (star
                 />
                 <button
                     onClick={() => handleCustomRank(startRank, endRank)}
-                    className="text-white dark:text-zinc-950 bg-orange-400 w-[50px] h-[25px] hover:bg-orange-500 cursor-pointer transition-colors flex justify-center items-center rounded-sm ml-2">
+                    className="text-white dark:text-zinc-950 bg-orange-400 w-[50px] h-[25px] hover:bg-orange-500 cursor-pointer transition-colors flex justify-center items-center rounded-md ml-2">
                     적용
                 </button>
             </div>

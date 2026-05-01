@@ -16,18 +16,19 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
         <Accordion.Root
             type="multiple" // or single
             // defaultValue={items[0]?.id}
-            className="w-full rounded-lg shadow-md"
+            className="w-full"
         >
             {items.map(({ id, header, content }, index) => (
                 <Accordion.Item
                     key={id}
                     value={id}
-                    className={`${index === items.length - 1 || 'mb-[2px]'}`}
+                    className={`${index === items.length - 1 || 'mb-[2px]'} last:border-b-0 border-b dark:border-zinc-700`}
                 >
                     <Accordion.Header className="flex">
                         <Accordion.Trigger className='group' asChild>
                             {/* asChild 사용 시, 이 div에 all props 전달 */}
-                            <button className="w-full flex justify-between items-center p-4 cursor-pointer dark:bg-zinc-900 dark:hover:bg-zinc-950 dark:data-[state=open]:bg-zinc-950 hover:bg-amber-50 bg-white data-[state=open]:bg-amber-50">
+                            <button 
+                            className={`w-full flex justify-between items-center p-4 cursor-pointer bg-white dark:bg-zinc-900 dark:hover:bg-zinc-950 dark:data-[state=open]:bg-zinc-950 hover:bg-amber-50 data-[state=open]:bg-amber-50 ${index === items.length - 1 ? 'rounded-b-2xl dark:rounded-b-none' : ''}`}>
                                 <span className="text-[15px] font-medium">{header}</span>
                                 {/* 아래 홑화살괄호 */}
                                 <svg
@@ -49,7 +50,7 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                         </Accordion.Trigger>
                     </Accordion.Header>
 
-                    <Accordion.Content className=" dark:bg-zinc-900 bg-white overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
+                    <Accordion.Content className="border-b dark:border-none dark:bg-zinc-900 overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
                         {content}
                     </Accordion.Content>
                 </Accordion.Item>

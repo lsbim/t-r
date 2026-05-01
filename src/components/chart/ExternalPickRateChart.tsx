@@ -80,7 +80,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                     // console.log("maxLineCnt: ", maxLineCount)
 
                     return (
-                        <div key={'clash' + season + line} className={`shadow-md p-2 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
+                        <div key={'clash' + season + line} className={`rounded-2xl py-2 px-3 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
                             <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-200">
                                 <span className="">{line}</span>
                                 <span className="text-[16px]">{charSum}</span>

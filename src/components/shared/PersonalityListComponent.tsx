@@ -24,9 +24,7 @@ export const PersonalityListComponent = ({ data, count, userCnt }: { data: Syner
                         className={`[filter:drop-shadow(0_3px_3px_rgba(0,0,0,0.3))] relative 
                     ${i % 2 === 0 ? "row-start-1 ml-[-10px]" : "row-start-2 mb-[52px]"}`}>
                         <div
-                            className={`
-                    w-6 h-6 bg-${personality} ml-[-12px] mb-[-12px] drop-shadow-md clip-pentagon rotate-[-12deg] 
-                    [clip-path:polygon(50%_0%,100%_38%,82%_100%,18%_100%,0%_38%)] `}
+                            className={`w-6 h-6 bg-${personality} ml-[-12px] mb-[-12px] drop-shadow-md clip-pentagon rotate-[-12deg] [clip-path:polygon(50%_0%,100%_38%,82%_100%,18%_100%,0%_38%)] `}
                         />
                     </div>
                 ))}

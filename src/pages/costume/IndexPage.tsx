@@ -154,7 +154,7 @@ const IndexPage = () => {
 
     const selectYearElement = () => {
         return (
-            <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto shadow-md items-center pt-2">
+            <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto items-center pt-2 rounded-tr-2xl rounded-br-2xl">
                 {costumeReleaseYearSet.map(y => (
                     <button
                         onClick={() => {
@@ -178,7 +178,7 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 pl-6 rounded-2xl mt-4 overflow-x-auto">
                 <div className="flex flex-col justify-start mb-3">
                     <h1 className="text-[20px] font-bold mr-2">사복</h1>
                     <span className="flex text-[14px]">다음 대상의 사복 집계 자료를 제공합니다.</span>

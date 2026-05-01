@@ -203,7 +203,7 @@ const ClashV2SeasonPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 shadow-md mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-2xl mt-4 overflow-x-auto">
                 {data && (
                     <PersonalityPieChart
                         data={seasonSlice}

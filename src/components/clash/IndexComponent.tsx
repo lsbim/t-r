@@ -24,8 +24,8 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
     // console.log(clashSort)
 
     return (
-        <div className="bg-white w-[992px] dark:bg-zinc-900 rounded-b-md shadow-lg max-w-full my-8">
-            <div className="p-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
+        <div className="bg-white w-[992px] dark:bg-zinc-900 rounded-2xl max-w-full my-8">
+            <div className="p-4 pl-6 mb-2 flex flex-col border-b-4 border-gray-200 dark:border-zinc-800 gap-y-2">
                 <div className="flex flex-col justify-start mb-3 dark:text-zinc-200">
                     <h1 className="text-[20px] font-bold mr-2">차원 대충돌 집계</h1>
                     <span className="flex xs:text-[14px] text-[11px]">막대 차트 클릭 시 해당 시즌의 상세 집계 페이지로 이동합니다.</span>
@@ -225,7 +225,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                 {matchingEntries.length !== 0 && (
                                     <div className="w-full mb-1 flex items-center">
                                         {/* 왼쪽 여백을 위한 빈 div */}
-                                        <div className="mr-2 w-[90px] flex-shrink-0" />
+                                        <div className="w-[90px] flex-shrink-0" />
 
                                         <div
                                             style={{ gap: lineGap }}
@@ -233,7 +233,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                             {lineList.map(line => (
                                                 <div
                                                     key={`line_text_` + line}
-                                                    className="xs:w-[300px] w-[200px] ">
+                                                    className="xs:w-[275px] w-[200px] ">
                                                     {line}
                                                 </div>
                                             ))}
@@ -261,7 +261,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                     {/* 시즌 정보 */}
                                                     <div className="w-full mb-1 flex items-center h-full">
                                                         {/* 마진 8px + 너비 80px */}
-                                                        <div className="min-w-[90px] gap-x-2 flex items-center mr-2 dark:text-zinc-200">
+                                                        <div className="min-w-[90px] gap-x-2 flex items-center dark:text-zinc-200">
                                                             <div
                                                                 data-tooltip-id="my-tooltip"
                                                                 data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
@@ -297,7 +297,7 @@ const IndexComponent = ({ summary }: { summary: ClashSummary }) => {
                                                             {lineList.map((line) => (
                                                                 <div
                                                                     key={`${line}_season_${season}`}
-                                                                    className="xs:w-[300px] w-[200px] flex"
+                                                                    className="xs:w-[275px] w-[200px] flex"
                                                                 >
                                                                     <LineBarComponent
                                                                         data={seasonData.summary}

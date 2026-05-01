@@ -151,6 +151,7 @@ input[type='number'] {
     animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
 }
 
+/* HeaderNav에서 사용 */
 .scrollbar-hide {
     -ms-overflow-style: none;
     /* IE, Edge */
