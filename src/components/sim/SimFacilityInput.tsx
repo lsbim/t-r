@@ -7,7 +7,16 @@ import { FacilitySimRequest } from "../../types/sim/simTypes";
 import { Facility, FacilityEn } from "../../types/trickcalTypes";
 import { translateFacility } from "../../utils/function";
 
-const labPlatformList: FacilityEn[] = ['lab', 'hall', 'hq', 'adv',];
+const LAB_PLATFORM_LIST = ['lab', 'hall', 'hq', 'adv'] as const;
+
+const FACILITY_CONFIG = {
+    lab: { currentKey: 'currentLab', targetKey: 'lab' },
+    hall: { currentKey: 'currentHall', targetKey: 'hall' },
+    hq: { currentKey: 'currentHq', targetKey: 'hq' },
+    adv: { currentKey: 'currentAdv', targetKey: 'adv' },
+} as const;
+
+type SimFacilityKey = keyof typeof FACILITY_CONFIG;
 
 const SimFacilityInput = ({ facilityInput, setFacilityInput }
     : {
@@ -16,7 +25,7 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
     }
 ) => {
 
-    const handleSlider = useCallback((name: FacilityEn, num: [number, number]) => {
+    const handleSlider = useCallback((name: SimFacilityKey, num: [number, number]) => {
         const [smallVal, bigVal] = num;
 
         const krName = translateFacility(name)! as Facility;
@@ -25,32 +34,13 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
         const clampedSmall = Math.max(1, Math.min(smallVal, maxlvl));
         const clampedBig = Math.max(1, Math.min(bigVal, maxlvl));
 
-        setFacilityInput((prev) => {
-            const next = { ...prev };
+        const config = FACILITY_CONFIG[name];
 
-            switch (name) {
-                case "lab":
-                    next.currentLab = clampedSmall;
-                    next.target = { ...next.target, lab: clampedBig };
-                    break;
-                case "hall":
-                    next.currentHall = clampedSmall;
-                    next.target = { ...next.target, hall: clampedBig };
-                    break;
-                case "hq":
-                    next.currentHq = clampedSmall;
-                    next.target = { ...next.target, hq: clampedBig };
-                    break;
-                case "adv":
-                    next.currentAdv = clampedSmall;
-                    next.target = { ...next.target, adv: clampedBig };
-                    break;
-                default:
-                    break;
-            }
-
-            return next;
-        });
+        setFacilityInput(prev => ({
+            ...prev,
+            [config.currentKey]: clampedSmall,
+            target: { ...prev.target, [config.targetKey]: clampedBig }
+        }));
     }, [setFacilityInput])
 
     const validateFacility = (name: FacilityEn) => {
@@ -112,29 +102,11 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
                 </span>
             </div>
             <div className="flex flex-col justify-start gap-y-3 text-[14px]">
-                {labPlatformList.map(p => {
+                {LAB_PLATFORM_LIST.map(p => {
 
-                    let currentV = 1;
-                    let highV = 1;
-
-                    switch (p) {
-                        case "lab":
-                            currentV = facilityInput.currentLab;
-                            highV = facilityInput.target.lab;
-                            break;
-                        case "hall":
-                            currentV = facilityInput.currentHall;
-                            highV = facilityInput.target.hall;
-                            break;
-                        case "hq":
-                            currentV = facilityInput.currentHq;
-                            highV = facilityInput.target.hq;
-                            break;
-                        case "adv":
-                            currentV = facilityInput.currentAdv;
-                            highV = facilityInput.target.adv;
-                            break;
-                    }
+                    const config = FACILITY_CONFIG[p];
+                    const currentV = facilityInput[config.currentKey];
+                    const highV = facilityInput?.target[config.targetKey];
 
                     return (
                         <div
