@@ -1,7 +1,8 @@
+import { createPortal } from "react-dom";
+
 const SeasonRemote = () => {
 
-    return (
-        // 모바일 반응형 기준 사이즈 이상 -> hidden
+    const content = (
         <div className="sm:hidden fixed flex flex-col bottom-[45px] right-[20px] z-50 gap-y-[2px]">
             <a
                 href="#top"
@@ -32,7 +33,9 @@ const SeasonRemote = () => {
                 </svg>
             </a>
         </div>
-    );
+    )
+
+    return createPortal(content, document.body);
 }
 
 export default SeasonRemote;

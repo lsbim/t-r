@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import FuzzyComponent from "../../commons/animation/FuzzyComponent";
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
@@ -10,6 +9,7 @@ import PersonalityPieChart from "../../components/chart/PersonalityPieChart";
 import PickRateChart from "../../components/chart/PickRateChart";
 import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
+import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/SelectCharComponent";
@@ -20,7 +20,6 @@ import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashPlayerData } from "../../types/clashTypes";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
 import { CompStat, processCompStat } from "../../utils/chartFunction";
-import CostumeRank from "../../components/shared/CostumeRank";
 
 const initRange = { start: 0, end: 0 };
 
@@ -172,36 +171,29 @@ const ClashV2SeasonPage = () => {
                 description={`차원 대충돌 2.0 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
             />
             <HeaderNav />
-            {/* {data?.type === 'season' && ( */}
             <SeasonRemote />
-            <div className="w-full flex justify-between h-10 mt-[-16px] border-b-2 dark:border-zinc-700 z-20 items-center sticky top-0 bg-white dark:bg-zinc-900">
+            {/* 림/셰이디 선택지 */}
+            <div className="w-full flex font-bold backdrop-blur-md justify-between h-10 mt-[-16px] border-b dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/80 dark:bg-zinc-900/70 dark:text-zinc-200">
                 {/* 구분선 */}
                 <div
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[50%] bg-zinc-500 dark:bg-zinc-700"
                 />
 
-                <div
-                    className={`w-[50%] cursor-pointer transition duration-150 ${v2Type !== 'side' && 'hover:brightness-[.7]'}`}
+                <button
+                    className={`w-[50%] cursor-pointer duration-150 group`}
                     onClick={() => handleV2Type('side')}>
-                    <div className="relative cursor-pointer w-24 mx-auto">
-                        <FuzzyComponent
-                            isActive={v2Type === 'side'}
-                            color='rgb(16,117,53)'
-                            text="림의 이면세계"
-                        />
-                    </div>
-                </div>
-                <div
-                    className={`w-[50%] cursor-pointer transition duration-150  ${v2Type !== 'main' && 'hover:brightness-[.7]'}`}
+                    <span className={`w-24 mx-auto px-4 py-[2px] rounded-2xl transition-colors duration-200  ${v2Type !== 'side' && ' group-hover:bg-[rgba(16,117,53,0.3)]'} ${v2Type === 'side' && ' bg-[rgba(16,117,53,0.6)]'}`}>
+
+                        림의 이면세계
+                    </span>
+                </button>
+                <button
+                    className={`w-[50%] cursor-pointer duration-150 group`}
                     onClick={() => handleV2Type('main')}>
-                    <div className="relative w-24 mx-auto">
-                        <FuzzyComponent
-                            isActive={v2Type === 'main'}
-                            color='rgb(224,115,6)'
-                            text="셰이디의 차원"
-                        />
-                    </div>
-                </div>
+                    <span className={`w-24 mx-auto px-4 py-[2px] rounded-2xl transition-colors duration-200  ${v2Type !== 'main' && ' group-hover:bg-[rgba(224,115,6,0.3)] dark:group-hover:bg-[rgba(224,115,6,0.5)]'} ${v2Type === 'main' && ' bg-[rgba(224,115,6,0.6)] dark:bg-[rgba(224,115,6,0.8)]'}`}>
+                        셰이디의 차원
+                    </span>
+                </button>
             </div>
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-2xl mt-4 overflow-x-auto">
                 {data && (
