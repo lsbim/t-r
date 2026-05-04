@@ -13,6 +13,7 @@ import InfoIcon from "../../../commons/icon/InfoIcon";
 import { useTheme } from "../../../hooks/useTheme";
 import { ClashV2SeasonData } from "../../../types/clashV2Types";
 import { getSideSkillBGColor, getSideSkillKrName, sideSkillList } from '../../../data/sideSkill';
+import React from 'react';
 
 // Bar 차트에 필요한 요소 등록
 ChartJS.register(
@@ -155,4 +156,4 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
     );
 }
 
-export default ClashV2SkillChart;
+export default React.memo(ClashV2SkillChart);

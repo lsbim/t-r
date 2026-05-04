@@ -14,6 +14,7 @@ import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTy
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
 import { useTheme } from '../../hooks/useTheme';
+import { useMemo } from 'react';
 
 ChartJS.register(
     CategoryScale,
@@ -35,9 +36,11 @@ const AllPickRateChart = ({ data, type, setSelect }:
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
-    const sortedData = data.type === 'season' ?
-        processRankingArrAllData(data?.data, type).sort((a, b) => b.count - a.count)
-        : processExternalAllData(data).sort((a, b) => b.count - a.count);
+    const sortedData = useMemo(() => {
+        return data.type === 'season'
+            ? processRankingArrAllData(data?.data, type).sort((a, b) => b.count - a.count)
+            : processExternalAllData(data).sort((a, b) => b.count - a.count)
+    }, [data, type]);
 
     // console.log("sortedData: ", sortedData)
 

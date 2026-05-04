@@ -15,23 +15,23 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
     }) => {
 
     // const processData = processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
-    const processData = type
-        ? processRankingArrDataV2(data?.data, type).sort((a, b) => b.percent - a.percent)
-        : processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
-
-    let processPrevData: SummaryData[] | ExternalSummaryData[] | null = null;
+    const processData = useMemo(() => {
+        return type
+            ? processRankingArrDataV2(data?.data, type).sort((a, b) => b.percent - a.percent)
+            : processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
+    }, [data, type])
 
     const userLength = data.type === 'season'
         ? (data.data as any).length
         : 100;
 
-    if (prevData) {
-        processPrevData = prevData?.type === 'season' ?
-            processRankingArrData(prevData?.data, type).sort((a, b) => b.percent - a.percent) :
-            processExternalData(prevData).sort((a, b) => b.percent - a.percent);
+    const processPrevData = useMemo(() => {
+        if (!prevData) return null;
 
-        // console.log("processPrevData: ", processPrevData);
-    }
+        return prevData.type === 'season'
+            ? processRankingArrData(prevData.data, type).sort((a, b) => b.percent - a.percent)
+            : processExternalData(prevData).sort((a, b) => b.percent - a.percent);
+    }, [prevData, type]);
 
     const prevSeasonPickRates = useMemo(() => {
         if (!processPrevData || !prevData) return null;

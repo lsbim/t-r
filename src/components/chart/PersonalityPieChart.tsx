@@ -13,19 +13,20 @@ import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processPersonalityPie } from "../../utils/chartFunction";
 import { useTheme } from '../../hooks/useTheme';
 import { ClashV2SeasonData } from '../../types/clashV2Types';
+import { useMemo } from 'react';
 // ① 필수: 사용 요소 & 플러그인 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
-const PersonalityPieChart = ({ 
+const PersonalityPieChart = ({
     data,
     type
- }: { 
+}: {
     data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData | ClashV2SeasonData,
     type?: 'side'
- }) => {
+}) => {
 
-    const pieData = processPersonalityPie(data?.data, type);
+    const pieData = useMemo(() => processPersonalityPie(data?.data, type), [data, type])
 
     if (!pieData) return null;
 
@@ -38,7 +39,6 @@ const PersonalityPieChart = ({
 
     const borderColor = theme === 'dark' ? 'rgb(24 24 27)' : '#FFFFFF';
 
-    // console.log(pieData);
 
     const chartData = {
         labels: pieLabels,

@@ -13,13 +13,15 @@ const ExternalPickRateChart = ({ data, season, prevData }:
         prevData?: ClashExternalData | FrontierExternalData,
     }) => {
 
-    const processData = processExternalData(data).sort((a, b) => b.percent - a.percent);
+    const processData = useMemo(() => processExternalData(data).sort((a, b) => b.percent - a.percent), [data])
 
     const lineList: BaseLine[] = ["후열", "중열", "전열"];
-    let processPrevData: ExternalSummaryData[] | null = null;
-    if (prevData) {
-        processPrevData = processExternalData(prevData).sort((a, b) => b.percent - a.percent);
-    }
+
+    const processPrevData = useMemo(() => {
+        if (!prevData) return null;
+
+        return processExternalData(prevData).sort((a, b) => b.percent - a.percent);
+    }, [prevData])
 
     const prevSeasonPickRates = useMemo(() => {
         if (!processPrevData) return null;
@@ -47,18 +49,6 @@ const ExternalPickRateChart = ({ data, season, prevData }:
 
         return rateMap;
     }, [processPrevData]);
-
-    // console.log("processPrevData: ", prevSeasonPickRates);
-
-    // console.log("pick rate processData", processData);
-
-    if (!processData) {
-        <div>
-            asd..
-        </div>
-    }
-
-    // const globalMax = Math.max(...processData.map((i) => i.percent));
 
     return (
         <div id="pickRate" className="flex overflow-x-auto">
