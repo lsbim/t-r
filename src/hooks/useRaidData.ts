@@ -10,13 +10,13 @@ const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
     // 시즌 번호가 유효한지 먼저 확인
     const numSeason = Number(season)
     if (!season || numSeason < 1) {
-        console.log('유효하지 않은 시즌 번호입니다.');
+        throw new Error('유효하지 않은 시즌 번호입니다.');
     }
     const typeDir = type === 'clashV2' ? 'clash_v2' : type
     const response = await fetch(`/data/${typeDir}/${numSeason}.json`);
 
     if (!response.ok) {
-        console.log(`시즌 ${numSeason} 데이터를 찾을 수 없습니다.`);
+        throw new Error(`시즌 ${numSeason} 데이터를 찾을 수 없습니다.`);
     }
 
     return response.json();

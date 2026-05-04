@@ -8,7 +8,7 @@ const fetchNonData = async () => {
     const response = await fetch(`/data/clash/non_data.json`);
 
     if (!response.ok) {
-        console.log(`데이터를 찾을 수 없습니다.`);
+        throw new Error(`데이터를 찾을 수 없습니다.`);
     }
 
     return response.json();
@@ -16,7 +16,7 @@ const fetchNonData = async () => {
 
 export const useNonData = <T extends ClashSummary | FrontierSummary>() => {
 
-    return useQuery<any, Error>({
+    return useQuery<T, Error>({
         queryKey: ["non_data"],
         queryFn: () => fetchNonData(),
 
@@ -33,10 +33,3 @@ export const useNonData = <T extends ClashSummary | FrontierSummary>() => {
         retry: 1,
     });
 };
-
-function processNonData(data: ClashSummary | FrontierSummary) {
-
-    console.log(data)
-
-    return data;
-}

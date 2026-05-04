@@ -88,10 +88,3 @@ export function processFrontierArrData(data: FrontierPlayerData[]): EnrichedFron
 
     return chartData;
 }
-
-export function processFrontierPickData<T extends FrontierSeasonData | FrontierExternalData>
-    (data: T, prevData: T) {
-
-        
-
-}
