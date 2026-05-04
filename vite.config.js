@@ -33,6 +33,7 @@ export default defineConfig(({ command }) => {
                     },
                 },
             },
+            sourcemap: false,
         },
         plugins: [
             react(),

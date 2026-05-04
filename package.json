@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "node scripts/build-season-summaries.js && node scripts/build-latest-summaries.js && set \"GENERATE_SOURCEMAP=false\" && vite build",
+    "build": "node scripts/build-season-summaries.js && node scripts/build-latest-summaries.js && vite build",
     "serve": "vite preview"
   },
   "eslintConfig": {
