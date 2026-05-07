@@ -198,6 +198,7 @@ export const costumes: Costume[] = [
     { charName: "네르(빡침)", cosName: "왕관의 수여자", lvl: "pretty", launchDate: "2026-03-26" },
     { charName: "미로", cosName: "검은 머리의 대마법사", lvl: "normal", launchDate: "2026-04-02" },
     { charName: "슈팡", cosName: "스카이 로지스틱스", lvl: "normal", launchDate: "2026-04-30" },
+    { charName: "레비(졸업)", cosName: "정식 마녀의 휴식", lvl: "normal", launchDate: "2026-05-07" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },

@@ -112,6 +112,8 @@ export const charInfo: CharInfoType = {
     "마카샤": { grade: 3, personality: "활발", line: "중열", birthdate: "2025-08-14", race: '마녀' },
     "미로": { grade: 3, personality: "활발", line: "전열", birthdate: "2025-10-23", race: '정령' },
     "셰이디(역전)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-01-15", race: '유령' },
+    "네르(빡침)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-03-26", race: '요정', eldain: true },
+    "레비(졸업)": { grade: 3, personality: "활발", line: "전열", birthdate: "2026-05-07", race: '마녀' },
     "마리": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '요정' },
     "베니": { grade: 2, personality: "활발", line: "전열", birthdate: "2023-09-27", race: '수인' },
     "쥬비": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", race: '정령' },
@@ -119,7 +121,6 @@ export const charInfo: CharInfoType = {
     "밍스": { grade: 1, personality: "활발", line: "전열", birthdate: "2023-09-27" },
     "타이다": { grade: 1, personality: "활발", line: "후열", birthdate: "2023-09-27" },
     "카렌": { grade: 1, personality: "활발", line: "후열", birthdate: "2023-09-27" },
-    "네르(빡침)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-03-26", race: '요정', eldain: true },
 
     // 우울
     "시온": { grade: 3, personality: "우울", line: "후열", birthdate: "2023-09-27", race: '유령', eldain: true },
