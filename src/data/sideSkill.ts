@@ -40,14 +40,26 @@ export const sideSkillList: sideSkill[] = [
     {
         name: 'clashV2Side6',
         krName: '흐에X에X엥',
-        description: '일반 공격 3회 적중 시 n%의\n추가 피해 저학년 스킬, 고학년\n스킬 피해량 5% 감소',
+        description: '일반 공격 3회 적중 시 n%의\n추가 피해 저학년 스킬, 고학년\n스킬 피해량 n% 감소',
         backgroundColor: 'rgba(220, 214, 203, 0.7)',
     },
     {
         name: 'clashV2Side7',
         krName: 'XX 걷기 좋은날',
-        description: '고학년 스킬 재사용 대기시간 1초\n 감소, SP회복량 12%감소,\n디버프에 걸린 적에게 주는\n피해량 10% 증가',
+        description: '고학년 스킬 재사용 대기시간 n초\n 감소, SP회복량 n%감소,\n디버프에 걸린 적에게 주는\n피해량 n% 증가',
         backgroundColor: 'rgba(69, 64, 64, 0.7)',
+    },
+    {
+        name: 'clashV2Side8',
+        krName: '퓨X☆XX닝 빔',
+        description: '회복량 n% 증가, 보호막 효과\nn% 감소. HP 회복 효과를 9번\n받을 때마다 n%의 피해를\n입히는 투사체를 발사한다.',
+        backgroundColor: 'rgba(129, 131, 147, 0.7)',
+    },
+    {
+        name: 'clashV2Side9',
+        krName: 'X굴 X굴 X굴비',
+        description: '스킬 피해량 n% 증가, 일반\n공격 피해량 n% 감소. 저학년\n스킬을 사용할 때마다, 해당\n사도의 현재 고학년 스킬 재사용\n대기시간이 즉시 n% 감소한다.',
+        backgroundColor: 'rgba(166, 192, 147, 0.7)',
     },
 ]
 

@@ -41,7 +41,7 @@ const RaidBlock = ({ getYOffset, raidValues, BASE_DATE_HEIGHT, raidKeys }: Props
                     <Link
                         to={raidUrl}
                         key={"timeline_raid" + raid.startDate + raid.name}
-                        className={`absolute dark:brightness-90 ${raidPosition} ${raidBGColor} ${raidTextColor} w-1/4 sm:w-[200px] flex flex-col justify-center items-center hover:brightness-75 duration-300 transition-all cursor-pointer z-20`}
+                        className={`absolute dark:brightness-90 ${raidPosition} ${raidBGColor} ${raidTextColor} w-1/4 sm:w-[200px] flex flex-col justify-center items-center cursor-pointer z-20 hover:brightness-90 hover:shadow-xl dark:shadow-zinc-700 transition-all duration-300`}
                         style={{ top: top, height: height }}
                     >
                         <span className="font-bold">{raid.name}</span>
