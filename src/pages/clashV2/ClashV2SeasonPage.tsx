@@ -173,7 +173,7 @@ const ClashV2SeasonPage = () => {
             <HeaderNav />
             <SeasonRemote />
             {/* 림/셰이디 선택지 */}
-            <div className="w-full flex font-bold backdrop-blur-md justify-between h-10 mt-[-16px] border-b dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/70 dark:bg-zinc-900/70 dark:text-zinc-200">
+            <div className="w-full flex font-bold backdrop-blur-sm justify-between h-10 mt-[-16px] border-b dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/90 dark:bg-zinc-900/80 dark:text-zinc-200">
                 {/* 구분선 */}
                 <div
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[50%] bg-zinc-500 dark:bg-zinc-700"
