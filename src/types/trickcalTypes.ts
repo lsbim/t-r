@@ -18,6 +18,8 @@ export type AllLine = BaseLine | "모든열";
 export const lineList: BaseLine[] = ["후열", "중열", "전열"]; // .map()용 배열
 export const lineListEn: BaseLineEn[] = ["back", "mid", "front"]; // .map()용 배열
 
+export const clashV2Category = ['셰이디의 차원', '림의 이면세계'];
+
 export type SeasonDataMap = { // 시즌데이터 맵핑
     frontier: FrontierSeasonData;
     clash: ClashSeasonData;
