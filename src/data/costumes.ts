@@ -55,6 +55,7 @@ export const costumes: Costume[] = [
     { charName: "에르핀(왕도)", cosName: "왕관의 주인공", lvl: "pretty", launchDate: "2026-03-28" },
     { charName: "셰럼", cosName: "픽션 앤 노벨리스트", lvl: "normal", launchDate: "2026-04-02" },
     { charName: "오팔", cosName: "하늘 위의 서프라이즈", lvl: "normal", launchDate: "2026-04-30" },
+    { charName: "란", cosName: "백사당의 무녀", lvl: "pretty", launchDate: "2026-05-14" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
