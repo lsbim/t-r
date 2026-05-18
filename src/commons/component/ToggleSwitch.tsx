@@ -51,31 +51,33 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
     const currentSize = sizeStyles[size];
 
     return (
-        <button
-            type="button"
-            role="switch"
-            aria-checked={isChecked}
-            onClick={handleToggle}
-            disabled={disabled}
-            className={`
+        <div className="flex justify-center">
+            <button
+                type="button"
+                role="switch"
+                aria-checked={isChecked}
+                onClick={handleToggle}
+                disabled={disabled}
+                className={`
                 ${currentSize.container} 
-                relative inline-flex items-center rounded-full
+                relative flex items-center rounded-full align-middle
                 transition-colors duration-300 ease-in-out
                 focus:outline-none
                 ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
                 ${isChecked ? activeColor : 'bg-gray-300 dark:bg-zinc-600'}
             `}
-        >
-            {/* 원형 버튼 */}
-            <span
-                className={`
+            >
+                {/* 원형 버튼 */}
+                <span
+                    className={`
                     ${currentSize.circle}
                     inline-block rounded-full bg-white shadow-md
                     transform transition-transform duration-300 ease-in-out
                     ${isChecked ? currentSize.translate : 'translate-x-0.5'}
                 `}
-            />
-        </button>
+                />
+            </button>
+        </div>
     );
 };
 

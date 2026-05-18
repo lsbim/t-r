@@ -85,6 +85,11 @@ const HeaderNav = () => {
                             className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>
                             교단 계산
                         </Link>
+                        <Link
+                            to="/calc/gacha"
+                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/calc") ? "text-orange-500" : ""}`}>
+                            모집 계산
+                        </Link>
                     </nav>
 
                     <div className="lg:flex-1 flex items-center justify-end">
