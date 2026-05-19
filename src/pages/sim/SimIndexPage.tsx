@@ -1,4 +1,9 @@
+import { debounce } from "es-toolkit";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
+import MyAccordion from "../../commons/rdx/MyAccordion";
+import MaterialBag from "../../components/shared/MaterialBag";
 import SimFacilityInput from "../../components/sim/SimFacilityInput";
 import SimResearchInput from "../../components/sim/SimResearchInput";
 import SimResult from "../../components/sim/SimResult";
@@ -6,13 +11,7 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
 import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
-import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simFuntions";
-import MyAccordion from "../../commons/rdx/MyAccordion";
-import { debounce } from "es-toolkit";
-import ItemIcon from "../../commons/icon/ItemIcon";
-import MaterialBag from "../../components/shared/MaterialBag";
-import SEO from "../../commons/component/SEO";
-import Loading from "../../commons/component/Loading";
+import { simFacility, simResearch } from "../../utils/simFuntions";
 
 const simInputArr = ['교단 시설', '연구실']
 

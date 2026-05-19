@@ -66,6 +66,10 @@ export function getDaysSince(dateString: string) {
     return diffDays;
 }
 
+export function toLocalMidnight(date: Date): Date {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+}
+
 export function translateRaces(race: Race) {
     switch (race) {
         case '마녀':
@@ -91,14 +95,63 @@ export function preload(src: string): Promise<void> {
     return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve();
-        img.onerror = () => resolve(); 
+        img.onerror = () => resolve();
         img.src = src;
     });
 }
 
-export const formatDate = (date: Date): string => {
-    const year  = date.getFullYear();
+export function formatDate(date: Date): string {
+    const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0'); // 0 ~ 11이라 +1 필요
-    const day   = String(date.getDate()).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`; // "2026-05-18"
 };
+
+export function daysBetween(from: Date, to: Date): number {
+    const midnightA = toLocalMidnight(from);
+    const midnightB = toLocalMidnight(to);
+    return Math.round(
+        (midnightB.getTime() - midnightA.getTime()) / (1000 * 60 * 60 * 24)
+    );
+}
+
+// dateRange 안에서 특정 요일(0=일, 1=월...)이 몇 번 등장하는지 계산
+// 예) 주간상점은 매주 월요일(1)에 구매 가능
+export function countWeekdays(
+    startDate: string,
+    endDate: string,
+    targetDayOfWeek: number // 0=일, 1=월, ...
+): number {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    let count = 0;
+    const cursor = new Date(start);
+
+    while (cursor <= end) {
+        if (cursor.getDay() === targetDayOfWeek) count++;
+        cursor.setDate(cursor.getDate() + 1);
+    }
+    return count;
+}
+
+// dateRange 안에서 특정 날(예: 매월 1일)이 몇 번 등장하는지 계산
+// 예) 월간상점, 트릭컬패스 갱신
+export function countMonthlyDays(
+    startDate: string,
+    endDate: string,
+    targetDayOfMonth: number // 1이면 매월 1일
+): number {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    let count = 0;
+
+    // start 달부터 end 달까지 순회하면서 해당 날짜가 범위 안에 있는지 확인
+    const cursor = new Date(start.getFullYear(), start.getMonth(), targetDayOfMonth);
+
+    while (cursor <= end) {
+        if (cursor >= start) count++;
+        // 다음 달의 같은 날짜로 이동
+        cursor.setMonth(cursor.getMonth() + 1);
+    }
+    return count;
+}

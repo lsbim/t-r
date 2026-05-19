@@ -1,12 +1,14 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Footer from '../../../layouts/Footer';
 import HeaderNav from '../../../layouts/HeaderNav';
 import SEO from '../../../commons/component/SEO';
 import TopRemote from '../../../layouts/TopRemote';
-import { GachaInput } from '../../../types/calc/gachaTypes';
+import { GachaInput, GachaResult } from '../../../types/calc/gachaTypes';
 import { formatDate } from '../../../utils/function';
 import GachaInputComponent from '../../../components/calc/gacha/GachaInputComponent';
 import GachaResultComponent from '../../../components/calc/gacha/GachaResultComponent';
+import { debounce } from 'es-toolkit';
+import { calcGacha } from '../../../utils/calc/gachaFunction';
 
 const today = new Date();
 const after30days = new Date();
@@ -16,38 +18,39 @@ const initGachaInput: GachaInput = {
     startDate: formatDate(today),
     endDate: formatDate(after30days),
     spend: {
-        candyCharge: 0,
-        starCandyCharge: 0
+        candyCharge: 5,
+        starCandyCharge: 3
     },
     pass: {
         trickcalPass: false,
+        trickcalPassFigure: false,
         skinPass: false,
         gemPass: false,
         starCandyPass: false,
     },
     raid: {
         clash: {
-            stage: 0,
-            reward: 0,
+            stage: 26,
+            rewardRank: 4,
         },
         clashV2: {
-            stage: 0,
-            reward: 0,
+            stage: 23,
+            rewardRank: 4,
         },
         frontier: {
-            coin: 0,
-            reward: 0,
+            rewardRank: 4,
         },
     },
     pvp: {
-        maxRank: 0,
-        rewardRank: 0,
+        maxRank: 140,
+        rewardRank: 200,
     },
     shop: {
-        dailyGem: false,
-        weeklyGem: false,
-        monthlyGem: false,
+        dailyGem: true,
+        weeklyGem: true,
+        monthlyGem: true,
         productCheck: false,
+        nice:true
     },
     character: {
         interview: false,
@@ -58,7 +61,32 @@ const initGachaInput: GachaInput = {
 const GachaIndexPage = () => {
 
     const [gachaInput, setGachaInput] = useState<GachaInput>(initGachaInput);
-    const [gachaResult, setGachaResult] = useState();
+    const [gachaResult, setGachaResult] = useState<GachaResult>();
+
+    const debouncedCalcGacha = useMemo(() => {
+        return debounce((
+            gachaInput: GachaInput
+        ) => {
+
+            const result = calcGacha(gachaInput); // 계산 실행
+            console.log('계산 결과:', result); // 로그로 확인
+            setGachaResult(result);
+        }, 300);
+    }, []);
+
+    useEffect(() => {
+        debouncedCalcGacha(gachaInput);
+    }, [gachaInput]);
+
+
+    // 언마운트 시 디바운스 취소
+    useEffect(() => {
+        return () => {
+            if (typeof (debouncedCalcGacha as any).cancel === 'function') {
+                (debouncedCalcGacha as any).cancel();
+            }
+        };
+    }, [debouncedCalcGacha]);
 
     const handleGachaInput = useCallback((updater: (prev: GachaInput) => GachaInput) => {
         setGachaInput(updater);
