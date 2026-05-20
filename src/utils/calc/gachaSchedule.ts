@@ -147,6 +147,59 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
         },
     },
 
+    // 테마극장(신규 사도)
+    {
+        id: 'new_character',
+        compute: (input) => {
+            const queryStart = toLocalMidnight(new Date(input.startDate));
+            const queryEnd = toLocalMidnight(new Date(input.endDate));
+
+            const occurrences = findPhaseOccurrences(
+                NEW_CHARACTER_SCHEDULE, 'new_char', queryStart, queryEnd
+            );
+            if (occurrences.length === 0) return null;
+
+            const milestones = [
+                { day: 1, gem: 275, ticket: 10 }, // 스테이지 100 + 순한맛 업적 105 + 스토리 70 + 상점티켓 10 
+                { day: 2, gem: 205, ticket: 0 },  // 매운맛 100 + 업적 105
+                { day: 4, gem: 205, ticket: 0 },  // 핵불맛 100 + 업적 105
+                { day: 7, gem: 100, ticket: 0 },  // 이세계픽셀 / 드림랜드 업적 100
+            ];
+
+            let totalGem = 0;
+            let totalTicket = 0;
+
+            for (const occ of occurrences) {
+                const phaseStart = occ.effectiveStart; // 테극 시작일
+
+                // 쿼리 종료일이 phaseEnd를 넘으면 phaseEnd 기준
+                const milestoneEnd = queryEnd < occ.phaseEnd ? queryEnd : occ.phaseEnd;
+                const daysIntoPhase = daysBetween(phaseStart, milestoneEnd) + 1;
+                // 쿼리 종료일이 오픈 7일차라면 daysIntoPhase = 7 -> day 1~7 전부 수령 가능
+
+                for (const m of milestones) {
+                    if (daysIntoPhase >= m.day) {
+                        totalGem += m.gem;
+                        totalTicket += m.ticket;
+                    }
+                }
+
+                // 업적 보상) 쿼리 기간과 테극이 10일 이상 겹쳐야 함
+                // 소급 불가 -> 쿼리 시작일과 phaseStart 중 늦은 날부터 카운트
+                const overlapStart = queryStart > phaseStart ? queryStart : phaseStart;
+                const overlapEnd = queryEnd < occ.phaseEnd ? queryEnd : occ.phaseEnd;
+                const overlapDays = daysBetween(overlapStart, overlapEnd) + 1;
+
+                if (overlapDays >= 10) {
+                    totalTicket += 3;
+                }
+            }
+
+            if (totalGem === 0 && totalTicket === 0) return null;
+            return makeLine('new_character', '테마극장', totalGem, totalTicket);
+        },
+    },
+
     // 차원 대충돌
     {
         id: 'clash',
@@ -241,6 +294,30 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
 
             if (totalGem === 0 && totalTicket === 0) return null;
             return makeLine('frontier', '엘리아스 프론티어', totalGem, totalTicket, 0, totalPaidGem);
+        },
+    },
+
+    // 신규 사도 패키지 살펴보기
+    {
+        id: 'shop_product_check',
+        compute: (input) => {
+
+            if (!input.shop.productCheck) return null;
+
+            const queryStart = toLocalMidnight(new Date(input.startDate));
+            const queryEnd = toLocalMidnight(new Date(input.endDate));
+
+            //  테극 사이클과 같은 2주 간격
+            const occurrences = findPhaseOccurrences(
+                NEW_CHARACTER_SCHEDULE, 'new_char', queryStart, queryEnd
+            );
+
+            // 레비(졸업) 기준 관련 패키지 15개... 추후 확인 후 변경
+            const count = occurrences.length;
+            if (count === 0) return null;
+
+            const totalGem = count * 150;
+            return makeLine('shop_product_check', `신규 사도 패키지 살펴보기`, totalGem);
         },
     },
 
@@ -356,12 +433,86 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
         },
     },
 
-    // 기록소
+    // 기록소 (던전 20회당 엘리프 20)
     {
         id: 'archive',
-        compute: (input) => input.archive
-            ? makeLine('archive', '기록소', 20) // 수치는 조건에 따라 조정
-            : null,
+        compute: (input, days) => {
+            if (!input.archive) return null;
+
+            const charges = Math.min(input.spend.starCandyCharge, 3);
+            const starCandy = 280 + charges * 60;
+
+            const cloneFactoryCost = input.pass.starCandyPass ? 80 : 160; // 클팩 8회 별사탕 비용
+            const cloneRuns = 8;
+
+            const remaining = starCandy - cloneFactoryCost;
+            const otherRuns = Math.floor(remaining / 20); // 겟츄크레용 기준
+
+            const dailyRuns = cloneRuns + otherRuns; // 23 or 27회
+
+            const totalRuns = dailyRuns * days;
+            const totalGem = Math.floor(totalRuns / 20) * 20; // 20회당 20개
+
+            if (totalGem === 0) return null;
+
+            return makeLine('archive', `기록소`, totalGem);
+        }
+    },
+
+    // 세계수 굴착 기지
+    {
+        id: 'yggdrasil_dig_site',
+        compute: (input) => {
+
+            const queryStart = toLocalMidnight(new Date(input.startDate));
+            const queryEnd = toLocalMidnight(new Date(input.endDate));
+
+            //  테극 사이클과 같은 2주 간격
+            const occurrences = findPhaseOccurrences(
+                NEW_CHARACTER_SCHEDULE, 'new_char', queryStart, queryEnd
+            );
+
+            // 하루라도 참여하면 60층 클리어 기준 엘리프 600개
+            const count = occurrences.length;
+            if (count === 0) return null;
+
+            const totalGem = count * 600;
+            return makeLine('yggdrasil_dig_site', `세계수 굴착 기지`, totalGem);
+        },
+    },
+
+    // 매주 목요일 점검 보상
+    {
+        id: 'weekly_mail',
+        compute: (input) => {
+            const thursdayCount = countWeekdays(input.startDate, input.endDate, 4);
+            if (thursdayCount === 0) return null;
+
+            return makeLine('weekly_mail', `점검 보상`, thursdayCount * 500);
+        },
+    },
+
+    // 사도 면접
+    {
+        id: 'character_interview',
+        compute: (input) => {
+            if (!input.character.interview) return null;
+
+            const queryStart = toLocalMidnight(new Date(input.startDate));
+            const queryEnd = toLocalMidnight(new Date(input.endDate));
+
+            //  테극 사이클과 같은 2주 간격
+            const occurrences = findPhaseOccurrences(
+                NEW_CHARACTER_SCHEDULE, 'new_char', queryStart, queryEnd
+            );
+
+            // 하루라도 참여하면 10 엘리프
+            const count = occurrences.length;
+            if (count === 0) return null;
+
+            const totalGem = count * 10;
+            return makeLine('character_interview', `사도 면접`, totalGem);
+        },
     },
 
     // 왕사탕 충전

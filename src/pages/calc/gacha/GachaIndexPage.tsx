@@ -55,7 +55,7 @@ const initGachaInput: GachaInput = {
     character: {
         interview: false,
     },
-    archive: false,
+    archive: true,
 }
 
 const GachaIndexPage = () => {
