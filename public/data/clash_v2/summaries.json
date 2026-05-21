@@ -221,10 +221,6 @@
         "count": 1
       }
     ],
-    "stagnation": {
-      "arr": 10.9,
-      "side": 0.4
-    },
     "maxSideLvl": 24,
     "sideSummary": [
       {
@@ -986,10 +982,6 @@
         "count": 3
       }
     ],
-    "stagnation": {
-      "arr": 8.6,
-      "side": 0.4
-    },
     "maxSideLvl": 24,
     "sideSummary": [
       {
@@ -1691,10 +1683,6 @@
         "count": 1
       }
     ],
-    "stagnation": {
-      "arr": 18.4,
-      "side": 0.4
-    },
     "maxSideLvl": 24,
     "sideSummary": [
       {
@@ -2411,10 +2399,6 @@
         "count": 1
       }
     ],
-    "stagnation": {
-      "arr": 10.2,
-      "side": 0.4
-    },
     "maxSideLvl": 24,
     "sideSummary": [
       {
@@ -3211,10 +3195,6 @@
         "count": 1
       }
     ],
-    "stagnation": {
-      "arr": 0.6,
-      "side": 0.5
-    },
     "maxSideLvl": 18,
     "sideSummary": [
       {

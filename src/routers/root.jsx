@@ -13,7 +13,6 @@ const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
 const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
 const SimIndex = lazy(() => import("../pages/sim/SimIndexPage"));
-const GachaIndex = lazy(() => import("../pages/calc/gacha/GachaIndexPage"));
 const ErrorPage = lazy(() => import("../pages/error/ErrorPage"));
 
 
@@ -100,21 +99,6 @@ const router = createBrowserRouter([
     {
         path: "sim",
         element: <Suspense fallback={<Loading />}><SimIndex /></Suspense>,
-        errorElement: <ErrorPage />
-    },
-    {
-        path: "calc",
-        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
-        children: [
-            {
-                index: true,
-                element: <Navigate to="gacha" replace />
-            },
-            {
-                path: "gacha",
-                element: <GachaIndex />
-            },
-        ],
         errorElement: <ErrorPage />
     },
     // ,

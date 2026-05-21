@@ -130,10 +130,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 29.4
-    }
+    ]
   },
   "16": {
     "name": "M.E.O.W",
@@ -326,10 +323,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 46.4
-    }
+    ]
   },
   "15": {
     "name": "R41-리뉴아",
@@ -467,10 +461,7 @@
         "line": "중열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 25.5
-    }
+    ]
   },
   "14": {
     "name": "우로스",
@@ -653,10 +644,7 @@
         "line": "후열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 37.3
-    }
+    ]
   },
   "13": {
     "name": "크레용사용",
@@ -834,10 +822,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 67.5
-    }
+    ]
   },
   "12": {
     "name": "M.E.O.W",
@@ -1035,10 +1020,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 16.8
-    }
+    ]
   },
   "11": {
     "name": "R41-리뉴아",
@@ -1211,10 +1193,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 33.5
-    }
+    ]
   },
   "10": {
     "name": "크레용사용",
@@ -1402,10 +1381,7 @@
         "line": "전열",
         "count": 1
       }
-    ],
-    "stagnation": {
-      "arr": 7.4
-    }
+    ]
   },
   "9": {
     "name": "M.E.O.W",
@@ -1558,8 +1534,7 @@
         "count": 10,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "8": {
     "name": "R41-리뉴아",
@@ -1692,8 +1667,7 @@
         "count": 1,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "7": {
     "name": "크레용사용",
@@ -1841,8 +1815,7 @@
         "count": 2,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "6": {
     "name": "M.E.O.W",
@@ -1970,8 +1943,7 @@
         "count": 1,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "5": {
     "name": "R41-리뉴아",
@@ -2099,8 +2071,7 @@
         "count": 2,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "4": {
     "name": "M.E.O.W",
@@ -2238,8 +2209,7 @@
         "count": 74,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "2": {
     "name": "R41-리뉴아",
@@ -2432,8 +2402,7 @@
         "count": 56,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "1": {
     "name": "M.E.O.W",
@@ -2651,8 +2620,7 @@
         "count": 85,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "10002": {
     "name": "M.E.O.W",
@@ -2870,8 +2838,7 @@
         "count": 51,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   },
   "10001": {
     "name": "M.E.O.W",
@@ -3109,7 +3076,6 @@
         "count": 18,
         "line": "후열"
       }
-    ],
-    "stagnation": null
+    ]
   }
 }

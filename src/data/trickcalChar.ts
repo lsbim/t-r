@@ -31,6 +31,8 @@ export const charInfo: CharInfoType = {
     "뮤트": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-11", race: '정령' },
     "아일라": { grade: 3, personality: "순수", line: "중열", birthdate: "2025-12-18", race: '정령' },
     "델리아": { grade: 3, personality: "순수", line: "전열", birthdate: "2026-03-12", race: '수인' },
+    "에르핀(왕도)": { grade: 3, personality: "순수", line: "중열", birthdate: "2026-03-28", race: '요정', eldain: true },
+    "이드(재활)": { grade: 3, personality: "순수", line: "전열", birthdate: "2026-05-21", race: '엘프' },
     "가비아": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", race: '정령' },
     "로네": { grade: 2, personality: "순수", line: "전열", birthdate: "2023-09-27", race: '엘프' },
     "마고": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", race: '요정' },
@@ -39,7 +41,6 @@ export const charInfo: CharInfoType = {
     "알레트": { grade: 1, personality: "순수", line: "전열", birthdate: "2023-09-27" },
     "사리": { grade: 1, personality: "순수", line: "중열", birthdate: "2023-09-27" },
     "큐이": { grade: 1, personality: "순수", line: "중열", birthdate: "2023-09-27" },
-    "에르핀(왕도)": { grade: 3, personality: "순수", line: "중열", birthdate: "2026-03-28", race: '요정', eldain: true },
 
     // 냉정
     "이드": { grade: 3, personality: "냉정", line: "전열", birthdate: "2024-03-28", race: '엘프', eldain: true },
