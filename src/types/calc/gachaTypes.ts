@@ -32,6 +32,7 @@ export interface GachaInput {
     pvp: {
         maxRank: number; // n찍
         rewardRank: number; // 시즌 보상 순위
+        openRun: boolean; // 엘리프 써가며 당일 등반하는가
     }
 
     shop: {

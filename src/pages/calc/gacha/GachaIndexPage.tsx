@@ -44,6 +44,7 @@ const initGachaInput: GachaInput = {
     pvp: {
         maxRank: 140,
         rewardRank: 200,
+        openRun: false
     },
     shop: {
         dailyGem: true,

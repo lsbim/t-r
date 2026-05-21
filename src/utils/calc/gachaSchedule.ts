@@ -1,12 +1,12 @@
 import { ReceiptEntry, ReceiptLine, RotationSchedule } from "../../types/calc/gachaTypes";
 import { countMonthlyDays, countWeekdays, daysBetween, toLocalMidnight } from "../function";
-import { calcClashGem, calcClashV2Gem, calcFrontierGem, calcPassExp, countActiveDays, findPhaseOccurrences, splitByMonth } from "./gachaFunction";
+import { calcClashGem, calcClashV2Gem, calcFrontierGem, calcPassExp, calcPvpClimbReward, calcPvpSeasonReward, countActiveDays, findPhaseOccurrences, getRankAfterNSteps, simulateClimb, splitByMonth } from "./gachaFunction";
 
 
 // 레이드 로테이션
 // 5월 14일: 대충돌 시작
 // 사이클: 대충돌(7) → 휴식(7) → 프론티어(7) → 휴식(7) → 대충돌2.0(7) → 휴식(7) 반복
-export const RAID_ROTATION: RotationSchedule = {
+const RAID_ROTATION: RotationSchedule = {
     epochDate: '2026-05-14',
     phases: [
         { label: 'clash', durationDays: 7, isActive: true },
@@ -20,7 +20,7 @@ export const RAID_ROTATION: RotationSchedule = {
 
 // 사복패스 로테이션
 // 5월 14일: 활성 시작, 2주 활성 → 2주 휴식 반복
-export const SKIN_PASS_ROTATION: RotationSchedule = {
+const SKIN_PASS_ROTATION: RotationSchedule = {
     epochDate: '2026-05-14',
     phases: [
         { label: 'skin_pass_active', durationDays: 14, isActive: true },
@@ -28,12 +28,20 @@ export const SKIN_PASS_ROTATION: RotationSchedule = {
     ],
 };
 
-// 신캐 출시 로테이션 (격주)
+// 신규 사도 출시 로테이션 (격주)
 // 기준 날짜 5월 7일 이후 매 2주마다 반복
-export const NEW_CHARACTER_SCHEDULE: RotationSchedule = {
+const NEW_CHARACTER_SCHEDULE: RotationSchedule = {
     epochDate: '2026-05-07',
     phases: [
         { label: 'new_char', durationDays: 14, isActive: true },
+    ],
+};
+
+// 줘팸터 로테이션 (4주)
+const PVP_SCHEDULE: RotationSchedule = {
+    epochDate: '2026-05-21',
+    phases: [
+        { label: 'pvp', durationDays: 28, isActive: true },
     ],
 };
 
@@ -112,10 +120,35 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
     // 주간 퀘스트
     {
         id: 'weekly_quest',
-        compute: (input, days, weeks) => weeks === 0 ? null : makeLine(
-            'weekly_quest', '주간 퀘스트',
-            weeks * 345  // 왕사탕/별사탕/스케쥴을 엘리프 환산값으로 처리
-        ),
+        compute: (input) => {
+            const start = toLocalMidnight(new Date(input.startDate));
+            const end = toLocalMidnight(new Date(input.endDate));
+            const cursor = new Date(start);
+
+            const weeklyDays: Record<string, number> = {};
+
+            while (cursor <= end) {
+                const monday = new Date(cursor);
+                const daysSinceMonday = (cursor.getDay() + 6) % 7;
+                monday.setDate(cursor.getDate() - daysSinceMonday);
+                const key = `${monday.getFullYear()}-${monday.getMonth()}-${monday.getDate()}`;
+
+                weeklyDays[key] = (weeklyDays[key] ?? 0) + 1;
+                cursor.setDate(cursor.getDate() + 1);
+            }
+
+            let totalGem = 0;
+
+            for (const key in weeklyDays) {
+                const daysInWeek = weeklyDays[key];
+
+                // 주간퀘스트 2일차에 엘리프 퀘스트, 6가지 모두 동시 클리어 기준
+                if (daysInWeek >= 2) totalGem += 345;
+            }
+
+            if (totalGem === 0) return null;
+            return makeLine('weekly_quest', '주간 퀘스트', totalGem);
+        },
     },
 
     // 출석체크
@@ -160,9 +193,9 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
             if (occurrences.length === 0) return null;
 
             const milestones = [
-                { day: 1, gem: 275, ticket: 10 }, // 스테이지 100 + 순한맛 업적 105 + 스토리 70 + 상점티켓 10 
-                { day: 2, gem: 205, ticket: 0 },  // 매운맛 100 + 업적 105
-                { day: 4, gem: 205, ticket: 0 },  // 핵불맛 100 + 업적 105
+                { day: 1, gem: 270, ticket: 10 }, // 스테이지 100 + 순한맛 업적 100 + 스토리 70 + 상점티켓 10 
+                { day: 2, gem: 200, ticket: 0 },  // 매운맛 100 + 업적 100
+                { day: 4, gem: 200, ticket: 0 },  // 핵불맛 100 + 업적 100
                 { day: 7, gem: 100, ticket: 0 },  // 이세계픽셀 / 드림랜드 업적 100
             ];
 
@@ -294,6 +327,64 @@ export const RECEIPT_ORDER: ReceiptEntry[] = [
 
             if (totalGem === 0 && totalTicket === 0) return null;
             return makeLine('frontier', '엘리아스 프론티어', totalGem, totalTicket, 0, totalPaidGem);
+        },
+    },
+
+    // 승자의 줘팸터
+    {
+        id: 'pvp',
+        compute: (input, days) => {
+            if (input.pvp.maxRank === 0 && input.pvp.rewardRank === 0) return null;
+
+            const queryStart = toLocalMidnight(new Date(input.startDate));
+            const queryEnd = toLocalMidnight(new Date(input.endDate));
+
+            const occurrences = findPhaseOccurrences(PVP_SCHEDULE, 'pvp', queryStart, queryEnd);
+            if (occurrences.length === 0) return null;
+
+            // 돌아오는 줘팸터 시즌마다 같은 maxRank까지 등반
+            const stageCount = occurrences.length;
+
+            // 시즌 종료 보상 -> restStart(다음 시즌 첫날)가 기간 내에 있는 횟수
+            const seasonCount = occurrences.filter(o =>
+                o.restStart >= queryStart && o.restStart <= queryEnd
+            ).length;
+            const seasonGem = calcPvpSeasonReward(input.pvp.rewardRank) * seasonCount;
+
+            let climbingGem = 0;
+            let chargeCost = 0;
+
+            // maxRank까지 필요한 도전 횟수
+            const steps = simulateClimb(input.pvp.maxRank);
+            const climbGemPerSeason = calcPvpClimbReward(input.pvp.maxRank);
+            const dailyTry = 5; // 하루에 도전 가능한 횟수
+
+            if (input.pvp.openRun) { // 줘팸터 당일 오픈런
+                const extraTry = Math.max(0, steps - dailyTry);
+                const refillCount = Math.ceil(extraTry / 5);
+                chargeCost = refillCount * 25;
+
+                // 등반 보상은 매 시즌마다 maxRank까지 획득
+                climbingGem = climbGemPerSeason * stageCount;
+            } else {
+                const totalTry = dailyTry * days; // 시즌당 총 도전 횟수
+
+                if (totalTry >= steps) {
+                    // 기간 안에 maxRank까지 도달 가능 -> 전체 등반 보상
+                    climbingGem = climbGemPerSeason * stageCount;
+                } else {
+                    // 기간 내 불가능할 시 실제 도달 가능한 순위까지 지급
+                    const achievedRank = getRankAfterNSteps(totalTry);
+                    climbingGem = calcPvpClimbReward(achievedRank) * stageCount;
+                }
+            }
+
+            // 도전 횟수 충전 비용 차감
+            const totalGem = climbingGem - chargeCost + seasonGem;
+            if (totalGem === 0) return null;
+
+
+            return makeLine('pvp', '승자의 줘팸터', totalGem);
         },
     },
 

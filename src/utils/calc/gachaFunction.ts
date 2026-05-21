@@ -201,7 +201,7 @@ export function calcGacha(input: GachaInput): GachaResult {
     // 날짜 범위 계산 - 이 두 값이 per_day, per_week 계산의 기반이 됨
     const start = new Date(input.startDate);
     const end = new Date(input.endDate);
-    const days = daysBetween(start, end);
+    const days = daysBetween(start, end) + 1;
     const weeks = Math.floor(days / 7);
 
     // RECEIPT_ORDER를 앞에서 뒤로 순서대로 순회
@@ -286,4 +286,86 @@ export function findPhaseOccurrences(
     }
 
     return occurrences;
+}
+
+// 줘팸터 등반 보상
+export function calcPvpClimbReward(maxRank: number): number {
+    if (maxRank === 0) return 0;
+
+    //  구간 별 등반 보상
+    const tiers = [
+        { bottom: 3000, top: 1000, perRank: 0.8, bonus: 0 },
+        { bottom: 1000, top: 500, perRank: 1.0, bonus: 0 },
+        { bottom: 500, top: 200, perRank: 1.5, bonus: 0 },
+        { bottom: 200, top: 50, perRank: 3.0, bonus: 2 }, // 200 -> 199위 진입 시 2개 보너스
+        { bottom: 50, top: 1, perRank: 7.0, bonus: 4 }, // 50 -> 49위 진입 시 4개 보너스
+    ];
+
+    let gem = 0;
+
+    for (const tier of tiers) {
+        if (maxRank >= tier.bottom) continue;
+
+        // 구간 랭크 계산
+        const achieved = Math.max(maxRank, tier.top);
+        const steps = tier.bottom - achieved;
+
+        // 해당 구간에서 얻을 수 있는 엘리프
+        if (steps > 0) {
+            gem += Math.floor(steps * tier.perRank);
+            gem += tier.bonus;
+        }
+    }
+
+    return gem;
+}
+
+// 줘팸터 시즌 종료 보삼
+export function calcPvpSeasonReward(rewardRank: number): number {
+    if (rewardRank === 0) return 0;
+
+    const seasonTiers = [
+        { rankFrom: 1, rankTo: 100, gem: 1500 },
+        { rankFrom: 101, rankTo: 300, gem: 1250 },
+        { rankFrom: 301, rankTo: 800, gem: 1000 },
+        { rankFrom: 801, rankTo: 1500, gem: 750 },
+        { rankFrom: 1501, rankTo: Infinity, gem: 500 },
+    ];
+
+    return seasonTiers.find(t => {
+        return rewardRank >= t.rankFrom && rewardRank <= t.rankTo
+    })?.gem ?? 500;
+}
+
+// maxRank까지 도달하는데 걸리는 트라이횟수,
+export function simulateClimb(targetRank: number): number {
+    let current = 3001;
+    let steps = 0;
+
+    while (current > targetRank) {
+        // 100등 미만은 35%, 나머지는 92% 순위까지 도전 가능
+        const rate = current <= 100 ? 0.35 : 0.92;
+        const next = Math.max(Math.floor(current * rate), 1);
+        current = next;
+        steps++;
+
+        // 1등 도달
+        if (current === 1) break;
+    }
+
+    return steps;
+}
+
+// N번의 도전 후 도달할 수 있는 순위. 기간 내 maxRank에 도달할 수 없을 때 사용
+export function getRankAfterNSteps(totalSteps: number): number {
+    let current = 3001;
+
+    for (let i = 0; i < totalSteps; i++) {
+        const rate = current <= 100 ? 0.35 : 0.92;
+        const next = Math.max(Math.floor(current * rate), 1);
+        current = next;
+        if (current === 1) break;
+    }
+
+    return current;
 }
