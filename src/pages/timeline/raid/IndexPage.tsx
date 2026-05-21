@@ -17,8 +17,8 @@ import { ClashV2Summary } from "../../../types/clashV2Types";
 import { FrontierSummary } from "../../../types/frontierTypes";
 import { Personality, Race, races } from "../../../types/trickcalTypes";
 
-const PIXELS_PER_DAY = import.meta.env.VITE_TIMELINE_PIXELS_PER_DAY;
-const BASE_DATE_HEIGHT = import.meta.env.VITE_TIMELINE_BASE_DATE_HEIGHT;
+const PIXELS_PER_DAY = 100;
+const BASE_DATE_HEIGHT = 20;
 
 const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');

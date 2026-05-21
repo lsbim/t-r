@@ -38,7 +38,7 @@ const CharacterLine = ({ getYOffset, allDates }: Props) => {
                     return (
                         <div
                             key={`${isoDate}-${name}`}
-                            className={`absolute dark:brightness-90 left-[50%] flex items-center whitespace-nowrap w-1/2 sm:w-auto `}
+                            className={`absolute dark:brightness-90 left-[50%] flex items-center whitespace-nowrap w-1/2 sm:w-auto`}
                             style={{ top: y }}
                         >
                             <div className={`h-[3px] ${charInfo[name].personality === '공명' ? 'resonance-bar' : `bg-${charInfo[name].personality}`} z-10 w-full sm:w-[200px]`} />
@@ -46,7 +46,7 @@ const CharacterLine = ({ getYOffset, allDates }: Props) => {
                                 data-tooltip-id="my-tooltip"
                                 data-tooltip-content={isoDate}
                                 style={{ height: lineHeight }}
-                                className={`rounded-bl-xl rounded-tr-xl text-[11px] sm:text-[13px] py-[1px] px-[10px] cursor-pointer
+                                className={`rounded-bl-xl rounded-tr-xl text-[11px] sm:text-[13px] py-[1px] px-[10px] cursor-pointer z-30
                                 ${charInfo[name].personality === '공명' ? 'bg-gradient-to-r from-[rgb(131,185,235)] to-[rgb(198,131,236)]' : `bg-${charInfo[name].personality}`}`}>
                                 <span className=" font-bold mr-1">
                                     {name}
