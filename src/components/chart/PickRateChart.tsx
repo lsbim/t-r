@@ -151,7 +151,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                         <div
                                             onClick={() => setSelect(item?.name)}
                                             key={"clash" + item.name}
-                                            className="flex items-center w-full">
+                                            className="flex items-center w-full cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-950 px-1 rounded-md">
                                             <div
                                                 className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
@@ -159,7 +159,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                             </div>
 
                                             {/* 2) 가로 바 컨테이너 */}
-                                            <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px] hover:brightness-90">
+                                            <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px]">
                                                 <div
                                                     className={`h-full dark:brightness-90 bg-${item.personality}`}
                                                     style={{ width: `${fillPct}%` }}
@@ -175,7 +175,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                                 <span
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content="픽률"
-                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-200 dark:hover:text-zinc-400 cursor-pointer">
+                                                    className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-200 dark:hover:text-zinc-400">
                                                     {Math.round((item?.count / userLength * 100) * 10) / 10}%
                                                 </span>
 
@@ -184,14 +184,14 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                                     <span
                                                         data-tooltip-id="my-tooltip"
                                                         data-tooltip-content="전체 비중"
-                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 dark:text-zinc-500 dark:hover:text-zinc-400 cursor-pointer">
+                                                        className="w-12 flex justify-end text-[12px] text-gray-300 hover:text-gray-800 dark:text-zinc-500 dark:hover:text-zinc-400">
                                                         {Math.round(item?.percent * 10) / 10}%
                                                     </span>
                                                 ) : (
                                                     <span
                                                         data-tooltip-id="my-tooltip"
                                                         data-tooltip-content="전 시즌 대비"
-                                                        className={`w-12 flex justify-end text-[12px] hover:brightness-90 cursor-pointer ${changeClassName}`}
+                                                        className={`w-12 flex justify-end text-[12px] hover:brightness-75 cursor-pointer ${changeClassName}`}
                                                     >
                                                         {changeText}
                                                     </span>
