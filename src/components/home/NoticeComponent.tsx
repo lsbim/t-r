@@ -1,8 +1,9 @@
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import MyAccordion from "../../commons/rdx/MyAccordion";
 import { ClashSummary } from "../../types/clashTypes";
+import { FrontierSummary } from "../../types/frontierTypes";
 
-const NoticeComponent = ({ data }: { data: ClashSummary }) => {
+const NoticeComponent = ({ data }: { data: ClashSummary | FrontierSummary }) => {
 
     if (!data) {
         return <></>;
