@@ -43,7 +43,7 @@ const RaidCard = ({ data, raidType, rounded }: {
     return (
         <Link
             to={`/${typeLink}/${data.seasonNumber}`}
-            className={`w-full flex flex-col ${roundedConfig} ${borderColor} bg-white dark:bg-zinc-900 hover:shadow-xl dark:shadow-zinc-700 transition-shadow duration-300`}>
+            className={`w-full flex flex-col ${roundedConfig} ${borderColor} bg-white dark:bg-zinc-900 hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] dark:shadow-zinc-700 duration-200`}>
             <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
                 <span className="mb-2 xs:inline hidden text-[15px]">
                     {krName}
