@@ -8,7 +8,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
     return (
         <div className="overflow-x-auto overflow-y-hidden">
-            <div className={`mx-auto flex flex-col rounded-2xl pl-4 bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pb-4 shadow-md ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
+            <div className={`mx-auto flex flex-col rounded-2xl pl-4 bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pb-4 dark:border-zinc-700 border border-zinc-300 ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
                 <div className="flex items-center">
                     <span className="text-xl font-bold mr-4">사도 정보</span>
                     {statsForSelect?.select && (

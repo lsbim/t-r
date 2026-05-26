@@ -8,7 +8,7 @@ import CostumeAccordion from "./CostumeAccordion";
 const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeMapItem[] }) => {
 
     return (
-        <div className="md:w-[768px] w-full flex mx-auto bg-white dark:bg-zinc-900 dark:text-zinc-200 rounded-2xl p-2">
+        <div className="md:w-[768px] w-full flex mx-auto bg-white dark:bg-zinc-900 dark:text-zinc-200 rounded-xl p-2 border border-zinc-300 dark:border-zinc-700">
             <div className="w-[50%] flex flex-col gap-y-3">
                 <div className="flex justify-center">
                     <span className="text-[18px] font-bold">

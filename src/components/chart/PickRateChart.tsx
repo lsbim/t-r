@@ -94,7 +94,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                     // console.log("maxLineCnt: ", maxLineCount)
 
                     return (
-                        <div key={'clash' + season + line} className={`rounded-2xl py-2 px-3 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
+                        <div key={'clash' + season + line} className={`rounded-xl border dark:border-zinc-700 border-zinc-300 py-2 px-3 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
                             <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-200">
                                 <span className="">{line}</span>
                                 <span className="text-[16px]">{charSum}</span>
@@ -151,7 +151,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                         <div
                                             onClick={() => setSelect(item?.name)}
                                             key={"clash" + item.name}
-                                            className="flex items-center w-full cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-950 px-1 rounded-md">
+                                            className="flex items-center w-full cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 px-1 rounded-md">
                                             <div
                                                 className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
@@ -159,7 +159,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type }:
                                             </div>
 
                                             {/* 2) 가로 바 컨테이너 */}
-                                            <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px]">
+                                            <div className="flex-1 bg-gray-200 dark:bg-zinc-700 h-4 overflow-hidden text-[12px]">
                                                 <div
                                                     className={`h-full dark:brightness-90 bg-${item.personality}`}
                                                     style={{ width: `${fillPct}%` }}

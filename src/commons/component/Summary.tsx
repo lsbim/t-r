@@ -31,7 +31,7 @@ const Summary = ({
     }
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto flex flex-col gap-y-4">
             {sortData.map((category: string, i: number) => {
                 // 해당 보스명/성격과 일치하는 모든 데이터 항목을 찾고 시즌 정보도 함께 유지
                 const matchingEntries = Object.entries(summary)
@@ -63,7 +63,7 @@ const Summary = ({
                 return (
                     <div
                         key={`summary_${type}_${category}`}
-                        className={`px-6 py-4 min-w-[500px] ${sortData.length === i + 1 ? '' : 'border-b-4 border-gray-200 dark:border-zinc-800'}`}>
+                        className={`bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 px-6 py-4 min-w-[500px]`}>
                         {/* 보스명 헤더 */}
                         {sort === 'boss' && (
                             <div className="relative flex items-center mb-4">

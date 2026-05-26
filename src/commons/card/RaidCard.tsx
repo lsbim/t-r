@@ -8,12 +8,6 @@ const RaidCard = ({ data, raidType, rounded }: {
     rounded?: 'left' | 'right'
 }) => {
 
-    const roundedConfig = rounded === 'left'
-        ? 'rounded-tl-lg rounded-bl-lg'
-        : rounded === 'right'
-            ? 'rounded-tr-lg rounded-br-lg'
-            : 'rounded-lg';
-
     const borderColor = 'border-[3px] ' + ('personality' in data ? `border-${data.personality}`
         : `border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]`);
 
@@ -43,7 +37,8 @@ const RaidCard = ({ data, raidType, rounded }: {
     return (
         <Link
             to={`/${typeLink}/${data.seasonNumber}`}
-            className={`w-full flex flex-col ${roundedConfig} ${borderColor} bg-white dark:bg-zinc-900 hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] dark:shadow-zinc-700 duration-200`}>
+            // 서브픽셀 문제는 will-change-transform 도입으로 해결
+            className={`w-full flex flex-col rounded-lg will-change-transform ${borderColor} bg-white dark:bg-zinc-900 hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] dark:shadow-zinc-900 duration-200`}>
             <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
                 <span className="mb-2 xs:inline hidden text-[15px]">
                     {krName}

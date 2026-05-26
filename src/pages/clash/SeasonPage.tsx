@@ -163,7 +163,7 @@ const SeasonPage = () => {
             {/* {data?.type === 'season' && ( */}
             <SeasonRemote />
             {/* )} */}
-            <div className="rounded-2xl lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 mt-4 overflow-x-auto">
+            <div className="rounded-xl border border-zinc-300 lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 dark:border-zinc-700 p-4 mt-4 overflow-x-auto">
                 {data && (
                     <PersonalityPieChart
                         data={seasonSlice}
@@ -193,7 +193,7 @@ const SeasonPage = () => {
                         season={season}
                         data={seasonSlice}
                     />
-                    <div className="lg:w-[992px] rounded-2xl w-full mx-auto flex h-4 dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 mt-1 text-[12px] lg:text-[13px] items-center justify-center">
+                    <div className="lg:w-[992px] rounded-xl border border-zinc-300 dark:border-zinc-700 w-full mx-auto flex h-4 dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 mt-1 text-[12px] lg:text-[13px] items-center justify-center">
                         해당 시즌은 상세 정보를 지원하지 않습니다.
                     </div>
                 </>

@@ -13,6 +13,7 @@ import ItemIcon from "../../commons/icon/ItemIcon";
 import MaterialBag from "../../components/shared/MaterialBag";
 import SEO from "../../commons/component/SEO";
 import Loading from "../../commons/component/Loading";
+import InfoIcon from "../../commons/icon/InfoIcon";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -244,31 +245,21 @@ const SimIndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 p-4 pl-6 rounded-2xl mt-4">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col p-2 mt-4">
                 <div className="flex flex-col dark:text-zinc-200">
-                    <div className="flex flex-col justify-start mb-3">
+                    <div className="flex justify-start items-center">
                         <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
-                        <span className="flex text-[14px]">교단의 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다.</span>
-                    </div>
-                    <div className="flex items-center mb-2">
-                        <div className="flex-col flex gap-y-1 text-orange-500 font-bold text-[12px]">
-                            <span>
-                                아르바이트는 2, 3, 4레벨 획득량을 기준
-                            </span>
-                            <span>
+                        <InfoIcon
+                            text="아르바이트는 2, 3, 4레벨 획득량을 기준
                                 부수재료는 최소 획득량 이월
-                            </span>
-                            <span>
                                 모험회 현재 레벨에 수행이 가능한 모험만 소개
-                            </span>
-                            <span>
-                                종합과 단계별 아르바이트 횟수가 다를 수 있습니다.
-                            </span>
-                        </div>
+                                종합과 단계별 아르바이트 횟수가 다를 수 있습니다."
+                        />
                     </div>
                 </div>
-                <div className="flex mt-2 relative xs:ml-auto">
-                    <div className="flex flex-col items-center justify-end">
+                <div className="flex mt-2 relative">
+                    {/* wrapper 한 층 있어야 가방 텍스트와 SVG 정렬 가능 */}
+                    <div className="flex flex-col items-center justify-start">
                         <div className="text-[12px] text-orange-500 font-bold mb-1">
                             가방
                         </div>
@@ -297,7 +288,7 @@ const SimIndexPage = () => {
             </div>
 
             {/* 시설 및 연구단계 입력 */}
-            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 rounded-2xl">
+            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
                 <div className="flex items-center justify-between w-full mb-8">
                     {simInputArr.map((sel, idx) => (
                         <button
@@ -321,14 +312,14 @@ const SimIndexPage = () => {
                         researchInput={researchInput} />
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-2xl overflow-hidden">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] bg-white dark:bg-zinc-900 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-xl border border-zinc-300 overflow-hidden">
                 {allResult ? (
                     <SimResult
                         simResult={allResult}
                         type={'all'}
                     />
                 ) : (
-                    <div className="w-full gap-x-3 bg-white dark:bg-zinc-900 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold text-gray-700 rounded-2xl">
+                    <div className="w-full gap-x-3 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold">
                         <img src={`images/item/gold.webp`} className="aspect-square object-center w-[60px] grayscale select-none" />
                         <span>
                             선택된 시설 또는 연구 정보가 없습니다.
@@ -336,7 +327,7 @@ const SimIndexPage = () => {
                     </div>
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full mb-8 overflow-hidden rounded-2xl">
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full mb-8 overflow-hidden rounded-xl border border-zinc-300 dark:border-zinc-700">
                 <MyAccordion
                     items={items}
                 />

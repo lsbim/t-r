@@ -169,7 +169,7 @@ const NoticeComponent = ({ data }: { data: ClashSummary | FrontierSummary }) => 
     return (
         <div className="sm:w-[600px] w-full mx-auto flex flex-col">
             <div className="flex justify-center">
-                <div className="w-full mx-auto rounded-2xl border dark:border-none bg-white dark:bg-zinc-900 overflow-hidden">
+                <div className="w-full mx-auto rounded-2xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 overflow-hidden">
                     <div className="text-[15px] flex justify-start dark:text-zinc-300 p-4 font-bold">
                         공지사항
                     </div>

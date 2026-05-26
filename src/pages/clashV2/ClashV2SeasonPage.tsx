@@ -173,7 +173,7 @@ const ClashV2SeasonPage = () => {
             <HeaderNav />
             <SeasonRemote />
             {/* 림/셰이디 선택지 */}
-            <div className="w-full flex font-bold backdrop-blur-sm justify-between h-10 mt-[-16px] border-b dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/90 dark:bg-zinc-900/80 dark:text-zinc-200">
+            <div className="w-full flex font-bold backdrop-blur-sm justify-between h-10 mt-[-16px] border-b border-zinc-300 dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/90 dark:bg-zinc-900/80 dark:text-zinc-200">
                 {/* 구분선 */}
                 <div
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[50%] bg-zinc-500 dark:bg-zinc-700"
@@ -195,7 +195,7 @@ const ClashV2SeasonPage = () => {
                     </span>
                 </button>
             </div>
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-2xl mt-4 overflow-x-auto">
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto">
                 {data && (
                     <PersonalityPieChart
                         data={seasonSlice}

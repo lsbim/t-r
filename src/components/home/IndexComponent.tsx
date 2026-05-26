@@ -8,7 +8,7 @@ const IndexComponent = ({ latest }: { latest: LatestData }) => {
 
     return (
         <>
-            <div className="sm:w-[600px] w-full dark:bg-zinc-900 dark:text-zinc-200 mx-auto flex flex-col mt-4 bg-white p-4 rounded-2xl">
+            <div className="sm:w-[600px] dark:border-zinc-700 w-full border border-zinc-300 dark:bg-zinc-900 dark:text-zinc-200 mx-auto flex flex-col mt-4 bg-white p-4 rounded-2xl">
                 <div className="flex gap-x-3 justify-center items-center">
                     <img
                         src="/images/boss/lil1li.webp"

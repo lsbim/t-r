@@ -22,7 +22,7 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                 <Accordion.Item
                     key={id}
                     value={id}
-                    className={`${index === items.length - 1 || 'mb-[2px]'} last:border-b-0 border-b dark:border-zinc-700`}
+                    className={`${index === items.length - 1 || 'mb-[2px]'} last:border-b-0 border-b border-zinc-300 dark:border-zinc-700`}
                 >
                     <Accordion.Header className="flex">
                         <Accordion.Trigger className='group' asChild>

@@ -10,7 +10,7 @@ const BaseComponent = ({ allDates, getYOffset, BASE_DATE_HEIGHT }: Props) => {
     return (
         <>
             {/* 중앙 세로선 */}
-            <div className="absolute left-1/2 w-[2px] bg-black h-full z-30" />
+            <div className="absolute left-1/2 w-[2px] bg-black dark:bg-zinc-800 h-full z-30" />
 
             {/* 날짜 라벨 + 가로선 */}
             {allDates.map(iso => {
@@ -23,7 +23,7 @@ const BaseComponent = ({ allDates, getYOffset, BASE_DATE_HEIGHT }: Props) => {
                     >
 
                         <div
-                            className="whitespace-nowrap text-[12px] bg-black text-white px-1 w-full h-full">
+                            className="whitespace-nowrap text-[12px] bg-black dark:bg-zinc-800 dark:text-zinc-200 text-white px-1 w-full h-full">
                             {iso}
                         </div>
                     </div>

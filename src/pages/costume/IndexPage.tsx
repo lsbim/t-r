@@ -26,7 +26,7 @@ const getKoreanYear = () => {
         timeZone: 'Asia/Seoul',
         year: 'numeric'
     }).format(new Date());
-    
+
     return parseInt(koreanTime);
 };
 
@@ -154,7 +154,7 @@ const IndexPage = () => {
 
     const selectYearElement = () => {
         return (
-            <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto items-center pt-2 rounded-tr-2xl rounded-br-2xl">
+            <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto items-center pt-2 rounded-tr-xl rounded-br-xl border border-zinc-300 dark:border-zinc-700">
                 {costumeReleaseYearSet.map(y => (
                     <button
                         onClick={() => {
@@ -170,7 +170,7 @@ const IndexPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-screen max-w-[100vw]">
+        <div className="flex flex-col justify-center gap-y-4 min-h-screen max-w-[100vw]">
             <SEO
                 title="사복 집계"
                 description="트릭컬 리바이브의 사복 출시일, 사복이 가장 많은 사도, 적은 사도, 사복 개수 | 사복 집계 데이터를 제공합니다."
@@ -178,22 +178,8 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 pl-6 rounded-2xl mt-4 overflow-x-auto">
-                <div className="flex flex-col justify-start mb-3">
-                    <h1 className="text-[20px] font-bold mr-2">사복</h1>
-                    <span className="flex text-[14px]">다음 대상의 사복 집계 자료를 제공합니다.</span>
-                </div>
-                <div className="flex gap-x-4 items-center mb-2">
-                    <div className="flex-col flex text-[12px] font-bold text-orange-500">
-                        <span>
-                            3성 사도
-                        </span>
-                        <span>
-                            2성 사도
-                        </span>
-                    </div>
-                </div>
-                <span className="flex text-[12px]">1성 사도는 제외됩니다.</span>
+            <div className="lg:w-[992px] md:w-[768px] mt-4 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
+                <h1 className="">사복 집계</h1>
             </div>
             {/* 타임라인 */}
             <div className="w-[992px] lg:flex hidden mx-auto gap-x-2 min-h-[100px]">

@@ -42,7 +42,7 @@ const PersCalendar: React.FC<Props> = (
     // console.log(weeklySchedule)
 
     return (
-        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 first:rounded-tl-2xl first:rounded-bl-2xl">
+        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 p-2 first:rounded-tl-xl first:rounded-bl-xl">
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />
@@ -58,7 +58,7 @@ const PersCalendar: React.FC<Props> = (
 
                     return (
                         <div key={monthName} className="flex items-center gap-2">
-                            <span className={`w-7 text-[13px] font-semibold text-right transition-opacity ${weeks[0]?.startDate < limitDate || weeks[0]?.startDate > now || !weeks[0]?.startDate ? 'opacity-20' : 'opacity-100'}`}>
+                            <span className={`w-7 text-[13px] font-semibold text-right ${weeks[0]?.startDate < limitDate || weeks[0]?.startDate > now || !weeks[0]?.startDate ? 'opacity-20' : 'opacity-100'}`}>
                                 {monthName}
                             </span>
                             <div className="flex gap-1">

@@ -7,7 +7,7 @@ interface SlideColorNavProps {
     prevColor?: string; // 비선택 탭 색상
     prevHoverColor?: string;
     color: string;
-    size: number;
+    size?: number;
     handler: (param: string) => void;
     initCategory?: string;
 }
@@ -22,9 +22,9 @@ const SlideColorNav: React.FC<SlideColorNavProps> = ({
     prevColor = 'text-gray-400 dark:text-zinc-500',
     prevHoverColor = 'hover:text-gray-500 dark:hover:text-zinc-400',
     color,
-    size = 14,
+    size = 13,
     handler,
-    initCategory
+    initCategory,
 }) => {
 
     const tabsRef = useRef<{ [key: string]: HTMLElement | null }>({});

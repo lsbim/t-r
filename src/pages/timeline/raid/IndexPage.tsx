@@ -87,7 +87,7 @@ const IndexPage = () => {
                     if (indexB === -1) return -1;
                     return indexA - indexB;
                 }
-                
+
                 if (keyA === '공명') return 1;
                 if (keyB === '공명') return -1;
                 return keyA.localeCompare(keyB);
@@ -118,7 +118,7 @@ const IndexPage = () => {
     ] as const;
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-screen">
+        <div className="flex flex-col justify-center gap-y-2 min-h-screen">
             <SEO
                 title="콘텐츠 출시 타임라인"
                 description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
@@ -126,33 +126,14 @@ const IndexPage = () => {
             <TopRemote />
             <HeaderNav />
             {/* 소개 */}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 pl-6 rounded-2xl mt-4 overflow-x-auto">
-                <div className="flex flex-col justify-start mb-3">
-                    <h1 className="text-[20px] font-bold mr-2">보스 타임라인</h1>
-                    <span className="flex text-[14px]">다음 콘텐츠의 출시 타임라인을 제공합니다.</span>
-                </div>
-                <div className="flex gap-x-4 items-center mb-2">
-                    <div className="flex-col flex gap-y-1 text-orange-500 text-[12px] font-bold">
-                        <span>
-                            차원 대충돌
-                        </span>
-                        <span>
-                            엘리아스 프론티어
-                        </span>
-                        <span>
-                            사도 출시일
-                        </span>
-                    </div>
-                </div>
-                <span className="flex text-[12px]">집계되지 않은 시즌은 제외됩니다.</span>
+            <div className="md:w-[768px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
+                <h1 className="">컨텐츠 타임라인</h1>
+
             </div>
             {/* 타임라인 */}
-            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 p-4 rounded-2xl mt-4 overflow-x-auto">
+            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 rounded-xl border border-zinc-300 overflow-x-auto">
                 <div className="flex mx-auto w-full">
                     <div className="flex flex-col gap-y-2">
-                        <span className="text-[12px] text-orange-500 font-bold">
-                            정렬 기준
-                        </span>
                         <div className="flex items-center gap-x-2">
                             <span className="font-bold pb-[2px] dark:text-zinc-200">
                                 엘다인
@@ -164,7 +145,6 @@ const IndexPage = () => {
                         </div>
                         <SlideColorNav
                             color="text-black dark:text-zinc-200"
-                            size={16}
                             handler={(p) => setCategory(p as 'race' | 'pers')}
                             tabs={tabs}
                         />

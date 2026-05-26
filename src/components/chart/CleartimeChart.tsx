@@ -290,7 +290,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
     };
 
     return (
-        <div className="lg:w-[992px] dark:brightness-90 w-full mx-auto flex flex-col h-[400px] bg-white dark:bg-zinc-900 p-4 rounded-2xl overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] dark:brightness-90 w-full mx-auto flex flex-col h-[400px] bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden">
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2 dark:text-zinc-200">클리어 시간</span>
                 <InfoIcon text='시간 측정이 불가능한 구간은 점수로 표기합니다.' />
