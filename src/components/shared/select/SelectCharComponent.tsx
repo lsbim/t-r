@@ -1,10 +1,8 @@
 import React from "react";
-import InfoIcon from "../../../commons/icon/InfoIcon";
 import PersonalityIcon from "../../../commons/icon/PersonalityIcon";
 import { findPersonalityByName } from "../../../utils/function";
-import UsedPosition from "./UsedPosition";
 import CoOccurrenceChar from "./CoOccurrenceChar";
-import UsedComp from "./UsedComp";
+import UsedPosition from "./UsedPosition";
 
 const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
@@ -25,7 +23,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                     )}
                 </div>
                 {statsForSelect ? (
-                    <div>
+                    <div className="flex flex-col gap-y-4">
                         <div className="flex justify-between">
                             {/* 사용된 위치 */}
                             <UsedPosition
@@ -38,10 +36,6 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                 />
                             )}
                         </div>
-                        {/* 사용된 조합 */}
-                        <UsedComp
-                            statsForSelect={statsForSelect}
-                        />
                     </div>
                 ) : (
                     <div className="text-gray-600">
