@@ -12,7 +12,7 @@ import CompListComponent from "../../components/shared/CompListComponent";
 import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
-import SelectCharComponent from "../../components/shared/SelectCharComponent";
+import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
