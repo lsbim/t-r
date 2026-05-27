@@ -44,7 +44,7 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
                                         key={posIdx}
                                         data-tooltip-id="my-tooltip"
                                         data-tooltip-content={`${pct}%`}
-                                        className="relative w-9 h-9 border-[1px] border-gray-800 dark:border-zinc-500"
+                                        className="relative w-9 h-9 border cursor-pointer border-gray-800 dark:border-zinc-500"
                                         style={getCellStyle(ratio)}
                                     />
                                 );
