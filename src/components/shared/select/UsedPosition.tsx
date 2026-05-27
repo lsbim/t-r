@@ -1,82 +1,55 @@
 import React from 'react'
+import { useTheme } from '../../../hooks/useTheme';
 
 const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
+
+    const { theme } = useTheme();
+
+    const darkmodeBlockColor = theme === 'dark' ? 13 : 98 // 0 = 검정, 100 = 흰
+
+    const COLUMNS = [
+        [6, 7, 8], // 후열
+        [3, 4, 5], // 중열
+        [0, 1, 2], // 전열
+    ];
+
+    const getCellStyle = (ratio: number) => {
+        const sat = ratio === 0 ? 0 : 15 + ratio * 75;
+        const bgL = ratio === 0 ? darkmodeBlockColor : 89 - ratio * 31;
+
+        // 테두리는 배경보다 n% 어둡게
+        const borderL = bgL - 20;
+
+        return {
+            backgroundColor: `hsl(350, ${sat}%, ${bgL}%)`,
+            borderColor: `hsl(350, ${sat}%, ${borderL}%)`,
+        };
+    };
+
     return (
-        <div className="w-[20%] flex flex-col justify-center ">
-            <span className="text-[16px] font-bold mb-4">사용된 위치</span>
+        <div className="w-[30%] p-4 h-[200px] flex flex-col justify-center items-center bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+            <div className="mb-3">
+                <span className="text-[16px] font-bold text-start">사용된 위치</span>
+            </div>
             <div className="flex gap-2">
-                {/* 후열 6,7,8 */}
-                <div className="flex-col gap-2 flex">
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[6] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[6] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[7] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[7] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[8] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[8] / statsForSelect.totalUses})`
-                        }} />
-                </div>
-                {/* 중열 3,4,5 */}
-                <div className="flex-col gap-2 flex">
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[3] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[3] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[4] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[4] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[5] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[5] / statsForSelect.totalUses})`
-                        }} />
-                </div>
-                {/* 전열 0,1,2 */}
-                <div className="flex-col gap-2 flex">
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[0] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[0] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[1] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[1] / statsForSelect.totalUses})`
-                        }} />
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={`${(statsForSelect.positionCounts[2] / statsForSelect.totalUses * 100).toFixed(1)}%`}
-                        className="relative w-6 h-6 border-[1px] border-gray-800 dark:border-zinc-500"
-                        style={{
-                            backgroundColor: `rgba(200, 0, 0, ${statsForSelect.positionCounts[2] / statsForSelect.totalUses})`
-                        }} />
-                </div>
+                {COLUMNS.map((colIndices, colIdx) => (
+                    <div key={colIdx} className="flex-col gap-2 flex">
+                        {colIndices.map((posIdx) => {
+                            const ratio = statsForSelect.positionCounts[posIdx] / statsForSelect.totalUses;
+                            const pct = (ratio * 100).toFixed(1); // percent
+
+                            return (
+                                <div
+                                    key={posIdx}
+                                    data-tooltip-id="my-tooltip"
+                                    data-tooltip-content={`${pct}%`}
+                                    className="relative w-9 h-9 border-[1px] border-gray-800 dark:border-zinc-500"
+                                    style={getCellStyle(ratio)}
+                                />
+                            );
+                        })}
+                    </div>
+                ))}
             </div>
         </div>
     )
