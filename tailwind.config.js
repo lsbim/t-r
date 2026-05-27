@@ -21,6 +21,11 @@ module.exports = {
     'border-광기',
     'border-활발',
     'border-우울',
+    'border-순수-dark',
+    'border-냉정-dark',
+    'border-광기-dark',
+    'border-활발-dark',
+    'border-우울-dark',
     'from-순수',
     'from-냉정',
     'from-광기',
@@ -35,11 +40,11 @@ module.exports = {
   theme: {
     extend: {
       colors: { // color가 아니다. colors로 입력할 것
-        '순수': '#66c17c',
-        '냉정': '#83b9eb',
-        '광기': '#eb839a',
-        '활발': '#ebdb83',
-        '우울': '#c683ec',
+        '순수': { DEFAULT: '#66c17c', dark: '#4fa163' },
+        '냉정': { DEFAULT: '#83b9eb', dark: '#6199cf' },
+        '광기': { DEFAULT: '#eb839a', dark: '#cf667d' },
+        '활발': { DEFAULT: '#ebdb83', dark: '#cfbe62' },
+        '우울': { DEFAULT: '#c683ec', dark: '#a766c9' },
       },
       screens: {
         'mini': '360px',
