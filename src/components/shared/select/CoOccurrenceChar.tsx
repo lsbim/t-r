@@ -26,7 +26,7 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
             <div className="flex flex-col justify-start items-start w-full min-w-0">
                 <div className="mb-4 flex">
                     <span className="text-[16px] font-bold mr-2">함께한 사도</span>
-                    <InfoIcon text="함께 출전한 상위 5인의 사도입니다." />
+                    <InfoIcon text="함께 출전한 사도 목록입니다." />
                 </div>
                 {/* 스크롤이 무조건 있기 때문에 최상위 태그와 pb-2 나눠먹기 */}
                 <div className="w-full overflow-x-auto pb-2"> 
