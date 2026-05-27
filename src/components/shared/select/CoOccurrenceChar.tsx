@@ -18,7 +18,7 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
 
     const getBgColor = (value: number): string => {
         const rank = uniqueValues.indexOf(value); // 중복 순위 포함 1,2,3위 배경색 지정
-        return RANK_COLORS[rank] ?? 'bg-zinc-100';
+        return RANK_COLORS[rank] ?? 'bg-zinc-100 dark:bg-zinc-800 dark:border-zinc-700';
     };
 
     return (
