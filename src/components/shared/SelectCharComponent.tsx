@@ -140,13 +140,13 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                             </div>
                             {statsForSelect.selectCharComp.slice(0, 3).map((comp: any, ci: number) => (
                                 <div key={"clash" + statsForSelect?.select + "comp" + ci}
-                                    className={`flex font-bold dark:brightness-90 text-[12px] gap-x-2 dark:text-zinc-950 ${ci === 2 ? "mb-0" : "mb-4"}`}>
+                                    className={`flex dark:brightness-90 text-[12px] gap-x-2 dark:text-zinc-950 ${ci === 2 ? "mb-0" : "mb-4"}`}>
 
                                     <div className="min-w-[78px] w-[16%] flex flex-col gap-y-1">
                                         {comp?.back?.map((name: string, i: number) => (
                                             <div key={"clash" + statsForSelect?.select + "comp" + name + ci + i}
                                                 title={name}
-                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "border-[1px] border-black" : ""}`}>
+                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "font-bold" : ""}`}>
                                                 <span className="truncate">
                                                     {name === "시온" ? "시온 더 다크불릿" : name}
                                                 </span>
@@ -157,7 +157,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                         {comp?.mid?.map((name: string, i: number) => (
                                             <div key={"clash" + statsForSelect?.select + "comp" + name + ci + i}
                                                 title={name}
-                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "border-[1px] border-black" : ""}`}>
+                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "font-bold" : ""}`}>
                                                 <span className="truncate">
                                                     {name === "시온" ? "시온 더 다크불릿" : name}
                                                 </span>
@@ -168,7 +168,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                         {comp?.front?.map((name: string, i: number) => (
                                             <div key={"clash" + statsForSelect?.select + "comp" + name + ci + i}
                                                 title={name}
-                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "border-[1px] border-black" : ""}`}>
+                                                className={`flex-1 bg-${findPersonalityByName(name)} p-1 min-w-0 flex items-center max-h-[23px] ${statsForSelect?.select === name ? "font-bold" : ""}`}>
                                                 <span className="truncate">
                                                     {name === "시온" ? "시온 더 다크불릿" : name}
                                                 </span>
