@@ -11,7 +11,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
     console.log(statsForSelect)
 
     return (
-        <div className="overflow-x-auto overflow-y-hidden">
+        <div className="overflow-hidden">
             <div className={`mx-auto flex flex-col rounded-xl dark:text-zinc-200 ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
                 <div className="flex items-center mb-4">
                     <span className="text-xl font-bold mr-4">사도 정보</span>
@@ -26,7 +26,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                 </div>
                 {statsForSelect ? (
                     <div>
-                        <div className="flex">
+                        <div className="flex justify-between">
                             {/* 사용된 위치 */}
                             <UsedPosition
                                 statsForSelect={statsForSelect}

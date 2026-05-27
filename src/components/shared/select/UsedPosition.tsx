@@ -27,31 +27,33 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
     };
 
     return (
-        <div className="w-[30%] p-4 h-[200px] flex flex-col justify-center items-center bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
-            <div className="mb-3">
-                <span className="text-[16px] font-bold text-start">사용된 위치</span>
-            </div>
-            <div className="flex gap-2">
-                {COLUMNS.map((colIndices, colIdx) => (
-                    <div key={colIdx} className="flex-col gap-2 flex">
-                        {colIndices.map((posIdx) => {
-                            const ratio = statsForSelect.positionCounts[posIdx] / statsForSelect.totalUses;
-                            const pct = (ratio * 100).toFixed(1); // percent
+        <div className="w-[30%] p-4 h-[200px] flex justify-center items-center bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+            <div className="flex flex-col items-start">
+                <div className="mb-3">
+                    <span className="text-[16px] font-bold text-start">사용된 위치</span>
+                </div>
+                <div className="flex gap-2">
+                    {COLUMNS.map((colIndices, colIdx) => (
+                        <div key={colIdx} className="flex-col gap-2 flex">
+                            {colIndices.map((posIdx) => {
+                                const ratio = statsForSelect.positionCounts[posIdx] / statsForSelect.totalUses;
+                                const pct = (ratio * 100).toFixed(1); // percent
 
-                            return (
-                                <div
-                                    key={posIdx}
-                                    data-tooltip-id="my-tooltip"
-                                    data-tooltip-content={`${pct}%`}
-                                    className="relative w-9 h-9 border-[1px] border-gray-800 dark:border-zinc-500"
-                                    style={getCellStyle(ratio)}
-                                />
-                            );
-                        })}
-                    </div>
-                ))}
+                                return (
+                                    <div
+                                        key={posIdx}
+                                        data-tooltip-id="my-tooltip"
+                                        data-tooltip-content={`${pct}%`}
+                                        className="relative w-9 h-9 border-[1px] border-gray-800 dark:border-zinc-500"
+                                        style={getCellStyle(ratio)}
+                                    />
+                                );
+                            })}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </div >
     )
 }
 
