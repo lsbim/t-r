@@ -1,3 +1,4 @@
+import React from 'react';
 import InfoIcon from '../../../commons/icon/InfoIcon';
 import { findPersonalityByName } from '../../../utils/function';
 
@@ -53,4 +54,4 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
     )
 }
 
-export default CoOccurrenceChar
+export default React.memo(CoOccurrenceChar)
