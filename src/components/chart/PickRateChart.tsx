@@ -150,7 +150,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
 
                                     return (
                                         <div
-                                            onClick={() => setSelect(item?.name)}
+                                            onClick={() => setSelect((prev) => prev === item?.name ? "" : item?.name)}
                                             key={"clash" + item.name}
                                             className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${item?.name === select ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
                                             <span
