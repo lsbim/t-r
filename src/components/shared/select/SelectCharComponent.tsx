@@ -10,7 +10,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
     return (
         <div className="overflow-hidden">
-            <div className={`mx-auto flex flex-col rounded-xl dark:text-zinc-200 ${statsForSelect ? "w-[992px] " : "max-w-[992px]"}`}>
+            <div className={`mx-auto flex flex-col rounded-xl dark:text-zinc-200 ${statsForSelect ? "xs:max-w-[992px] w-full" : "max-w-[992px]"}`}>
                 <div className="flex items-center mb-2">
                     {statsForSelect?.select && (
                         <div className="flex items-center">
@@ -22,19 +22,17 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                     )}
                 </div>
                 {statsForSelect ? (
-                    <div className="flex flex-col gap-y-4">
-                        <div className="flex justify-between">
-                            {/* 사용된 위치 */}
-                            <UsedPosition
+                    <div className="xs:flex-row flex flex-col xs:justify-between gap-y-4 w-full">
+                        {/* 사용된 위치 */}
+                        <UsedPosition
+                            statsForSelect={statsForSelect}
+                        />
+                        {/* 함께한 사도 */}
+                        {statsForSelect?.cooccurrence && (
+                            <CoOccurrenceChar
                                 statsForSelect={statsForSelect}
                             />
-                            {/* 함께한 사도 */}
-                            {statsForSelect?.cooccurrence && (
-                                <CoOccurrenceChar
-                                    statsForSelect={statsForSelect}
-                                />
-                            )}
-                        </div>
+                        )}
                     </div>
                 ) : (
                     <div className="text-gray-600">
