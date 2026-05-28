@@ -121,11 +121,11 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                         <div
                                             key={"clash" + item.name}
                                             className="flex items-center w-full">
-                                            <div
-                                                className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
+                                            <span
+                                                className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px]"
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
-                                            </div>
+                                            </span>
 
                                             {/* 2) 가로 바 컨테이너 */}
                                             <div className="flex-1 bg-gray-200 dark:bg-zinc-800 h-4 overflow-hidden text-[12px]">
@@ -136,7 +136,7 @@ const ExternalPickRateChart = ({ data, season, prevData }:
                                             </div>
                                             <div className="flex items-center h-full">
                                                 <span
-                                                    className="w-12 flex justify-end text-sm dark:text-zinc-200">
+                                                    className="w-10 flex justify-end text-sm dark:text-zinc-200">
                                                     {item.count}
                                                 </span>
                                                 <span

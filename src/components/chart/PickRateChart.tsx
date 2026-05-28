@@ -152,12 +152,12 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
                                         <div
                                             onClick={() => setSelect(item?.name)}
                                             key={"clash" + item.name}
-                                            className="flex items-center w-full cursor-pointer hover:bg-gray-100 dark:hover:bg-zinc-800 px-1 rounded-md">
-                                            <div
-                                                className="w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[15px]"
+                                            className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${item?.name === select ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
+                                            <span
+                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${item?.name === select ? "font-bold" : ""}`}
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
-                                            </div>
+                                            </span>
 
                                             {/* 2) 가로 바 컨테이너 */}
                                             <div className="flex-1 bg-gray-200 dark:bg-zinc-700 h-4 overflow-hidden text-[12px]">
@@ -168,7 +168,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
                                             </div>
                                             <div className="flex items-center h-full">
                                                 <span
-                                                    className="w-12 flex justify-end text-sm dark:text-zinc-200">
+                                                    className="w-10 flex justify-end text-sm dark:text-zinc-200">
                                                     {item.count}
                                                 </span>
                                                 {/* 픽률은 참여한 사도가 아닌 유저 수를 기준 */}
