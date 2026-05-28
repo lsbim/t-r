@@ -25,7 +25,7 @@ const initRange = { start: 0, end: 0 };
 const SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState<string>('');
     // const [userCnt, setUserCnt] = useState<number>(0)
 
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
@@ -239,6 +239,7 @@ const SeasonPage = () => {
                         data={seasonSlice}
                         setSelect={setSelect}
                         prevData={prevSlice}
+                        select={select}
                     />
                     {select !== '' && (
                         <SelectCharComponent

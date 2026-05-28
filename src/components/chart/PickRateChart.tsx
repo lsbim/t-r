@@ -1,17 +1,18 @@
 import React, { useMemo } from "react";
 import { charInfo } from "../../data/trickcalChar";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
-import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
-import { ExternalSummaryData, lineList, SummaryData } from "../../types/trickcalTypes";
-import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
 import { ClashV2SeasonData } from "../../types/clashV2Types";
+import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
+import { lineList } from "../../types/trickcalTypes";
+import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
 
-const PickRateChart = ({ data, season, setSelect, prevData, type }:
+const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
     {
         data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
         season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>,
         prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData,
-        type?: 'side'
+        type?: 'side',
+        select: string,
     }) => {
 
     // const processData = processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);

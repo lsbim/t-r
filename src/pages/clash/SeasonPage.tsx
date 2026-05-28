@@ -25,7 +25,7 @@ const initRange = { start: 0, end: 0 };
 const SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState<string>('');
     const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
 
@@ -208,6 +208,7 @@ const SeasonPage = () => {
                         season={season}
                         data={seasonSlice}
                         setSelect={setSelect}
+                        select={select}
                     />
                     {select !== '' && (
                         <SelectCharComponent

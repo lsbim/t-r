@@ -26,7 +26,7 @@ const initRange = { start: 0, end: 0 };
 const ClashV2SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState<string>('');
     const { data, isLoading, error } = useRaidData<ClashV2SeasonData>('clashV2', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const [v2Type, setV2Type] = useState<'main' | 'side'>('main')
@@ -228,6 +228,7 @@ const ClashV2SeasonPage = () => {
                     data={seasonSlice}
                     setSelect={setSelect}
                     type={v2Type === 'side' ? v2Type : undefined}
+                    select={select}
                 />
                 {select !== '' && (
                     <SelectCharComponent
