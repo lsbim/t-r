@@ -78,7 +78,7 @@ const ClashV2SeasonPage = () => {
             ? (seasonSlice.data as ClashPlayerData[]).filter(r => r.arr.includes(select))
             : (seasonSlice.data as ClashV2PlayerData[]).filter(r => r.sideArr.includes(select));
         const totalUses = combos.length;
-        const percentOfAll = totalUses / seasonSlice.data.length * 100;
+        const pickRate = totalUses / seasonSlice.data.length * 100;
 
         // 인덱스별 카운트 초기화
         const positionCounts: Record<number, number> = {
@@ -110,9 +110,37 @@ const ClashV2SeasonPage = () => {
             });
         }
 
-        const selectCharComp = processCompStat(seasonSlice.data, select, v2Type === 'side' ? v2Type : undefined);
+        const firstRank = combos.length > 0 ? combos[0].rank : null;
+        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
 
-        return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
+        const BUCKET_SIZE = 10;
+        const totalCount = seasonSlice.data.length;
+        const bucketCount = Math.ceil(totalCount / BUCKET_SIZE);
+
+        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => ({
+            label: `${i * BUCKET_SIZE + 1}~${Math.min((i + 1) * BUCKET_SIZE, totalCount)}`,
+            startRank: i * BUCKET_SIZE + 1,
+            count: 0,
+        }));
+
+        combos.forEach(r => {
+            const bucketIdx = Math.floor((r.rank - 1) / BUCKET_SIZE);
+            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
+                rankDistribution[bucketIdx].count++;
+            }
+        });
+
+
+        return {
+            totalUses,
+            pickRate,
+            positionCounts,
+            cooccurrence,
+            select,
+            rankDistribution,
+            firstRank,
+            lastRank,
+        };
     }, [select, seasonSlice, v2Type]);
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
