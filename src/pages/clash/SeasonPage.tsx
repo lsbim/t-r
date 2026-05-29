@@ -104,9 +104,45 @@ const SeasonPage = () => {
             });
         });
 
-        const selectCharComp = processCompStat((seasonSlice.data as ClashPlayerData[]), select);
+        // 선택한 사도의 최초/최후 등장 순위
+        const firstRank = combos.length > 0 ? combos[0].rank : null;
+        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
 
-        return { totalUses, percentOfAll, positionCounts, cooccurrence, selectCharComp, select };
+        const BUCKET_SIZE = 10; // 히스토그램 구간 단위
+        const totalCount = seasonSlice.data.length;
+        const bucketCount = Math.ceil(totalCount / BUCKET_SIZE);
+
+        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => ({
+            label: `${i * BUCKET_SIZE + 1}~${Math.min((i + 1) * BUCKET_SIZE, totalCount)}`,
+            startRank: i * BUCKET_SIZE + 1,
+            count: 0,
+        }));
+
+        combos.forEach(r => {
+            const bucketIdx = Math.floor((r.rank - 1) / BUCKET_SIZE);
+            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
+                rankDistribution[bucketIdx].count++;
+            }
+
+            r.arr.forEach((name, idx) => {
+                if (name === select) {
+                    positionCounts[idx]++;
+                } else {
+                    cooccurrence[name] = (cooccurrence[name] || 0) + 1;
+                }
+            });
+        });
+
+        return {
+            totalUses,
+            percentOfAll,
+            positionCounts,
+            cooccurrence,
+            select,
+            rankDistribution,
+            firstRank,
+            lastRank,
+        };
     }, [select, seasonSlice]);
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
