@@ -11,7 +11,7 @@ import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
-import SelectCharComponent from "../../components/shared/SelectCharComponent";
+import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
@@ -25,7 +25,7 @@ const initRange = { start: 0, end: 0 };
 const SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState('');
+    const [select, setSelect] = useState<string>('');
     const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
 
@@ -208,6 +208,7 @@ const SeasonPage = () => {
                         season={season}
                         data={seasonSlice}
                         setSelect={setSelect}
+                        select={select}
                     />
                     {select !== '' && (
                         <SelectCharComponent
