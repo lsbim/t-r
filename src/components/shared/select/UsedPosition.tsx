@@ -27,7 +27,7 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
     };
 
     return (
-        <div className="xs:w-[30%] w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className="w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
 
             <span className="text-[16px] font-bold text-start">사용된 위치</span>
 

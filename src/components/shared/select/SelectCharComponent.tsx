@@ -24,24 +24,28 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                     )}
                 </div>
                 {statsForSelect ? (
-                    <div className="flex flex-col gap-y-4 w-full">
-                        <div className="xs:flex-row flex flex-col xs:justify-between gap-4 w-full">
+                    <div className="flex sm:flex-row flex-col gap-4 w-full">
+                        {/* 30% */}
+                        <div className="flex flex-col sm:justify-between gap-y-4 sm:w-[30%] w-full">
                             {/* 사도 정보 */}
                             <SelectInfo
                                 firstRank={statsForSelect.firstRank}
                                 lastRank={statsForSelect.lastRank}
                                 select={statsForSelect.select}
                                 pickRate={statsForSelect.pickRate}
-                            />
-                            <SelectRankHistogramChart
-                                rankDistribution={statsForSelect.rankDistribution}
                                 totalUses={statsForSelect.totalUses}
                             />
-                        </div>
-                        <div className="xs:flex-row flex flex-col xs:justify-between gap-4 w-full">
                             {/* 사용된 위치 */}
                             <UsedPosition
                                 statsForSelect={statsForSelect}
+                            />
+                        </div>
+                        {/* 68.5% */}
+                        <div className="flex flex-col sm:justify-between gap-y-4 sm:w-[68.5%] w-full">
+                            {/* 구간별 등장 히스토그램 */}
+                            <SelectRankHistogramChart
+                                rankDistribution={statsForSelect.rankDistribution}
+                                totalUses={statsForSelect.totalUses}
                             />
                             {/* 함께한 사도 */}
                             <CoOccurrenceChar

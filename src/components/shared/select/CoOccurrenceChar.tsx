@@ -23,7 +23,7 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
     };
 
     return (
-        <div className="xs:w-[68.5%] w-full h-[200px] p-3 pb-1 flex flex-col gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className="w-full h-[200px] p-3 pb-1 flex flex-col gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
             <div className="flex">
                 <span className="text-[16px] font-bold mr-2">함께한 사도</span>
                 <InfoIcon text="함께 출전한 사도 목록입니다." />

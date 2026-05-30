@@ -112,6 +112,7 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
                     stepSize: Math.ceil(maxCount / 5),
                     color: tickColor,
                     callback: (value) => value === 0 ? '' : value, // tick 0일땐 미출력
+                    display: false
                 },
                 grid: {
                     color: gridColor,
@@ -132,7 +133,7 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
     };
 
     return (
-        <div className="xs:w-[61%] w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className="w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
             <span className="font-bold">
                 랭킹 구간별 분포
             </span>
