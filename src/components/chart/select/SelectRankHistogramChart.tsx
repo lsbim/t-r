@@ -62,6 +62,7 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
                 barPercentage: 1.0,
                 categoryPercentage: 0.97,
                 borderSkipped: false,
+                maxBarThickness: 30, // 두께 상한
             }
         ]
     };
