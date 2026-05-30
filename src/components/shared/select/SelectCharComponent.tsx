@@ -13,16 +13,6 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
     return (
         <div className="overflow-hidden">
             <div className={`mx-auto flex flex-col rounded-xl dark:text-zinc-200 ${statsForSelect ? "xs:max-w-[992px] w-full" : "max-w-[992px]"}`}>
-                <div className="flex items-center mb-2">
-                    {statsForSelect?.select && (
-                        <div className="flex items-center">
-                            <PersonalityIcon personality={findPersonalityByName(statsForSelect?.select)} />
-                            <span className={`text-xl font-bold p-1`}>
-                                {statsForSelect?.select || ""}
-                            </span>
-                        </div>
-                    )}
-                </div>
                 {statsForSelect ? (
                     <div className="flex sm:flex-row flex-col gap-4 w-full">
                         {/* 30% */}
