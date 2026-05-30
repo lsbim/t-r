@@ -8,7 +8,7 @@ import SelectRankHistogramChart from "../../chart/select/SelectRankHistogramChar
 
 const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
 
-    console.log(statsForSelect)
+    // console.log(statsForSelect)
 
     return (
         <div className="overflow-hidden">

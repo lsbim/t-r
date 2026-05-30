@@ -43,14 +43,6 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
     const counts = rankDistribution.map(b => b.count);
     const maxCount = Math.max(...counts, 1);
 
-    // 그라데이션
-    const backgroundColors = rankDistribution.map((_, i) => {
-        const ratio = i / Math.max(rankDistribution.length - 1, 1);
-        const alpha = 0.9 - ratio * 0.5; // 0.9 → 0.4
-        // return `rgba(99, 102, 241, ${alpha})`;
-        return `#8884d8`;
-    });
-
     const chartData = {
         labels: rankDistribution.map(b => b.label),
         datasets: [
