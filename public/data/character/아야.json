@@ -1,0 +1,201 @@
+{
+  "birthdate": "2023-09-27",
+  "line": "중열",
+  "personality": "냉정",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 280,
+        "pickRate": 93.3,
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
+        "seasonNumber": 40,
+        "name": "크레용사용",
+        "personality": "광기",
+        "startDate": "2025-10-16",
+        "endDate": "2025-10-23",
+        "pickCount": 195,
+        "pickRate": 65,
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
+        "seasonNumber": 34,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-06-12",
+        "endDate": "2025-06-19",
+        "pickCount": 94,
+        "pickRate": 94,
+        "isOverall": false,
+        "line": "중열"
+      }
+    ],
+    "frontier": [],
+    "clashV2": []
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 6,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 146,
+        "pickRate": 48.7,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 146
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 6,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 232,
+        "pickRate": 77.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 232
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 190,
+        "pickRate": 63.3,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 190
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 199,
+        "pickRate": 66.3,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 199
+          }
+        ],
+        "totalEntries": 300
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "skinName": "첫 눈송이의 춤사위",
+      "count": 120
+    },
+    {
+      "skinName": "새벽의 블루문",
+      "count": 77
+    },
+    {
+      "skinName": "추억과 피안화",
+      "count": 6
+    }
+  ]
+}

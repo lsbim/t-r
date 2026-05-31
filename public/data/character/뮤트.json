@@ -1,0 +1,216 @@
+{
+  "birthdate": "2025-09-11",
+  "line": "후열",
+  "personality": "순수",
+  "topSeasons": {
+    "clash": [],
+    "frontier": [
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "isOverall": true,
+        "line": "후열"
+      }
+    ]
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 243,
+        "pickRate": 81,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 243
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 294,
+        "pickRate": 98,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 294
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 31,
+        "pickRate": 10.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 31
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 299
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 291,
+        "pickRate": 97,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 291
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 299
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 55,
+        "pickRate": 18.3,
+        "overallRank": 31,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 12,
+            "count": 55
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 273,
+        "pickRate": 91,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 273
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 18,
+        "pickRate": 6,
+        "overallRank": 40,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 15,
+            "count": 18
+          }
+        ],
+        "totalEntries": 300
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "skinName": "수온 측정의 여운",
+      "count": 350
+    },
+    {
+      "skinName": "위험한 옆집 스파이",
+      "count": 43
+    }
+  ]
+}

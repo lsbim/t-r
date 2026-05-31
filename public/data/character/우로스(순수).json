@@ -1,0 +1,209 @@
+{
+  "birthdate": "2025-09-25",
+  "line": "후열",
+  "personality": "순수",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "personality": "냉정",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "frontier": [],
+    "clashV2": [
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 292,
+        "pickRate": 97.3,
+        "isOverall": true,
+        "line": "후열"
+      }
+    ]
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 241,
+        "pickRate": 80.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 241
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "overallRank": 2,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 295
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 37,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 18,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 280,
+        "pickRate": 93.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 280
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 19,
+        "pickRate": 6.3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 19
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 9
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 73,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 29,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 292,
+        "pickRate": 97.3,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 292
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 78,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 28,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "skinName": "폭풍 속 검은 날개",
+      "count": 226
+    },
+    {
+      "skinName": "선도부장 선배님",
+      "count": 158
+    },
+    {
+      "skinName": "호숫가 피싱 마스터",
+      "count": 23
+    }
+  ]
+}

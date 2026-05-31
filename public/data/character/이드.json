@@ -1,0 +1,202 @@
+{
+  "birthdate": "2024-03-28",
+  "line": "전열",
+  "personality": "냉정",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 16,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2024-06-06",
+        "endDate": "2024-06-13",
+        "pickCount": 76,
+        "pickRate": 8.4,
+        "isOverall": true,
+        "line": "전열"
+      },
+      {
+        "seasonNumber": 12,
+        "name": "크레용사용",
+        "personality": "광기",
+        "startDate": "2024-04-04",
+        "endDate": "2024-04-11",
+        "pickCount": 79,
+        "pickRate": 8.8,
+        "isOverall": true,
+        "line": "전열"
+      }
+    ],
+    "frontier": [],
+    "clashV2": []
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 11,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 65,
+        "pickRate": 21.7,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 65
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 102,
+        "pickRate": 34,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 102
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 154,
+        "pickRate": 51.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 154
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 132,
+        "pickRate": 44,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 132
+          }
+        ],
+        "totalEntries": 300
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "skinName": "꿈속에서 다시 만난",
+      "count": 90
+    },
+    {
+      "skinName": "잠든 별의 예지몽",
+      "count": 6
+    },
+    {
+      "skinName": "꿈 같은 순간",
+      "count": 4
+    }
+  ]
+}

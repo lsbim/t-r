@@ -1,0 +1,275 @@
+{
+  "birthdate": "2024-07-18",
+  "line": "후열",
+  "personality": "활발",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 37,
+        "name": "릴1리",
+        "personality": "우울",
+        "startDate": "2025-08-21",
+        "endDate": "2025-08-28",
+        "pickCount": 243,
+        "pickRate": 81,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 32,
+        "name": "크레용사용",
+        "personality": "광기",
+        "startDate": "2025-05-01",
+        "endDate": "2025-05-08",
+        "pickCount": 55,
+        "pickRate": 6.1,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": true,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 293,
+        "pickRate": 97.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 13,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2025-10-30",
+        "endDate": "2025-11-06",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 12,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2025-09-18",
+        "endDate": "2025-09-25",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 11,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2025-08-07",
+        "endDate": "2025-08-14",
+        "pickCount": 284,
+        "pickRate": 94.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 10,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2025-06-26",
+        "endDate": "2025-07-03",
+        "pickCount": 270,
+        "pickRate": 90,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "clashV2": []
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 52,
+        "pickRate": 17.3,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 52
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 7,
+        "pickRate": 2.3,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 6,
+            "count": 7
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 151,
+        "pickRate": 50.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 151
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 293,
+        "pickRate": 97.7,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 293
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 285,
+        "pickRate": 95,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 285
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 128,
+        "pickRate": 42.7,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 128
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 165,
+        "pickRate": 55,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 165
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 163,
+        "pickRate": 54.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 163
+          }
+        ],
+        "totalEntries": 300
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "skinName": "스위트 닌자 스노우",
+      "count": 191
+    },
+    {
+      "skinName": "카게닌자 모모",
+      "count": 176
+    },
+    {
+      "skinName": "닌자의 휴일",
+      "count": 37
+    }
+  ]
+}
