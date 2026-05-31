@@ -54,7 +54,11 @@ export const useRaidData =
         | FrontierSummary
         | ClashV2Summary
         | LatestData>
-        (type: TrickcalRaidEn | 'latest', category: 'season' | 'summary' | 'stats', season?: string) => {
+        (
+            type: TrickcalRaidEn | 'latest',
+            category: 'season' | 'summary' | 'stats',
+            season?: string
+        ) => {
         // console.log(type, category, season)
 
         return useQuery<T, Error>({
@@ -67,7 +71,7 @@ export const useRaidData =
                     const result = await fetchSeasonData(season!, type!);
 
                     // 사도 배열 내 중복된 이름이 있는지 체크
-                    if (process.env.NODE_ENV === 'development') {
+                    if (import.meta.env.DEV) {
                         if (result?.data && Array.isArray(result.data) && result?.type === 'season') {
 
                             result.data.forEach((playerData: FrontierPlayerData | ClashPlayerData, index: number) => {

@@ -2,12 +2,15 @@ import { useParams } from "react-router-dom";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SEO from "../../commons/component/SEO";
+import { useCharacterData } from "../../hooks/useCharacterData";
+import { CharacterStatsData } from "../../types/character/characterStatsTypes";
 
 const CharacterPage = () => {
 
     const { charName } = useParams();
+    const { data } = useCharacterData<CharacterStatsData>(charName ?? '');
 
-    console.log(charName)
+    console.log(data)
 
     return (
         <div className="flex flex-col items-center min-h-screen">
