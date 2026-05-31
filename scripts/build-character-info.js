@@ -33,6 +33,8 @@ function sortSeasonDesc(a, b) {
     return b - a;
 }
 
+const normalizeCharName = name => name.startsWith('우로스(') ? '우로스' : name;
+
 
 // 동점 처리 예) [100, 100, 80] -> 1, 1, 2위(공동 1위 처리)
 function buildDenseRankMap(items, keyFn, valueFn) {
@@ -49,7 +51,9 @@ function buildDenseRankMap(items, keyFn, valueFn) {
 // 사복 카운트
 function countSkin(arr, skinArr, charName, skinCounts) {
     if (!arr || !skinArr) return;
-    const idx = arr.indexOf(charName);
+
+    const idx = arr.findIndex(n => normalizeCharName(n) === charName);
+
     if (idx !== -1 && skinArr[idx]) {
         skinCounts.set(skinArr[idx], (skinCounts.get(skinArr[idx]) ?? 0) + 1);
     }
@@ -62,6 +66,8 @@ async function parseCharInfo(filePath) {
     const blockRe = /"([^"]+)":\s*\{([^}]+)\}/g;
 
     for (const m of content.matchAll(blockRe)) {
+        if (m[1].startsWith('우로스(')) continue;
+
         const name = m[1];
         const block = m[2];
         const lineM = block.match(/line:\s*["']([^"']+)["']/);
@@ -127,8 +133,14 @@ function computeSeasonStats(data, charInfoMap, isClashV2) {
 
     for (const entry of data) {
         const seen = new Set();
-        entry.arr?.forEach((name, idx) => processName(name, idx, seen));
-        if (isClashV2) entry.sideArr?.forEach((name, idx) => processName(name, idx, seen));
+        entry.arr?.forEach((name, idx) => {
+            return processName(normalizeCharName(name), idx, seen)
+        });
+        if (isClashV2) {
+            entry.sideArr?.forEach((name, idx) => {
+                return processName(normalizeCharName(name), idx, seen)
+            })
+        };
     }
 
     return buildRankMap(totalCounts, data.length, lineCountsMap, charInfoMap);
@@ -139,6 +151,7 @@ function computeExternalStats(data, charInfoMap) {
     const lineCountsMap = new Map();
     let total = 0;
 
+    // external 데이터엔 우로스가 없음
     for (const item of data) {
         totalCounts.set(item.name, (totalCounts.get(item.name) ?? 0) + item.count);
         total += item.count;
