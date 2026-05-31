@@ -1,18 +1,26 @@
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect } from "react-router-dom";
 import Loading from "../commons/component/Loading";
-import { charInfo } from "../data/trickcalChar";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
+
 const ClashIndex = lazy(() => import("../pages/clash/IndexPage"));
 const ClashSeason = lazy(() => import("../pages/clash/SeasonPage"));
+
 const ClashV2Index = lazy(() => import("../pages/clashV2/ClashV2IndexPage"));
 const ClashV2Season = lazy(() => import("../pages/clashV2/ClashV2SeasonPage"));
+
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
+
 const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
+
 const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
+
 const SimIndex = lazy(() => import("../pages/sim/SimIndexPage"));
+
+const CharacterIndex = lazy(() => import("../pages/character/CharacterPage"));
+
 const ErrorPage = lazy(() => import("../pages/error/ErrorPage"));
 
 
@@ -100,6 +108,17 @@ const router = createBrowserRouter([
         path: "sim",
         element: <Suspense fallback={<Loading />}><SimIndex /></Suspense>,
         errorElement: <ErrorPage />
+    },
+    {
+        path: "character",
+        element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
+        children: [
+            {
+                path: ":charName",
+                element: <Suspense fallback={<Loading />}><CharacterIndex /></Suspense>,
+                errorElement: <ErrorPage />
+            },
+        ]
     },
     // ,
     // {
