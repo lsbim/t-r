@@ -1,5 +1,5 @@
 import { charInfo } from "../data/trickcalChar";
-import { Race } from "../types/trickcalTypes";
+import { AllLine, Race } from "../types/trickcalTypes";
 
 
 
@@ -84,6 +84,19 @@ export function translateRaces(race: Race) {
             return 'elemental';
         case '미스틱':
             return 'mystic';
+    }
+}
+
+export function translateLine(line: AllLine) {
+    switch (line) {
+        case '전열':
+            return 'front';
+        case '중열':
+            return 'middle';
+        case '후열':
+            return 'back';
+        case '모든열':
+            return 'all';
     }
 }
 
