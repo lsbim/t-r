@@ -30,46 +30,46 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                     <span className="font-bold truncate text-start text-[14px]">
                         {select === '시온' ? '시온 더 다크불릿' : select}
                     </span>
-                    <span className="truncate text-start text-[12px] text-gray-600">
+                    <span className="truncate text-start text-[12px] text-gray-600 dark:text-zinc-400">
                         {`${charInfo[select]?.personality}, ${charInfo[select]?.grade}성`}
                     </span>
                 </div>
             </div>
             <div className="flex gap-x-8 w-full justify-center">
                 {/* 픽 수, 픽률 */}
-                <div className="text-[12px] text-gray-600 gap-y-2 flex flex-col min-w-[60px]">
+                <div className="text-[12px] text-gray-800 gap-y-2 flex flex-col min-w-[60px] dark:text-zinc-200">
                     <div className="flex flex-col">
-                        <span>
+                        <span className=" dark:text-zinc-400 text-gray-600">
                             픽
                         </span>
-                        <span className="text-[13px] text-gray-800 font-bold">
+                        <span className="text-[13px] font-bold">
                             {totalUses}
                         </span>
                     </div>
                     <div className="flex flex-col">
-                        <span>
+                        <span className=" dark:text-zinc-400 text-gray-600">
                             픽률
                         </span>
-                        <span className="text-[13px] text-gray-800 font-bold">
+                        <span className="text-[13px] font-bold">
                             {Math.round(pickRate * 100) / 100}%
                         </span>
                     </div>
                 </div>
                 {/* 최초,최종 등수 */}
-                <div className="text-[12px] text-gray-600 gap-y-2 flex flex-col min-w-[60px]">
+                <div className="text-[12px] text-gray-800 gap-y-2 flex flex-col min-w-[60px] dark:text-zinc-200">
                     <div className="flex flex-col">
-                        <span>
+                        <span className=" dark:text-zinc-400 text-gray-600">
                             최초 등장
                         </span>
-                        <span className="text-[13px] text-gray-800 font-bold">
+                        <span className="text-[13px] font-bold">
                             {firstRank}위
                         </span>
                     </div>
                     <div className="flex flex-col">
-                        <span>
+                        <span className=" dark:text-zinc-400 text-gray-600">
                             최종 등장
                         </span>
-                        <span className="text-[13px] text-gray-800 font-bold">
+                        <span className="text-[13px] font-bold">
                             {lastRank}위
                         </span>
                     </div>
