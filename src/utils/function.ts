@@ -1,4 +1,4 @@
-import { charInfo } from "../data/trickcalChar";
+import { CharAttackType, charInfo, CharRole } from "../data/trickcalChar";
 import { AllLine, Race } from "../types/trickcalTypes";
 
 
@@ -99,6 +99,30 @@ export function translateLine(line: AllLine) {
             return 'all';
     }
 }
+
+
+export function translateRole(role: CharRole) {
+    switch (role) {
+        case '딜러':
+            return 'dps';
+        case '서포터':
+            return 'supporter';
+        case '탱커':
+            return 'tanker';
+    }
+}
+
+export function translateAttackType(type: CharAttackType) {
+    switch (type) {
+        case '마법':
+            return 'magic';
+        case '물리':
+            return 'physical';
+    }
+}
+
+
+
 
 export function preload(src: string): Promise<void> {
     return new Promise((resolve) => {
