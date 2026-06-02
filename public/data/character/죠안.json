@@ -5,19 +5,7 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": [
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 274,
-        "pickRate": 91.3,
-        "isOverall": true,
-        "line": null
-      }
-    ]
+    "clashV2": []
   },
   "recentStats": {
     "clash": [
@@ -96,7 +84,7 @@
         "endDate": "2026-03-12",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 21,
+        "overallRank": 17,
         "lineRanks": [
           {
             "line": "중열",
@@ -113,11 +101,11 @@
         "endDate": "2026-01-29",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 18,
+        "overallRank": 14,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 9,
+            "rank": 5,
             "count": 1
           }
         ],

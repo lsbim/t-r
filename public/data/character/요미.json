@@ -12,7 +12,7 @@
         "endDate": "2026-01-15",
         "pickCount": 286,
         "pickRate": 95.3,
-        "isOverall": true,
+        "isOverall": false,
         "line": "중열"
       }
     ],
@@ -28,7 +28,7 @@
         "endDate": "2026-05-21",
         "pickCount": 2,
         "pickRate": 0.7,
-        "overallRank": 18,
+        "overallRank": 17,
         "lineRanks": [
           {
             "line": "중열",
@@ -98,7 +98,7 @@
         "endDate": "2026-03-12",
         "pickCount": 276,
         "pickRate": 92,
-        "overallRank": 6,
+        "overallRank": 7,
         "lineRanks": [
           {
             "line": "중열",
@@ -115,7 +115,7 @@
         "endDate": "2026-01-29",
         "pickCount": 17,
         "pickRate": 5.7,
-        "overallRank": 15,
+        "overallRank": 13,
         "lineRanks": [
           {
             "line": "중열",

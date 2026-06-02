@@ -45,6 +45,8 @@ export function translateRaid(name: string) {
     switch (name) {
         case "clash":
             return '차원 대충돌';
+            case "clashV2":
+            return '차원 대충돌 2.0';
         case "frontier":
             return '엘리아스 프론티어';
     }

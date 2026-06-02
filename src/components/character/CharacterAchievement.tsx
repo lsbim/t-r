@@ -1,0 +1,93 @@
+import React from 'react'
+import { ContentTopSeasons, TopSeasonStat } from '../../types/character/characterStatsTypes';
+import { keyBy } from 'es-toolkit';
+import { translateRaid } from '../../utils/function';
+import { useTheme } from '../../hooks/useTheme';
+import { Link } from 'react-router-dom';
+
+const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons }) => {
+
+    const { theme } = useTheme();
+    const hasTopSeasons = topSeasons.clash.length > 0 || topSeasons.clashV2.length > 0 || topSeasons.frontier.length > 0;
+
+    const shadow = theme === 'dark'
+        ? '0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0)'
+        : '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)';
+
+    return (
+        <div className="flex flex-col gap-y-4 rounded-xl md:w-[40%] w-full min-h-[310px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+            <span className="font-bold dark:text-zinc-200 text-[16px]">
+                위업
+            </span>
+            {hasTopSeasons ? (
+                <div className="flex flex-col gap-y-3">
+                    {Object.entries(topSeasons).map(([key, value], index) => {
+
+                        // console.log(value)
+                        if (value.length < 1) return;
+
+                        return (
+                            <div
+                                key={`character_achievement_${key}_${index}`}
+                                className="flex flex-col gap-y-2"
+                            >
+                                <span className="text-gray-600 text-[13px] dark:text-zinc-400">
+                                    {`${translateRaid(key)} (${value.length})`}
+                                </span>
+                                <div className="w-full flex flex-wrap gap-2">
+                                    {value.map((season: TopSeasonStat) => {
+
+                                        const borderColor = season.personality
+                                            ? `border-${season.personality}-dark`
+                                            : 'border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]'
+
+                                        const raidUrl = key === 'clashV2' ? `/clash/v2` : `/${key}` + `/${season.seasonNumber}`;
+
+                                        const seasonNum = season.seasonNumber > 10000 ? `B${(season.seasonNumber - 10000)}` : season.seasonNumber
+
+                                        return (
+                                            <Link
+                                                data-tooltip-id="my-tooltip"
+                                                data-tooltip-content={`시즌${season.seasonNumber > 10000 ? `B${season.seasonNumber - 10000}` : season.seasonNumber} ${season.name}`}
+                                                to={raidUrl}
+                                                key={`${key}_${season.seasonNumber}`}
+                                                className="relative select-none"
+                                            >
+                                                <div
+                                                    className={`overflow-hidden w-[48px] h-[48px] rounded-full border-4 ${borderColor}`}
+                                                >
+                                                    <img
+                                                        src={`/images/boss/${season.name}${season.personality ? `(${season.personality})` : ''}.webp`}
+                                                        className="w-full h-full object-cover object-center transform-gpu scale-[1.4]" />
+                                                </div>
+                                                <span
+                                                    className="font-bold absolute bottom-0 right-[2px] text-[16px] z-10 dark:text-zinc-200"
+                                                    style={{
+                                                        textShadow: shadow
+                                                    }}>
+                                                    {seasonNum}
+                                                </span>
+                                            </Link>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            ) : (
+                <div className=" flex flex-col items-center justify-center select-none">
+                    <img
+                        src={`/images/action/yc_sad.webp`}
+                        className="aspect-square object-center w-[100px] grayscale"
+                    />
+                    <span className="text-gray-700 dark:text-zinc-400 font-bold">
+                        1위 기록이 없습니다.
+                    </span>
+                </div>
+            )}
+        </div>
+    )
+}
+
+export default CharacterAchievement

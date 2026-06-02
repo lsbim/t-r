@@ -39,7 +39,7 @@
         "endDate": "2026-05-21",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 19,
+        "overallRank": 18,
         "lineRanks": [
           {
             "line": "전열",
@@ -56,7 +56,7 @@
         "endDate": "2026-04-09",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 25,
+        "overallRank": 24,
         "lineRanks": [
           {
             "line": "전열",
@@ -92,7 +92,7 @@
         "endDate": "2026-04-23",
         "pickCount": 2,
         "pickRate": 0.7,
-        "overallRank": 19,
+        "overallRank": 15,
         "lineRanks": [
           {
             "line": "전열",
@@ -109,7 +109,7 @@
         "endDate": "2026-03-12",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 21,
+        "overallRank": 17,
         "lineRanks": [
           {
             "line": "전열",

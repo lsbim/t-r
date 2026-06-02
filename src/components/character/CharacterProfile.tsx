@@ -1,9 +1,13 @@
-import React from 'react'
 import { charInfo } from '../../data/trickcalChar';
-import { translateAttackType, translateLine, translateRaces, translateRole } from '../../utils/function';
 import { AllLine, Race } from '../../types/trickcalTypes';
+import { translateAttackType, translateLine, translateRaces, translateRole } from '../../utils/function';
 
 const CharacterProfile = ({ charName }: { charName: string }) => {
+
+    const namePersColor = charInfo[charName].personality === '공명'
+        ? 'text-gray-700 dark:text-zinc-300'
+        : `text-${charInfo[charName].personality}-dark`
+
     return (
         <div className="flex gap-x-2">
             {/* 사도 사진 */}
@@ -18,7 +22,7 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
             </div>
             <div className="flex flex-col gap-y-2 items-start justify-end mb-2">
                 {/* 사도명 */}
-                <span className={`text-[18px] font-bold text-${charInfo[charName].personality}-dark cursor-default`}>
+                <span className={`text-[18px] font-bold cursor-default ${namePersColor}`}>
                     {charName}
                 </span>
                 {/* 아이콘 */}

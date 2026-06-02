@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
+import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
+import CharacterAchievement from "../../components/character/CharacterAchievement";
+import CharacterProfile from "../../components/character/CharacterProfile";
+import { useCharacterData } from "../../hooks/useCharacterData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
-import SEO from "../../commons/component/SEO";
-import { useCharacterData } from "../../hooks/useCharacterData";
 import { CharacterStatsData } from "../../types/character/characterStatsTypes";
-import CharacterProfile from "../../components/character/CharacterProfile";
-import Loading from "../../commons/component/Loading";
 
 const CharacterPage = () => {
 
@@ -25,10 +26,15 @@ const CharacterPage = () => {
                 description={`${charName}의 컨텐츠 기록을 요약하여 제공합니다.`}
             />
             <HeaderNav />
-            <div className="lg:w-[992px] w-full mx-auto mt-4">
+            <div className="lg:w-[992px] w-full mx-auto mt-4 gap-4 flex flex-col">
                 <CharacterProfile
                     charName={charName}
                 />
+                <div className="w-full gap-4 flex flex-col md:flex-row">
+                    <CharacterAchievement
+                        topSeasons={data.topSeasons}
+                    />
+                </div>
             </div>
             <Footer />
         </div>

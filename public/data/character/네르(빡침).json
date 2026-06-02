@@ -3,19 +3,7 @@
   "line": "후열",
   "personality": "활발",
   "topSeasons": {
-    "clash": [
-      {
-        "seasonNumber": 45,
-        "name": "크르브르스",
-        "personality": "우울",
-        "startDate": "2026-05-14",
-        "endDate": "2026-05-21",
-        "pickCount": 294,
-        "pickRate": 98,
-        "isOverall": false,
-        "line": "후열"
-      }
-    ],
+    "clash": [],
     "frontier": [],
     "clashV2": []
   },
@@ -28,11 +16,11 @@
         "endDate": "2026-05-21",
         "pickCount": 294,
         "pickRate": 98,
-        "overallRank": 4,
+        "overallRank": 5,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 1,
+            "rank": 2,
             "count": 294
           }
         ],

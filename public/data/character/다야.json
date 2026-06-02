@@ -143,11 +143,11 @@
         "endDate": "2026-05-07",
         "pickCount": 2,
         "pickRate": 0.7,
-        "overallRank": 79,
+        "overallRank": 77,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 32,
+            "rank": 30,
             "count": 2
           }
         ],

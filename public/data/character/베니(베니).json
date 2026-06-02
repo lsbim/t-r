@@ -38,11 +38,11 @@
         "endDate": "2026-02-26",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 40,
+        "overallRank": 36,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 19,
+            "rank": 15,
             "count": 1
           }
         ],
@@ -92,11 +92,11 @@
         "endDate": "2026-05-07",
         "pickCount": 3,
         "pickRate": 1,
-        "overallRank": 73,
+        "overallRank": 72,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 29,
+            "rank": 28,
             "count": 3
           }
         ],
@@ -109,11 +109,11 @@
         "endDate": "2026-03-26",
         "pickCount": 2,
         "pickRate": 0.7,
-        "overallRank": 72,
+        "overallRank": 71,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 29,
+            "rank": 28,
             "count": 2
           }
         ],

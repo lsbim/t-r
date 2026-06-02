@@ -16,7 +16,7 @@
         "endDate": "2026-05-21",
         "pickCount": 9,
         "pickRate": 3,
-        "overallRank": 15,
+        "overallRank": 14,
         "lineRanks": [
           {
             "line": "전열",
@@ -33,7 +33,7 @@
         "endDate": "2026-04-09",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 25,
+        "overallRank": 24,
         "lineRanks": [
           {
             "line": "전열",
@@ -86,7 +86,7 @@
         "endDate": "2026-03-12",
         "pickCount": 4,
         "pickRate": 1.3,
-        "overallRank": 17,
+        "overallRank": 13,
         "lineRanks": [
           {
             "line": "전열",
