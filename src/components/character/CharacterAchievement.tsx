@@ -15,8 +15,9 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
         : '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)';
 
     return (
-        <div className="flex flex-col gap-y-4 rounded-xl md:w-[40%] w-full min-h-[310px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
-            <span className="font-bold dark:text-zinc-200 text-[16px]">
+        // self-start는 부모 크기에 영향받지 않음
+        <div className="flex flex-col self-start gap-y-4 rounded-xl md:w-[40%] w-full min-h-[310px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+            <span className="font-bold dark:text-zinc-200 text-[18px]">
                 위업
             </span>
             {hasTopSeasons ? (
@@ -39,7 +40,7 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
 
                                         const borderColor = season.personality
                                             ? `border-${season.personality}-dark`
-                                            : 'border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]'
+                                            : 'border-[oklch(0.5_0.094_270.913)]'
 
                                         const raidUrl = key === 'clashV2' ? `/clash/v2` : `/${key}` + `/${season.seasonNumber}`;
 
@@ -51,17 +52,17 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                                 data-tooltip-content={`시즌${season.seasonNumber > 10000 ? `B${season.seasonNumber - 10000}` : season.seasonNumber} ${season.name}`}
                                                 to={raidUrl}
                                                 key={`${key}_${season.seasonNumber}`}
-                                                className="relative select-none"
+                                                className="relative select-none rounded-2xl"
                                             >
                                                 <div
-                                                    className={`overflow-hidden w-[48px] h-[48px] rounded-full border-4 ${borderColor}`}
+                                                    className={`overflow-hidden w-[48px] h-[48px] rounded-full z-20 border-[7px] bg-black/10 dark:bg-zinc-950 ${borderColor}`}
                                                 >
                                                     <img
                                                         src={`/images/boss/${season.name}${season.personality ? `(${season.personality})` : ''}.webp`}
-                                                        className="w-full h-full object-cover object-center transform-gpu scale-[1.4]" />
+                                                        className="w-full h-full object-cover object-center transform-gpu scale-[1.5]" />
                                                 </div>
                                                 <span
-                                                    className="font-bold absolute bottom-0 right-[2px] text-[16px] z-10 dark:text-zinc-200"
+                                                    className="font-bold absolute bottom-[0px] right-[0px] text-[16px] z-30 dark:text-zinc-200"
                                                     style={{
                                                         textShadow: shadow
                                                     }}>

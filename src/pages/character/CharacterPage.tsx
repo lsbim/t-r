@@ -7,6 +7,7 @@ import { useCharacterData } from "../../hooks/useCharacterData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { CharacterStatsData } from "../../types/character/characterStatsTypes";
+import CharacterRecentStats from "../../components/character/CharacterRecentStats";
 
 const CharacterPage = () => {
 
@@ -33,6 +34,9 @@ const CharacterPage = () => {
                 <div className="w-full gap-4 flex flex-col md:flex-row">
                     <CharacterAchievement
                         topSeasons={data.topSeasons}
+                    />
+                    <CharacterRecentStats 
+                        recentStats={data.recentStats}
                     />
                 </div>
             </div>
