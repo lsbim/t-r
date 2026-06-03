@@ -19,11 +19,11 @@ import { ContentRecentStats, RecentSeasonStat } from '../../types/character/char
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler, ChartDataLabels);
 
 
-const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: string; bgColor: string }>
+const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: string; }>
     = {
-    clash: { label: '대충돌', color: '#8884d8', bgColor: 'rgba(136,132,216,0.1)' },
-    frontier: { label: '프론티어', color: '#82ca9d', bgColor: 'rgba(130,202,157,0.1)' },
-    clashV2: { label: '대충돌 2.0', color: '#ffc658', bgColor: 'rgba(255,198,88,0.1)' },
+    clash: { label: '대충돌', color: '#fe4a75' },
+    frontier: { label: '프론티어', color: '#3095d2', },
+    clashV2: { label: '대충돌 2.0', color: '#fd974e', },
 };
 
 const formatSeasonLabel = (seasonNumber: number) =>
@@ -149,17 +149,19 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
         <div className="w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
             <span className="text-[18px] font-bold dark:text-zinc-200">컨텐츠 별 픽률</span>
             <div className="flex-1 gap-y-2 flex flex-col">
-                {charts.map(({ key, label, chartData, options }) => (
-                    <div key={key} className="flex flex-col gap-1">
-                        <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">{label}</span>
-                        <div className="h-[180px]">
-                            <Line
-                                data={chartData}
-                                options={options}
-                            />
+                {charts
+                    .filter(({ key }) => recentStats[key].length > 0)
+                    .map(({ key, label, chartData, options }) => (
+                        <div key={key} className="flex flex-col gap-1">
+                            <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">{label}</span>
+                            <div className="h-[180px]">
+                                <Line
+                                    data={chartData}
+                                    options={options}
+                                />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </div>
     );
