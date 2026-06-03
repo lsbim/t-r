@@ -80,6 +80,7 @@
       {
         "seasonNumber": 45,
         "name": "크르브르스",
+        "personality": "우울",
         "startDate": "2026-05-14",
         "endDate": "2026-05-21",
         "pickCount": 52,
@@ -97,6 +98,7 @@
       {
         "seasonNumber": 44,
         "name": "크레용사용",
+        "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
         "pickCount": 7,
@@ -114,6 +116,7 @@
       {
         "seasonNumber": 43,
         "name": "릴1리",
+        "personality": "광기",
         "startDate": "2026-02-19",
         "endDate": "2026-02-26",
         "pickCount": 151,
@@ -127,12 +130,49 @@
           }
         ],
         "totalEntries": 300
+      },
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 20,
+        "pickRate": 6.7,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 20
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 23,
+        "pickRate": 7.7,
+        "overallRank": 22,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 23
+          }
+        ],
+        "totalEntries": 300
       }
     ],
     "frontier": [
       {
         "seasonNumber": 17,
         "name": "크레용사용",
+        "personality": null,
         "startDate": "2026-04-16",
         "endDate": "2026-04-23",
         "pickCount": 300,
@@ -150,6 +190,7 @@
       {
         "seasonNumber": 16,
         "name": "M.E.O.W",
+        "personality": null,
         "startDate": "2026-03-05",
         "endDate": "2026-03-12",
         "pickCount": 293,
@@ -167,6 +208,7 @@
       {
         "seasonNumber": 15,
         "name": "R41-리뉴아",
+        "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
         "pickCount": 285,
@@ -180,12 +222,49 @@
           }
         ],
         "totalEntries": 300
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 13,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2025-10-30",
+        "endDate": "2025-11-06",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 287
+          }
+        ],
+        "totalEntries": 300
       }
     ],
     "clashV2": [
       {
         "seasonNumber": 10005,
         "name": "냥만 타워",
+        "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
         "pickCount": 128,
@@ -203,6 +282,7 @@
       {
         "seasonNumber": 10004,
         "name": "흑화 영춘",
+        "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
         "pickCount": 165,
@@ -220,6 +300,7 @@
       {
         "seasonNumber": 10003,
         "name": "냥만 타워",
+        "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
         "pickCount": 163,
@@ -230,6 +311,42 @@
             "line": "후열",
             "rank": 4,
             "count": 163
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 150,
+        "pickRate": 50,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 150
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 161,
+        "pickRate": 53.7,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 161
           }
         ],
         "totalEntries": 300

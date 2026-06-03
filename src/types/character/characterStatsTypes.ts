@@ -1,3 +1,5 @@
+import { Personality } from "../trickcalTypes";
+
 // 열별 순위 정보
 export interface LineRank {
     line: string;
@@ -26,6 +28,7 @@ export interface TopSeasonStat {
 export interface RecentSeasonStat {
     seasonNumber: number;
     name: string | null;
+    personality: Personality | null;
     startDate: string | null;
     endDate: string | null;
     pickCount: number;

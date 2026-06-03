@@ -97,7 +97,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                                 title: ctx => {
                                     const s = sorted[ctx[0].dataIndex];
                                     return s.name
-                                        ? `${formatSeasonLabel(s.seasonNumber)} ${s.name}`
+                                        ? `${formatSeasonLabel(s.seasonNumber)} ${s.name}${s.personality ? `(${s.personality})` : ''}`
                                         : formatSeasonLabel(s.seasonNumber);
                                 },
                                 label: ctx => ` 픽률: ${ctx.parsed.y}%`,

@@ -286,6 +286,7 @@ function getRecentStats(charName, seasonStats, n) {
         return {
             seasonNumber: s.seasonNumber,
             name: s.raw.name ?? null,
+            personality: s.raw.personality ?? null,
             startDate: s.raw.startDate ?? null,
             endDate: s.raw.endDate ?? null,
             pickCount: stat?.count ?? 0,
@@ -342,6 +343,8 @@ async function buildCharacterStats() {
     const clashV2Stats = precompute(clashV2Seasons, true);
     console.log('✔️ 픽 통계 계산 완료');
 
+    const needRecentSeasonNumber = 5; // 가져올 컨텐츠별 시즌 갯수
+
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
     await Promise.all(allCharNames.map(async charName => {
@@ -357,9 +360,9 @@ async function buildCharacterStats() {
                 clashV2: getTopSeasons(charName, clashV2Stats, charInfoMap),
             },
             recentStats: {
-                clash: getRecentStats(charName, clashStats, 3),
-                frontier: getRecentStats(charName, frontierStats, 3),
-                clashV2: getRecentStats(charName, clashV2Stats, 3),
+                clash: getRecentStats(charName, clashStats, needRecentSeasonNumber),
+                frontier: getRecentStats(charName, frontierStats, needRecentSeasonNumber),
+                clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
             },
             recentSkins: getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats),
         };
