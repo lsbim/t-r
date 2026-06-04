@@ -149,6 +149,7 @@ export const charInfo: CharInfoType = {
     "아사나": { grade: 3, personality: "우울", line: "전열", birthdate: "2025-11-06", role: "탱커", attackType: "물리", race: '마녀' },
     "요미": { grade: 3, personality: "우울", line: "중열", birthdate: "2026-01-01", role: "딜러", attackType: "마법", race: '미스틱', eldain: true },
     "아멜리아(R41)": { grade: 3, personality: "우울", line: "후열", birthdate: "2026-02-26", role: "서포터", attackType: "마법", race: '엘프' },
+    "키샤": { grade: 3, personality: "우울", line: "중열", birthdate: "2026-06-04", role: "서포터", attackType: "마법", race: '유령' },
     "레비": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-09-27", role: "딜러", attackType: "물리", race: '마녀' },
     "실피르": { grade: 2, personality: "우울", line: "중열", birthdate: "2023-11-09", role: "딜러", attackType: "물리", race: '용족' },
     "페스타": { grade: 2, personality: "우울", line: "전열", birthdate: "2023-09-27", role: "서포터", attackType: "물리", race: '엘프' },
