@@ -108,6 +108,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 247,
+        "pickRate": 82.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 247
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -161,18 +179,6 @@
         "personality": null,
         "startDate": "2025-12-11",
         "endDate": "2025-12-18",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -270,7 +276,11 @@
   "recentSkins": [
     {
       "skinName": "카우치 볼케이노",
-      "count": 211
+      "count": 165
+    },
+    {
+      "skinName": "버닝 다운 빌런",
+      "count": 97
     }
   ]
 }

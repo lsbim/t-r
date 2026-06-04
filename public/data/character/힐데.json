@@ -90,6 +90,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -131,18 +149,6 @@
         "personality": null,
         "startDate": "2025-12-11",
         "endDate": "2025-12-18",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -246,11 +252,11 @@
   "recentSkins": [
     {
       "skinName": "릴렉스 테라피스트",
-      "count": 15
+      "count": 16
     },
     {
       "skinName": "힐링 피크닉",
-      "count": 4
+      "count": 5
     }
   ]
 }

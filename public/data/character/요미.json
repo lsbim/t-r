@@ -108,6 +108,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 44,
+        "pickRate": 14.7,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 44
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -167,18 +185,6 @@
         "personality": null,
         "startDate": "2025-12-11",
         "endDate": "2025-12-18",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -270,11 +276,11 @@
   "recentSkins": [
     {
       "skinName": "마법의 달빛",
-      "count": 169
+      "count": 116
     },
     {
       "skinName": "밤바다 선원",
-      "count": 48
+      "count": 36
     }
   ]
 }

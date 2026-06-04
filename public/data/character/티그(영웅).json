@@ -139,6 +139,29 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 22,
+        "pickRate": 7.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 14
+          },
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 8
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -225,34 +248,6 @@
             "line": "후열",
             "rank": 4,
             "count": 130
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 297,
-        "pickRate": 99,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 1
-          },
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 291
-          },
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 5
           }
         ],
         "totalEntries": 300
@@ -404,11 +399,11 @@
   "recentSkins": [
     {
       "skinName": "창공의 하얀 날개",
-      "count": 66
+      "count": 78
     },
     {
       "skinName": "수인마을 북부 대공",
-      "count": 22
+      "count": 25
     }
   ]
 }

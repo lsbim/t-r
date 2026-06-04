@@ -226,6 +226,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 41,
+        "pickRate": 13.7,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 41
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -293,24 +311,6 @@
             "line": "중열",
             "rank": 5,
             "count": 47
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 4
           }
         ],
         "totalEntries": 300
@@ -412,15 +412,15 @@
   "recentSkins": [
     {
       "skinName": "맑은 기도의 빗방울",
-      "count": 240
+      "count": 220
     },
     {
       "skinName": "행복한 어린 왕녀",
-      "count": 157
+      "count": 144
     },
     {
       "skinName": "동심의 햇살",
-      "count": 39
+      "count": 35
     }
   ]
 }

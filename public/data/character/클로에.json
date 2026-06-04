@@ -84,6 +84,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -142,18 +154,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "clashV2": [
@@ -252,15 +252,15 @@
   "recentSkins": [
     {
       "skinName": "살구꽃과 어흥이",
-      "count": 77
+      "count": 58
     },
     {
       "skinName": "테디 더 나이트메어",
-      "count": 9
+      "count": 4
     },
     {
       "skinName": "트렌디 트로피컬",
-      "count": 3
+      "count": 1
     }
   ]
 }

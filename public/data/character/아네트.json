@@ -102,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 8,
+        "pickRate": 2.7,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 6,
+            "count": 8
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -169,24 +187,6 @@
             "line": "중열",
             "rank": 2,
             "count": 295
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 297,
-        "pickRate": 99,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 297
           }
         ],
         "totalEntries": 300

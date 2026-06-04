@@ -4,7 +4,19 @@
   "personality": "순수",
   "topSeasons": {
     "clash": [],
-    "frontier": [],
+    "frontier": [
+      {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": true,
+        "line": "후열"
+      }
+    ],
     "clashV2": []
   },
   "recentStats": {
@@ -102,6 +114,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -169,24 +199,6 @@
             "line": "후열",
             "rank": 2,
             "count": 295
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 278,
-        "pickRate": 92.7,
-        "overallRank": 8,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 278
           }
         ],
         "totalEntries": 300
@@ -288,7 +300,7 @@
   "recentSkins": [
     {
       "skinName": "수온 측정의 여운",
-      "count": 350
+      "count": 360
     },
     {
       "skinName": "위험한 옆집 스파이",

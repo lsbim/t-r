@@ -84,6 +84,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": true,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 16,
         "name": "M.E.O.W",
         "personality": null,
@@ -281,6 +292,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -348,24 +377,6 @@
             "line": "후열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 299,
-        "pickRate": 99.7,
-        "overallRank": 3,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 1,
-            "count": 299
           }
         ],
         "totalEntries": 300
@@ -467,15 +478,15 @@
   "recentSkins": [
     {
       "skinName": "폭풍 속 검은 날개",
-      "count": 385
+      "count": 391
     },
     {
       "skinName": "선도부장 선배님",
-      "count": 283
+      "count": 275
     },
     {
       "skinName": "호숫가 피싱 마스터",
-      "count": 40
+      "count": 41
     }
   ]
 }

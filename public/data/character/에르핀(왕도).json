@@ -29,6 +29,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": true,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -119,6 +130,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -166,18 +195,6 @@
         "personality": null,
         "startDate": "2025-12-11",
         "endDate": "2025-12-18",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -257,11 +274,11 @@
   "recentSkins": [
     {
       "skinName": "왕관의 주인공",
-      "count": 388
+      "count": 393
     },
     {
       "skinName": "일일 사제장 네르핀",
-      "count": 206
+      "count": 197
     }
   ]
 }

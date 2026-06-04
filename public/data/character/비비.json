@@ -303,6 +303,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 125,
+        "pickRate": 41.7,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 125
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -370,24 +388,6 @@
             "line": "전열",
             "rank": 4,
             "count": 10
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 23,
-        "pickRate": 7.7,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 23
           }
         ],
         "totalEntries": 300
@@ -489,15 +489,15 @@
   "recentSkins": [
     {
       "skinName": "칠흑의 다크 스완",
-      "count": 339
+      "count": 252
     },
     {
       "skinName": "스며드는 잿빛 장막",
-      "count": 102
+      "count": 87
     },
     {
       "skinName": "풀하트 매직",
-      "count": 90
+      "count": 80
     }
   ]
 }

@@ -90,6 +90,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 27,
+        "pickRate": 9,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 5,
+            "count": 27
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -151,24 +169,6 @@
             "line": "전열",
             "rank": 5,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 13,
-        "name": "크레용사용",
-        "personality": null,
-        "startDate": "2025-10-30",
-        "endDate": "2025-11-06",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 16,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 2
           }
         ],
         "totalEntries": 300
@@ -270,11 +270,11 @@
   "recentSkins": [
     {
       "skinName": "생선학자 길냥이",
-      "count": 43
+      "count": 53
     },
     {
       "skinName": "포크레인 드래곤",
-      "count": 7
+      "count": 8
     }
   ]
 }
