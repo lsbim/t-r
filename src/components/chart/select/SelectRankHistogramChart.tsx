@@ -105,7 +105,7 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
                     stepSize: Math.ceil(maxCount / 5),
                     color: tickColor,
                     callback: (value) => value === 0 ? '' : value, // tick 0일땐 미출력
-                    display: false
+                    display: true
                 },
                 grid: {
                     color: gridColor,
