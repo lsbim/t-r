@@ -15,8 +15,8 @@ import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../hooks/useTheme';
 import { ContentRecentStats, RecentSeasonStat } from '../../types/character/characterStatsTypes';
 
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler, ChartDataLabels);
+// ChartDataLabels를 register에서 제거
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
 
 
 const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: string; }>
@@ -147,7 +147,12 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
 
     return (
         <div className="w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
-            <span className="text-[18px] font-bold dark:text-zinc-200">컨텐츠 별 픽률</span>
+            <div className="flex flex-col">
+                <span className="text-[18px] font-bold dark:text-zinc-200">픽률 통계</span>
+                <span className="text-[11px] dark:text-zinc-400 text-gray-600">
+                    컨텐츠 별 3개 시즌의 데이터를 제공합니다.
+                </span>
+            </div>
             <div className="flex-1 gap-y-2 flex flex-col">
                 {charts
                     .filter(({ key }) => recentStats[key].length > 0)
@@ -158,6 +163,8 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                                 <Line
                                     data={chartData}
                                     options={options}
+                                    // ChartDataLabels를 특정 차트에서 plugin으로 사용해야 다른 그래프에 적용이 안 됨.
+                                    plugins={[ChartDataLabels]}
                                 />
                             </div>
                         </div>

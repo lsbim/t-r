@@ -8,6 +8,7 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { CharacterStatsData } from "../../types/character/characterStatsTypes";
 import CharacterRecentStats from "../../components/character/CharacterRecentStats";
+import CharacterRecentSkin from "../../components/character/CharacterRecentSkin";
 
 const CharacterPage = () => {
 
@@ -31,13 +32,20 @@ const CharacterPage = () => {
                 <CharacterProfile
                     charName={charName}
                 />
-                <div className="w-full gap-4 flex flex-col md:flex-row">
-                    <CharacterAchievement
-                        topSeasons={data.topSeasons}
-                    />
-                    <CharacterRecentStats 
-                        recentStats={data.recentStats}
-                    />
+                <div className="w-full gap-4 flex flex-col lg:flex-row">
+                    <div className="lg:w-[30%] w-full flex flex-col gap-y-4">
+                        <CharacterAchievement
+                            topSeasons={data.topSeasons}
+                        />
+                        <CharacterRecentSkin
+                            recentSkin={data.recentSkins}
+                        />
+                    </div>
+                    <div className="lg:w-[69%] w-full">
+                        <CharacterRecentStats
+                            recentStats={data.recentStats}
+                        />
+                    </div>
                 </div>
             </div>
             <Footer />

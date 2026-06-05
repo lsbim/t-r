@@ -16,7 +16,7 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
 
     return (
         // self-start는 부모 크기에 영향받지 않음
-        <div className="flex flex-col self-start gap-y-4 rounded-xl md:w-[40%] w-full min-h-[310px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+        <div className="flex flex-col self-start gap-y-4 rounded-xl w-full min-h-[310px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
             <span className="font-bold dark:text-zinc-200 text-[18px]">
                 위업
             </span>

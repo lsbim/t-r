@@ -5,6 +5,7 @@ import { FrontierSeasonData } from "../../types/frontierTypes";
 import { CostumeStat, processCostumeData, ProcessedCostumeData } from "../../utils/costumeFunction";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
 import InfoIcon from "../../commons/icon/InfoIcon";
+import { rankBG, rankBorderShadow } from "../../utils/style/styleFuntions";
 
 const CostumeRank = (
     {
@@ -120,30 +121,5 @@ function boardValue(key: string, cos: CostumeStat) {
             return cos?.launchDate;
     }
 }
-
-function rankBG(rank: number) {
-    switch (rank) {
-        case 0:
-            return 'bg-gradient-to-b from-[rgba(254,201,39,0.5)] to-[rgba(254,201,39,1)]'
-        case 1:
-            return 'bg-gradient-to-b from-[rgba(209,229,236,0.2)] to-[rgba(214,234,242,1)]'
-        case 2:
-            return 'bg-gradient-to-b from-[rgba(193,175,129,0.5)] to-[rgba(193,175,129,1)]'
-    }
-}
-
-function rankBorderShadow(rank: number) {
-    switch (rank) {
-        case 0:
-            return 'border-[rgb(254,201,39)] shadow-[4px_4px_0_0_rgba(254,201,39,0.2)]'
-        case 1:
-            return 'border-[rgb(209,229,236)] shadow-[4px_4px_0_0_rgba(209,229,236,0.2)]'
-        case 2:
-            return 'border-[rgb(193,175,129)] shadow-[4px_4px_0_0_rgba(193,175,129,0.2)]'
-    }
-}
-
-
-
 
 export default React.memo(CostumeRank);
