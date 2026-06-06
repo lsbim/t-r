@@ -20,6 +20,9 @@ root.render(
         <RouterProvider router={router} />
         <Tooltip
           noArrow={true}
+          openEvents={{ mouseenter: true, click: true }}
+          closeEvents={{ mouseleave: true, click: true }}
+          globalCloseEvents={{ clickOutsideAnchor: true }}
           id="my-tooltip" />
       </QueryClientProvider>
     </ThemeProvider>
