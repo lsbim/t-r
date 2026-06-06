@@ -139,17 +139,11 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 16,
-        "pickRate": 5.3,
-        "overallRank": 46,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 17,
-            "count": 16
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10004,
@@ -157,17 +151,11 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 76,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 30,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10003,
@@ -187,17 +175,11 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 75,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 27,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10001,

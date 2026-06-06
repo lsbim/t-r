@@ -157,14 +157,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 272,
-        "pickRate": 90.7,
+        "pickCount": 264,
+        "pickRate": 88,
         "overallRank": 5,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 2,
-            "count": 272
+            "count": 264
           }
         ],
         "totalEntries": 300

@@ -12,7 +12,7 @@
         "endDate": "2026-05-21",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -34,7 +34,7 @@
         "endDate": "2026-02-26",
         "pickCount": 294,
         "pickRate": 98,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -45,7 +45,7 @@
         "endDate": "2026-01-15",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -56,7 +56,7 @@
         "endDate": "2025-12-04",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -78,7 +78,7 @@
         "endDate": "2025-10-09",
         "pickCount": 298,
         "pickRate": 99.3,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       }
     ],
@@ -91,7 +91,7 @@
         "endDate": "2026-06-04",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -102,7 +102,7 @@
         "endDate": "2026-03-12",
         "pickCount": 299,
         "pickRate": 99.7,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -113,7 +113,7 @@
         "endDate": "2026-01-29",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -124,7 +124,7 @@
         "endDate": "2025-12-18",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -148,7 +148,8 @@
         "endDate": "2026-05-07",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "contentType": "main",
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -159,7 +160,8 @@
         "endDate": "2026-03-26",
         "pickCount": 299,
         "pickRate": 99.7,
-        "isOverall": true,
+        "contentType": "main",
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -170,6 +172,7 @@
         "endDate": "2026-02-12",
         "pickCount": 299,
         "pickRate": 99.7,
+        "contentType": "main",
         "isOverall": false,
         "line": "후열"
       },
@@ -181,7 +184,8 @@
         "endDate": "2026-01-01",
         "pickCount": 299,
         "pickRate": 99.7,
-        "isOverall": true,
+        "contentType": "main",
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -190,9 +194,10 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 295,
-        "pickRate": 98.3,
-        "isOverall": true,
+        "pickCount": 288,
+        "pickRate": 96,
+        "contentType": "main",
+        "isOverall": false,
         "line": "후열"
       }
     ]
@@ -461,14 +466,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 295,
-        "pickRate": 98.3,
+        "pickCount": 288,
+        "pickRate": 96,
         "overallRank": 1,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 1,
-            "count": 295
+            "count": 288
           }
         ],
         "totalEntries": 300

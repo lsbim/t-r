@@ -192,14 +192,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 10,
-        "pickRate": 3.3,
-        "overallRank": 51,
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 20,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 20,
-            "count": 10
+            "rank": 7,
+            "count": 9
           }
         ],
         "totalEntries": 300
@@ -222,17 +222,11 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 78,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 28,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10002,
@@ -240,17 +234,11 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 67,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 24,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10001,
@@ -258,14 +246,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 28,
-        "pickRate": 9.3,
-        "overallRank": 41,
+        "pickCount": 7,
+        "pickRate": 2.3,
+        "overallRank": 32,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 16,
-            "count": 28
+            "rank": 11,
+            "count": 7
           }
         ],
         "totalEntries": 300

@@ -171,11 +171,11 @@
         "endDate": "2026-02-12",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 78,
+        "overallRank": 23,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 26,
+            "rank": 9,
             "count": 1
           }
         ],
@@ -199,14 +199,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 78,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 50,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 28,
-            "count": 2
+            "rank": 20,
+            "count": 1
           }
         ],
         "totalEntries": 300

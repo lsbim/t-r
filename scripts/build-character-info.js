@@ -107,14 +107,21 @@ async function loadSeasons(dirPath) {
 }
 
 // 픽 정보 external/season 타입별 계산
-function computePickStats(raw, charInfoMap, isClashV2 = false) {
+function computePickStats(raw, charInfoMap) {
     return raw.type === 'external'
         ? computeExternalStats(raw.data, charInfoMap)
-        : computeSeasonStats(raw.data, charInfoMap, isClashV2);
+        : computeSeasonStats(raw.data, charInfoMap, 'arr');
+}
+// 대충돌 2.0 전용
+function computePickStatsV2(raw, charInfoMap) {
+    return {
+        main: computeSeasonStats(raw.data, charInfoMap, 'arr'),
+        side: computeSeasonStats(raw.data, charInfoMap, 'sideArr'),
+    };
 }
 
 // Set에 사도 출전 수 저장, 대충돌 2.0은 림+셰이디 합계된다.
-function computeSeasonStats(data, charInfoMap, isClashV2) {
+function computeSeasonStats(data, charInfoMap, arrKey) {
     const totalCounts = new Map();
     const lineCountsMap = new Map();
 
@@ -122,7 +129,6 @@ function computeSeasonStats(data, charInfoMap, isClashV2) {
         if (seen.has(name)) return;
         seen.add(name);
         totalCounts.set(name, (totalCounts.get(name) ?? 0) + 1);
-
         if (isAllLineChar(name, charInfoMap)) {
             const line = getLineByIdx(idx);
             if (!lineCountsMap.has(name)) lineCountsMap.set(name, new Map());
@@ -133,14 +139,10 @@ function computeSeasonStats(data, charInfoMap, isClashV2) {
 
     for (const entry of data) {
         const seen = new Set();
-        entry.arr?.forEach((name, idx) => {
-            return processName(normalizeCharName(name), idx, seen)
+        // arrKey = 'arr' -> entry.arr / 'sideArr' -> entry.sideArr에 접근
+        entry[arrKey]?.forEach((name, idx) => {
+            processName(normalizeCharName(name), idx, seen);
         });
-        if (isClashV2) {
-            entry.sideArr?.forEach((name, idx) => {
-                return processName(normalizeCharName(name), idx, seen)
-            })
-        };
     }
 
     return buildRankMap(totalCounts, data.length, lineCountsMap, charInfoMap);
@@ -235,6 +237,48 @@ function buildRankMap(totalCounts, total, lineCountsMap, charInfoMap) {
     return result;
 }
 
+
+function extractTopEntries(charLine, allLine, stat, season, contentType) {
+    const result = [];
+    const base = {
+        seasonNumber: season.seasonNumber,
+        name: season.raw.name ?? null,
+        personality: season.raw.personality ?? null,
+        startDate: season.raw.startDate ?? null,
+        endDate: season.raw.endDate ?? null,
+        pickCount: stat.count,
+        pickRate: stat.rate,
+        //    대충돌 2.0에서 림/셰이디 어느쪽 1위인지 체크용
+        ...(contentType !== undefined && { contentType }),
+    };
+
+    if (!allLine) {
+        // 일반 사도는 isOverall 계산 필요 없음
+        const isLineTop1 = stat.lineRanks.some(lr => lr.rank === 1);
+        if (!isLineTop1) return result;
+        result.push({ ...base, isOverall: false, line: charLine });
+    } else {
+        // 모든열 사도는 전체 1등 or 특정 열 1등이면
+        const isOverall = stat.overallRank === 1;
+        const lineTop1s = stat.lineRanks.filter(lr => lr.rank === 1);
+        if (!isOverall && lineTop1s.length === 0) return result;
+
+        if (isOverall) {
+            result.push({ ...base, isOverall: true, line: null });
+        }
+        for (const { line, count: lineCount } of lineTop1s) {
+            result.push({
+                ...base,
+                isOverall: false,
+                line,
+                linePickCount: lineCount,
+                linePickRate: calcRate(lineCount, stat.totalEntries),
+            });
+        }
+    }
+    return result;
+}
+
 // 1위한 시즌 수집
 function getTopSeasons(charName, seasonStats, charInfoMap) {
     const charLine = getCharInfo(charName, charInfoMap)?.line ?? null;
@@ -242,37 +286,25 @@ function getTopSeasons(charName, seasonStats, charInfoMap) {
     const result = [];
 
     for (const season of seasonStats) {
-        const stat = season.pickStats.get(charName);
-        if (!stat) continue;
+        // 'sidePickStats'가 있으면 대충돌 2.0
+        const isV2 = 'sidePickStats' in season;
 
-        const isOverall = stat.overallRank === 1;
-        const lineTop1s = stat.lineRanks.filter(lr => lr.rank === 1);
-        if (!isOverall && lineTop1s.length === 0) continue;
+        // main 통계 처리(대충돌, 프론티어, 셰이디의차원)
+        const mainStat = season.pickStats?.get(charName);
+        if (mainStat) {
+            result.push(
+                // 대충돌 2.0 = contentType: main, 대충돌/프론티어는 contentType 없음
+                ...extractTopEntries(charLine, allLine, mainStat, season, isV2 ? 'main' : undefined)
+            );
+        }
 
-        const base = {
-            seasonNumber: season.seasonNumber,
-            name: season.raw.name ?? null,
-            personality: season.raw.personality ?? null,
-            startDate: season.raw.startDate ?? null,
-            endDate: season.raw.endDate ?? null,
-            pickCount: stat.count,
-            pickRate: stat.rate,
-        };
-
-        if (!allLine) {
-            result.push({ ...base, isOverall, line: lineTop1s.length > 0 ? charLine : null });
-        } else {
-            if (isOverall) {
-                result.push({ ...base, isOverall: true, line: null });
-            }
-            for (const { line, count: lineCount } of lineTop1s) {
-                result.push({
-                    ...base,
-                    isOverall: false,
-                    line,
-                    linePickCount: lineCount,
-                    linePickRate: calcRate(lineCount, stat.totalEntries),
-                });
+        // 림의 이면세계 처리
+        if (isV2 && season.sidePickStats) {
+            const sideStat = season.sidePickStats.get(charName);
+            if (sideStat) {
+                result.push(
+                    ...extractTopEntries(charLine, allLine, sideStat, season, 'side')
+                );
             }
         }
     }
@@ -335,12 +367,18 @@ async function buildCharacterStats() {
         `frontier: ${frontierSeasons.length}, clashV2: ${clashV2Seasons.length}`
     );
 
-    const precompute = (seasons, isV2) =>
-        seasons.map(s => ({ ...s, pickStats: computePickStats(s.raw, charInfoMap, isV2) }));
+    const precompute = seasons =>
+        seasons.map(s => ({ ...s, pickStats: computePickStats(s.raw, charInfoMap) }));
 
-    const clashStats = precompute(clashSeasons, false);
-    const frontierStats = precompute(frontierSeasons, false);
-    const clashV2Stats = precompute(clashV2Seasons, true);
+    const precomputeV2 = seasons =>
+        seasons.map(s => {
+            const { main, side } = computePickStatsV2(s.raw, charInfoMap);
+            return { ...s, pickStats: main, sidePickStats: side };
+        });
+
+    const clashStats = precompute(clashSeasons);
+    const frontierStats = precompute(frontierSeasons);
+    const clashV2Stats = precomputeV2(clashV2Seasons);
     console.log('✔️ 픽 통계 계산 완료');
 
     const needRecentSeasonNumber = 5; // 가져올 컨텐츠별 시즌 갯수
@@ -349,7 +387,6 @@ async function buildCharacterStats() {
 
     await Promise.all(allCharNames.map(async charName => {
         const meta = charInfoMap[charName];
-
         const output = {
             birthdate: meta.birthdate,
             line: meta.line,

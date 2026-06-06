@@ -17,7 +17,32 @@
       }
     ],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 191,
+        "pickRate": 63.7,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 204,
+        "pickRate": 68,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      }
+    ]
   },
   "recentStats": {
     "clash": [
@@ -199,14 +224,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 193,
-        "pickRate": 64.3,
-        "overallRank": 10,
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 28,
         "lineRanks": [
           {
             "line": "중열",
-            "rank": 4,
-            "count": 193
+            "rank": 10,
+            "count": 2
           }
         ],
         "totalEntries": 300
@@ -217,14 +242,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 221,
-        "pickRate": 73.7,
-        "overallRank": 8,
+        "pickCount": 17,
+        "pickRate": 5.7,
+        "overallRank": 16,
         "lineRanks": [
           {
             "line": "중열",
-            "rank": 3,
-            "count": 221
+            "rank": 6,
+            "count": 17
           }
         ],
         "totalEntries": 300
@@ -235,14 +260,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 234,
-        "pickRate": 78,
-        "overallRank": 8,
+        "pickCount": 40,
+        "pickRate": 13.3,
+        "overallRank": 12,
         "lineRanks": [
           {
             "line": "중열",
             "rank": 4,
-            "count": 234
+            "count": 40
           }
         ],
         "totalEntries": 300

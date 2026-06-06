@@ -145,14 +145,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 201,
-        "pickRate": 67,
+        "pickCount": 196,
+        "pickRate": 65.3,
         "overallRank": 9,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 3,
-            "count": 201
+            "count": 196
           }
         ],
         "totalEntries": 300
@@ -163,17 +163,11 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 52,
-        "pickRate": 17.3,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 9,
-            "count": 52
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10003,

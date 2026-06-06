@@ -12,7 +12,7 @@
         "endDate": "2025-07-17",
         "pickCount": 276,
         "pickRate": 92,
-        "isOverall": true,
+        "isOverall": false,
         "line": "후열"
       },
       {
@@ -237,14 +237,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 56,
-        "pickRate": 18.7,
-        "overallRank": 30,
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 28,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 11,
-            "count": 56
+            "rank": 13,
+            "count": 2
           }
         ],
         "totalEntries": 300
@@ -255,14 +255,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 271,
-        "pickRate": 90.3,
+        "pickCount": 267,
+        "pickRate": 89,
         "overallRank": 5,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 3,
-            "count": 271
+            "count": 267
           }
         ],
         "totalEntries": 300
@@ -273,14 +273,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 56,
-        "pickRate": 18.7,
-        "overallRank": 27,
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 21,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 10,
-            "count": 56
+            "rank": 8,
+            "count": 2
           }
         ],
         "totalEntries": 300
@@ -291,14 +291,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 280,
-        "pickRate": 93.3,
-        "overallRank": 5,
+        "pickCount": 277,
+        "pickRate": 92.3,
+        "overallRank": 3,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 3,
-            "count": 280
+            "count": 277
           }
         ],
         "totalEntries": 300
@@ -309,14 +309,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 93,
-        "pickRate": 31,
-        "overallRank": 21,
+        "pickCount": 5,
+        "pickRate": 1.7,
+        "overallRank": 38,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 7,
-            "count": 93
+            "rank": 14,
+            "count": 5
           }
         ],
         "totalEntries": 300

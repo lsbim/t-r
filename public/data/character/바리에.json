@@ -189,11 +189,11 @@
         "endDate": "2025-11-20",
         "pickCount": 12,
         "pickRate": 4,
-        "overallRank": 53,
+        "overallRank": 24,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 21,
+            "rank": 9,
             "count": 12
           }
         ],

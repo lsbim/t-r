@@ -34,7 +34,7 @@
         "endDate": "2025-10-23",
         "pickCount": 298,
         "pickRate": 99.3,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -45,7 +45,7 @@
         "endDate": "2025-09-11",
         "pickCount": 298,
         "pickRate": 99.3,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -67,7 +67,7 @@
         "endDate": "2025-06-19",
         "pickCount": 97,
         "pickRate": 97,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       }
     ],
@@ -80,7 +80,7 @@
         "endDate": "2026-01-29",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -91,7 +91,7 @@
         "endDate": "2025-12-18",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -102,7 +102,7 @@
         "endDate": "2025-11-06",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -148,7 +148,32 @@
         "endDate": "2026-05-07",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 172,
+        "pickRate": 57.3,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "personality": "순수",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 195,
+        "pickRate": 65,
+        "contentType": "side",
+        "isOverall": false,
         "line": "전열"
       }
     ]
@@ -357,14 +382,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 187,
-        "pickRate": 62.3,
-        "overallRank": 11,
+        "pickCount": 15,
+        "pickRate": 5,
+        "overallRank": 17,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 4,
-            "count": 187
+            "rank": 7,
+            "count": 15
           }
         ],
         "totalEntries": 300
@@ -375,14 +400,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 196,
-        "pickRate": 65.3,
-        "overallRank": 11,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 23,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 4,
-            "count": 196
+            "rank": 9,
+            "count": 1
           }
         ],
         "totalEntries": 300
@@ -393,14 +418,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 166,
-        "pickRate": 55.3,
-        "overallRank": 13,
+        "pickCount": 17,
+        "pickRate": 5.7,
+        "overallRank": 16,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 5,
-            "count": 166
+            "rank": 7,
+            "count": 17
           }
         ],
         "totalEntries": 300
@@ -411,14 +436,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 177,
-        "pickRate": 59,
-        "overallRank": 10,
+        "pickCount": 48,
+        "pickRate": 16,
+        "overallRank": 16,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 4,
-            "count": 177
+            "rank": 5,
+            "count": 48
           }
         ],
         "totalEntries": 300

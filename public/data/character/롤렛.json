@@ -163,14 +163,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 12,
-        "pickRate": 4,
-        "overallRank": 49,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 31,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 19,
-            "count": 12
+            "rank": 14,
+            "count": 1
           }
         ],
         "totalEntries": 300
@@ -181,17 +181,11 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 20,
-        "pickRate": 6.7,
-        "overallRank": 42,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 16,
-            "count": 20
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10003,
@@ -199,14 +193,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 195,
-        "pickRate": 65,
-        "overallRank": 12,
+        "pickCount": 180,
+        "pickRate": 60,
+        "overallRank": 9,
         "lineRanks": [
           {
             "line": "후열",
             "rank": 3,
-            "count": 195
+            "count": 180
           }
         ],
         "totalEntries": 300
@@ -217,17 +211,11 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 59,
-        "pickRate": 19.7,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 10,
-            "count": 59
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10001,
@@ -235,14 +223,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 32,
-        "pickRate": 10.7,
-        "overallRank": 39,
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 44,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 15,
-            "count": 32
+            "rank": 17,
+            "count": 3
           }
         ],
         "totalEntries": 300

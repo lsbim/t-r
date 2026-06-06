@@ -23,7 +23,7 @@
         "endDate": "2024-05-16",
         "pickCount": 52,
         "pickRate": 5.8,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -34,7 +34,7 @@
         "endDate": "2024-04-25",
         "pickCount": 63,
         "pickRate": 7,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -45,7 +45,7 @@
         "endDate": "2024-03-28",
         "pickCount": 62,
         "pickRate": 6.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -56,7 +56,7 @@
         "endDate": "2024-03-14",
         "pickCount": 98,
         "pickRate": 10.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -67,7 +67,7 @@
         "endDate": "2024-02-01",
         "pickCount": 72,
         "pickRate": 8,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -78,7 +78,7 @@
         "endDate": "2024-01-18",
         "pickCount": 86,
         "pickRate": 9.6,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -89,7 +89,7 @@
         "endDate": "2024-01-04",
         "pickCount": 98,
         "pickRate": 10.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -100,7 +100,7 @@
         "endDate": "2023-12-21",
         "pickCount": 83,
         "pickRate": 9.2,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       }
     ],
@@ -124,7 +124,7 @@
         "endDate": "2025-01-16",
         "pickCount": 100,
         "pickRate": 11.1,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -135,7 +135,7 @@
         "endDate": "2024-12-05",
         "pickCount": 99,
         "pickRate": 11,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -146,7 +146,7 @@
         "endDate": "2024-10-24",
         "pickCount": 99,
         "pickRate": 11,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -157,7 +157,7 @@
         "endDate": "2024-08-01",
         "pickCount": 98,
         "pickRate": 10.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -168,7 +168,7 @@
         "endDate": "2024-06-20",
         "pickCount": 98,
         "pickRate": 10.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -179,7 +179,7 @@
         "endDate": "2024-05-09",
         "pickCount": 98,
         "pickRate": 10.9,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -190,7 +190,7 @@
         "endDate": "2024-03-28",
         "pickCount": 94,
         "pickRate": 10.4,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       }
     ],
@@ -201,8 +201,9 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 281,
-        "pickRate": 93.7,
+        "pickCount": 275,
+        "pickRate": 91.7,
+        "contentType": "main",
         "isOverall": false,
         "line": "전열"
       }
@@ -400,14 +401,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 117,
-        "pickRate": 39,
-        "overallRank": 19,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 31,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 5,
-            "count": 117
+            "rank": 7,
+            "count": 1
           }
         ],
         "totalEntries": 300
@@ -418,14 +419,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 273,
-        "pickRate": 91,
-        "overallRank": 3,
+        "pickCount": 267,
+        "pickRate": 89,
+        "overallRank": 5,
         "lineRanks": [
           {
             "line": "전열",
             "rank": 2,
-            "count": 273
+            "count": 267
           }
         ],
         "totalEntries": 300
@@ -436,14 +437,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 85,
-        "pickRate": 28.3,
-        "overallRank": 23,
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 19,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 8,
-            "count": 85
+            "rank": 7,
+            "count": 3
           }
         ],
         "totalEntries": 300
@@ -454,14 +455,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 281,
-        "pickRate": 93.7,
+        "pickCount": 275,
+        "pickRate": 91.7,
         "overallRank": 4,
         "lineRanks": [
           {
             "line": "전열",
             "rank": 1,
-            "count": 281
+            "count": 275
           }
         ],
         "totalEntries": 300
@@ -472,14 +473,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 131,
-        "pickRate": 43.7,
-        "overallRank": 17,
+        "pickCount": 7,
+        "pickRate": 2.3,
+        "overallRank": 32,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 7,
-            "count": 131
+            "rank": 13,
+            "count": 7
           }
         ],
         "totalEntries": 300

@@ -12,7 +12,7 @@
         "endDate": "2026-05-21",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "중열"
       },
       {
@@ -23,7 +23,7 @@
         "endDate": "2026-04-09",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "중열"
       }
     ],
@@ -36,7 +36,7 @@
         "endDate": "2026-06-04",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "중열"
       },
       {
@@ -47,7 +47,7 @@
         "endDate": "2026-04-23",
         "pickCount": 300,
         "pickRate": 100,
-        "isOverall": true,
+        "isOverall": false,
         "line": "중열"
       }
     ],
@@ -209,14 +209,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 158,
-        "pickRate": 52.7,
-        "overallRank": 13,
+        "pickCount": 23,
+        "pickRate": 7.7,
+        "overallRank": 15,
         "lineRanks": [
           {
             "line": "중열",
-            "rank": 5,
-            "count": 158
+            "rank": 7,
+            "count": 23
           }
         ],
         "totalEntries": 300

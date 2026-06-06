@@ -12,7 +12,7 @@
         "endDate": "2024-06-13",
         "pickCount": 76,
         "pickRate": 8.4,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       },
       {
@@ -23,12 +23,37 @@
         "endDate": "2024-04-11",
         "pickCount": 79,
         "pickRate": 8.8,
-        "isOverall": true,
+        "isOverall": false,
         "line": "전열"
       }
     ],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 158,
+        "pickRate": 52.7,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 153,
+        "pickRate": 51,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "전열"
+      }
+    ]
   },
   "recentStats": {
     "clash": [
@@ -204,14 +229,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 102,
-        "pickRate": 34,
-        "overallRank": 21,
+        "pickCount": 22,
+        "pickRate": 7.3,
+        "overallRank": 16,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 6,
-            "count": 102
+            "rank": 4,
+            "count": 22
           }
         ],
         "totalEntries": 300
@@ -222,17 +247,11 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 154,
-        "pickRate": 51.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 6,
-            "count": 154
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10003,
@@ -240,17 +259,11 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 132,
-        "pickRate": 44,
-        "overallRank": 18,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 7,
-            "count": 132
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10002,
@@ -258,14 +271,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 159,
-        "pickRate": 53,
-        "overallRank": 15,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 34,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 6,
-            "count": 159
+            "rank": 13,
+            "count": 1
           }
         ],
         "totalEntries": 300
@@ -276,14 +289,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 162,
-        "pickRate": 54,
-        "overallRank": 11,
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 28,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 5,
-            "count": 162
+            "rank": 11,
+            "count": 9
           }
         ],
         "totalEntries": 300

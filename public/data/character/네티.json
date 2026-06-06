@@ -181,14 +181,14 @@
         "personality": "광기",
         "startDate": "2026-04-30",
         "endDate": "2026-05-07",
-        "pickCount": 62,
-        "pickRate": 20.7,
-        "overallRank": 28,
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 24,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 10,
-            "count": 62
+            "rank": 6,
+            "count": 6
           }
         ],
         "totalEntries": 300
@@ -199,14 +199,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 48,
-        "pickRate": 16,
-        "overallRank": 28,
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 30,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 10,
-            "count": 48
+            "rank": 12,
+            "count": 1
           }
         ],
         "totalEntries": 300
@@ -217,14 +217,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 155,
-        "pickRate": 51.7,
-        "overallRank": 16,
+        "pickCount": 145,
+        "pickRate": 48.3,
+        "overallRank": 10,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 6,
-            "count": 155
+            "rank": 4,
+            "count": 145
           }
         ],
         "totalEntries": 300
@@ -235,14 +235,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 50,
-        "pickRate": 16.7,
-        "overallRank": 31,
+        "pickCount": 12,
+        "pickRate": 4,
+        "overallRank": 18,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 11,
-            "count": 50
+            "rank": 8,
+            "count": 12
           }
         ],
         "totalEntries": 300
@@ -253,14 +253,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 53,
-        "pickRate": 17.7,
-        "overallRank": 34,
+        "pickCount": 12,
+        "pickRate": 4,
+        "overallRank": 24,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 11,
-            "count": 53
+            "rank": 10,
+            "count": 12
           }
         ],
         "totalEntries": 300

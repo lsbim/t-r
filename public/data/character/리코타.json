@@ -217,14 +217,14 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 124,
-        "pickRate": 41.3,
-        "overallRank": 20,
+        "pickCount": 76,
+        "pickRate": 25.3,
+        "overallRank": 12,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 7,
-            "count": 124
+            "rank": 4,
+            "count": 76
           }
         ],
         "totalEntries": 300
@@ -235,14 +235,14 @@
         "personality": "순수",
         "startDate": "2026-02-05",
         "endDate": "2026-02-12",
-        "pickCount": 77,
-        "pickRate": 25.7,
-        "overallRank": 24,
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 19,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 9,
-            "count": 77
+            "rank": 7,
+            "count": 3
           }
         ],
         "totalEntries": 300
@@ -253,14 +253,14 @@
         "personality": "냉정",
         "startDate": "2025-12-25",
         "endDate": "2026-01-01",
-        "pickCount": 205,
-        "pickRate": 68.3,
+        "pickCount": 156,
+        "pickRate": 52,
         "overallRank": 9,
         "lineRanks": [
           {
             "line": "전열",
             "rank": 3,
-            "count": 205
+            "count": 156
           }
         ],
         "totalEntries": 300
@@ -271,14 +271,14 @@
         "personality": "활발",
         "startDate": "2025-11-13",
         "endDate": "2025-11-20",
-        "pickCount": 95,
-        "pickRate": 31.7,
-        "overallRank": 20,
+        "pickCount": 37,
+        "pickRate": 12.3,
+        "overallRank": 18,
         "lineRanks": [
           {
             "line": "전열",
-            "rank": 8,
-            "count": 95
+            "rank": 6,
+            "count": 37
           }
         ],
         "totalEntries": 300
