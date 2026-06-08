@@ -8,6 +8,17 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
         ? 'text-gray-700 dark:text-zinc-300'
         : `text-${charInfo[charName].personality}-dark`
 
+    const character = charInfo[charName];
+
+    // 성격,역할,공격타입,포지션,종족 아이콘 이미지
+    const icons = [
+        { tooltip: character.personality, src: `/images/personality/${character.personality}.webp`, alt: character.personality },
+        { tooltip: character.role, src: `/images/role/${translateRole(character.role)}.webp`, alt: character.role },
+        { tooltip: character.attackType, src: `/images/role/${translateAttackType(character.attackType)}.webp`, alt: character.attackType },
+        { tooltip: character.line, src: `/images/line/${translateLine(character.line as AllLine)}.webp`, alt: character.line },
+        { tooltip: character.race, src: `/images/race/${translateRaces(character.race as Race)}.webp`, alt: character.race },
+    ];
+
     return (
         <div className="flex gap-x-2">
             {/* 사도 사진 */}
@@ -26,68 +37,17 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
                     {charName}
                 </span>
                 {/* 아이콘 */}
-                <div className="flex gap-x-2 items-center">
-                    {/* 성격 */}
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={charInfo[charName].personality}
-                        className="cursor-pointer w-[28px] h-[28px] "
-                    >
-                        <img
-                            src={`/images/personality/${charInfo[charName].personality}.webp`}
-                            alt={charInfo[charName].personality}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                    {/* 역할 */}
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={charInfo[charName].role}
-                        className="cursor-pointer w-[28px] h-[28px] "
-                    >
-                        <img
-                            src={`/images/role/${translateRole(charInfo[charName].role)}.webp`}
-                            alt={charInfo[charName].role}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                    {/* 타입 */}
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={charInfo[charName].attackType}
-                        className="cursor-pointer w-[28px] h-[28px] "
-                    >
-                        <img
-                            src={`/images/role/${translateAttackType(charInfo[charName].attackType)}.webp`}
-                            alt={charInfo[charName].attackType}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                    {/* 열 */}
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={charInfo[charName].line}
-                        className="cursor-pointer w-[28px] h-[28px] "
-                    >
-                        <img
-                            src={`/images/line/${translateLine(charInfo[charName].line as AllLine)}.webp`}
-                            alt={charInfo[charName].line}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-                    {/* 종족 */}
-                    <div
-                        data-tooltip-id="my-tooltip"
-                        data-tooltip-content={charInfo[charName].race}
-                        className="cursor-pointer w-[28px] h-[28px] "
-                    >
-                        <img
-                            src={`/images/race/${translateRaces(charInfo[charName].race as Race)}.webp`}
-                            alt={charInfo[charName].race}
-                            className="object-cover w-full h-full"
-                        />
-                    </div>
-
+                <div className="flex md:gap-x-2 gap-x-1 items-center">
+                    {icons.map(({ tooltip, src, alt }) => (
+                        <div
+                            key={tooltip}
+                            data-tooltip-id="my-tooltip"
+                            data-tooltip-content={tooltip}
+                            className="cursor-pointer md:w-7 md:h-7 w-5 h-5"
+                        >
+                            <img src={src} alt={alt} className="object-cover w-full h-full" />
+                        </div>
+                    ))}
                 </div>
                 <div>
                     <div className="flex flex-col">

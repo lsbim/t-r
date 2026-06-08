@@ -100,8 +100,8 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
 
 function sideContentBG(content: 'main' | 'side') {
     return content === 'side'
-        ? 'bg-[rgb(224,115,6)]'
-        : 'bg-[rgb(16,117,53)]';
+        ? 'bg-[rgba(224,115,6,0.8)]'
+        : 'bg-[rgba(16,117,53,0.8)]';
 }
 
 function xPositionSideContent(content: 'main' | 'side') {
