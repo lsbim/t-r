@@ -16,7 +16,7 @@ const ErrorPage = () => {
 
         if (error.status === 404) {
             errorTitle += " 404";
-            errorMsg = "페이지를 찾을 수 없습니다."
+            errorMsg = error.data || "페이지를 찾을 수 없습니다.";
             errorData = ""
         } else {
             errorTitle + " " + error.status;

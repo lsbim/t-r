@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect } from "react-router-dom";
 import Loading from "../commons/component/Loading";
+import { charInfo } from "../data/trickcalChar";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 
@@ -115,16 +116,26 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ":charName",
+                loader: ({ params }) => {
+                    const { charName } = params;
+                    if (!charName || !charInfo[charName]) {
+                        throw new Response('해당 사도를 찾을 수 없습니다.', { status: 404 });
+                    }
+                    return null;
+                },
                 element: <Suspense fallback={<Loading />}><CharacterIndex /></Suspense>,
                 errorElement: <ErrorPage />
             },
         ]
     },
-    // ,
-    // {
-    //     path: "*",
-    //     element: <Suspense fallback={<Loading />}><HomePage /></Suspense>
-    // }
+    {
+        path: "*",
+        loader: () => {
+            throw new Response('페이지를 찾을 수 없습니다.', { status: 404 });
+        },
+        element: null,
+        errorElement: <ErrorPage />
+    }
 ]
     // , { basename: "/" } github pages에 사용되었음
 )
