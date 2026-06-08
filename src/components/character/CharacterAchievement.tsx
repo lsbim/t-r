@@ -35,6 +35,7 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                 <span className="text-gray-600 text-[13px] dark:text-zinc-400">
                                     {`${translateRaid(key)} (${value.length})`}
                                 </span>
+                                {/* 시즌별 아이콘 */}
                                 <div className="w-full flex flex-wrap gap-2">
                                     {value.map((season: TopSeasonStat) => {
 
@@ -68,6 +69,11 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                                     }}>
                                                     {seasonNum}
                                                 </span>
+                                                {season.contentType && (
+                                                    <div
+                                                        className={`absolute flex items-center justify-center top-[-1px] text-[13px] dark:text-zinc-200 font-bold rounded-full w-3 h-3 ${sideContentBG(season.contentType)} ${xPositionSideContent(season.contentType)}`}>
+                                                    </div>
+                                                )}
                                             </Link>
                                         )
                                     })}
@@ -89,6 +95,19 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
             )}
         </div>
     )
+
+}
+
+function sideContentBG(content: 'main' | 'side') {
+    return content === 'side'
+        ? 'bg-[rgb(224,115,6)]'
+        : 'bg-[rgb(16,117,53)]';
+}
+
+function xPositionSideContent(content: 'main' | 'side') {
+    return content === 'side'
+        ? 'left-[-1px]'
+        : 'right-[-1px]';
 }
 
 export default CharacterAchievement
