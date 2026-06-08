@@ -22,6 +22,9 @@ export interface TopSeasonStat {
     // 모든열 사도 전용
     linePickCount?: number;
     linePickRate?: number;
+
+    // 대충돌 2.0 전용
+    contentType?: "main" | 'side';
 }
 
 // 컨텐츠 별 최근 성적
