@@ -1,5 +1,6 @@
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
+import CharacterSearchList from "../../components/character/CharacterSearchList";
 import IndexComponent from "../../components/home/IndexComponent";
 import NoticeComponent from "../../components/home/NoticeComponent";
 import { useNonData } from "../../hooks/useNonData";
@@ -25,6 +26,8 @@ const IndexPage = () => {
             <HeaderNav />
             <IndexComponent
                 latest={latest}
+            />
+            <CharacterSearchList
             />
             <NoticeComponent
                 data={data}
