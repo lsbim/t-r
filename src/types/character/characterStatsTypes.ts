@@ -39,6 +39,9 @@ export interface RecentSeasonStat {
     overallRank: number | null;
     lineRanks: LineRank[]; // 모든열 사도 대비 배열로
     totalEntries: number;
+
+    // 대충돌 2.0일 경우 림의 이면세계 픽률
+    sidePickRate?: number;
 }
 
 // 최근 사용한 사복top3

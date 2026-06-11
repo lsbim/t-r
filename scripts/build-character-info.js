@@ -315,6 +315,8 @@ function getTopSeasons(charName, seasonStats, charInfoMap) {
 function getRecentStats(charName, seasonStats, n) {
     return seasonStats.slice(0, n).map(s => {
         const stat = s.pickStats.get(charName);
+        const sideStat = s.sidePickStats?.get(charName); 
+
         return {
             seasonNumber: s.seasonNumber,
             name: s.raw.name ?? null,
@@ -326,6 +328,11 @@ function getRecentStats(charName, seasonStats, n) {
             overallRank: stat?.overallRank ?? null,
             lineRanks: stat?.lineRanks ?? [],
             totalEntries: stat?.totalEntries ?? 0,
+            
+            // 대충돌 2.0 림의 이면세계 픽률
+            ...(sideStat && {
+                sidePickRate: sideStat.rate,
+            }),
         };
     });
 }

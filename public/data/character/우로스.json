@@ -476,7 +476,8 @@
             "count": 288
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 2.3
       }
     ]
   },

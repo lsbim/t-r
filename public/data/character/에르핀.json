@@ -239,7 +239,8 @@
             "count": 3
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 0.3
       },
       {
         "seasonNumber": 10003,
@@ -275,7 +276,8 @@
             "count": 3
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 1.7
       },
       {
         "seasonNumber": 10001,
@@ -293,7 +295,8 @@
             "count": 1
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 2
       }
     ]
   },

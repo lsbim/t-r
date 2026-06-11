@@ -155,7 +155,8 @@
             "count": 55
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 2.3
       },
       {
         "seasonNumber": 10004,

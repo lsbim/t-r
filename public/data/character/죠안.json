@@ -231,7 +231,8 @@
             "count": 7
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 51.7
       },
       {
         "seasonNumber": 10004,
@@ -259,7 +260,8 @@
             "count": 4
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 54
       },
       {
         "seasonNumber": 10003,
@@ -277,7 +279,8 @@
             "count": 34
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 50
       },
       {
         "seasonNumber": 10002,
@@ -305,7 +308,8 @@
             "count": 3
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 39
       },
       {
         "seasonNumber": 10001,
@@ -333,7 +337,8 @@
             "count": 119
           }
         ],
-        "totalEntries": 300
+        "totalEntries": 300,
+        "sidePickRate": 8
       }
     ]
   },
