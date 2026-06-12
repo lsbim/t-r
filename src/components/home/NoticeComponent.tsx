@@ -15,6 +15,24 @@ const NoticeComponent = ({ data }: { data: ClashSummary | FrontierSummary }) => 
 
     const items = [
         {
+            id: 'notice_5',
+            header: (
+                <div className="">
+                    사도 개인 페이지 추가
+                </div>
+            ),
+            content: (
+                <div className="px-4 py-[10px]">
+                    <span className="font-bold">
+                        사도 개인 페이지 추가
+                    </span>
+                    <span className="block mt-1">
+                        해당 사도의 컨텐츠 1위 기록, 최근 기록을 제공합니다.
+                    </span>
+                </div>
+            )
+        },
+        {
             id: 'notice_4',
             header: (
                 <div className="">
