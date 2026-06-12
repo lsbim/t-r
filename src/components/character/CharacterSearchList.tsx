@@ -18,7 +18,7 @@ const CharacterSearchList = () => {
                 <input
                     type="text"
                     placeholder="사도 검색(에르핀, ㅇㄹㅍ, ㅇㄿ)"
-                    className="w-[180px] outline-none border border-zinc-950 rounded-sm text-[12px] h-[30px] px-2 py-1"
+                    className="w-[180px] outline-none border border-zinc-950 rounded-sm text-[12px] h-[30px] px-2 py-1 dark:bg-zinc-700"
                     value={search}
                     onChange={(e) => {
                         setSearch(e.target.value);
