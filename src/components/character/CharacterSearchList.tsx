@@ -9,9 +9,9 @@ const CharacterSearchList = () => {
     const searchList = useCharSearch({ search, showAllWhenEmpty: true });
 
     return (
-        <div className="md:w-[768px] w-full mx-auto border dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 flex flex-col rounded-xl bg-white h-[250px] overflow-hidden">
+        <div className="md:w-[768px] w-full mx-auto border dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 flex flex-col rounded-xl bg-white h-[256px] overflow-hidden">
             {/* 헤더(검색) */}
-            <div className="py-2 px-4 dark:text-zinc-200 flex items-center justify-between h-[50px] shrink-0">
+            <div className="py-2 px-4 dark:text-zinc-200 flex items-center justify-between h-[56px] shrink-0">
                 <span className="font-bold">
                     사도 목록
                 </span>

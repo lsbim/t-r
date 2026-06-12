@@ -22,13 +22,7 @@ const IndexPage = () => {
     const [isEldain, setIsEldain] = useState<Boolean>(false)
     const [category, setCategory] = useState<'race' | 'pers'>('race')
 
-
-
     // console.log(latest)
-
-    if (!data || !latest) {
-        return (<Loading />);
-    }
 
     const charaMap: Map<Race | Personality, string[]> = useMemo(() => {
         return new Map(
@@ -75,6 +69,10 @@ const IndexPage = () => {
                 })
         )
     }, [isEldain, category]);
+
+    if (!data || !latest) {
+        return (<Loading />);
+    }
 
     const tabs = [
         { id: 'race', label: '종족정렬' },

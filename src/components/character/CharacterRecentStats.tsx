@@ -202,7 +202,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
         <div className="w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">픽률 통계</span>
-                <span className="text-[11px] dark:text-zinc-400 text-gray-600">
+                <span className="text-[12px] dark:text-zinc-400 text-gray-600">
                     컨텐츠 별 5개 시즌의 데이터를 제공합니다.
                 </span>
             </div>

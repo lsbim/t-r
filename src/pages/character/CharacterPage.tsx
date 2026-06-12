@@ -24,7 +24,7 @@ const CharacterPage = () => {
     return (
         <div className="flex flex-col items-center min-h-screen gap-y-4">
             <SEO
-                title={`${charName} - 사도 정보 요약`}
+                title={`${charName} - 사도 정보, 통계`}
                 description={`${charName}의 컨텐츠 기록을 요약하여 제공합니다.`}
             />
             <HeaderNav />
