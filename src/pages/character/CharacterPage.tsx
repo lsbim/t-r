@@ -7,7 +7,7 @@ import { useCharacterData } from "../../hooks/useCharacterData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { CharacterStatsData } from "../../types/character/characterStatsTypes";
-import CharacterRecentStats from "../../components/character/CharacterRecentStats";
+import CharacterRecentStats from "../../components/chart/character/CharacterRecentStats";
 import CharacterRecentSkin from "../../components/character/CharacterRecentSkin";
 
 const CharacterPage = () => {

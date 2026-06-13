@@ -13,8 +13,8 @@ import {
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
-import { useTheme } from '../../hooks/useTheme';
-import { ContentRecentStats, RecentSeasonStat } from '../../types/character/characterStatsTypes';
+import { useTheme } from '../../../hooks/useTheme';
+import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
