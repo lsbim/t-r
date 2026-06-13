@@ -1,10 +1,10 @@
-import React from 'react'
 import { RecentSkin } from '../../types/character/characterStatsTypes';
 import { rankBG, rankBorderShadow } from '../../utils/style/styleFuntions';
-import { costumes } from '../../data/costumes';
+import { boardValue } from '../shared/CostumeRank';
 
-const CharacterRecentSkin = ({ recentSkin }: { recentSkin: RecentSkin[] }) => {
+const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[], charName: string }) => {
 
+    const boardText = ['사용 횟수', '사용률', '출시일'];
 
     return (
         <div className="flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
@@ -14,24 +14,40 @@ const CharacterRecentSkin = ({ recentSkin }: { recentSkin: RecentSkin[] }) => {
                     컨텐츠 별 3개 시즌의 사복 통계를 제공합니다.
                 </span>
             </div>
-            <div className="flex-1 gap-y-3 flex flex-col">
-                {recentSkin.length > 0 ? recentSkin.map((skin: RecentSkin, i) => (
+            <div className="mx-auto flex lg:flex-col flex-row justify-center w-full lg:gap-y-5 gap-x-4">
+                {recentSkin.length > 0 ? recentSkin.map((cos: RecentSkin, i) => (
                     <div
-                        className={`relative ${rankBorderShadow(i)} border-2 `}
-                        key={`recent_skin_rank_${skin.skinName}`}>
-                        <div className={`flex items-center w-full h-[80px] p-2 ${rankBG(i)}`}>
-                            <div className="bg-white dark:bg-zinc-900 w-full p-2 pl-4 flex flex-col gap-2 rounded-[50px] shadow-inner dark:shadow-zinc-950 shadow-zinc-400 overflow-hidden">
-                                <span className="font-bold truncate w-full text-[14px] dark:text-zinc-200">
-                                    {`${skin.skinName}${costumes.find(cos => cos.cosName === skin.skinName)?.lvl === 'pretty' ? ' ★' : ''}`}
+                        className={`${rankBorderShadow(i)} border-2 flex flex-col lg:w-full w-[30%]`}
+                        key={`recent_skin_rank_${cos.cosName}`}>
+                        <div
+                            className={`w-full ${rankBorderShadow(i)} border-2`}>
+                            {/* 사도 사복 컷 */}
+                            <div className={`overflow-hidden min-h-[30px] min-w-[216px] ${rankBG(i)}`}>
+                            </div>
+                            <div className="w-full">
+                                <span className="font-bold block text-center mt-2 truncate">
+                                    {cos.lvl === 'pretty'
+                                        ? `${cos.cosName} ${charName} ★`
+                                        : `${cos.cosName} ${charName}`}
                                 </span>
-                                <div className="flex gap-2 text-[12px]">
-                                    <span className="w-[40%] max-w-[120px] text-gray-500 dark:text-zinc-400">
-                                        사용 횟수
-                                    </span>
-                                    <div className="w-[60%] dark:text-zinc-200">
-                                        {skin.count}회
-                                    </div>
-                                </div>
+                            </div>
+                            {/* 사복 설명 */}
+                            <div className="flex flex-col items-center justify-center text-[13px] gap-y-[2px] p-2">
+                                {boardText.map(t => {
+
+                                    return (
+                                        <div
+                                            key={`costume_rank_board_` + t}
+                                            className="flex justify-between w-[70%]">
+                                            <span className="w-[40%] text-gray-500 dark:text-zinc-400">
+                                                {t}
+                                            </span>
+                                            <div className="w-[60%]">
+                                                {boardValue(t, cos)}
+                                            </div>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>

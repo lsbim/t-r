@@ -6,6 +6,7 @@ import { CostumeStat, processCostumeData, ProcessedCostumeData } from "../../uti
 import SlideColorNav from "../../commons/animation/SlideColorNav";
 import InfoIcon from "../../commons/icon/InfoIcon";
 import { rankBG, rankBorderShadow } from "../../utils/style/styleFuntions";
+import { RecentSkin } from "../../types/character/characterStatsTypes";
 
 const CostumeRank = (
     {
@@ -90,9 +91,6 @@ const CostumeRank = (
                                         </div>
                                     )
                                 })}
-                                <div className="flex flex-col">
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,7 +100,7 @@ const CostumeRank = (
     );
 }
 
-function boardValue(key: string, cos: CostumeStat) {
+export function boardValue(key: string, cos: CostumeStat | RecentSkin) {
     switch (key) {
         case '사용 횟수':
             return (
