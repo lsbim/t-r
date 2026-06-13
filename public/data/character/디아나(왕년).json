@@ -456,12 +456,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "교단 군기반장",
-      "count": 299
+      "cosName": "교단 군기반장",
+      "cosUsedCount": 299,
+      "charTotalCount": 429,
+      "rate": 69.7,
+      "lvl": "pretty",
+      "launchDate": "2025-06-05"
     },
     {
-      "skinName": "거친 해변의 서퍼",
-      "count": 46
+      "cosName": "거친 해변의 서퍼",
+      "cosUsedCount": 46,
+      "charTotalCount": 429,
+      "rate": 10.7,
+      "lvl": "normal",
+      "launchDate": "2025-06-05"
     }
   ]
 }

@@ -302,8 +302,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "발랄한 현장학습",
-      "count": 1
+      "cosName": "발랄한 현장학습",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-02-06"
     }
   ]
 }

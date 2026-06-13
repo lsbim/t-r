@@ -280,16 +280,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "교단의 성찬 파티",
-      "count": 25
+      "cosName": "교단의 성찬 파티",
+      "cosUsedCount": 25,
+      "charTotalCount": 48,
+      "rate": 52.1,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
     },
     {
-      "skinName": "개인 교습 나들이",
-      "count": 13
+      "cosName": "개인 교습 나들이",
+      "cosUsedCount": 13,
+      "charTotalCount": 48,
+      "rate": 27.1,
+      "lvl": "normal",
+      "launchDate": "2024-09-05"
     },
     {
-      "skinName": "한 때 한가닥",
-      "count": 6
+      "cosName": "한 때 한가닥",
+      "cosUsedCount": 6,
+      "charTotalCount": 48,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2024-06-06"
     }
   ]
 }

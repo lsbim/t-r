@@ -268,16 +268,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "오케스토리의 지휘자",
-      "count": 83
+      "cosName": "오케스토리의 지휘자",
+      "cosUsedCount": 83,
+      "charTotalCount": 101,
+      "rate": 82.2,
+      "lvl": "pretty",
+      "launchDate": "2026-03-19"
     },
     {
-      "skinName": "화살촉에 실려 온 이야기",
-      "count": 7
+      "cosName": "화살촉에 실려 온 이야기",
+      "cosUsedCount": 7,
+      "charTotalCount": 101,
+      "rate": 6.9,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
     },
     {
-      "skinName": "오직 당신만을 위한",
-      "count": 4
+      "cosName": "오직 당신만을 위한",
+      "cosUsedCount": 4,
+      "charTotalCount": 101,
+      "rate": 4,
+      "lvl": "pretty",
+      "launchDate": "2024-10-03"
     }
   ]
 }

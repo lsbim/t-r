@@ -213,8 +213,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "오! 나의 회장님",
-      "count": 1
+      "cosName": "오! 나의 회장님",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2026-04-02"
     }
   ]
 }

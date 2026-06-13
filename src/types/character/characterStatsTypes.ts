@@ -46,8 +46,12 @@ export interface RecentSeasonStat {
 
 // 최근 사용한 사복top3
 export interface RecentSkin {
-    skinName: string;
-    count: number;
+    cosName: string;
+    cosUsedCount: number;
+    charTotalCount: number;
+    rate: number;
+    lvl: string;
+    launchDate: string;
 }
 
 // 1위 달성 시즌

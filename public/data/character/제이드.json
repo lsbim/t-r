@@ -238,8 +238,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "옥의 소공녀",
-      "count": 86
+      "cosName": "옥의 소공녀",
+      "cosUsedCount": 86,
+      "charTotalCount": 211,
+      "rate": 40.8,
+      "lvl": "normal",
+      "launchDate": "2025-09-04"
     }
   ]
 }

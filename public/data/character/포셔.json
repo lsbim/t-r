@@ -214,16 +214,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "묘약의 랩실 연구원",
-      "count": 18
+      "cosName": "묘약의 랩실 연구원",
+      "cosUsedCount": 18,
+      "charTotalCount": 23,
+      "rate": 78.3,
+      "lvl": "normal",
+      "launchDate": "2026-01-01"
     },
     {
-      "skinName": "방과 후 밴드 활동",
-      "count": 2
+      "cosName": "방과 후 밴드 활동",
+      "cosUsedCount": 2,
+      "charTotalCount": 23,
+      "rate": 8.7,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
     },
     {
-      "skinName": "포션 가게의 휴일",
-      "count": 1
+      "cosName": "포션 가게의 휴일",
+      "cosUsedCount": 1,
+      "charTotalCount": 23,
+      "rate": 4.3,
+      "lvl": "normal",
+      "launchDate": "2024-10-17"
     }
   ]
 }

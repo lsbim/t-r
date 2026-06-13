@@ -283,12 +283,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "해변의 하늬바람",
-      "count": 33
+      "cosName": "해변의 하늬바람",
+      "cosUsedCount": 33,
+      "charTotalCount": 68,
+      "rate": 48.5,
+      "lvl": "normal",
+      "launchDate": "2025-07-24"
     },
     {
-      "skinName": "엑스텐 스피릿",
-      "count": 16
+      "cosName": "엑스텐 스피릿",
+      "cosUsedCount": 16,
+      "charTotalCount": 68,
+      "rate": 23.5,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
     }
   ]
 }

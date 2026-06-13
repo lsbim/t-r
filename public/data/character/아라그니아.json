@@ -210,8 +210,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "푸른 바다의 전학생",
-      "count": 27
+      "cosName": "푸른 바다의 전학생",
+      "cosUsedCount": 27,
+      "charTotalCount": 63,
+      "rate": 42.9,
+      "lvl": "normal",
+      "launchDate": "2026-04-23"
     }
   ]
 }

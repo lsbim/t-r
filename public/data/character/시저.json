@@ -238,8 +238,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "악어는 아거! 아거!",
-      "count": 16
+      "cosName": "악어는 아거! 아거!",
+      "cosUsedCount": 16,
+      "charTotalCount": 22,
+      "rate": 72.7,
+      "lvl": "normal",
+      "launchDate": "2025-08-28"
     }
   ]
 }

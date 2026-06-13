@@ -226,12 +226,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "미스 모나티엄 진",
-      "count": 22
+      "cosName": "미스 모나티엄 진",
+      "cosUsedCount": 22,
+      "charTotalCount": 25,
+      "rate": 88,
+      "lvl": "pretty",
+      "launchDate": "2025-09-04"
     },
     {
-      "skinName": "아이돌 쇼다운! 시장님",
-      "count": 1
+      "cosName": "아이돌 쇼다운! 시장님",
+      "cosUsedCount": 1,
+      "charTotalCount": 25,
+      "rate": 4,
+      "lvl": "normal",
+      "launchDate": "2025-07-31"
     }
   ]
 }

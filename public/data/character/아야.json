@@ -333,16 +333,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "첫 눈송이의 춤사위",
-      "count": 120
+      "cosName": "첫 눈송이의 춤사위",
+      "cosUsedCount": 120,
+      "charTotalCount": 233,
+      "rate": 51.5,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
     },
     {
-      "skinName": "새벽의 블루문",
-      "count": 77
+      "cosName": "새벽의 블루문",
+      "cosUsedCount": 77,
+      "charTotalCount": 233,
+      "rate": 33,
+      "lvl": "pretty",
+      "launchDate": "2025-04-24"
     },
     {
-      "skinName": "추억과 피안화",
-      "count": 6
+      "cosName": "추억과 피안화",
+      "cosUsedCount": 6,
+      "charTotalCount": 233,
+      "rate": 2.6,
+      "lvl": "normal",
+      "launchDate": "2024-11-28"
     }
   ]
 }

@@ -344,16 +344,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "전통의 사도",
-      "count": 69
+      "cosName": "전통의 사도",
+      "cosUsedCount": 69,
+      "charTotalCount": 162,
+      "rate": 42.6,
+      "lvl": "pretty",
+      "launchDate": "2024-09-26"
     },
     {
-      "skinName": "댄스 크루 달링",
-      "count": 32
+      "cosName": "댄스 크루 달링",
+      "cosUsedCount": 32,
+      "charTotalCount": 162,
+      "rate": 19.8,
+      "lvl": "normal",
+      "launchDate": "2025-07-17"
     },
     {
-      "skinName": "개인적 피크닉",
-      "count": 21
+      "cosName": "개인적 피크닉",
+      "cosUsedCount": 21,
+      "charTotalCount": 162,
+      "rate": 13,
+      "lvl": "normal",
+      "launchDate": "2024-09-26"
     }
   ]
 }

@@ -302,12 +302,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "수온 측정의 여운",
-      "count": 360
+      "cosName": "수온 측정의 여운",
+      "cosUsedCount": 360,
+      "charTotalCount": 598,
+      "rate": 60.2,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     },
     {
-      "skinName": "위험한 옆집 스파이",
-      "count": 43
+      "cosName": "위험한 옆집 스파이",
+      "cosUsedCount": 43,
+      "charTotalCount": 598,
+      "rate": 7.2,
+      "lvl": "normal",
+      "launchDate": "2025-09-11"
     }
   ]
 }

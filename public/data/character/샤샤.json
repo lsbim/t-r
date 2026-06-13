@@ -220,8 +220,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "핑크 산호초의 요정",
-      "count": 1
+      "cosName": "핑크 산호초의 요정",
+      "cosUsedCount": 1,
+      "charTotalCount": 1,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-07-24"
     }
   ]
 }

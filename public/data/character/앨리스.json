@@ -202,8 +202,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "주사위 잡이 토끼",
-      "count": 2
+      "cosName": "주사위 잡이 토끼",
+      "cosUsedCount": 2,
+      "charTotalCount": 2,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-05-29"
     }
   ]
 }

@@ -243,12 +243,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "차원이 다른 여왕님",
-      "count": 1
+      "cosName": "차원이 다른 여왕님",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "pretty",
+      "launchDate": "2025-10-02"
     },
     {
-      "skinName": "파티 나잇 모나티엄",
-      "count": 1
+      "cosName": "파티 나잇 모나티엄",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2024-10-17"
     }
   ]
 }

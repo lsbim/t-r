@@ -238,12 +238,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "새침 까칠 마녀",
-      "count": 1
+      "cosName": "새침 까칠 마녀",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2024-12-12"
     },
     {
-      "skinName": "크리미널 하우스키핑",
-      "count": 1
+      "cosName": "크리미널 하우스키핑",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2026-02-05"
     }
   ]
 }

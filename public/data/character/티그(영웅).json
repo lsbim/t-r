@@ -379,12 +379,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "창공의 하얀 날개",
-      "count": 78
+      "cosName": "창공의 하얀 날개",
+      "cosUsedCount": 78,
+      "charTotalCount": 151,
+      "rate": 51.7,
+      "lvl": "pretty",
+      "launchDate": "2025-09-27"
     },
     {
-      "skinName": "수인마을 북부 대공",
-      "count": 25
+      "cosName": "수인마을 북부 대공",
+      "cosUsedCount": 25,
+      "charTotalCount": 151,
+      "rate": 16.6,
+      "lvl": "normal",
+      "launchDate": "2025-09-27"
     }
   ]
 }

@@ -262,8 +262,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "방구석 강철",
-      "count": 1
+      "cosName": "방구석 강철",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
     }
   ]
 }

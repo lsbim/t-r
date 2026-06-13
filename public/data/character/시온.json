@@ -292,16 +292,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "어비스 워커 오버로드",
-      "count": 94
+      "cosName": "어비스 워커 오버로드",
+      "cosUsedCount": 94,
+      "charTotalCount": 130,
+      "rate": 72.3,
+      "lvl": "pretty",
+      "launchDate": "2025-12-25"
     },
     {
-      "skinName": "다크스타 ★ 버스트",
-      "count": 16
+      "cosName": "다크스타 ★ 버스트",
+      "cosUsedCount": 16,
+      "charTotalCount": 130,
+      "rate": 12.3,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
     },
     {
-      "skinName": "어둠의 알바생",
-      "count": 7
+      "cosName": "어둠의 알바생",
+      "cosUsedCount": 7,
+      "charTotalCount": 130,
+      "rate": 5.4,
+      "lvl": "normal",
+      "launchDate": "2024-07-25"
     }
   ]
 }

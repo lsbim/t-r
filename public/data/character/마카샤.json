@@ -220,8 +220,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "온수통의 마녀",
-      "count": 4
+      "cosName": "온수통의 마녀",
+      "cosUsedCount": 4,
+      "charTotalCount": 4,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     }
   ]
 }

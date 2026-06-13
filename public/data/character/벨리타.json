@@ -253,8 +253,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "차가운 도시 여왕님",
-      "count": 1
+      "cosName": "차가운 도시 여왕님",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2025-12-11"
     }
   ]
 }

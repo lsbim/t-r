@@ -232,12 +232,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "호호 불어 냥구마",
-      "count": 16
+      "cosName": "호호 불어 냥구마",
+      "cosUsedCount": 16,
+      "charTotalCount": 24,
+      "rate": 66.7,
+      "lvl": "normal",
+      "launchDate": "2025-12-11"
     },
     {
-      "skinName": "인기쟁이 냥타리스트",
-      "count": 4
+      "cosName": "인기쟁이 냥타리스트",
+      "cosUsedCount": 4,
+      "charTotalCount": 24,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
     }
   ]
 }

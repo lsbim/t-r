@@ -200,8 +200,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "껌 좀 씹어본 용족",
-      "count": 16
+      "cosName": "껌 좀 씹어본 용족",
+      "cosUsedCount": 16,
+      "charTotalCount": 16,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-10-02"
     }
   ]
 }

@@ -262,16 +262,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "에이프런 매그넘",
-      "count": 5
+      "cosName": "에이프런 매그넘",
+      "cosUsedCount": 5,
+      "charTotalCount": 10,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2026-02-05"
     },
     {
-      "skinName": "동시 대회 다크 호스",
-      "count": 3
+      "cosName": "동시 대회 다크 호스",
+      "cosUsedCount": 3,
+      "charTotalCount": 10,
+      "rate": 30,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
     },
     {
-      "skinName": "세이프티 가드",
-      "count": 1
+      "cosName": "세이프티 가드",
+      "cosUsedCount": 1,
+      "charTotalCount": 10,
+      "rate": 10,
+      "lvl": "normal",
+      "launchDate": "2024-06-06"
     }
   ]
 }

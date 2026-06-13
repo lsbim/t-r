@@ -232,12 +232,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "릴렉스 테라피스트",
-      "count": 16
+      "cosName": "릴렉스 테라피스트",
+      "cosUsedCount": 16,
+      "charTotalCount": 25,
+      "rate": 64,
+      "lvl": "normal",
+      "launchDate": "2025-08-21"
     },
     {
-      "skinName": "힐링 피크닉",
-      "count": 5
+      "cosName": "힐링 피크닉",
+      "cosUsedCount": 5,
+      "charTotalCount": 25,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2024-08-08"
     }
   ]
 }

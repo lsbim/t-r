@@ -226,12 +226,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "야산의 온천 마실",
-      "count": 3
+      "cosName": "야산의 온천 마실",
+      "cosUsedCount": 3,
+      "charTotalCount": 8,
+      "rate": 37.5,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     },
     {
-      "skinName": "어린 꽃사슴",
-      "count": 1
+      "cosName": "어린 꽃사슴",
+      "cosUsedCount": 1,
+      "charTotalCount": 8,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
     }
   ]
 }

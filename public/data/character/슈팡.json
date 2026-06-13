@@ -263,16 +263,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "슈파 드럼 비트",
-      "count": 44
+      "cosName": "슈파 드럼 비트",
+      "cosUsedCount": 44,
+      "charTotalCount": 107,
+      "rate": 41.1,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
     },
     {
-      "skinName": "스카이 로지스틱스",
-      "count": 25
+      "cosName": "스카이 로지스틱스",
+      "cosUsedCount": 25,
+      "charTotalCount": 107,
+      "rate": 23.4,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
     },
     {
-      "skinName": "폭주족 슈팡",
-      "count": 5
+      "cosName": "폭주족 슈팡",
+      "cosUsedCount": 5,
+      "charTotalCount": 107,
+      "rate": 4.7,
+      "lvl": "normal",
+      "launchDate": "2025-01-23"
     }
   ]
 }

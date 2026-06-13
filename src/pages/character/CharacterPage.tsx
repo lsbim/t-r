@@ -39,6 +39,7 @@ const CharacterPage = () => {
                         />
                         <CharacterRecentSkin
                             recentSkin={data.recentSkins}
+                            charName={charName}
                         />
                     </div>
                     <div className="lg:w-[69%] w-full">

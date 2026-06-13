@@ -11,7 +11,9 @@ const CLASH_DIR = path.join(DATA_ROOT, 'clash');
 const FRONTIER_DIR = path.join(DATA_ROOT, 'frontier');
 const CLASH_V2_DIR = path.join(DATA_ROOT, 'clash_v2');
 const OUTPUT_DIR = path.join(DATA_ROOT, 'character');
+
 const CHAR_INFO_PATH = path.resolve(__dirname, '../src/data/trickcalChar.ts');
+const COSTUME_DATA_PATH = path.resolve(__dirname, '../src/data/costumes.ts');
 
 const SKIP_NAMES = new Set(['summary', 'summaries', 'non_data', 'latest']);
 
@@ -60,8 +62,8 @@ function countSkin(arr, skinArr, charName, skinCounts) {
 }
 
 // charInfo 텍스트로 정규식을 거쳐 가져오기
-async function parseCharInfo(filePath) {
-    const content = await fs.readFile(filePath, 'utf-8');
+async function parseCharInfo() {
+    const content = await fs.readFile(CHAR_INFO_PATH, 'utf-8');
     const charInfo = {};
     const blockRe = /"([^"]+)":\s*\{([^}]+)\}/g;
 
@@ -85,6 +87,20 @@ async function parseCharInfo(filePath) {
     return charInfo;
 }
 
+async function parseCostumeInfo() {
+    const content = await fs.readFile(COSTUME_DATA_PATH, 'utf-8');
+    const costumeMap = new Map();
+
+    // { charName: "...", cosName: "...", lvl: "...", launchDate: "..." } 형태를 반복 매칭
+    const blockRe = /\{\s*charName:\s*"([^"]+)",\s*cosName:\s*"([^"]+)",\s*lvl:\s*"([^"]+)",\s*launchDate:\s*"([^"]+)"\s*\}/g;
+
+    for (const m of content.matchAll(blockRe)) {
+        const [, charName, cosName, lvl, launchDate] = m;
+        costumeMap.set(cosName, { charName, cosName, lvl, launchDate });
+    }
+
+    return costumeMap;
+}
 // 폴더 별 시즌 데이터 가져오기
 async function loadSeasons(dirPath) {
     const files = await fs.readdir(dirPath);
@@ -315,7 +331,7 @@ function getTopSeasons(charName, seasonStats, charInfoMap) {
 function getRecentStats(charName, seasonStats, n) {
     return seasonStats.slice(0, n).map(s => {
         const stat = s.pickStats.get(charName);
-        const sideStat = s.sidePickStats?.get(charName); 
+        const sideStat = s.sidePickStats?.get(charName);
 
         return {
             seasonNumber: s.seasonNumber,
@@ -328,7 +344,7 @@ function getRecentStats(charName, seasonStats, n) {
             overallRank: stat?.overallRank ?? null,
             lineRanks: stat?.lineRanks ?? [],
             totalEntries: stat?.totalEntries ?? 0,
-            
+
             // 대충돌 2.0 림의 이면세계 픽률
             ...(sideStat && {
                 sidePickRate: sideStat.rate,
@@ -338,13 +354,18 @@ function getRecentStats(charName, seasonStats, n) {
 }
 
 // 최근 사복 top3
-function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats) {
+function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
     const skinCounts = new Map();
+    let charTotalCount = 0;
 
     // 각 컨텐츠별 최신 시즌 1개씩만 참조
     for (const stats of [clashStats, frontierStats, clashV2Stats]) {
         const latest = stats[0];
         if (!latest || latest.raw.type !== 'season') continue;
+
+        const mainCount = latest.pickStats?.get(charName)?.count ?? 0;
+        const sideCount = latest.sidePickStats?.get(charName)?.count ?? 0;
+        charTotalCount += mainCount + sideCount;
 
         for (const entry of latest.raw.data) {
             countSkin(entry.arr, entry.skinArr, charName, skinCounts);
@@ -355,13 +376,26 @@ function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats) {
     return [...skinCounts.entries()]
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
-        .map(([skinName, count]) => ({ skinName, count }));
+        .map(([cosName, cosUsedCount]) => {
+            // 사도 출전 횟수가 0이면 사용률 0 
+            const rate = charTotalCount > 0
+                ? Math.round((cosUsedCount / charTotalCount) * 100 * 10) / 10
+                : 0;
+
+            const costumeInfo = costumeMap.get(cosName);
+            const lvl = costumeInfo ? costumeInfo.lvl : 'normal';
+            const launchDate = costumeInfo ? costumeInfo.launchDate : '-';
+
+            return { cosName, cosUsedCount, charTotalCount, rate, lvl, launchDate };
+        });
 }
 
 // 메인 함수
 async function buildCharacterStats() {
-    const charInfoMap = await parseCharInfo(CHAR_INFO_PATH);
+    const charInfoMap = await parseCharInfo();
+    const costumeMap = await parseCostumeInfo();
     const allCharNames = Object.keys(charInfoMap);
+
     console.log(`✔️ charInfo 파싱: ${allCharNames.length}명`);
 
     const [clashSeasons, frontierSeasons, clashV2Seasons] = await Promise.all([
@@ -408,7 +442,7 @@ async function buildCharacterStats() {
                 frontier: getRecentStats(charName, frontierStats, needRecentSeasonNumber),
                 clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
             },
-            recentSkins: getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats),
+            recentSkins: getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
         };
 
         await fs.writeFile(

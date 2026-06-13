@@ -451,12 +451,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "존재감 넘치는 인어",
-      "count": 349
+      "cosName": "존재감 넘치는 인어",
+      "cosUsedCount": 349,
+      "charTotalCount": 879,
+      "rate": 39.7,
+      "lvl": "pretty",
+      "launchDate": "2025-03-27"
     },
     {
-      "skinName": "존재감 넘치는 바니",
-      "count": 328
+      "cosName": "존재감 넘치는 바니",
+      "cosUsedCount": 328,
+      "charTotalCount": 879,
+      "rate": 37.3,
+      "lvl": "normal",
+      "launchDate": "2025-03-27"
     }
   ]
 }

@@ -214,8 +214,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "새 학기 새 학교",
-      "count": 1
+      "cosName": "새 학기 새 학교",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-06-05"
     }
   ]
 }

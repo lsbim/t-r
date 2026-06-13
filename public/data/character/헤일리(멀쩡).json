@@ -210,8 +210,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "하늘을 가르는 매버릭",
-      "count": 6
+      "cosName": "하늘을 가르는 매버릭",
+      "cosUsedCount": 6,
+      "charTotalCount": 19,
+      "rate": 31.6,
+      "lvl": "normal",
+      "launchDate": "2026-04-09"
     }
   ]
 }

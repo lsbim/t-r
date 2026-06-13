@@ -250,8 +250,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "농장의 아르바이트생",
-      "count": 7
+      "cosName": "농장의 아르바이트생",
+      "cosUsedCount": 7,
+      "charTotalCount": 17,
+      "rate": 41.2,
+      "lvl": "normal",
+      "launchDate": "2025-05-22"
     }
   ]
 }

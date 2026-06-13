@@ -222,12 +222,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "왕관의 수여자",
-      "count": 395
+      "cosName": "왕관의 수여자",
+      "cosUsedCount": 395,
+      "charTotalCount": 834,
+      "rate": 47.4,
+      "lvl": "pretty",
+      "launchDate": "2026-03-26"
     },
     {
-      "skinName": "일일 요정 여왕",
-      "count": 293
+      "cosName": "일일 요정 여왕",
+      "cosUsedCount": 293,
+      "charTotalCount": 834,
+      "rate": 35.1,
+      "lvl": "normal",
+      "launchDate": "2026-03-26"
     }
   ]
 }

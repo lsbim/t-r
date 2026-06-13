@@ -292,8 +292,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "하루의 마무리",
-      "count": 14
+      "cosName": "하루의 마무리",
+      "cosUsedCount": 14,
+      "charTotalCount": 42,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-07-17"
     }
   ]
 }

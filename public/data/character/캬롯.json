@@ -224,8 +224,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "순박한 사교 파티",
-      "count": 3
+      "cosName": "순박한 사교 파티",
+      "cosUsedCount": 3,
+      "charTotalCount": 3,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
     }
   ]
 }

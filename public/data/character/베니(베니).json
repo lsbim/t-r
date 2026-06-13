@@ -213,8 +213,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "검도부 대련 일지",
-      "count": 2
+      "cosName": "검도부 대련 일지",
+      "cosUsedCount": 2,
+      "charTotalCount": 3,
+      "rate": 66.7,
+      "lvl": "normal",
+      "launchDate": "2025-11-20"
     }
   ]
 }

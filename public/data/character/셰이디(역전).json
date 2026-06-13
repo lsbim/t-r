@@ -200,8 +200,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "유령 수장의 이중생활",
-      "count": 6
+      "cosName": "유령 수장의 이중생활",
+      "cosUsedCount": 6,
+      "charTotalCount": 7,
+      "rate": 85.7,
+      "lvl": "normal",
+      "launchDate": "2026-01-15"
     }
   ]
 }

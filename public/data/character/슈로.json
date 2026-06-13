@@ -262,12 +262,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "병약 미소뱀",
-      "count": 89
+      "cosName": "병약 미소뱀",
+      "cosUsedCount": 89,
+      "charTotalCount": 141,
+      "rate": 63.1,
+      "lvl": "pretty",
+      "launchDate": "2025-04-17"
     },
     {
-      "skinName": "하늘하늘 슬리퍼",
-      "count": 30
+      "cosName": "하늘하늘 슬리퍼",
+      "cosUsedCount": 30,
+      "charTotalCount": 141,
+      "rate": 21.3,
+      "lvl": "normal",
+      "launchDate": "2025-02-27"
     }
   ]
 }

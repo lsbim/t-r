@@ -211,8 +211,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "내 꿈은 야광 공룡",
-      "count": 6
+      "cosName": "내 꿈은 야광 공룡",
+      "cosUsedCount": 6,
+      "charTotalCount": 8,
+      "rate": 75,
+      "lvl": "normal",
+      "launchDate": "2026-03-12"
     }
   ]
 }

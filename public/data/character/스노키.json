@@ -257,12 +257,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "와일드 파티 비기너",
-      "count": 108
+      "cosName": "와일드 파티 비기너",
+      "cosUsedCount": 108,
+      "charTotalCount": 193,
+      "rate": 56,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
     },
     {
-      "skinName": "쇼핑 파탈 갱스터",
-      "count": 12
+      "cosName": "쇼핑 파탈 갱스터",
+      "cosUsedCount": 12,
+      "charTotalCount": 193,
+      "rate": 6.2,
+      "lvl": "normal",
+      "launchDate": "2025-08-07"
     }
   ]
 }

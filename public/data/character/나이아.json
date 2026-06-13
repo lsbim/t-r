@@ -293,12 +293,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "템포 업! 응원 루키!",
-      "count": 5
+      "cosName": "템포 업! 응원 루키!",
+      "cosUsedCount": 5,
+      "charTotalCount": 12,
+      "rate": 41.7,
+      "lvl": "normal",
+      "launchDate": "2026-03-05"
     },
     {
-      "skinName": "깡총 물장난",
-      "count": 2
+      "cosName": "깡총 물장난",
+      "cosUsedCount": 2,
+      "charTotalCount": 12,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-05-29"
     }
   ]
 }

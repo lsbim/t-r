@@ -324,12 +324,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "마음속의 은하수",
-      "count": 10
+      "cosName": "마음속의 은하수",
+      "cosUsedCount": 10,
+      "charTotalCount": 20,
+      "rate": 50,
+      "lvl": "pretty",
+      "launchDate": "2025-03-13"
     },
     {
-      "skinName": "옵시디언 메이든",
-      "count": 9
+      "cosName": "옵시디언 메이든",
+      "cosUsedCount": 9,
+      "charTotalCount": 20,
+      "rate": 45,
+      "lvl": "normal",
+      "launchDate": "2026-02-05"
     }
   ]
 }

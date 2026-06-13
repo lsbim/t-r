@@ -211,8 +211,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "차원이 다른 문학소녀",
-      "count": 46
+      "cosName": "차원이 다른 문학소녀",
+      "cosUsedCount": 46,
+      "charTotalCount": 201,
+      "rate": 22.9,
+      "lvl": "normal",
+      "launchDate": "2026-02-12"
     }
   ]
 }

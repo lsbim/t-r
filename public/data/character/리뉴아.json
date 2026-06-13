@@ -539,12 +539,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "여신 강림",
-      "count": 248
+      "cosName": "여신 강림",
+      "cosUsedCount": 248,
+      "charTotalCount": 571,
+      "rate": 43.4,
+      "lvl": "pretty",
+      "launchDate": "2025-02-20"
     },
     {
-      "skinName": "여유로운 시간",
-      "count": 208
+      "cosName": "여유로운 시간",
+      "cosUsedCount": 208,
+      "charTotalCount": 571,
+      "rate": 36.4,
+      "lvl": "normal",
+      "launchDate": "2025-02-20"
     }
   ]
 }

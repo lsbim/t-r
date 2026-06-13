@@ -219,8 +219,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "대지의 대마법사",
-      "count": 2
+      "cosName": "대지의 대마법사",
+      "cosUsedCount": 2,
+      "charTotalCount": 2,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-10-30"
     }
   ]
 }

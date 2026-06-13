@@ -266,8 +266,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "고딕 피크닉",
-      "count": 6
+      "cosName": "고딕 피크닉",
+      "cosUsedCount": 6,
+      "charTotalCount": 10,
+      "rate": 60,
+      "lvl": "normal",
+      "launchDate": "2024-07-11"
     }
   ]
 }

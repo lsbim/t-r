@@ -232,12 +232,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "꼬끼옷 메이드",
-      "count": 6
+      "cosName": "꼬끼옷 메이드",
+      "cosUsedCount": 6,
+      "charTotalCount": 10,
+      "rate": 60,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
     },
     {
-      "skinName": "부스스한 아침",
-      "count": 1
+      "cosName": "부스스한 아침",
+      "cosUsedCount": 1,
+      "charTotalCount": 10,
+      "rate": 10,
+      "lvl": "normal",
+      "launchDate": "2025-03-06"
     }
   ]
 }

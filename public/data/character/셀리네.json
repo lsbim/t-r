@@ -202,12 +202,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "고품격 파트너",
-      "count": 5
+      "cosName": "고품격 파트너",
+      "cosUsedCount": 5,
+      "charTotalCount": 9,
+      "rate": 55.6,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
     },
     {
-      "skinName": "무미호의 전설",
-      "count": 1
+      "cosName": "무미호의 전설",
+      "cosUsedCount": 1,
+      "charTotalCount": 9,
+      "rate": 11.1,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
     }
   ]
 }

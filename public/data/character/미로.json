@@ -238,12 +238,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "검은 머리의 대마법사",
-      "count": 4
+      "cosName": "검은 머리의 대마법사",
+      "cosUsedCount": 4,
+      "charTotalCount": 7,
+      "rate": 57.1,
+      "lvl": "normal",
+      "launchDate": "2026-04-02"
     },
     {
-      "skinName": "수면에 비친 동심",
-      "count": 2
+      "cosName": "수면에 비친 동심",
+      "cosUsedCount": 2,
+      "charTotalCount": 7,
+      "rate": 28.6,
+      "lvl": "normal",
+      "launchDate": "2025-10-23"
     }
   ]
 }

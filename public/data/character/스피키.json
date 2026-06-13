@@ -204,8 +204,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "퓨어 펌킨",
-      "count": 4
+      "cosName": "퓨어 펌킨",
+      "cosUsedCount": 4,
+      "charTotalCount": 4,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-08-28"
     }
   ]
 }

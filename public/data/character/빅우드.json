@@ -210,8 +210,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "메이드 인 빅토리안",
-      "count": 1
+      "cosName": "메이드 인 빅토리안",
+      "cosUsedCount": 1,
+      "charTotalCount": 1,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2024-07-11"
     }
   ]
 }

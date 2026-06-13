@@ -330,16 +330,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "교단 행동대장",
-      "count": 42
+      "cosName": "교단 행동대장",
+      "cosUsedCount": 42,
+      "charTotalCount": 63,
+      "rate": 66.7,
+      "lvl": "pretty",
+      "launchDate": "2025-01-02"
     },
     {
-      "skinName": "메이드 바이 메이드",
-      "count": 8
+      "cosName": "메이드 바이 메이드",
+      "cosUsedCount": 8,
+      "charTotalCount": 63,
+      "rate": 12.7,
+      "lvl": "normal",
+      "launchDate": "2025-01-02"
     },
     {
-      "skinName": "백사당의 무녀",
-      "count": 4
+      "cosName": "백사당의 무녀",
+      "cosUsedCount": 4,
+      "charTotalCount": 63,
+      "rate": 6.3,
+      "lvl": "pretty",
+      "launchDate": "2026-05-14"
     }
   ]
 }

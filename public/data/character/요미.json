@@ -303,12 +303,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "마법의 달빛",
-      "count": 116
+      "cosName": "마법의 달빛",
+      "cosUsedCount": 116,
+      "charTotalCount": 239,
+      "rate": 48.5,
+      "lvl": "pretty",
+      "launchDate": "2026-01-01"
     },
     {
-      "skinName": "밤바다 선원",
-      "count": 36
+      "cosName": "밤바다 선원",
+      "cosUsedCount": 36,
+      "charTotalCount": 239,
+      "rate": 15.1,
+      "lvl": "normal",
+      "launchDate": "2026-01-01"
     }
   ]
 }

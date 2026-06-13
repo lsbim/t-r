@@ -219,12 +219,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "덜 팔팔해진 오팔",
-      "count": 2
+      "cosName": "덜 팔팔해진 오팔",
+      "cosUsedCount": 2,
+      "charTotalCount": 4,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2025-02-06"
     },
     {
-      "skinName": "완전 팔팔해진 오팔",
-      "count": 2
+      "cosName": "완전 팔팔해진 오팔",
+      "cosUsedCount": 2,
+      "charTotalCount": 4,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
     }
   ]
 }

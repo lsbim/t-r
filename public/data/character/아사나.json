@@ -238,8 +238,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "따끔한 간호의 자세",
-      "count": 26
+      "cosName": "따끔한 간호의 자세",
+      "cosUsedCount": 26,
+      "charTotalCount": 95,
+      "rate": 27.4,
+      "lvl": "normal",
+      "launchDate": "2025-11-06"
     }
   ]
 }

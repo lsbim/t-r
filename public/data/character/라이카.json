@@ -238,12 +238,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "코스탈 라이트닝",
-      "count": 14
+      "cosName": "코스탈 라이트닝",
+      "cosUsedCount": 14,
+      "charTotalCount": 25,
+      "rate": 56,
+      "lvl": "normal",
+      "launchDate": "2025-08-21"
     },
     {
-      "skinName": "라이트닝 강속구",
-      "count": 2
+      "cosName": "라이트닝 강속구",
+      "cosUsedCount": 2,
+      "charTotalCount": 25,
+      "rate": 8,
+      "lvl": "normal",
+      "launchDate": "2025-03-13"
     }
   ]
 }

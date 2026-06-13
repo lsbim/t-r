@@ -494,16 +494,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "칠흑의 다크 스완",
-      "count": 252
+      "cosName": "칠흑의 다크 스완",
+      "cosUsedCount": 252,
+      "charTotalCount": 471,
+      "rate": 53.5,
+      "lvl": "pretty",
+      "launchDate": "2026-01-22"
     },
     {
-      "skinName": "스며드는 잿빛 장막",
-      "count": 87
+      "cosName": "스며드는 잿빛 장막",
+      "cosUsedCount": 87,
+      "charTotalCount": 471,
+      "rate": 18.5,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
     },
     {
-      "skinName": "풀하트 매직",
-      "count": 80
+      "cosName": "풀하트 매직",
+      "cosUsedCount": 80,
+      "charTotalCount": 471,
+      "rate": 17,
+      "lvl": "pretty",
+      "launchDate": "2025-04-03"
     }
   ]
 }

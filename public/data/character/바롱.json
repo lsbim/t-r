@@ -220,12 +220,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "바캉스의 왕",
-      "count": 4
+      "cosName": "바캉스의 왕",
+      "cosUsedCount": 4,
+      "charTotalCount": 5,
+      "rate": 80,
+      "lvl": "normal",
+      "launchDate": "2025-08-21"
     },
     {
-      "skinName": "콩콩 점프의 왕",
-      "count": 1
+      "cosName": "콩콩 점프의 왕",
+      "cosUsedCount": 1,
+      "charTotalCount": 5,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2025-05-15"
     }
   ]
 }

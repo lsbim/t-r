@@ -291,12 +291,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "기내식 준비 완료",
-      "count": 406
+      "cosName": "기내식 준비 완료",
+      "cosUsedCount": 406,
+      "charTotalCount": 880,
+      "rate": 46.1,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
     },
     {
-      "skinName": "사교계의 악역 영애",
-      "count": 168
+      "cosName": "사교계의 악역 영애",
+      "cosUsedCount": 168,
+      "charTotalCount": 880,
+      "rate": 19.1,
+      "lvl": "normal",
+      "launchDate": "2025-04-24"
     }
   ]
 }

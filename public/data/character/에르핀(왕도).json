@@ -274,12 +274,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "왕관의 주인공",
-      "count": 393
+      "cosName": "왕관의 주인공",
+      "cosUsedCount": 393,
+      "charTotalCount": 758,
+      "rate": 51.8,
+      "lvl": "pretty",
+      "launchDate": "2026-03-28"
     },
     {
-      "skinName": "일일 사제장 네르핀",
-      "count": 197
+      "cosName": "일일 사제장 네르핀",
+      "cosUsedCount": 197,
+      "charTotalCount": 758,
+      "rate": 26,
+      "lvl": "normal",
+      "launchDate": "2026-03-28"
     }
   ]
 }

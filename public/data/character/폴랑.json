@@ -244,16 +244,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "승리는 당신을 위해",
-      "count": 37
+      "cosName": "승리는 당신을 위해",
+      "cosUsedCount": 37,
+      "charTotalCount": 69,
+      "rate": 53.6,
+      "lvl": "pretty",
+      "launchDate": "2025-06-12"
     },
     {
-      "skinName": "나들이 가는 날",
-      "count": 14
+      "cosName": "나들이 가는 날",
+      "cosUsedCount": 14,
+      "charTotalCount": 69,
+      "rate": 20.3,
+      "lvl": "normal",
+      "launchDate": "2025-04-17"
     },
     {
-      "skinName": "창공의 오퍼레이터",
-      "count": 12
+      "cosName": "창공의 오퍼레이터",
+      "cosUsedCount": 12,
+      "charTotalCount": 69,
+      "rate": 17.4,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
     }
   ]
 }

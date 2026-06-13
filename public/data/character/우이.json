@@ -406,16 +406,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "맑은 기도의 빗방울",
-      "count": 220
+      "cosName": "맑은 기도의 빗방울",
+      "cosUsedCount": 220,
+      "charTotalCount": 460,
+      "rate": 47.8,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
     },
     {
-      "skinName": "행복한 어린 왕녀",
-      "count": 144
+      "cosName": "행복한 어린 왕녀",
+      "cosUsedCount": 144,
+      "charTotalCount": 460,
+      "rate": 31.3,
+      "lvl": "pretty",
+      "launchDate": "2025-08-28"
     },
     {
-      "skinName": "동심의 햇살",
-      "count": 35
+      "cosName": "동심의 햇살",
+      "cosUsedCount": 35,
+      "charTotalCount": 460,
+      "rate": 7.6,
+      "lvl": "normal",
+      "launchDate": "2024-08-22"
     }
   ]
 }

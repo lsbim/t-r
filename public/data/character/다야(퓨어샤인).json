@@ -211,8 +211,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "샤이닝 바니",
-      "count": 2
+      "cosName": "샤이닝 바니",
+      "cosUsedCount": 2,
+      "charTotalCount": 6,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2026-01-29"
     }
   ]
 }

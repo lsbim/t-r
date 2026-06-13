@@ -280,12 +280,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "카우치 볼케이노",
-      "count": 165
+      "cosName": "카우치 볼케이노",
+      "cosUsedCount": 165,
+      "charTotalCount": 627,
+      "rate": 26.3,
+      "lvl": "normal",
+      "launchDate": "2025-12-18"
     },
     {
-      "skinName": "버닝 다운 빌런",
-      "count": 97
+      "cosName": "버닝 다운 빌런",
+      "cosUsedCount": 97,
+      "charTotalCount": 627,
+      "rate": 15.5,
+      "lvl": "normal",
+      "launchDate": "2026-05-28"
     }
   ]
 }

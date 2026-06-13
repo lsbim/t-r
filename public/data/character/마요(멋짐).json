@@ -232,12 +232,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "계속될 수집을 위해",
-      "count": 25
+      "cosName": "계속될 수집을 위해",
+      "cosUsedCount": 25,
+      "charTotalCount": 36,
+      "rate": 69.4,
+      "lvl": "pretty",
+      "launchDate": "2025-07-10"
     },
     {
-      "skinName": "마리너 호의 선장",
-      "count": 2
+      "cosName": "마리너 호의 선장",
+      "cosUsedCount": 2,
+      "charTotalCount": 36,
+      "rate": 5.6,
+      "lvl": "normal",
+      "launchDate": "2025-05-08"
     }
   ]
 }

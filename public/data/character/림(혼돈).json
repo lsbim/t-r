@@ -249,16 +249,28 @@
   },
   "recentSkins": [
     {
-      "skinName": "유령 늪의 인기쟁이",
-      "count": 3
+      "cosName": "유령 늪의 인기쟁이",
+      "cosUsedCount": 3,
+      "charTotalCount": 6,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2026-04-02"
     },
     {
-      "skinName": "연회루 혼돈 마담",
-      "count": 2
+      "cosName": "연회루 혼돈 마담",
+      "cosUsedCount": 2,
+      "charTotalCount": 6,
+      "rate": 33.3,
+      "lvl": "pretty",
+      "launchDate": "2025-10-30"
     },
     {
-      "skinName": "야시장의 습격자",
-      "count": 1
+      "cosName": "야시장의 습격자",
+      "cosUsedCount": 1,
+      "charTotalCount": 6,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-07-24"
     }
   ]
 }

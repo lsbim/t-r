@@ -214,8 +214,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "평온한 온천 여행",
-      "count": 1
+      "cosName": "평온한 온천 여행",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     }
   ]
 }

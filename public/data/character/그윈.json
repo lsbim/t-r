@@ -207,8 +207,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "설국의 노천탕",
-      "count": 2
+      "cosName": "설국의 노천탕",
+      "cosUsedCount": 2,
+      "charTotalCount": 2,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     }
   ]
 }

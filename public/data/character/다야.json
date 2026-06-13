@@ -265,8 +265,12 @@
   },
   "recentSkins": [
     {
-      "skinName": "빛나는 짙은 밤",
-      "count": 2
+      "cosName": "빛나는 짙은 밤",
+      "cosUsedCount": 2,
+      "charTotalCount": 2,
+      "rate": 100,
+      "lvl": "pretty",
+      "launchDate": "2025-11-27"
     }
   ]
 }

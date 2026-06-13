@@ -208,12 +208,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "사료반 반장",
-      "count": 2
+      "cosName": "사료반 반장",
+      "cosUsedCount": 2,
+      "charTotalCount": 3,
+      "rate": 66.7,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
     },
     {
-      "skinName": "포근포근 나들이",
-      "count": 1
+      "cosName": "포근포근 나들이",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-04-17"
     }
   ]
 }

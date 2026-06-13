@@ -207,12 +207,20 @@
   },
   "recentSkins": [
     {
-      "skinName": "스윙 앤 치어",
-      "count": 3
+      "cosName": "스윙 앤 치어",
+      "cosUsedCount": 3,
+      "charTotalCount": 4,
+      "rate": 75,
+      "lvl": "normal",
+      "launchDate": "2026-03-05"
     },
     {
-      "skinName": "스탑 사인 폴리스",
-      "count": 1
+      "cosName": "스탑 사인 폴리스",
+      "cosUsedCount": 1,
+      "charTotalCount": 4,
+      "rate": 25,
+      "lvl": "normal",
+      "launchDate": "2024-09-05"
     }
   ]
 }
