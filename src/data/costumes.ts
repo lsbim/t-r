@@ -107,6 +107,7 @@ export const costumes: Costume[] = [
     { charName: "아라그니아", cosName: "푸른 바다의 전학생", lvl: "normal", launchDate: "2026-04-23" },
     { charName: "리코타", cosName: "기내식 준비 완료", lvl: "normal", launchDate: "2026-04-30" },
     { charName: "베니(베니)", cosName: "포레스트 빌런 베어", lvl: "normal", launchDate: "2026-05-28" },
+    { charName: "아야", cosName: "겨울의 마녀", lvl: "pretty", launchDate: "2026-06-11" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
