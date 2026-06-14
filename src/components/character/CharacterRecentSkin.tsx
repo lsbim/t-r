@@ -7,17 +7,17 @@ const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[
     const boardText = ['사용 횟수', '사용률', '출시일'];
 
     return (
-        <div className="flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4">
+        <div className="flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 pb-0">
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">사복 통계</span>
                 <span className="text-[12px] dark:text-zinc-400 text-gray-600">
                     컨텐츠 별 3개 시즌의 사복 통계를 제공합니다.
                 </span>
             </div>
-            <div className="mx-auto flex lg:flex-col flex-row justify-center w-full lg:gap-y-5 gap-x-4">
+            <div className="mx-auto flex lg:flex-col flex-row w-full lg:gap-y-5 gap-x-4 p-4 overflow-x-auto lg:overflow-x-hidden">
                 {recentSkin.length > 0 ? recentSkin.map((cos: RecentSkin, i) => (
                     <div
-                        className={`${rankBorderShadow(i)} border-2 flex flex-col lg:w-full w-[30%]`}
+                        className={`${rankBorderShadow(i)} border-2 flex flex-col lg:w-full w-[30%] min-w-[240px]`}
                         key={`recent_skin_rank_${cos.cosName}`}>
                         <div
                             className={`w-full ${rankBorderShadow(i)} border-2`}>
