@@ -84,7 +84,7 @@ const IndexPage = () => {
             <SEO />
             <HeaderNav />
             {/* 레이드 카드 */}
-            <div className="sm:w-[600px] w-full mx-auto flex gap-x-2 mt-24">
+            <div className="md:w-[768px] w-full mx-auto flex gap-x-2 mt-28">
                 {Object.entries(latest).map(([key, value]) => {
 
                     return (

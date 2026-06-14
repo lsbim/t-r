@@ -40,17 +40,19 @@ const RaidCard = ({ data, raidType, rounded }: {
             // 서브픽셀 문제는 will-change-transform 도입으로 해결
             className={`w-full flex flex-col rounded-lg will-change-transform ${borderColor} bg-white dark:bg-zinc-900 hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] dark:shadow-zinc-900 duration-200`}>
             <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
-                <span className="mb-2 xs:inline hidden text-[15px]">
+                <span className="mb-2 xs:inline hidden text-[18px]">
                     {krName}
                 </span>
                 <span className="mb-2 xs:hidden inline text-[15px]">
                     {krShortName}
                 </span>
-                <div className="mt-1 flex sm:flex-row flex-col gap-x-1 items-center justify-center text-[12px]">
-                    <span className="text-[11px]">
+                <div className="mt-1 flex sm:flex-row flex-col gap-x-1 items-center justify-center">
+                    <span className="text-[12px]">
                         {Number(data.seasonNumber) >= 10000 ? `베타 시즌${Number(data.seasonNumber) - 10000}` : `시즌${data.seasonNumber}`}
                     </span>
-                    <span className="">{data.name}</span>
+                    <span className=" text-[11px]">
+                        {data.name}
+                    </span>
                 </div>
             </div>
             <div className="relative min-h-[30px] overflow-hidden">
