@@ -24,7 +24,7 @@ const IndexComponent = ({ latest }: { latest: LatestData }) => {
                     </div>
                 </div>
             </div>
-            <div className="sm:w-[600px] w-full mx-auto p-4">
+            <div className="sm:w-[600px] w-full mx-auto">
                 <div className="mx-auto flex gap-x-1">
                     {Object.entries(latest).map(([key, value]) => {
 

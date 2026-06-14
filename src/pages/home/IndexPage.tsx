@@ -80,7 +80,7 @@ const IndexPage = () => {
     ] as const;
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
+        <div className="flex flex-col justify-center gap-6 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
             <SEO />
             <HeaderNav />
             <IndexComponent
@@ -91,9 +91,18 @@ const IndexPage = () => {
             {/* 타임라인 */}
             <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 rounded-xl border border-zinc-300 overflow-x-auto">
                 <div className="flex mx-auto w-full">
-                    <div className="flex flex-col gap-y-2">
-                        <div className="flex items-center gap-x-2">
-                            <span className="font-bold pb-[2px] dark:text-zinc-200">
+                    <div className="flex flex-col gap-y-2 font-bold dark:text-zinc-200">
+                        <div className="mb-2">
+                            <p className="text-[16px]">
+                                사도 출시 타임라인
+                            </p>
+                            <p className="text-[12px] dark:text-zinc-400 text-gray-600 font-normal">
+                                카테고리별 최근 3인의 사도 출시 타임라인을 제공합니다.
+                            </p>
+                        </div>
+                        <div
+                            className="flex items-center gap-x-2">
+                            <span className="pb-[2px] text-[14px]">
                                 엘다인
                             </span>
                             <ToggleSwitch
