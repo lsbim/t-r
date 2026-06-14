@@ -103,8 +103,8 @@ const IndexPage = () => {
             <CharacterSearchList
             />
             {/* 사도 출시 타임라인 */}
-            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 rounded-xl border border-zinc-300 overflow-x-auto">
-                <div className="flex mx-auto w-full">
+            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 overflow-x-hidden">
+                <div className="flex mx-auto w-full p-4 pb-0">
                     <div className="flex flex-col gap-y-2 font-bold dark:text-zinc-200">
                         <div className="mb-2">
                             <p className="text-[16px]">
