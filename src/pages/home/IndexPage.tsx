@@ -1,19 +1,19 @@
 import { useMemo, useState } from "react";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
+import RaidCard from "../../commons/card/RaidCard";
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import ToggleSwitch from "../../commons/component/ToggleSwitch";
 import CharacterSearchList from "../../components/character/CharacterSearchList";
-import IndexComponent from "../../components/home/IndexComponent";
 import NoticeComponent from "../../components/home/NoticeComponent";
 import BirthTimeline from "../../components/timeline/chara/BirthTimeline";
+import { charInfo } from "../../data/trickcalChar";
 import { useNonData } from "../../hooks/useNonData";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { LatestData } from "../../types/latestTypes";
 import { Personality, Race, races } from "../../types/trickcalTypes";
-import { charInfo } from "../../data/trickcalChar";
 
 const IndexPage = () => {
 
@@ -83,12 +83,26 @@ const IndexPage = () => {
         <div className="flex flex-col justify-center gap-6 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
             <SEO />
             <HeaderNav />
-            <IndexComponent
-                latest={latest}
-            />
+            {/* 레이드 카드 */}
+            <div className="sm:w-[600px] w-full mx-auto flex gap-x-2 mt-24">
+                {Object.entries(latest).map(([key, value]) => {
+
+                    return (
+                        <div
+                            key={`raid_card_${key}`}
+                            className="w-[33%]">
+                            <RaidCard
+                                data={value}
+                                raidType={key as 'clash' | 'clashV2' | 'frontier'}
+                            />
+                        </div>
+                    )
+                })}
+            </div>
+            {/* 사도 목록 */}
             <CharacterSearchList
             />
-            {/* 타임라인 */}
+            {/* 사도 출시 타임라인 */}
             <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-6 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 rounded-xl border border-zinc-300 overflow-x-auto">
                 <div className="flex mx-auto w-full">
                     <div className="flex flex-col gap-y-2 font-bold dark:text-zinc-200">
@@ -119,6 +133,7 @@ const IndexPage = () => {
                 </div>
                 <BirthTimeline charaMap={charaMap} />
             </div>
+            {/* 공지 */}
             <NoticeComponent
                 data={data}
             />
