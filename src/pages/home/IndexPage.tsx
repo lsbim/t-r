@@ -79,6 +79,9 @@ const IndexPage = () => {
         { id: 'pers', label: '성격정렬' },
     ] as const;
 
+    const mostLatestKey = Object.entries(latest)
+        .sort(([, a], [, b]) => b.startDate.localeCompare(a.startDate))[0][0];
+
     return (
         <div className="flex flex-col justify-center gap-6 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
             <SEO />
@@ -90,11 +93,16 @@ const IndexPage = () => {
                     return (
                         <div
                             key={`raid_card_${key}`}
-                            className="w-[33%]">
+                            className="w-[33%] relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
                             <RaidCard
                                 data={value}
                                 raidType={key as 'clash' | 'clashV2' | 'frontier'}
                             />
+                            {key === mostLatestKey && (
+                                <div className="absolute top-[-20px] left-0 py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
+                                    NEW
+                                </div>
+                            )}
                         </div>
                     )
                 })}
