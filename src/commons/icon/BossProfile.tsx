@@ -13,7 +13,7 @@ const BossProfile: React.FC<BossProfileProps> = ({
 }) => {
 
     const bossImgUrl = personality ? `/images/boss/${name}(${personality}).webp`
-        : `/images/boss/${name}.webp`
+        : `/images/boss/bg_${name}.webp`
 
     const customTranslateY = personality && name !== '냥만 타워' ? '-translate-y-[25%]'
         : name === '크레용사용' ? '-translate-y-[40%]'

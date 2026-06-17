@@ -1,5 +1,5 @@
-import { charInfo } from "../data/trickcalChar";
-import { Race } from "../types/trickcalTypes";
+import { CharAttackType, charInfo, CharRole } from "../data/trickcalChar";
+import { AllLine, Race } from "../types/trickcalTypes";
 
 
 
@@ -45,6 +45,8 @@ export function translateRaid(name: string) {
     switch (name) {
         case "clash":
             return '차원 대충돌';
+            case "clashV2":
+            return '차원 대충돌 2.0';
         case "frontier":
             return '엘리아스 프론티어';
     }
@@ -86,6 +88,43 @@ export function translateRaces(race: Race) {
             return 'mystic';
     }
 }
+
+export function translateLine(line: AllLine) {
+    switch (line) {
+        case '전열':
+            return 'front';
+        case '중열':
+            return 'middle';
+        case '후열':
+            return 'back';
+        case '모든열':
+            return 'all';
+    }
+}
+
+
+export function translateRole(role: CharRole) {
+    switch (role) {
+        case '딜러':
+            return 'dps';
+        case '서포터':
+            return 'supporter';
+        case '탱커':
+            return 'tanker';
+    }
+}
+
+export function translateAttackType(type: CharAttackType) {
+    switch (type) {
+        case '마법':
+            return 'magic';
+        case '물리':
+            return 'physical';
+    }
+}
+
+
+
 
 export function preload(src: string): Promise<void> {
     return new Promise((resolve) => {

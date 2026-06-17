@@ -16,7 +16,7 @@ const ErrorPage = () => {
 
         if (error.status === 404) {
             errorTitle += " 404";
-            errorMsg = "페이지를 찾을 수 없습니다."
+            errorMsg = error.data || "페이지를 찾을 수 없습니다.";
             errorData = ""
         } else {
             errorTitle + " " + error.status;
@@ -28,7 +28,11 @@ const ErrorPage = () => {
             <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]">
                 <SEO />
                 <HeaderNav />
-                <div className=" flex items-center justify-center flex-col mt-16">
+                <div className=" flex items-center justify-center flex-col mt-24">
+                    <img
+                        src={`/images/action/yc_sad.webp`}
+                        className="aspect-square object-center w-[100px] grayscale"
+                    />
                     <span className="text-[48px] font-bold text-gray-400 dark:text-zinc-200">
                         {errorTitle}
                     </span>
@@ -53,7 +57,11 @@ const ErrorPage = () => {
         <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]">
             <SEO />
             <HeaderNav />
-            <div className=" flex items-center justify-center flex-col mt-16">
+            <div className=" flex items-center justify-center flex-col mt-24">
+                <img
+                    src={`/images/action/yc_sad.webp`}
+                    className="aspect-square object-center w-[100px] grayscale"
+                />
                 <span className="text-[48px] font-bold text-gray-400 dark:text-zinc-200">
                     ERROR
                 </span>

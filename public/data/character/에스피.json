@@ -1,0 +1,277 @@
+{
+  "birthdate": "2023-09-27",
+  "line": "후열",
+  "personality": "냉정",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 34,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-06-12",
+        "endDate": "2025-06-19",
+        "pickCount": 60,
+        "pickRate": 60,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 5,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2024-11-28",
+        "endDate": "2024-12-05",
+        "pickCount": 91,
+        "pickRate": 10.1,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 4,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2024-10-17",
+        "endDate": "2024-10-24",
+        "pickCount": 95,
+        "pickRate": 10.6,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "clashV2": []
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "personality": "우울",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "personality": "냉정",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 25,
+        "pickRate": 8.3,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 8,
+            "count": 25
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 39,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 13,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 49,
+        "pickRate": 16.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 49
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 9
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.3
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "personality": "순수",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.3
+      },
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 7,
+        "pickRate": 2.3,
+        "overallRank": 32,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 11,
+            "count": 7
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 7
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "cosName": "고딕 피크닉",
+      "cosUsedCount": 6,
+      "charTotalCount": 10,
+      "rate": 60,
+      "lvl": "normal",
+      "launchDate": "2024-07-11"
+    }
+  ]
+}

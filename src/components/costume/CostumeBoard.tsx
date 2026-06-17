@@ -231,9 +231,9 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
 
             {/* 검색 */}
             <div className="w-full mt-2 mb-3 flex items-center justify-center">
-                <div className="relative">
+                <div className="relative dark:text-zinc-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                        className="size-3 text-gray-600 absolute pointer-events-none left-2 top-[9px]">
+                        className="size-3 text-gray-600 absolute pointer-events-none left-2 top-[9px] dark:text-zinc-200">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
                     <input
@@ -244,7 +244,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
                             setSearch(e.target.value);
                             setCurrentPage(1);
                         }}
-                        className="text-[13px] transition-[border] duration-250 focus:outline-none focus:border-orange-500 border border-gray-400 rounded-lg py-1 pl-6"
+                        className="text-[12px] transition-[border] duration-250 border-zinc-950 dark:bg-zinc-700 focus:outline-none focus:border-orange-500 border rounded-sm py-1 pl-6"
                     />
                 </div>
             </div>

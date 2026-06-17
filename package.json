@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "node scripts/build-season-summaries.js && node scripts/build-latest-summaries.js && vite build",
+    "build": "node scripts/build-season-summaries.js && node scripts/build-latest-summaries.js && node scripts/build-character-info.js && vite build",
     "serve": "vite preview"
   },
   "eslintConfig": {

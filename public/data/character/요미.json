@@ -1,0 +1,322 @@
+{
+  "birthdate": "2026-01-01",
+  "line": "중열",
+  "personality": "우울",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 286,
+        "pickRate": 95.3,
+        "isOverall": false,
+        "line": "중열"
+      }
+    ],
+    "frontier": [],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 191,
+        "pickRate": 63.7,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 204,
+        "pickRate": 68,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      }
+    ]
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "personality": "우울",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "personality": "냉정",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 19,
+        "pickRate": 6.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 6,
+            "count": 19
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 87,
+        "pickRate": 29,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 87
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 286,
+        "pickRate": 95.3,
+        "overallRank": 2,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 286
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 44,
+        "pickRate": 14.7,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 44
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 164,
+        "pickRate": 54.7,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 164
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 276,
+        "pickRate": 92,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 276
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 17,
+        "pickRate": 5.7,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 17
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 28,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 10,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 63.7
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 17,
+        "pickRate": 5.7,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 6,
+            "count": 17
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 68
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "personality": "순수",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 40,
+        "pickRate": 13.3,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 40
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 64.7
+      },
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "cosName": "마법의 달빛",
+      "cosUsedCount": 116,
+      "charTotalCount": 239,
+      "rate": 48.5,
+      "lvl": "pretty",
+      "launchDate": "2026-01-01"
+    },
+    {
+      "cosName": "밤바다 선원",
+      "cosUsedCount": 36,
+      "charTotalCount": 239,
+      "rate": 15.1,
+      "lvl": "normal",
+      "launchDate": "2026-01-01"
+    }
+  ]
+}

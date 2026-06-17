@@ -1,0 +1,257 @@
+{
+  "birthdate": "2024-02-22",
+  "line": "후열",
+  "personality": "냉정",
+  "topSeasons": {
+    "clash": [
+      {
+        "seasonNumber": 16,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2024-06-06",
+        "endDate": "2024-06-13",
+        "pickCount": 74,
+        "pickRate": 8.2,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "frontier": [],
+    "clashV2": []
+  },
+  "recentStats": {
+    "clash": [
+      {
+        "seasonNumber": 45,
+        "name": "크르브르스",
+        "personality": "우울",
+        "startDate": "2026-05-14",
+        "endDate": "2026-05-21",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 44,
+        "name": "크레용사용",
+        "personality": "냉정",
+        "startDate": "2026-04-02",
+        "endDate": "2026-04-09",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 15,
+        "pickRate": 5,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 11,
+            "count": 15
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 39,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 14,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      }
+    ],
+    "frontier": [
+      {
+        "seasonNumber": 18,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-05-28",
+        "endDate": "2026-06-04",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 17,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-04-16",
+        "endDate": "2026-04-23",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
+    ],
+    "clashV2": [
+      {
+        "seasonNumber": 10005,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-04-30",
+        "endDate": "2026-05-07",
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 24,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 10,
+            "count": 6
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 2.7
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 12.3
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "personality": "순수",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 14.7
+      },
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 16.3
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 50,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 18,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 18.7
+      }
+    ]
+  },
+  "recentSkins": [
+    {
+      "cosName": "트윙클 스윗 리본",
+      "cosUsedCount": 13,
+      "charTotalCount": 14,
+      "rate": 92.9,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
+    },
+    {
+      "cosName": "천재 영재 마녀",
+      "cosUsedCount": 1,
+      "charTotalCount": 14,
+      "rate": 7.1,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
+    }
+  ]
+}
