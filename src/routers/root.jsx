@@ -131,7 +131,7 @@ const router = createBrowserRouter([
                         path: ":charName",
                         loader: ({ params }) => {
                             const { charName } = params;
-                            if (!charName || !charInfo[charName]) {
+                            if (!charName || !charInfo[charName] || charName.startsWith('우로스(')) {
                                 throw new Response('해당 사도를 찾을 수 없습니다.', { status: 404 });
                             }
                             return null;
