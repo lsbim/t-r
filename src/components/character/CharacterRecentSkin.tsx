@@ -22,9 +22,8 @@ const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[
                         <div
                             className={`w-full ${rankBorderShadow(i)} border-2`}>
                             {/* 사도 사복 컷 */}
-                            <div className={`overflow-hidden min-h-[30px] min-w-[216px] ${rankBG(i)}`}>
-                            </div>
-                            <div className="w-full">
+                            <div className={`overflow-hidden min-h-[30px] min-w-[216px] ${rankBG(i)}`} /> {/* 상단 두께용 */}
+                            <div className="w-full dark:text-zinc-200">
                                 <span className="font-bold block text-center mt-2 truncate">
                                     {cos.lvl === 'pretty'
                                         ? `${cos.cosName} ${charName} ★`
@@ -42,7 +41,7 @@ const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[
                                             <span className="w-[40%] text-gray-500 dark:text-zinc-400">
                                                 {t}
                                             </span>
-                                            <div className="w-[60%]">
+                                            <div className="w-[60%] dark:text-zinc-200">
                                                 {boardValue(t, cos)}
                                             </div>
                                         </div>
