@@ -43,7 +43,7 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                             ? `border-${season.personality}-dark`
                                             : 'border-[oklch(0.5_0.094_270.913)]'
 
-                                        const raidUrl = key === 'clashV2' ? `/clash/v2` : `/${key}` + `/${season.seasonNumber}`;
+                                        const raidUrl = key === 'clashV2' ? `/clash/v2/${season.seasonNumber}` : `/${key}/${season.seasonNumber}`;
 
                                         const seasonNum = season.seasonNumber > 10000 ? `B${(season.seasonNumber - 10000)}` : season.seasonNumber
 
