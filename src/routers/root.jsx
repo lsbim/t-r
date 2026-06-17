@@ -128,6 +128,10 @@ const router = createBrowserRouter([
                 element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
                 children: [
                     {
+                        index: true,
+                        element: <Navigate to="/" replace />
+                    },
+                    {
                         path: ":charName",
                         loader: ({ params }) => {
                             const { charName } = params;
