@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -189,34 +202,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 8,
-        "pickRate": 2.7,
-        "overallRank": 30,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 10,
-            "count": 8
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 2.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "오! 나의 회장님",
-      "cosUsedCount": 1,
+      "cosUsedCount": 2,
       "charTotalCount": 2,
-      "rate": 50,
+      "rate": 100,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     }

@@ -182,6 +182,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 37
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -244,50 +257,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 23
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 15,
-        "pickRate": 5,
-        "overallRank": 22,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 9,
-            "count": 15
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 40.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "오케스토리의 지휘자",
-      "cosUsedCount": 83,
-      "charTotalCount": 101,
-      "rate": 82.2,
+      "cosUsedCount": 92,
+      "charTotalCount": 111,
+      "rate": 82.9,
       "lvl": "pretty",
       "launchDate": "2026-03-19"
     },
     {
       "cosName": "화살촉에 실려 온 이야기",
-      "cosUsedCount": 7,
-      "charTotalCount": 101,
-      "rate": 6.9,
+      "cosUsedCount": 5,
+      "charTotalCount": 111,
+      "rate": 4.5,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "오직 당신만을 위한",
-      "cosUsedCount": 4,
-      "charTotalCount": 101,
-      "rate": 4,
+      "cosUsedCount": 5,
+      "charTotalCount": 111,
+      "rate": 4.5,
       "lvl": "pretty",
       "launchDate": "2024-10-03"
     }

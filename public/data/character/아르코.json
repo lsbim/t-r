@@ -158,6 +158,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -220,25 +233,6 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 10
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 11,
-        "pickRate": 3.7,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 11,
-            "count": 11
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 5.3
       }
     ]
   },
@@ -246,16 +240,16 @@
     {
       "cosName": "베이케이션 스윙",
       "cosUsedCount": 8,
-      "charTotalCount": 17,
-      "rate": 47.1,
+      "charTotalCount": 22,
+      "rate": 36.4,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "스트릿 스쿨러",
-      "cosUsedCount": 4,
-      "charTotalCount": 17,
-      "rate": 23.5,
+      "cosUsedCount": 5,
+      "charTotalCount": 22,
+      "rate": 22.7,
       "lvl": "normal",
       "launchDate": "2025-06-19"
     }

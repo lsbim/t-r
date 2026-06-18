@@ -1,4 +1,755 @@
 {
+  "10006": {
+    "personality": "활발",
+    "name": "냥만 타워",
+    "startDate": "2026-06-11",
+    "endDate": "2026-06-18",
+    "rules": [
+      "성격 상성으로 받는 피해량 50% 감소",
+      "고학년 스킬 피해량 25% 증가"
+    ],
+    "maxLvl": 24,
+    "summary": [
+      {
+        "name": "키디언",
+        "line": "전열",
+        "count": 269
+      },
+      {
+        "name": "리코타",
+        "line": "전열",
+        "count": 292
+      },
+      {
+        "name": "벨라",
+        "line": "전열",
+        "count": 300
+      },
+      {
+        "name": "키샤",
+        "line": "중열",
+        "count": 29
+      },
+      {
+        "name": "우이",
+        "line": "중열",
+        "count": 296
+      },
+      {
+        "name": "에르핀(왕도)",
+        "line": "중열",
+        "count": 298
+      },
+      {
+        "name": "오르",
+        "line": "후열",
+        "count": 8
+      },
+      {
+        "name": "스피키(메이드)",
+        "line": "후열",
+        "count": 5
+      },
+      {
+        "name": "우로스(우울)",
+        "line": "후열",
+        "count": 234
+      },
+      {
+        "name": "네르(빡침)",
+        "line": "후열",
+        "count": 282
+      },
+      {
+        "name": "죠안",
+        "line": "후열",
+        "count": 199
+      },
+      {
+        "name": "요미",
+        "line": "중열",
+        "count": 198
+      },
+      {
+        "name": "시온",
+        "line": "후열",
+        "count": 37
+      },
+      {
+        "name": "코미(수영복)",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "폴랑",
+        "line": "후열",
+        "count": 5
+      },
+      {
+        "name": "우로스(냉정)",
+        "line": "후열",
+        "count": 16
+      },
+      {
+        "name": "우로스(순수)",
+        "line": "후열",
+        "count": 48
+      },
+      {
+        "name": "에르핀",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "아사나",
+        "line": "전열",
+        "count": 5
+      },
+      {
+        "name": "에슈르",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "우로스(활발)",
+        "line": "후열",
+        "count": 2
+      },
+      {
+        "name": "뮤트",
+        "line": "후열",
+        "count": 57
+      },
+      {
+        "name": "아일라",
+        "line": "중열",
+        "count": 72
+      },
+      {
+        "name": "네티",
+        "line": "전열",
+        "count": 8
+      },
+      {
+        "name": "리뉴아",
+        "line": "중열",
+        "count": 3
+      },
+      {
+        "name": "디아나(왕년)",
+        "line": "전열",
+        "count": 4
+      },
+      {
+        "name": "죠안",
+        "line": "중열",
+        "count": 2
+      },
+      {
+        "name": "죠안",
+        "line": "전열",
+        "count": 3
+      },
+      {
+        "name": "스노키",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "비비",
+        "line": "전열",
+        "count": 14
+      },
+      {
+        "name": "헤일리(멀쩡)",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "란",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "모모",
+        "line": "후열",
+        "count": 3
+      },
+      {
+        "name": "레비(졸업)",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "슈로",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "힐데",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "아멜리아(R41)",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "이드",
+        "line": "전열",
+        "count": 1
+      }
+    ],
+    "maxSideLvl": 24,
+    "sideSummary": [
+      {
+        "name": "라이카",
+        "line": "전열",
+        "count": 10
+      },
+      {
+        "name": "비비",
+        "line": "전열",
+        "count": 79
+      },
+      {
+        "name": "네티",
+        "line": "전열",
+        "count": 75
+      },
+      {
+        "name": "티그(영웅)",
+        "line": "중열",
+        "count": 55
+      },
+      {
+        "name": "모모",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "아멜리아(R41)",
+        "line": "중열",
+        "count": 2
+      },
+      {
+        "name": "아사나",
+        "line": "전열",
+        "count": 42
+      },
+      {
+        "name": "나이아",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "아야",
+        "line": "중열",
+        "count": 168
+      },
+      {
+        "name": "이드",
+        "line": "전열",
+        "count": 130
+      },
+      {
+        "name": "디아나(왕년)",
+        "line": "전열",
+        "count": 110
+      },
+      {
+        "name": "클로에",
+        "line": "전열",
+        "count": 81
+      },
+      {
+        "name": "아라그니아",
+        "line": "중열",
+        "count": 73
+      },
+      {
+        "name": "시저",
+        "line": "중열",
+        "count": 36
+      },
+      {
+        "name": "아이시아",
+        "line": "후열",
+        "count": 44
+      },
+      {
+        "name": "잉클",
+        "line": "후열",
+        "count": 69
+      },
+      {
+        "name": "티그(영웅)",
+        "line": "후열",
+        "count": 107
+      },
+      {
+        "name": "에피카",
+        "line": "중열",
+        "count": 111
+      },
+      {
+        "name": "슈팡",
+        "line": "후열",
+        "count": 104
+      },
+      {
+        "name": "헤일리(멀쩡)",
+        "line": "전열",
+        "count": 22
+      },
+      {
+        "name": "아르코",
+        "line": "중열",
+        "count": 21
+      },
+      {
+        "name": "마요(멋짐)",
+        "line": "중열",
+        "count": 41
+      },
+      {
+        "name": "란",
+        "line": "후열",
+        "count": 79
+      },
+      {
+        "name": "폴랑",
+        "line": "후열",
+        "count": 80
+      },
+      {
+        "name": "이드(재활)",
+        "line": "전열",
+        "count": 6
+      },
+      {
+        "name": "다야(퓨어샤인)",
+        "line": "중열",
+        "count": 10
+      },
+      {
+        "name": "버터",
+        "line": "후열",
+        "count": 13
+      },
+      {
+        "name": "캐시",
+        "line": "후열",
+        "count": 6
+      },
+      {
+        "name": "아야",
+        "line": "전열",
+        "count": 3
+      },
+      {
+        "name": "아라그니아",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "델리아",
+        "line": "전열",
+        "count": 8
+      },
+      {
+        "name": "스노키",
+        "line": "전열",
+        "count": 119
+      },
+      {
+        "name": "디아나",
+        "line": "중열",
+        "count": 16
+      },
+      {
+        "name": "헤일리",
+        "line": "중열",
+        "count": 5
+      },
+      {
+        "name": "림(혼돈)",
+        "line": "후열",
+        "count": 12
+      },
+      {
+        "name": "네르",
+        "line": "전열",
+        "count": 24
+      },
+      {
+        "name": "리뉴아",
+        "line": "중열",
+        "count": 86
+      },
+      {
+        "name": "아일라",
+        "line": "중열",
+        "count": 70
+      },
+      {
+        "name": "아네트",
+        "line": "중열",
+        "count": 36
+      },
+      {
+        "name": "뮤트",
+        "line": "후열",
+        "count": 16
+      },
+      {
+        "name": "슈로",
+        "line": "전열",
+        "count": 96
+      },
+      {
+        "name": "레비(졸업)",
+        "line": "전열",
+        "count": 11
+      },
+      {
+        "name": "앨리스",
+        "line": "중열",
+        "count": 5
+      },
+      {
+        "name": "제이드",
+        "line": "중열",
+        "count": 33
+      },
+      {
+        "name": "롤렛",
+        "line": "후열",
+        "count": 20
+      },
+      {
+        "name": "모모",
+        "line": "후열",
+        "count": 129
+      },
+      {
+        "name": "피라",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "시온",
+        "line": "후열",
+        "count": 44
+      },
+      {
+        "name": "포셔",
+        "line": "후열",
+        "count": 16
+      },
+      {
+        "name": "나이아",
+        "line": "중열",
+        "count": 17
+      },
+      {
+        "name": "에스피",
+        "line": "후열",
+        "count": 4
+      },
+      {
+        "name": "실라",
+        "line": "후열",
+        "count": 17
+      },
+      {
+        "name": "셰이디(역전)",
+        "line": "후열",
+        "count": 7
+      },
+      {
+        "name": "아멜리아(R41)",
+        "line": "후열",
+        "count": 12
+      },
+      {
+        "name": "티그(영웅)",
+        "line": "전열",
+        "count": 18
+      },
+      {
+        "name": "블랑셰",
+        "line": "중열",
+        "count": 4
+      },
+      {
+        "name": "리스티",
+        "line": "후열",
+        "count": 2
+      },
+      {
+        "name": "벨벳",
+        "line": "전열",
+        "count": 6
+      },
+      {
+        "name": "레테",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "코미(수영복)",
+        "line": "중열",
+        "count": 11
+      },
+      {
+        "name": "스피키(메이드)",
+        "line": "후열",
+        "count": 9
+      },
+      {
+        "name": "베니(베니)",
+        "line": "후열",
+        "count": 4
+      },
+      {
+        "name": "티그",
+        "line": "전열",
+        "count": 3
+      },
+      {
+        "name": "마카샤",
+        "line": "중열",
+        "count": 9
+      },
+      {
+        "name": "피라",
+        "line": "후열",
+        "count": 18
+      },
+      {
+        "name": "아멜리아",
+        "line": "후열",
+        "count": 8
+      },
+      {
+        "name": "힐데",
+        "line": "중열",
+        "count": 24
+      },
+      {
+        "name": "에르핀",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "미로",
+        "line": "전열",
+        "count": 6
+      },
+      {
+        "name": "코미",
+        "line": "전열",
+        "count": 6
+      },
+      {
+        "name": "로네(시장)",
+        "line": "중열",
+        "count": 11
+      },
+      {
+        "name": "오르",
+        "line": "후열",
+        "count": 6
+      },
+      {
+        "name": "시온",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "벨리타",
+        "line": "후열",
+        "count": 5
+      },
+      {
+        "name": "하이디",
+        "line": "후열",
+        "count": 5
+      },
+      {
+        "name": "실라",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "죠안",
+        "line": "후열",
+        "count": 13
+      },
+      {
+        "name": "셰럼",
+        "line": "전열",
+        "count": 7
+      },
+      {
+        "name": "피코라",
+        "line": "후열",
+        "count": 19
+      },
+      {
+        "name": "리온",
+        "line": "전열",
+        "count": 4
+      },
+      {
+        "name": "샤샤",
+        "line": "중열",
+        "count": 3
+      },
+      {
+        "name": "네르(빡침)",
+        "line": "후열",
+        "count": 5
+      },
+      {
+        "name": "리츠",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "그윈",
+        "line": "전열",
+        "count": 5
+      },
+      {
+        "name": "요미",
+        "line": "중열",
+        "count": 24
+      },
+      {
+        "name": "리뉴아",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "뮤트",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "가비아",
+        "line": "중열",
+        "count": 4
+      },
+      {
+        "name": "바롱",
+        "line": "전열",
+        "count": 5
+      },
+      {
+        "name": "프리클",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "베니",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "셀리네",
+        "line": "전열",
+        "count": 7
+      },
+      {
+        "name": "에슈르",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "바리에",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "스피키",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "아일라",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "피코라",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "죠안",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "엘레나",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "오팔",
+        "line": "중열",
+        "count": 3
+      },
+      {
+        "name": "림",
+        "line": "전열",
+        "count": 2
+      },
+      {
+        "name": "죠안",
+        "line": "중열",
+        "count": 4
+      },
+      {
+        "name": "키샤",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "다야",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "페스타",
+        "line": "전열",
+        "count": 1
+      },
+      {
+        "name": "잉클",
+        "line": "중열",
+        "count": 1
+      },
+      {
+        "name": "멜루나",
+        "line": "후열",
+        "count": 1
+      },
+      {
+        "name": "우이",
+        "line": "중열",
+        "count": 3
+      },
+      {
+        "name": "리코타",
+        "line": "전열",
+        "count": 1
+      }
+    ]
+  },
   "10005": {
     "personality": "광기",
     "name": "냥만 타워",

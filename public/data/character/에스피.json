@@ -187,6 +187,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -242,34 +255,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 1
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 32,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 11,
-            "count": 7
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "고딕 피크닉",
-      "cosUsedCount": 6,
-      "charTotalCount": 10,
-      "rate": 60,
+      "cosUsedCount": 3,
+      "charTotalCount": 4,
+      "rate": 75,
       "lvl": "normal",
       "launchDate": "2024-07-11"
     }

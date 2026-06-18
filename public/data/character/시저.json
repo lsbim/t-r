@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 12
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -214,34 +227,15 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 18.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 9,
-        "pickRate": 3,
-        "overallRank": 28,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 12,
-            "count": 9
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 16
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "악어는 아거! 아거!",
-      "cosUsedCount": 16,
-      "charTotalCount": 22,
-      "rate": 72.7,
+      "cosUsedCount": 15,
+      "charTotalCount": 36,
+      "rate": 41.7,
       "lvl": "normal",
       "launchDate": "2025-08-28"
     }

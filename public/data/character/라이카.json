@@ -158,6 +158,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -220,36 +233,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 0.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 2.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "코스탈 라이트닝",
-      "cosUsedCount": 14,
-      "charTotalCount": 25,
-      "rate": 56,
+      "cosUsedCount": 6,
+      "charTotalCount": 11,
+      "rate": 54.5,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "라이트닝 강속구",
       "cosUsedCount": 2,
-      "charTotalCount": 25,
-      "rate": 8,
+      "charTotalCount": 11,
+      "rate": 18.2,
       "lvl": "normal",
       "launchDate": "2025-03-13"
     }

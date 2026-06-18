@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -196,36 +209,25 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 5,
-        "pickRate": 1.7,
-        "overallRank": 38,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 13,
-            "count": 5
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 3.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "온수통의 마녀",
-      "cosUsedCount": 4,
-      "charTotalCount": 4,
-      "rate": 100,
+      "cosUsedCount": 7,
+      "charTotalCount": 9,
+      "rate": 77.8,
       "lvl": "normal",
       "launchDate": "2025-10-16"
+    },
+    {
+      "cosName": "버거통의 마녀",
+      "cosUsedCount": 1,
+      "charTotalCount": 9,
+      "rate": 11.1,
+      "lvl": "normal",
+      "launchDate": "2025-08-14"
     }
   ]
 }

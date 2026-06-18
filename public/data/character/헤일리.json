@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -202,30 +215,33 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 4
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 4.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "한겨울의 평화 사절",
-      "cosUsedCount": 4,
+      "cosUsedCount": 2,
       "charTotalCount": 5,
-      "rate": 80,
+      "rate": 40,
       "lvl": "normal",
       "launchDate": "2025-12-11"
+    },
+    {
+      "cosName": "오늘도 열혈 트레이닝",
+      "cosUsedCount": 1,
+      "charTotalCount": 5,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2026-03-26"
+    },
+    {
+      "cosName": "가시 장미 수녀",
+      "cosUsedCount": 1,
+      "charTotalCount": 5,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2024-10-17"
     }
   ]
 }

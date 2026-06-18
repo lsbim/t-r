@@ -41,6 +41,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 171,
+        "pickRate": 57,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10003,
         "name": "냥만 타워",
         "personality": "순수",
@@ -241,6 +253,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 57
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -309,52 +334,33 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 63.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 12,
-        "pickRate": 4,
-        "overallRank": 24,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 10,
-            "count": 12
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 69
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "겨울의 마녀",
+      "cosUsedCount": 104,
+      "charTotalCount": 172,
+      "rate": 60.5,
+      "lvl": "pretty",
+      "launchDate": "2026-06-11"
+    },
+    {
       "cosName": "첫 눈송이의 춤사위",
-      "cosUsedCount": 120,
-      "charTotalCount": 233,
-      "rate": 51.5,
+      "cosUsedCount": 34,
+      "charTotalCount": 172,
+      "rate": 19.8,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "새벽의 블루문",
-      "cosUsedCount": 77,
-      "charTotalCount": 233,
-      "rate": 33,
+      "cosUsedCount": 22,
+      "charTotalCount": 172,
+      "rate": 12.8,
       "lvl": "pretty",
       "launchDate": "2025-04-24"
-    },
-    {
-      "cosName": "추억과 피안화",
-      "cosUsedCount": 6,
-      "charTotalCount": 233,
-      "rate": 2.6,
-      "lvl": "normal",
-      "launchDate": "2024-11-28"
     }
   ]
 }

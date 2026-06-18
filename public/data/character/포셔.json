@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 5.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -190,50 +203,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 32,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 11,
-            "count": 7
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 6
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "묘약의 랩실 연구원",
-      "cosUsedCount": 18,
-      "charTotalCount": 23,
-      "rate": 78.3,
+      "cosUsedCount": 6,
+      "charTotalCount": 16,
+      "rate": 37.5,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     },
     {
-      "cosName": "방과 후 밴드 활동",
-      "cosUsedCount": 2,
-      "charTotalCount": 23,
-      "rate": 8.7,
+      "cosName": "공포의 간호사",
+      "cosUsedCount": 5,
+      "charTotalCount": 16,
+      "rate": 31.3,
       "lvl": "normal",
-      "launchDate": "2025-06-26"
+      "launchDate": "2026-05-28"
     },
     {
       "cosName": "포션 가게의 휴일",
-      "cosUsedCount": 1,
-      "charTotalCount": 23,
-      "rate": 4.3,
+      "cosUsedCount": 2,
+      "charTotalCount": 16,
+      "rate": 12.5,
       "lvl": "normal",
       "launchDate": "2024-10-17"
     }
