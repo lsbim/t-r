@@ -213,6 +213,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -275,35 +288,22 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 14
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 23
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "템포 업! 응원 루키!",
-      "cosUsedCount": 5,
-      "charTotalCount": 12,
-      "rate": 41.7,
+      "cosUsedCount": 8,
+      "charTotalCount": 18,
+      "rate": 44.4,
       "lvl": "normal",
       "launchDate": "2026-03-05"
     },
     {
       "cosName": "깡총 물장난",
-      "cosUsedCount": 2,
-      "charTotalCount": 12,
+      "cosUsedCount": 3,
+      "charTotalCount": 18,
       "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2025-05-29"

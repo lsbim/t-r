@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -183,26 +196,14 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "껌 좀 씹어본 용족",
-      "cosUsedCount": 16,
-      "charTotalCount": 16,
+      "cosUsedCount": 19,
+      "charTotalCount": 19,
       "rate": 100,
       "lvl": "normal",
       "launchDate": "2025-10-02"

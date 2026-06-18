@@ -75,6 +75,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 130,
+        "pickRate": 43.3,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 10003,
         "name": "냥만 타워",
         "personality": "순수",
@@ -287,6 +299,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 43.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -361,50 +392,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 47
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 60,
-        "pickRate": 20,
-        "overallRank": 15,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 60
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 33.7
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 86,
-      "charTotalCount": 202,
-      "rate": 42.6,
-      "lvl": "normal",
-      "launchDate": "2025-12-11"
-    },
-    {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 76,
-      "charTotalCount": 202,
-      "rate": 37.6,
+      "cosUsedCount": 93,
+      "charTotalCount": 207,
+      "rate": 44.9,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
+      "cosName": "스위트 닌자 스노우",
+      "cosUsedCount": 80,
+      "charTotalCount": 207,
+      "rate": 38.6,
+      "lvl": "normal",
+      "launchDate": "2025-12-11"
+    },
+    {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 14,
-      "charTotalCount": 202,
-      "rate": 6.9,
+      "cosUsedCount": 10,
+      "charTotalCount": 207,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

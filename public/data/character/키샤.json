@@ -134,6 +134,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 29,
+        "pickRate": 9.7,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 29
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -180,20 +199,17 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "너만의 애완 언더돌",
+      "cosUsedCount": 18,
+      "charTotalCount": 30,
+      "rate": 60,
+      "lvl": "normal",
+      "launchDate": "2026-06-04"
+    }
+  ]
 }

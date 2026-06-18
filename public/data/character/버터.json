@@ -194,6 +194,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 4.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -244,44 +257,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 2
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "에이프런 매그넘",
-      "cosUsedCount": 5,
-      "charTotalCount": 10,
-      "rate": 50,
+      "cosUsedCount": 8,
+      "charTotalCount": 15,
+      "rate": 53.3,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
       "cosName": "동시 대회 다크 호스",
-      "cosUsedCount": 3,
-      "charTotalCount": 10,
-      "rate": 30,
+      "cosUsedCount": 4,
+      "charTotalCount": 15,
+      "rate": 26.7,
       "lvl": "normal",
       "launchDate": "2025-05-01"
     },
     {
       "cosName": "세이프티 가드",
-      "cosUsedCount": 1,
-      "charTotalCount": 10,
-      "rate": 10,
+      "cosUsedCount": 2,
+      "charTotalCount": 15,
+      "rate": 13.3,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     }

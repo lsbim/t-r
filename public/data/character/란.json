@@ -232,6 +232,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 10,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 26.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -306,52 +325,33 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 1
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 5,
-        "pickRate": 1.7,
-        "overallRank": 38,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 14,
-            "count": 5
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 29.3
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "백사당의 무녀",
+      "cosUsedCount": 73,
+      "charTotalCount": 87,
+      "rate": 83.9,
+      "lvl": "pretty",
+      "launchDate": "2026-05-14"
+    },
+    {
       "cosName": "교단 행동대장",
-      "cosUsedCount": 42,
-      "charTotalCount": 63,
-      "rate": 66.7,
+      "cosUsedCount": 6,
+      "charTotalCount": 87,
+      "rate": 6.9,
       "lvl": "pretty",
       "launchDate": "2025-01-02"
     },
     {
       "cosName": "메이드 바이 메이드",
-      "cosUsedCount": 8,
-      "charTotalCount": 63,
-      "rate": 12.7,
+      "cosUsedCount": 2,
+      "charTotalCount": 87,
+      "rate": 2.3,
       "lvl": "normal",
       "launchDate": "2025-01-02"
-    },
-    {
-      "cosName": "백사당의 무녀",
-      "cosUsedCount": 4,
-      "charTotalCount": 63,
-      "rate": 6.3,
-      "lvl": "pretty",
-      "launchDate": "2026-05-14"
     }
   ]
 }

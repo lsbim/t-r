@@ -140,6 +140,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 10,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -188,27 +207,15 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "푸른 숲속 엘프",
-      "cosUsedCount": 17,
-      "charTotalCount": 23,
-      "rate": 73.9,
+      "cosUsedCount": 6,
+      "charTotalCount": 15,
+      "rate": 40,
       "lvl": "normal",
       "launchDate": "2026-02-26"
     }

@@ -169,6 +169,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -219,44 +232,17 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 46,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 15,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 10
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "차원이 다른 여왕님",
+      "cosName": "느긋한 주말의 집냥이",
       "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
-      "lvl": "pretty",
-      "launchDate": "2025-10-02"
-    },
-    {
-      "cosName": "파티 나잇 모나티엄",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "charTotalCount": 1,
+      "rate": 100,
       "lvl": "normal",
-      "launchDate": "2024-10-17"
+      "launchDate": "2025-09-18"
     }
   ]
 }

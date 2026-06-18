@@ -158,6 +158,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 5,
+        "pickRate": 1.7,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 5
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 14
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -214,34 +233,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 10.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 68,
-        "pickRate": 22.7,
-        "overallRank": 14,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 68
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 2
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "따끔한 간호의 자세",
-      "cosUsedCount": 26,
-      "charTotalCount": 95,
-      "rate": 27.4,
+      "cosUsedCount": 14,
+      "charTotalCount": 47,
+      "rate": 29.8,
       "lvl": "normal",
       "launchDate": "2025-11-06"
     }

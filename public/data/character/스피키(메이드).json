@@ -158,6 +158,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 5,
+        "pickRate": 1.7,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 5
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -208,42 +227,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 50,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 18,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 4.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "꼬끼옷 메이드",
-      "cosUsedCount": 6,
-      "charTotalCount": 10,
-      "rate": 60,
+      "cosUsedCount": 9,
+      "charTotalCount": 14,
+      "rate": 64.3,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "부스스한 아침",
-      "cosUsedCount": 1,
-      "charTotalCount": 10,
-      "rate": 10,
+      "cosUsedCount": 2,
+      "charTotalCount": 14,
+      "rate": 14.3,
       "lvl": "normal",
       "launchDate": "2025-03-06"
     }

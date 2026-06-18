@@ -19,6 +19,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 180,
+        "pickRate": 60,
+        "contentType": "side",
+        "isOverall": true,
+        "line": null
+      },
+      {
         "seasonNumber": 10003,
         "name": "냥만 타워",
         "personality": "순수",
@@ -256,6 +268,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 60
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -345,52 +370,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 53.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 90,
-        "pickRate": 30,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 13,
-            "count": 7
-          },
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 47
-          },
-          {
-            "line": "후열",
-            "rank": 6,
-            "count": 36
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 20
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 78,
-      "charTotalCount": 151,
-      "rate": 51.7,
+      "cosUsedCount": 108,
+      "charTotalCount": 202,
+      "rate": 53.5,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
-      "cosUsedCount": 25,
-      "charTotalCount": 151,
-      "rate": 16.6,
+      "cosUsedCount": 37,
+      "charTotalCount": 202,
+      "rate": 18.3,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

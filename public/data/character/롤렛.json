@@ -158,6 +158,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -220,42 +233,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 19.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 44,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 17,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 9.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "롱 레인지 서비스",
-      "cosUsedCount": 5,
-      "charTotalCount": 12,
-      "rate": 41.7,
+      "cosUsedCount": 13,
+      "charTotalCount": 20,
+      "rate": 65,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
       "cosName": "봉봉한 바캉스",
-      "cosUsedCount": 2,
-      "charTotalCount": 12,
-      "rate": 16.7,
+      "cosUsedCount": 1,
+      "charTotalCount": 20,
+      "rate": 5,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     }

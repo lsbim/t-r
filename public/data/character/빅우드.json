@@ -134,6 +134,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -193,29 +205,8 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
-  "recentSkins": [
-    {
-      "cosName": "메이드 인 빅토리안",
-      "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
-      "lvl": "normal",
-      "launchDate": "2024-07-11"
-    }
-  ]
+  "recentSkins": []
 }

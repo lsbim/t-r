@@ -141,6 +141,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 10004,
         "name": "흑화 영춘",
         "personality": "냉정",
@@ -353,6 +365,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -427,42 +457,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 4.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 196,
-        "pickRate": 65.3,
-        "overallRank": 6,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 196
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 13.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 349,
-      "charTotalCount": 879,
-      "rate": 39.7,
+      "cosUsedCount": 361,
+      "charTotalCount": 900,
+      "rate": 40.1,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 328,
-      "charTotalCount": 879,
-      "rate": 37.3,
+      "cosUsedCount": 333,
+      "charTotalCount": 900,
+      "rate": 37,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     }

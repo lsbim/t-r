@@ -191,6 +191,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -247,27 +260,14 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 2.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "빛나는 짙은 밤",
-      "cosUsedCount": 2,
-      "charTotalCount": 2,
+      "cosUsedCount": 1,
+      "charTotalCount": 1,
       "rate": 100,
       "lvl": "pretty",
       "launchDate": "2025-11-27"

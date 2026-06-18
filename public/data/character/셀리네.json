@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 2.3
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -184,36 +197,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.3
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 2.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "고품격 파트너",
-      "cosUsedCount": 5,
-      "charTotalCount": 9,
-      "rate": 55.6,
+      "cosUsedCount": 4,
+      "charTotalCount": 7,
+      "rate": 57.1,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
+      "cosName": "오늘의 도발은 토끼",
+      "cosUsedCount": 1,
+      "charTotalCount": 7,
+      "rate": 14.3,
+      "lvl": "normal",
+      "launchDate": "2025-05-29"
+    },
+    {
       "cosName": "무미호의 전설",
       "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
+      "charTotalCount": 7,
+      "rate": 14.3,
       "lvl": "normal",
       "launchDate": "2024-11-14"
     }

@@ -203,6 +203,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -259,42 +272,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 10.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 41,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 15,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 21.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "해변의 하늬바람",
-      "cosUsedCount": 33,
-      "charTotalCount": 68,
-      "rate": 48.5,
+      "cosUsedCount": 14,
+      "charTotalCount": 18,
+      "rate": 77.8,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "엑스텐 스피릿",
-      "cosUsedCount": 16,
-      "charTotalCount": 68,
-      "rate": 23.5,
+      "cosUsedCount": 3,
+      "charTotalCount": 18,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2024-11-14"
     }

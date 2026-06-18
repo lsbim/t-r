@@ -158,6 +158,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 5,
+        "pickRate": 1.7,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 5
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 26.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -220,52 +239,33 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 34.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 28,
-        "pickRate": 9.3,
-        "overallRank": 20,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 28
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 24.7
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "창공의 오퍼레이터",
+      "cosUsedCount": 39,
+      "charTotalCount": 85,
+      "rate": 45.9,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
+    },
+    {
       "cosName": "승리는 당신을 위해",
-      "cosUsedCount": 37,
-      "charTotalCount": 69,
-      "rate": 53.6,
+      "cosUsedCount": 35,
+      "charTotalCount": 85,
+      "rate": 41.2,
       "lvl": "pretty",
       "launchDate": "2025-06-12"
     },
     {
       "cosName": "나들이 가는 날",
-      "cosUsedCount": 14,
-      "charTotalCount": 69,
-      "rate": 20.3,
+      "cosUsedCount": 5,
+      "charTotalCount": 85,
+      "rate": 5.9,
       "lvl": "normal",
       "launchDate": "2025-04-17"
-    },
-    {
-      "cosName": "창공의 오퍼레이터",
-      "cosUsedCount": 12,
-      "charTotalCount": 69,
-      "rate": 17.4,
-      "lvl": "normal",
-      "launchDate": "2026-04-30"
     }
   ]
 }

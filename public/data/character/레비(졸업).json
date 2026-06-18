@@ -146,6 +146,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 3.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -192,20 +211,17 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "정식 마녀의 휴식",
+      "cosUsedCount": 5,
+      "charTotalCount": 18,
+      "rate": 27.8,
+      "lvl": "normal",
+      "launchDate": "2026-05-07"
+    }
+  ]
 }

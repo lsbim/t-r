@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 2.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -202,19 +215,6 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 4.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 15
       }
     ]
   },
@@ -222,10 +222,26 @@
     {
       "cosName": "아이돌",
       "cosUsedCount": 5,
-      "charTotalCount": 5,
-      "rate": 100,
+      "charTotalCount": 8,
+      "rate": 62.5,
       "lvl": "normal",
       "launchDate": "-"
+    },
+    {
+      "cosName": "파티 애프터 모나티엄",
+      "cosUsedCount": 2,
+      "charTotalCount": 8,
+      "rate": 25,
+      "lvl": "normal",
+      "launchDate": "2025-06-05"
+    },
+    {
+      "cosName": "해변의 비서",
+      "cosUsedCount": 1,
+      "charTotalCount": 8,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2024-06-06"
     }
   ]
 }

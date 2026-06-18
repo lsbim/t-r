@@ -359,6 +359,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10006,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-06-11",
+        "endDate": "2026-06-18",
+        "pickCount": 4,
+        "pickRate": 1.3,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 4
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 36.7
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -432,42 +451,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 49.7
-      },
-      {
-        "seasonNumber": 10001,
-        "name": "흑화 영춘",
-        "personality": "활발",
-        "startDate": "2025-11-13",
-        "endDate": "2025-11-20",
-        "pickCount": 48,
-        "pickRate": 16,
-        "overallRank": 16,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 48
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 43
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 299,
-      "charTotalCount": 429,
-      "rate": 69.7,
+      "cosUsedCount": 161,
+      "charTotalCount": 243,
+      "rate": 66.3,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 46,
-      "charTotalCount": 429,
-      "rate": 10.7,
+      "cosUsedCount": 27,
+      "charTotalCount": 243,
+      "rate": 11.1,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }
