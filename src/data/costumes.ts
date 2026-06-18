@@ -58,6 +58,7 @@ export const costumes: Costume[] = [
     { charName: "란", cosName: "백사당의 무녀", lvl: "pretty", launchDate: "2026-05-14" },
     { charName: "이드(재활)", cosName: "하이스쿨 모닝", lvl: "normal", launchDate: "2026-05-21" },
     { charName: "아일라", cosName: "버닝 다운 빌런", lvl: "normal", launchDate: "2026-05-28" },
+    { charName: "나이아", cosName: "호수의 해적 선장", lvl: "normal", launchDate: "2026-06-18" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -260,6 +261,7 @@ export const costumes: Costume[] = [
     { charName: "샤샤", cosName: "에어라인 레스큐", lvl: "normal", launchDate: "2026-04-30" },
     { charName: "포셔", cosName: "공포의 간호사", lvl: "normal", launchDate: "2026-05-28" },
     { charName: "키샤", cosName: "너만의 애완 언더돌", lvl: "normal", launchDate: "2026-06-04" },
+    { charName: "힐데", cosName: "평화를 향한 의지", lvl: "normal", launchDate: "2026-06-18" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
