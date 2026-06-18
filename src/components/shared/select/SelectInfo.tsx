@@ -18,12 +18,15 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
     pickRate,
     totalUses
 }) => {
+
+    const selectUrl = select.startsWith('우로스(') ? `/character/우로스` : `/character/${select}`;
+
     return (
         <div className="w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
             {/* 사진, 사도 명 */}
             <div className="flex gap-x-2 items-center w-full justify-center">
                 <Link
-                    to={`/character/${select}`}
+                    to={selectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(select)}-dark`}>
