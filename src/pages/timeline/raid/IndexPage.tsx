@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import SEO from "../../../commons/component/SEO";
 import MinimapHandle from "../../../components/timeline/minimap/MinimapHandle";
 import MainStage from "../../../components/timeline/timeline/MainStage";
@@ -8,6 +9,8 @@ import TopRemote from "../../../layouts/TopRemote";
 import { ClashSummary } from "../../../types/clashTypes";
 import { ClashV2Summary } from "../../../types/clashV2Types";
 import { FrontierSummary } from "../../../types/frontierTypes";
+import { CharacterNode, RaidNode, TimelineMap, TimelineNode, TimelineNodeType } from "../../../types/timeline/timelineTypes";
+import { charInfo } from "../../../data/trickcalChar";
 
 const DAY_PX = 8;
 const START_DATE = new Date(2023, 8, 27);
@@ -21,7 +24,53 @@ const IndexPage = () => {
 
     const timelinePx = TOTAL_DAYS * DAY_PX;
 
-    console.log(TOTAL_DAYS)
+    // 키: 날짜, 값: 레이드/사도 정보 객체[]
+    const timelineMap = useMemo(() => {
+        if (!frontier || !clash || !clashV2) return {};
+
+        const map: TimelineMap = {};
+
+        const pushNode = (date: string, node: RaidNode | CharacterNode) => {
+            if (!map[date]) map[date] = [];
+            map[date].push(node);
+        };
+
+        // 사도 출시일
+        Object.entries(charInfo).forEach(([name, info]) => {
+            if (name.startsWith("우로스(")) return;
+            pushNode(info.birthdate, {
+                type: "character",
+                name,
+                personality: info.personality,
+                birthDate: info.birthdate
+            });
+        });
+
+        // 레이드 (clash / clashV2 / frontier 공통 처리)
+        const raidSources: [TimelineNodeType, FrontierSummary | ClashSummary | ClashV2Summary][] = [
+            ["clash", clash],
+            ["clashV2", clashV2],
+            ["frontier", frontier],
+        ];
+
+        raidSources.forEach(([type, source]) => {
+            Object.entries(source).forEach(([key, r]) => {
+                const start = new Date(r.startDate).toISOString().slice(0, 10);
+                const end = new Date(r.endDate).toISOString().slice(0, 10);
+                pushNode(start, {
+                    type,
+                    name: key,
+                    startDate: start,
+                    endDate: end,
+                    personality: r.personality ?? null
+                });
+            });
+        });
+
+        return map;
+    }, [clash, frontier, clashV2]);
+
+    console.log(timelineMap)
 
     return (
         <div className="flex flex-col justify-center gap-y-2 min-h-screen">

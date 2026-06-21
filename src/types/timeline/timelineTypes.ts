@@ -1,11 +1,20 @@
-type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier";
+import { Personality } from "../trickcalTypes";
+
+export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier";
 
 export interface TimelineNode {
     type: TimelineNodeType;
     name: string;
-    personality?: string;
-    startDate: string; // 사도 출시일 혹은 레이드 시작일
-    endDate?: string; // 레이드 종료일
+    personality: Personality | null;
 }
 
-export type TimelineMap = Record<string, TimelineNode[]>;
+export interface RaidNode extends TimelineNode {
+    startDate: string;
+    endDate: string;
+}
+
+export interface CharacterNode extends TimelineNode {
+    birthDate: string;
+}
+
+export type TimelineMap = Record<string, (RaidNode | CharacterNode)[]>;
