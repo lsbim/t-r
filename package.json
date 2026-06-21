@@ -19,6 +19,7 @@
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
     "react-helmet-async": "^3.0.0",
+    "react-konva": "^19.2.5",
     "react-router-dom": "^7.6.2",
     "react-tooltip": "^5.29.1",
     "react-virtuoso": "^4.14.1",
