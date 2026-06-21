@@ -63,11 +63,12 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     }, [handlePct, totalDays]);
 
     return (
-        <div className="relative w-[88%] mx-auto select-none">
+        <div
+            onPointerDown={handlePointerDown}
+            className="relative w-[88%] mx-auto select-none cursor-pointer">
             {/* 핸들 화살표 */}
             <div
-                onPointerDown={handlePointerDown}
-                className="absolute -top-3.5 z-20 flex flex-col items-center cursor-pointer touch-none pb-1 translate-x-[-50%]"
+                className="absolute -top-3.5 z-20 flex flex-col items-center touch-none pb-1 translate-x-[-50%]"
                 style={{ left: `${handlePct}%` }}>
                 <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[9px] border-t-gray-900 dark:border-t-zinc-200 -mb-px" />
                 <div className="w-[1.5px] h-3.5 bg-gray-900 dark:bg-zinc-200" />
@@ -76,8 +77,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
             {/* 핸들 바 */}
             <div
                 ref={barRef}
-                onPointerDown={handlePointerDown}
-                className="relative h-4 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 cursor-pointer touch-none overflow-hidden">
+                className="relative h-4 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
                 {Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
                     // 사도만 출력하도록 필터링
                     nodes.filter(isCharacterNode).map((node, i) => {
@@ -129,7 +129,6 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
             {/* 가리킨 날짜 표기 */}
             <div
                 className="absolute top-[38px] z-30 bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-300 dark:border-zinc-700 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 dark:text-zinc-300 whitespace-nowrap pointer-events-none translate-x-[-50%]"
-                onPointerDown={handlePointerDown}
                 style={{ left: `${handlePct}%` }}>
                 {formatDate(currentDate)}
             </div>
