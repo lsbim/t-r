@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import SEO from "../../../commons/component/SEO";
 import MinimapHandle from "../../../components/timeline/minimap/MinimapHandle";
 import MainStage from "../../../components/timeline/timeline/MainStage";
+import { charInfo } from "../../../data/trickcalChar";
 import { useRaidData } from "../../../hooks/useRaidData";
 import Footer from "../../../layouts/Footer";
 import HeaderNav from "../../../layouts/HeaderNav";
@@ -9,8 +10,7 @@ import TopRemote from "../../../layouts/TopRemote";
 import { ClashSummary } from "../../../types/clashTypes";
 import { ClashV2Summary } from "../../../types/clashV2Types";
 import { FrontierSummary } from "../../../types/frontierTypes";
-import { CharacterNode, RaidNode, TimelineMap, TimelineNode, TimelineNodeType } from "../../../types/timeline/timelineTypes";
-import { charInfo } from "../../../data/trickcalChar";
+import { CharacterNode, RaidNode, TimelineMap, TimelineNodeType } from "../../../types/timeline/timelineTypes";
 
 const DAY_PX = 8;
 const START_DATE = new Date(2023, 8, 27);
@@ -24,8 +24,12 @@ const IndexPage = () => {
 
     const timelinePx = TOTAL_DAYS * DAY_PX;
 
+    const [handlePct, setHandlePct] = useState(60);
+    const [offsetX, setOffsetX] = useState(0);
+    const [viewportWidth, setViewportWidth] = useState(0);
+
     // 키: 날짜, 값: 레이드/사도 정보 객체[]
-    const timelineMap = useMemo(() => {
+    const timelineMap: TimelineMap = useMemo(() => {
         if (!frontier || !clash || !clashV2) return {};
 
         const map: TimelineMap = {};
@@ -46,7 +50,7 @@ const IndexPage = () => {
             });
         });
 
-        // 레이드 (clash / clashV2 / frontier 공통 처리)
+        // 레이드 객체들
         const raidSources: [TimelineNodeType, FrontierSummary | ClashSummary | ClashV2Summary][] = [
             ["clash", clash],
             ["clashV2", clashV2],
@@ -70,6 +74,24 @@ const IndexPage = () => {
         return map;
     }, [clash, frontier, clashV2]);
 
+    // 본문 타임라인 X좌표 상/하한선 제한
+    const clampBody = useCallback((value: number) => {
+
+        const MAX_OFFSET = viewportWidth / 2;
+
+        const MIN_OFFSET = -(timelinePx - viewportWidth / 2);
+        return Math.min(MAX_OFFSET, Math.max(MIN_OFFSET, value));
+
+    }, [timelinePx, viewportWidth]);
+
+    // 핸들로 가리킨 날짜(X좌표)를 타임라인에 적용시키기 위해 부모로 가져옴
+    const handleChangeHandle = useCallback((newPct: number) => {
+        setHandlePct(newPct);
+        const targetPx = (newPct / 100) * timelinePx;
+        setOffsetX(clampBody(-(targetPx - viewportWidth / 2)));
+
+    }, [timelinePx, viewportWidth, clampBody]);
+
     console.log(timelineMap)
 
     return (
@@ -86,8 +108,14 @@ const IndexPage = () => {
 
             </div>
             <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
-                <div className="w-[992px] lg:w-[90%]">
-                    <MinimapHandle />
+                <div className="lg:w-[992px] w-[95%]">
+                    <MinimapHandle
+                        handlePct={handlePct}
+                        totalDays={TOTAL_DAYS}
+                        startDate={START_DATE}
+                        onChange={handleChangeHandle}
+                        timelineMap={timelineMap}
+                    />
                 </div>
                 <MainStage />
             </div>
