@@ -1,24 +1,32 @@
-import { number } from 'framer-motion';
-import React, { useCallback, useEffect, useMemo, useRef } from 'react'
-import { CharacterNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { isCharacterNode, TimelineMap } from '../../../types/timeline/timelineTypes';
+import { START_DATE } from '../../../utils/timeline/timelineFunction';
 
 interface MinimapHandleProps {
-    handlePct: number;
+    handleElRef: React.RefObject<HTMLDivElement | null>;
+    tooltipElRef: React.RefObject<HTMLDivElement | null>;
     totalDays: number;
-    startDate: Date;
     onChange: (newPct: number) => void;
     timelineMap: TimelineMap
 }
 const MinimapHandle: React.FC<MinimapHandleProps> = ({
-    handlePct,
+    handleElRef,
+    tooltipElRef,
     totalDays,
-    startDate,
     onChange,
     timelineMap
 }) => {
 
     const barRef = useRef<HTMLDivElement>(null); // 미니맵 바 추적(인식)용
     const isDraggingRef = useRef(false); // 드래그 체크용. 리렌더링이 불필요하니 useRef
+
+    const updateTooltipText = useCallback((pct: number) => {
+        if (!tooltipElRef.current) return;
+        const days = Math.round((pct / 100) * totalDays);
+        const d = new Date(START_DATE.getTime() + days * 86400000);
+        const str = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+        tooltipElRef.current.textContent = str;
+    }, [totalDays, START_DATE]);
 
     // 마우스 좌표를 핸들 바 퍼센트로 변환
     const getPctFromClientX = useCallback((clientX: number) => {
@@ -30,8 +38,9 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     // 드래그 시 움직이면 즉시 X좌표 갱신
     const handlePointerMove = useCallback((e: PointerEvent) => {
         if (!isDraggingRef.current) return;
-        const clientX = e.clientX;
-        onChange(getPctFromClientX(clientX));
+        const pct = getPctFromClientX(e.clientX);
+        onChange(pct);
+        updateTooltipText(pct);
 
     }, [getPctFromClientX, onChange]);
 
@@ -57,95 +66,81 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         };
     }, [handlePointerMove, handlePointerUp]);
 
-    const currentDate = useMemo(() => {
-        const days = Math.round((handlePct / 100) * totalDays);
-        return new Date(startDate.getTime() + days * 86400000);
-    }, [handlePct, totalDays]);
-
     return (
-        <div
-            onPointerDown={handlePointerDown}
-            className="relative w-[88%] mx-auto select-none cursor-pointer">
-            {/* 핸들 화살표 */}
+        <div className="lg:w-[992px] w-[95%]">
             <div
-                className="absolute -top-3.5 z-20 flex flex-col items-center touch-none pb-1 translate-x-[-50%]"
-                style={{ left: `${handlePct}%` }}>
-                <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[9px] border-t-gray-900 dark:border-t-zinc-200 -mb-px" />
-                <div className="w-[1.5px] h-3.5 bg-gray-900 dark:bg-zinc-200" />
-            </div>
+                onPointerDown={handlePointerDown}
+                className="relative w-[88%] mx-auto select-none cursor-pointer">
+                {/* 핸들 화살표 */}
+                <div
+                    ref={handleElRef}
+                    className="absolute left-[100%] -top-3.5 z-20 flex flex-col items-center touch-none pb-1 translate-x-[-50%]"
+                >
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[9px] border-t-gray-900 dark:border-t-zinc-200 -mb-px" />
+                    <div className="w-[1.5px] h-3.5 bg-gray-900 dark:bg-zinc-200" />
+                </div>
 
-            {/* 핸들 바 */}
-            <div
-                ref={barRef}
-                className="relative h-4 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
-                {Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
-                    // 사도만 출력하도록 필터링
-                    nodes.filter(isCharacterNode).map((node, i) => {
-                        const date = new Date(node.birthDate);
-                        const days = Math.floor((date.getTime() - startDate.getTime()) / 86400000);
-                        const pct = (days / totalDays) * 100;
-                        return (
-                            <div
-                                key={`${dateStr}-${i}`}
-                                className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
-                                style={{ left: `${pct}%` }}
-                            />
-                        );
-                    })
-                )}
-            </div>
+                {/* 핸들 바 */}
+                <div
+                    ref={barRef}
+                    className="relative h-4 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
+                    {Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
+                        // 사도만 출력하도록 필터링
+                        nodes.filter(isCharacterNode).map((node, i) => {
+                            const date = new Date(node.birthDate);
+                            const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
+                            const pct = (days / totalDays) * 100;
+                            return (
+                                <div
+                                    key={`${dateStr}-${i}`}
+                                    className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
+                                    style={{ left: `${pct}%` }}
+                                />
+                            );
+                        })
+                    )}
+                </div>
 
-            {/* 연도 레이블 */}
-            <div className="relative h-4 mt-1">
-                {(() => {
-                    const startY = startDate.getFullYear();
-                    const endY = new Date().getFullYear();
-                    const labels = [];
-                    for (let y = startY; y <= endY; y++) {
-                        const jan1 = new Date(y, 0, 1);
-                        const ref = jan1 < startDate ? startDate : jan1;
-                        const days = Math.floor((ref.getTime() - startDate.getTime()) / 86400000);
-                        const pct = (days / totalDays) * 100;
+                {/* 연도 레이블 */}
+                <div className="relative h-4 mt-1">
+                    {(() => {
+                        const startY = START_DATE.getFullYear();
+                        const endY = new Date().getFullYear();
+                        const labels = [];
+                        for (let y = startY; y <= endY; y++) {
+                            const jan1 = new Date(y, 0, 1);
+                            const ref = jan1 < START_DATE ? START_DATE : jan1;
+                            const days = Math.floor((ref.getTime() - START_DATE.getTime()) / 86400000);
+                            const pct = (days / totalDays) * 100;
+                            labels.push(
+                                <span
+                                    key={y}
+                                    className="absolute text-[11px] text-gray-600 dark:text-zinc-400 whitespace-nowrap translate-x-[-50%]"
+                                    style={{ left: `${pct}%` }}>
+                                    {y}
+                                </span>
+                            );
+                        }
                         labels.push(
                             <span
-                                key={y}
-                                className="absolute text-[11px] text-gray-600 dark:text-zinc-400 whitespace-nowrap translate-x-[-50%]"
-                                style={{ left: `${pct}%` }}>
-                                {y}
+                                key="today"
+                                className="absolute text-[11px] dark:text-zinc-200 whitespace-nowrap translate-x-[-50%] left-[100%]">
+                                오늘
                             </span>
                         );
-                    }
-                    labels.push(
-                        <span
-                            key="today"
-                            className="absolute text-[11px] dark:text-zinc-200 whitespace-nowrap translate-x-[-50%] left-[100%]">
-                            오늘
-                        </span>
-                    );
-                    return labels;
-                })()}
-            </div>
+                        return labels;
+                    })()}
+                </div>
 
-            {/* 가리킨 날짜 표기 */}
-            <div
-                className="absolute top-[38px] z-30 bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-300 dark:border-zinc-700 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 dark:text-zinc-300 whitespace-nowrap pointer-events-none translate-x-[-50%]"
-                style={{ left: `${handlePct}%` }}>
-                {formatDate(currentDate)}
+                {/* 가리킨 날짜 표기 */}
+                <div
+                    ref={tooltipElRef}
+                    className="absolute top-[38px] z-30 bg-white border-[0.5px] border-gray-300 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]"
+                />
             </div>
         </div>
     );
 }
 
-
-function formatDate(d: Date) {
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return `${y}-${m}-${day}`;
-}
-
-function isCharacterNode(node: RaidNode | CharacterNode): node is CharacterNode {
-    return node.type === "character";
-}
 
 export default React.memo(MinimapHandle);

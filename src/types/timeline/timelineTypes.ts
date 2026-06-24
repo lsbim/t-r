@@ -18,3 +18,11 @@ export interface CharacterNode extends TimelineNode {
 }
 
 export type TimelineMap = Record<string, (RaidNode | CharacterNode)[]>;
+
+export function isCharacterNode(node: CharacterNode | RaidNode): node is CharacterNode {
+    return node.type === "character";
+}
+
+export function isRaidNode(node: CharacterNode | RaidNode): node is RaidNode {
+    return node.type === "clash" || node.type === "clashV2" || node.type === "frontier";
+}
