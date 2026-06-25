@@ -67,7 +67,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     }, [handlePointerMove, handlePointerUp]);
 
     return (
-        <div className="lg:w-[992px] w-[95%]">
+        <div className="lg:w-[992px] w-[90%]">
             <div
                 onPointerDown={handlePointerDown}
                 className="relative w-[88%] mx-auto select-none cursor-pointer">

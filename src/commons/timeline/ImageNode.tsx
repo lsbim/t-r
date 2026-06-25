@@ -46,7 +46,7 @@ const ImageNode: React.FC<ImageNodeProps> = ({
         <Image
             image={image}
             x={calX}
-            y={0}
+            y={400}
             width={TARGET_WIDTH}
             height={height}
         />

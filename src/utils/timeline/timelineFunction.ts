@@ -10,7 +10,7 @@ export function getYOffset(allDates: string[], isoDate: string) {
     return reversed * 4;
 }
 
-export const DAY_PX = 8;
+export const DAY_PX = 12;
 export const START_DATE = new Date(2023, 8, 27);
 
 export function dateToPx(dateStr: string): number {

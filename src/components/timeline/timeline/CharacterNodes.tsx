@@ -13,10 +13,11 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
 
     return (
         <Group>
-            {nodes.map(node => {
+            {nodes.map((node, index) => {
 
                 return (
                     <ImageNode
+                        key={node.name ?? index}
                         node={node}
                     />
                 )

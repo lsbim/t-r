@@ -32,7 +32,7 @@ const MainStage: React.FC<MainStageProps> = ({
   console.log("raidNodeList: ", raidNodeList)
 
   return (
-    <div className="w-full h-[600px] bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md overflow-hidden">
+    <div className="w-full h-[500px] bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md overflow-hidden">
       <Stage
         onPointerDown={onPointerDown}
         width={stageWidth}
