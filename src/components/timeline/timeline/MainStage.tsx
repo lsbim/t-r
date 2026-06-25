@@ -3,6 +3,7 @@ import { Layer, Stage } from 'react-konva';
 import Konva from "konva";
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import CharacterNodes from './CharacterNodes';
+import RaidNodes from './RaidNodes';
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -43,6 +44,9 @@ const MainStage: React.FC<MainStageProps> = ({
           ref={layerRef}>
           <CharacterNodes
             nodes={characterNodeList}
+          />
+          <RaidNodes
+            nodes={raidNodeList}
           />
         </Layer>
 

@@ -11,6 +11,7 @@ export interface TimelineNode {
 export interface RaidNode extends TimelineNode {
     startDate: string;
     endDate: string;
+    season: string;
 }
 
 export interface CharacterNode extends TimelineNode {

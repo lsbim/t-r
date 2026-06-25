@@ -1,1 +1,0 @@
-const imageCache = new Map();

@@ -69,7 +69,8 @@ const IndexPage = () => {
                 const end = new Date(r.endDate).toISOString().slice(0, 10);
                 pushNode(start, {
                     type,
-                    name: key,
+                    name: r.name,
+                    season: key,
                     startDate: start,
                     endDate: end,
                     personality: r.personality ?? null

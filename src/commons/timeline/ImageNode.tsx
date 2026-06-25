@@ -4,13 +4,19 @@ import { Image } from 'react-konva';
 import { dateToPx } from '../../utils/timeline/timelineFunction';
 
 interface ImageNodeProps {
-    node: CharacterNode | RaidNode
+    node: CharacterNode | RaidNode;
+    x: number;
+    y: number;
+    width: number;
+    height?: number;
 }
 
-const TARGET_WIDTH = 80;
-
 const ImageNode: React.FC<ImageNodeProps> = ({
-    node
+    node,
+    x = 0,
+    y = 0,
+    width = 0,
+    height = 0,
 }) => {
     const [image, setImage] = useState<HTMLImageElement | null>(null);
 
@@ -33,22 +39,15 @@ const ImageNode: React.FC<ImageNodeProps> = ({
 
     if (!image) return null;
 
-    const calX = isCharacterNode(node)
-        ? dateToPx(node.birthDate)
-        : isRaidNode(node)
-            ? dateToPx(node.startDate)
-            : 0;
-
     const aspectRatio = image.naturalHeight / image.naturalWidth;
-    const height = TARGET_WIDTH * aspectRatio;
 
     return (
         <Image
             image={image}
-            x={calX}
-            y={400}
-            width={TARGET_WIDTH}
-            height={height}
+            x={x}
+            y={y}
+            width={width}
+            height={height || width * aspectRatio}
         />
     )
 }

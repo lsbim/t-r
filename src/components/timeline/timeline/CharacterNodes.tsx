@@ -1,7 +1,8 @@
-import { Group } from 'react-konva';
-import { CharacterNode } from '../../../types/timeline/timelineTypes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Group, Image, Rect } from 'react-konva';
 import ImageNode from '../../../commons/timeline/ImageNode';
+import { CharacterNode } from '../../../types/timeline/timelineTypes';
+import { dateToPx } from '../../../utils/timeline/timelineFunction';
 
 interface CharacterNodesProps {
     nodes: CharacterNode[]
@@ -11,15 +12,58 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
     nodes
 }) => {
 
+    const [bgImage, setBgImage] = useState<HTMLImageElement | null>(null);
+
+    useEffect(() => {
+        const img = new window.Image();
+        img.src = `/images/background/character_bg.webp`;
+        img.onload = () => setBgImage(img);
+    }, []);
+
+    const CARD_WIDTH = 100;
+    const CARD_HEIGHT = 120
+
     return (
         <Group>
             {nodes.map((node, index) => {
 
+                const calX = dateToPx(node.birthDate)
+                const calY = 350;
+                const bgSize = 80
+
                 return (
-                    <ImageNode
-                        key={node.name ?? index}
-                        node={node}
-                    />
+                    <Group
+                        x={calX}
+                        y={calY}
+                        key={node.name ?? index}>
+                        <Rect
+                            x={-10}
+                            y={-30}
+                            width={CARD_WIDTH}
+                            height={CARD_HEIGHT}
+                            fill="rgb(248,253,242)"
+                            stroke="rgb(226,220,200)"
+                            strokeWidth={1.5}
+                            cornerRadius={4}
+                            shadowColor="rgba(0,0,0,0.15)"
+                            shadowBlur={6}
+                            shadowOffsetY={2}
+                        />
+                        {bgImage && (
+                            <Image
+                                image={bgImage}
+                                y={-20}
+                                width={bgSize}
+                                height={bgSize * (bgImage.naturalHeight / bgImage.naturalWidth)}
+                            />
+                        )}
+                        <ImageNode
+                            node={node}
+                            width={80}
+                            x={0}
+                            y={0}
+                        />
+                    </Group>
                 )
             })}
         </Group>
