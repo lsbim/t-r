@@ -110,6 +110,7 @@ const IndexPage = () => {
                     layerRef={layerRef}
                     onPointerDown={handlePointerDown}
                     timelineMap={timelineMap}
+                    timelinePx={timelinePx}
                 />
             </div>
             <Footer />
