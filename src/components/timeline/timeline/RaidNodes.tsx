@@ -19,13 +19,17 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
                 const calX = dateToPx(node.startDate)
 
                 return (
-                    <ImageNode
+                    <Group
                         key={`${node.type}_${node.season}_${node.name}`}
-                        node={node}
-                        width={120}
                         x={calX}
-                        y={50}
-                    />
+                        y={20}>
+                        <ImageNode
+                            node={node}
+                            width={120}
+                            x={0}
+                            y={0}
+                        />
+                    </Group>
                 )
             })}
         </Group>
