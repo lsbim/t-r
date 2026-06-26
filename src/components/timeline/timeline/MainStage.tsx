@@ -46,6 +46,7 @@ const MainStage: React.FC<MainStageProps> = ({
 
         {/* offsetX에 영향받는 컨텐츠 */}
         <Layer
+          perfectDrawEnabled={false}
           ref={layerRef}>
           {/* 나무팻말 배경 */}
           <TimelineWoodBG

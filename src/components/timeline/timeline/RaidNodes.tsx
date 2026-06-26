@@ -24,7 +24,7 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
                         node={node}
                         width={120}
                         x={calX}
-                        y={200}
+                        y={50}
                     />
                 )
             })}
@@ -32,4 +32,4 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
     )
 }
 
-export default RaidNodes
+export default React.memo(RaidNodes)

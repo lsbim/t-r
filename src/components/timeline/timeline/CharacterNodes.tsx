@@ -43,11 +43,10 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
                             height={CARD_HEIGHT}
                             fill="rgb(248,253,242)"
                             stroke="rgb(226,220,200)"
-                            strokeWidth={1.5}
+                            strokeWidth={2}
                             cornerRadius={4}
-                            shadowColor="rgba(0,0,0,0.15)"
-                            shadowBlur={6}
-                            shadowOffsetY={2}
+                            // 해당 Rect를 레스터화. 드래그 해도 재계산 없음
+                            ref={(node) => { node?.cache(); }}
                         />
                         {bgImage && (
                             <Image
@@ -70,4 +69,4 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
     )
 }
 
-export default CharacterNodes
+export default React.memo(CharacterNodes)
