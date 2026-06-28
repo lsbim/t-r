@@ -4,6 +4,9 @@ import ImageNode from '../../../commons/timeline/ImageNode';
 import { CharacterNode } from '../../../types/timeline/timelineTypes';
 import { dateToPx } from '../../../utils/timeline/timelineFunction';
 
+const CARD_WIDTH = 100;
+const CARD_HEIGHT = 120
+
 interface CharacterNodesProps {
     nodes: CharacterNode[]
 }
@@ -20,8 +23,6 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
         img.onload = () => setBgImage(img);
     }, []);
 
-    const CARD_WIDTH = 100;
-    const CARD_HEIGHT = 120
 
     return (
         <Group>

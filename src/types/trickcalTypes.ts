@@ -36,7 +36,7 @@ const personalityColors = {
 
 // 헥스코드 반환
 export const getPersonalityColor = (personality: Personality) => {
-    return personalityColors[personality] || '#gray'; // 기본값 설정
+    return personalityColors[personality] || '#151e51'; // 기본값 설정
 };
 
 // 요약 데이터 베이스
