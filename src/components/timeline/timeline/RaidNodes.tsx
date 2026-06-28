@@ -5,6 +5,7 @@ import ImageNode from '../../../commons/timeline/ImageNode';
 import { RaidNode } from '../../../types/timeline/timelineTypes';
 import { dateToPx } from '../../../utils/timeline/timelineFunction';
 import { getPersonalityColor } from "../../../types/trickcalTypes";
+import TapeDecoration, { TapePosition } from "./TapeDecoration";
 
 const ATTR_BAR_HEIGHT = 15;
 const CARD_WIDTH = 100; // 카드 너비
@@ -29,6 +30,8 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
 
     const CARD_WIDTH = 100;
     const CARD_HEIGHT = 120;
+
+    const RAID_TAPES: TapePosition[] = ['tl', 'tr'];
 
     return (
         <Group>
@@ -62,13 +65,13 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
                                 perfectDrawEnabled={false}
                             />
 
-                            {/* 보스 속성 색상 */}
+                            {/* 보스 성격 색상 */}
                             <Rect
                                 x={0}
                                 y={CARD_TOP_Y}
                                 width={CARD_WIDTH}
                                 height={ATTR_BAR_HEIGHT}
-                                fill={getPersonalityColor(node.personality!)}
+                                fill={getPersonalityColor(node.personality!)} // null은 프론티어 색상 적용
                                 cornerRadius={[4, 4, 0, 0]}
                                 perfectDrawEnabled={false}
                             />
@@ -104,6 +107,17 @@ const RaidNodes: React.FC<RaidNodesProps> = ({
                                 y={CARD_TOP_Y}
                             />
                         </Group>
+
+                        {RAID_TAPES.map(tape => (
+                            <TapeDecoration
+                                key={`timeline_raid_tape_${tape}`}
+                                position={tape}
+                                groupWidth={CARD_WIDTH}
+                                groupHeight={CARD_HEIGHT}
+                                groupTopY={CARD_TOP_Y}
+                                groupOffsetX={0}
+                            />
+                        ))}
                     </Group>
                 )
             })}

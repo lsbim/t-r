@@ -3,6 +3,7 @@ import { Group, Image, Rect } from 'react-konva';
 import ImageNode from '../../../commons/timeline/ImageNode';
 import { CharacterNode } from '../../../types/timeline/timelineTypes';
 import { dateToPx } from '../../../utils/timeline/timelineFunction';
+import TapeDecoration, { TapePosition } from './TapeDecoration';
 
 const CARD_WIDTH = 100;
 const CARD_HEIGHT = 120
@@ -23,6 +24,10 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
         img.onload = () => setBgImage(img);
     }, []);
 
+    const CARD_OFFSET_X = -10
+    const CARD_OFFSET_Y = -30
+
+    const CHARACTER_TAPES: TapePosition[] = ['tl', 'tr', 'bl', 'br'];
 
     return (
         <Group>
@@ -38,8 +43,8 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
                         y={calY}
                         key={node.name ?? index}>
                         <Rect
-                            x={-10}
-                            y={-30}
+                            x={CARD_OFFSET_X}
+                            y={CARD_OFFSET_Y}
                             width={CARD_WIDTH}
                             height={CARD_HEIGHT}
                             fill="rgb(248,253,242)"
@@ -63,6 +68,17 @@ const CharacterNodes: React.FC<CharacterNodesProps> = ({
                             x={0}
                             y={0}
                         />
+
+                        {CHARACTER_TAPES.map(tape => (
+                            <TapeDecoration
+                                key={`timeline_character_tape_${tape}`}
+                                position={tape}
+                                groupWidth={CARD_WIDTH}
+                                groupHeight={CARD_HEIGHT}
+                                groupTopY={CARD_OFFSET_Y}
+                                groupOffsetX={CARD_OFFSET_X}
+                            />
+                        ))}
                     </Group>
                 )
             })}
