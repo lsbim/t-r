@@ -88,13 +88,14 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     }, [viewportWidth]);
 
     return {
-        offsetXRef,
-        handlePctRef,
+        // offsetXRef,
+        // handlePctRef,
         layerRef,
         handleElRef,
         tooltipElRef,
         handleChangeHandle,
         handlePointerDown,
+        isDragging: isDraggingRef.current
     };
 };
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Rect } from 'react-konva';
+import Konva from "konva";
 
 export type TapePosition = 'tl' | 'tr' | 'bl' | 'br';
 
@@ -9,6 +10,7 @@ interface TapeDecorationProps {
     groupHeight: number;
     groupTopY?: number;
     groupOffsetX?: number;
+    ref: React.Ref<Konva.Rect>;
 }
 
 const TAPE_W = 40;
@@ -20,6 +22,7 @@ const TapeDecoration: React.FC<TapeDecorationProps> = ({
     groupHeight,
     groupTopY = 0,
     groupOffsetX = 0,
+    ref,
 }) => {
 
     const configs: Record<TapePosition, { angle: number; x: number; y: number }> = {
@@ -33,6 +36,7 @@ const TapeDecoration: React.FC<TapeDecorationProps> = ({
 
     return (
         <Rect
+            ref={ref}
             x={x}
             y={y}
             width={TAPE_W}
@@ -45,7 +49,6 @@ const TapeDecoration: React.FC<TapeDecorationProps> = ({
             rotation={angle}
             perfectDrawEnabled={false}
             listening={false}
-            ref={(n) => { n?.cache(); }}
         />
     )
 }

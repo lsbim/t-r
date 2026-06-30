@@ -20,12 +20,14 @@ const MISSING_TAB = 4; // 뜯긴 전단지 인덱스
 
 const TAB_DIVIDERS = Array.from({ length: TAB_COUNT - 1 }, (_, i) => i + 1);
 
-interface RaidNodesProps {
-    nodes: RaidNode[]
+interface RaidCardListProps {
+    nodes: RaidNode[];
+    isDragging: boolean;
 }
 
-const RaidNodes: React.FC<RaidNodesProps> = ({
-    nodes
+const RaidCardList: React.FC<RaidCardListProps> = ({
+    nodes,
+    isDragging,
 }) => {
 
     const CARD_WIDTH = 100;
@@ -143,4 +145,4 @@ function drawCardClipPath(ctx: Konva.Context) {
     ctx.closePath();
 }
 
-export default React.memo(RaidNodes)
+export default React.memo(RaidCardList)

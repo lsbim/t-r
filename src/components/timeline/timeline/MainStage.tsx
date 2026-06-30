@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react'
-import { Layer, Stage } from 'react-konva';
 import Konva from "konva";
+import React, { useMemo, useState } from 'react';
+import { Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
-import CharacterNodes from './CharacterNodes';
+import CharacterCardList from './CharacterCardList';
 import RaidNodes from './RaidNodes';
 import TimelineWoodBG from './TimelineWoodBG';
 
@@ -11,6 +11,7 @@ interface MainStageProps {
   onPointerDown: () => void;
   timelineMap: TimelineMap;
   timelinePx: number;
+  isDragging: boolean;
 }
 
 const MainStage: React.FC<MainStageProps> = ({
@@ -18,6 +19,7 @@ const MainStage: React.FC<MainStageProps> = ({
   onPointerDown,
   timelineMap,
   timelinePx,
+  isDragging,
 }) => {
   const [stageWidth, setStageWidth] = useState(window.innerWidth);
 
@@ -55,13 +57,15 @@ const MainStage: React.FC<MainStageProps> = ({
           />
 
           {/* 사도 이미지 */}
-          <CharacterNodes
+          <CharacterCardList
             nodes={characterNodeList}
+            isDragging={isDragging}
           />
           {/* 보스 이미지 */}
-          <RaidNodes
+          {/* <RaidCardList
             nodes={raidNodeList}
-          />
+            isDragging={isDragging}
+          /> */}
         </Layer>
 
         {/* 독립 컨텐츠 */}
