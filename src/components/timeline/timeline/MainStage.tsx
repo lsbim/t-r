@@ -2,8 +2,8 @@ import Konva from "konva";
 import React, { useMemo, useState } from 'react';
 import { Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
+import { timelineEvents } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
-import RaidNodes from './RaidNodes';
 import TimelineWoodBG from './TimelineWoodBG';
 
 interface MainStageProps {
@@ -42,6 +42,8 @@ const MainStage: React.FC<MainStageProps> = ({
   return (
     <div className={`w-full h-[${stageHeight}px] bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md overflow-hidden`}>
       <Stage
+        onTap={() => timelineEvents.emitDeactivateAll()}
+        onClick={() => timelineEvents.emitDeactivateAll()}
         onPointerDown={onPointerDown}
         width={stageWidth}
         height={600}>

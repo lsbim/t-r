@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Group, Image, Rect } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
+import { isTouchDevice, timelineEvents } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration from "./TapeDecoration";
 
 const CARD_WIDTH = 100;
@@ -31,6 +32,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     const tapeRefs = useRef<(Konva.Rect | null)[]>([null, null, null, null]); // 테이프 4개
     const cardTweenRef = useRef<Konva.Tween | null>(null);
     const tapeTweensRef = useRef<(Konva.Tween | null)[]>([null, null, null, null]); // 각 테이프 인덱스에 대한 애니메이션
+    const isActiveRef = useRef(false);
+    const cardId = useRef(Symbol());
 
     // Tween 즉시 종료
     // startHover 애니메이션 진행 중 endHover가 시작될 때,
@@ -57,8 +60,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         });
     };
 
-    const startHover = (e: Konva.KonvaEventObject<MouseEvent>) => {
+    const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
+
+        timelineEvents.emitDeactivateAll(cardId.current);
+        isActiveRef.current = true;
 
         const stage = e.target.getStage();
         if (stage) stage.container().style.cursor = 'pointer'; // cursor-pointer
@@ -77,11 +83,15 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         animateTapes(0, 0.15);
     };
 
-    const endHover = (e: Konva.KonvaEventObject<MouseEvent>) => {
+    const deactivate = (e?: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
 
-        const stage = e.target.getStage();
-        if (stage) stage.container().style.cursor = 'default';
+        isActiveRef.current = false;
+
+        if (e) {
+            const stage = e.target.getStage();
+            if (stage) stage.container().style.cursor = 'default';
+        }
 
         cardTweenRef.current?.destroy();
         cardTweenRef.current = new Konva.Tween({
@@ -97,9 +107,15 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     };
 
     useEffect(() => {
+        const unsubscribe = timelineEvents.onDeactivateAll((excludeId?: symbol) => {
+            if (excludeId === cardId.current) return;
+            if (isActiveRef.current) deactivate();
+        });
+
         // 필터 토글이나, 컬링 등으로 사라질 때 Tween이 메모리에 남아서 requestAnimationFrame를 계속 돌리는 걸 방지
         // 언마운트 시 tween은 destroy 필수
         return () => {
+            unsubscribe();
             cardTweenRef.current?.destroy();
             tapeTweensRef.current.forEach(t => t?.destroy());
         };
@@ -110,8 +126,20 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             ref={groupRef}
             x={calX}
             y={350}
-            onMouseEnter={(e) => { if (!isDragging) startHover(e); }}
-            onMouseLeave={(e) => { if (!isDragging) endHover(e); }}
+            onMouseEnter={(e) => {
+                if (isDragging || isTouchDevice()) return;
+                activate(e);
+            }}
+            onMouseLeave={(e) => {
+                if (isDragging || isTouchDevice()) return;
+                deactivate(e);
+            }}
+            // 탭 (터치스크린)
+            onTap={(e) => {
+                if (isDragging) return;
+                e.cancelBubble = true; // Stage로 버블링 차단
+                isActiveRef.current ? deactivate(e) : activate(e);
+            }}
         >
             <Rect
                 x={CARD_OFFSET_X}

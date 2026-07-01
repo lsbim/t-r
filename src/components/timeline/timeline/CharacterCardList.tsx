@@ -1,10 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Group, Image, Rect } from 'react-konva';
-import ImageNode from '../../../commons/timeline/ImageNode';
+import React, { useEffect, useState } from 'react';
+import { Group } from 'react-konva';
 import { CharacterNode } from '../../../types/timeline/timelineTypes';
 import { dateToPx } from '../../../utils/timeline/timelineFunction';
-import TapeDecoration, { TapePosition } from './TapeDecoration';
-import Konva from "konva";
 import CharacterCard from './CharacterCard';
 
 interface CharacterCardListProps {

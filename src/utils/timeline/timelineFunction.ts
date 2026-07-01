@@ -18,3 +18,23 @@ export function dateToPx(dateStr: string): number {
     const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
     return days * DAY_PX;
 }
+
+// PC는 마우스오버 터치스크린은 토글
+export function isTouchDevice(): boolean {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+type DeactivateListener = (excludeId?: symbol) => void;
+
+const listeners = new Set<DeactivateListener>();
+
+export const timelineEvents = {
+    onDeactivateAll: (fn: DeactivateListener) => {
+        listeners.add(fn);
+        return () => listeners.delete(fn);
+    },
+    // excludeId와 동일한 symbol 카드는 신호를 무시
+    emitDeactivateAll: (excludeId?: symbol) => {
+        listeners.forEach(fn => fn(excludeId));
+    },
+};
