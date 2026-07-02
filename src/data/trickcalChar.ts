@@ -97,6 +97,7 @@ export const charInfo: CharInfoType = {
     "다야(퓨어샤인)": { grade: 3, personality: "광기", line: "중열", birthdate: "2026-01-29", role: "서포터", attackType: "마법", race: '용족' },
     "헤일리(멀쩡)": { grade: 3, personality: "광기", line: "전열", birthdate: "2026-04-09", role: "탱커", attackType: "물리", race: '엘프' },
     "실비아": { grade: 3, personality: "광기", line: "전열", birthdate: "2026-06-18", role: "탱커", attackType: "마법", race: '용족', eldain: true },
+    "스키아": { grade: 3, personality: "광기", line: "후열", birthdate: "2026-07-02", role: "서포터", attackType: "마법", race: '요정' },
     "마에스트로 2호": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", role: "탱커", attackType: "물리", race: '엘프' },
     "이프리트": { grade: 2, personality: "광기", line: "전열", birthdate: "2023-09-27", role: "딜러", attackType: "마법", race: '정령' },
     "마요": { grade: 2, personality: "광기", line: "후열", birthdate: "2023-09-27", role: "딜러", attackType: "물리", race: '요정' },

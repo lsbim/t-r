@@ -163,6 +163,7 @@ export const costumes: Costume[] = [
     { charName: "실비아", cosName: "소녀의 단아한 발걸음", lvl: "pretty", launchDate: "2026-06-18" },
     { charName: "실비아", cosName: "내가 체육관의 유망주", lvl: "normal", launchDate: "2026-06-18" },
     { charName: "셰이디", cosName: "차원 찬탈 고스트", lvl: "normal", launchDate: "2026-06-25" },
+    { charName: "스키아", cosName: "이국의 전통 체험", lvl: "normal", launchDate: "2026-07-02" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
