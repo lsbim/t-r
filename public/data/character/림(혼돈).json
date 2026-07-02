@@ -33,6 +33,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 24,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -82,24 +100,6 @@
             "line": "후열",
             "rank": 14,
             "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 12,
-            "count": 2
           }
         ],
         "totalEntries": 300
@@ -245,26 +245,26 @@
     {
       "cosName": "유령 늪의 인기쟁이",
       "cosUsedCount": 7,
-      "charTotalCount": 12,
-      "rate": 58.3,
+      "charTotalCount": 13,
+      "rate": 53.8,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
-      "cosName": "연회루 혼돈 마담",
-      "cosUsedCount": 3,
-      "charTotalCount": 12,
-      "rate": 25,
-      "lvl": "pretty",
-      "launchDate": "2025-10-30"
-    },
-    {
       "cosName": "야시장의 습격자",
-      "cosUsedCount": 2,
-      "charTotalCount": 12,
-      "rate": 16.7,
+      "cosUsedCount": 3,
+      "charTotalCount": 13,
+      "rate": 23.1,
       "lvl": "normal",
       "launchDate": "2025-07-24"
+    },
+    {
+      "cosName": "연회루 혼돈 마담",
+      "cosUsedCount": 3,
+      "charTotalCount": 13,
+      "rate": 23.1,
+      "lvl": "pretty",
+      "launchDate": "2025-10-30"
     }
   ]
 }

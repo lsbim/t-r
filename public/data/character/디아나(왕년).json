@@ -181,6 +181,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 9,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -248,24 +266,6 @@
             "line": "전열",
             "rank": 6,
             "count": 68
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 292,
-        "pickRate": 97.3,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 292
           }
         ],
         "totalEntries": 300
@@ -457,17 +457,17 @@
   "recentSkins": [
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 161,
-      "charTotalCount": 243,
-      "rate": 66.3,
+      "cosUsedCount": 163,
+      "charTotalCount": 245,
+      "rate": 66.5,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
       "cosUsedCount": 27,
-      "charTotalCount": 243,
-      "rate": 11.1,
+      "charTotalCount": 245,
+      "rate": 11,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

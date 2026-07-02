@@ -122,7 +122,7 @@ export const costumes: Costume[] = [
     { charName: "리츠", cosName: "방구석 강철", lvl: "normal", launchDate: "2024-11-14" },
     { charName: "셰이디", cosName: "유령나라 피자공주", lvl: "normal", launchDate: "2024-10-17" },
     { charName: "셰이디", cosName: "내 귀엔 청춘 유령", lvl: "normal", launchDate: "2025-06-26" },
-    { charName: "시스트", cosName: "초록 괴물(TM)", lvl: "normal", launchDate: "2024-08-08" },
+    { charName: "시스트", cosName: "초록 괴물 (TM)", lvl: "normal", launchDate: "2024-08-08" },
     { charName: "앨리스", cosName: "유령 나라 앨리스", lvl: "normal", launchDate: "2024-12-12" },
     { charName: "앨리스", cosName: "숲속 꼬마 유령", lvl: "normal", launchDate: "2024-12-18" },
     { charName: "앨리스", cosName: "주사위 잡이 토끼", lvl: "normal", launchDate: "2025-05-29" },
