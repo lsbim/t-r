@@ -47,6 +47,34 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 288,
+        "pickRate": 96,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 22
+          },
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 3
+          },
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 263
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -117,34 +145,6 @@
             "line": "후열",
             "rank": 5,
             "count": 20
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 76,
-        "pickRate": 25.3,
-        "overallRank": 11,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 10,
-            "count": 7
-          },
-          {
-            "line": "중열",
-            "rank": 9,
-            "count": 41
-          },
-          {
-            "line": "후열",
-            "rank": 6,
-            "count": 28
           }
         ],
         "totalEntries": 300
@@ -376,17 +376,17 @@
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 108,
-      "charTotalCount": 202,
-      "rate": 53.5,
+      "cosUsedCount": 250,
+      "charTotalCount": 490,
+      "rate": 51,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
-      "cosUsedCount": 37,
-      "charTotalCount": 202,
-      "rate": 18.3,
+      "cosUsedCount": 98,
+      "charTotalCount": 490,
+      "rate": 20,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

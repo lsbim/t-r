@@ -124,6 +124,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 43,
+        "pickRate": 14.3,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 43
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -191,24 +209,6 @@
             "line": "중열",
             "rank": 8,
             "count": 44
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 54,
-        "pickRate": 18,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 6,
-            "count": 54
           }
         ],
         "totalEntries": 300
@@ -407,25 +407,25 @@
   "recentSkins": [
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 310,
-      "charTotalCount": 639,
-      "rate": 48.5,
+      "cosUsedCount": 183,
+      "charTotalCount": 383,
+      "rate": 47.8,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 198,
-      "charTotalCount": 639,
-      "rate": 31,
+      "cosUsedCount": 124,
+      "charTotalCount": 383,
+      "rate": 32.4,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     },
     {
       "cosName": "동심의 햇살",
-      "cosUsedCount": 54,
-      "charTotalCount": 639,
-      "rate": 8.5,
+      "cosUsedCount": 35,
+      "charTotalCount": 383,
+      "rate": 9.1,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     }

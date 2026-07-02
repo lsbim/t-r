@@ -10,6 +10,18 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -71,24 +83,6 @@
             "line": "중열",
             "rank": 13,
             "count": 6
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 11,
-        "pickRate": 3.7,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 12,
-            "count": 11
           }
         ],
         "totalEntries": 300
@@ -239,17 +233,17 @@
   "recentSkins": [
     {
       "cosName": "베이케이션 스윙",
-      "cosUsedCount": 8,
-      "charTotalCount": 22,
-      "rate": 36.4,
+      "cosUsedCount": 7,
+      "charTotalCount": 21,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "스트릿 스쿨러",
       "cosUsedCount": 5,
-      "charTotalCount": 22,
-      "rate": 22.7,
+      "charTotalCount": 21,
+      "rate": 23.8,
       "lvl": "normal",
       "launchDate": "2025-06-19"
     }

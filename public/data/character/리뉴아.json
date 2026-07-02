@@ -258,6 +258,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 297,
+        "pickRate": 99,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 297
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -325,24 +343,6 @@
             "line": "중열",
             "rank": 10,
             "count": 20
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 55,
-        "pickRate": 18.3,
-        "overallRank": 12,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 55
           }
         ],
         "totalEntries": 300
@@ -540,17 +540,17 @@
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 178,
-      "charTotalCount": 404,
-      "rate": 44.1,
+      "cosUsedCount": 298,
+      "charTotalCount": 645,
+      "rate": 46.2,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 145,
-      "charTotalCount": 404,
-      "rate": 35.9,
+      "cosUsedCount": 221,
+      "charTotalCount": 645,
+      "rate": 34.3,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

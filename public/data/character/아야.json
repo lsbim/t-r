@@ -93,6 +93,18 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -154,24 +166,6 @@
             "line": "중열",
             "rank": 6,
             "count": 49
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 280,
-        "pickRate": 93.3,
-        "overallRank": 3,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 280
           }
         ],
         "totalEntries": 300
@@ -341,24 +335,24 @@
     {
       "cosName": "겨울의 마녀",
       "cosUsedCount": 104,
-      "charTotalCount": 172,
-      "rate": 60.5,
+      "charTotalCount": 171,
+      "rate": 60.8,
       "lvl": "pretty",
       "launchDate": "2026-06-11"
     },
     {
       "cosName": "첫 눈송이의 춤사위",
       "cosUsedCount": 34,
-      "charTotalCount": 172,
-      "rate": 19.8,
+      "charTotalCount": 171,
+      "rate": 19.9,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "새벽의 블루문",
-      "cosUsedCount": 22,
-      "charTotalCount": 172,
-      "rate": 12.8,
+      "cosUsedCount": 21,
+      "charTotalCount": 171,
+      "rate": 12.3,
       "lvl": "pretty",
       "launchDate": "2025-04-24"
     }

@@ -212,6 +212,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 10,
+        "pickRate": 3.3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 10
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -279,24 +297,6 @@
             "line": "전열",
             "rank": 14,
             "count": 2
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 39,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 13,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -495,25 +495,25 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 228,
-      "charTotalCount": 447,
-      "rate": 51,
+      "cosUsedCount": 114,
+      "charTotalCount": 228,
+      "rate": 50,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 88,
-      "charTotalCount": 447,
-      "rate": 19.7,
+      "cosUsedCount": 47,
+      "charTotalCount": 228,
+      "rate": 20.6,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "풀하트 매직",
-      "cosUsedCount": 79,
-      "charTotalCount": 447,
-      "rate": 17.7,
+      "cosUsedCount": 38,
+      "charTotalCount": 228,
+      "rate": 16.7,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     }

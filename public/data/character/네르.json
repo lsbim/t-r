@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 243,
+        "pickRate": 81,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 243
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -77,24 +95,6 @@
             "line": "전열",
             "rank": 3,
             "count": 107
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 27,
-        "pickRate": 9,
-        "overallRank": 20,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 27
           }
         ],
         "totalEntries": 300
@@ -275,25 +275,25 @@
   "recentSkins": [
     {
       "cosName": "교단의 성찬 파티",
-      "cosUsedCount": 27,
-      "charTotalCount": 49,
-      "rate": 55.1,
+      "cosUsedCount": 129,
+      "charTotalCount": 273,
+      "rate": 47.3,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "개인 교습 나들이",
-      "cosUsedCount": 13,
-      "charTotalCount": 49,
-      "rate": 26.5,
+      "cosUsedCount": 60,
+      "charTotalCount": 273,
+      "rate": 22,
       "lvl": "normal",
       "launchDate": "2024-09-05"
     },
     {
       "cosName": "한 때 한가닥",
-      "cosUsedCount": 6,
-      "charTotalCount": 49,
-      "rate": 12.2,
+      "cosUsedCount": 57,
+      "charTotalCount": 273,
+      "rate": 20.9,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     }

@@ -90,6 +90,18 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -145,24 +157,6 @@
             "line": "전열",
             "rank": 1,
             "count": 282
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 54,
-        "pickRate": 18,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 54
           }
         ],
         "totalEntries": 300

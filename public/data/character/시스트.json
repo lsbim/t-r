@@ -44,6 +44,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 46,
+        "name": "릴1리",
+        "personality": "순수",
+        "startDate": "2026-06-25",
+        "endDate": "2026-07-02",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 24,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -93,24 +111,6 @@
             "line": "중열",
             "rank": 18,
             "count": 2
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 41,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2025-11-27",
-        "endDate": "2025-12-04",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 39,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 17,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -250,5 +250,14 @@
       }
     ]
   },
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "초록 괴물 (TM)",
+      "cosUsedCount": 1,
+      "charTotalCount": 1,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2024-08-08"
+    }
+  ]
 }
