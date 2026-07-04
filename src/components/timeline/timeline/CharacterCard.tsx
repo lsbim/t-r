@@ -134,6 +134,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 if (isDragging || isTouchDevice()) return;
                 deactivate(e);
             }}
+            // PC 환경에선 클릭으로 상태가 바뀌지 않음
+            onClick={(e) => {
+                if (isDragging || isTouchDevice()) return;
+                e.cancelBubble = true;
+            }}
             // 탭 (터치스크린)
             onTap={(e) => {
                 if (isDragging) return;

@@ -116,6 +116,10 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
                 if (isDragging || isTouchDevice()) return;
                 deactivate(e);
             }}
+            onClick={(e) => {
+                if (isDragging || isTouchDevice()) return;
+                e.cancelBubble = true;
+            }}
             onTap={(e) => {
                 if (isDragging) return;
                 e.cancelBubble = true;
@@ -170,7 +174,7 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
                         height: CARD.imageH, // Shape가 실제로 그려지는 전체 영역을 명시해야 잘리지 않음
                     });
                 }}>
-                    
+
                 {/* 문어발이 달려있는 하단 테두리를 제외하려면 Rect가 아닌 Shape를 사용 */}
                 <Shape
                     sceneFunc={(ctx, shape) => {
