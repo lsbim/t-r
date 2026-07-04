@@ -5,6 +5,7 @@ import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } fro
 import { timelineEvents } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
 import TimelineWoodBG from './TimelineWoodBG';
+import RaidCardList from "./RaidCardList";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -64,10 +65,10 @@ const MainStage: React.FC<MainStageProps> = ({
             isDragging={isDragging}
           />
           {/* 보스 이미지 */}
-          {/* <RaidCardList
+          <RaidCardList
             nodes={raidNodeList}
             isDragging={isDragging}
-          /> */}
+          />
         </Layer>
 
         {/* 독립 컨텐츠 */}
