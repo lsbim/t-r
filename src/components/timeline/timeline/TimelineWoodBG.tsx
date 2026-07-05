@@ -3,11 +3,13 @@ import { Rect } from 'react-konva'
 
 interface TimelineWoodBGProps {
     timelinePx: number;
+    stageWidth: number;
     stageHeight: number;
 }
 
 const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
     timelinePx,
+    stageWidth,
     stageHeight,
 }) => {
     const [woodTexture, setWoodTexture] = useState<HTMLImageElement | null>(null);
@@ -20,13 +22,16 @@ const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
 
     if (!woodTexture) return null;
 
+    const bgX = -stageWidth / 2;
+    const bgWidth = timelinePx + stageWidth;
+
     return (
         <>
             {/* 나무 팻말 텍스쳐(패턴) */}
             <Rect
-                x={0}
+                x={bgX}
                 y={0}
-                width={timelinePx}
+                width={bgWidth}
                 height={stageHeight}
                 fillPatternImage={woodTexture}
                 fillPatternRepeat="repeat-x"
@@ -36,9 +41,9 @@ const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
 
             {/* 상단은 밝고 하단은 어두운 빛을 받는 효과 */}
             <Rect
-                x={0}
+                x={bgX}
                 y={0}
-                width={timelinePx}
+                width={bgWidth}
                 height={stageHeight}
                 fillLinearGradientStartPoint={{ x: 0, y: 0 }}
                 fillLinearGradientEndPoint={{ x: 0, y: stageHeight }}

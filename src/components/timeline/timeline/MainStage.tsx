@@ -56,6 +56,7 @@ const MainStage: React.FC<MainStageProps> = ({
           {/* 나무팻말 배경 */}
           <TimelineWoodBG
             timelinePx={timelinePx}
+            stageWidth={stageWidth}
             stageHeight={stageHeight}
           />
 
