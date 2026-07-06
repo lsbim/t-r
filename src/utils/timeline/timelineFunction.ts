@@ -1,3 +1,5 @@
+import Konva from "konva";
+
 // 내용물로 인덱스 찾기
 export function dateIndex(allDates: string[], isoDate: string): number {
     return allDates.indexOf(isoDate);
@@ -24,6 +26,7 @@ export function isTouchDevice(): boolean {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 }
 
+// Event Emitter
 type DeactivateListener = (excludeId?: symbol) => void;
 
 const listeners = new Set<DeactivateListener>();
@@ -38,3 +41,14 @@ export const timelineEvents = {
         listeners.forEach(fn => fn(excludeId));
     },
 };
+
+// 애니메이션 전용 Layer
+let overlayLayer: Konva.Layer | null = null;
+
+export const timelineLayers = {
+    setOverlayLayer: (layer: Konva.Layer | null) => {
+        overlayLayer = layer;
+    },
+    getOverlayLayer: (): Konva.Layer | null => overlayLayer,
+};
+

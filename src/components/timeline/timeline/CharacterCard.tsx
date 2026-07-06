@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Group, Image, Rect } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
-import { isTouchDevice, timelineEvents } from "../../../utils/timeline/timelineFunction";
+import { isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration from "./TapeDecoration";
 
 const CARD_WIDTH = 100;
@@ -34,6 +34,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     const tapeTweensRef = useRef<(Konva.Tween | null)[]>([null, null, null, null]); // 각 테이프 인덱스에 대한 애니메이션
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol());
+    const homeLayerRef = useRef<Konva.Layer | null>(null); // 전체 노드가 담긴 Layer 임시 저장용
+
 
     // Tween 즉시 종료
     // startHover 애니메이션 진행 중 endHover가 시작될 때,
@@ -69,6 +71,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         const stage = e.target.getStage();
         if (stage) stage.container().style.cursor = 'pointer'; // cursor-pointer
 
+        const overlay = timelineLayers.getOverlayLayer();
+        if (overlay) {
+            if (!homeLayerRef.current) {
+                homeLayerRef.current = groupRef.current.getLayer();
+            }
+            groupRef.current.moveTo(overlay);
+        }
         groupRef.current.moveToTop();
 
         cardTweenRef.current?.destroy();
@@ -100,6 +109,9 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             easing: Konva.Easings.EaseOut,
             y: BASE_Y,
             onFinish: () => {
+                if (homeLayerRef.current && groupRef.current) {
+                    groupRef.current.moveTo(homeLayerRef.current);
+                }
                 animateTapes(1, 0.3);
             },
         });

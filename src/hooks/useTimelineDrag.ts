@@ -1,5 +1,6 @@
 import Konva from "konva";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { timelineLayers } from "../utils/timeline/timelineFunction";
 
 
 interface UseTimelineDragProps {
@@ -38,6 +39,14 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
             layerRef.current.x(clamped);
             layerRef.current.batchDraw();
         }
+
+        // 애니메이션용 레이어도 위치 적용
+        const overlay = timelineLayers.getOverlayLayer();
+        if (overlay) {
+            overlay.x(clamped);
+            overlay.batchDraw();
+        }
+
         if (handleElRef.current) {
             handleElRef.current.style.left = `${pct}%`;
         }

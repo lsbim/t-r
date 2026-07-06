@@ -4,7 +4,7 @@ import { Group, Line, Rect, Shape } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor } from "../../../types/trickcalTypes";
-import { isTouchDevice, timelineEvents } from "../../../utils/timeline/timelineFunction";
+import { isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration, { TapePosition } from "./TapeDecoration";
 
 const CARD = {
@@ -41,6 +41,7 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
     const tabTweensRef = useRef<(Konva.Tween | null)[]>([]);
 
     const tapeRefs = useRef<(Konva.Rect | null)[]>([null, null]);
+    const homeLayerRef = useRef<Konva.Layer | null>(null);  // 전체 노드가 담긴 Layer 임시 저장용
 
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol());
@@ -75,6 +76,13 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
         const stage = e.target.getStage();
         if (stage) stage.container().style.cursor = 'pointer';
 
+        const overlay = timelineLayers.getOverlayLayer();
+        if (overlay) {
+            if (!homeLayerRef.current) {
+                homeLayerRef.current = groupRef.current?.getLayer() ?? null;
+            }
+            groupRef.current?.moveTo(overlay);
+        }
         groupRef.current?.moveToTop();
 
         animateTabs(true);
@@ -88,6 +96,9 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
             if (stage) stage.container().style.cursor = 'default';
         }
 
+        if (homeLayerRef.current && groupRef.current) {
+            groupRef.current.moveTo(homeLayerRef.current);
+        }
         animateTabs(false);
     };
 
