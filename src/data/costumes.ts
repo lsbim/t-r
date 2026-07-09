@@ -214,6 +214,7 @@ export const costumes: Costume[] = [
     { charName: "레비(졸업)", cosName: "정식 마녀의 휴식", lvl: "normal", launchDate: "2026-05-07" },
     { charName: "칸나", cosName: "석관의 엘프", lvl: "normal", launchDate: "2026-05-28" },
     { charName: "티그", cosName: "돌격! 정복대장", lvl: "normal", launchDate: "2026-06-25" },
+    { charName: "우이", cosName: "빛바랜 기억", lvl: "pretty", launchDate: "2026-07-09" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
