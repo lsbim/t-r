@@ -1,18 +1,20 @@
 import { useMemo } from "react";
-import SEO from "../../../commons/component/SEO";
-import MinimapHandle from "../../../components/timeline/minimap/MinimapHandle";
-import MainStage from "../../../components/timeline/timeline/MainStage";
-import { charInfo } from "../../../data/trickcalChar";
-import { useRaidData } from "../../../hooks/useRaidData";
-import useTimelineDrag from "../../../hooks/useTimelineDrag";
-import Footer from "../../../layouts/Footer";
-import HeaderNav from "../../../layouts/HeaderNav";
-import TopRemote from "../../../layouts/TopRemote";
-import { ClashSummary } from "../../../types/clashTypes";
-import { ClashV2Summary } from "../../../types/clashV2Types";
-import { FrontierSummary } from "../../../types/frontierTypes";
-import { CharacterNode, RaidNode, TimelineMap, TimelineNodeType } from "../../../types/timeline/timelineTypes";
-import { DAY_PX, START_DATE } from "../../../utils/timeline/timelineFunction";
+import SEO from "../../commons/component/SEO";
+import PopoverCard from "../../commons/timeline/PopperCard";
+import MinimapHandle from "../../components/timeline/minimap/MinimapHandle";
+import MainStage from "../../components/timeline/timeline/MainStage";
+import { charInfo } from "../../data/trickcalChar";
+import { PopoverProvider } from "../../hooks/usePopper";
+import { useRaidData } from "../../hooks/useRaidData";
+import useTimelineDrag from "../../hooks/useTimelineDrag";
+import Footer from "../../layouts/Footer";
+import HeaderNav from "../../layouts/HeaderNav";
+import TopRemote from "../../layouts/TopRemote";
+import { ClashSummary } from "../../types/clashTypes";
+import { ClashV2Summary } from "../../types/clashV2Types";
+import { FrontierSummary } from "../../types/frontierTypes";
+import { CharacterNode, RaidNode, TimelineMap, TimelineNodeType } from "../../types/timeline/timelineTypes";
+import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
@@ -83,38 +85,41 @@ const IndexPage = () => {
     console.log(timelineMap)
 
     return (
-        <div className="flex flex-col justify-center gap-y-2 min-h-screen">
-            <SEO
-                title="콘텐츠 출시 타임라인"
-                description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
-            />
-            <TopRemote />
-            <HeaderNav />
-            {/* 소개 */}
-            <div className="md:w-[768px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
-                <h1 className="">컨텐츠 타임라인</h1>
-
-            </div>
-            <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
-
-                <MinimapHandle
-                    handleElRef={handleElRef}
-                    tooltipElRef={tooltipElRef}
-                    totalDays={TOTAL_DAYS}
-                    onChange={handleChangeHandle}
-                    timelineMap={timelineMap}
+        <PopoverProvider>
+            <div className="flex flex-col justify-center gap-y-2 min-h-screen">
+                <SEO
+                    title="콘텐츠 출시 타임라인"
+                    description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
                 />
+                <TopRemote />
+                <HeaderNav />
+                {/* 소개 */}
+                <div className="md:w-[768px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
+                    <h1 className="">컨텐츠 타임라인</h1>
 
-                <MainStage
-                    layerRef={layerRef}
-                    onPointerDown={handlePointerDown}
-                    timelineMap={timelineMap}
-                    timelinePx={timelinePx}
-                    isDragging={isDragging}
-                />
-            </div>
-            <Footer />
-        </div >
+                </div>
+                <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
+
+                    <MinimapHandle
+                        handleElRef={handleElRef}
+                        tooltipElRef={tooltipElRef}
+                        totalDays={TOTAL_DAYS}
+                        onChange={handleChangeHandle}
+                        timelineMap={timelineMap}
+                    />
+
+                    <MainStage
+                        layerRef={layerRef}
+                        onPointerDown={handlePointerDown}
+                        timelineMap={timelineMap}
+                        timelinePx={timelinePx}
+                        isDragging={isDragging}
+                    />
+                </div>
+                <Footer />
+            </div >
+            <PopoverCard />
+        </PopoverProvider>
     );
 }
 

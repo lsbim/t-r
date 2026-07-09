@@ -14,7 +14,7 @@ const ClashV2Season = lazy(() => import("../pages/clashV2/ClashV2SeasonPage"));
 const FrontierIndex = lazy(() => import("../pages/frontier/IndexPage"));
 const FrontierSeason = lazy(() => import("../pages/frontier/SeasonPage"));
 
-const RaidTimelineIndex = lazy(() => import("../pages/timeline/raid/IndexPage"));
+const RaidTimelineIndex = lazy(() => import("../pages/timeline/IndexPage"));
 
 const CostumeIndex = lazy(() => import("../pages/costume/IndexPage"));
 
