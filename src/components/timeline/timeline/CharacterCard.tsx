@@ -75,10 +75,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             const stageBox = stage.container().getBoundingClientRect();
             const nodeAbsPos = groupRef.current.getAbsolutePosition();
 
+            const targetY = BASE_Y + HOVER_LIFT_Y;
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
                 stageBox.left + nodeAbsPos.x + CARD_OFFSET_X,
-                stageBox.top + nodeAbsPos.y + CARD_OFFSET_Y,
+                stageBox.top + targetY + CARD_OFFSET_Y,
                 CARD_WIDTH,
                 CARD_HEIGHT
             );

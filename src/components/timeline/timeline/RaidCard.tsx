@@ -6,6 +6,7 @@ import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor } from "../../../types/trickcalTypes";
 import { isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration, { TapePosition } from "./TapeDecoration";
+import { usePopoverActions } from "../../../hooks/usePopper";
 
 const CARD = {
     w: 100,
@@ -46,6 +47,8 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol());
 
+    const { showPopover, deactivateNow } = usePopoverActions();
+
     const animateTabs = (isHover: boolean) => {
         TAB_INDICES.forEach((idx) => {
             const node = tabRefs.current[idx];
@@ -70,11 +73,29 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
     };
 
     const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
+        if (!groupRef.current) return;
         timelineEvents.emitDeactivateAll(cardId.current);
         isActiveRef.current = true;
 
         const stage = e.target.getStage();
-        if (stage) stage.container().style.cursor = 'pointer';
+        if (stage) {
+            stage.container().style.cursor = 'pointer';
+            const stageBox = stage.container().getBoundingClientRect();
+            const nodeAbsPos = groupRef.current.getAbsolutePosition();
+
+            // 카드 영역 생성하여 전달
+            const cardRect = new DOMRect(
+                stageBox.left + nodeAbsPos.x,
+                stageBox.top + nodeAbsPos.y + CARD.topY,
+                CARD.w,
+                CARD.h
+            );
+            // 팝오버 활성
+            showPopover(
+                { type: "raid", node },
+                cardRect,
+                deactivateAni);
+        }
 
         const overlay = timelineLayers.getOverlayLayer();
         if (overlay) {
@@ -88,13 +109,12 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
         animateTabs(true);
     };
 
-    const deactivate = (e?: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
+    const deactivateAni = () => {
+        if (!groupRef.current) return;
         isActiveRef.current = false;
 
-        if (e) {
-            const stage = e.target.getStage();
-            if (stage) stage.container().style.cursor = 'default';
-        }
+        const stage = groupRef.current.getStage();
+        if (stage) stage.container().style.cursor = 'default';
 
         if (homeLayerRef.current && groupRef.current) {
             groupRef.current.moveTo(homeLayerRef.current);
@@ -105,7 +125,7 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
     useEffect(() => {
         const unsubscribe = timelineEvents.onDeactivateAll((excludeId?: symbol) => {
             if (excludeId === cardId.current) return;
-            if (isActiveRef.current) deactivate();
+            if (isActiveRef.current) deactivateNow();
         });
 
         return () => {
@@ -125,16 +145,20 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
             }}
             onMouseLeave={(e) => {
                 if (isDragging || isTouchDevice()) return;
-                deactivate(e);
+                // deactivate(e);
             }}
             onClick={(e) => {
-                if (isDragging || isTouchDevice()) return;
                 e.cancelBubble = true;
+                if (isDragging || isTouchDevice()) return;
             }}
             onTap={(e) => {
                 if (isDragging) return;
                 e.cancelBubble = true;
-                isActiveRef.current ? deactivate(e) : activate(e);
+                if (isActiveRef.current) {
+                    deactivateNow();
+                } else {
+                    activate(e);
+                }
             }}
         >
             {/* 문어발 전단지 탭. 순서를 위에 배치하여 뒤에 깔리게 함 */}

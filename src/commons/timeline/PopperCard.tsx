@@ -23,6 +23,8 @@ const PopoverCard = () => {
         ? `/character/${target.node.name}`
         : `/raid/${(target.node as RaidNode).season}`;
 
+    console.log('popover: ', popover)
+
     return (
         <Popper.Root>
             <Popper.Anchor virtualRef={{ current: rectAnchor }} />
