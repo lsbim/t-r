@@ -589,7 +589,7 @@ export const adventure: Adventure = {
         ],
         advId: 60
     },
-    '교단 가계부 부르기': {
+    '교단 가계부 정리하기': {
         mainAdvSkill: '추진력',
         advLvl: 1,
         yieldMaterials: [

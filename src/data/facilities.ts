@@ -83,6 +83,12 @@ export const facilities: Partial<FacilityCost> = {
                 { name: 'S전자 반도체', qty: 90 },
             ],
             gold: 1750000
+        }, 14: {
+            cost: [
+                { name: '배터리 팩', qty: 55 },
+                { name: 'S전자 반도체', qty: 100 },
+            ],
+            gold: 2000000
         },
     }, '모험회': {
         2: {
