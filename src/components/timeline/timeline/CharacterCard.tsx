@@ -4,7 +4,7 @@ import { Group, Image, Rect } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
-import { isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
+import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration from "./TapeDecoration";
 
 const CARD_WIDTH = 100;
@@ -19,14 +19,12 @@ const TAPE_POSITIONS = ['tl', 'tr', 'bl', 'br'] as const;
 interface CharacterCardProps {
     node: CharacterNode;
     bgImage: HTMLImageElement | null;
-    isDragging: boolean;
     calX: number;
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
     node,
     bgImage,
-    isDragging,
     calX
 }) => {
     const groupRef = useRef<Konva.Group>(null);
@@ -154,21 +152,21 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             x={calX}
             y={350}
             onMouseEnter={(e) => {
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
                 activate(e);
             }}
             onMouseLeave={(e) => {
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
                 // deactivate(e);
             }}
             // PC 환경에선 클릭으로 상태 변화 X
             onClick={(e) => {
                 e.cancelBubble = true;
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
             }}
             // 탭 (터치 스크린)
             onTap={(e) => {
-                if (isDragging) return;
+                if (dragState.get()) return;
                 e.cancelBubble = true;
                 if (isActiveRef.current) {
                     deactivateNow();

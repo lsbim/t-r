@@ -12,7 +12,6 @@ interface MainStageProps {
   onPointerDown: () => void;
   timelineMap: TimelineMap;
   timelinePx: number;
-  isDragging: boolean;
 }
 
 const MainStage: React.FC<MainStageProps> = ({
@@ -20,7 +19,6 @@ const MainStage: React.FC<MainStageProps> = ({
   onPointerDown,
   timelineMap,
   timelinePx,
-  isDragging,
 }) => {
   const [stageWidth, setStageWidth] = useState(window.innerWidth);
 
@@ -63,12 +61,10 @@ const MainStage: React.FC<MainStageProps> = ({
           {/* 사도 이미지 */}
           <CharacterCardList
             nodes={characterNodeList}
-            isDragging={isDragging}
           />
           {/* 보스 이미지 */}
           <RaidCardList
             nodes={raidNodeList}
-            isDragging={isDragging}
           />
         </Layer>
 

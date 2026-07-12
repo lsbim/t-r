@@ -6,12 +6,10 @@ import CharacterCard from './CharacterCard';
 
 interface CharacterCardListProps {
     nodes: CharacterNode[];
-    isDragging: boolean;
 }
 
 const CharacterCardList: React.FC<CharacterCardListProps> = ({
     nodes,
-    isDragging
 }) => {
 
     const [bgImage, setBgImage] = useState<HTMLImageElement | null>(null);
@@ -30,7 +28,6 @@ const CharacterCardList: React.FC<CharacterCardListProps> = ({
                     node={node}
                     calX={dateToPx(node.birthDate)}
                     bgImage={bgImage}
-                    isDragging={isDragging}
                 />
             ))}
         </Group>

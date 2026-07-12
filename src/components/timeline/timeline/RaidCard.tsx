@@ -4,7 +4,7 @@ import { Group, Line, Rect, Shape } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor } from "../../../types/trickcalTypes";
-import { isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
+import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import TapeDecoration, { TapePosition } from "./TapeDecoration";
 import { usePopoverActions } from "../../../hooks/usePopper";
 
@@ -33,10 +33,12 @@ const OVERLAP_Y = 3;
 interface RaidCardProps {
     node: RaidNode;
     calX: number;
-    isDragging: boolean;
 }
 
-const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
+const RaidCard: React.FC<RaidCardProps> = ({
+    node,
+    calX
+}) => {
     const groupRef = useRef<Konva.Group>(null);
     const tabRefs = useRef<(Konva.Group | null)[]>([]);
     const tabTweensRef = useRef<(Konva.Tween | null)[]>([]);
@@ -140,19 +142,19 @@ const RaidCard: React.FC<RaidCardProps> = ({ node, calX, isDragging }) => {
             x={calX}
             y={20}
             onMouseEnter={(e) => {
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
                 activate(e);
             }}
             onMouseLeave={(e) => {
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
                 // deactivate(e);
             }}
             onClick={(e) => {
                 e.cancelBubble = true;
-                if (isDragging || isTouchDevice()) return;
+                if (dragState.get() || isTouchDevice()) return;
             }}
             onTap={(e) => {
-                if (isDragging) return;
+                if (dragState.get()) return;
                 e.cancelBubble = true;
                 if (isActiveRef.current) {
                     deactivateNow();

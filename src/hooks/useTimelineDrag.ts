@@ -1,6 +1,6 @@
 import Konva from "konva";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { timelineLayers } from "../utils/timeline/timelineFunction";
+import { dragState, timelineLayers } from "../utils/timeline/timelineFunction";
 
 
 interface UseTimelineDragProps {
@@ -8,7 +8,6 @@ interface UseTimelineDragProps {
 }
 
 const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
-    const isDraggingRef = useRef(false);
     const offsetXRef = useRef(0);
     const handlePctRef = useRef(100);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -64,16 +63,16 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
 
     const handlePointerDown = useCallback(() => {
-        isDraggingRef.current = true;
+        dragState.set(true)
     }, []);
 
     const handlePointerMove = useCallback((e: PointerEvent) => {
-        if (!isDraggingRef.current) return;
+        if (!dragState.get()) return;
         applyOffset(offsetXRef.current + e.movementX);
     }, [clampBody]);
 
     const handlePointerUp = useCallback(() => {
-        isDraggingRef.current = false;
+        dragState.set(false);
     }, []);
 
     useEffect(() => {
@@ -104,7 +103,6 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
         tooltipElRef,
         handleChangeHandle,
         handlePointerDown,
-        isDragging: isDraggingRef.current
     };
 };
 
