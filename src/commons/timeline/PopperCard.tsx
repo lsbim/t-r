@@ -4,6 +4,9 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
 import { RaidNode } from "../../types/timeline/timelineTypes";
+import { findPersonalityByName, getCharacterIcons } from "../../utils/function";
+import { costumes } from "../../data/costumes";
+import { charInfo } from "../../data/trickcalChar";
 
 
 const PopoverCard = () => {
@@ -25,6 +28,15 @@ const PopoverCard = () => {
 
     console.log('popover: ', popover)
 
+    const targetName = popover?.target?.node?.name ?? '알 수 없음';
+    // 정보1 사도: 사복 개수, 레이드: ?
+    const info1 = target.type === 'character'
+        ? costumes.filter(cos => cos.charName === targetName).length
+        : '';
+    const title1 = target.type === 'character'
+        ? '사복 개수'
+        : '';
+
     return (
         <Popper.Root>
             <Popper.Anchor virtualRef={{ current: rectAnchor }} />
@@ -35,13 +47,62 @@ const PopoverCard = () => {
                     sideOffset={4}
                     collisionPadding={8}
                     onClick={deactivateNow} // 모바일 환경 터치 시 비활성
-                    style={{ zIndex: 50 }}>
+                    className={`z-50 p-2 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 dark:text-zinc-200 bg-opacity-95`}>
 
-                    <Link
-                        to={detailPath}
-                        onClick={(e) => e.stopPropagation()}>
-                        이동...
-                    </Link>
+                    <div className="flex flex-col gap-y-2">
+                        <div className="flex justify-center items-center gap-x-2">
+                            <Link
+                                to={detailPath}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(targetName)}-dark`}>
+                                <img
+                                    src={`/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`}
+                                />
+                            </Link>
+                            <div className="flex flex-col gap-y-1 justify-center">
+                                <span className="font-bold text-[14px]">
+                                    {targetName}
+                                </span>
+                                {target.type === 'character' && (
+                                    <div className="flex gap-x-1">
+                                        {getCharacterIcons(targetName).map(({ tooltip, src }) => (
+                                            <img
+                                                key={`popover_icon_${tooltip}`}
+                                                src={src}
+                                                alt={tooltip}
+                                                title={tooltip}
+                                                className="w-4 h-4" />
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                        </div>
+                        {target.type === 'character' && (
+                            <div className="flex flex-col gap-y-1 text-[13px] cursor-default">
+                                <div className="flex gap-x-1">
+                                    <span className="text-gray-500 dark:text-zinc-400">
+                                        출시일
+                                    </span>
+                                    <span>
+                                        {charInfo[targetName].birthdate}
+                                    </span>
+                                </div>
+                                <div className="flex gap-x-1">
+
+                                </div>
+                                <div className="flex gap-x-1">
+                                    <span>
+                                        {title1}
+                                    </span>
+                                    <span>
+                                        {info1}개
+                                    </span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
 
                 </Popper.Content>
             </Portal>

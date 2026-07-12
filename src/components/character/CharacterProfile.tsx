@@ -1,6 +1,5 @@
 import { charInfo } from '../../data/trickcalChar';
-import { AllLine, Race } from '../../types/trickcalTypes';
-import { translateAttackType, translateLine, translateRaces, translateRole } from '../../utils/function';
+import { getCharacterIcons } from '../../utils/function';
 
 const CharacterProfile = ({ charName }: { charName: string }) => {
 
@@ -11,13 +10,7 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
     const character = charInfo[charName];
 
     // 성격,역할,공격타입,포지션,종족 아이콘 이미지
-    const icons = [
-        { tooltip: character.personality, src: `/images/personality/${character.personality}.webp`, alt: character.personality },
-        { tooltip: character.role, src: `/images/role/${translateRole(character.role)}.webp`, alt: character.role },
-        { tooltip: character.attackType, src: `/images/role/${translateAttackType(character.attackType)}.webp`, alt: character.attackType },
-        { tooltip: character.line, src: `/images/line/${translateLine(character.line as AllLine)}.webp`, alt: character.line },
-        { tooltip: character.race, src: `/images/race/${translateRaces(character.race as Race)}.webp`, alt: character.race },
-    ];
+    const icons = getCharacterIcons(charName);
 
     return (
         <div className="flex gap-x-2">
@@ -38,14 +31,17 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
                 </span>
                 {/* 아이콘 */}
                 <div className="flex md:gap-x-2 gap-x-1 items-center">
-                    {icons.map(({ tooltip, src, alt }) => (
+                    {icons.map(({ tooltip, src }) => (
                         <div
                             key={tooltip}
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={tooltip}
                             className="cursor-pointer md:w-7 md:h-7 w-5 h-5"
                         >
-                            <img src={src} alt={alt} className="object-cover w-full h-full" />
+                            <img
+                                src={src}
+                                alt={tooltip}
+                                className="object-cover w-full h-full" />
                         </div>
                     ))}
                 </div>

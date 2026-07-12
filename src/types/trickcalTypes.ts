@@ -174,3 +174,8 @@ export type MaterialName =
     | '안전 바늘'
     | '보석 단추'
     | '줄자';
+
+export interface CharacterIconInfo {
+    tooltip: string;
+    src: string;
+}

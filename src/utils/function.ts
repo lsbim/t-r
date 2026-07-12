@@ -1,5 +1,5 @@
 import { CharAttackType, charInfo, CharRole } from "../data/trickcalChar";
-import { AllLine, Race } from "../types/trickcalTypes";
+import { AllLine, CharacterIconInfo, Race } from "../types/trickcalTypes";
 
 
 
@@ -45,7 +45,7 @@ export function translateRaid(name: string) {
     switch (name) {
         case "clash":
             return '차원 대충돌';
-            case "clashV2":
+        case "clashV2":
             return '차원 대충돌 2.0';
         case "frontier":
             return '엘리아스 프론티어';
@@ -123,14 +123,38 @@ export function translateAttackType(type: CharAttackType) {
     }
 }
 
-
-
-
 export function preload(src: string): Promise<void> {
     return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve();
-        img.onerror = () => resolve(); 
+        img.onerror = () => resolve();
         img.src = src;
+    });
+}
+
+
+
+
+const CHAR_ICON_CONFIGS: {
+    folder: string;
+    getValue: (c: typeof charInfo[string]) => string
+    translate: (v: string) => string;
+}[] = [
+        { folder: "personality", getValue: (c) => c.personality, translate: (v) => v },
+        { folder: "role", getValue: (c) => c.role, translate: (v) => translateRole(v as CharRole) },
+        { folder: "role", getValue: (c) => c.attackType, translate: (v) => translateAttackType(v as CharAttackType) }, // role과 폴더 공유
+        { folder: "line", getValue: (c) => c.line, translate: (v) => translateLine(v as AllLine) },
+        { folder: "race", getValue: (c) => c.race, translate: (v) => translateRaces(v as Race) },
+    ];
+
+export function getCharacterIcons(charName: string): CharacterIconInfo[] {
+    const character = charInfo[charName];
+    
+    return CHAR_ICON_CONFIGS.map(({ folder, getValue, translate }) => {
+        const value = getValue(character);
+        return {
+            tooltip: value,
+            src: `/images/${folder}/${translate(value)}.webp`,
+        };
     });
 }

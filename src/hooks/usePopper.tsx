@@ -39,20 +39,22 @@ export const PopoverProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
         const lastPosRef = { current: { x: 0, y: 0 } }; // 실시간 추적 중인 커서 위치(좌표)
         let rafPending = false; // requestAnimationFrame 대기
-        let popoverRectCache: DOMRect | null = null;
+        // let popoverRectCache: DOMRect | null = null;
 
         // 스크롤을 내리거나 브라우저 크기를 조절하여 위치가 변할 경우 캐시 날리기 함수
-        const invalidateCache = () => { popoverRectCache = null; };
+        // const invalidateCache = () => { popoverRectCache = null; };
 
         const checkPosition = () => {
             rafPending = false;
             const card = cardRectRef.current;
             if (!card) return;
 
-            if (!popoverRectCache) {
-                popoverRectCache = popoverElRef.current?.getBoundingClientRect() ?? null;
-            }
-            const popoverRect = popoverRectCache;
+            // if (!popoverRectCache) {
+            //     popoverRectCache = popoverElRef.current?.getBoundingClientRect() ?? null;
+            // }
+            // const popoverRect = popoverRectCache;
+
+            const popoverRect = popoverElRef.current?.getBoundingClientRect() ?? null;
 
             const left = Math.min(card.left, popoverRect?.left ?? card.left);
             const right = Math.max(card.right, popoverRect?.right ?? card.right);
@@ -75,13 +77,13 @@ export const PopoverProvider: React.FC<{ children: React.ReactNode }> = ({ child
         };
 
         window.addEventListener("mousemove", handleMouseMove, { passive: true });
-        window.addEventListener("resize", invalidateCache);
-        window.addEventListener("scroll", invalidateCache, true);
+        // window.addEventListener("resize", invalidateCache);
+        // window.addEventListener("scroll", invalidateCache, true);
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("resize", invalidateCache);
-            window.removeEventListener("scroll", invalidateCache, true);
+            // window.removeEventListener("resize", invalidateCache);
+            // window.removeEventListener("scroll", invalidateCache, true);
         };
     }, [popover, cleanup]);
 
