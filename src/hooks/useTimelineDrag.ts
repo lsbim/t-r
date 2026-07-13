@@ -18,6 +18,9 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const cardsCacheRef = useRef<Konva.Node[] | null>(null);
 
+    const dragDeltaRef = useRef(0);
+    const rafIdRef = useRef<number | null>(null);
+
     const clampBody = useCallback((value: number) => {
         const MAX_OFFSET = viewportWidth / 2;
         const MIN_OFFSET = -(timelinePx - viewportWidth / 2);
@@ -92,11 +95,26 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const handlePointerMove = useCallback((e: PointerEvent) => {
         if (!dragState.get()) return;
-        applyOffset(offsetXRef.current + e.movementX);
-    }, [clampBody]);
+        dragDeltaRef.current += e.movementX;
+
+        // raf 실행하면 브라우저가 숫자로 된 고유id 반환
+        if (rafIdRef.current === null) {
+            rafIdRef.current = requestAnimationFrame(() => {
+                applyOffset(offsetXRef.current + dragDeltaRef.current);
+                dragDeltaRef.current = 0;
+                rafIdRef.current = null;
+            });
+        }
+    }, [applyOffset]);
 
     const handlePointerUp = useCallback(() => {
         dragState.set(false);
+
+        if (rafIdRef.current !== null) {
+            cancelAnimationFrame(rafIdRef.current);
+            rafIdRef.current = null;
+        }
+
         if (layerRef.current) {
             const stage = layerRef.current.getStage();
             if (stage) {
