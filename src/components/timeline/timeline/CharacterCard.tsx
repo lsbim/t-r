@@ -148,6 +148,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
     return (
         <Group
+            name="card"
             ref={groupRef}
             x={calX}
             y={350}

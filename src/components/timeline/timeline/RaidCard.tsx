@@ -138,6 +138,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
 
     return (
         <Group
+            name="card"
             ref={groupRef}
             x={calX}
             y={20}

@@ -32,7 +32,6 @@ const IndexPage = () => {
         tooltipElRef,
         handleChangeHandle,
         handlePointerDown,
-        isDragging
     } = useTimelineDrag({ timelinePx });
 
     // 키: 날짜, 값: 레이드/사도 정보 객체[]
@@ -113,7 +112,6 @@ const IndexPage = () => {
                         onPointerDown={handlePointerDown}
                         timelineMap={timelineMap}
                         timelinePx={timelinePx}
-                        isDragging={isDragging}
                     />
                 </div>
                 <Footer />

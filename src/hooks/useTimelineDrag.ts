@@ -16,6 +16,7 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     const handleElRef = useRef<HTMLDivElement>(null);
     const tooltipElRef = useRef<HTMLDivElement>(null);
 
+    const cardsCacheRef = useRef<Konva.Node[] | null>(null);
 
     const clampBody = useCallback((value: number) => {
         const MAX_OFFSET = viewportWidth / 2;
@@ -36,6 +37,23 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
         // ref 이동 (리렌더X)
         if (layerRef.current) {
             layerRef.current.x(clamped);
+
+            const viewLeft = -clamped - 150;
+            const viewRight = -clamped + viewportWidth + 150;
+
+            if (!cardsCacheRef.current) {
+                cardsCacheRef.current = layerRef.current.find('.card');
+            }
+
+            cardsCacheRef.current.forEach((card) => {
+                const x = card.x();
+                // 컬링
+                const nextVisible = x >= viewLeft && x <= viewRight;
+                if (card.visible() !== nextVisible) {
+                    card.visible(nextVisible);
+                }
+            });
+
             layerRef.current.batchDraw();
         }
 
@@ -64,6 +82,12 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const handlePointerDown = useCallback(() => {
         dragState.set(true)
+        if (layerRef.current) {
+            const stage = layerRef.current.getStage();
+            if (stage) {
+                stage.listening(false);
+            }
+        }
     }, []);
 
     const handlePointerMove = useCallback((e: PointerEvent) => {
@@ -73,6 +97,13 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const handlePointerUp = useCallback(() => {
         dragState.set(false);
+        if (layerRef.current) {
+            const stage = layerRef.current.getStage();
+            if (stage) {
+                stage.listening(true)
+            }
+        }
+        cardsCacheRef.current = null;
     }, []);
 
     useEffect(() => {
