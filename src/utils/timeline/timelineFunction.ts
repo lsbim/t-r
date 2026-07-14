@@ -52,6 +52,15 @@ export const timelineLayers = {
     getOverlayLayer: (): Konva.Layer | null => overlayLayer,
 };
 
+let mainStage: Konva.Stage | null = null;
+
+export const timelineStage = {
+    set: (stage: Konva.Stage | null) => {
+        mainStage = stage;
+    },
+    get: (): Konva.Stage | null => mainStage,
+};
+
 // isDragging 상태 파악을 전역 변수로 변경
 let isDraggingNow = false;
 

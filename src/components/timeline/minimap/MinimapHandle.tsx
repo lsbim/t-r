@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { isCharacterNode, TimelineMap } from '../../../types/timeline/timelineTypes';
-import { START_DATE } from '../../../utils/timeline/timelineFunction';
+import { START_DATE, timelineStage } from '../../../utils/timeline/timelineFunction';
 
 interface MinimapHandleProps {
     handleElRef: React.RefObject<HTMLDivElement | null>;
@@ -57,6 +57,9 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     // 드래그 종료 시 false
     const handlePointerUp = useCallback(() => {
         isDraggingRef.current = false;
+        
+        timelineStage.get()?.listening(true);
+
     }, []);
 
     // 클릭 시 X좌표 갱신
@@ -64,6 +67,8 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         isDraggingRef.current = true;
         const clientX = e.clientX;
         onChange(getPctFromClientX(clientX));
+
+        timelineStage.get()?.listening(false);
 
     }, [getPctFromClientX, onChange]);
 

@@ -2,7 +2,7 @@ import Konva from "konva";
 import React, { useMemo, useState } from 'react';
 import { Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
-import { timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
+import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
 import TimelineWoodBG from './TimelineWoodBG';
 import RaidCardList from "./RaidCardList";
@@ -41,6 +41,9 @@ const MainStage: React.FC<MainStageProps> = ({
   return (
     <div className={`w-full h-[${stageHeight}px] bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md overflow-hidden`}>
       <Stage
+        ref={(node) => {
+          if (node) timelineStage.set(node);
+        }}
         onTap={() => timelineEvents.emitDeactivateAll()}
         onClick={() => timelineEvents.emitDeactivateAll()}
         onPointerDown={onPointerDown}
@@ -75,12 +78,12 @@ const MainStage: React.FC<MainStageProps> = ({
           }}
         />
 
-      {/* 독립 컨텐츠 */}
-      <Layer>
+        {/* 독립 컨텐츠 */}
+        <Layer>
 
-      </Layer>
+        </Layer>
 
-    </Stage>
+      </Stage>
     </div >
   )
 }
