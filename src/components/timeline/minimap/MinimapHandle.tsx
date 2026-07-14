@@ -20,6 +20,9 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     const barRef = useRef<HTMLDivElement>(null); // 미니맵 바 추적(인식)용
     const isDraggingRef = useRef(false); // 드래그 체크용. 리렌더링이 불필요하니 useRef
 
+    const latestClientXRef = useRef(0);
+    const rafIdRef = useRef<number | null>(null);
+
     const updateTooltipText = useCallback((pct: number) => {
         if (!tooltipElRef.current) return;
         const days = Math.round((pct / 100) * totalDays);
@@ -35,14 +38,21 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         return Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
     }, []);
 
-    // 드래그 시 움직이면 즉시 X좌표 갱신
+    // 드래그 시 움직이면 프레임 단위로(rAF) X좌표 갱신
     const handlePointerMove = useCallback((e: PointerEvent) => {
         if (!isDraggingRef.current) return;
-        const pct = getPctFromClientX(e.clientX);
-        onChange(pct);
-        updateTooltipText(pct);
+        latestClientXRef.current = e.clientX;
 
-    }, [getPctFromClientX, onChange]);
+        if (rafIdRef.current !== null) return;
+
+        rafIdRef.current = requestAnimationFrame(() => {
+            const pct = getPctFromClientX(latestClientXRef.current);
+            onChange(pct);
+            updateTooltipText(pct);
+            rafIdRef.current = null;
+        });
+
+    }, [getPctFromClientX, onChange, updateTooltipText]);
 
     // 드래그 종료 시 false
     const handlePointerUp = useCallback(() => {
