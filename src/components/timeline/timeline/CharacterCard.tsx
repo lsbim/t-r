@@ -4,9 +4,8 @@ import { Group, Image, Rect, Shape } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
-import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
-import TapeDecoration from "./TapeDecoration";
 import { getPersonalityColor, Personality } from "../../../types/trickcalTypes";
+import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 
 // 카드 몸통
 const CARD_WIDTH = 110;
@@ -22,9 +21,6 @@ const M_PATTERN_RADIUS = 7;
 const M_PATTERN_GAP_RATIO = 0.4
 const COLOR_BAND_WIDTH = 16;
 
-
-const TAPE_POSITIONS = ['tl', 'tr', 'bl', 'br'] as const;
-
 interface CharacterCardProps {
     node: CharacterNode;
     bgImage: HTMLImageElement | null;
@@ -37,38 +33,12 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     calX
 }) => {
     const groupRef = useRef<Konva.Group>(null);
-    const tapeRefs = useRef<(Konva.Rect | null)[]>([null, null, null, null]); // 테이프 4개
     const cardTweenRef = useRef<Konva.Tween | null>(null);
-    const tapeTweensRef = useRef<(Konva.Tween | null)[]>([null, null, null, null]); // 각 테이프 인덱스에 대한 애니메이션
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol()); // 카드 고유id
     const homeLayerRef = useRef<Konva.Layer | null>(null); // 전체 노드가 담긴 Layer 임시 저장용
     const { showPopover, deactivateNow } = usePopoverActions();
 
-    // Tween 즉시 종료
-    // startHover 애니메이션 진행 중 endHover가 시작될 때,
-    // 혹은 그 반대 상황이 발생할 때 Tween 충돌 방지
-    const killTapeTween = (i: number) => {
-        if (tapeTweensRef.current[i]) {
-            tapeTweensRef.current[i]!.destroy();
-            tapeTweensRef.current[i] = null;
-        }
-    };
-
-    const animateTapes = (toOpacity: number, duration: number) => {
-        tapeRefs.current.forEach((tapeNode, i) => {
-            if (!tapeNode) return;
-            killTapeTween(i); // 진행 중인 tween 종료
-            const tween = new Konva.Tween({
-                node: tapeNode,
-                duration,
-                easing: toOpacity === 0 ? Konva.Easings.EaseIn : Konva.Easings.EaseOut,
-                opacity: toOpacity,
-            });
-            tapeTweensRef.current[i] = tween;
-            tween.play(); // 새 tween 실행
-        });
-    };
 
     const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
@@ -116,7 +86,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         });
         cardTweenRef.current.play();
 
-        animateTapes(0, 0.15);
     };
 
     // 비활성 애니메이션
@@ -134,7 +103,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 if (homeLayerRef.current && groupRef.current) {
                     groupRef.current.moveTo(homeLayerRef.current);
                 }
-                animateTapes(1, 0.3);
             },
         });
         cardTweenRef.current.play();
@@ -151,7 +119,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         return () => {
             unsubscribe();
             cardTweenRef.current?.destroy();
-            tapeTweensRef.current.forEach(t => t?.destroy());
         };
     }, []);
 
@@ -233,18 +200,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 />
             )}
             <ImageNode node={node} width={70} x={CARD_OFFSET_X + 8} y={-5} />
-
-            {TAPE_POSITIONS.map((pos, i) => (
-                <TapeDecoration
-                    key={pos}
-                    ref={(n) => { tapeRefs.current[i] = n; }}
-                    position={pos}
-                    groupWidth={CARD_WIDTH}
-                    groupHeight={CARD_HEIGHT}
-                    groupTopY={CARD_OFFSET_Y}
-                    groupOffsetX={CARD_OFFSET_X}
-                />
-            ))}
         </Group>
     );
 };
