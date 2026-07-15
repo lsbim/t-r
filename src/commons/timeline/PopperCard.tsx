@@ -5,8 +5,51 @@ import { Link } from "react-router-dom";
 import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
 import { RaidNode } from "../../types/timeline/timelineTypes";
 import { findPersonalityByName, getCharacterIcons } from "../../utils/function";
-import { costumes } from "../../data/costumes";
+import { Costume, costumes } from "../../data/costumes";
 import { charInfo } from "../../data/trickcalChar";
+
+const CharacterDetails = ({ targetName }: { targetName: string }) => {
+
+    // 가장 최근 출시된 사복
+    const characterLatestCostume = useMemo(() => {
+        return costumes.reduce((acc, cos) => {
+            if (cos.charName !== targetName) return acc;
+            acc.count += 1;
+            if (!acc.latest || cos.launchDate > acc.latest.launchDate) {
+                acc.latest = cos;
+            }
+            return acc;
+        }, { count: 0, latest: null as Costume | null });
+    }, [targetName]);
+
+    return (
+        <div className="flex flex-col text-[12px] cursor-default">
+            <div className="flex gap-x-1">
+                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                    출시일
+                </span>
+                <span>{charInfo[targetName].birthdate}</span>
+            </div>
+            <div className="flex gap-x-1">
+                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                    사복 개수
+                </span>
+                <span>{characterLatestCostume.count}개</span>
+            </div>
+            {/* 사복이 있으면 출력 */}
+            {characterLatestCostume.latest && (
+                <div className="flex gap-x-1">
+                    <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                        마지막 사복
+                    </span>
+                    <span>
+                        {characterLatestCostume.latest.cosName} ({characterLatestCostume.latest.launchDate})
+                    </span>
+                </div>
+            )}
+        </div>
+    )
+}
 
 
 const PopoverCard = () => {
@@ -29,13 +72,6 @@ const PopoverCard = () => {
     console.log('popover: ', popover)
 
     const targetName = popover?.target?.node?.name ?? '알 수 없음';
-    // 정보1 사도: 사복 개수, 레이드: ?
-    const info1 = target.type === 'character'
-        ? costumes.filter(cos => cos.charName === targetName).length
-        : '';
-    const title1 = target.type === 'character'
-        ? '사복 개수'
-        : '';
 
     return (
         <Popper.Root>
@@ -80,27 +116,7 @@ const PopoverCard = () => {
 
                         </div>
                         {target.type === 'character' && (
-                            <div className="flex flex-col gap-y-1 text-[13px] cursor-default">
-                                <div className="flex gap-x-1">
-                                    <span className="text-gray-500 dark:text-zinc-400">
-                                        출시일
-                                    </span>
-                                    <span>
-                                        {charInfo[targetName].birthdate}
-                                    </span>
-                                </div>
-                                <div className="flex gap-x-1">
-
-                                </div>
-                                <div className="flex gap-x-1">
-                                    <span>
-                                        {title1}
-                                    </span>
-                                    <span>
-                                        {info1}개
-                                    </span>
-                                </div>
-                            </div>
+                            <CharacterDetails targetName={targetName} />
                         )}
                     </div>
 
