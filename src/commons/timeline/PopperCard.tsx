@@ -65,13 +65,22 @@ const PopoverCard = () => {
     if (!popover) return null;
 
     const { target } = popover;
+    const targetName = popover?.target?.node?.name ?? '알 수 없음';
+
     const detailPath = target.type === "character"
         ? `/character/${target.node.name}`
         : `/raid/${(target.node as RaidNode).season}`;
 
+    const imgUrl = target.type === "character"
+        ? `/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`
+        : `/images/boss/${targetName}${target?.node?.personality ? `(${target?.node?.personality})` : ''}.webp`;
+
+    const personalityBorder = target?.node?.personality
+        ? `border-${target.node.personality}-dark`
+        : 'border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]';
+
     console.log('popover: ', popover)
 
-    const targetName = popover?.target?.node?.name ?? '알 수 없음';
 
     return (
         <Popper.Root>
@@ -91,9 +100,10 @@ const PopoverCard = () => {
                                 to={detailPath}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(targetName)}-dark`}>
+                                className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
                                 <img
-                                    src={`/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`}
+                                    src={imgUrl}
+                                    className={`${target.type === "raid" && 'scale-[1.5] origin-[50%_20%]'}`}
                                 />
                             </Link>
                             <div className="flex flex-col gap-y-1 justify-center">
