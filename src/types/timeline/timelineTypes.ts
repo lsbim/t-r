@@ -8,11 +8,29 @@ export interface TimelineNode {
     personality: Personality | null;
 }
 
-export interface RaidNode extends TimelineNode {
+export interface RaidNodeBase extends TimelineNode {
     startDate: string;
     endDate: string;
     season: string;
 }
+
+export interface ClashNode extends RaidNodeBase {
+    type: "clash";
+    rules: string[];
+}
+
+export interface ClashV2Node extends RaidNodeBase {
+    type: "clashV2";
+    rules: string[];
+    sideSkills: string[];
+}
+
+export interface FrontierNode extends RaidNodeBase {
+    type: "frontier";
+    power: number[];
+}
+
+export type RaidNode = ClashNode | ClashV2Node | FrontierNode;
 
 export interface CharacterNode extends TimelineNode {
     birthDate: string;

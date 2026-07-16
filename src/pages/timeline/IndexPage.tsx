@@ -45,6 +45,11 @@ const IndexPage = () => {
             map[date].push(node);
         };
 
+        const toIsoDates = (r: { startDate: string; endDate: string }) => ({
+            startDate: new Date(r.startDate).toISOString().slice(0, 10),
+            endDate: new Date(r.endDate).toISOString().slice(0, 10),
+        });
+
         // 사도 출시일
         Object.entries(charInfo).forEach(([name, info]) => {
             if (name.startsWith("우로스(")) return;
@@ -56,32 +61,50 @@ const IndexPage = () => {
             });
         });
 
-        // 레이드 객체들
-        const raidSources: [TimelineNodeType, FrontierSummary | ClashSummary | ClashV2Summary][] = [
-            ["clash", clash],
-            ["clashV2", clashV2],
-            ["frontier", frontier],
-        ];
+        Object.entries(clash).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "clash",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: r.personality ?? null,
+                rules: r.rules,
+            });
+        });
 
-        raidSources.forEach(([type, source]) => {
-            Object.entries(source).forEach(([key, r]) => {
-                const start = new Date(r.startDate).toISOString().slice(0, 10);
-                const end = new Date(r.endDate).toISOString().slice(0, 10);
-                pushNode(start, {
-                    type,
-                    name: r.name,
-                    season: key,
-                    startDate: start,
-                    endDate: end,
-                    personality: r.personality ?? null
-                });
+        Object.entries(clashV2).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "clashV2",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: r.personality ?? null,
+                rules: r.rules,
+                sideSkills: r.sideSkills,
+            });
+        });
+
+        Object.entries(frontier).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "frontier",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: r.personality ?? null,
+                power: r.power,
             });
         });
 
         return map;
     }, [clash, frontier, clashV2]);
 
-    console.log(timelineMap)
+    console.log('timelineMap: ',timelineMap)
 
     return (
         <PopoverProvider>
