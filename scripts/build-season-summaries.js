@@ -74,7 +74,8 @@ async function buildSummaries() {
                 dataMap[raidType][seasonName] = {
                     ...resultData,
                     maxSideLvl: raw.maxSideLvl,
-                    sideSummary: processSummary(raw.data, 'side')
+                    sideSummary: processSummary(raw.data, 'side'),
+                    sideSkills: raw.sideSkills
                 };
             } else {
                 dataMap[raidType][seasonName] = resultData;

@@ -1,12 +1,12 @@
 import * as Popper from "@radix-ui/react-popper";
 import { Portal } from "@radix-ui/react-portal";
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
-import { RaidNode } from "../../types/timeline/timelineTypes";
-import { findPersonalityByName, getCharacterIcons } from "../../utils/function";
 import { Costume, costumes } from "../../data/costumes";
 import { charInfo } from "../../data/trickcalChar";
+import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
+import { RaidNode } from "../../types/timeline/timelineTypes";
+import { getCharacterIcons } from "../../utils/function";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 
@@ -23,7 +23,7 @@ const CharacterDetails = ({ targetName }: { targetName: string }) => {
     }, [targetName]);
 
     return (
-        <div className="flex flex-col text-[12px] cursor-default">
+        <div className="flex flex-col gap-y-1 text-[12px] cursor-default">
             <div className="flex gap-x-1">
                 <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
                     출시일
@@ -48,6 +48,82 @@ const CharacterDetails = ({ targetName }: { targetName: string }) => {
                 </div>
             )}
         </div>
+    )
+}
+
+const RaidDetails = ({ node }: { node: RaidNode }) => {
+
+    return (
+        <div className="flex flex-col gap-y-1 text-[12px] cursor-default">
+            <div className="flex gap-x-1">
+                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                    기간
+                </span>
+                <span>
+                    {node.startDate} ~ {node.endDate}
+                </span>
+            </div>
+            {node.type === 'clash' && (
+                <div className="flex flex-col">
+                    {node.rules.map((rule, index) => (
+                        <div key={rule}
+                            className="flex gap-x-1">
+                            <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                {index === 0 ? '규칙' : ''}
+                            </span>
+                            <span>
+                                {rule}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            )}
+            {node.type === 'clashV2' && (
+                <div className="flex flex-col gap-y-1">
+                    <div>
+                        {node.rules.map((rule, index) => (
+                            <div key={rule}
+                                className="flex gap-x-1">
+                                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                    {index === 0 ? '규칙' : ''}
+                                </span>
+                                <span>
+                                    {rule}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <div>
+                        {node.sideSkills.map((skill, index) => (
+                            <div key={skill}
+                                className="flex gap-x-1">
+                                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                    {index === 0 ? '이면의 파편' : ''}
+                                </span>
+                                <span>
+                                    {skill}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {node.type === 'frontier' && (
+                <div className="flex flex-col">
+                    {node.power.map((po, index) => (
+                        <div key={po}
+                            className="flex gap-x-1">
+                            <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                {index === 0 ? '교주의 권능' : ''}
+                            </span>
+                            <span>
+                                {po}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div >
     )
 }
 
@@ -110,7 +186,7 @@ const PopoverCard = () => {
                                 <span className="font-bold text-[14px]">
                                     {targetName}
                                 </span>
-                                {target.type === 'character' && (
+                                {target.type === 'character' ? (
                                     <div className="flex gap-x-1">
                                         {getCharacterIcons(targetName).map(({ tooltip, src }) => (
                                             <img
@@ -121,18 +197,34 @@ const PopoverCard = () => {
                                                 className="w-4 h-4" />
                                         ))}
                                     </div>
-                                )}
+                                ) : target.type === "raid" ? (
+                                    <div className="flex gap-x-1 items-center">
+                                        {target.node.personality && (
+                                            <img
+                                                className="w-4 h-4"
+                                                src={`/images/personality/${target.node.personality}.webp`}
+                                            />
+                                        )}
+                                        <span className="text-[12px]">
+                                            {Number(target.node.season) > 10000 ? `베타 시즌${Number(target.node.season) - 10000}` : `시즌${target.node.season}`}
+                                        </span>
+                                    </div>
+                                ) : (<></>)}
                             </div>
 
                         </div>
-                        {target.type === 'character' && (
+                        {target.type === 'character' ? (
                             <CharacterDetails targetName={targetName} />
+                        ) : target.type === 'raid' ? (
+                            <RaidDetails node={target?.node} />
+                        ) : (
+                            <></>
                         )}
                     </div>
 
                 </Popper.Content>
             </Portal>
-        </Popper.Root>
+        </Popper.Root >
     );
 };
 
