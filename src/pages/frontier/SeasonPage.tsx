@@ -271,11 +271,12 @@ const SeasonPage = () => {
                             statsForSelect={statsForSelect}
                         />
                     )}
-                    {compareCoin && (
+                    {compareCoin && data && (
                         <ScoreAndCoinChart
                             data={seasonSlice}
                             compareCoin={compareCoin}
                             level={data?.maxLvl}
+                            bossName={data?.name}
                         />
                     )}
                     {hasSkinArr && (
