@@ -15,6 +15,7 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import InfoIcon from '../../commons/icon/InfoIcon';
 import { useTheme } from '../../hooks/useTheme';
+import React from 'react';
 
 
 ChartJS.register(
@@ -29,7 +30,17 @@ ChartJS.register(
     Filler
 );
 
-const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, compareCoin: Record<string, Record<string, number> | null> }) => {
+interface ScoreAndCoinChartProps {
+    data: FrontierSeasonData;
+    compareCoin: Record<string, Record<string, number> | null>;
+    level: string;
+}
+
+const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
+    data,
+    compareCoin,
+    level
+}) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';

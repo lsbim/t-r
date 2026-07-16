@@ -210,7 +210,6 @@ const SeasonPage = () => {
         return <Navigate to={"/"} replace />
     }
 
-
     return (
         <div className="flex flex-col justify-center gap-4 min-h-screen">
             <SEO
@@ -276,6 +275,7 @@ const SeasonPage = () => {
                         <ScoreAndCoinChart
                             data={seasonSlice}
                             compareCoin={compareCoin}
+                            level={data?.maxLvl}
                         />
                     )}
                     {hasSkinArr && (
