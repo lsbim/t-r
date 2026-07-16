@@ -145,7 +145,11 @@ const PopoverCard = () => {
 
     const detailPath = target.type === "character"
         ? `/character/${target.node.name}`
-        : `/raid/${(target.node as RaidNode).season}`;
+        : target.node.type === "clash"
+            ? `/clash/v1/${(target.node as RaidNode).season}`
+            : target.node.type === "clashV2"
+                ? `/clash/v2/${(target.node as RaidNode).season}`
+                : `/frontier/${(target.node as RaidNode).season}`
 
     const imgUrl = target.type === "character"
         ? `/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`
