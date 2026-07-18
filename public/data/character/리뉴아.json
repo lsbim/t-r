@@ -350,6 +350,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 297,
+        "pickRate": 99,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 297
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -409,24 +427,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 300,
-        "pickRate": 100,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 300,
         "pickRate": 100,
         "overallRank": 1,
@@ -540,17 +540,17 @@
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 298,
-      "charTotalCount": 645,
-      "rate": 46.2,
+      "cosUsedCount": 314,
+      "charTotalCount": 684,
+      "rate": 45.9,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 221,
-      "charTotalCount": 645,
-      "rate": 34.3,
+      "cosUsedCount": 233,
+      "charTotalCount": 684,
+      "rate": 34.1,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

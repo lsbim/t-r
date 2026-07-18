@@ -273,6 +273,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 295
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -340,24 +358,6 @@
             "line": "전열",
             "rank": 2,
             "count": 295
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 294,
-        "pickRate": 98,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 294
           }
         ],
         "totalEntries": 300
@@ -463,8 +463,8 @@
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 354,
-      "charTotalCount": 897,
+      "cosUsedCount": 352,
+      "charTotalCount": 892,
       "rate": 39.5,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
@@ -472,8 +472,8 @@
     {
       "cosName": "존재감 넘치는 바니",
       "cosUsedCount": 342,
-      "charTotalCount": 897,
-      "rate": 38.1,
+      "charTotalCount": 892,
+      "rate": 38.3,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     }

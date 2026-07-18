@@ -304,6 +304,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -371,24 +383,6 @@
             "line": "전열",
             "rank": 4,
             "count": 64
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 10,
-        "pickRate": 3.3,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 10
           }
         ],
         "totalEntries": 300
@@ -495,25 +489,25 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 114,
-      "charTotalCount": 228,
-      "rate": 50,
+      "cosUsedCount": 54,
+      "charTotalCount": 103,
+      "rate": 52.4,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 47,
-      "charTotalCount": 228,
-      "rate": 20.6,
+      "cosUsedCount": 21,
+      "charTotalCount": 103,
+      "rate": 20.4,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "풀하트 매직",
-      "cosUsedCount": 38,
-      "charTotalCount": 228,
-      "rate": 16.7,
+      "cosUsedCount": 18,
+      "charTotalCount": 103,
+      "rate": 17.5,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     }

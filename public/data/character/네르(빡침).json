@@ -90,6 +90,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -137,18 +149,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -236,17 +236,17 @@
   "recentSkins": [
     {
       "cosName": "왕관의 수여자",
-      "cosUsedCount": 317,
-      "charTotalCount": 642,
-      "rate": 49.4,
+      "cosUsedCount": 186,
+      "charTotalCount": 375,
+      "rate": 49.6,
       "lvl": "pretty",
       "launchDate": "2026-03-26"
     },
     {
       "cosName": "일일 요정 여왕",
-      "cosUsedCount": 223,
-      "charTotalCount": 642,
-      "rate": 34.7,
+      "cosUsedCount": 135,
+      "charTotalCount": 375,
+      "rate": 36,
       "lvl": "normal",
       "launchDate": "2026-03-26"
     }

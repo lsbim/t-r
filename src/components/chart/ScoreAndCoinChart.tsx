@@ -4,6 +4,7 @@ import {
     ChartOptions,
     Filler,
     Legend,
+    LegendItem,
     LinearScale,
     LineElement,
     PointElement,
@@ -35,14 +36,16 @@ interface ScoreAndCoinChartProps {
     data: FrontierSeasonData;
     compareCoin: Record<string, Record<string, number> | null>;
     level: string;
-    bossName: string
+    bossName: string;
+    select?: string;
 }
 
 const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     data,
     compareCoin,
     level,
-    bossName
+    bossName,
+    select
 }) => {
 
     const { theme } = useTheme();
@@ -113,11 +116,12 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 label: '코인', // 두 번째 데이터셋: 코인(coin)
                 data: arr?.map(item => item.coin) || [],
                 borderWitdh: 0,
-                // borderColor: '#82ca9d',
-                // backgroundColor: 'rgba(130, 202, 157, 1)',
-                backgroundColor: coins.map((_, i) =>
-                    i === maxCoinIndex || i === minCoinIndex ? 'red' : '#82ca9d'
-                ),
+                // 실체의 코인 색상
+                backgroundColor: coins.map((_, i) => {
+                    if (i === maxCoinIndex || i === minCoinIndex) return 'red';
+                    if (select && arr[i]?.arr?.includes(select)) return '#D97706';
+                    return '#82ca9d';
+                }),
                 yAxisID: 'y_coin', // 이 데이터셋이 사용할 Y축 ID
                 showLine: false, // 선을 제거하고 점만 표시
                 pointRadius: 3, // 점의 크기를 3으로 줄임 (기본값은 보통 3-4)
@@ -137,25 +141,51 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
             annotation: {
                 annotations: gradeAnnotations
             },
-            // annotation 플러그인 설정을 제거합니다.
             legend: {
-                display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
+                display: true,
                 position: 'bottom' as const,
                 labels: {
-                    color: tickColor
+                    color: tickColor,
+                    generateLabels: (chart): LegendItem[] => {
+                        const coinHidden = !chart.isDatasetVisible(1);
+                        const items: LegendItem[] = [
+                            {
+                                text: '점수',
+                                fillStyle: '#8884d8',
+                                strokeStyle: '#8884d8',
+                                hidden: !chart.isDatasetVisible(0),
+                                datasetIndex: 0,
+                            },
+                            {
+                                text: '코인',
+                                fillStyle: '#82ca9d',
+                                strokeStyle: '#82ca9d',
+                                hidden: coinHidden,
+                                datasetIndex: 1,
+                            },
+                        ];
+                        // 선택한 사도를 사용한 유저의 코인
+                        if (select) {
+                            items.push({
+                                text: select,
+                                fillStyle: '#D97706',
+                                strokeStyle: '#D97706',
+                                hidden: coinHidden,
+                                datasetIndex: 1,
+                            });
+                        }
+                        return items;
+                    }
                 }
             },
             tooltip: {
                 callbacks: {
                     label: function (context) {
-
                         if (context.dataset.label === '점수' && !isNaN(clearScore)) {
                             const cleanScore = context?.formattedValue?.replaceAll(",", "");
                             const score = Number(cleanScore)
                             return `${context.dataset.label}: ${context.formattedValue} (${Math.round(score / clearScore * 10000) / 100}%)`
                         }
-
-                        // 툴팁에 데이터셋 레이블과 값을 표시합니다. (예: "점수: 12345")
                         return `${context.dataset.label}: ${context.formattedValue}`;
                     },
                     title: function (context) {

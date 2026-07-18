@@ -277,6 +277,7 @@ const SeasonPage = () => {
                             compareCoin={compareCoin}
                             level={data?.maxLvl}
                             bossName={data?.name}
+                            select={select}
                         />
                     )}
                     {hasSkinArr && (

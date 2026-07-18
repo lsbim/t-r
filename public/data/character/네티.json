@@ -96,6 +96,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -160,24 +178,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 15,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -281,17 +281,17 @@
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 71,
-      "charTotalCount": 115,
-      "rate": 61.7,
+      "cosUsedCount": 53,
+      "charTotalCount": 90,
+      "rate": 58.9,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
-      "cosUsedCount": 5,
-      "charTotalCount": 115,
-      "rate": 4.3,
+      "cosUsedCount": 4,
+      "charTotalCount": 90,
+      "rate": 4.4,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }

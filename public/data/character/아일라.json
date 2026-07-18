@@ -115,6 +115,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 264,
+        "pickRate": 88,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 264
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -174,18 +192,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -294,17 +300,17 @@
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",
-      "cosUsedCount": 157,
-      "charTotalCount": 400,
-      "rate": 39.3,
+      "cosUsedCount": 178,
+      "charTotalCount": 417,
+      "rate": 42.7,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "카우치 볼케이노",
-      "cosUsedCount": 64,
-      "charTotalCount": 400,
-      "rate": 16,
+      "cosUsedCount": 60,
+      "charTotalCount": 417,
+      "rate": 14.4,
       "lvl": "normal",
       "launchDate": "2025-12-18"
     }

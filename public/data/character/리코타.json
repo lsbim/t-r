@@ -102,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 37,
+        "pickRate": 12.3,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 37
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -169,24 +187,6 @@
             "line": "전열",
             "rank": 5,
             "count": 21
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 287,
-        "pickRate": 95.7,
-        "overallRank": 8,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 3,
-            "count": 287
           }
         ],
         "totalEntries": 300
@@ -292,17 +292,17 @@
   "recentSkins": [
     {
       "cosName": "기내식 준비 완료",
-      "cosUsedCount": 304,
-      "charTotalCount": 605,
-      "rate": 50.2,
+      "cosUsedCount": 166,
+      "charTotalCount": 343,
+      "rate": 48.4,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "사교계의 악역 영애",
-      "cosUsedCount": 108,
-      "charTotalCount": 605,
-      "rate": 17.9,
+      "cosUsedCount": 68,
+      "charTotalCount": 343,
+      "rate": 19.8,
       "lvl": "normal",
       "launchDate": "2025-04-24"
     }

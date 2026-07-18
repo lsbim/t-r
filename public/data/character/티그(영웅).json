@@ -152,6 +152,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -238,29 +250,6 @@
             "line": "후열",
             "rank": 4,
             "count": 13
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 297,
-        "pickRate": 99,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 167
-          },
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 130
           }
         ],
         "totalEntries": 300
@@ -376,17 +365,17 @@
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 250,
-      "charTotalCount": 490,
-      "rate": 51,
+      "cosUsedCount": 238,
+      "charTotalCount": 468,
+      "rate": 50.9,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
-      "cosUsedCount": 98,
-      "charTotalCount": 490,
-      "rate": 20,
+      "cosUsedCount": 95,
+      "charTotalCount": 468,
+      "rate": 20.3,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

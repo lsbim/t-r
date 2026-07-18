@@ -78,6 +78,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -119,18 +137,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -208,26 +214,26 @@
   },
   "recentSkins": [
     {
-      "cosName": "묘약의 랩실 연구원",
-      "cosUsedCount": 6,
-      "charTotalCount": 16,
-      "rate": 37.5,
-      "lvl": "normal",
-      "launchDate": "2026-01-01"
-    },
-    {
       "cosName": "공포의 간호사",
-      "cosUsedCount": 5,
-      "charTotalCount": 16,
-      "rate": 31.3,
+      "cosUsedCount": 6,
+      "charTotalCount": 17,
+      "rate": 35.3,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
+      "cosName": "묘약의 랩실 연구원",
+      "cosUsedCount": 6,
+      "charTotalCount": 17,
+      "rate": 35.3,
+      "lvl": "normal",
+      "launchDate": "2026-01-01"
+    },
+    {
       "cosName": "포션 가게의 휴일",
       "cosUsedCount": 2,
-      "charTotalCount": 16,
-      "rate": 12.5,
+      "charTotalCount": 17,
+      "rate": 11.8,
       "lvl": "normal",
       "launchDate": "2024-10-17"
     }
