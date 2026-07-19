@@ -95,6 +95,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -320,6 +331,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -379,24 +408,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 300,
-        "pickRate": 100,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 1,
-            "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 300,
         "pickRate": 100,
         "overallRank": 1,
@@ -506,25 +517,25 @@
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
-      "cosUsedCount": 392,
+      "cosUsedCount": 394,
       "charTotalCount": 900,
-      "rate": 43.6,
+      "rate": 43.8,
       "lvl": "pretty",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "선도부장 선배님",
-      "cosUsedCount": 272,
+      "cosUsedCount": 270,
       "charTotalCount": 900,
-      "rate": 30.2,
+      "rate": 30,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "호숫가 피싱 마스터",
-      "cosUsedCount": 54,
+      "cosUsedCount": 57,
       "charTotalCount": 900,
-      "rate": 6,
+      "rate": 6.3,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     }

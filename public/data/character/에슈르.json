@@ -84,6 +84,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -125,18 +143,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -221,8 +227,8 @@
   "recentSkins": [
     {
       "cosName": "평온한 온천 여행",
-      "cosUsedCount": 3,
-      "charTotalCount": 3,
+      "cosUsedCount": 4,
+      "charTotalCount": 4,
       "rate": 100,
       "lvl": "normal",
       "launchDate": "2025-10-16"

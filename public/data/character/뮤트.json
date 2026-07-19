@@ -114,6 +114,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 291,
+        "pickRate": 97,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 291
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -181,24 +199,6 @@
             "line": "후열",
             "rank": 2,
             "count": 299
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 295,
-        "pickRate": 98.3,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 295
           }
         ],
         "totalEntries": 300
@@ -303,17 +303,17 @@
   "recentSkins": [
     {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 237,
-      "charTotalCount": 396,
-      "rate": 59.8,
+      "cosUsedCount": 234,
+      "charTotalCount": 387,
+      "rate": 60.5,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "위험한 옆집 스파이",
-      "cosUsedCount": 33,
-      "charTotalCount": 396,
-      "rate": 8.3,
+      "cosUsedCount": 30,
+      "charTotalCount": 387,
+      "rate": 7.8,
       "lvl": "normal",
       "launchDate": "2025-09-11"
     }

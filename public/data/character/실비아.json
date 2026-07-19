@@ -16,7 +16,19 @@
         "line": "전열"
       }
     ],
-    "frontier": [],
+    "frontier": [
+      {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      }
+    ],
     "clashV2": []
   },
   "recentStats": {
@@ -90,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -131,18 +161,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -216,17 +234,17 @@
   "recentSkins": [
     {
       "cosName": "소녀의 단아한 발걸음",
-      "cosUsedCount": 159,
-      "charTotalCount": 300,
-      "rate": 53,
+      "cosUsedCount": 317,
+      "charTotalCount": 600,
+      "rate": 52.8,
       "lvl": "pretty",
       "launchDate": "2026-06-18"
     },
     {
       "cosName": "내가 체육관의 유망주",
-      "cosUsedCount": 40,
-      "charTotalCount": 300,
-      "rate": 13.3,
+      "cosUsedCount": 106,
+      "charTotalCount": 600,
+      "rate": 17.7,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     }

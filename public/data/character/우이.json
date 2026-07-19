@@ -216,6 +216,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -283,24 +301,6 @@
             "line": "중열",
             "rank": 6,
             "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 47,
-        "pickRate": 15.7,
-        "overallRank": 11,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 47
           }
         ],
         "totalEntries": 300
@@ -407,25 +407,25 @@
   "recentSkins": [
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 183,
-      "charTotalCount": 383,
-      "rate": 47.8,
+      "cosUsedCount": 164,
+      "charTotalCount": 344,
+      "rate": 47.7,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 124,
-      "charTotalCount": 383,
-      "rate": 32.4,
+      "cosUsedCount": 112,
+      "charTotalCount": 344,
+      "rate": 32.6,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     },
     {
       "cosName": "동심의 햇살",
-      "cosUsedCount": 35,
-      "charTotalCount": 383,
-      "rate": 9.1,
+      "cosUsedCount": 30,
+      "charTotalCount": 344,
+      "rate": 8.7,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     }

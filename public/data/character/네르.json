@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -172,18 +184,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "clashV2": [
@@ -275,27 +275,27 @@
   "recentSkins": [
     {
       "cosName": "교단의 성찬 파티",
-      "cosUsedCount": 129,
-      "charTotalCount": 273,
-      "rate": 47.3,
+      "cosUsedCount": 127,
+      "charTotalCount": 267,
+      "rate": 47.6,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
-      "cosName": "개인 교습 나들이",
-      "cosUsedCount": 60,
-      "charTotalCount": 273,
-      "rate": 22,
-      "lvl": "normal",
-      "launchDate": "2024-09-05"
-    },
-    {
       "cosName": "한 때 한가닥",
       "cosUsedCount": 57,
-      "charTotalCount": 273,
-      "rate": 20.9,
+      "charTotalCount": 267,
+      "rate": 21.3,
       "lvl": "normal",
       "launchDate": "2024-06-06"
+    },
+    {
+      "cosName": "개인 교습 나들이",
+      "cosUsedCount": 57,
+      "charTotalCount": 267,
+      "rate": 21.3,
+      "lvl": "normal",
+      "launchDate": "2024-09-05"
     }
   ]
 }

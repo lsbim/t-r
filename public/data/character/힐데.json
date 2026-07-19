@@ -90,6 +90,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -137,18 +149,6 @@
         "personality": null,
         "startDate": "2026-01-22",
         "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -233,17 +233,17 @@
   "recentSkins": [
     {
       "cosName": "릴렉스 테라피스트",
-      "cosUsedCount": 16,
-      "charTotalCount": 27,
-      "rate": 59.3,
+      "cosUsedCount": 15,
+      "charTotalCount": 25,
+      "rate": 60,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "힐링 피크닉",
-      "cosUsedCount": 7,
-      "charTotalCount": 27,
-      "rate": 25.9,
+      "cosUsedCount": 6,
+      "charTotalCount": 25,
+      "rate": 24,
       "lvl": "normal",
       "launchDate": "2024-08-08"
     }

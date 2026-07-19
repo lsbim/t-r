@@ -4,6 +4,7 @@ import {
     ChartOptions,
     Filler,
     Legend,
+    LegendItem,
     LinearScale,
     LineElement,
     PointElement,
@@ -15,6 +16,8 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import { FrontierSeasonData } from "../../types/frontierTypes";
 import InfoIcon from '../../commons/icon/InfoIcon';
 import { useTheme } from '../../hooks/useTheme';
+import React from 'react';
+import { bosses } from '../../data/bosses';
 
 
 ChartJS.register(
@@ -29,7 +32,21 @@ ChartJS.register(
     Filler
 );
 
-const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, compareCoin: Record<string, Record<string, number> | null> }) => {
+interface ScoreAndCoinChartProps {
+    data: FrontierSeasonData;
+    compareCoin: Record<string, Record<string, number> | null>;
+    level: string;
+    bossName: string;
+    select?: string;
+}
+
+const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
+    data,
+    compareCoin,
+    level,
+    bossName,
+    select
+}) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
@@ -46,6 +63,9 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
 
     const gradeAnnotations: Record<string, any> = {};
     let prevGrade: string | number;
+
+    // 최고 난이도 100% 클리어 점수 - 보스 체력 10의자리에서 버림처리
+    const clearScore = Math.floor(bosses[bossName]?.[level]?.hp / 100)
 
     arr.forEach((pt, idx) => {
         if (pt.grade && pt.grade !== prevGrade) {
@@ -96,11 +116,12 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                 label: '코인', // 두 번째 데이터셋: 코인(coin)
                 data: arr?.map(item => item.coin) || [],
                 borderWitdh: 0,
-                // borderColor: '#82ca9d',
-                // backgroundColor: 'rgba(130, 202, 157, 1)',
-                backgroundColor: coins.map((_, i) =>
-                    i === maxCoinIndex || i === minCoinIndex ? 'red' : '#82ca9d'
-                ),
+                // 실체의 코인 색상
+                backgroundColor: coins.map((_, i) => {
+                    if (i === maxCoinIndex || i === minCoinIndex) return 'red';
+                    if (select && arr[i]?.arr?.includes(select)) return '#D97706';
+                    return '#82ca9d';
+                }),
                 yAxisID: 'y_coin', // 이 데이터셋이 사용할 Y축 ID
                 showLine: false, // 선을 제거하고 점만 표시
                 pointRadius: 3, // 점의 크기를 3으로 줄임 (기본값은 보통 3-4)
@@ -120,18 +141,51 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
             annotation: {
                 annotations: gradeAnnotations
             },
-            // annotation 플러그인 설정을 제거합니다.
             legend: {
-                display: true, // 범례를 표시하여 두 데이터를 구분할 수 있게 합니다.
+                display: true,
                 position: 'bottom' as const,
                 labels: {
-                    color: tickColor
+                    color: tickColor,
+                    generateLabels: (chart): LegendItem[] => {
+                        const coinHidden = !chart.isDatasetVisible(1);
+                        const items: LegendItem[] = [
+                            {
+                                text: '점수',
+                                fillStyle: '#8884d8',
+                                strokeStyle: '#8884d8',
+                                hidden: !chart.isDatasetVisible(0),
+                                datasetIndex: 0,
+                            },
+                            {
+                                text: '코인',
+                                fillStyle: '#82ca9d',
+                                strokeStyle: '#82ca9d',
+                                hidden: coinHidden,
+                                datasetIndex: 1,
+                            },
+                        ];
+                        // 선택한 사도를 사용한 유저의 코인
+                        if (select) {
+                            items.push({
+                                text: select,
+                                fillStyle: '#D97706',
+                                strokeStyle: '#D97706',
+                                hidden: coinHidden,
+                                datasetIndex: 1,
+                            });
+                        }
+                        return items;
+                    }
                 }
             },
             tooltip: {
                 callbacks: {
                     label: function (context) {
-                        // 툴팁에 데이터셋 레이블과 값을 표시합니다. (예: "점수: 12345")
+                        if (context.dataset.label === '점수' && !isNaN(clearScore)) {
+                            const cleanScore = context?.formattedValue?.replaceAll(",", "");
+                            const score = Number(cleanScore)
+                            return `${context.dataset.label}: ${context.formattedValue} (${Math.round(score / clearScore * 10000) / 100}%)`
+                        }
                         return `${context.dataset.label}: ${context.formattedValue}`;
                     },
                     title: function (context) {
@@ -202,7 +256,7 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
     const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[496px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden">
             <div className='flex items-center mb-4'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
@@ -214,9 +268,9 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
 
             {/* 전 시즌 코인 비교 */}
             <div className='w-full justify-between flex items-center'>
-                <div className='w-[50%] flex justify-center gap-x-2 items-center'>
-                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px]' />
-                    <span className='sm:text-[15px] text-[13px]'>
+                <div className='w-[50%] flex justify-center gap-x-2 items-baseline'>
+                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px] self-center' />
+                    <span className='sm:text-[14px] text-[12px]'>
                         최다 코인
                     </span>
                     <span className='font-bold'>
@@ -230,9 +284,9 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                         </span>
                     )}
                 </div>
-                <div className='w-[50%] flex justify-center gap-x-2 items-center'>
-                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px]' />
-                    <span className='sm:text-[15px] text-[13px]'>
+                <div className='w-[50%] flex justify-center gap-x-2 items-baseline'>
+                    <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px] self-center' />
+                    <span className='sm:text-[14px] text-[12px]'>
                         최소 코인
                     </span>
                     <span className='font-bold'>
@@ -247,6 +301,16 @@ const ScoreAndCoinChart = ({ data, compareCoin }: { data: FrontierSeasonData, co
                     )}
                 </div>
             </div>
+            {!isNaN(clearScore) && (
+                <div className="flex items-baseline justify-center gap-x-2 mt-1">
+                    <span className='sm:text-[14px] text-[12px]'>
+                        {level} 클리어 점수
+                    </span>
+                    <span className="font-bold">
+                        {clearScore.toLocaleString()} (100%)
+                    </span>
+                </div>
+            )}
         </div>
     );
 }

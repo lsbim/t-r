@@ -116,6 +116,34 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 19,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2026-07-09",
+        "endDate": "2026-07-16",
+        "pickCount": 136,
+        "pickRate": 45.3,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 107
+          },
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 17
+          },
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 12
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -171,34 +199,6 @@
             "line": "후열",
             "rank": 5,
             "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 14,
-        "name": "우로스",
-        "personality": null,
-        "startDate": "2025-12-11",
-        "endDate": "2025-12-18",
-        "pickCount": 186,
-        "pickRate": 62,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 6,
-            "count": 2
-          },
-          {
-            "line": "중열",
-            "rank": 6,
-            "count": 31
-          },
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 153
           }
         ],
         "totalEntries": 300
@@ -335,25 +335,25 @@
   "recentSkins": [
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 96,
-      "charTotalCount": 224,
-      "rate": 42.9,
+      "cosUsedCount": 154,
+      "charTotalCount": 360,
+      "rate": 42.8,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "댄스 크루 달링",
-      "cosUsedCount": 57,
-      "charTotalCount": 224,
-      "rate": 25.4,
+      "cosUsedCount": 87,
+      "charTotalCount": 360,
+      "rate": 24.2,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     },
     {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 26,
-      "charTotalCount": 224,
-      "rate": 11.6,
+      "cosUsedCount": 42,
+      "charTotalCount": 360,
+      "rate": 11.7,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     }
