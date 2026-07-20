@@ -9,6 +9,7 @@ interface SelectInfoProps {
     select: string;
     pickRate: number;
     totalUses: number;
+    toggleExclude: (name: string) => void;
 }
 
 const SelectInfo: React.FC<SelectInfoProps> = ({
@@ -16,7 +17,8 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
     lastRank,
     select,
     pickRate,
-    totalUses
+    totalUses,
+    toggleExclude
 }) => {
 
     const selectUrl = select.startsWith('우로스(') ? `/character/우로스` : `/character/${select}`;
@@ -42,6 +44,14 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                         {`${charInfo[select]?.personality}, ${charInfo[select]?.grade}성`}
                     </span>
                 </div>
+                <button
+                    onClick={() => {
+                        toggleExclude(select)
+                    }}
+                    className="text-red-600 text-[12px] font-bold">
+
+                    제외하기
+                </button>
             </div>
             <div className="flex gap-x-8 w-full justify-center">
                 {/* 픽 수, 픽률 */}
@@ -70,7 +80,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                             최초 등장
                         </span>
                         <span className="text-[13px] font-bold">
-                            {firstRank}위
+                            {firstRank ?? '- '}위
                         </span>
                     </div>
                     <div className="flex flex-col">
@@ -78,7 +88,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                             최종 등장
                         </span>
                         <span className="text-[13px] font-bold">
-                            {lastRank}위
+                            {lastRank ?? '- '}위
                         </span>
                     </div>
                 </div>

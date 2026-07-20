@@ -6,7 +6,13 @@ import UsedPosition from "./UsedPosition";
 import SelectInfo from "./SelectInfo";
 import SelectRankHistogramChart from "../../chart/select/SelectRankHistogramChart";
 
-const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
+const SelectCharComponent = ({
+    statsForSelect,
+    toggleExclude
+}: {
+    statsForSelect: any,
+    toggleExclude: (name: string) => void,
+}) => {
 
     // console.log(statsForSelect)
 
@@ -14,9 +20,9 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
         <div className="overflow-hidden">
             <div className={`mx-auto flex flex-col rounded-xl dark:text-zinc-200 ${statsForSelect ? "xs:max-w-[992px] w-full" : "max-w-[992px]"}`}>
                 {statsForSelect ? (
-                    <div className="flex sm:flex-row flex-col gap-4 w-full">
+                    <div className="flex md:flex-row flex-col gap-4 w-full">
                         {/* 30% */}
-                        <div className="flex flex-col sm:justify-between gap-y-4 sm:w-[30%] w-full">
+                        <div className="flex flex-col md:justify-between gap-y-4 md:w-[32%] w-full">
                             {/* 사도 정보 */}
                             <SelectInfo
                                 firstRank={statsForSelect.firstRank}
@@ -24,6 +30,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                                 select={statsForSelect.select}
                                 pickRate={statsForSelect.pickRate}
                                 totalUses={statsForSelect.totalUses}
+                                toggleExclude={toggleExclude}
                             />
                             {/* 사용된 위치 */}
                             <UsedPosition
@@ -31,7 +38,7 @@ const SelectCharComponent = ({ statsForSelect }: { statsForSelect: any }) => {
                             />
                         </div>
                         {/* 68.5% */}
-                        <div className="flex flex-col sm:justify-between gap-y-4 sm:w-[68.5%] w-full">
+                        <div className="flex flex-col md:justify-between gap-y-4 md:w-[66.5%] w-full">
                             {/* 구간별 등장 히스토그램 */}
                             <SelectRankHistogramChart
                                 rankDistribution={statsForSelect.rankDistribution}
