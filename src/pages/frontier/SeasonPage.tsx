@@ -322,7 +322,7 @@ const SeasonPage = () => {
                             data={data}
                         />
                     )}
-                    {bestComp && (
+                    {bestComp && bestComp?.length > 0 &&(
                         <BestComp
                             data={bestComp}
                         />
