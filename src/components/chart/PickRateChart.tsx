@@ -207,7 +207,7 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-200 dark:hover:text-zinc-400">
-                                                    {Math.round((item?.count / userLength * 100) * 10) / 10}%
+                                                    {(Math.round((item?.count / userLength * 100) * 10) / 10) || 0}%
                                                 </span>
 
 
