@@ -104,7 +104,9 @@ const SeasonPage = () => {
             select,
             seasonSlice.data as FrontierPlayerData[],
             displaySlice.data as FrontierPlayerData[],
-            r => r.arr
+            r => r?.arr,
+            false,
+            r => r?.coin
         );
     }, [select, seasonSlice, displaySlice]);
 
@@ -224,6 +226,7 @@ const SeasonPage = () => {
                         <SelectCharComponent
                             statsForSelect={statsForSelect}
                             toggleExclude={toggleExclude}
+                            scoreType="coin"
                         />
                     )}
                     {compareCoin && data && (

@@ -6,13 +6,15 @@ import UsedPosition from "./UsedPosition";
 
 const SelectCharComponent = ({
     statsForSelect,
-    toggleExclude
+    toggleExclude,
+    scoreType,
 }: {
     statsForSelect: any,
     toggleExclude: (name: string) => void,
+    scoreType: 'coin' | 'duration'
 }) => {
 
-    // console.log(statsForSelect)
+    console.log(statsForSelect)
 
     return (
         <div className="overflow-hidden">
@@ -29,6 +31,9 @@ const SelectCharComponent = ({
                                 pickRate={statsForSelect.pickRate}
                                 totalUses={statsForSelect.totalUses}
                                 toggleExclude={toggleExclude}
+                                maxScore={statsForSelect.maxScore}
+                                minScore={statsForSelect.minScore}
+                                scoreType={scoreType}
                             />
                             {/* 사용된 위치 */}
                             <UsedPosition

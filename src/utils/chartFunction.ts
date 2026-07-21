@@ -558,6 +558,7 @@ export function computeStatsForSelect<T extends RankRecord>(
     filteredData: T[], // displaySlice, 제외까지 적용된 데이터
     getArr: (r: T) => string[],
     requireFullComp = false, // 9인 편성만 통계
+    getScore?: (score: T) => number // 최다/최소/최장/최단 실체의코인, 클리어시간 측정용. 일단 score로 통일하여 사용함
 ) {
 
     // 선택된 캐릭터를 포함한 레코드만 필터
@@ -572,6 +573,9 @@ export function computeStatsForSelect<T extends RankRecord>(
     // 동반 등장 카운트
     const cooccurrence: Record<string, number> = {};
 
+    let maxScore: number | null = null;
+    let minScore: number | null = null;
+
     combos.forEach(r => {
         const arr = getArr(r);
         const eligible = !requireFullComp || arr.length === 9;
@@ -582,7 +586,20 @@ export function computeStatsForSelect<T extends RankRecord>(
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
             }
         });
+
+        if (getScore) {
+            const score = getScore(r);
+            maxScore = maxScore === null ? score : Math.max(maxScore, score);
+            minScore = minScore === null ? score : Math.min(minScore, score);
+        }
     });
+
+    // 최고 난이도가 바뀐 시즌은 대충돌 시즌46처럼 점수+시간을 쓰는 등
+    // max/min 중 하나가 null일 경우가 생기므로 둘 다 통일
+    if (!maxScore || !minScore) {
+        maxScore = null;
+        minScore = null;
+    }
 
     // 선택한 사도의 최초/최후 등장 순위
     const firstRank = combos.length > 0 ? combos[0].rank : null;
@@ -607,5 +624,5 @@ export function computeStatsForSelect<T extends RankRecord>(
         }
     });
 
-    return { totalUses, pickRate, positionCounts, cooccurrence, select, rankDistribution, firstRank, lastRank };
+    return { totalUses, pickRate, positionCounts, cooccurrence, select, rankDistribution, firstRank, lastRank, maxScore, minScore };
 }

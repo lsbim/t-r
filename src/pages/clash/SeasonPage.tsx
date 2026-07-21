@@ -96,7 +96,9 @@ const SeasonPage = () => {
             select,
             seasonSlice.data as ClashPlayerData[],
             displaySlice.data as ClashPlayerData[],
-            r => r.arr
+            r => r?.arr,
+            false,
+            r => r?.duration
         );
     }, [select, seasonSlice, displaySlice]);
 
@@ -188,6 +190,7 @@ const SeasonPage = () => {
                         <SelectCharComponent
                             statsForSelect={statsForSelect}
                             toggleExclude={toggleExclude}
+                            scoreType="duration"
                         />
                     )}
                     <CleartimeChart

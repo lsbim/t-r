@@ -91,7 +91,9 @@ const ClashV2SeasonPage = () => {
             seasonSlice.data as ClashV2PlayerData[],
             displaySlice.data as ClashV2PlayerData[],
             v2Type === 'main' ? (r: ClashV2PlayerData) => r.arr : (r: ClashV2PlayerData) => r.sideArr,
-            true // 9인 편성만 통계
+            true, // 9인 편성만 통계
+            // 점수를 사용한 베타 시즌1 제외하고 시간만 측정
+            season !== '10001' ? (r: ClashV2PlayerData) => r?.duration : undefined
         );
     }, [select, seasonSlice, displaySlice, v2Type]);
 
@@ -199,6 +201,7 @@ const ClashV2SeasonPage = () => {
                     <SelectCharComponent
                         statsForSelect={statsForSelect}
                         toggleExclude={toggleExclude}
+                        scoreType="duration"
                     />
                 )}
                 <ClashV2Chart
