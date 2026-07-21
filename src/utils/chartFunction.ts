@@ -511,3 +511,101 @@ export function processPersonalityPie(
 
     return personalityData;
 }
+
+interface RankRecord {
+    rank: number;
+}
+
+export function computeBestComp<T extends RankRecord>(
+    filteredData: T[],
+    appliedRange: { start: number; end: number },
+    initRange: { start: number; end: number },
+    processFn: (group: T[]) => CompStat[]
+): CompStat[] {
+
+    const result: CompStat[] = [];
+    if (filteredData.length === 0) return result;
+
+    if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
+        const groups = [
+            filteredData.filter(r => r.rank >= 1 && r.rank <= 100),
+            filteredData.filter(r => r.rank >= 101 && r.rank <= 200),
+            filteredData.filter(r => r.rank >= 201 && r.rank <= 300),
+        ];
+        groups.forEach(group => {
+            if (group.length > 0) {
+                const best = processFn(group)[0];
+                if (best) result.push(best);
+            }
+        });
+
+        return result;
+    }
+
+    const customGroup = filteredData.filter(r => r.rank >= appliedRange.start && r.rank <= appliedRange.end);
+
+    if (customGroup.length > 0) {
+        const best = processFn(customGroup)[0];
+        if (best) result.push(best);
+    }
+    return result;
+}
+
+// 선택한 사도의 정보
+export function computeStatsForSelect<T extends RankRecord>(
+    select: string,
+    rangeData: T[], // seasonSlice, range만 적용된 데이터
+    filteredData: T[], // displaySlice, 제외까지 적용된 데이터
+    getArr: (r: T) => string[],
+    requireFullComp = false, // 9인 편성만 통계
+) {
+
+    // 선택된 캐릭터를 포함한 레코드만 필터
+    const combos = filteredData.filter(r => getArr(r).includes(select));
+    const totalUses = combos.length;
+    const pickRate = filteredData.length > 0 ? totalUses / filteredData.length * 100 : 0;
+
+    // 인덱스별 카운트 초기화
+    const positionCounts: Record<number, number> = {
+        0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0
+    };
+    // 동반 등장 카운트
+    const cooccurrence: Record<string, number> = {};
+
+    combos.forEach(r => {
+        const arr = getArr(r);
+        const eligible = !requireFullComp || arr.length === 9;
+        arr.forEach((name, idx) => {
+            if (name === select && eligible) {
+                positionCounts[idx]++;
+            } else {
+                cooccurrence[name] = (cooccurrence[name] || 0) + 1;
+            }
+        });
+    });
+
+    // 선택한 사도의 최초/최후 등장 순위
+    const firstRank = combos.length > 0 ? combos[0].rank : null;
+    const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
+
+    const BUCKET_SIZE = 10; // 히스토그램 구간 단위
+
+    const rangeStart = rangeData[0]?.rank ?? 1;
+    const rangeEnd = rangeData[rangeData.length - 1]?.rank ?? rangeStart;
+    const bucketCount = Math.ceil((rangeEnd - rangeStart + 1) / BUCKET_SIZE);
+
+    const rankDistribution = Array.from({ length: bucketCount }, (_, i) => {
+        const bucketStart = rangeStart + i * BUCKET_SIZE;
+        const bucketEnd = Math.min(rangeStart + (i + 1) * BUCKET_SIZE - 1, rangeEnd);
+        return { label: `${bucketStart}~${bucketEnd}`, startRank: bucketStart, count: 0 };
+    });
+
+    combos.forEach(r => {
+        const bucketIdx = Math.floor((r.rank - rangeStart) / BUCKET_SIZE);
+        if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
+            rankDistribution[bucketIdx].count++;
+        }
+    });
+
+    return { totalUses, pickRate, positionCounts, cooccurrence, select, rankDistribution, firstRank, lastRank };
+}

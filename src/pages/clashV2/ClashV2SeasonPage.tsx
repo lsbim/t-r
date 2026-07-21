@@ -13,14 +13,13 @@ import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
+import { useCharExclude } from "../../hooks/useCharExclude";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
-import { ClashPlayerData } from "../../types/clashTypes";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
-import { CompStat, processCompStat } from "../../utils/chartFunction";
-import { useCharExclude } from "../../hooks/useCharExclude";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -57,7 +56,7 @@ const ClashV2SeasonPage = () => {
     const getArr = useCallback((r: ClashV2PlayerData) =>
         v2Type === 'main' ? r.arr : r.sideArr
         , [v2Type]);
-        
+
     const { excludedSet, filteredData, toggleExclude, clearExcluded } = useCharExclude({
         data: seasonSlice?.type === 'season' ? (seasonSlice.data as ClashV2PlayerData[]) : undefined,
         getArr
@@ -84,120 +83,30 @@ const ClashV2SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    // 선택한 사도의 정보
+    // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
         if (!select || !seasonSlice || !displaySlice) return null;
-
-        // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = v2Type === 'main'
-            ? (displaySlice.data as ClashPlayerData[]).filter(r => r.arr.includes(select))
-            : (displaySlice.data as ClashV2PlayerData[]).filter(r => r.sideArr.includes(select));
-        const totalUses = combos.length;
-        const pickRate = totalUses / displaySlice.data.length * 100;
-
-        // 인덱스별 카운트 초기화
-        const positionCounts: Record<number, number> = {
-            0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0
-        };
-
-        // 동반 등장 카운트
-        const cooccurrence: Record<string, number> = {};
-
-        if (v2Type === 'main') {
-            combos.forEach(r => {
-                r.arr.forEach((name, idx) => {
-                    if (name === select && r.arr.length === 9) {
-                        positionCounts[idx]++;
-                    } else {
-                        cooccurrence[name] = (cooccurrence[name] || 0) + 1;
-                    }
-                });
-            });
-        } else if (v2Type === 'side') {
-            (combos as ClashV2PlayerData[]).forEach(r => {
-                r.sideArr.forEach((name, idx) => {
-                    if (name === select && r.sideArr.length === 9) {
-                        positionCounts[idx]++;
-                    } else {
-                        cooccurrence[name] = (cooccurrence[name] || 0) + 1;
-                    }
-                });
-            });
-        }
-
-        const firstRank = combos.length > 0 ? combos[0].rank : null;
-        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
-
-        const BUCKET_SIZE = 10;
-
-        const rangeData = seasonSlice.data as ClashPlayerData[];
-        const rangeStart = rangeData[0]?.rank ?? 1;
-        const rangeEnd = rangeData[rangeData.length - 1]?.rank ?? rangeStart;
-        const bucketCount = Math.ceil((rangeEnd - rangeStart + 1) / BUCKET_SIZE);
-
-        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => {
-            const bucketStart = rangeStart + i * BUCKET_SIZE;
-            const bucketEnd = Math.min(rangeStart + (i + 1) * BUCKET_SIZE - 1, rangeEnd);
-            return {
-                label: `${bucketStart}~${bucketEnd}`,
-                startRank: bucketStart,
-                count: 0,
-            };
-        });
-
-        combos.forEach(r => {
-            const bucketIdx = Math.floor((r.rank - rangeStart) / BUCKET_SIZE);
-            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
-                rankDistribution[bucketIdx].count++;
-            }
-        });
-
-
-        return {
-            totalUses,
-            pickRate,
-            positionCounts,
-            cooccurrence,
+        return computeStatsForSelect(
             select,
-            rankDistribution,
-            firstRank,
-            lastRank,
-        };
-    }, [select, displaySlice, v2Type]);
+            seasonSlice.data as ClashV2PlayerData[],
+            displaySlice.data as ClashV2PlayerData[],
+            v2Type === 'main' ? (r: ClashV2PlayerData) => r.arr : (r: ClashV2PlayerData) => r.sideArr,
+            true // 9인 편성만 통계
+        );
+    }, [select, seasonSlice, displaySlice, v2Type]);
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
         if (!displaySlice) return;
 
-        const result: CompStat[] = [];
-        const filteredData = displaySlice.data as ClashPlayerData[];
-        if (filteredData.length === 0) return result;
+        return computeBestComp(
+            displaySlice.data as ClashV2PlayerData[],
+            appliedRange,
+            initRange,
+            group => processCompStat(group, undefined, v2Type === 'side' ? v2Type : undefined)
+        )
+    }, [displaySlice, appliedRange, v2Type]);
 
-        const sideParam = v2Type === 'side' ? v2Type : undefined;
-
-        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
-            const group1 = filteredData.filter(r => r.rank >= 1 && r.rank <= 100);
-            const group2 = filteredData.filter(r => r.rank >= 101 && r.rank <= 200);
-            const group3 = filteredData.filter(r => r.rank >= 201 && r.rank <= 300);
-
-            const oneComp = group1.length > 0 ? processCompStat(group1, undefined, sideParam)[0] : undefined;
-            const twoComp = group2.length > 0 ? processCompStat(group2, undefined, sideParam)[0] : undefined;
-            const threeComp = group3.length > 0 ? processCompStat(group3, undefined, sideParam)[0] : undefined;
-
-            if (oneComp) result.push(oneComp);
-            if (twoComp) result.push(twoComp);
-            if (threeComp) result.push(threeComp);
-
-            return result;
-        } else {
-            const customGroup = filteredData.filter(r => r.rank >= appliedRange.start && r.rank <= appliedRange.end);
-            if (customGroup.length > 0) {
-                const best = processCompStat(customGroup, undefined, sideParam)[0];
-                if (best) result.push(best);
-            }
-            return result;
-        }
-    }, [displaySlice, appliedRange, v2Type])
 
     const handleV2Type = (t: 'side' | 'main') => {
         setV2Type(t);

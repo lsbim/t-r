@@ -9,17 +9,17 @@ import PickRateChart from "../../components/chart/PickRateChart";
 import ScoreAndCoinChart from "../../components/chart/ScoreAndCoinChart";
 import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
+import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
+import { useCharExclude } from "../../hooks/useCharExclude";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
-import { CompStat, processCompStat } from "../../utils/chartFunction";
-import CostumeRank from "../../components/shared/CostumeRank";
-import { useCharExclude } from "../../hooks/useCharExclude";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -97,109 +97,27 @@ const SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    // 선택한 사도의 정보
+    // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
         if (!select || !seasonSlice || !displaySlice) return null;
-
-        // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = (displaySlice.data as FrontierPlayerData[]).filter(r => r.arr.includes(select));
-        const totalUses = combos.length;
-        const pickRate = totalUses / displaySlice.data.length * 100;
-
-        // 인덱스별 카운트 초기화
-        const positionCounts: Record<number, number> = {
-            0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0
-        };
-
-        // 동반 등장 카운트
-        const cooccurrence: Record<string, number> = {};
-
-        // 선택한 사도의 최초/최후 등장 순위
-        const firstRank = combos.length > 0 ? combos[0].rank : null;
-        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
-
-        const BUCKET_SIZE = 10; // 히스토그램 구간 단위
-
-        const rangeData = seasonSlice.data as FrontierPlayerData[];
-        const rangeStart = rangeData[0]?.rank ?? 1;
-        const rangeEnd = rangeData[rangeData.length - 1]?.rank ?? rangeStart;
-        const bucketCount = Math.ceil((rangeEnd - rangeStart + 1) / BUCKET_SIZE);
-
-        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => {
-            const bucketStart = rangeStart + i * BUCKET_SIZE;
-            const bucketEnd = Math.min(rangeStart + (i + 1) * BUCKET_SIZE - 1, rangeEnd);
-            return {
-                label: `${bucketStart}~${bucketEnd}`,
-                startRank: bucketStart,
-                count: 0,
-            };
-        });
-
-        combos.forEach(r => {
-            const bucketIdx = Math.floor((r.rank - rangeStart) / BUCKET_SIZE);
-            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
-                rankDistribution[bucketIdx].count++;
-            }
-
-            r.arr.forEach((name, idx) => {
-                if (name === select) {
-                    positionCounts[idx]++;
-                } else {
-                    cooccurrence[name] = (cooccurrence[name] || 0) + 1;
-                }
-            });
-        });
-
-        return {
-            totalUses,
-            pickRate,
-            positionCounts,
-            cooccurrence,
+        return computeStatsForSelect(
             select,
-            rankDistribution,
-            firstRank,
-            lastRank,
-        };
-    }, [select, displaySlice]);
-
-    // console.log("user count: ", userCnt)
-    // console.log("length: ", data?.data?.length);
+            seasonSlice.data as FrontierPlayerData[],
+            displaySlice.data as FrontierPlayerData[],
+            r => r.arr
+        );
+    }, [select, seasonSlice, displaySlice]);
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
         if (!displaySlice || displaySlice.type === 'external') return;
 
-        const result: CompStat[] = [];
-        const filteredData = displaySlice.data as FrontierPlayerData[];
-
-        if (filteredData.length === 0) return result;
-
-        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
-            const group1 = filteredData.filter(r => r.rank >= 1 && r.rank <= 100);
-            const group2 = filteredData.filter(r => r.rank >= 101 && r.rank <= 200);
-            const group3 = filteredData.filter(r => r.rank >= 201 && r.rank <= 300);
-
-            const oneComp = group1.length > 0 ? processCompStat(group1)[0] : undefined;
-            const twoComp = group2.length > 0 ? processCompStat(group2)[0] : undefined;
-            const threeComp = group3.length > 0 ? processCompStat(group3)[0] : undefined;
-
-            if (oneComp) result.push(oneComp);
-            if (twoComp) result.push(twoComp);
-            if (threeComp) result.push(threeComp);
-
-            return result;
-        } else {
-            const customGroup = filteredData.filter(
-                r => r.rank >= appliedRange.start && r.rank <= appliedRange.end
-            );
-
-            if (customGroup.length > 0) {
-                const best = processCompStat(customGroup)[0];
-                if (best) result.push(best);
-            }
-
-            return result;
-        }
+        return computeBestComp(
+            displaySlice.data as FrontierPlayerData[],
+            appliedRange,
+            initRange,
+            group => processCompStat(group)
+        )
     }, [displaySlice, appliedRange]);
 
     // 현 시즌 vs 전 시즌 실체의코인 비교
@@ -322,7 +240,7 @@ const SeasonPage = () => {
                             data={data}
                         />
                     )}
-                    {bestComp && bestComp?.length > 0 &&(
+                    {bestComp && bestComp?.length > 0 && (
                         <BestComp
                             data={bestComp}
                         />

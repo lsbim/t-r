@@ -1,10 +1,8 @@
 import React from "react";
-import PersonalityIcon from "../../../commons/icon/PersonalityIcon";
-import { findPersonalityByName } from "../../../utils/function";
-import CoOccurrenceChar from "./CoOccurrenceChar";
-import UsedPosition from "./UsedPosition";
-import SelectInfo from "./SelectInfo";
 import SelectRankHistogramChart from "../../chart/select/SelectRankHistogramChart";
+import CoOccurrenceChar from "./CoOccurrenceChar";
+import SelectInfo from "./SelectInfo";
+import UsedPosition from "./UsedPosition";
 
 const SelectCharComponent = ({
     statsForSelect,
