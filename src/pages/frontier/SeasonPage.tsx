@@ -99,8 +99,9 @@ const SeasonPage = () => {
 
     // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
-        if (!select || !seasonSlice || !displaySlice) return null;
-        return computeStatsForSelect(
+        if (!select || !seasonSlice || !displaySlice || displaySlice.type !== 'season') return null;
+
+        const base = computeStatsForSelect(
             select,
             seasonSlice.data as FrontierPlayerData[],
             displaySlice.data as FrontierPlayerData[],
@@ -108,7 +109,60 @@ const SeasonPage = () => {
             false,
             r => r?.coin
         );
+
+        const filteredData = displaySlice.data as FrontierPlayerData[];
+
+
+        const coinScoreComparison = (() => {
+            if (filteredData.length === 0) return [];
+
+            let coinMin = Infinity;
+            let coinMax = -Infinity;
+            for (const r of filteredData) {
+                if (r.coin < coinMin) coinMin = r.coin;
+                if (r.coin > coinMax) coinMax = r.coin;
+            }
+            if (coinMin === coinMax) coinMax = coinMin + 1;
+
+            const segmentCount = 8; // 차트 X축 구간을 전체 8분할
+            const step = (coinMax - coinMin) / segmentCount;
+
+            const segments = Array.from({ length: segmentCount }, (_, i) => ({
+                coinLow: coinMin + i * step,
+                coinHigh: coinMin + (i + 1) * step,
+                usedRankSum: 0, usedCount: 0,
+                unusedRankSum: 0, unusedCount: 0,
+            }));
+
+            filteredData.forEach(r => {
+                let idx = Math.floor((r.coin - coinMin) / step);
+                if (idx >= segmentCount) idx = segmentCount - 1;
+                if (idx < 0) idx = 0;
+
+                const segment = segments[idx];
+                if (r.arr.includes(select)) {
+                    segment.usedRankSum += r.rank;
+                    segment.usedCount++;
+                } else {
+                    segment.unusedRankSum += r.rank;
+                    segment.unusedCount++;
+                }
+            });
+
+            return segments.map(s => ({
+                label: `${(s.coinLow / 1000).toFixed(1)}k`,
+                coinLow: s.coinLow,
+                coinHigh: s.coinHigh,
+                usedAvgRank: s.usedCount > 0 ? s.usedRankSum / s.usedCount : null,
+                unusedAvgRank: s.unusedCount > 0 ? s.unusedRankSum / s.unusedCount : null,
+                usedCount: s.usedCount,
+                unusedCount: s.unusedCount,
+            }));
+        })();
+
+        return { ...base, coinScoreComparison };
     }, [select, seasonSlice, displaySlice]);
+
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {

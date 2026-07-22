@@ -3,6 +3,7 @@ import SelectRankHistogramChart from "../../chart/select/SelectRankHistogramChar
 import CoOccurrenceChar from "./CoOccurrenceChar";
 import SelectInfo from "./SelectInfo";
 import UsedPosition from "./UsedPosition";
+import SelectCoinScoreChart from "../../chart/select/SelectCoinScoreChart";
 
 const SelectCharComponent = ({
     statsForSelect,
@@ -14,7 +15,7 @@ const SelectCharComponent = ({
     scoreType: 'coin' | 'duration'
 }) => {
 
-    console.log(statsForSelect)
+    // console.log(statsForSelect)
 
     return (
         <div className="overflow-hidden">
@@ -22,7 +23,7 @@ const SelectCharComponent = ({
                 {statsForSelect ? (
                     <div className="flex md:flex-row flex-col gap-4 w-full">
                         {/* 30% */}
-                        <div className="flex flex-col md:justify-between gap-y-4 md:w-[32%] w-full">
+                        <div className="flex flex-col gap-y-4 md:w-[32%] w-full">
                             {/* 사도 정보 */}
                             <SelectInfo
                                 firstRank={statsForSelect.firstRank}
@@ -41,7 +42,7 @@ const SelectCharComponent = ({
                             />
                         </div>
                         {/* 68.5% */}
-                        <div className="flex flex-col md:justify-between gap-y-4 md:w-[66.5%] w-full">
+                        <div className="flex flex-col gap-y-4 md:w-[66.5%] w-full">
                             {/* 구간별 등장 히스토그램 */}
                             <SelectRankHistogramChart
                                 rankDistribution={statsForSelect.rankDistribution}
@@ -51,6 +52,12 @@ const SelectCharComponent = ({
                             <CoOccurrenceChar
                                 statsForSelect={statsForSelect}
                             />
+                            {/* 프론티어 코인 기준 사도 사용/미사용 유저 비교 */}
+                            {statsForSelect?.coinScoreComparison && (
+                                <SelectCoinScoreChart
+                                    comparisonData={statsForSelect.coinScoreComparison}
+                                />
+                            )}
                         </div>
                     </div>
                 ) : (
