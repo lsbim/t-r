@@ -256,24 +256,24 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     const compareMinCoin = minCoin - (compareCoin?.prev?.minCoin ?? 0)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[496px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden">
+        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[516px] bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden">
             <div className='flex items-center mb-4'>
                 <span className="text-xl font-bold mr-2">점수 및 실체의 코인</span>
                 <InfoIcon text='해당 유저의 최고 난이도 점수만 제공합니다.' />
             </div>
-            <div className='h-[400px] dark:brightness-90'>
+            <div className='max-h-[366px] h-[366px] dark:brightness-90'>
 
                 <Line data={chartData} options={chartOptions} />
             </div>
 
             {/* 전 시즌 코인 비교 */}
-            <div className='w-full justify-between flex items-center'>
-                <div className='w-[50%] flex justify-center gap-x-2 items-baseline'>
+            <div className='w-full justify-between flex items-center md:flex-row flex-col gap-y-1 md:gap-y-0'>
+                <div className='md:w-[50%] flex justify-center gap-x-2 items-baseline'>
                     <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px] self-center' />
                     <span className='sm:text-[14px] text-[12px]'>
                         최다 코인
                     </span>
-                    <span className='font-bold'>
+                    <span className="font-bold sm:text-[16px] text-[14px]">
                         {maxCoin}
                     </span>
                     {compareMaxCoin !== maxCoin && (
@@ -284,12 +284,12 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                         </span>
                     )}
                 </div>
-                <div className='w-[50%] flex justify-center gap-x-2 items-baseline'>
+                <div className='md:w-[50%] flex justify-center gap-x-2 items-baseline'>
                     <img src='/images/ui/frontier_coin.png' className='w-5 h-5 aspect-square mr-[-6px] self-center' />
                     <span className='sm:text-[14px] text-[12px]'>
                         최소 코인
                     </span>
-                    <span className='font-bold'>
+                    <span className="font-bold sm:text-[16px] text-[14px]">
                         {minCoin}
                     </span>
                     {compareMinCoin !== minCoin && (
@@ -302,11 +302,11 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 </div>
             </div>
             {!isNaN(clearScore) && (
-                <div className="flex items-baseline justify-center gap-x-2 mt-1">
+                <div className="flex items-baseline justify-center gap-x-2 mt-2">
                     <span className='sm:text-[14px] text-[12px]'>
                         {level} 클리어 점수
                     </span>
-                    <span className="font-bold">
+                    <span className="font-bold sm:text-[16px] text-[14px]">
                         {clearScore.toLocaleString()} (100%)
                     </span>
                 </div>
