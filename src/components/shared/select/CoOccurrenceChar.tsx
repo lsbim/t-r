@@ -29,27 +29,40 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
                 <InfoIcon text="함께 출전한 사도 목록입니다." />
             </div>
             {/* 스크롤이 무조건 있기 때문에 최상위 태그와 pb-2 나눠먹기 */}
-            <div className="w-full overflow-x-auto pb-2 flex-1">
-                <div className="inline-flex gap-x-2">
-                    {sorted.map(([key, value], index) => (
-                        <div className={`border flex flex-col items-center justify-center rounded-lg w-[90px] h-[120px] p-2 gap-y-1 ${getBgColor(value as number)}`}
-                            key={"co_occurrence" + statsForSelect?.select + index}>
-                            <div className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(key)}-dark`}>
-                                <img
-                                    src={`/images/profile/${key.startsWith('우로스(') ? '우로스' : key}.webp`}
-                                />
+            {sorted.length > 0 ? (
+
+                <div className="w-full overflow-x-auto pb-2 flex-1">
+                    <div className="inline-flex gap-x-2">
+                        {sorted.map(([key, value], index) => (
+                            <div className={`border flex flex-col items-center justify-center rounded-lg w-[90px] h-[120px] p-2 gap-y-1 ${getBgColor(value as number)}`}
+                                key={"co_occurrence" + statsForSelect?.select + index}>
+                                <div className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(key)}-dark`}>
+                                    <img
+                                        src={`/images/profile/${key.startsWith('우로스(') ? '우로스' : key}.webp`}
+                                    />
+                                </div>
+                                <span className="font-bold truncate w-full text-center text-[13px]">
+                                    {key}
+                                </span>
+                                <span className="text-[15px]">
+                                    {value as number}회
+                                </span>
                             </div>
-                            <span className="font-bold truncate w-full text-center text-[13px]">
-                                {key}
-                            </span>
-                            <span className="text-[15px]">
-                                {value as number}회
-                            </span>
-                        </div>
-                    ))
-                    }
+                        ))
+                        }
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <div className=" flex flex-col items-center justify-center select-none">
+                    <img
+                        src={`/images/action/yc_sad.webp`}
+                        className="aspect-square object-center w-[100px] grayscale"
+                    />
+                    <span className="text-gray-700 dark:text-zinc-400 font-bold">
+                        함께한 사도가 없습니다.
+                    </span>
+                </div>
+            )}
         </div>
     )
 }

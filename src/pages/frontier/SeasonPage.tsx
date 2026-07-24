@@ -9,16 +9,17 @@ import PickRateChart from "../../components/chart/PickRateChart";
 import ScoreAndCoinChart from "../../components/chart/ScoreAndCoinChart";
 import BestComp from "../../components/shared/BestComp";
 import CompListComponent from "../../components/shared/CompListComponent";
+import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
+import { useCharExclude } from "../../hooks/useCharExclude";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
-import { CompStat, processCompStat } from "../../utils/chartFunction";
-import CostumeRank from "../../components/shared/CostumeRank";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -69,7 +70,18 @@ const SeasonPage = () => {
 
         // 기존 의존성배열은 appliedRange, season으로 season이 바뀌면 data/prevData가 바뀌나,
         // data/prevData로 변경해 의도를 정확히 해야한다고 함
-    }, [appliedRange, data, prevData])
+    }, [appliedRange, data, prevData]);
+
+    const getArr = useCallback((r: FrontierPlayerData) => r.arr, []);
+    const { excludedSet, filteredData, toggleExclude } = useCharExclude({
+        data: seasonSlice?.type === 'season' ? (seasonSlice.data as FrontierPlayerData[]) : undefined,
+        getArr
+    });
+
+    const displaySlice = useMemo(() => {
+        if (!seasonSlice || seasonSlice.type !== 'season') return seasonSlice;
+        return { ...seasonSlice, data: filteredData ?? seasonSlice.data };
+    }, [seasonSlice, filteredData]);
 
     // 순위 범위 지정
     const handleCustomRank = useCallback((start: string, end: string) => {
@@ -85,88 +97,84 @@ const SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    // 선택한 사도의 정보
+    // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
-        if (!select || !seasonSlice) return null;
+        if (!select || !seasonSlice || !displaySlice || displaySlice.type !== 'season') return null;
 
-        // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = (seasonSlice.data as FrontierPlayerData[]).filter(r => r.arr.includes(select));
-        const totalUses = combos.length;
-        const pickRate = totalUses / seasonSlice.data.length * 100;
+        const base = computeStatsForSelect(
+            select,
+            seasonSlice.data as FrontierPlayerData[],
+            displaySlice.data as FrontierPlayerData[],
+            r => r?.arr,
+            false,
+            r => r?.coin
+        );
 
-        // 인덱스별 카운트 초기화
-        const positionCounts: Record<number, number> = {
-            0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0
-        };
+        const filteredData = displaySlice.data as FrontierPlayerData[];
 
-        // 동반 등장 카운트
-        const cooccurrence: Record<string, number> = {};
 
-        // 선택한 사도의 최초/최후 등장 순위
-        const firstRank = combos.length > 0 ? combos[0].rank : null;
-        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
+        const coinScoreComparison = (() => {
+            if (filteredData.length === 0) return [];
 
-        const BUCKET_SIZE = 10; // 히스토그램 구간 단위
-        const totalCount = seasonSlice.data.length;
-        const bucketCount = Math.ceil(totalCount / BUCKET_SIZE);
-
-        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => ({
-            label: `${i * BUCKET_SIZE + 1}~${Math.min((i + 1) * BUCKET_SIZE, totalCount)}`,
-            startRank: i * BUCKET_SIZE + 1,
-            count: 0,
-        }));
-
-        combos.forEach(r => {
-            const bucketIdx = Math.floor((r.rank - 1) / BUCKET_SIZE);
-            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
-                rankDistribution[bucketIdx].count++;
+            let coinMin = Infinity;
+            let coinMax = -Infinity;
+            for (const r of filteredData) {
+                if (r.coin < coinMin) coinMin = r.coin;
+                if (r.coin > coinMax) coinMax = r.coin;
             }
+            if (coinMin === coinMax) coinMax = coinMin + 1;
 
-            r.arr.forEach((name, idx) => {
-                if (name === select) {
-                    positionCounts[idx]++;
+            const segmentCount = 8; // 차트 X축 구간을 전체 8분할
+            const step = (coinMax - coinMin) / segmentCount;
+
+            const segments = Array.from({ length: segmentCount }, (_, i) => ({
+                coinLow: coinMin + i * step,
+                coinHigh: coinMin + (i + 1) * step,
+                usedRankSum: 0, usedCount: 0,
+                unusedRankSum: 0, unusedCount: 0,
+            }));
+
+            filteredData.forEach(r => {
+                let idx = Math.floor((r.coin - coinMin) / step);
+                if (idx >= segmentCount) idx = segmentCount - 1;
+                if (idx < 0) idx = 0;
+
+                const segment = segments[idx];
+                if (r.arr.includes(select)) {
+                    segment.usedRankSum += r.rank;
+                    segment.usedCount++;
                 } else {
-                    cooccurrence[name] = (cooccurrence[name] || 0) + 1;
+                    segment.unusedRankSum += r.rank;
+                    segment.unusedCount++;
                 }
             });
-        });
 
-        return {
-            totalUses,
-            pickRate,
-            positionCounts,
-            cooccurrence,
-            select,
-            rankDistribution,
-            firstRank,
-            lastRank,
-        };
-    }, [select, seasonSlice]);
+            return segments.map(s => ({
+                label: `${(s.coinLow / 1000).toFixed(1)}k`,
+                coinLow: s.coinLow,
+                coinHigh: s.coinHigh,
+                usedAvgRank: s.usedCount > 0 ? s.usedRankSum / s.usedCount : null,
+                unusedAvgRank: s.unusedCount > 0 ? s.unusedRankSum / s.unusedCount : null,
+                usedCount: s.usedCount,
+                unusedCount: s.unusedCount,
+            }));
+        })();
 
-    // console.log("user count: ", userCnt)
-    // console.log("length: ", data?.data?.length);
+        return { ...base, coinScoreComparison };
+    }, [select, seasonSlice, displaySlice]);
+
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
-        if (!data || data?.type === 'external') return;
+        if (!displaySlice || displaySlice.type === 'external') return;
 
-        const result: CompStat[] = [];
-        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
-            const oneComp = processCompStat(data?.data.slice(0, 100) as FrontierPlayerData[])[0]
-            const twoComp = processCompStat(data?.data.slice(101, 200) as FrontierPlayerData[])[0]
-            const threeComp = processCompStat(data?.data.slice(201, 300) as FrontierPlayerData[])[0]
-
-            result.push(oneComp);
-            result.push(twoComp);
-            result.push(threeComp);
-
-            return result;
-        } else {
-            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as FrontierPlayerData[])[0]
-            result.push(bestComp)
-            return result;
-        }
-    }, [data, appliedRange]);
+        return computeBestComp(
+            displaySlice.data as FrontierPlayerData[],
+            appliedRange,
+            initRange,
+            group => processCompStat(group)
+        )
+    }, [displaySlice, appliedRange]);
 
     // 현 시즌 vs 전 시즌 실체의코인 비교
     const compareCoin = useMemo(() => {
@@ -201,7 +209,7 @@ const SeasonPage = () => {
     }
 
     // console.log("data: ", seasonSlice, prevSlice)
-    if (!seasonSlice) {
+    if (!seasonSlice || !displaySlice) {
         return <Navigate to={"/"} replace />
     }
 
@@ -222,7 +230,7 @@ const SeasonPage = () => {
             )}
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto">
                 <PersonalityPieChart
-                    data={seasonSlice}
+                    data={displaySlice}
                 />
                 <InfoComponent
                     startDate={seasonSlice?.startDate}
@@ -253,27 +261,31 @@ const SeasonPage = () => {
                     </div>
                 </>
             )}
-            {seasonSlice?.type === 'season' && prevSlice && (
+            {seasonSlice?.type === 'season' && prevSlice && displaySlice?.type === 'season' && (
                 <>
                     <AllPickRateChart
-                        data={seasonSlice}
+                        data={displaySlice}
                         setSelect={setSelect}
                     />
                     <PickRateChart
                         season={season}
-                        data={seasonSlice}
+                        data={displaySlice}
                         setSelect={setSelect}
                         prevData={prevSlice}
                         select={select}
+                        fullData={seasonSlice}
+                        excludedSet={excludedSet}
                     />
                     {select !== '' && (
                         <SelectCharComponent
                             statsForSelect={statsForSelect}
+                            toggleExclude={toggleExclude}
+                            scoreType="coin"
                         />
                     )}
                     {compareCoin && data && (
                         <ScoreAndCoinChart
-                            data={seasonSlice}
+                            data={displaySlice}
                             compareCoin={compareCoin}
                             level={data?.maxLvl}
                             bossName={data?.name}
@@ -285,15 +297,15 @@ const SeasonPage = () => {
                             data={data}
                         />
                     )}
-                    {bestComp && (
+                    {bestComp && bestComp?.length > 0 && (
                         <BestComp
                             data={bestComp}
                         />
                     )}
                     <CompListComponent
                         season={season}
-                        data={seasonSlice}
-                        userCnt={seasonSlice?.data?.length}
+                        data={displaySlice}
+                        userCnt={displaySlice?.data?.length}
                     />
                 </>
             )}

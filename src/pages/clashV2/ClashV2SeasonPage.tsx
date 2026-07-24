@@ -13,13 +13,13 @@ import CostumeRank from "../../components/shared/CostumeRank";
 import InfoComponent from "../../components/shared/InfoComponent";
 import RankRangeInputComponent from "../../components/shared/RankRangeInputComponent";
 import SelectCharComponent from "../../components/shared/select/SelectCharComponent";
+import { useCharExclude } from "../../hooks/useCharExclude";
 import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
-import { ClashPlayerData } from "../../types/clashTypes";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
-import { CompStat, processCompStat } from "../../utils/chartFunction";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -51,7 +51,21 @@ const ClashV2SeasonPage = () => {
 
         return customSeasonData;
 
-    }, [appliedRange, data])
+    }, [appliedRange, data]);
+
+    const getArr = useCallback((r: ClashV2PlayerData) =>
+        v2Type === 'main' ? r.arr : r.sideArr
+        , [v2Type]);
+
+    const { excludedSet, filteredData, toggleExclude, clearExcluded } = useCharExclude({
+        data: seasonSlice?.type === 'season' ? (seasonSlice.data as ClashV2PlayerData[]) : undefined,
+        getArr
+    });
+
+    const displaySlice = useMemo(() => {
+        if (!seasonSlice || seasonSlice.type !== 'season') return seasonSlice;
+        return { ...seasonSlice, data: filteredData ?? seasonSlice.data };
+    }, [seasonSlice, filteredData]);
 
     // 커스텀 순위 지정
     const handleCustomRank = useCallback((start: string, end: string) => {
@@ -69,114 +83,37 @@ const ClashV2SeasonPage = () => {
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
-    // 선택한 사도의 정보
+    // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
-        if (!select || !seasonSlice) return null;
-
-        // 선택된 캐릭터를 포함한 레코드만 필터
-        const combos = v2Type === 'main'
-            ? (seasonSlice.data as ClashPlayerData[]).filter(r => r.arr.includes(select))
-            : (seasonSlice.data as ClashV2PlayerData[]).filter(r => r.sideArr.includes(select));
-        const totalUses = combos.length;
-        const pickRate = totalUses / seasonSlice.data.length * 100;
-
-        // 인덱스별 카운트 초기화
-        const positionCounts: Record<number, number> = {
-            0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0
-        };
-
-        // 동반 등장 카운트
-        const cooccurrence: Record<string, number> = {};
-
-        if (v2Type === 'main') {
-            combos.forEach(r => {
-                r.arr.forEach((name, idx) => {
-                    if (name === select && r.arr.length === 9) {
-                        positionCounts[idx]++;
-                    } else {
-                        cooccurrence[name] = (cooccurrence[name] || 0) + 1;
-                    }
-                });
-            });
-        } else if (v2Type === 'side') {
-            (combos as ClashV2PlayerData[]).forEach(r => {
-                r.sideArr.forEach((name, idx) => {
-                    if (name === select && r.sideArr.length === 9) {
-                        positionCounts[idx]++;
-                    } else {
-                        cooccurrence[name] = (cooccurrence[name] || 0) + 1;
-                    }
-                });
-            });
-        }
-
-        const firstRank = combos.length > 0 ? combos[0].rank : null;
-        const lastRank = combos.length > 0 ? combos[combos.length - 1].rank : null;
-
-        const BUCKET_SIZE = 10;
-        const totalCount = seasonSlice.data.length;
-        const bucketCount = Math.ceil(totalCount / BUCKET_SIZE);
-
-        const rankDistribution = Array.from({ length: bucketCount }, (_, i) => ({
-            label: `${i * BUCKET_SIZE + 1}~${Math.min((i + 1) * BUCKET_SIZE, totalCount)}`,
-            startRank: i * BUCKET_SIZE + 1,
-            count: 0,
-        }));
-
-        combos.forEach(r => {
-            const bucketIdx = Math.floor((r.rank - 1) / BUCKET_SIZE);
-            if (bucketIdx >= 0 && bucketIdx < rankDistribution.length) {
-                rankDistribution[bucketIdx].count++;
-            }
-        });
-
-
-        return {
-            totalUses,
-            pickRate,
-            positionCounts,
-            cooccurrence,
+        if (!select || !seasonSlice || !displaySlice) return null;
+        return computeStatsForSelect(
             select,
-            rankDistribution,
-            firstRank,
-            lastRank,
-        };
-    }, [select, seasonSlice, v2Type]);
+            seasonSlice.data as ClashV2PlayerData[],
+            displaySlice.data as ClashV2PlayerData[],
+            v2Type === 'main' ? (r: ClashV2PlayerData) => r.arr : (r: ClashV2PlayerData) => r.sideArr,
+            true, // 9인 편성만 통계
+            // 점수를 사용한 베타 시즌1 제외하고 시간만 측정
+            season !== '10001' ? (r: ClashV2PlayerData) => r?.duration : undefined
+        );
+    }, [select, seasonSlice, displaySlice, v2Type]);
 
     // 1~100/101~200/201~300 or 지정 구간 BEST COMP
     const bestComp = useMemo(() => {
-        if (!data) return;
-        const result: CompStat[] = [];
-        if (appliedRange === initRange || (appliedRange.start === 1 && appliedRange.end === 300)) {
+        if (!displaySlice) return;
 
-            if (data?.data.length === 300) {
-                const oneComp = processCompStat(data?.data.slice(0, 100) as ClashPlayerData[], undefined, v2Type === 'side' ? v2Type : undefined)[0]
-                const twoComp = processCompStat(data?.data.slice(100, 200) as ClashPlayerData[], undefined, v2Type === 'side' ? v2Type : undefined)[0]
-                const threeComp = processCompStat(data?.data.slice(200, 300) as ClashPlayerData[], undefined, v2Type === 'side' ? v2Type : undefined)[0]
+        return computeBestComp(
+            displaySlice.data as ClashV2PlayerData[],
+            appliedRange,
+            initRange,
+            group => processCompStat(group, undefined, v2Type === 'side' ? v2Type : undefined)
+        )
+    }, [displaySlice, appliedRange, v2Type]);
 
-                result.push(oneComp);
-                result.push(twoComp);
-                result.push(threeComp);
-
-                return result;
-            } else {
-                const bestComp = processCompStat(data?.data as ClashPlayerData[], undefined, v2Type === 'side' ? v2Type : undefined)[0]
-
-                result.push(bestComp);
-
-                return result;
-            }
-
-        } else {
-            const bestComp = processCompStat(data?.data.slice(appliedRange.start - 1, appliedRange.end) as ClashPlayerData[], undefined, v2Type === 'side' ? v2Type : undefined)[0]
-            result.push(bestComp)
-            return result;
-        }
-    }, [data, appliedRange, v2Type])
 
     const handleV2Type = (t: 'side' | 'main') => {
         setV2Type(t);
         setSelect('');
+        clearExcluded(); // 탭 전환 시 제외 사도 초기화
     }
 
     if (isLoading) {
@@ -185,7 +122,7 @@ const ClashV2SeasonPage = () => {
         )
     }
 
-    if (!seasonSlice) {
+    if (!seasonSlice || !displaySlice) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
     }
 
@@ -226,7 +163,7 @@ const ClashV2SeasonPage = () => {
             <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto">
                 {data && (
                     <PersonalityPieChart
-                        data={seasonSlice}
+                        data={displaySlice}
                         type={v2Type === 'side' ? v2Type : undefined}
                     />
                 )}
@@ -247,27 +184,31 @@ const ClashV2SeasonPage = () => {
             </div>
             <>
                 <AllPickRateChart
-                    data={seasonSlice}
+                    data={displaySlice}
                     setSelect={setSelect}
                     type={v2Type === 'side' ? v2Type : undefined}
                 />
                 <PickRateChart
                     season={season}
-                    data={seasonSlice}
+                    data={displaySlice}
                     setSelect={setSelect}
                     type={v2Type === 'side' ? v2Type : undefined}
                     select={select}
+                    fullData={seasonSlice}
+                    excludedSet={excludedSet}
                 />
                 {select !== '' && (
                     <SelectCharComponent
                         statsForSelect={statsForSelect}
+                        toggleExclude={toggleExclude}
+                        scoreType="duration"
                     />
                 )}
                 <ClashV2Chart
-                    data={seasonSlice}
+                    data={displaySlice}
                 />
                 <SideSkillChart
-                    data={seasonSlice}
+                    data={displaySlice}
                 />
                 {hasSkinArr && (
                     <CostumeRank
@@ -282,8 +223,8 @@ const ClashV2SeasonPage = () => {
                 )}
                 <CompListComponent
                     season={season}
-                    data={seasonSlice}
-                    userCnt={seasonSlice?.data?.length}
+                    data={displaySlice}
+                    userCnt={displaySlice?.data?.length}
                     type={v2Type === 'side' ? v2Type : undefined}
                 />
             </>

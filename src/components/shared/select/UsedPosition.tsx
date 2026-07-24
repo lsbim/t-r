@@ -32,7 +32,7 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
             <span className="text-[16px] font-bold text-start">사용된 위치</span>
 
             <div className="flex gap-2 flex-1 items-center">
-                {COLUMNS.map((colIndices, colIdx) => (
+                {statsForSelect.totalUses > 0 && COLUMNS.map((colIndices, colIdx) => (
                     <div key={colIdx} className="flex-col gap-2 flex">
                         {colIndices.map((posIdx) => {
                             const ratio = statsForSelect.positionCounts[posIdx] / statsForSelect.totalUses;
@@ -50,6 +50,17 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
                         })}
                     </div>
                 ))}
+                {statsForSelect.totalUses === 0 && (
+                    <div className=" flex flex-col items-center justify-center select-none">
+                        <img
+                            src={`/images/action/yc_sad.webp`}
+                            className="aspect-square object-center w-[100px] grayscale"
+                        />
+                        <span className="text-gray-700 dark:text-zinc-400 font-bold">
+                            집계에서 제외되었습니다.
+                        </span>
+                    </div>
+                )}
             </div>
         </div >
     )

@@ -6,21 +6,48 @@ import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTy
 import { lineList } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
 
-const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
-    {
-        data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
-        season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>,
-        prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData,
-        type?: 'side',
-        select: string,
-    }) => {
+type SeasonDataUnion = ClashSeasonData | FrontierSeasonData | ClashV2SeasonData;
+
+interface PickRateChartProps {
+    data: SeasonDataUnion
+    fullData: SeasonDataUnion
+    season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>;
+    prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData;
+    type?: 'side';
+    select: string;
+    excludedSet: Set<string>;
+}
+
+const PickRateChart: React.FC<PickRateChartProps> = ({
+    data,
+    fullData,
+    season,
+    setSelect,
+    prevData,
+    type,
+    select,
+    excludedSet
+}) => {
 
     // const processData = processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
     const processData = useMemo(() => {
-        return type
-            ? processRankingArrDataV2(data?.data, type).sort((a, b) => b.percent - a.percent)
-            : processRankingArrData(data?.data, type).sort((a, b) => b.percent - a.percent);
-    }, [data, type])
+        const filtered = type
+            ? processRankingArrDataV2(data?.data, type)
+            : processRankingArrData(data?.data, type);
+        const countMap = new Map(filtered.map(i => [`${i.name}-${i.line}`, i]));
+
+        const fullCategories = type
+            ? processRankingArrDataV2(fullData?.data, type)
+            : processRankingArrData(fullData?.data, type);
+
+        return fullCategories
+            .map(item => {
+                const f = countMap.get(`${item.name}-${item.line}`);
+                return { ...item, count: f?.count ?? 0, percent: f?.percent ?? 0 };
+            })
+            .sort((a, b) => b.count - a.count);
+    }, [data, type, fullData]);
+
 
     const userLength = data.type === 'season'
         ? (data.data as any).length
@@ -125,6 +152,9 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
                                     // 픽률은 참여한 사도가 아닌 유저 수를 기준 
                                     const currentPickRate = Math.round(item.count / userLength * 1000) / 10;
 
+                                    // 제외되었는가
+                                    const isExcluded = excludedSet.has(item.name);
+
                                     if (prevSeasonPickRates) {
                                         // Map에서 이전 시즌 픽률 조회
                                         const prevPickRate = prevSeasonPickRates.get(`${item.name}-${line}`) || 0;
@@ -154,7 +184,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
                                             key={"clash" + item.name}
                                             className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${item?.name === select ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
                                             <span
-                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${item?.name === select ? "font-bold" : ""}`}
+                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${item?.name === select ? "font-bold" : ""} ${isExcluded ? "line-through opacity-40" : ""}`}
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
                                             </span>
@@ -177,7 +207,7 @@ const PickRateChart = ({ data, season, setSelect, prevData, type, select }:
                                                     data-tooltip-id="my-tooltip"
                                                     data-tooltip-content="픽률"
                                                     className="w-12 flex justify-end text-[12px] text-gray-500 hover:text-gray-800 dark:text-zinc-200 dark:hover:text-zinc-400">
-                                                    {Math.round((item?.count / userLength * 100) * 10) / 10}%
+                                                    {(Math.round((item?.count / userLength * 100) * 10) / 10) || 0}%
                                                 </span>
 
 

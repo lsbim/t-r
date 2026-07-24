@@ -33,6 +33,8 @@ const CompListComponent = ({
 
     // console.log(synergyStats.length)
 
+    if (synergyStats.length === 0) return;
+
 
     return (
         <div id="compList" className="sm:flex justify-center items-start gap-4">

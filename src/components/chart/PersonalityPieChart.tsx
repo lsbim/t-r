@@ -98,9 +98,18 @@ const PersonalityPieChart = ({
         },
     };
 
+    const pieLength = Object.keys(pieData).length;
+
     return (
         <div className='h-[150px] dark:brightness-90 xs:mr-[20px] xs:mb-0 mb-4 flex justify-center w-full xs:w-[150px] items-center'>
-            <Pie data={chartData} options={options} plugins={[ChartDataLabels]} />
+            {pieLength > 0 ? (
+                <Pie data={chartData} options={options} plugins={[ChartDataLabels]} />
+            ) : (
+                <img
+                    src={`/images/action/yc_sad.webp`}
+                    className="aspect-square object-center w-[150px] grayscale"
+                />
+            )}
         </div>
     );
 }
