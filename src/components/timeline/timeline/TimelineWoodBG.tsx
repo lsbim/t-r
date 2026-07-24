@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Rect } from 'react-konva'
+import React from 'react';
+import { Rect } from 'react-konva';
 
 interface TimelineWoodBGProps {
     timelinePx: number;
@@ -7,51 +7,44 @@ interface TimelineWoodBGProps {
     stageHeight: number;
 }
 
+const TIMELINE_BG_COLOR = '#737773'
+const EDGE_SIZE = 12;
+
 const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
     timelinePx,
     stageWidth,
     stageHeight,
 }) => {
-    const [woodTexture, setWoodTexture] = useState<HTMLImageElement | null>(null);
-
-    useEffect(() => {
-        const img = new window.Image();
-        img.src = '/images/background/timeline_wood_bg.webp';
-        img.onload = () => setWoodTexture(img);
-    }, []);
-
-    if (!woodTexture) return null;
 
     const bgX = -stageWidth / 2;
     const bgWidth = timelinePx + stageWidth;
 
     return (
         <>
-            {/* 나무 팻말 텍스쳐(패턴) */}
+
             <Rect
                 x={bgX}
                 y={0}
                 width={bgWidth}
                 height={stageHeight}
-                fillPatternImage={woodTexture}
-                fillPatternRepeat="repeat-x"
-                fillPatternScaleX={1}
-                fillPatternScaleY={stageHeight / woodTexture.naturalHeight}
+                fill={TIMELINE_BG_COLOR}
             />
 
-            {/* 상단은 밝고 하단은 어두운 빛을 받는 효과 */}
             <Rect
                 x={bgX}
                 y={0}
                 width={bgWidth}
-                height={stageHeight}
-                fillLinearGradientStartPoint={{ x: 0, y: 0 }}
-                fillLinearGradientEndPoint={{ x: 0, y: stageHeight }}
-                fillLinearGradientColorStops={[
-                    0, 'rgba(255,255,255,0.12)',
-                    0.4, 'rgba(0,0,0,0)',
-                    1, 'rgba(0,0,0,0.22)',
-                ]}
+                height={EDGE_SIZE}
+                fill="rgba(255, 255, 255, 0.3)"
+            />
+
+
+            <Rect
+                x={bgX}
+                y={stageHeight - EDGE_SIZE}
+                width={bgWidth}
+                height={EDGE_SIZE}
+                fill="rgba(0, 0, 0, 0.4)"
             />
         </>
     );
