@@ -39,7 +39,8 @@ const MainStage: React.FC<MainStageProps> = ({
   console.log("raidNodeList: ", raidNodeList)
 
   return (
-    <div className={`w-full h-[${stageHeight}px] bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 rounded-md overflow-hidden`}>
+    <div
+      className={`w-full h-[${stageHeight}px] bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
       <Stage
         ref={(node) => {
           if (node) timelineStage.set(node);

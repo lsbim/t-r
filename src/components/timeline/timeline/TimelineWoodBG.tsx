@@ -7,7 +7,7 @@ interface TimelineWoodBGProps {
     stageHeight: number;
 }
 
-const TIMELINE_BG_COLOR = '#737773'
+const TIMELINE_BG_COLOR = '#7C8F6E'
 const EDGE_SIZE = 12;
 
 const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
