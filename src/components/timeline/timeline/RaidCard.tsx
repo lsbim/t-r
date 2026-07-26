@@ -33,11 +33,13 @@ const OVERLAP_Y = 3;
 interface RaidCardProps {
     node: RaidNode;
     calX: number;
+    rowY: number
 }
 
 const RaidCard: React.FC<RaidCardProps> = ({
     node,
-    calX
+    calX,
+    rowY,
 }) => {
     const groupRef = useRef<Konva.Group>(null);
     const tabRefs = useRef<(Konva.Group | null)[]>([]);
@@ -141,7 +143,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             name="card"
             ref={groupRef}
             x={calX}
-            y={20}
+            y={rowY}
             onMouseEnter={(e) => {
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);

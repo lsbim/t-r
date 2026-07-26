@@ -13,7 +13,6 @@ const CARD_HEIGHT = 90;
 const CARD_OFFSET_X = -14;
 const CARD_OFFSET_Y = -20;
 const HOVER_LIFT_Y = -20;
-const BASE_Y = 350;
 
 // m형 패턴
 const CORNER_RADIUS = 8;
@@ -25,12 +24,14 @@ interface CharacterCardProps {
     node: CharacterNode;
     bgImage: HTMLImageElement | null;
     calX: number;
+    rowY: number;
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({
     node,
     bgImage,
-    calX
+    calX,
+    rowY
 }) => {
     const groupRef = useRef<Konva.Group>(null);
     const cardTweenRef = useRef<Konva.Tween | null>(null);
@@ -52,7 +53,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             const stageBox = stage.container().getBoundingClientRect();
             const nodeAbsPos = groupRef.current.getAbsolutePosition();
 
-            const targetY = BASE_Y + HOVER_LIFT_Y;
+            const targetY = rowY + HOVER_LIFT_Y;
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
                 stageBox.left + nodeAbsPos.x + CARD_OFFSET_X,
@@ -82,7 +83,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             node: groupRef.current,
             duration: 0.2,
             easing: Konva.Easings.EaseOut,
-            y: BASE_Y + HOVER_LIFT_Y,
+            y: rowY + HOVER_LIFT_Y,
         });
         cardTweenRef.current.play();
 
@@ -98,7 +99,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             node: groupRef.current,
             duration: 0.25,
             easing: Konva.Easings.EaseOut,
-            y: BASE_Y,
+            y: rowY,
             onFinish: () => {
                 if (homeLayerRef.current && groupRef.current) {
                     groupRef.current.moveTo(homeLayerRef.current);
@@ -127,7 +128,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             name="card"
             ref={groupRef}
             x={calX}
-            y={350}
+            y={rowY}
             onMouseEnter={(e) => {
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);

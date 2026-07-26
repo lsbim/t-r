@@ -14,6 +14,16 @@ interface MainStageProps {
   timelinePx: number;
 }
 
+// 타임라인 주제 나열 기준
+const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
+const ROW_HEIGHT = 140;
+const STAGE_HEIGHT = 500;
+
+function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
+  // 엣지+점프 여백
+  return 30 + (ROW_HEIGHT * (TIMELINE_ROW_ORDER.indexOf(rowName)));
+}
+
 const MainStage: React.FC<MainStageProps> = ({
   layerRef,
   onPointerDown,
@@ -33,14 +43,12 @@ const MainStage: React.FC<MainStageProps> = ({
       .filter(isRaidNode)
   }, [timelineMap])
 
-  const stageHeight = 500
-
   console.log("characterNodeList: ", characterNodeList)
   console.log("raidNodeList: ", raidNodeList)
 
   return (
     <div
-      className={`w-full h-[${stageHeight}px] bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
+      className={`w-full h-[${STAGE_HEIGHT}px] bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
       <Stage
         ref={(node) => {
           if (node) timelineStage.set(node);
@@ -59,17 +67,21 @@ const MainStage: React.FC<MainStageProps> = ({
           <TimelineWoodBG
             timelinePx={timelinePx}
             stageWidth={stageWidth}
-            stageHeight={stageHeight}
+            stageHeight={STAGE_HEIGHT}
+          />
+
+          {/* 보스 이미지 */}
+          <RaidCardList
+            nodes={raidNodeList}
+            rowY={getRowY('raid')}
           />
 
           {/* 사도 이미지 */}
           <CharacterCardList
             nodes={characterNodeList}
+            rowY={getRowY('character')}
           />
-          {/* 보스 이미지 */}
-          <RaidCardList
-            nodes={raidNodeList}
-          />
+
         </Layer>
 
         {/* 애니메이션 전용 레이어 */}

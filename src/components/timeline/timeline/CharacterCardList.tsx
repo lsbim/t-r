@@ -6,10 +6,12 @@ import CharacterCard from './CharacterCard';
 
 interface CharacterCardListProps {
     nodes: CharacterNode[];
+    rowY: number;
 }
 
 const CharacterCardList: React.FC<CharacterCardListProps> = ({
     nodes,
+    rowY,
 }) => {
 
     const [bgImage, setBgImage] = useState<HTMLImageElement | null>(null);
@@ -28,6 +30,7 @@ const CharacterCardList: React.FC<CharacterCardListProps> = ({
                     node={node}
                     calX={dateToPx(node.birthDate)}
                     bgImage={bgImage}
+                    rowY={rowY}
                 />
             ))}
         </Group>
