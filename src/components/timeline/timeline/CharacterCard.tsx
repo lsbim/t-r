@@ -11,8 +11,6 @@ import { HOVER_LIFT_Y } from "./MainStage";
 // 카드 몸통
 const CARD_WIDTH = 110;
 const CARD_HEIGHT = 90;
-const CARD_OFFSET_X = -14;
-const CARD_OFFSET_Y = -20;
 
 // m형 패턴
 const CORNER_RADIUS = 8;
@@ -56,8 +54,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
-                stageBox.left + nodeAbsX + CARD_OFFSET_X,
-                stageBox.top + targetY + CARD_OFFSET_Y,
+                stageBox.left + nodeAbsX,
+                stageBox.top + targetY,
                 CARD_WIDTH,
                 CARD_HEIGHT
             );
@@ -159,8 +157,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                     if (!n) return;
                     const STROKE_W = 2;
                     n.cache({
-                        x: CARD_OFFSET_X - STROKE_W,
-                        y: CARD_OFFSET_Y - STROKE_W,
+                        x: -STROKE_W,
+                        y: -STROKE_W,
                         width: CARD_WIDTH + STROKE_W * 2,
                         height: CARD_HEIGHT + STROKE_W * 2,
                     });
@@ -168,8 +166,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             >
                 {/* M형 티켓 패턴 */}
                 <Shape
-                    x={CARD_OFFSET_X}
-                    y={CARD_OFFSET_Y}
                     sceneFunc={(ctx, shape) => {
                         drawMPatternPath(ctx, CARD_WIDTH, CARD_HEIGHT, CORNER_RADIUS, M_PATTERN_RADIUS, M_PATTERN_GAP_RATIO);
                         ctx.fillShape(shape);
@@ -182,8 +178,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 />
                 {/* 카드 몸통 */}
                 <Rect
-                    x={CARD_OFFSET_X}
-                    y={CARD_OFFSET_Y}
                     width={CARD_WIDTH - COLOR_BAND_WIDTH}
                     height={CARD_HEIGHT}
                     fill="rgb(248,253,242)"
@@ -194,13 +188,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             {bgImage && (
                 <Image
                     image={bgImage}
-                    x={CARD_OFFSET_X + 8}
-                    y={CARD_OFFSET_Y + 6}
+                    x={8}
+                    y={6}
                     width={70}
                     height={60 * (bgImage.naturalHeight / bgImage.naturalWidth)}
                 />
             )}
-            <ImageNode node={node} width={70} x={CARD_OFFSET_X + 8} y={-5} />
+            <ImageNode node={node} width={70} x={8} y={15} />
         </Group>
     );
 };
