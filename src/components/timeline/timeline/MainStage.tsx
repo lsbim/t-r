@@ -25,7 +25,7 @@ const STAGE_HEIGHT = 500;
 
 export function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
   // 엣지+점프 여백
-  return 30 + (ROW_HEIGHT * (TIMELINE_ROW_ORDER.indexOf(rowName)));
+  return 20 + (ROW_HEIGHT * (TIMELINE_ROW_ORDER.indexOf(rowName)));
 }
 
 const MainStage: React.FC<MainStageProps> = ({

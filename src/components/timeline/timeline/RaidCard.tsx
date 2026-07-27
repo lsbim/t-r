@@ -6,7 +6,7 @@ import { usePopoverActions } from "../../../hooks/usePopper";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
-import { HOVER_LIFT_Y } from "./MainStage";
+import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
 
 const CARD = {
     w: 100,
@@ -42,6 +42,9 @@ const RaidCard: React.FC<RaidCardProps> = ({
 
     const { showPopover, deactivateNow } = usePopoverActions();
 
+    const offsetY = (ROW_HEIGHT - CARD.h) / 2;
+    const adjustedY = rowY + offsetY;
+
     const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
         timelineEvents.emitDeactivateAll(cardId.current);
@@ -52,7 +55,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             const stageBox = stage.container().getBoundingClientRect();
 
             const nodeAbsX = groupRef.current.getAbsolutePosition().x;
-            const targetY = rowY + HOVER_LIFT_Y;
+            const targetY = adjustedY + HOVER_LIFT_Y;
 
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
@@ -82,7 +85,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             node: groupRef.current,
             duration: 0.2,
             easing: Konva.Easings.EaseOut,
-            y: rowY + HOVER_LIFT_Y,
+            y: adjustedY + HOVER_LIFT_Y,
         });
         cardTweenRef.current.play();
 
@@ -97,7 +100,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             node: groupRef.current,
             duration: 0.25,
             easing: Konva.Easings.EaseOut,
-            y: rowY,
+            y: adjustedY,
             onFinish: () => {
                 if (homeLayerRef.current && groupRef.current) {
                     groupRef.current.moveTo(homeLayerRef.current);
@@ -128,7 +131,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             name="card"
             ref={groupRef}
             x={calX}
-            y={rowY}
+            y={adjustedY}
             onMouseEnter={(e) => {
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);

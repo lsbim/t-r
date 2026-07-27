@@ -6,11 +6,13 @@ import { usePopoverActions } from "../../../hooks/usePopper";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor, Personality } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
-import { HOVER_LIFT_Y } from "./MainStage";
+import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
 
 // 카드 몸통
-const CARD_WIDTH = 110;
-const CARD_HEIGHT = 90;
+const CARD = {
+    w: 110,
+    h: 90,
+};
 
 // m형 패턴
 const CORNER_RADIUS = 6;
@@ -38,6 +40,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     const homeLayerRef = useRef<Konva.Layer | null>(null); // 전체 노드가 담긴 Layer 임시 저장용
     const { showPopover, deactivateNow } = usePopoverActions();
 
+    const offsetY = (ROW_HEIGHT - CARD.h) / 2;
+    const adjustedY = rowY + offsetY;
 
     const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
@@ -50,14 +54,14 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             const stageBox = stage.container().getBoundingClientRect();
 
             const nodeAbsX = groupRef.current.getAbsolutePosition().x;
-            const targetY = rowY + HOVER_LIFT_Y;
+            const targetY = adjustedY + HOVER_LIFT_Y;
 
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
                 stageBox.left + nodeAbsX,
                 stageBox.top + targetY,
-                CARD_WIDTH,
-                CARD_HEIGHT
+                CARD.w,
+                CARD.h
             );
 
             // 팝오버 활성
@@ -81,7 +85,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             node: groupRef.current,
             duration: 0.2,
             easing: Konva.Easings.EaseOut,
-            y: rowY + HOVER_LIFT_Y,
+            y: adjustedY + HOVER_LIFT_Y,
         });
         cardTweenRef.current.play();
 
@@ -97,7 +101,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             node: groupRef.current,
             duration: 0.25,
             easing: Konva.Easings.EaseOut,
-            y: rowY,
+            y: adjustedY,
             onFinish: () => {
                 if (homeLayerRef.current && groupRef.current) {
                     groupRef.current.moveTo(homeLayerRef.current);
@@ -126,7 +130,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
             name="card"
             ref={groupRef}
             x={calX}
-            y={rowY}
+            y={adjustedY}
             onMouseEnter={(e) => {
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);
@@ -159,15 +163,15 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                     n.cache({
                         x: -STROKE_W,
                         y: -STROKE_W,
-                        width: CARD_WIDTH + STROKE_W * 2,
-                        height: CARD_HEIGHT + STROKE_W * 2,
+                        width: CARD.w + STROKE_W * 2,
+                        height: CARD.h + STROKE_W * 2,
                     });
                 }}
             >
                 {/* M형 티켓 패턴 */}
                 <Shape
                     sceneFunc={(ctx, shape) => {
-                        drawMPatternPath(ctx, CARD_WIDTH, CARD_HEIGHT, CORNER_RADIUS, M_PATTERN_RADIUS, M_PATTERN_GAP_RATIO);
+                        drawMPatternPath(ctx, CARD.w, CARD.h, CORNER_RADIUS, M_PATTERN_RADIUS, M_PATTERN_GAP_RATIO);
                         ctx.fillShape(shape);
                         ctx.strokeShape(shape);
                     }}
@@ -178,8 +182,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 />
                 {/* 카드 몸통 */}
                 <Rect
-                    width={CARD_WIDTH - COLOR_BAND_WIDTH}
-                    height={CARD_HEIGHT}
+                    width={CARD.w - COLOR_BAND_WIDTH}
+                    height={CARD.h}
                     fill="rgb(248,253,242)"
                     cornerRadius={[CORNER_RADIUS, 0, 0, CORNER_RADIUS]} // 좌상, 우상, 우하, 좌하 순
                     perfectDrawEnabled={false}
