@@ -6,6 +6,7 @@ import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/ti
 import CharacterCardList from './CharacterCardList';
 import TimelineWoodBG from './TimelineWoodBG';
 import RaidCardList from "./RaidCardList";
+import RowDivider from "./RowDivider";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -18,11 +19,11 @@ interface MainStageProps {
 export const HOVER_LIFT_Y = -20;
 
 // 타임라인 주제 나열 기준
-const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
-const ROW_HEIGHT = 140;
+export const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
+export const ROW_HEIGHT = 140;
 const STAGE_HEIGHT = 500;
 
-function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
+export function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
   // 엣지+점프 여백
   return 30 + (ROW_HEIGHT * (TIMELINE_ROW_ORDER.indexOf(rowName)));
 }
@@ -71,6 +72,11 @@ const MainStage: React.FC<MainStageProps> = ({
             timelinePx={timelinePx}
             stageWidth={stageWidth}
             stageHeight={STAGE_HEIGHT}
+          />
+
+          {/* 열 구분선 */}
+          <RowDivider
+            timelinePx={timelinePx}
           />
 
           {/* 보스 이미지 */}
