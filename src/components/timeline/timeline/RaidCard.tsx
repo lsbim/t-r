@@ -6,6 +6,7 @@ import { usePopoverActions } from "../../../hooks/usePopper";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
+import { HOVER_LIFT_Y } from "./MainStage";
 
 const CARD = {
     w: 100,
@@ -32,12 +33,12 @@ const RaidCard: React.FC<RaidCardProps> = ({
     calX,
     rowY,
 }) => {
-    const groupRef = useRef<Konva.Group>(null);
-
-    const homeLayerRef = useRef<Konva.Layer | null>(null);  // 전체 노드가 담긴 Layer 임시 저장용
+    const groupRef = useRef<Konva.Group>(null); // 카드를 감싸는 최상위 Group
+    const cardTweenRef = useRef<Konva.Tween | null>(null);
 
     const isActiveRef = useRef(false);
-    const cardId = useRef(Symbol());
+    const homeLayerRef = useRef<Konva.Layer | null>(null);  // 전체 노드가 담긴 Layer 임시 저장용
+    const cardId = useRef(Symbol()); // 카드 고유 Id(Symbol)
 
     const { showPopover, deactivateNow } = usePopoverActions();
 
@@ -75,18 +76,38 @@ const RaidCard: React.FC<RaidCardProps> = ({
         }
         groupRef.current?.moveToTop();
 
+        cardTweenRef.current?.destroy();
+        cardTweenRef.current = new Konva.Tween({
+            node: groupRef.current,
+            duration: 0.2,
+            easing: Konva.Easings.EaseOut,
+            y: rowY + HOVER_LIFT_Y,
+        });
+        cardTweenRef.current.play();
+
     };
 
     const deactivateAni = () => {
         if (!groupRef.current) return;
         isActiveRef.current = false;
 
-        const stage = groupRef.current.getStage();
-        if (stage) stage.container().style.cursor = 'default';
-
         if (homeLayerRef.current && groupRef.current) {
             groupRef.current.moveTo(homeLayerRef.current);
         }
+
+        cardTweenRef.current?.destroy();
+        cardTweenRef.current = new Konva.Tween({
+            node: groupRef.current,
+            duration: 0.25,
+            easing: Konva.Easings.EaseOut,
+            y: rowY,
+            onFinish: () => {
+                if (homeLayerRef.current && groupRef.current) {
+                    groupRef.current.moveTo(homeLayerRef.current);
+                }
+            },
+        });
+        cardTweenRef.current.play();
     };
 
     useEffect(() => {
@@ -201,7 +222,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
             <Text
                 text={node.name}
                 x={0}
-                y={PLATE_BASE_Y - 3} // 흰색 칸이 본격적으로 평평해지는 Y 좌표
+                y={PLATE_BASE_Y - 3}
                 width={CARD.w}
                 height={CARD.h - PLATE_BASE_Y}
                 align="center"  // 가로 중앙정렬

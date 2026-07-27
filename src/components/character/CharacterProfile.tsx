@@ -7,8 +7,6 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
         ? 'text-gray-700 dark:text-zinc-300'
         : `text-${charInfo[charName].personality}-dark`
 
-    const character = charInfo[charName];
-
     // 성격,역할,공격타입,포지션,종족 아이콘 이미지
     const icons = getCharacterIcons(charName);
 

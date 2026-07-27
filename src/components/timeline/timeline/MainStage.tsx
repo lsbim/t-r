@@ -14,6 +14,9 @@ interface MainStageProps {
   timelinePx: number;
 }
 
+// 타임라인의 카드 마우스오버 시 떠오르는 높이
+export const HOVER_LIFT_Y = -20;
+
 // 타임라인 주제 나열 기준
 const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
 const ROW_HEIGHT = 140;

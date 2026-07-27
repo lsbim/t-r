@@ -6,13 +6,13 @@ import { usePopoverActions } from "../../../hooks/usePopper";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor, Personality } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
+import { HOVER_LIFT_Y } from "./MainStage";
 
 // 카드 몸통
 const CARD_WIDTH = 110;
 const CARD_HEIGHT = 90;
 const CARD_OFFSET_X = -14;
 const CARD_OFFSET_Y = -20;
-const HOVER_LIFT_Y = -20;
 
 // m형 패턴
 const CORNER_RADIUS = 8;
@@ -33,7 +33,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     calX,
     rowY
 }) => {
-    const groupRef = useRef<Konva.Group>(null);
+    const groupRef = useRef<Konva.Group>(null); // 카드를 감싸는 최상위 Group
     const cardTweenRef = useRef<Konva.Tween | null>(null);
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol()); // 카드 고유id
@@ -49,7 +49,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
 
         const stage = e.target.getStage();
         if (stage) {
-            stage.container().style.cursor = 'pointer';
             const stageBox = stage.container().getBoundingClientRect();
             const nodeAbsPos = groupRef.current.getAbsolutePosition();
 
