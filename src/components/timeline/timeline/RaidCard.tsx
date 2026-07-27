@@ -50,12 +50,14 @@ const RaidCard: React.FC<RaidCardProps> = ({
         const stage = e.target.getStage();
         if (stage) {
             const stageBox = stage.container().getBoundingClientRect();
-            const nodeAbsPos = groupRef.current.getAbsolutePosition();
+
+            const nodeAbsX = groupRef.current.getAbsolutePosition().x;
+            const targetY = rowY + HOVER_LIFT_Y;
 
             // 카드 영역 생성하여 전달
             const cardRect = new DOMRect(
-                stageBox.left + nodeAbsPos.x,
-                stageBox.top + nodeAbsPos.y,
+                stageBox.left + nodeAbsX,
+                stageBox.top + targetY,
                 CARD.w,
                 CARD.h
             );
