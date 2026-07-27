@@ -13,9 +13,9 @@ const CARD_WIDTH = 110;
 const CARD_HEIGHT = 90;
 
 // m형 패턴
-const CORNER_RADIUS = 8;
-const M_PATTERN_RADIUS = 7;
-const M_PATTERN_GAP_RATIO = 0.4
+const CORNER_RADIUS = 6;
+const M_PATTERN_RADIUS = 5;
+const M_PATTERN_GAP_RATIO = 0.9
 const COLOR_BAND_WIDTH = 16;
 
 interface CharacterCardProps {
