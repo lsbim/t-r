@@ -49,7 +49,6 @@ const RaidCard: React.FC<RaidCardProps> = ({
 
         const stage = e.target.getStage();
         if (stage) {
-            stage.container().style.cursor = 'pointer';
             const stageBox = stage.container().getBoundingClientRect();
             const nodeAbsPos = groupRef.current.getAbsolutePosition();
 
@@ -70,7 +69,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
         const overlay = timelineLayers.getOverlayLayer();
         if (overlay) {
             if (!homeLayerRef.current) {
-                homeLayerRef.current = groupRef.current?.getLayer() ?? null;
+                homeLayerRef.current = groupRef.current?.getLayer();
             }
             groupRef.current?.moveTo(overlay);
         }
@@ -90,10 +89,6 @@ const RaidCard: React.FC<RaidCardProps> = ({
     const deactivateAni = () => {
         if (!groupRef.current) return;
         isActiveRef.current = false;
-
-        if (homeLayerRef.current && groupRef.current) {
-            groupRef.current.moveTo(homeLayerRef.current);
-        }
 
         cardTweenRef.current?.destroy();
         cardTweenRef.current = new Konva.Tween({

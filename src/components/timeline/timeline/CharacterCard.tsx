@@ -71,11 +71,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         const overlay = timelineLayers.getOverlayLayer();
         if (overlay) {
             if (!homeLayerRef.current) {
-                homeLayerRef.current = groupRef.current.getLayer();
+                homeLayerRef.current = groupRef?.current.getLayer();
             }
-            groupRef.current.moveTo(overlay);
+            groupRef?.current.moveTo(overlay);
         }
-        groupRef.current.moveToTop();
+        groupRef?.current.moveToTop();
 
         cardTweenRef.current?.destroy();
         cardTweenRef.current = new Konva.Tween({
