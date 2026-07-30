@@ -220,6 +220,7 @@ export const costumes: Costume[] = [
     { charName: "티그", cosName: "돌격! 정복대장", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "우이", cosName: "빛바랜 기억", lvl: "pretty", launchDate: "2026-07-09" },
     { charName: "슈로", cosName: "태양 빛 아래의 뱀", lvl: "normal", launchDate: "2026-07-23" },
+    { charName: "에슈르(마도)", cosName: "힐링을 위한 해변 산책", lvl: "normal", launchDate: "2026-07-30" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
