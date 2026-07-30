@@ -206,6 +206,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 128,
+        "pickRate": 42.7,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 128
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -279,41 +298,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 5.7
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 298,
-        "pickRate": 99.3,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 298
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 234,
-      "charTotalCount": 387,
-      "rate": 60.5,
+      "cosUsedCount": 266,
+      "charTotalCount": 454,
+      "rate": 58.6,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "위험한 옆집 스파이",
-      "cosUsedCount": 30,
-      "charTotalCount": 387,
-      "rate": 7.8,
+      "cosUsedCount": 33,
+      "charTotalCount": 454,
+      "rate": 7.3,
       "lvl": "normal",
       "launchDate": "2025-09-11"
     }

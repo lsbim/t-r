@@ -152,6 +152,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -220,34 +239,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 5
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 33,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 8,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 2.7
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "농장의 아르바이트생",
-      "cosUsedCount": 5,
+      "cosName": "차원 개발 연구원",
+      "cosUsedCount": 6,
       "charTotalCount": 14,
-      "rate": 35.7,
+      "rate": 42.9,
+      "lvl": "normal",
+      "launchDate": "2026-06-25"
+    },
+    {
+      "cosName": "농장의 아르바이트생",
+      "cosUsedCount": 2,
+      "charTotalCount": 14,
+      "rate": 14.3,
       "lvl": "normal",
       "launchDate": "2025-05-22"
     }

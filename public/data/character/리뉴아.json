@@ -218,6 +218,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10005,
         "name": "냥만 타워",
         "personality": "광기",
@@ -442,6 +454,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -515,42 +545,23 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 46,
-        "pickRate": 15.3,
-        "overallRank": 11,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 46
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 40.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 314,
-      "charTotalCount": 684,
-      "rate": 45.9,
+      "cosUsedCount": 399,
+      "charTotalCount": 894,
+      "rate": 44.6,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 233,
-      "charTotalCount": 684,
-      "rate": 34.1,
+      "cosUsedCount": 309,
+      "charTotalCount": 894,
+      "rate": 34.6,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

@@ -171,6 +171,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 35.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -227,50 +240,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 41.7
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 9,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 43.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "스카이 로지스틱스",
-      "cosUsedCount": 47,
-      "charTotalCount": 104,
-      "rate": 45.2,
+      "cosUsedCount": 43,
+      "charTotalCount": 106,
+      "rate": 40.6,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "슈파 드럼 비트",
-      "cosUsedCount": 20,
-      "charTotalCount": 104,
-      "rate": 19.2,
+      "cosUsedCount": 21,
+      "charTotalCount": 106,
+      "rate": 19.8,
       "lvl": "normal",
       "launchDate": "2025-06-26"
     },
     {
       "cosName": "폭주족 슈팡",
-      "cosUsedCount": 5,
-      "charTotalCount": 104,
-      "rate": 4.8,
+      "cosUsedCount": 4,
+      "charTotalCount": 106,
+      "rate": 3.8,
       "lvl": "normal",
       "launchDate": "2025-01-23"
     }

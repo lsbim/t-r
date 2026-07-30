@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -208,44 +221,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 14.7
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 16.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "트윙클 스윗 리본",
-      "cosUsedCount": 16,
-      "charTotalCount": 20,
-      "rate": 80,
+      "cosUsedCount": 13,
+      "charTotalCount": 19,
+      "rate": 68.4,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "반짝 별빛 마녀",
-      "cosUsedCount": 2,
-      "charTotalCount": 20,
-      "rate": 10,
+      "cosUsedCount": 3,
+      "charTotalCount": 19,
+      "rate": 15.8,
       "lvl": "normal",
       "launchDate": "2025-02-06"
     },
     {
       "cosName": "천재 영재 마녀",
-      "cosUsedCount": 2,
-      "charTotalCount": 20,
-      "rate": 10,
+      "cosUsedCount": 3,
+      "charTotalCount": 19,
+      "rate": 15.8,
       "lvl": "normal",
       "launchDate": "2025-05-01"
     }

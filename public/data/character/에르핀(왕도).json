@@ -251,6 +251,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 193,
+        "pickRate": 64.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 193
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -310,35 +329,23 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "왕관의 주인공",
-      "cosUsedCount": 477,
-      "charTotalCount": 898,
-      "rate": 53.1,
+      "cosUsedCount": 421,
+      "charTotalCount": 802,
+      "rate": 52.5,
       "lvl": "pretty",
       "launchDate": "2026-03-28"
     },
     {
       "cosName": "일일 사제장 네르핀",
-      "cosUsedCount": 236,
-      "charTotalCount": 898,
-      "rate": 26.3,
+      "cosUsedCount": 215,
+      "charTotalCount": 802,
+      "rate": 26.8,
       "lvl": "normal",
       "launchDate": "2026-03-28"
     }
