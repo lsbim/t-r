@@ -171,7 +171,7 @@ const ClashV2SeasonPage = () => {
                     startDate={seasonSlice?.startDate}
                     endDate={seasonSlice?.endDate}
                     name={seasonSlice?.name}
-                    grade={seasonSlice?.maxLvl}
+                    grade={v2Type === 'main' ? seasonSlice?.maxLvl : seasonSlice?.maxSideLvl}
                     rules={seasonSlice?.rules}
                     raidType="clash"
                     personality={seasonSlice?.personality}
