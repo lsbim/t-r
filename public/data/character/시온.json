@@ -212,6 +212,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 23.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -268,44 +281,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 47
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 27.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "어비스 워커 오버로드",
-      "cosUsedCount": 64,
-      "charTotalCount": 82,
-      "rate": 78,
+      "cosUsedCount": 47,
+      "charTotalCount": 70,
+      "rate": 67.1,
       "lvl": "pretty",
       "launchDate": "2025-12-25"
     },
     {
       "cosName": "다크스타 ★ 버스트",
-      "cosUsedCount": 10,
-      "charTotalCount": 82,
-      "rate": 12.2,
+      "cosUsedCount": 11,
+      "charTotalCount": 70,
+      "rate": 15.7,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
-      "cosName": "어둠의 알바생",
+      "cosName": "다크 버니",
       "cosUsedCount": 4,
-      "charTotalCount": 82,
-      "rate": 4.9,
+      "charTotalCount": 70,
+      "rate": 5.7,
       "lvl": "normal",
       "launchDate": "2024-07-25"
     }

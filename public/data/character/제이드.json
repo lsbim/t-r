@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 9.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -202,34 +215,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 10.7
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 29,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 14,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 16
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "옥의 소공녀",
-      "cosUsedCount": 14,
-      "charTotalCount": 33,
-      "rate": 42.4,
+      "cosUsedCount": 7,
+      "charTotalCount": 28,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2025-09-04"
     }

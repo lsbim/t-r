@@ -1,7 +1,7 @@
 {
-  "birthdate": "2025-11-06",
-  "line": "전열",
-  "personality": "우울",
+  "birthdate": "2026-07-30",
+  "line": "중열",
+  "personality": "활발",
   "topSeasons": {
     "clash": [],
     "frontier": [],
@@ -39,17 +39,11 @@
         "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 21,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 43,
@@ -57,17 +51,11 @@
         "personality": "광기",
         "startDate": "2026-02-19",
         "endDate": "2026-02-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 36,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 11,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 42,
@@ -75,17 +63,11 @@
         "personality": "활발",
         "startDate": "2026-01-08",
         "endDate": "2026-01-15",
-        "pickCount": 90,
-        "pickRate": 30,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 90
-          }
-        ],
-        "totalEntries": 300
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       }
     ],
     "frontier": [
@@ -161,8 +143,7 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 17
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10006,
@@ -170,18 +151,11 @@
         "personality": "활발",
         "startDate": "2026-06-11",
         "endDate": "2026-06-18",
-        "pickCount": 5,
-        "pickRate": 1.7,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 6,
-            "count": 5
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 14
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10005,
@@ -193,8 +167,7 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 31.7
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10004,
@@ -202,18 +175,11 @@
         "personality": "냉정",
         "startDate": "2026-03-19",
         "endDate": "2026-03-26",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 28,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 10,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 29
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10003,
@@ -225,19 +191,9 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 25.7
+        "totalEntries": 0
       }
     ]
   },
-  "recentSkins": [
-    {
-      "cosName": "따끔한 간호의 자세",
-      "cosUsedCount": 12,
-      "charTotalCount": 51,
-      "rate": 23.5,
-      "lvl": "normal",
-      "launchDate": "2025-11-06"
-    }
-  ]
+  "recentSkins": []
 }

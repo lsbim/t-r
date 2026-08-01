@@ -201,6 +201,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 148,
+        "pickRate": 49.3,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 148
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 11
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -275,42 +294,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 28.3
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 225,
-        "pickRate": 75,
-        "overallRank": 8,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 225
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 0.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",
-      "cosUsedCount": 178,
-      "charTotalCount": 417,
-      "rate": 42.7,
+      "cosUsedCount": 195,
+      "charTotalCount": 455,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "카우치 볼케이노",
-      "cosUsedCount": 60,
-      "charTotalCount": 417,
-      "rate": 14.4,
+      "cosUsedCount": 71,
+      "charTotalCount": 455,
+      "rate": 15.6,
       "lvl": "normal",
       "launchDate": "2025-12-18"
     }

@@ -188,6 +188,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 5.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -250,50 +263,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 4
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 28,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 10,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 9
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "교단의 성찬 파티",
-      "cosUsedCount": 127,
-      "charTotalCount": 267,
-      "rate": 47.6,
+      "cosUsedCount": 124,
+      "charTotalCount": 259,
+      "rate": 47.9,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "한 때 한가닥",
-      "cosUsedCount": 57,
-      "charTotalCount": 267,
-      "rate": 21.3,
+      "cosUsedCount": 58,
+      "charTotalCount": 259,
+      "rate": 22.4,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     },
     {
       "cosName": "개인 교습 나들이",
-      "cosUsedCount": 57,
-      "charTotalCount": 267,
-      "rate": 21.3,
+      "cosUsedCount": 50,
+      "charTotalCount": 259,
+      "rate": 19.3,
       "lvl": "normal",
       "launchDate": "2024-09-05"
     }

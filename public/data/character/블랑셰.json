@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1.7
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -196,19 +209,6 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 4.3
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1.3
       }
     ]
   },
@@ -216,16 +216,16 @@
     {
       "cosName": "스타디움의 푸른 장미",
       "cosUsedCount": 3,
-      "charTotalCount": 4,
-      "rate": 75,
+      "charTotalCount": 5,
+      "rate": 60,
       "lvl": "normal",
       "launchDate": "2026-03-05"
     },
     {
       "cosName": "도전! 액트리스 바니",
-      "cosUsedCount": 1,
-      "charTotalCount": 4,
-      "rate": 25,
+      "cosUsedCount": 2,
+      "charTotalCount": 5,
+      "rate": 40,
       "lvl": "normal",
       "launchDate": "2025-05-29"
     }

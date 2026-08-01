@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -196,36 +209,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 3
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 4
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "야산의 온천 마실",
-      "cosUsedCount": 9,
-      "charTotalCount": 16,
-      "rate": 56.3,
+      "cosUsedCount": 5,
+      "charTotalCount": 9,
+      "rate": 55.6,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "어린 꽃사슴",
-      "cosUsedCount": 4,
-      "charTotalCount": 16,
-      "rate": 25,
+      "cosUsedCount": 2,
+      "charTotalCount": 9,
+      "rate": 22.2,
       "lvl": "normal",
       "launchDate": "2025-05-01"
     }

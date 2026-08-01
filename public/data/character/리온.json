@@ -134,6 +134,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 19,
+        "pickRate": 6.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 19
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.7
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -184,36 +203,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 1
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "히어로의 여름 바캉스",
+      "cosUsedCount": 12,
+      "charTotalCount": 21,
+      "rate": 57.1,
+      "lvl": "normal",
+      "launchDate": "2026-07-23"
+    },
+    {
       "cosName": "사료반 반장",
-      "cosUsedCount": 2,
-      "charTotalCount": 4,
-      "rate": 50,
+      "cosUsedCount": 7,
+      "charTotalCount": 21,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2025-05-01"
     },
     {
       "cosName": "포근포근 나들이",
       "cosUsedCount": 2,
-      "charTotalCount": 4,
-      "rate": 50,
+      "charTotalCount": 21,
+      "rate": 9.5,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

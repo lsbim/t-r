@@ -41,6 +41,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 146,
+        "pickRate": 48.7,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -241,6 +253,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 22,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 48.7
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -303,50 +334,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 66.3
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 6,
-        "pickRate": 2,
-        "overallRank": 25,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 11,
-            "count": 6
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 63.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "겨울의 마녀",
-      "cosUsedCount": 104,
-      "charTotalCount": 171,
-      "rate": 60.8,
+      "cosUsedCount": 132,
+      "charTotalCount": 147,
+      "rate": 89.8,
       "lvl": "pretty",
       "launchDate": "2026-06-11"
     },
     {
       "cosName": "첫 눈송이의 춤사위",
-      "cosUsedCount": 34,
-      "charTotalCount": 171,
-      "rate": 19.9,
+      "cosUsedCount": 8,
+      "charTotalCount": 147,
+      "rate": 5.4,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "새벽의 블루문",
-      "cosUsedCount": 21,
-      "charTotalCount": 171,
-      "rate": 12.3,
+      "cosUsedCount": 3,
+      "charTotalCount": 147,
+      "rate": 2,
       "lvl": "pretty",
       "launchDate": "2025-04-24"
     }

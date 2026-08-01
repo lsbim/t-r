@@ -194,6 +194,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 17.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -267,42 +286,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 24.7
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 156,
-        "pickRate": 52,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 3,
-            "count": 156
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 16.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "기내식 준비 완료",
-      "cosUsedCount": 166,
-      "charTotalCount": 343,
-      "rate": 48.4,
+      "cosUsedCount": 46,
+      "charTotalCount": 104,
+      "rate": 44.2,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "사교계의 악역 영애",
-      "cosUsedCount": 68,
-      "charTotalCount": 343,
-      "rate": 19.8,
+      "cosUsedCount": 18,
+      "charTotalCount": 104,
+      "rate": 17.3,
       "lvl": "normal",
       "launchDate": "2025-04-24"
     }

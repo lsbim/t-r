@@ -140,6 +140,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10007,
+        "name": "냥만 타워",
+        "personality": "광기",
+        "startDate": "2026-07-23",
+        "endDate": "2026-07-30",
+        "pickCount": 242,
+        "pickRate": 80.7,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 242
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -194,27 +213,15 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10002,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2025-12-25",
-        "endDate": "2026-01-01",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "푸른 바다의 전학생",
-      "cosUsedCount": 35,
-      "charTotalCount": 75,
-      "rate": 46.7,
+      "cosUsedCount": 94,
+      "charTotalCount": 243,
+      "rate": 38.7,
       "lvl": "normal",
       "launchDate": "2026-04-23"
     }
