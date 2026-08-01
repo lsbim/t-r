@@ -7,6 +7,7 @@ import CharacterCardList from './CharacterCardList';
 import TimelineWoodBG from './TimelineWoodBG';
 import RaidCardList from "./RaidCardList";
 import RowDivider from "./RowDivider";
+import PatchNoteCardList from "./card/PatchNoteCardList";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -19,7 +20,7 @@ interface MainStageProps {
 export const HOVER_LIFT_Y = -20;
 
 // 타임라인 주제 나열 기준
-export const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
+export const TIMELINE_ROW_ORDER = ['raid', 'character', 'patchNote'] as const;
 export const ROW_HEIGHT = 140;
 const STAGE_HEIGHT = 500;
 
@@ -91,6 +92,10 @@ const MainStage: React.FC<MainStageProps> = ({
             rowY={getRowY('character')}
           />
 
+          {/* 패치노트 */}
+          <PatchNoteCardList
+            rowY={getRowY('patchNote')}
+          />
         </Layer>
 
         {/* 애니메이션 전용 레이어 */}
