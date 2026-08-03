@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import SEO from "../../commons/component/SEO";
 import PopoverCard from "../../commons/timeline/PopperCard";
 import MinimapHandle from "../../components/timeline/minimap/MinimapHandle";
@@ -23,6 +23,7 @@ const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
     const { data: clash } = useRaidData<ClashSummary>('clash', 'summary');
     const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
+    const [filterSet, setFilterSet] = useState(new Set());
 
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
@@ -104,7 +105,7 @@ const IndexPage = () => {
         return map;
     }, [clash, frontier, clashV2]);
 
-    console.log('timelineMap: ',timelineMap)
+    console.log('timelineMap: ', timelineMap)
 
     return (
         <PopoverProvider>

@@ -1,4 +1,4 @@
-import { PatchCategory, PatchNote } from "../../data/patchNotes";
+import { PatchCategory } from "../../data/patchNotes";
 import { Personality } from "../trickcalTypes";
 
 export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier" | "patchNote";

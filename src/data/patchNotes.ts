@@ -1,26 +1,29 @@
-export type PatchCategory =
-    | "character_balance"    // 사도 밸런스 패치
+export const PATCH_CATEGORIES = [
+    "character_balance",          // 사도 밸런스 패치
 
-    | "invasion_world"    // 침략 월드 개방
-    | "research_lab"      // 연구실 단계
+    "invasion_world",             // 침략 월드 개방
+    "research_lab",               // 연구실 단계
 
-    | "clash_level"       // 차원 대충돌 단계 확장
-    | "frontier_level"       // 프론티어 단계 확장
-    | "clash_v2_level"       // 차원 대충돌 2.0 단계 확장
+    "clash_level",                // 차원 대충돌 단계 확장
+    "frontier_level",             // 프론티어 단계 확장
+    "clash_v2_level",             // 차원 대충돌 2.0 단계 확장
 
-    | "gta_dungeon"       // GTA 단계
-    | "crash_course"      // 단기 속성반 단계
-    | "secret_bakery_dungeon"     // 비밀의 베이커리 단계
-    | "clone_factory_dungeon"     // 클론 팩토리 단계
-    // | "sugar_free_dungeon"          // 슈가 프리 단계
-    // | "get_your_crayon_dungeon"          // 겟츄 크레용 던전 단계
+    "gta_dungeon",                // GTA 단계
+    "crash_course",               // 단기 속성반 단계
+    "secret_bakery_dungeon",      // 비밀의 베이커리 단계
+    "clone_factory_dungeon",      // 클론 팩토리 단계
+    // "sugar_free_dungeon",      // 슈가 프리 단계
+    // "get_your_crayon_dungeon", // 겟츄 크레용 던전 단계
 
-    | "gear_rank"         // 장비 랭크
-    | "user_max_level"        // 교주 레벨 상한
-    | "worldtree_relic"   // 세계수 성물 레벨
-    | "nururing"          // 누루링 버스터즈 단계
-    | "dig_base"          // 세계수 굴착기지
-    | "kyarot_garden";    // 캬롯의 정원
+    "gear_rank",                  // 장비 랭크
+    "user_max_level",             // 교주 레벨 상한
+    "worldtree_relic",            // 세계수 성물 레벨
+    "nururing",                   // 누루링 버스터즈 단계
+    "dig_base",                   // 세계수 굴착기지
+    "kyarot_garden",              // 캬롯의 정원
+] as const;
+
+export type PatchCategory = typeof PATCH_CATEGORIES[number];
 
 // 2회 이상 적용된 패치에 카테고리 적용할 것
 
