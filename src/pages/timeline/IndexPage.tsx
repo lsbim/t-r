@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import SEO from "../../commons/component/SEO";
 import PopoverCard from "../../commons/timeline/PopperCard";
 import MinimapHandle from "../../components/timeline/minimap/MinimapHandle";
+import FilterList from "../../components/timeline/timeline/FilterList";
 import MainStage from "../../components/timeline/timeline/MainStage";
 import { charInfo } from "../../data/trickcalChar";
 import { PopoverProvider } from "../../hooks/usePopper";
@@ -13,7 +14,7 @@ import TopRemote from "../../layouts/TopRemote";
 import { ClashSummary } from "../../types/clashTypes";
 import { ClashV2Summary } from "../../types/clashV2Types";
 import { FrontierSummary } from "../../types/frontierTypes";
-import { CharacterNode, RaidNode, TimelineMap, TimelineNodeType } from "../../types/timeline/timelineTypes";
+import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
 
 const END_DATE = getKstTodayDate();
@@ -122,6 +123,9 @@ const IndexPage = () => {
 
                 </div>
                 <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
+
+                    <FilterList
+                    />
 
                     <MinimapHandle
                         handleElRef={handleElRef}
