@@ -2,7 +2,13 @@ import React from 'react'
 import { PatchCategory } from '../../../data/patchNotes';
 import { label } from 'framer-motion/client';
 
-const FilterList = () => {
+interface FilterListProps {
+    handleFilterSet: (category: PatchCategory | 'etc') => void
+}
+
+const FilterList: React.FC<FilterListProps> = ({
+    handleFilterSet,
+}) => {
     const PATCH_CATEGORY_GROUPS: { label: string; categories: PatchCategory[] | 'etc'[] }[] = [
         { label: "밸런스", categories: ["character_balance"] },
         { label: "침략/장비", categories: ["invasion_world", "gear_rank"] },
@@ -17,13 +23,16 @@ const FilterList = () => {
     return (
         <div className="flex gap-x-2">
             {PATCH_CATEGORY_GROUPS.map(group => (
-                <div>
+                <div key={`filterList_${group.label}`}>
                     <span className="text-[12px]">
                         {group.label}
                     </span>
                     <div>
                         {group.categories.map(cate => (
-                            <div>
+                            <div
+                                key={`filterList_${cate}`}
+                                onClick={() => handleFilterSet(cate)}
+                            >
                                 {cate}
                             </div>
                         ))}
@@ -34,4 +43,4 @@ const FilterList = () => {
     )
 }
 
-export default FilterList
+export default React.memo(FilterList);

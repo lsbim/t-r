@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import SEO from "../../commons/component/SEO";
 import PopoverCard from "../../commons/timeline/PopperCard";
 import MinimapHandle from "../../components/timeline/minimap/MinimapHandle";
@@ -16,6 +16,7 @@ import { ClashV2Summary } from "../../types/clashV2Types";
 import { FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
+import { PatchCategory } from "../../data/patchNotes";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
@@ -106,7 +107,22 @@ const IndexPage = () => {
         return map;
     }, [clash, frontier, clashV2]);
 
+    const handleFilterSet = useCallback((category: PatchCategory | 'etc') => {
+        setFilterSet((prev) => {
+            const newFilter = new Set(prev);
+
+            if (newFilter.has(category)) {
+                newFilter.delete(category);
+            } else {
+                newFilter.add(category);
+            }
+
+            return newFilter;
+        });
+    }, [])
+
     console.log('timelineMap: ', timelineMap)
+    console.log('filterSet: ', filterSet)
 
     return (
         <PopoverProvider>
@@ -125,6 +141,7 @@ const IndexPage = () => {
                 <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
 
                     <FilterList
+                        handleFilterSet={handleFilterSet}
                     />
 
                     <MinimapHandle
