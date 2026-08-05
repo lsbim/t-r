@@ -17,6 +17,7 @@ import { FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
 import { PatchCategory } from "../../data/patchNotes";
+import { filter } from "es-toolkit/compat";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
@@ -25,7 +26,7 @@ const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
     const { data: clash } = useRaidData<ClashSummary>('clash', 'summary');
     const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
-    const [filterSet, setFilterSet] = useState(new Set());
+    const [filterSet, setFilterSet] = useState<Set<PatchCategory | 'etc'>>(new Set());
 
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
@@ -121,6 +122,27 @@ const IndexPage = () => {
         });
     }, [])
 
+    const handleFilterSetGroup = useCallback((categories: (PatchCategory | 'etc')[]) => {
+        setFilterSet((prev) => {
+            const nextSet = new Set(prev);
+
+            // 모두 켜져있으면 모두 삭제, 하나라도 꺼져있으면 모두 추가
+            const isAllActive = categories.every(cat => nextSet.has(cat));
+
+            if (isAllActive) {
+                categories.forEach(cat => nextSet.delete(cat));
+            } else {
+                categories.forEach(cat => nextSet.add(cat));
+            }
+
+            return nextSet;
+        });
+    }, []);
+
+    const handleFilterClearAll = useCallback(() => {
+        setFilterSet(new Set());
+    }, [])
+
     console.log('timelineMap: ', timelineMap)
     console.log('filterSet: ', filterSet)
 
@@ -142,6 +164,9 @@ const IndexPage = () => {
 
                     <FilterList
                         handleFilterSet={handleFilterSet}
+                        handleFilterSetGroup={handleFilterSetGroup}
+                        filterSet={filterSet}
+                        handleFilterClearAll={handleFilterClearAll}
                     />
 
                     <MinimapHandle
