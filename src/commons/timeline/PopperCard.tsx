@@ -141,7 +141,7 @@ const PopoverCard = () => {
     if (!popover) return null;
 
     const { target } = popover;
-    const targetName = ('name' in target.node) ? target.node.name : '주요 패치 내용';
+    const targetName = ('name' in target.node) ? target.node.name : '이름이 없습니다.';
     const personality = ('personality' in target.node) ? target.node.personality : null;
 
     const detailPath = target.type === "character"
