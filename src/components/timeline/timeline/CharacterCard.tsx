@@ -38,6 +38,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     const isActiveRef = useRef(false);
     const cardId = useRef(Symbol()); // 카드 고유id
     const homeLayerRef = useRef<Konva.Layer | null>(null); // 전체 노드가 담긴 Layer 임시 저장용
+    const hitBoxRef = useRef<Konva.Rect>(null);
     const { showPopover, deactivateNow } = usePopoverActions();
 
     const offsetY = (ROW_HEIGHT - CARD.h) / 2;
@@ -49,11 +50,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         timelineEvents.emitDeactivateAll(cardId.current);
         isActiveRef.current = true;
 
+        hitBoxRef.current?.height(CARD.h + Math.abs(HOVER_LIFT_Y));
+
         const stage = e.target.getStage();
         if (stage) {
             const stageBox = stage.container().getBoundingClientRect();
-
             const nodeAbsX = groupRef.current.getAbsolutePosition().x;
+
             const targetY = adjustedY + HOVER_LIFT_Y;
 
             // 카드 영역 생성하여 전달
@@ -95,6 +98,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     const deactivateAni = () => {
         if (!groupRef.current) return;
         isActiveRef.current = false;
+
+        hitBoxRef.current?.height(CARD.h);
 
         cardTweenRef.current?.destroy();
         cardTweenRef.current = new Konva.Tween({
@@ -155,6 +160,15 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 }
             }}
         >
+            <Rect
+                ref={hitBoxRef}
+                x={0}
+                y={0}
+                width={CARD.w}
+                height={CARD.h}
+                fill="transparent"
+                perfectDrawEnabled={false}
+            />
             <Group
                 perfectDrawEnabled={false}
                 ref={(n) => {
