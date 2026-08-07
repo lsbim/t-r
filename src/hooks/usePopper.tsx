@@ -1,10 +1,9 @@
-import { createContext, useContext, useState, useRef, useCallback, useEffect, useMemo } from "react";
-import { CharacterNode, PatchNoteNode, RaidNode } from "../types/timeline/timelineTypes";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { CharacterNode, RaidNode } from "../types/timeline/timelineTypes";
 
 type PopoverTarget =
     | { type: "character"; node: CharacterNode }
     | { type: "raid"; node: RaidNode }
-    | { type: "patchNote"; node: PatchNoteNode };
 
 interface PopoverState {
     target: PopoverTarget;

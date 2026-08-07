@@ -1,7 +1,6 @@
-import { PatchCategory } from "../../data/patchNotes";
 import { Personality } from "../trickcalTypes";
 
-export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier" | "patchNote";
+export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier";
 
 export interface TimelineNode {
     type: TimelineNodeType;
@@ -41,20 +40,7 @@ export interface CharacterNode extends TimelineNode {
     personality: Personality | null;
 }
 
-// 패치 노드
-export interface PatchNoteItem {
-    content: string;
-    category?: PatchCategory;
-    prevDays?: number;
-}
-
-export interface PatchNoteNode extends TimelineNode {
-    type: "patchNote";
-    date: string;
-    items: PatchNoteItem[];
-}
-
-export type TimelineMap = Record<string, (RaidNode | CharacterNode | PatchNoteNode)[]>;
+export type TimelineMap = Record<string, (RaidNode | CharacterNode)[]>;
 
 export function isCharacterNode(node: any): node is CharacterNode {
     return node.type === "character";

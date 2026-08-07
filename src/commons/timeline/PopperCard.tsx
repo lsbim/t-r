@@ -1,13 +1,12 @@
 import * as Popper from "@radix-ui/react-popper";
 import { Portal } from "@radix-ui/react-portal";
-import { Fragment, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Costume, costumes } from "../../data/costumes";
 import { charInfo } from "../../data/trickcalChar";
 import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
-import { PatchNoteNode, RaidNode } from "../../types/timeline/timelineTypes";
+import { RaidNode } from "../../types/timeline/timelineTypes";
 import { getCharacterIcons } from "../../utils/function";
-import { getSinceColor } from "../../components/costume/CostumeBoard";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 
@@ -128,40 +127,6 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
     )
 }
 
-const PatchNoteDetails = ({ node }: { node: PatchNoteNode }) => {
-
-    return (
-        <div className="flex flex-col gap-y-1 text-[12px] cursor-default">
-            <div className="flex gap-x-1">
-                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
-                    패치 일자
-                </span>
-                <span>
-                    {node?.date}
-                </span>
-            </div>
-            <div className="flex flex-col">
-                {node?.items?.map((item, index) => (
-                    <div key={item.content}
-                        className="flex gap-x-1">
-                        <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
-                            {index === 0 ? '패치 내용' : ''}
-                        </span>
-                        <span>
-                            {item.content}
-                        </span>
-                        {item?.prevDays && (
-                            <span className={`${getSinceColor(item?.prevDays)} font-bold`}>
-                                +{item.prevDays}일
-                            </span>
-                        )}
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
-}
-
 
 const PopoverCard = () => {
     const popover = usePopoverState();
@@ -211,61 +176,52 @@ const PopoverCard = () => {
                     className={`z-50 p-2 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 dark:text-zinc-200 bg-opacity-95`}>
 
                     <div className="flex flex-col gap-y-2">
-                        {target?.type === 'patchNote' ?
-                            (
+                        <div className="flex justify-center items-center gap-x-2">
+                            <Link
+                                to={detailPath}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
+                                <img
+                                    src={imgUrl}
+                                    className={`${target.type === "raid" && 'scale-[1.5] origin-[50%_20%]'}`}
+                                />
+                            </Link>
+                            <div className="flex flex-col gap-y-1 justify-center">
                                 <span className="font-bold text-[14px]">
                                     {targetName}
                                 </span>
-                            ) : (
-                                <div className="flex justify-center items-center gap-x-2">
-                                    <Link
-                                        to={detailPath}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
-                                        <img
-                                            src={imgUrl}
-                                            className={`${target.type === "raid" && 'scale-[1.5] origin-[50%_20%]'}`}
-                                        />
-                                    </Link>
-                                    <div className="flex flex-col gap-y-1 justify-center">
-                                        <span className="font-bold text-[14px]">
-                                            {targetName}
-                                        </span>
-                                        {target?.type === 'character' ? (
-                                            <div className="flex gap-x-1">
-                                                {getCharacterIcons(targetName).map(({ tooltip, src }) => (
-                                                    <img
-                                                        key={`popover_icon_${tooltip}`}
-                                                        src={src}
-                                                        alt={tooltip}
-                                                        title={tooltip}
-                                                        className="w-4 h-4" />
-                                                ))}
-                                            </div>
-                                        ) : target.type === "raid" ? (
-                                            <div className="flex gap-x-1 items-center">
-                                                {target?.node.personality && (
-                                                    <img
-                                                        className="w-4 h-4"
-                                                        src={`/images/personality/${target?.node.personality}.webp`}
-                                                    />
-                                                )}
-                                                <span className="text-[12px]">
-                                                    {Number(target?.node.season) > 10000 ? `베타 시즌${Number(target?.node.season) - 10000}` : `시즌${target?.node.season}`}
-                                                </span>
-                                            </div>
-                                        ) : (<></>)}
+                                {target?.type === 'character' ? (
+                                    <div className="flex gap-x-1">
+                                        {getCharacterIcons(targetName).map(({ tooltip, src }) => (
+                                            <img
+                                                key={`popover_icon_${tooltip}`}
+                                                src={src}
+                                                alt={tooltip}
+                                                title={tooltip}
+                                                className="w-4 h-4" />
+                                        ))}
                                     </div>
+                                ) : target.type === "raid" ? (
+                                    <div className="flex gap-x-1 items-center">
+                                        {target?.node.personality && (
+                                            <img
+                                                className="w-4 h-4"
+                                                src={`/images/personality/${target?.node.personality}.webp`}
+                                            />
+                                        )}
+                                        <span className="text-[12px]">
+                                            {Number(target?.node.season) > 10000 ? `베타 시즌${Number(target?.node.season) - 10000}` : `시즌${target?.node.season}`}
+                                        </span>
+                                    </div>
+                                ) : (<></>)}
+                            </div>
 
-                                </div>
-                            )}
+                        </div>
                         {target.type === 'character' ? (
                             <CharacterDetails targetName={targetName} />
                         ) : target.type === 'raid' ? (
                             <RaidDetails node={target?.node} />
-                        ) : target.type === 'patchNote' ? (
-                            <PatchNoteDetails node={target?.node} />
                         ) : (
                             <></>
                         )}
