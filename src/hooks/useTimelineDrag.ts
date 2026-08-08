@@ -1,6 +1,6 @@
 import Konva from "konva";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { dragState, timelineLayers } from "../utils/timeline/timelineFunction";
+import { DAY_PX, dragState, START_DATE, timelineLayers } from "../utils/timeline/timelineFunction";
 
 
 interface UseTimelineDragProps {
@@ -74,6 +74,12 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
         // 핸들 날짜 툴팁 텍스트 갱신
         if (tooltipElRef.current) {
             tooltipElRef.current.style.left = `${pct}%`;
+
+            const days = Math.round((pct / 100) * (timelinePx / DAY_PX));
+            const d = new Date(START_DATE.getTime() + days * 86400000);
+            tooltipElRef.current.textContent =
+                `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
         }
     }, [clampBody, viewportWidth, timelinePx]);
 

@@ -23,14 +23,6 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     const latestClientXRef = useRef(0);
     const rafIdRef = useRef<number | null>(null);
 
-    const updateTooltipText = useCallback((pct: number) => {
-        if (!tooltipElRef.current) return;
-        const days = Math.round((pct / 100) * totalDays);
-        const d = new Date(START_DATE.getTime() + days * 86400000);
-        const str = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-        tooltipElRef.current.textContent = str;
-    }, [totalDays, START_DATE]);
-
     // 마우스 좌표를 핸들 바 퍼센트로 변환
     const getPctFromClientX = useCallback((clientX: number) => {
         if (!barRef.current) return 0;
@@ -48,16 +40,15 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         rafIdRef.current = requestAnimationFrame(() => {
             const pct = getPctFromClientX(latestClientXRef.current);
             onChange(pct);
-            updateTooltipText(pct);
             rafIdRef.current = null;
         });
 
-    }, [getPctFromClientX, onChange, updateTooltipText]);
+    }, [getPctFromClientX, onChange]);
 
     // 드래그 종료 시 false
     const handlePointerUp = useCallback(() => {
         isDraggingRef.current = false;
-        
+
         timelineStage.get()?.listening(true);
 
     }, []);
@@ -65,8 +56,8 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     // 클릭 시 X좌표 갱신
     const handlePointerDown = useCallback((e: React.PointerEvent) => {
         isDraggingRef.current = true;
-        const clientX = e.clientX;
-        onChange(getPctFromClientX(clientX));
+        const pct = getPctFromClientX(e.clientX);
+        onChange(pct);
 
         timelineStage.get()?.listening(false);
 
