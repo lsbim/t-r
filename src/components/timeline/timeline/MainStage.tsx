@@ -1,5 +1,5 @@
 import Konva from "konva";
-import React, { useMemo, useState } from 'react';
+import React, { RefObject, useMemo, useState } from 'react';
 import { Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
@@ -13,6 +13,8 @@ interface MainStageProps {
   onPointerDown: () => void;
   timelineMap: TimelineMap;
   timelinePx: number;
+  containerRef: RefObject<HTMLDivElement | null>
+  stageWidth: number;
 }
 
 // 타임라인의 카드 마우스오버 시 떠오르는 높이
@@ -30,12 +32,13 @@ export function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
 }
 
 const MainStage: React.FC<MainStageProps> = ({
+  containerRef,
+  stageWidth,
   layerRef,
   onPointerDown,
   timelineMap,
   timelinePx,
 }) => {
-  const [stageWidth, setStageWidth] = useState(window.innerWidth);
 
   const characterNodeList: CharacterNode[] = useMemo(() => {
     return Object.values(timelineMap).flat()
@@ -54,6 +57,7 @@ const MainStage: React.FC<MainStageProps> = ({
 
   return (
     <div
+      ref={containerRef}
       className={`w-full h-[${STAGE_HEIGHT}px] bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
       <Stage
         ref={(node) => {

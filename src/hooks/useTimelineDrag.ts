@@ -10,6 +10,7 @@ interface UseTimelineDragProps {
 const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     const offsetXRef = useRef(0);
     const handlePctRef = useRef(100);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
     const layerRef = useRef<Konva.Layer>(null);
@@ -140,9 +141,14 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     }, [handlePointerMove, handlePointerUp]);
 
     useEffect(() => {
-        const handleResize = () => setViewportWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        if (!containerRef.current) return;
+
+        const observer = new ResizeObserver((entries) => {
+            setViewportWidth(entries[0].contentRect.width);
+        });
+
+        observer.observe(containerRef.current);
+        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -151,8 +157,8 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     }, [viewportWidth]);
 
     return {
-        // offsetXRef,
-        // handlePctRef,
+        containerRef,
+        viewportWidth,
         layerRef,
         handleElRef,
         tooltipElRef,

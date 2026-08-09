@@ -27,6 +27,8 @@ const IndexPage = () => {
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
     const {
+        containerRef,
+        viewportWidth,
         layerRef,
         handleElRef,
         tooltipElRef,
@@ -132,6 +134,8 @@ const IndexPage = () => {
                     />
 
                     <MainStage
+                        containerRef={containerRef}
+                        stageWidth={viewportWidth}
                         layerRef={layerRef}
                         onPointerDown={handlePointerDown}
                         timelineMap={timelineMap}
