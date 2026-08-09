@@ -41,6 +41,7 @@ const MainStage: React.FC<MainStageProps> = ({
     return Object.values(timelineMap).flat()
       .filter(isCharacterNode)
       .filter(node => node.birthDate !== '2023-09-27')
+      .sort((a, b) => new Date(a.birthDate).getTime() - new Date(b.birthDate).getTime())
   }, [timelineMap])
 
   const raidNodeList: RaidNode[] = useMemo(() => {

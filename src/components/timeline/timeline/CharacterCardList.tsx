@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Group } from 'react-konva';
 import { CharacterNode } from '../../../types/timeline/timelineTypes';
-import { dateToPx } from '../../../utils/timeline/timelineFunction';
+import { dateToPx, DAY_PX } from '../../../utils/timeline/timelineFunction';
 import CharacterCard from './CharacterCard';
 
 interface CharacterCardListProps {
@@ -22,13 +22,30 @@ const CharacterCardList: React.FC<CharacterCardListProps> = ({
         img.onload = () => setBgImage(img);
     }, []);
 
+    const calXList = useMemo(() => {
+
+        const result = nodes.map((node, i) => {
+            if (i === 0) return dateToPx(node.birthDate);
+
+            const prevDate = new Date(nodes[i - 1].birthDate);
+            const currDate = new Date(node.birthDate);
+            const diffDays = Math.floor((currDate.getTime() - prevDate.getTime()) / 86400000);
+
+            return diffDays < 2
+                ? dateToPx(nodes[i - 1].birthDate) + 2 * DAY_PX
+                : dateToPx(node.birthDate);
+        });
+
+        return result;
+    }, [nodes])
+
     return (
         <Group>
             {nodes.map((node, index) => (
                 <CharacterCard
                     key={node.name ?? index}
                     node={node}
-                    calX={dateToPx(node.birthDate)}
+                    calX={calXList[index]}
                     bgImage={bgImage}
                     rowY={rowY}
                 />
