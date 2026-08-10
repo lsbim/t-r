@@ -58,7 +58,8 @@ const MainStage: React.FC<MainStageProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`w-full h-[${STAGE_HEIGHT}px] bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
+      style={{ height: STAGE_HEIGHT }}
+      className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
       <Stage
         ref={(node) => {
           if (node) timelineStage.set(node);
