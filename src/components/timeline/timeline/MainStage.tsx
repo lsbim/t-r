@@ -50,6 +50,7 @@ const MainStage: React.FC<MainStageProps> = ({
   const raidNodeList: RaidNode[] = useMemo(() => {
     return Object.values(timelineMap).flat()
       .filter(isRaidNode)
+      .sort((a, b) => a.startDate.localeCompare(b.startDate));
   }, [timelineMap])
 
   console.log("characterNodeList: ", characterNodeList)
