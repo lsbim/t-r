@@ -53,8 +53,8 @@ const RaidCard: React.FC<RaidCardProps> = ({
         const stage = e.target.getStage();
         if (stage) {
             const stageBox = stage.container().getBoundingClientRect();
-
             const nodeAbsX = groupRef.current.getAbsolutePosition().x;
+
             const targetY = adjustedY + HOVER_LIFT_Y;
 
             // 카드 영역 생성하여 전달
@@ -62,7 +62,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
                 stageBox.left + nodeAbsX,
                 stageBox.top + targetY,
                 CARD.w,
-                CARD.h
+                CARD.h - HOVER_LIFT_Y
             );
             // 팝오버 활성
             showPopover(
