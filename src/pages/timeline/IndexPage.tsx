@@ -119,7 +119,7 @@ const IndexPage = () => {
                 <TopRemote />
                 <HeaderNav />
                 {/* 소개 */}
-                <div className="md:w-[768px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
+                <div className="lg:w-[992px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
                     <h1 className="">컨텐츠 타임라인</h1>
 
                 </div>
