@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rect } from 'react-konva';
+import { useTheme } from '../../../hooks/useTheme';
 
 interface TimelineStageBgProps {
     timelinePx: number;
@@ -8,6 +9,7 @@ interface TimelineStageBgProps {
 }
 
 const TIMELINE_BG_COLOR = '#7C8F6E'
+const TIMELINE_BG_COLOR_DARK = '#18181b'
 const EDGE_SIZE = 12;
 
 const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
@@ -15,6 +17,9 @@ const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
     stageWidth,
     stageHeight,
 }) => {
+
+    const { theme } = useTheme();
+    const bgColor = theme === 'dark' ? TIMELINE_BG_COLOR_DARK : TIMELINE_BG_COLOR;
 
     const bgX = -stageWidth / 2;
     const bgWidth = timelinePx + stageWidth;
@@ -27,7 +32,7 @@ const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
                 y={0}
                 width={bgWidth}
                 height={stageHeight}
-                fill={TIMELINE_BG_COLOR}
+                fill={bgColor}
             />
 
             <Rect
@@ -35,7 +40,7 @@ const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
                 y={0}
                 width={bgWidth}
                 height={EDGE_SIZE}
-                fill="rgba(255, 255, 255, 0.3)"
+                fill="rgba(255, 255, 255, 0.1)"
             />
 
 
@@ -44,7 +49,7 @@ const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
                 y={stageHeight - EDGE_SIZE}
                 width={bgWidth}
                 height={EDGE_SIZE}
-                fill="rgba(0, 0, 0, 0.4)"
+                fill="rgba(0, 0, 0, 0.1)"
             />
         </>
     );

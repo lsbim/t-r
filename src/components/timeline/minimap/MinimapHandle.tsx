@@ -172,7 +172,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                 {/* 가리킨 날짜 표기 */}
                 <div
                     ref={tooltipElRef}
-                    className="absolute top-[38px] z-30 bg-white border-[0.5px] border-gray-300 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]"
+                    className="absolute top-[38px] z-30 bg-white border-[0.5px] border-zinc-300 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-200 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]"
                 />
             </div>
         </div>
