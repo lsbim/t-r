@@ -13,6 +13,9 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
+    const [isPositionReady, setIsPositionReady] = useState(false);
+    const hasInitializedRef = useRef(false);
+
     const totalMoveRef = useRef(0);
     const isDraggingActiveRef = useRef(false);
     const TAP_MOVE_THRESHOLD = 5;
@@ -161,10 +164,18 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     useEffect(() => {
         if (viewportWidth === 0) return;
-        applyOffset(-(timelinePx - viewportWidth / 2));
+
+        if (!hasInitializedRef.current) {
+            hasInitializedRef.current = true;
+            applyOffset(-(timelinePx - viewportWidth / 2));
+            setIsPositionReady(true);
+        } else {
+            applyOffset(offsetXRef.current);
+        }
     }, [viewportWidth]);
 
     return {
+        isPositionReady,
         containerRef,
         viewportWidth,
         layerRef,

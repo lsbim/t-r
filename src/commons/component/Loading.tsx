@@ -1,20 +1,20 @@
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 
-const Loading = () => {
+const LOADING_ICONS = [
+    "/images/loading/hate.png",
+    "/images/loading/soso.png",
+    "/images/loading/like.png",
+    "/images/loading/verylike.png",
+];
 
-    const icons = [
-        "/images/loading/hate.png",
-        "/images/loading/soso.png",
-        "/images/loading/like.png",
-        "/images/loading/verylike.png",
-    ];
+const Loading = () => {
 
     return (
         <div className="relative flex flex-col justify-center gap-4 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
             <HeaderNav />
             <div className="absolute flex items-center gap-x-2 left-1/2 -translate-x-1/2">
-                {icons.map((src, index) => (
+                {LOADING_ICONS.map((src, index) => (
                     <img
                         key={`loading_image_${index}`}
                         src={src}
@@ -32,3 +32,22 @@ const Loading = () => {
 }
 
 export default Loading;
+
+export const MiniLoading = () => {
+
+    return (
+        <div className="absolute flex items-center gap-x-2 left-1/2 -translate-x-1/2">
+            {LOADING_ICONS.map((src, index) => (
+                <img
+                    key={`loading_image_${index}`}
+                    src={src}
+                    alt="loading"
+                    className="w-[30px] h-[30px] object-contain animate-jelly"
+                    style={{
+                        animationDelay: `${index * 0.15}s`
+                    }}
+                />
+            ))}
+        </div>
+    )
+}

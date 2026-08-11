@@ -1,6 +1,6 @@
 import Konva from "konva";
-import React, { RefObject, useMemo } from 'react';
-import { Layer, Stage } from 'react-konva';
+import React, { Fragment, RefObject, useMemo } from 'react';
+import { Group, Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
@@ -15,6 +15,7 @@ interface MainStageProps {
   timelinePx: number;
   containerRef: RefObject<HTMLDivElement | null>
   stageWidth: number;
+  isPositionReady: boolean;
 }
 
 // 타임라인의 카드 마우스오버 시 떠오르는 높이
@@ -38,6 +39,7 @@ const MainStage: React.FC<MainStageProps> = ({
   onPointerDown,
   timelineMap,
   timelinePx,
+  isPositionReady,
 }) => {
 
   const characterNodeList: CharacterNode[] = useMemo(() => {
@@ -88,17 +90,17 @@ const MainStage: React.FC<MainStageProps> = ({
             timelinePx={timelinePx}
           />
 
-          {/* 보스 이미지 */}
-          <RaidCardList
-            nodes={raidNodeList}
-            rowY={getRowY('raid')}
-          />
+          <Group opacity={isPositionReady ? 1 : 0}>
+            <RaidCardList
+              nodes={raidNodeList}
+              rowY={getRowY('raid')}
+            />
 
-          {/* 사도 이미지 */}
-          <CharacterCardList
-            nodes={characterNodeList}
-            rowY={getRowY('character')}
-          />
+            <CharacterCardList
+              nodes={characterNodeList}
+              rowY={getRowY('character')}
+            />
+          </Group>
 
         </Layer>
 

@@ -15,6 +15,7 @@ import { ClashV2Summary } from "../../types/clashV2Types";
 import { FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
+import Loading, { MiniLoading } from "../../commons/component/Loading";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
@@ -27,6 +28,7 @@ const IndexPage = () => {
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
     const {
+        isPositionReady,
         containerRef,
         viewportWidth,
         layerRef,
@@ -106,7 +108,6 @@ const IndexPage = () => {
         return map;
     }, [clash, frontier, clashV2]);
 
-
     console.log('timelineMap: ', timelineMap)
 
     return (
@@ -123,7 +124,8 @@ const IndexPage = () => {
                     <h1 className="">컨텐츠 타임라인</h1>
 
                 </div>
-                <div className="w-full mx-auto flex flex-col items-center my-8 gap-y-4">
+
+                <div className={`w-full mx-auto flex flex-col items-center my-8 gap-y-4`}>
 
                     <MinimapHandle
                         handleElRef={handleElRef}
@@ -140,6 +142,7 @@ const IndexPage = () => {
                         onPointerDown={handlePointerDown}
                         timelineMap={timelineMap}
                         timelinePx={timelinePx}
+                        isPositionReady={isPositionReady}
                     />
                 </div>
                 <Footer />
