@@ -13,6 +13,10 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
+    const totalMoveRef = useRef(0);
+    const isDraggingActiveRef = useRef(false);
+    const TAP_MOVE_THRESHOLD = 5;
+
     const layerRef = useRef<Konva.Layer>(null);
     const handleElRef = useRef<HTMLDivElement>(null);
     const tooltipElRef = useRef<HTMLDivElement>(null);
@@ -92,17 +96,20 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const handlePointerDown = useCallback(() => {
         dragState.set(true)
-        if (layerRef.current) {
-            const stage = layerRef.current.getStage();
-            if (stage) {
-                stage.listening(false);
-            }
-        }
+        totalMoveRef.current = 0;
+        isDraggingActiveRef.current = false;
     }, []);
 
     const handlePointerMove = useCallback((e: PointerEvent) => {
         if (!dragState.get()) return;
         dragDeltaRef.current += e.movementX;
+        totalMoveRef.current += Math.abs(e.movementX);
+
+        if (!isDraggingActiveRef.current && totalMoveRef.current > TAP_MOVE_THRESHOLD) {
+            isDraggingActiveRef.current = true;
+            const stage = layerRef.current?.getStage();
+            stage?.listening(false);
+        }
 
         // raf 실행하면 브라우저가 숫자로 된 고유id 반환
         if (rafIdRef.current === null) {
@@ -128,6 +135,7 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
                 stage.listening(true)
             }
         }
+        isDraggingActiveRef.current = false;
         cardsCacheRef.current = null;
     }, []);
 
