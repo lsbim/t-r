@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import { isCharacterNode, TimelineMap } from '../../../types/timeline/timelineTypes';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import { isCharacterNode, isRaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { START_DATE, timelineStage } from '../../../utils/timeline/timelineFunction';
 
 interface MinimapHandleProps {
@@ -72,6 +72,46 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         };
     }, [handlePointerMove, handlePointerUp]);
 
+    // 사도 출시일 틱
+    const characterTicks = useMemo(() => {
+        return Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
+            nodes.filter(isCharacterNode).map((node, i) => {
+                const date = new Date(node.birthDate);
+                const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
+                const pct = (days / totalDays) * 100;
+                return (
+                    <div
+                        key={`timeline_handle_character_${dateStr}-${i}`}
+                        className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
+                        style={{ left: `${pct}%` }}
+                    />
+                );
+            })
+        );
+    }, [timelineMap, totalDays]);
+
+    // 레이드 기간 범위
+    const raidRanges = useMemo(() => {
+        return Object.values(timelineMap).flat()
+            .filter(isRaidNode)
+            .sort((a, b) => a.startDate.localeCompare(b.startDate))
+            .map((node) => {
+                const startDays = Math.floor((new Date(node.startDate).getTime() - START_DATE.getTime()) / 86400000);
+                const endDays = Math.floor((new Date(node.endDate).getTime() - START_DATE.getTime()) / 86400000);
+                const leftPct = (startDays / totalDays) * 100;
+                const widthPct = ((endDays - startDays) / totalDays) * 100;
+                const colorClass = node.personality ? `bg-${node.personality}` : 'bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.35_0.094_270.913)]';
+
+                return (
+                    <div
+                        key={`timeline_handle_raid_${node.type}-${node.season}`}
+                        className={`absolute top-0 bottom-0 opacity-85 ${colorClass}`}
+                        style={{ left: `${leftPct}%`, width: `${widthPct}%` }}
+                    />
+                );
+            });
+    }, [timelineMap, totalDays]);
+
     return (
         <div className="lg:w-[992px] w-[90%]">
             <div
@@ -89,22 +129,13 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                 {/* 핸들 바 */}
                 <div
                     ref={barRef}
-                    className="relative h-4 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
-                    {Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
-                        // 사도만 출력하도록 필터링
-                        nodes.filter(isCharacterNode).map((node, i) => {
-                            const date = new Date(node.birthDate);
-                            const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
-                            const pct = (days / totalDays) * 100;
-                            return (
-                                <div
-                                    key={`${dateStr}-${i}`}
-                                    className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
-                                    style={{ left: `${pct}%` }}
-                                />
-                            );
-                        })
-                    )}
+                    className="relative divide-y divide-zinc-700 dark:divide-zinc-500 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
+                    <div className="relative h-[7px]">
+                        {raidRanges}
+                    </div>
+                    <div className="relative h-[8px]">
+                        {characterTicks}
+                    </div>
                 </div>
 
                 {/* 연도 레이블 */}
@@ -147,6 +178,8 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
         </div>
     );
 }
+
+
 
 
 export default React.memo(MinimapHandle);
