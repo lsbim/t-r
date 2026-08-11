@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rect } from 'react-konva';
 
-interface TimelineWoodBGProps {
+interface TimelineStageBgProps {
     timelinePx: number;
     stageWidth: number;
     stageHeight: number;
@@ -10,7 +10,7 @@ interface TimelineWoodBGProps {
 const TIMELINE_BG_COLOR = '#7C8F6E'
 const EDGE_SIZE = 12;
 
-const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
+const TimelineStageBg: React.FC<TimelineStageBgProps> = ({
     timelinePx,
     stageWidth,
     stageHeight,
@@ -50,4 +50,4 @@ const TimelineWoodBG: React.FC<TimelineWoodBGProps> = ({
     );
 }
 
-export default React.memo(TimelineWoodBG)
+export default React.memo(TimelineStageBg)

@@ -1,12 +1,12 @@
 import Konva from "konva";
-import React, { RefObject, useMemo, useState } from 'react';
+import React, { RefObject, useMemo } from 'react';
 import { Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
 import RaidCardList from "./RaidCardList";
 import RowDivider from "./RowDivider";
-import TimelineWoodBG from './TimelineWoodBG';
+import TimelineStageBg from "./TimelineStageBg";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -61,6 +61,7 @@ const MainStage: React.FC<MainStageProps> = ({
       ref={containerRef}
       style={{ height: STAGE_HEIGHT }}
       className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden`}>
+
       <Stage
         ref={(node) => {
           if (node) timelineStage.set(node);
@@ -76,7 +77,7 @@ const MainStage: React.FC<MainStageProps> = ({
           perfectDrawEnabled={false}
           ref={layerRef}>
           {/* 나무팻말 배경 */}
-          <TimelineWoodBG
+          <TimelineStageBg
             timelinePx={timelinePx}
             stageWidth={stageWidth}
             stageHeight={STAGE_HEIGHT}
