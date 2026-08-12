@@ -4,9 +4,10 @@ import { Group, Image, Rect, Shape, Text } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
-import { getPersonalityColor } from "../../../types/trickcalTypes";
+import { getPersonalityColor, getPersonalityDarkColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
+import { useTheme } from "../../../hooks/useTheme";
 
 const CARD = {
     w: 100,
@@ -33,6 +34,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
     calX,
     rowY,
 }) => {
+    const { theme } = useTheme()
     const groupRef = useRef<Konva.Group>(null); // 카드를 감싸는 최상위 Group
     const cardTweenRef = useRef<Konva.Tween | null>(null);
 
@@ -121,7 +123,10 @@ const RaidCard: React.FC<RaidCardProps> = ({
         };
     }, []);
 
-    const personalityColor = getPersonalityColor(node.personality!);
+    const personalityColor = theme === 'dark'
+        ? getPersonalityDarkColor(node?.personality!)
+        : getPersonalityColor(node?.personality!);
+        
     const markImageSrc = node.personality
         ? `/images/personality/보스_${node.personality}.webp`
         : `/images/personality/보스_무성격.webp`

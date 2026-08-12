@@ -37,16 +37,16 @@ const PERSONALITY_COLORS = {
     '광기': { defalut: '#eb839a', dark: '#cf667d' },
     '활발': { defalut: '#ebdb83', dark: '#cfbe62' },
     '우울': { defalut: '#c683ec', dark: '#a766c9' },
-    '공명': { defalut: '#FFFFFF', dark: '#CCCCCC' },
+    '공명': { defalut: '#DDDDDD', dark: '#BBBBBB' },
 };
 
 // 헥스코드 반환
 export const getPersonalityColor = (personality: Personality) => {
-    return PERSONALITY_COLORS[personality].defalut || '#151e51'; // 프론티어 색상
+    return PERSONALITY_COLORS[personality]?.defalut || '#151e51'; // 프론티어 색상
 };
 // 다크모드용
 export const getPersonalityDarkColor = (personality: Personality) => {
-    return PERSONALITY_COLORS[personality].dark || '#29356b'; // 다크모드용 밝은 프론티어 색상
+    return PERSONALITY_COLORS[personality]?.dark || '#29356b'; // 다크모드용 밝은 프론티어 색상
 };
 
 // 요약 데이터 베이스

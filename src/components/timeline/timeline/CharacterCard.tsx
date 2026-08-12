@@ -4,9 +4,10 @@ import { Group, Image, Rect, Shape } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
-import { getPersonalityColor, Personality } from "../../../types/trickcalTypes";
+import { getPersonalityColor, getPersonalityDarkColor, Personality } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
+import { useTheme } from "../../../hooks/useTheme";
 
 // 카드 몸통
 const CARD = {
@@ -33,6 +34,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
     calX,
     rowY
 }) => {
+    const { theme } = useTheme();
+
     const groupRef = useRef<Konva.Group>(null); // 카드를 감싸는 최상위 Group
     const cardTweenRef = useRef<Konva.Tween | null>(null);
     const isActiveRef = useRef(false);
@@ -130,6 +133,10 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         };
     }, []);
 
+    const personalityColor = theme === 'dark'
+        ? getPersonalityDarkColor(node?.personality!)
+        : getPersonalityColor(node?.personality!);
+
     return (
         <Group
             name="card"
@@ -189,7 +196,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                         ctx.fillShape(shape);
                         ctx.strokeShape(shape);
                     }}
-                    fill={getPersonalityColor(node.personality as Personality)}
+                    fill={personalityColor}
                     stroke="rgb(226,220,200)"
                     strokeWidth={2}
                     perfectDrawEnabled={false}
