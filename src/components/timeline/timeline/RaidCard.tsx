@@ -1,6 +1,6 @@
 import Konva from "konva";
 import React, { useEffect, useRef } from "react";
-import { Circle, Group, Image, Line, Rect, Shape, Text } from "react-konva";
+import { Group, Image, Rect, Shape, Text } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
