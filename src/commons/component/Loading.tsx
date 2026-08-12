@@ -32,22 +32,3 @@ const Loading = () => {
 }
 
 export default Loading;
-
-export const MiniLoading = () => {
-
-    return (
-        <div className="absolute flex items-center gap-x-2 left-1/2 -translate-x-1/2">
-            {LOADING_ICONS.map((src, index) => (
-                <img
-                    key={`loading_image_${index}`}
-                    src={src}
-                    alt="loading"
-                    className="w-[30px] h-[30px] object-contain animate-jelly"
-                    style={{
-                        animationDelay: `${index * 0.15}s`
-                    }}
-                />
-            ))}
-        </div>
-    )
-}

@@ -15,7 +15,6 @@ import { ClashV2Summary } from "../../types/clashV2Types";
 import { FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
-import Loading, { MiniLoading } from "../../commons/component/Loading";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
