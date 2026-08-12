@@ -113,7 +113,9 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     }, [timelineMap, totalDays]);
 
     return (
-        <div className="lg:w-[992px] w-[90%]">
+        <div
+            onDragStart={(e) => e.preventDefault()}
+            className="lg:w-[992px] w-[90%]">
             <div
                 onPointerDown={handlePointerDown}
                 className="relative w-[88%] mx-auto select-none cursor-pointer">
@@ -171,6 +173,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
 
                 {/* 가리킨 날짜 표기 */}
                 <div
+                    draggable={false}
                     ref={tooltipElRef}
                     className="absolute top-[38px] z-30 bg-white border-[0.5px] border-zinc-300 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-200 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]"
                 />

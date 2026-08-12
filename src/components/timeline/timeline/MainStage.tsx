@@ -60,6 +60,7 @@ const MainStage: React.FC<MainStageProps> = ({
 
   return (
     <div
+      onDragStart={(e) => e.preventDefault()}
       ref={containerRef}
       style={{ height: STAGE_HEIGHT }}
       className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden touch-none`}>
