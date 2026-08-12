@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
-import RaidCard from "../../commons/card/RaidCard";
+import HomeRaidCard from "../../commons/card/RaidCard";
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import ToggleSwitch from "../../commons/component/ToggleSwitch";
@@ -17,7 +17,7 @@ import { Personality, Race, races } from "../../types/trickcalTypes";
 
 const IndexPage = () => {
 
-    const { data } = useNonData();
+    const { data: nonData } = useNonData('clash');
     const { data: latest } = useRaidData<LatestData>('latest', 'summary');
     const [isEldain, setIsEldain] = useState<Boolean>(false)
     const [category, setCategory] = useState<'race' | 'pers'>('race')
@@ -70,7 +70,7 @@ const IndexPage = () => {
         )
     }, [isEldain, category]);
 
-    if (!data || !latest) {
+    if (!nonData || !latest) {
         return (<Loading />);
     }
 
@@ -94,7 +94,7 @@ const IndexPage = () => {
                         <div
                             key={`raid_card_${key}`}
                             className="w-[33%] relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
-                            <RaidCard
+                            <HomeRaidCard
                                 data={value}
                                 raidType={key as 'clash' | 'clashV2' | 'frontier'}
                             />
@@ -143,7 +143,7 @@ const IndexPage = () => {
             </div>
             {/* 공지 */}
             <NoticeComponent
-                data={data}
+                nonData={nonData}
             />
             <Footer />
         </div >
