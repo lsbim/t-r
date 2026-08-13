@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 292,
+        "pickRate": 97.3,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 292
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -69,18 +87,6 @@
         "personality": "광기",
         "startDate": "2026-02-19",
         "endDate": "2026-02-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -243,17 +249,17 @@
   "recentSkins": [
     {
       "cosName": "왕관의 수여자",
-      "cosUsedCount": 183,
-      "charTotalCount": 376,
-      "rate": 48.7,
+      "cosUsedCount": 282,
+      "charTotalCount": 580,
+      "rate": 48.6,
       "lvl": "pretty",
       "launchDate": "2026-03-26"
     },
     {
       "cosName": "일일 요정 여왕",
-      "cosUsedCount": 135,
-      "charTotalCount": 376,
-      "rate": 35.9,
+      "cosUsedCount": 202,
+      "charTotalCount": 580,
+      "rate": 34.8,
       "lvl": "normal",
       "launchDate": "2026-03-26"
     }

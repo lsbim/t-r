@@ -124,6 +124,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 214,
+        "pickRate": 71.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 214
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -191,24 +209,6 @@
             "line": "중열",
             "rank": 1,
             "count": 215
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 44,
-        "pickRate": 14.7,
-        "overallRank": 19,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 44
           }
         ],
         "totalEntries": 300
@@ -401,25 +401,25 @@
   "recentSkins": [
     {
       "cosName": "빛바랜 기억",
-      "cosUsedCount": 72,
-      "charTotalCount": 156,
-      "rate": 46.2,
+      "cosUsedCount": 227,
+      "charTotalCount": 327,
+      "rate": 69.4,
       "lvl": "pretty",
       "launchDate": "2026-07-09"
     },
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 39,
-      "charTotalCount": 156,
-      "rate": 25,
+      "cosUsedCount": 38,
+      "charTotalCount": 327,
+      "rate": 11.6,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 25,
-      "charTotalCount": 156,
-      "rate": 16,
+      "cosUsedCount": 37,
+      "charTotalCount": 327,
+      "rate": 11.3,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     }

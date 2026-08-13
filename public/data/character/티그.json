@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 24,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 11,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -56,24 +74,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 43,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 16,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
@@ -210,8 +210,8 @@
     {
       "cosName": "활발한 체육 특기생",
       "cosUsedCount": 2,
-      "charTotalCount": 3,
-      "rate": 66.7,
+      "charTotalCount": 4,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

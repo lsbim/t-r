@@ -52,7 +52,7 @@ const CostumeRank = (
                         <div
                             className={`w-[220px] ${rankBorderShadow(i)} border-2`}>
                             {/* 사도 사복 컷 */}
-                            <div className={`overflow-hidden min-h-[185px] min-w-[216px] ${rankBG(i)}`}>
+                            <div className={`overflow-hidden min-h-[185px] max-h-[185px] min-w-[216px] ${rankBG(i)}`}>
                                 <div className="select-none ml-[108px] w-full animate-bounce-in" key={cos?.cosName}>
                                     <img
                                         className={`object-cover w-[130%] scale-125`}

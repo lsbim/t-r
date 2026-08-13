@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 24,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -65,24 +83,6 @@
             "line": "후열",
             "rank": 14,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 82,
-        "pickRate": 27.3,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 82
           }
         ],
         "totalEntries": 300
@@ -233,17 +233,17 @@
   "recentSkins": [
     {
       "cosName": "롱 레인지 서비스",
-      "cosUsedCount": 58,
-      "charTotalCount": 89,
-      "rate": 65.2,
+      "cosUsedCount": 11,
+      "charTotalCount": 20,
+      "rate": 55,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
       "cosName": "봉봉한 바캉스",
-      "cosUsedCount": 7,
-      "charTotalCount": 89,
-      "rate": 7.9,
+      "cosUsedCount": 1,
+      "charTotalCount": 20,
+      "rate": 5,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     }

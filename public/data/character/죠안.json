@@ -10,6 +10,29 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 10,
+            "count": 2
+          },
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -81,34 +104,6 @@
             "line": "후열",
             "rank": 5,
             "count": 51
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 259,
-        "pickRate": 86.3,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 34
-          },
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 85
-          },
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 140
           }
         ],
         "totalEntries": 300
@@ -325,25 +320,25 @@
   "recentSkins": [
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 94,
-      "charTotalCount": 213,
-      "rate": 44.1,
+      "cosUsedCount": 93,
+      "charTotalCount": 214,
+      "rate": 43.5,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "댄스 크루 달링",
       "cosUsedCount": 42,
-      "charTotalCount": 213,
-      "rate": 19.7,
+      "charTotalCount": 214,
+      "rate": 19.6,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     },
     {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 27,
-      "charTotalCount": 213,
-      "rate": 12.7,
+      "cosUsedCount": 28,
+      "charTotalCount": 214,
+      "rate": 13.1,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     }

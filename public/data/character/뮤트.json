@@ -22,6 +22,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 48,
+        "pickRate": 16,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 48
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -89,24 +107,6 @@
             "line": "후열",
             "rank": 7,
             "count": 31
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 43,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 14,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -304,16 +304,16 @@
   "recentSkins": [
     {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 266,
-      "charTotalCount": 454,
-      "rate": 58.6,
+      "cosUsedCount": 283,
+      "charTotalCount": 480,
+      "rate": 59,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "위험한 옆집 스파이",
-      "cosUsedCount": 33,
-      "charTotalCount": 454,
+      "cosUsedCount": 35,
+      "charTotalCount": 480,
       "rate": 7.3,
       "lvl": "normal",
       "launchDate": "2025-09-11"

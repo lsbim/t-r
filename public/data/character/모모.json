@@ -127,6 +127,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 227,
+        "pickRate": 75.7,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 227
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -194,24 +212,6 @@
             "line": "후열",
             "rank": 2,
             "count": 151
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 20,
-        "pickRate": 6.7,
-        "overallRank": 20,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 20
           }
         ],
         "totalEntries": 300
@@ -404,25 +404,25 @@
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 66,
-      "charTotalCount": 146,
-      "rate": 45.2,
+      "cosUsedCount": 164,
+      "charTotalCount": 372,
+      "rate": 44.1,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 51,
-      "charTotalCount": 146,
-      "rate": 34.9,
+      "cosUsedCount": 136,
+      "charTotalCount": 372,
+      "rate": 36.6,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 5,
-      "charTotalCount": 146,
-      "rate": 3.4,
+      "cosUsedCount": 26,
+      "charTotalCount": 372,
+      "rate": 7,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

@@ -22,6 +22,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 28,
+        "pickRate": 9.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 28
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -77,24 +95,6 @@
             "line": "중열",
             "rank": 6,
             "count": 63
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 65,
-        "pickRate": 21.7,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 65
           }
         ],
         "totalEntries": 300
@@ -281,9 +281,9 @@
   "recentSkins": [
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 90,
-      "charTotalCount": 277,
-      "rate": 32.5,
+      "cosUsedCount": 29,
+      "charTotalCount": 63,
+      "rate": 46,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

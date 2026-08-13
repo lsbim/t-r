@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 138,
+        "pickRate": 46,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 138
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -77,24 +95,6 @@
             "line": "전열",
             "rank": 6,
             "count": 11
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 28,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 12,
-            "count": 7
           }
         ],
         "totalEntries": 300
@@ -263,25 +263,25 @@
   "recentSkins": [
     {
       "cosName": "병약 미소뱀",
-      "cosUsedCount": 86,
-      "charTotalCount": 172,
-      "rate": 50,
+      "cosUsedCount": 127,
+      "charTotalCount": 309,
+      "rate": 41.1,
       "lvl": "pretty",
       "launchDate": "2025-04-17"
     },
     {
       "cosName": "태양 빛 아래의 뱀",
-      "cosUsedCount": 48,
-      "charTotalCount": 172,
-      "rate": 27.9,
+      "cosUsedCount": 124,
+      "charTotalCount": 309,
+      "rate": 40.1,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "하늘하늘 슬리퍼",
-      "cosUsedCount": 19,
-      "charTotalCount": 172,
-      "rate": 11,
+      "cosUsedCount": 32,
+      "charTotalCount": 309,
+      "rate": 10.4,
       "lvl": "normal",
       "launchDate": "2025-02-27"
     }
