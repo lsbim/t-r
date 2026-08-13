@@ -20,11 +20,10 @@ import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/c
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
 
 
-const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: string; }>
-    = {
-    clash: { label: '대충돌', color: '#fe4a75' },
-    frontier: { label: '프론티어', color: '#3095d2', },
-    clashV2: { label: '대충돌 2.0', color: '#107535', },
+const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: string; }> = {
+    clash: { label: '차원 대충돌', color: '#fe4a75' },
+    frontier: { label: '엘리아스 프론티어', color: '#3095d2', },
+    clashV2: { label: '차원 대충돌 2.0', color: '#107535', },
 };
 
 const formatSeasonLabel = (seasonNumber: number) =>
