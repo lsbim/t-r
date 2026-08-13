@@ -23,7 +23,7 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
         <div className="flex gap-x-2">
             {/* 사도 사진 */}
             <div
-                className={`flex items-center justify-center rounded-xl border transition-colors duration-200 border-zinc-300 dark:border-zinc-700 overflow-hidden hover:border-${charInfo[charName].personality} hover:dark:border-${charInfo[charName].personality} cursor-pointer group`}
+                className={`lg:m-0 ml-2 flex items-center justify-center rounded-xl border transition-colors duration-200 border-zinc-300 dark:border-zinc-700 overflow-hidden hover:border-${charInfo[charName].personality} hover:dark:border-${charInfo[charName].personality} cursor-pointer group`}
             >
                 <img
                     src={`/images/character/${charName}.webp`}
