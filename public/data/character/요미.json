@@ -47,6 +47,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -114,24 +132,6 @@
             "line": "중열",
             "rank": 5,
             "count": 87
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 286,
-        "pickRate": 95.3,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 286
           }
         ],
         "totalEntries": 300
@@ -330,17 +330,17 @@
   "recentSkins": [
     {
       "cosName": "마법의 달빛",
-      "cosUsedCount": 80,
-      "charTotalCount": 164,
-      "rate": 48.8,
+      "cosUsedCount": 78,
+      "charTotalCount": 163,
+      "rate": 47.9,
       "lvl": "pretty",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "밤바다 선원",
-      "cosUsedCount": 25,
-      "charTotalCount": 164,
-      "rate": 15.2,
+      "cosUsedCount": 27,
+      "charTotalCount": 163,
+      "rate": 16.6,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

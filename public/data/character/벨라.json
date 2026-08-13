@@ -5,6 +5,17 @@
   "topSeasons": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 45,
         "name": "크르브르스",
         "personality": "우울",
@@ -181,6 +192,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 299
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -248,24 +277,6 @@
             "line": "전열",
             "rank": 3,
             "count": 218
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 159,
-        "pickRate": 53,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 159
           }
         ],
         "totalEntries": 300
@@ -462,18 +473,26 @@
   },
   "recentSkins": [
     {
+      "cosName": "존재감 넘치는 구미호",
+      "cosUsedCount": 241,
+      "charTotalCount": 871,
+      "rate": 27.7,
+      "lvl": "pretty",
+      "launchDate": "2026-08-06"
+    },
+    {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 326,
-      "charTotalCount": 869,
-      "rate": 37.5,
+      "cosUsedCount": 228,
+      "charTotalCount": 871,
+      "rate": 26.2,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 322,
-      "charTotalCount": 869,
-      "rate": 37.1,
+      "cosUsedCount": 223,
+      "charTotalCount": 871,
+      "rate": 25.6,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     }

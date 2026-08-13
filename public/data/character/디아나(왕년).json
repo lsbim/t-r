@@ -181,6 +181,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 7,
+        "pickRate": 2.3,
+        "overallRank": 19,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 8,
+            "count": 7
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -248,24 +266,6 @@
             "line": "전열",
             "rank": 1,
             "count": 289
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 68,
-        "pickRate": 22.7,
-        "overallRank": 12,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 6,
-            "count": 68
           }
         ],
         "totalEntries": 300
@@ -457,16 +457,16 @@
     {
       "cosName": "교단 군기반장",
       "cosUsedCount": 259,
-      "charTotalCount": 406,
-      "rate": 63.8,
+      "charTotalCount": 410,
+      "rate": 63.2,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 41,
-      "charTotalCount": 406,
-      "rate": 10.1,
+      "cosUsedCount": 42,
+      "charTotalCount": 410,
+      "rate": 10.2,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

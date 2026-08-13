@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 9,
+            "count": 6
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -80,18 +98,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "frontier": [
@@ -281,17 +287,17 @@
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 48,
-      "charTotalCount": 81,
-      "rate": 59.3,
+      "cosUsedCount": 47,
+      "charTotalCount": 82,
+      "rate": 57.3,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
       "cosUsedCount": 2,
-      "charTotalCount": 81,
-      "rate": 2.5,
+      "charTotalCount": 82,
+      "rate": 2.4,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }

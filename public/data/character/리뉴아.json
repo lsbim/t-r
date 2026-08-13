@@ -270,6 +270,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 250,
+        "pickRate": 83.3,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 250
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -337,24 +355,6 @@
             "line": "중열",
             "rank": 2,
             "count": 204
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 20,
-        "pickRate": 6.7,
-        "overallRank": 20,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 10,
-            "count": 20
           }
         ],
         "totalEntries": 300
@@ -551,17 +551,17 @@
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 399,
-      "charTotalCount": 894,
-      "rate": 44.6,
+      "cosUsedCount": 373,
+      "charTotalCount": 847,
+      "rate": 44,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 309,
-      "charTotalCount": 894,
-      "rate": 34.6,
+      "cosUsedCount": 297,
+      "charTotalCount": 847,
+      "rate": 35.1,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

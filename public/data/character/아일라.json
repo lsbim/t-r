@@ -23,6 +23,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 47,
+        "name": "크레용사용",
+        "personality": "우울",
+        "startDate": "2026-08-06",
+        "endDate": "2026-08-13",
+        "pickCount": 89,
+        "pickRate": 29.7,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 89
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 46,
         "name": "릴1리",
         "personality": "순수",
@@ -90,24 +108,6 @@
             "line": "중열",
             "rank": 7,
             "count": 17
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 42,
-        "name": "릴1리",
-        "personality": "활발",
-        "startDate": "2026-01-08",
-        "endDate": "2026-01-15",
-        "pickCount": 5,
-        "pickRate": 1.7,
-        "overallRank": 32,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 14,
-            "count": 5
           }
         ],
         "totalEntries": 300
@@ -300,17 +300,17 @@
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",
-      "cosUsedCount": 195,
-      "charTotalCount": 455,
-      "rate": 42.9,
+      "cosUsedCount": 236,
+      "charTotalCount": 534,
+      "rate": 44.2,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "카우치 볼케이노",
-      "cosUsedCount": 71,
-      "charTotalCount": 455,
-      "rate": 15.6,
+      "cosUsedCount": 84,
+      "charTotalCount": 534,
+      "rate": 15.7,
       "lvl": "normal",
       "launchDate": "2025-12-18"
     }

@@ -61,6 +61,7 @@ export const costumes: Costume[] = [
     { charName: "나이아", cosName: "호수의 해적 선장", lvl: "normal", launchDate: "2026-06-18" },
     { charName: "캐시", cosName: "차원이 다른 과학 유령", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "델리아", cosName: "모두와 함께 바다로", lvl: "normal", launchDate: "2026-07-23" },
+    { charName: "스패럿", cosName: "거침없는 앵아치", lvl: "normal", launchDate: "2026-08-13" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -221,6 +222,7 @@ export const costumes: Costume[] = [
     { charName: "우이", cosName: "빛바랜 기억", lvl: "pretty", launchDate: "2026-07-09" },
     { charName: "슈로", cosName: "태양 빛 아래의 뱀", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "에슈르(마도)", cosName: "힐링을 위한 해변 산책", lvl: "normal", launchDate: "2026-07-30" },
+    { charName: "벨라", cosName: "존재감 넘치는 구미호", lvl: "pretty", launchDate: "2026-08-06" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
