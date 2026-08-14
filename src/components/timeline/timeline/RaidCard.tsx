@@ -41,6 +41,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
     const isActiveRef = useRef(false);
     const homeLayerRef = useRef<Konva.Layer | null>(null);  // 전체 노드가 담긴 Layer 임시 저장용
     const cardId = useRef(Symbol()); // 카드 고유 Id(Symbol)
+    const hitBoxRef = useRef<Konva.Rect>(null);
 
     const { showPopover, deactivateNow } = usePopoverActions();
 
@@ -49,8 +50,11 @@ const RaidCard: React.FC<RaidCardProps> = ({
 
     const activate = (e: Konva.KonvaEventObject<MouseEvent | TouchEvent>) => {
         if (!groupRef.current) return;
+
         timelineEvents.emitDeactivateAll(cardId.current);
         isActiveRef.current = true;
+
+        hitBoxRef.current?.height(CARD.h + Math.abs(HOVER_LIFT_Y));
 
         const stage = e.target.getStage();
         if (stage) {
@@ -96,6 +100,8 @@ const RaidCard: React.FC<RaidCardProps> = ({
     const deactivateAni = () => {
         if (!groupRef.current) return;
         isActiveRef.current = false;
+
+        hitBoxRef.current?.height(CARD.h);
 
         cardTweenRef.current?.destroy();
         cardTweenRef.current = new Konva.Tween({
@@ -162,6 +168,16 @@ const RaidCard: React.FC<RaidCardProps> = ({
                     activate(e);
                 }
             }}>
+            {/* 활성 영역 터치 히트박스 */}
+            <Rect
+                ref={hitBoxRef}
+                x={0}
+                y={0}
+                width={CARD.w}
+                height={CARD.h}
+                fill="transparent"
+                perfectDrawEnabled={false}
+            />
             {/* Rounded 처리 */}
             <Group
                 clipFunc={(ctx) => {

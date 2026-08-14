@@ -167,6 +167,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 }
             }}
         >
+            {/* 활성 영역 터치 히트박스 */}
             <Rect
                 ref={hitBoxRef}
                 x={0}
