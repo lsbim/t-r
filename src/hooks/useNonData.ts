@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { ClashSummary } from "../types/clashTypes";
-import { FrontierSummary } from "../types/frontierTypes";
+import { ClashBase } from "../types/clashTypes";
+import { FrontierBase } from "../types/frontierTypes";
 
 
 const fetchNonData = async (key: 'clash' | 'frontier') => {
@@ -14,7 +14,7 @@ const fetchNonData = async (key: 'clash' | 'frontier') => {
     return response.json();
 };
 
-export const useNonData = <T extends ClashSummary | FrontierSummary>(key: 'clash' | 'frontier') => {
+export const useNonData = <T extends ClashBase | FrontierBase>(key: 'clash' | 'frontier') => {
 
     return useQuery<T, Error>({
         queryKey: [`non_data_${key}`],

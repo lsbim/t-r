@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import SlideColorNav from "../../commons/animation/SlideColorNav";
-import HomeRaidCard from "../../commons/card/RaidCard";
+import HomeRaidCard from "../../commons/card/HomeRaidCard";
 import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import ToggleSwitch from "../../commons/component/ToggleSwitch";

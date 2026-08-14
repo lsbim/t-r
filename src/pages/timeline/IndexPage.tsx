@@ -10,11 +10,12 @@ import useTimelineDrag from "../../hooks/useTimelineDrag";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
-import { ClashSummary } from "../../types/clashTypes";
+import { ClashBase, ClashSummary } from "../../types/clashTypes";
 import { ClashV2Summary } from "../../types/clashV2Types";
-import { FrontierSummary } from "../../types/frontierTypes";
+import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
+import { useNonData } from "../../hooks/useNonData";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
@@ -23,6 +24,8 @@ const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
     const { data: clash } = useRaidData<ClashSummary>('clash', 'summary');
     const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
+    const { data: nonClash } = useNonData<ClashBase>('clash');
+    const { data: nonFrontier } = useNonData<FrontierBase>('frontier');
 
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
@@ -39,7 +42,7 @@ const IndexPage = () => {
 
     // 키: 날짜, 값: 레이드/사도 정보 객체[]
     const timelineMap: TimelineMap = useMemo(() => {
-        if (!frontier || !clash || !clashV2) return {};
+        if (!frontier || !clash || !clashV2 || !nonClash || !nonFrontier) return {};
 
         const map: TimelineMap = {};
 
@@ -64,6 +67,7 @@ const IndexPage = () => {
             });
         });
 
+        // 레이드 컨텐츠
         Object.entries(clash).forEach(([key, r]) => {
             const { startDate, endDate } = toIsoDates(r);
             pushNode(startDate, {
@@ -104,9 +108,42 @@ const IndexPage = () => {
             });
         });
 
-        return map;
-    }, [clash, frontier, clashV2]);
+        // 집계 데이터가 없는 시즌들
+        Object.entries(nonClash).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "clash",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: r.personality ?? null,
+                rules: r.rules,
+                isNonData: true,
+            });
+        });
 
+        Object.entries(nonFrontier).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "frontier",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: r.personality ?? null,
+                power: r.power,
+                isNonData: true,
+            });
+        });
+
+        return map;
+    }, [clash, frontier, clashV2, nonClash, nonFrontier]);
+
+
+
+    console.log('nonClash: ', nonClash)
+    console.log('nonFrontier: ', nonFrontier)
     console.log('timelineMap: ', timelineMap)
 
     return (

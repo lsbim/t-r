@@ -60,7 +60,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                     기간
                 </span>
                 <span>
-                    {node.startDate} ~ {node.endDate}
+                    {node?.startDate} ~ {node?.endDate}
                 </span>
             </div>
             {node?.type === 'clash' && (
@@ -108,9 +108,9 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                     </div>
                 </div>
             )}
-            {node.type === 'frontier' && (
+            {node?.type === 'frontier' && (
                 <div className="flex flex-col">
-                    {node.power.map((po, index) => (
+                    {node?.power?.map((po, index) => (
                         <div key={po}
                             className="flex gap-x-1">
                             <span className="text-gray-600 dark:text-zinc-400 w-[60px]">

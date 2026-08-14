@@ -1,9 +1,9 @@
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import MyAccordion from "../../commons/rdx/MyAccordion";
-import { ClashSummary } from "../../types/clashTypes";
-import { FrontierSummary } from "../../types/frontierTypes";
+import { ClashBase, ClashSummary } from "../../types/clashTypes";
+import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 
-const NoticeComponent = ({ nonData }: { nonData: ClashSummary | FrontierSummary }) => {
+const NoticeComponent = ({ nonData }: { nonData: ClashBase | FrontierBase }) => {
 
     if (!nonData) {
         return <></>;

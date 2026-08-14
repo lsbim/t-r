@@ -13,7 +13,7 @@ export interface FrontierPlayerData {
     skinArr?: (string | null)[];
 }
 
-interface FrontierBase {
+export interface FrontierBase {
     name: string; // 프론티어 몬스터 이름. "릴1리", "크르브르스" ...
     startDate: string; // "YYYY-MM-DD" 형식
     endDate: string; // "YYYY-MM-DD" 형식
@@ -47,5 +47,4 @@ export interface FrontierData {
 
 export interface FrontierSummary extends FrontierBase {
     summary: SummaryData[];
-    stagnation?: number; // 고착화점수
 }

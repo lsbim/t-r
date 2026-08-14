@@ -18,6 +18,7 @@ export interface RaidNodeBase extends TimelineNode {
 export interface ClashNode extends RaidNodeBase {
     type: "clash";
     rules: string[];
+    isNonData?: boolean;
 }
 
 export interface ClashV2Node extends RaidNodeBase {
@@ -29,6 +30,7 @@ export interface ClashV2Node extends RaidNodeBase {
 export interface FrontierNode extends RaidNodeBase {
     type: "frontier";
     power: number[];
+    isNonData?: boolean;
 }
 
 export type RaidNode = ClashNode | ClashV2Node | FrontierNode;

@@ -75,27 +75,30 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
     // 사도 출시일 틱
     const characterTicks = useMemo(() => {
         return Object.entries(timelineMap).flatMap(([dateStr, nodes]) =>
-            nodes.filter(isCharacterNode).map((node, i) => {
-                const date = new Date(node.birthDate);
-                const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
-                const pct = (days / totalDays) * 100;
-                return (
-                    <div
-                        key={`timeline_handle_character_${dateStr}-${i}`}
-                        className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
-                        style={{ left: `${pct}%` }}
-                    />
-                );
-            })
+            nodes
+                .filter(isCharacterNode)
+                .map((node, i) => {
+                    const date = new Date(node.birthDate);
+                    const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
+                    const pct = (days / totalDays) * 100;
+                    return (
+                        <div
+                            key={`timeline_handle_character_${dateStr}_${i}`}
+                            className={`absolute top-0 bottom-0 w-0.5 opacity-85 translate-x-[-50%] bg-${node.personality}`}
+                            style={{ left: `${pct}%` }}
+                        />
+                    );
+                })
         );
     }, [timelineMap, totalDays]);
 
     // 레이드 기간 범위
     const raidRanges = useMemo(() => {
-        return Object.values(timelineMap).flat()
+        return Object.values(timelineMap)
+            .flat()
             .filter(isRaidNode)
             .sort((a, b) => a.startDate.localeCompare(b.startDate))
-            .map((node) => {
+            .map((node, i) => {
                 const startDays = Math.floor((new Date(node.startDate).getTime() - START_DATE.getTime()) / 86400000);
                 const endDays = Math.floor((new Date(node.endDate).getTime() - START_DATE.getTime()) / 86400000);
                 const leftPct = (startDays / totalDays) * 100;
@@ -104,7 +107,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
 
                 return (
                     <div
-                        key={`timeline_handle_raid_${node.type}-${node.season}`}
+                        key={`timeline_handle_raid_${node.type}_${node.season}_${i}`}
                         className={`absolute top-0 bottom-0 opacity-85 ${colorClass}`}
                         style={{ left: `${leftPct}%`, width: `${widthPct}%` }}
                     />
@@ -153,7 +156,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                             const pct = (days / totalDays) * 100;
                             labels.push(
                                 <span
-                                    key={y}
+                                    key={`minimap_handle_year_${y}`}
                                     className="absolute text-[11px] text-gray-600 dark:text-zinc-400 whitespace-nowrap translate-x-[-50%]"
                                     style={{ left: `${pct}%` }}>
                                     {y}
