@@ -123,13 +123,17 @@ const RaidCard: React.FC<RaidCardProps> = ({
         };
     }, []);
 
-    const personalityColor = theme === 'dark'
-        ? getPersonalityDarkColor(node?.personality!)
-        : getPersonalityColor(node?.personality!);
-        
+    const isGrayscale = 'isNonData' in node;
+    const personalityColor = isGrayscale
+        ? "#71717A"
+        : (theme === 'dark'
+            ? getPersonalityDarkColor(node?.personality!)
+            : getPersonalityColor(node?.personality!));
+
     const markImageSrc = node.personality
         ? `/images/personality/보스_${node.personality}.webp`
         : `/images/personality/보스_무성격.webp`
+
 
     return (
         <Group
@@ -195,6 +199,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
                     width={CARD.w}
                     x={0}
                     y={15}
+                    isGrayscale={isGrayscale}
                 />
 
                 {/* 하단 이름 칸 */}
@@ -219,7 +224,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
                     x={CARD.w / 2 - 25 / 2}
                     y={PLATE_BASE_Y - HILL_HEIGHT - 30 / 2}
                 >
-                    <MarkImage src={markImageSrc} size={25} />
+                    <MarkImage src={markImageSrc} size={25} isGrayscale={isGrayscale} />
                 </Group>
             )}
 
@@ -251,17 +256,38 @@ const RaidCard: React.FC<RaidCardProps> = ({
     );
 };
 
-const MarkImage: React.FC<{ src: string; size: number }> = ({ src, size }) => {
-    const [img, setImg] = React.useState<HTMLImageElement | null>(null);
+const MarkImage: React.FC<{
+    src: string;
+    size: number,
+    isGrayscale: boolean
+}> = ({
+    src,
+    size,
+    isGrayscale,
+}) => {
+        const [img, setImg] = React.useState<HTMLImageElement | null>(null);
+        const imageRef = React.useRef<Konva.Image>(null);
 
-    useEffect(() => {
-        const image = new window.Image();
-        image.src = src;
-        image.onload = () => setImg(image);
-    }, [src]);
+        useEffect(() => {
+            const image = new window.Image();
+            image.src = src;
+            image.onload = () => setImg(image);
+        }, [src]);
 
-    if (!img) return null;
-    return <Image image={img} width={size} height={size} />;
-};
+        useEffect(() => {
+            if (img && imageRef.current && isGrayscale) {
+                imageRef.current.cache();
+            }
+        }, [img, isGrayscale]);
+
+        if (!img) return null;
+        return <Image
+            ref={imageRef}
+            image={img}
+            width={size}
+            height={size}
+            filters={isGrayscale ? [Konva.Filters.Grayscale] : []}
+        />;
+    };
 
 export default React.memo(RaidCard);

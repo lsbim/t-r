@@ -71,7 +71,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                             <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
                                 {index === 0 ? '규칙' : ''}
                             </span>
-                            <span>
+                            <span className={`${rule?.endsWith('!') ? 'text-red-600 dark:text-red-400' : ''}`}>
                                 {rule}
                             </span>
                         </div>
@@ -160,6 +160,15 @@ const PopoverCard = () => {
         ? `border-${personality}-dark`
         : 'border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]';
 
+    const isNonData = 'isNonData' in target?.node ? Boolean(target?.node?.isNonData) : false;
+    const ImageContent = (
+        <img
+            src={imgUrl}
+            alt={targetName}
+            className={target.type === "raid" ? 'scale-[1.5] origin-[50%_20%]' : ''}
+        />
+    );
+
     console.log('popover: ', popover)
 
 
@@ -177,16 +186,20 @@ const PopoverCard = () => {
 
                     <div className="flex flex-col gap-y-2">
                         <div className="flex justify-center items-center gap-x-2">
-                            <Link
-                                to={detailPath}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
-                                <img
-                                    src={imgUrl}
-                                    className={`${target.type === "raid" && 'scale-[1.5] origin-[50%_20%]'}`}
-                                />
-                            </Link>
+                            {isNonData ? (
+                                <div className={`grayscale overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
+                                    {ImageContent}
+                                </div>
+                            ) : (
+                                <Link
+                                    to={detailPath}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
+                                    {ImageContent}
+                                </Link>
+                            )}
+
                             <div className="flex flex-col gap-y-1 justify-center">
                                 <span className="font-bold text-[14px]">
                                     {targetName}
@@ -204,7 +217,7 @@ const PopoverCard = () => {
                                     </div>
                                 ) : target.type === "raid" ? (
                                     <div className="flex gap-x-1 items-center">
-                                        {target?.node.personality && (
+                                        {target?.node?.personality && (
                                             <img
                                                 className="w-4 h-4"
                                                 src={`/images/personality/${target?.node.personality}.webp`}
