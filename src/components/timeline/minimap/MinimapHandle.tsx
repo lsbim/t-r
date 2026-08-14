@@ -103,7 +103,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                 const endDays = Math.floor((new Date(node.endDate).getTime() - START_DATE.getTime()) / 86400000);
                 const leftPct = (startDays / totalDays) * 100;
                 const widthPct = ((endDays - startDays) / totalDays) * 100;
-                const colorClass = node.personality ? `bg-${node.personality}` : 'bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.35_0.094_270.913)]';
+                const colorClass = node.personality ? `bg-${node.personality}` : 'bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.45_0.1_270.913)]';
 
                 return (
                     <div
