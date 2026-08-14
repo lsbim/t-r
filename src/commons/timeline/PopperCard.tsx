@@ -1,7 +1,6 @@
 import * as Popper from "@radix-ui/react-popper";
 import { Portal } from "@radix-ui/react-portal";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 import { Costume, costumes } from "../../data/costumes";
 import { charInfo } from "../../data/trickcalChar";
 import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
@@ -144,14 +143,6 @@ const PopoverCard = () => {
     const targetName = ('name' in target.node) ? target.node.name : '이름이 없습니다.';
     const personality = ('personality' in target.node) ? target.node.personality : null;
 
-    const detailPath = target.type === "character"
-        ? `/character/${target.node.name}`
-        : target.node.type === "clash"
-            ? `/clash/v1/${(target.node as RaidNode).season}`
-            : target.node.type === "clashV2"
-                ? `/clash/v2/${(target.node as RaidNode).season}`
-                : `/frontier/${(target.node as RaidNode).season}`
-
     const imgUrl = target.type === "character"
         ? `/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`
         : `/images/boss/${targetName}${personality ? `(${personality})` : ''}.webp`;
@@ -161,13 +152,6 @@ const PopoverCard = () => {
         : 'border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]';
 
     const isNonData = 'isNonData' in target?.node ? Boolean(target?.node?.isNonData) : false;
-    const ImageContent = (
-        <img
-            src={imgUrl}
-            alt={targetName}
-            className={target.type === "raid" ? 'scale-[1.5] origin-[50%_20%]' : ''}
-        />
-    );
 
     console.log('popover: ', popover)
 
@@ -186,19 +170,14 @@ const PopoverCard = () => {
 
                     <div className="flex flex-col gap-y-2">
                         <div className="flex justify-center items-center gap-x-2">
-                            {isNonData ? (
-                                <div className={`grayscale overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
-                                    {ImageContent}
-                                </div>
-                            ) : (
-                                <Link
-                                    to={detailPath}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder}`}>
-                                    {ImageContent}
-                                </Link>
-                            )}
+
+                            <div className={`overflow-hidden rounded-full w-14 h-14 border-4 ${personalityBorder} ${isNonData ? 'grayscale' : ''}`}>
+                                <img
+                                    src={imgUrl}
+                                    alt={targetName}
+                                    className={target.type === "raid" ? 'scale-[1.5] origin-[50%_20%]' : ''}
+                                />
+                            </div>
 
                             <div className="flex flex-col gap-y-1 justify-center">
                                 <span className="font-bold text-[14px]">

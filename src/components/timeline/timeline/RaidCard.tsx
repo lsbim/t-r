@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { Group, Image, Rect, Shape, Text } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
+import { useTheme } from "../../../hooks/useTheme";
 import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor, getPersonalityDarkColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
-import { useTheme } from "../../../hooks/useTheme";
 
 const CARD = {
     w: 100,
@@ -129,7 +129,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
         };
     }, []);
 
-    const isGrayscale = 'isNonData' in node;
+    const isGrayscale = 'isNonData' in node ? Boolean(node?.isNonData) : false;
     const personalityColor = isGrayscale
         ? "#71717A"
         : (theme === 'dark'
@@ -140,6 +140,11 @@ const RaidCard: React.FC<RaidCardProps> = ({
         ? `/images/personality/보스_${node.personality}.webp`
         : `/images/personality/보스_무성격.webp`
 
+    const detailPath = node.type === "clash"
+        ? `/clash/v1/${(node as RaidNode).season}`
+        : node.type === "clashV2"
+            ? `/clash/v2/${(node as RaidNode).season}`
+            : `/frontier/${(node as RaidNode).season}`
 
     return (
         <Group
@@ -151,23 +156,26 @@ const RaidCard: React.FC<RaidCardProps> = ({
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);
             }}
-            onMouseLeave={(e) => {
-                if (dragState.get() || isTouchDevice()) return;
-                // deactivate(e);
-            }}
             onClick={(e) => {
                 e.cancelBubble = true;
                 if (dragState.get() || isTouchDevice()) return;
+                if (!isGrayscale) {
+                    window.open(detailPath, '_blank', 'noopener,noreferrer');
+                }
             }}
             onTap={(e) => {
                 if (dragState.get()) return;
                 e.cancelBubble = true;
+
                 if (isActiveRef.current) {
-                    deactivateNow();
+                    if (!isGrayscale) {
+                        window.open(detailPath, '_blank', 'noopener,noreferrer');
+                    }
                 } else {
                     activate(e);
                 }
-            }}>
+            }}
+        >
             {/* 활성 영역 터치 히트박스 */}
             <Rect
                 ref={hitBoxRef}

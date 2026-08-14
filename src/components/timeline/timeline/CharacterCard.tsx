@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { Group, Image, Rect, Shape } from "react-konva";
 import ImageNode from "../../../commons/timeline/ImageNode";
 import { usePopoverActions } from "../../../hooks/usePopper";
+import { useTheme } from "../../../hooks/useTheme";
 import { CharacterNode } from "../../../types/timeline/timelineTypes";
-import { getPersonalityColor, getPersonalityDarkColor, Personality } from "../../../types/trickcalTypes";
+import { getPersonalityColor, getPersonalityDarkColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
-import { useTheme } from "../../../hooks/useTheme";
 
 // 카드 몸통
 const CARD = {
@@ -137,6 +137,8 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
         ? getPersonalityDarkColor(node?.personality!)
         : getPersonalityColor(node?.personality!);
 
+    const detailPath = `/character/${node.name}`
+
     return (
         <Group
             name="card"
@@ -147,21 +149,17 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 if (dragState.get() || isTouchDevice()) return;
                 activate(e);
             }}
-            onMouseLeave={(e) => {
-                if (dragState.get() || isTouchDevice()) return;
-                // deactivate(e);
-            }}
-            // PC 환경에선 클릭으로 상태 변화 X
             onClick={(e) => {
                 e.cancelBubble = true;
                 if (dragState.get() || isTouchDevice()) return;
+                window.open(detailPath, '_blank', 'noopener,noreferrer');
             }}
-            // 탭 (터치 스크린)
             onTap={(e) => {
                 if (dragState.get()) return;
                 e.cancelBubble = true;
+
                 if (isActiveRef.current) {
-                    deactivateNow();
+                    window.open(detailPath, '_blank', 'noopener,noreferrer');
                 } else {
                     activate(e);
                 }
