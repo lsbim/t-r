@@ -150,7 +150,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
         <Group
             name="card"
             ref={groupRef}
-            x={calX}
+            x={calX - CARD?.w / 2}
             y={adjustedY}
             onMouseEnter={(e) => {
                 if (dragState.get() || isTouchDevice()) return;
