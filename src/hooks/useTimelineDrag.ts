@@ -11,7 +11,7 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
     const offsetXRef = useRef(0);
     const handlePctRef = useRef(100);
     const containerRef = useRef<HTMLDivElement>(null);
-    const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+    const [viewportWidth, setViewportWidth] = useState(0);
 
     const [isPositionReady, setIsPositionReady] = useState(false);
     const hasInitializedRef = useRef(false);

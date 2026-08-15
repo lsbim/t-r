@@ -17,6 +17,7 @@ import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
 
+const EMPTY_TIMELINE_MAP: TimelineMap = {};
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
 
@@ -42,7 +43,7 @@ const IndexPage = () => {
 
     // 키: 날짜, 값: 레이드/사도 정보 객체[]
     const timelineMap: TimelineMap = useMemo(() => {
-        if (!frontier || !clash || !clashV2 || !nonClash || !nonFrontier) return {};
+        if (!frontier || !clash || !clashV2 || !nonClash || !nonFrontier) return EMPTY_TIMELINE_MAP;
 
         const map: TimelineMap = {};
 
