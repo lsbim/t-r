@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import SEO from "../../commons/component/SEO";
 import PopoverCard from "../../commons/timeline/PopperCard";
+import MainStage from "../../components/timeline/canvas/MainStage";
 import MinimapHandle from "../../components/timeline/minimap/MinimapHandle";
-import MainStage from "../../components/timeline/timeline/MainStage";
 import { charInfo } from "../../data/trickcalChar";
+import { useNonData } from "../../hooks/useNonData";
 import { PopoverProvider } from "../../hooks/usePopper";
 import { useRaidData } from "../../hooks/useRaidData";
 import useTimelineDrag from "../../hooks/useTimelineDrag";
@@ -15,7 +16,6 @@ import { ClashV2Summary } from "../../types/clashV2Types";
 import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timelineTypes";
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
-import { useNonData } from "../../hooks/useNonData";
 
 const END_DATE = getKstTodayDate();
 const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);

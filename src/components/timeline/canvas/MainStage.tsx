@@ -1,5 +1,5 @@
 import Konva from "konva";
-import React, { Fragment, RefObject, useMemo } from 'react';
+import React, { RefObject, useMemo } from 'react';
 import { Group, Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
