@@ -1,5 +1,5 @@
 import Konva from "konva";
-import React, { RefObject, useMemo } from 'react';
+import React, { RefObject, useEffect, useMemo, useState } from 'react';
 import { Group, Layer, Stage } from 'react-konva';
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
@@ -7,6 +7,8 @@ import CharacterCardList from './CharacterCardList';
 import RaidCardList from "./RaidCardList";
 import RowDivider from "./RowDivider";
 import TimelineStageBg from "./TimelineStageBg";
+import { preloadImages } from "../../../utils/function";
+import { MiniLoading } from "../../../commons/component/Loading";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -42,6 +44,8 @@ const MainStage: React.FC<MainStageProps> = ({
   isPositionReady,
 }) => {
 
+  const [imagesReady, setImagesReady] = useState(false);
+
   const characterNodeList: CharacterNode[] = useMemo(() => {
     return Object.values(timelineMap).flat()
       .filter(isCharacterNode)
@@ -55,6 +59,51 @@ const MainStage: React.FC<MainStageProps> = ({
       .sort((a, b) => a.startDate.localeCompare(b.startDate));
   }, [timelineMap])
 
+  const imageUrlsStr = useMemo(() => {
+    const urls = new Set<string>();
+    urls.add('/images/background/character_bg.webp');
+
+    characterNodeList.forEach((node) => {
+      urls.add(`/images/character/${node.name}.webp`);
+      urls.add(node.personality
+        ? `/images/personality/보스_${node.personality}.webp`
+        : `/images/personality/보스_무성격.webp`);
+    });
+
+    raidNodeList.forEach((node) => {
+      urls.add(node.personality
+        ? `/images/boss/${node.name}(${node.personality}).webp`
+        : `/images/boss/${node.name}.webp`);
+      urls.add(node.personality
+        ? `/images/personality/보스_${node.personality}.webp`
+        : `/images/personality/보스_무성격.webp`);
+    });
+
+    return Array.from(urls).sort().join(',');
+  }, [characterNodeList, raidNodeList]);
+
+  useEffect(() => {
+    if (characterNodeList.length === 0 && raidNodeList.length === 0) return;
+
+    if (!imageUrlsStr) return;
+
+    let cancelled = false;
+
+    const urlsToLoad = imageUrlsStr.split(',');
+
+    preloadImages(urlsToLoad).then(() => {
+      if (!cancelled) {
+        setImagesReady(true);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [imageUrlsStr, characterNodeList?.length, raidNodeList?.length]);
+
+  const isFullyReady = isPositionReady && imagesReady;
+
   console.log("characterNodeList: ", characterNodeList)
   console.log("raidNodeList: ", raidNodeList)
 
@@ -63,7 +112,7 @@ const MainStage: React.FC<MainStageProps> = ({
       onDragStart={(e) => e.preventDefault()}
       ref={containerRef}
       style={{ height: STAGE_HEIGHT }}
-      className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden touch-none cursor-pointer`}>
+      className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden touch-none cursor-pointer relative`}>
 
       <Stage
         ref={(node) => {
@@ -91,17 +140,15 @@ const MainStage: React.FC<MainStageProps> = ({
             timelinePx={timelinePx}
           />
 
-          <Group opacity={isPositionReady ? 1 : 0}>
-            <RaidCardList
-              nodes={raidNodeList}
-              rowY={getRowY('raid')}
-            />
+          <RaidCardList
+            nodes={raidNodeList}
+            rowY={getRowY('raid')}
+          />
 
-            <CharacterCardList
-              nodes={characterNodeList}
-              rowY={getRowY('character')}
-            />
-          </Group>
+          <CharacterCardList
+            nodes={characterNodeList}
+            rowY={getRowY('character')}
+          />
 
         </Layer>
 
@@ -112,13 +159,12 @@ const MainStage: React.FC<MainStageProps> = ({
           }}
         />
 
-        {/* 독립 컨텐츠 */}
-        <Layer>
-
-        </Layer>
-
       </Stage>
-    </div >
+
+      {!isFullyReady && (
+        <MiniLoading />
+      )}
+    </div>
   )
 }
 

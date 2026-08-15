@@ -68,3 +68,4 @@ export const dragState = {
     set: (value: boolean) => { isDraggingNow = value; },
     get: (): boolean => isDraggingNow,
 };
+
