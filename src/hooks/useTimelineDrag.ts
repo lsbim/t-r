@@ -26,8 +26,13 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
 
     const cardsCacheRef = useRef<Konva.Node[] | null>(null);
 
-    const dragDeltaRef = useRef(0);
+    const dragDeltaXRef = useRef(0);
     const rafIdRef = useRef<number | null>(null);
+
+    // Y/X 드래그
+    const dragDeltaYRef = useRef(0);
+    const directionLockRef = useRef<'x' | 'y' | null>(null);
+    const DIRECTION_LOCK_THRESHOLD = 10;
 
     const clampBody = useCallback((value: number) => {
         const MAX_OFFSET = viewportWidth / 2;
@@ -101,11 +106,14 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
         dragState.set(true)
         totalMoveRef.current = 0;
         isDraggingActiveRef.current = false;
+        directionLockRef.current = null;
+        dragDeltaYRef.current = 0;
     }, []);
 
     const handlePointerMove = useCallback((e: PointerEvent) => {
         if (!dragState.get()) return;
-        dragDeltaRef.current += e.movementX;
+        dragDeltaXRef.current += e.movementX;
+        dragDeltaYRef.current += e.movementY;
         totalMoveRef.current += Math.abs(e.movementX);
 
         if (!isDraggingActiveRef.current && totalMoveRef.current > TAP_MOVE_THRESHOLD) {
@@ -114,11 +122,25 @@ const useTimelineDrag = ({ timelinePx }: UseTimelineDragProps) => {
             stage?.listening(false);
         }
 
+        if (directionLockRef.current === null) {
+            const absX = Math.abs(dragDeltaXRef.current);
+            const absY = Math.abs(dragDeltaYRef.current);
+            if (absX + absY > DIRECTION_LOCK_THRESHOLD) {
+                directionLockRef.current = absX >= absY ? 'x' : 'y';
+            }
+        }
+
         // raf 실행하면 브라우저가 숫자로 된 고유id 반환
         if (rafIdRef.current === null) {
             rafIdRef.current = requestAnimationFrame(() => {
-                applyOffset(offsetXRef.current + dragDeltaRef.current);
-                dragDeltaRef.current = 0;
+                applyOffset(offsetXRef.current + dragDeltaXRef.current);
+
+                if (directionLockRef.current === 'y' && dragDeltaYRef.current !== 0) {
+                    window.scrollBy(0, -dragDeltaYRef.current);
+                }
+
+                dragDeltaXRef.current = 0;
+                dragDeltaYRef.current = 0;
                 rafIdRef.current = null;
             });
         }
