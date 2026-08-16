@@ -7,8 +7,9 @@ import CharacterCardList from './CharacterCardList';
 import RaidCardList from "./RaidCardList";
 import RowDivider from "./RowDivider";
 import TimelineStageBg from "./TimelineStageBg";
-import { preloadImages } from "../../../utils/function";
+import { preloadImages, translateRaces } from "../../../utils/function";
 import { MiniLoading } from "../../../commons/component/Loading";
+import { personalityList, races } from "../../../types/trickcalTypes";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -63,13 +64,25 @@ const MainStage: React.FC<MainStageProps> = ({
     const urls = new Set<string>();
     urls.add('/images/background/character_bg.webp');
 
-    characterNodeList.forEach((node) => {
-      urls.add(`/images/character/${node.name}.webp`);
-      urls.add(node.personality
-        ? `/images/personality/보스_${node.personality}.webp`
-        : `/images/personality/보스_무성격.webp`);
+    // 열
+    ['all', 'back', 'front', 'middle'].forEach(line => {
+      urls.add(`/images/line/${line}.webp`);
     });
-
+    // 역할, 공격분류
+    ['dps', 'magic', 'physical', 'supporter', 'tanker'].forEach(role => {
+      urls.add(`/images/role/${role}.webp`);
+    });
+    // 종족
+    races.forEach(race => {
+      urls.add(`/images/race/${translateRaces(race)}.webp`);
+    });
+    // 사도, 성격
+    characterNodeList.forEach((node) => {
+      urls.add(`/images/character/${node?.name}.webp`);
+      urls.add(`/images/profile/${node?.name}.webp`);
+      urls.add(`/images/personality/${node?.personality}.webp`)
+    });
+    // 보스
     raidNodeList.forEach((node) => {
       urls.add(node.personality
         ? `/images/boss/${node.name}(${node.personality}).webp`
