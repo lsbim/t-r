@@ -18,8 +18,6 @@ import { CharacterNode, RaidNode, TimelineMap } from "../../types/timeline/timel
 import { DAY_PX, START_DATE } from "../../utils/timeline/timelineFunction";
 
 const EMPTY_TIMELINE_MAP: TimelineMap = {};
-const END_DATE = getKstTodayDate();
-const TOTAL_DAYS = Math.floor((END_DATE.getTime() - START_DATE.getTime()) / 86400000);
 
 const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
@@ -27,6 +25,11 @@ const IndexPage = () => {
     const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
     const { data: nonClash } = useNonData<ClashBase>('clash');
     const { data: nonFrontier } = useNonData<FrontierBase>('frontier');
+
+    const TOTAL_DAYS = useMemo(() => {
+        const end = getKstTodayDate();
+        return Math.floor((end.getTime() - START_DATE.getTime()) / 86400000);
+    }, []);
 
     const timelinePx: number = TOTAL_DAYS * DAY_PX;
 
