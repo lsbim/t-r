@@ -252,7 +252,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
     );
 }
 
-function getSinceColor(since: number) {
+export function getSinceColor(since: number) {
 
     if (since <= 90) {
         return 'text-blue-600 dark:text-blue-500';

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { LatestSummary } from "../../types/latestTypes";
 import BossProfile from "../icon/BossProfile";
 
-const RaidCard = ({ data, raidType, rounded }: {
+const HomeRaidCard = ({ data, raidType, rounded }: {
     data: LatestSummary,
     raidType: 'clash' | 'clashV2' | 'frontier',
     rounded?: 'left' | 'right'
@@ -75,15 +75,4 @@ const RaidCard = ({ data, raidType, rounded }: {
     );
 }
 
-function translateRaidType(rt: 'clash' | 'clashV2' | 'frontier') {
-    switch (rt) {
-        case 'clash':
-            return '차원 대충돌';
-        case 'clashV2':
-            return '차원 대충돌 2.0';
-        case 'frontier':
-            return '엘리아스 프론티어';
-    }
-}
-
-export default RaidCard;
+export default HomeRaidCard;

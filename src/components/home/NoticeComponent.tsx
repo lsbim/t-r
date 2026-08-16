@@ -1,15 +1,15 @@
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import MyAccordion from "../../commons/rdx/MyAccordion";
-import { ClashSummary } from "../../types/clashTypes";
-import { FrontierSummary } from "../../types/frontierTypes";
+import { ClashBase, ClashSummary } from "../../types/clashTypes";
+import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 
-const NoticeComponent = ({ data }: { data: ClashSummary | FrontierSummary }) => {
+const NoticeComponent = ({ nonData }: { nonData: ClashBase | FrontierBase }) => {
 
-    if (!data) {
+    if (!nonData) {
         return <></>;
     }
 
-    const seasons = Object.entries(data);
+    const seasons = Object.entries(nonData);
 
     // console.log(seasons)
 
@@ -161,16 +161,35 @@ const NoticeComponent = ({ data }: { data: ClashSummary | FrontierSummary }) => 
             content: (
                 <div className="px-4 py-[10px]">
                     <span className="font-bold">차원 대충돌: </span>
-                    {seasons && seasons.map(([season, val], i) => (
-                        <div key={"notice1" + i} className="flex items-center gap-y-2 gap-x-2">
-                            <span className="text-red-500">시즌{season}</span>
-                            <span>{val.startDate}</span>
-                            <div className="flex items-center gap-x-1">
-                                <span className="text-[13px]"> {val.name}</span>
-                                <PersonalityIcon personality={val.personality} size={14} />
+                    {seasons && seasons.sort(([seasonKeyA], [seasonKeyB]) => {
+                        const a = Number(seasonKeyA);
+                        const b = Number(seasonKeyB);
+                        const isBetaA = a > 10000;
+                        const isBetaB = b > 10000;
+
+                        if (isBetaA !== isBetaB) {
+                            return isBetaA ? -1 : 1;
+                        }
+
+                        // 같은 그룹끼리는 내림차순
+                        return a - b;
+                    }).map(([season, val], i) => {
+
+                        const seasonText = Number(season) > 10000
+                            ? `프리시즌${Number(season) - 10000}`
+                            : `시즌${season}`;
+
+                        return (
+                            <div key={"notice1" + i} className="flex items-center gap-y-2 gap-x-2">
+                                <span className="text-red-500">{seasonText}</span>
+                                <span>{val.startDate}</span>
+                                <div className="flex items-center gap-x-1">
+                                    <span className="text-[13px]"> {val.name}</span>
+                                    <PersonalityIcon personality={val.personality} size={14} />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )
+                    })}
 
                     <span className="font-bold block mt-2">엘리아스 프론티어: </span>
                     <div className="flex gap-x-2 items-center">

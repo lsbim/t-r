@@ -25,18 +25,28 @@ export type SeasonDataMap = { // 시즌데이터 맵핑
     clash: ClashSeasonData;
 };
 
-const personalityColors = {
-    '순수': '#66c17c',
-    '냉정': '#83b9eb',
-    '광기': '#eb839a',
-    '활발': '#ebdb83',
-    '우울': '#c683ec',
-    '공명': '#ffffff',
+// '순수': { DEFAULT: '#66c17c', dark: '#4fa163' },
+// '냉정': { DEFAULT: '#83b9eb', dark: '#6199cf' },
+// '광기': { DEFAULT: '#eb839a', dark: '#cf667d' },
+// '활발': { DEFAULT: '#ebdb83', dark: '#cfbe62' },
+// '우울': { DEFAULT: '#c683ec', dark: '#a766c9' },
+
+const PERSONALITY_COLORS = {
+    '순수': { defalut: '#66c17c', dark: '#4fa163' },
+    '냉정': { defalut: '#83b9eb', dark: '#6199cf' },
+    '광기': { defalut: '#eb839a', dark: '#cf667d' },
+    '활발': { defalut: '#ebdb83', dark: '#cfbe62' },
+    '우울': { defalut: '#c683ec', dark: '#a766c9' },
+    '공명': { defalut: '#DDDDDD', dark: '#BBBBBB' },
 };
 
 // 헥스코드 반환
 export const getPersonalityColor = (personality: Personality) => {
-    return personalityColors[personality] || '#gray'; // 기본값 설정
+    return PERSONALITY_COLORS[personality]?.defalut || '#151e51'; // 프론티어 색상
+};
+// 다크모드용
+export const getPersonalityDarkColor = (personality: Personality) => {
+    return PERSONALITY_COLORS[personality]?.dark || '#29356b'; // 다크모드용 밝은 프론티어 색상
 };
 
 // 요약 데이터 베이스
@@ -174,3 +184,8 @@ export type MaterialName =
     | '안전 바늘'
     | '보석 단추'
     | '줄자';
+
+export interface CharacterIconInfo {
+    tooltip: string;
+    src: string;
+}

@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { ClashSummary } from "../types/clashTypes";
-import { FrontierSummary } from "../types/frontierTypes";
+import { ClashBase } from "../types/clashTypes";
+import { FrontierBase } from "../types/frontierTypes";
 
 
-const fetchNonData = async () => {
+const fetchNonData = async (key: 'clash' | 'frontier') => {
 
-    const response = await fetch(`/data/clash/non_data.json`);
+    const response = await fetch(`/data/${key}/non_data.json`);
 
     if (!response.ok) {
         throw new Error(`데이터를 찾을 수 없습니다.`);
@@ -14,11 +14,11 @@ const fetchNonData = async () => {
     return response.json();
 };
 
-export const useNonData = <T extends ClashSummary | FrontierSummary>() => {
+export const useNonData = <T extends ClashBase | FrontierBase>(key: 'clash' | 'frontier') => {
 
     return useQuery<T, Error>({
-        queryKey: ["non_data"],
-        queryFn: () => fetchNonData(),
+        queryKey: [`non_data_${key}`],
+        queryFn: () => fetchNonData(key),
 
         // 데이터가 한 번 로드되면 거의 변하지 않으므로 긴 캐시 시간 설정
         staleTime: 1000 * 60 * 60, // 1시간동간 fresh상태. 재요청이 필요없는 상태
