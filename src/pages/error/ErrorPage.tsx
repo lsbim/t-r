@@ -27,7 +27,7 @@ const ErrorPage = () => {
 
         return (
             <div className={`${pageRootContainer} gap-4 min-h-[100.5vh]`}>
-                <SEO />
+                <SEO noindex={true} />
                 <HeaderNav />
                 <div className=" flex items-center justify-center flex-col mt-24">
                     <img
@@ -56,7 +56,7 @@ const ErrorPage = () => {
 
     return (
         <div className={`${pageRootContainer} gap-4 min-h-[100.5vh]`}>
-            <SEO />
+            <SEO noindex={true} />
             <HeaderNav />
             <div className=" flex items-center justify-center flex-col mt-24">
                 <img

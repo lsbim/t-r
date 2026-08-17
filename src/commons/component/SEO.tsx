@@ -4,8 +4,13 @@ interface SEOProps {
     title?: string;
     description?: string;
     // keyword?: string;
+    noindex?: boolean;
 }
-const SEO: React.FC<SEOProps> = ({ title, description }) => {
+const SEO: React.FC<SEOProps> = ({
+    title,
+    description,
+    noindex = false,
+}) => {
 
     const DEFAULT_TITLE = '트릭컬 레코드';
     const DEFAULT_DESCRIPTION = '트릭컬 리바이브 차원 대충돌, 엘리아스 프론티어의 시즌 별 랭킹 집계 데이터를 제공합니다.';
@@ -20,6 +25,7 @@ const SEO: React.FC<SEOProps> = ({ title, description }) => {
         <Helmet>
             <title>{pageTitle}</title>
             <meta name="description" content={pageDescription} />
+            {noindex && <meta name="robots" content="noindex, nofollow" />}
         </Helmet>
     );
 }
