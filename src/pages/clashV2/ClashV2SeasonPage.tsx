@@ -20,6 +20,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
+import { containerDarkBG, pageRootContainer } from "../../styles/container";
 
 const initRange = { start: 0, end: 0 };
 
@@ -130,7 +131,7 @@ const ClashV2SeasonPage = () => {
     // console.log("data: ", data?.type === 'season')
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-screen">
+        <div className={`${pageRootContainer} gap-4 min-h-screen`}>
             <SEO
                 title={`차원 대충돌 2.0 ${seasonName} 집계`}
                 description={`차원 대충돌 2.0 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
@@ -160,7 +161,7 @@ const ClashV2SeasonPage = () => {
                     </span>
                 </button>
             </div>
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto">
+            <div className={`lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto ${containerDarkBG}`}>
                 {data && (
                     <PersonalityPieChart
                         data={displaySlice}

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { isCharacterNode, isRaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
 import { START_DATE, timelineStage } from '../../../utils/timeline/timelineFunction';
+import { containerDarkBG } from '../../../styles/container';
 
 interface MinimapHandleProps {
     handleElRef: React.RefObject<HTMLDivElement | null>;
@@ -134,7 +135,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                 {/* 핸들 바 */}
                 <div
                     ref={barRef}
-                    className="relative divide-y divide-zinc-700 dark:divide-zinc-500 rounded-[3px] bg-white dark:bg-zinc-900 border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden">
+                    className={`relative divide-y divide-zinc-700 dark:divide-zinc-500 rounded-[3px] ${containerDarkBG} border-[0.5px] border-zinc-700 dark:border-zinc-500 touch-none overflow-hidden`}>
                     <div className="relative h-[7px]">
                         {raidRanges}
                     </div>
@@ -178,7 +179,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                 <div
                     draggable={false}
                     ref={tooltipElRef}
-                    className="absolute top-[38px] z-30 bg-white border-[0.5px] border-zinc-300 dark:bg-zinc-900 dark:border-zinc-700 dark:text-zinc-200 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]"
+                    className={`absolute top-[38px] z-30 ${containerDarkBG} border-[0.5px] border-zinc-300 dark:border-zinc-700 dark:text-zinc-200 rounded-[5px] px-2 py-0.5 text-[11px] text-gray-900 whitespace-nowrap pointer-events-none translate-x-[-50%]`}
                 />
             </div>
         </div>

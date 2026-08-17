@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { charInfo } from '../../data/trickcalChar';
 import { useCharSearch } from '../../hooks/useCharSearch';
 import { Link } from 'react-router-dom';
+import { containerDarkBG } from '../../styles/container';
 
 const CharacterSearchList = () => {
 
@@ -9,7 +10,7 @@ const CharacterSearchList = () => {
     const searchList = useCharSearch({ search, showAllWhenEmpty: true });
 
     return (
-        <div className="md:w-[768px] w-full mx-auto border dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700 flex flex-col rounded-xl bg-white h-[256px] overflow-hidden">
+        <div className={`md:w-[768px] w-full mx-auto border ${containerDarkBG} border-zinc-300 dark:border-zinc-700 flex flex-col rounded-xl h-[256px] overflow-hidden`}>
             {/* 헤더(검색) */}
             <div className="py-2 px-4 dark:text-zinc-200 flex items-center justify-between h-[56px] shrink-0">
                 <span className="font-bold">

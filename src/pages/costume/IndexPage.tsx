@@ -10,6 +10,7 @@ import TopRemote from "../../layouts/TopRemote";
 import { personalityList } from "../../types/trickcalTypes";
 import SEO from "../../commons/component/SEO";
 import { getDaysSince } from "../../utils/function";
+import { containerDarkBG, pageRootContainer } from "../../styles/container";
 
 const persList = personalityList;
 
@@ -154,7 +155,7 @@ const IndexPage = () => {
 
     const selectYearElement = () => {
         return (
-            <div className="w-[6%] min-h-full bg-white dark:bg-zinc-900 dark:text-zinc-200 flex flex-col ml-auto items-center pt-2 rounded-tr-xl rounded-br-xl border border-zinc-300 dark:border-zinc-700">
+            <div className={`w-[6%] min-h-full ${containerDarkBG} dark:text-zinc-200 flex flex-col ml-auto items-center pt-2 rounded-tr-xl rounded-br-xl border border-zinc-300 dark:border-zinc-700`}>
                 {costumeReleaseYearSet.map(y => (
                     <button
                         onClick={() => {
@@ -170,7 +171,7 @@ const IndexPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-y-4 min-h-screen max-w-[100vw]">
+        <div className={`${pageRootContainer} gap-y-4 min-h-screen max-w-[100vw]`}>
             <SEO
                 title="사복 집계"
                 description="트릭컬 리바이브의 사복 출시일, 사복이 가장 많은 사도, 적은 사도, 사복 개수 | 사복 집계 데이터를 제공합니다."

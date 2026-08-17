@@ -2,13 +2,14 @@ import React from "react";
 import CharacterIcon from "../../commons/icon/CharacterIcon";
 import { lineListEn } from "../../types/trickcalTypes";
 import { CompStat } from "../../utils/chartFunction";
+import { containerDarkBG } from "../../styles/container";
 
 const BestComp = ({ data }: { data: CompStat[] }) => {
 
     // console.log(data)
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col bg-white dark:bg-zinc-900 py-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto gap-y-3">
+        <div className={`lg:w-[992px] w-full mx-auto flex flex-col ${containerDarkBG} py-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto gap-y-3`}>
             <span className="font-bold text-xl ml-4 dark:text-zinc-200">인기 조합</span>
             <div className="mx-auto flex md:justify-center justify-start w-full gap-x-5">
                 {data.map((comp, ci) => {

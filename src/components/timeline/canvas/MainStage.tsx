@@ -10,6 +10,7 @@ import TimelineStageBg from "./TimelineStageBg";
 import { preloadImages, translateRaces } from "../../../utils/function";
 import { MiniLoading } from "../../../commons/component/Loading";
 import { personalityList, races } from "../../../types/trickcalTypes";
+import { containerDarkBG } from "../../../styles/container";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -125,7 +126,7 @@ const MainStage: React.FC<MainStageProps> = ({
       onDragStart={(e) => e.preventDefault()}
       ref={containerRef}
       style={{ height: STAGE_HEIGHT }}
-      className={`w-full bg-white dark:bg-zinc-900 rounded-sm overflow-hidden touch-none cursor-pointer relative`}>
+      className={`w-full ${containerDarkBG} rounded-sm overflow-hidden touch-none cursor-pointer relative`}>
 
       <Stage
         ref={(node) => {

@@ -1,4 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import { containerDarkBG } from '../../styles/container';
 
 
 interface Item {
@@ -27,8 +28,8 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                     <Accordion.Header className="flex">
                         <Accordion.Trigger className='group' asChild>
                             {/* asChild 사용 시, 이 div에 all props 전달 */}
-                            <button 
-                            className={`w-full flex justify-between items-center p-4 cursor-pointer bg-white dark:bg-zinc-900 dark:hover:bg-zinc-950 dark:data-[state=open]:bg-zinc-950 hover:bg-amber-50 data-[state=open]:bg-amber-50 ${index === items.length - 1 ? 'rounded-b-2xl dark:rounded-b-none' : ''}`}>
+                            <button
+                                className={`w-full flex justify-between items-center p-4 cursor-pointer ${containerDarkBG} dark:hover:bg-zinc-950 dark:data-[state=open]:bg-zinc-950 hover:bg-amber-50 data-[state=open]:bg-amber-50 ${index === items.length - 1 ? 'rounded-b-2xl dark:rounded-b-none' : ''}`}>
                                 <span className="text-[15px] font-medium">{header}</span>
                                 {/* 아래 홑화살괄호 */}
                                 <svg
@@ -50,7 +51,7 @@ const MyAccordion: React.FC<MyAccordionProps> = ({ items }) => {
                         </Accordion.Trigger>
                     </Accordion.Header>
 
-                    <Accordion.Content className="border-b dark:border-none dark:bg-zinc-900 overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
+                    <Accordion.Content className={`border-b dark:border-none ${containerDarkBG} overflow-hidden text-[14px] text-mauve11 data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown`}>
                         {content}
                     </Accordion.Content>
                 </Accordion.Item>

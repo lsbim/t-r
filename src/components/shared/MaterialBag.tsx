@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { materialNames, materials } from "../../data/materials";
 import ItemIcon from "../../commons/icon/ItemIcon";
 import { getChoseong } from "es-hangul";
+import { containerDarkBG } from "../../styles/container";
 
 const MaterialBag = ({
     inventory,
@@ -88,7 +89,7 @@ const MaterialBag = ({
 
     return (
         <div
-            className="bg-white dark:bg-zinc-900 dark:text-zinc-200 xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[60px] bottom-0 left-0 z-[999] border border-zinc-300 dark:border-zinc-700 shadow-md rounded-md flex flex-col">
+            className={`${containerDarkBG} dark:text-zinc-200 xs:h-[300px] xs:w-[300px] w-full h-[240px] xs:absolute fixed xs:top-[60px] bottom-0 left-0 z-[999] border border-zinc-300 dark:border-zinc-700 shadow-md rounded-md flex flex-col`}>
             <div className="mx-auto text-[13px] py-1">
                 보유중인 재료를 입력할 수 있습니다.
             </div>
@@ -103,7 +104,7 @@ const MaterialBag = ({
                     onChange={(e) => {
                         setSearch(e.target.value);
                     }}
-                    className="text-[13px] focus:outline-none w-[90%] dark:bg-zinc-900"
+                    className={`text-[13px] focus:outline-none w-[90%] ${containerDarkBG}`}
                 />
             </div>
             <div className="flex m-auto p-2 overflow-y-auto">

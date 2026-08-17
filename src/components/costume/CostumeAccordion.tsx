@@ -1,4 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import { containerDarkBG } from '../../styles/container';
 
 
 interface CostumeItem {
@@ -66,10 +67,10 @@ const CostumeAccordion = ({ items }: Props) => {
 
                         {/* 더보기 */}
                         <Accordion.Content
-                            className="absolute left-0 right-0 top-full z-50 bg-white dark:bg-zinc-900 
+                            className={`absolute left-0 right-0 top-full ${containerDarkBG} z-50
                 shadow-xl rounded-b-lg border border-t-0 border-gray-200 dark:border-zinc-700 overflow-hidden
-                data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp">
-                            <div className="flex flex-col p-1 dark:bg-zinc-900 dark:text-zinc-200">
+                data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp`}>
+                            <div className="flex flex-col p-1 dark:text-zinc-200">
                                 {hiddenItems.map((item, idx) => renderItem(item, idx + VISIBLE_COUNT))}
                             </div>
                         </Accordion.Content>

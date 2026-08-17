@@ -20,6 +20,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
+import { containerDarkBG, pageRootContainer } from "../../styles/container";
 
 const initRange = { start: 0, end: 0 };
 
@@ -219,7 +220,7 @@ const SeasonPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-screen">
+        <div className={`${pageRootContainer} gap-4 min-h-screen`}>
             <SEO
                 title={`엘리아스 프론티어 ${seasonName} 집계`}
                 description={`엘리아스 프론티어 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
@@ -228,7 +229,7 @@ const SeasonPage = () => {
             {data?.type === 'season' && (
                 <SeasonRemote />
             )}
-            <div className="lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto">
+            <div className={`lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto`}>
                 <PersonalityPieChart
                     data={displaySlice}
                 />
@@ -256,7 +257,7 @@ const SeasonPage = () => {
                         data={seasonSlice}
                         prevData={prevSlice as FrontierExternalData | undefined}
                     />
-                    <div className="lg:w-[992px] w-full mx-auto flex h-4 dark:bg-zinc-900 dark:text-zinc-200 bg-white p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 mt-1 text-[12px] lg:text-[13px] items-center justify-center">
+                    <div className={`lg:w-[992px] w-full mx-auto flex h-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 mt-1 text-[12px] lg:text-[13px] items-center justify-center`}>
                         해당 시즌은 상세 정보를 지원하지 않습니다.
                     </div>
                 </>

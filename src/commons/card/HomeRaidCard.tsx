@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { LatestSummary } from "../../types/latestTypes";
 import BossProfile from "../icon/BossProfile";
+import { containerDarkBG } from "../../styles/container";
 
 const HomeRaidCard = ({ data, raidType, rounded }: {
     data: LatestSummary,
@@ -38,7 +39,7 @@ const HomeRaidCard = ({ data, raidType, rounded }: {
         <Link
             to={`/${typeLink}/${data.seasonNumber}`}
             // 서브픽셀 문제는 will-change-transform 도입으로 해결
-            className={`w-full flex flex-col rounded-lg will-change-transform ${borderColor} bg-white dark:bg-zinc-900 dark:shadow-zinc-900`}>
+            className={`w-full flex flex-col rounded-lg will-change-transform ${borderColor} ${containerDarkBG} dark:shadow-zinc-900`}>
             <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
                 <span className="mb-2 xs:inline hidden text-[18px]">
                     {krName}

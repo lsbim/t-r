@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "../commons/component/ThemeToggle";
 import { fetchSummaryData } from "../hooks/useRaidData";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
+import { containerDarkBG } from "../styles/container";
 
 const PRELOAD_MAP = {
     'clash': {
@@ -40,7 +41,7 @@ const HeaderNav = () => {
     };
 
     return (
-        <header id="top" className={`relative bg-white dark:bg-zinc-900 h-[48px] flex justify-center items-center font-bold border-b border-zinc-300 dark:border-zinc-700 w-full `}>
+        <header id="top" className={`relative ${containerDarkBG} h-[48px] flex justify-center items-center font-bold border-b border-zinc-300 dark:border-zinc-700 w-full `}>
             <div className="lg:w-[992px] w-full mx-auto flex justify-center">
                 {/* overflow-x-auto와 justify-center 같이 쓰지 X */}
                 <div className="flex lg:justify-center items-center lg:pl-0 lg:pr-0 pl-[30px] pr-[50px] gap-x-5 w-full overflow-x-auto scrollbar-hide min-w-0 whitespace-nowrap">

@@ -14,6 +14,7 @@ import MaterialBag from "../../components/shared/MaterialBag";
 import SEO from "../../commons/component/SEO";
 import Loading from "../../commons/component/Loading";
 import InfoIcon from "../../commons/icon/InfoIcon";
+import { containerDarkBG } from "../../styles/container";
 
 const simInputArr = ['교단 시설', '연구실']
 
@@ -288,7 +289,7 @@ const SimIndexPage = () => {
             </div>
 
             {/* 시설 및 연구단계 입력 */}
-            <div className="lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
+            <div className={`lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
                 <div className="flex items-center justify-between w-full mb-8">
                     {simInputArr.map((sel, idx) => (
                         <button
@@ -312,7 +313,7 @@ const SimIndexPage = () => {
                         researchInput={researchInput} />
                 )}
             </div>
-            <div className="lg:w-[992px] mx-auto flex text-[13px] bg-white dark:bg-zinc-900 dark:border-zinc-700 text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-xl border border-zinc-300 overflow-hidden">
+            <div className={`lg:w-[992px] mx-auto flex text-[13px] ${containerDarkBG} dark:border-zinc-700 text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-xl border border-zinc-300 overflow-hidden`}>
                 {allResult ? (
                     <SimResult
                         simResult={allResult}

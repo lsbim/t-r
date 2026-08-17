@@ -1,3 +1,4 @@
+import { containerDarkBG } from '../../styles/container';
 import { RecentSkin } from '../../types/character/characterStatsTypes';
 import { rankBG, rankBorderShadow } from '../../utils/style/styleFuntions';
 import { boardValue } from '../shared/CostumeRank';
@@ -7,7 +8,7 @@ const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[
     const boardText = ['사용 횟수', '사용률', '출시일'];
 
     return (
-        <div className="flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 bg-white dark:bg-zinc-900 dark:border-zinc-700 p-4 pb-0">
+        <div className={`flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 ${containerDarkBG} dark:border-zinc-700 p-4 pb-0`}>
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">사복 통계</span>
                 <span className="text-[12px] dark:text-zinc-400 text-gray-600">

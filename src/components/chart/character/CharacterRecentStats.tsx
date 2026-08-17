@@ -15,6 +15,7 @@ import { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
 import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
+import { containerDarkBG } from '../../../styles/container';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
@@ -198,7 +199,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
     }, [recentStats, tickColor, gridColor]);
 
     return (
-        <div className="w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700">
+        <div className={`w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">픽률 통계</span>
                 <span className="text-[12px] dark:text-zinc-400 text-gray-600">

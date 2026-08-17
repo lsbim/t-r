@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import { type Costume } from "../../data/costumes";
 import { generateWeeklySchedule } from "../../utils/weeklySchedule";
+import { containerDarkBG } from "../../styles/container";
 
 interface CharacterData {
     charName: string;
@@ -42,7 +43,7 @@ const PersCalendar: React.FC<Props> = (
     // console.log(weeklySchedule)
 
     return (
-        <div className="min-w-[148px] w-[15%] bg-white dark:bg-zinc-900 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 p-2 first:rounded-tl-xl first:rounded-bl-xl">
+        <div className={`min-w-[148px] w-[15%] ${containerDarkBG} dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 p-2 first:rounded-tl-xl first:rounded-bl-xl`}>
             <div className="flex gap-x-2 justify-between items-center pr-2">
                 <div className="flex gap-x-2">
                     <PersonalityIcon personality={pers} size={24} />
@@ -74,7 +75,7 @@ const PersCalendar: React.FC<Props> = (
                                             return `${cos.charName}: ${cos.cosName}`;
                                         }).join("\n");
 
-                                    
+
 
                                     return (
                                         <div

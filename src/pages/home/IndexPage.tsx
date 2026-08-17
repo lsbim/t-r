@@ -14,6 +14,7 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import { LatestData } from "../../types/latestTypes";
 import { Personality, Race, races } from "../../types/trickcalTypes";
+import { containerDarkBG, pageRootContainer } from "../../styles/container";
 
 const IndexPage = () => {
 
@@ -83,7 +84,7 @@ const IndexPage = () => {
         .sort(([, a], [, b]) => b.startDate.localeCompare(a.startDate))[0][0];
 
     return (
-        <div className="flex flex-col justify-center gap-6 min-h-[100.5vh]" > {/* 스크롤을 위한 100.5vh */}
+        <div className={`${pageRootContainer} gap-6 min-h-[100.5vh]`}> {/* 스크롤을 위한 100.5vh */}
             <SEO />
             <HeaderNav />
             {/* 레이드 카드 */}
@@ -111,7 +112,7 @@ const IndexPage = () => {
             <CharacterSearchList
             />
             {/* 사도 출시 타임라인 */}
-            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-y-4 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 overflow-x-hidden">
+            <div className={`md:w-[768px] w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300 overflow-x-hidden`}>
                 <div className="flex mx-auto w-full p-4 pb-0">
                     <div className="flex flex-col gap-y-2 font-bold dark:text-zinc-200">
                         <div className="mb-2">

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { findPersonalityByName } from '../../../utils/function';
 import { charInfo } from '../../../data/trickcalChar';
 import { Link } from 'react-router-dom';
+import { containerDarkBG } from '../../../styles/container';
 
 interface SelectInfoProps {
     firstRank: number;
@@ -46,7 +47,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
     ]]
 
     return (
-        <div className="w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className={`w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300`}>
             {/* 사진, 사도 명 */}
             <div className="flex gap-x-2 items-center w-full justify-center">
                 <Link

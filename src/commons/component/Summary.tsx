@@ -1,4 +1,5 @@
 import LineBarComponent from "../../components/bar/LineBarComponent";
+import { containerDarkBG } from "../../styles/container";
 import { clashBossList, ClashSummary } from "../../types/clashTypes";
 import { clashV2BossList, ClashV2Summary } from "../../types/clashV2Types";
 import { frontierBossList, FrontierSummary } from "../../types/frontierTypes";
@@ -63,7 +64,7 @@ const Summary = ({
                 return (
                     <div
                         key={`summary_${type}_${category}`}
-                        className={`overflow-x-auto bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300 px-6 py-4 w-full`}>
+                        className={`overflow-x-auto ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300 px-6 py-4 w-full`}>
                         {/* 보스명 헤더 */}
                         {sort === 'boss' && (
                             <div className="relative flex items-center mb-4">

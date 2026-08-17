@@ -4,6 +4,7 @@ import SortArrowIcon from "../../commons/icon/SortArrowIcon";
 import { charInfo } from "../../data/trickcalChar";
 import { CostumeMapItem } from "../../pages/costume/IndexPage";
 import { getChoseong } from "es-hangul";
+import { containerDarkBG } from "../../styles/container";
 
 type SortConfig = {
     key: 'count' | 'since' | 'birthDate';
@@ -122,7 +123,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
     };
 
     return (
-        <div className="md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto bg-white dark:bg-zinc-900 rounded-2xl mb-[50px] overflow-hidden border border-zinc-300 dark:border-zinc-700">
+        <div className={`md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto ${containerDarkBG} rounded-2xl mb-[50px] overflow-hidden border border-zinc-300 dark:border-zinc-700`}>
             {/* 카테고리 */}
             {currentPageData && (
                 <div className="font-bold flex mb-1 md:gap-x-3 gap-x-1 w-full bg-orange-50 dark:bg-zinc-800 border-b border-zinc-300 dark:border-zinc-700 dark:text-zinc-200 sm:text-[15px] text-[13px]">

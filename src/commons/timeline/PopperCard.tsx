@@ -6,6 +6,7 @@ import { charInfo } from "../../data/trickcalChar";
 import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
 import { RaidNode } from "../../types/timeline/timelineTypes";
 import { getCharacterIcons } from "../../utils/function";
+import { containerDarkBG } from "../../styles/container";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 
@@ -166,7 +167,7 @@ const PopoverCard = () => {
                     sideOffset={4}
                     collisionPadding={8}
                     onClick={deactivateNow} // 모바일 환경 터치 시 비활성
-                    className={`z-50 p-2 bg-white dark:bg-zinc-900 dark:border-zinc-500 rounded-xl border border-zinc-300 dark:text-zinc-200 bg-opacity-95`}>
+                    className={`z-50 p-2 ${containerDarkBG} dark:border-zinc-500 rounded-xl border border-zinc-300 dark:text-zinc-200 bg-opacity-95`}>
 
                     <div className="flex flex-col gap-y-2">
                         <div className="flex justify-center items-center gap-x-2">

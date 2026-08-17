@@ -5,6 +5,7 @@ import RaceIcon from "../../../commons/icon/RaceIcon";
 import { charInfo } from "../../../data/trickcalChar";
 import { Personality, personalityList, Race, races } from "../../../types/trickcalTypes";
 import { getDaysSince, translateRaces } from "../../../utils/function";
+import { containerDarkBG } from "../../../styles/container";
 
 const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[]> }) => {
 
@@ -77,7 +78,7 @@ const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[
     };
 
     return (
-        <div className="bg-white flex dark:bg-zinc-900 flex-col overflow-x-auto p-4">
+        <div className={`flex flex-col overflow-x-auto p-4 ${containerDarkBG}`}>
             {(charaMap.size === 8 || charaMap.size === 6) && Array.from(charaMap.entries()).map(([cate, names]) => {
 
                 const racePositions = createPositions(names);

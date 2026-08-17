@@ -5,6 +5,7 @@ import { ClashV2SeasonData } from "../../types/clashV2Types";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { lineList } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
+import { containerDarkBG } from "../../styles/container";
 
 type SeasonDataUnion = ClashSeasonData | FrontierSeasonData | ClashV2SeasonData;
 
@@ -122,7 +123,7 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                     // console.log("maxLineCnt: ", maxLineCount)
 
                     return (
-                        <div key={'clash' + season + line} className={`rounded-xl border dark:border-zinc-700 border-zinc-300 py-2 px-3 w-[320px] bg-white dark:bg-zinc-900 ${li === 2 ? 'mr-0' : 'mr-4'}`}>
+                        <div key={'clash' + season + line} className={`rounded-xl border dark:border-zinc-700 border-zinc-300 py-2 px-3 w-[320px] ${containerDarkBG} ${li === 2 ? 'mr-0' : 'mr-4'}`}>
                             <div className="text-xl font-semibold mb-2 justify-between flex items-center dark:text-zinc-200">
                                 <span className="">{line}</span>
                                 <span className="text-[16px]">{charSum}</span>

@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
+import { containerDarkBG } from '../../../styles/container';
 
 ChartJS.register(
     CategoryScale,
@@ -126,7 +127,7 @@ const SelectRankHistogramChart: React.FC<SelectRankHistogramChartProps> = ({
     };
 
     return (
-        <div className="w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className={`w-full p-3 h-[200px] flex flex-col justify-center items-center gap-y-3 ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300`}>
             <span className="font-bold">
                 랭킹 구간별 분포
             </span>

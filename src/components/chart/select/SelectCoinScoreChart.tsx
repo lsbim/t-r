@@ -12,6 +12,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
+import { containerDarkBG } from '../../../styles/container';
 
 ChartJS.register(
     CategoryScale,
@@ -134,7 +135,7 @@ const SelectCoinScoreChart: React.FC<SelectCoinScoreChartProps> = ({ comparisonD
     }), [comparisonData, tickColor, gridColor]);
 
     return (
-        <div className="w-full px-3 py-1 h-[250px] flex flex-col justify-center items-center gap-y-3 bg-white dark:bg-zinc-900 dark:border-zinc-700 rounded-xl border border-zinc-300">
+        <div className={`w-full px-3 py-1 h-[250px] flex flex-col justify-center items-center gap-y-3 ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300`}>
             <span className="font-bold pt-2">
                 코인 구간별 평균 순위 비교
             </span>

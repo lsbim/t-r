@@ -6,6 +6,7 @@ import { processCompStat, processSynergyStats } from "../../utils/chartFunction"
 import React from "react";
 import { Virtuoso } from "react-virtuoso";
 import { ClashV2SeasonData } from "../../types/clashV2Types";
+import { containerDarkBG, raidRootContainer } from "../../styles/container";
 
 const CompListComponent = ({
     data,
@@ -40,7 +41,7 @@ const CompListComponent = ({
         <div id="compList" className="sm:flex justify-center items-start gap-4">
 
             {/* 조합 */}
-            <div className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pt-4 mr-4 rounded-xl border border-zinc-300 dark:border-zinc-700 min-w-[300px] w-full sm:w-[350px]">
+            <div className={`${raidRootContainer} ${containerDarkBG} dark:text-zinc-200 p-2 pt-4 mr-4 rounded-xl border border-zinc-300 dark:border-zinc-700 min-w-[300px] w-full sm:w-[350px]`}>
                 <div className="text-xl font-bold mb-2">
                     조합
                 </div>
@@ -105,7 +106,7 @@ const CompListComponent = ({
                     }}
                 />
             </div>
-            <div id="synergyList" className="flex flex-col items-center bg-white dark:bg-zinc-900 dark:text-zinc-200 p-2 pt-4 rounded-xl border border-zinc-300 dark:border-zinc-700 min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0">
+            <div id="synergyList" className={`${raidRootContainer} ${containerDarkBG} dark:text-zinc-200 p-2 pt-4 rounded-xl border border-zinc-300 dark:border-zinc-700 min-w-[300px] w-full sm:w-[300px] mt-4 sm:mt-0`}>
                 <div className="text-xl font-bold mb-2">
                     성격
                 </div>

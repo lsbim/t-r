@@ -4,13 +4,14 @@ import ItemIcon from "../../commons/icon/ItemIcon";
 import { SimResponse } from "../../types/sim/simTypes";
 import { calculateMaxDepth } from "../../utils/simFuntions";
 import SimMaterialPlan from "./SimMaterialPlan";
+import { containerDarkBG } from "../../styles/container";
 
 const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }) => {
 
     // console.log(simResult)
 
     return (
-        <div className="w-full flex flex-col bg-white dark:bg-zinc-900 pt-3 px-3 shadow-md overflow-x-hidden">
+        <div className={`w-full flex flex-col ${containerDarkBG} pt-3 px-3 shadow-md overflow-x-hidden`}>
             {/* 시설 명 + 소모골드 */}
             <div className="flex mx-auto gap-x-5 pb-4">
                 {type !== 'research' ? (

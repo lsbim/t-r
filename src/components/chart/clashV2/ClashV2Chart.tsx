@@ -15,6 +15,7 @@ import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../commons/icon/InfoIcon";
 import { useTheme } from "../../../hooks/useTheme";
 import { ClashV2SeasonData } from "../../../types/clashV2Types";
+import { containerDarkBG } from '../../../styles/container';
 
 
 ChartJS.register(
@@ -254,7 +255,7 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
         : '점수 및 림의 이면세계';
 
     return (
-        <div className="lg:w-[992px] w-full mx-auto flex flex-col h-[466px] gap-y-4 bg-white dark:bg-zinc-900 dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden">
+        <div className={`lg:w-[992px] w-full mx-auto flex flex-col h-[466px] gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2">{chartTitle}</span>
                 <InfoIcon text={infoText} />

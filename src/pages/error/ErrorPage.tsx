@@ -2,6 +2,7 @@ import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SEO from "../../commons/component/SEO";
+import { pageRootContainer } from "../../styles/container";
 
 const ErrorPage = () => {
 
@@ -25,7 +26,7 @@ const ErrorPage = () => {
         }
 
         return (
-            <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]">
+            <div className={`${pageRootContainer} gap-4 min-h-[100.5vh]`}>
                 <SEO />
                 <HeaderNav />
                 <div className=" flex items-center justify-center flex-col mt-24">
@@ -54,7 +55,7 @@ const ErrorPage = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center gap-4 min-h-[100.5vh]">
+        <div className={`${pageRootContainer} gap-4 min-h-[100.5vh]`}>
             <SEO />
             <HeaderNav />
             <div className=" flex items-center justify-center flex-col mt-24">

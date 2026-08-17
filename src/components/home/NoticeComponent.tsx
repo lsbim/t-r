@@ -1,5 +1,6 @@
 import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import MyAccordion from "../../commons/rdx/MyAccordion";
+import { containerDarkBG } from "../../styles/container";
 import { ClashBase, ClashSummary } from "../../types/clashTypes";
 import { FrontierBase, FrontierSummary } from "../../types/frontierTypes";
 
@@ -206,7 +207,7 @@ const NoticeComponent = ({ nonData }: { nonData: ClashBase | FrontierBase }) => 
     return (
         <div className="sm:w-[600px] w-full mx-auto flex flex-col">
             <div className="flex justify-center">
-                <div className="w-full mx-auto rounded-2xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 overflow-hidden">
+                <div className={`w-full mx-auto rounded-2xl border border-zinc-300 dark:border-zinc-700 ${containerDarkBG} overflow-hidden`}>
                     <div className="text-[15px] flex justify-start dark:text-zinc-300 p-4 font-bold">
                         공지사항
                     </div>
