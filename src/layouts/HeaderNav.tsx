@@ -51,7 +51,7 @@ const HeaderNav = () => {
                     {/* 로고 */}
                     <div className="lg:flex-1 flex">
                         <Link to="/" className="h-[26px] w-[26px]">
-                            <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="Logo" />
+                            <img loading="lazy" decoding="async" src="/logo.png" className="min-w-[26px]" alt="트릭컬 레코드 홈" />
                         </Link>
                     </div>
 
