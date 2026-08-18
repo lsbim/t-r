@@ -29,7 +29,7 @@ const RootLayout = () => {
     return (
         <>
             <Outlet />
-            <ScrollRestoration />
+            <ScrollRestoration /> {/* 사용자 스크롤 위치를 기억하고 복구 */}
         </>
     );
 };

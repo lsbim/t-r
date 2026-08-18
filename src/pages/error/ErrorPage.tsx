@@ -3,11 +3,29 @@ import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SEO from "../../commons/component/SEO";
 import { pageRootContainer } from "../../styles/container";
+import { useEffect } from "react";
 
 const ErrorPage = () => {
 
     const error = useRouteError();
     // console.log(error)
+
+    // 새 버전 배포 중 예전 데이터를 호출하면 생기는 오류
+    const isOldChunkLoadError = error instanceof Error && (
+        error.message.includes('Failed to fetch dynamically imported module') ||
+        error.message.includes('error loading dynamically imported module') ||
+        error.message.includes('Importing a module script failed')
+    );
+
+    useEffect(() => {
+        if (!isOldChunkLoadError) return;
+
+        const lastReloadAt = Number(sessionStorage.getItem('old_chunk_reload_at') ?? 0);
+        if (Date.now() - lastReloadAt < 10000) return
+
+        sessionStorage.setItem('old_chunk_reload_at', String(Date.now()));
+        window.location.reload();
+    }, [isOldChunkLoadError]);
 
 
     if (isRouteErrorResponse(error)) {
