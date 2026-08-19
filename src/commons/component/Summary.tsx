@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LineBarComponent from "../../components/bar/LineBarComponent";
 import { containerDarkBG } from "../../styles/container";
 import { clashBossList, ClashSummary } from "../../types/clashTypes";
@@ -64,10 +65,10 @@ const Summary = ({
                 return (
                     <div
                         key={`summary_${type}_${category}`}
-                        className={`overflow-x-auto ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300 px-6 py-4 w-full`}>
+                        className={`overflow-x-auto ${containerDarkBG} dark:border-zinc-700 rounded-xl border border-zinc-300 py-4 w-full overflow-hidden`}>
                         {/* 보스명 헤더 */}
                         {sort === 'boss' && (
-                            <div className="relative flex items-center mb-4">
+                            <div className="relative flex items-center mb-4 px-6">
                                 <h3 className="absolute z-20 text-xl font-bold dark:text-zinc-200">{category}</h3>
                                 <BossProfile
                                     name={category}
@@ -83,7 +84,7 @@ const Summary = ({
                             </div>
                         )}
                         {sort === 'pers' && (
-                            <div className="flex gap-x-2">
+                            <div className="flex gap-x-2 px-6">
                                 <div
                                     data-tooltip-id="my-tooltip"
                                     data-tooltip-content={category}
@@ -98,9 +99,9 @@ const Summary = ({
 
                         {/* 셰이디의 차원, 림의 이면세계 / 후열 중열 전열 */}
                         {matchingEntries.length !== 0 && (
-                            <div className="w-full mb-1 flex items-center">
+                            <div className="w-full mb-1 flex items-center px-6">
                                 {/* 왼쪽 여백을 위한 빈 div */}
-                                <div className={`${type === 'clashV2' && 'mr-2'} w-[90px] flex-shrink-0`} />
+                                <div className={`${type === 'clashV2' && 'mr-2'} w-[66px] flex-shrink-0`} />
                                 <div
                                     className={`flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400 ${type === 'clashV2' ? 'gap-x-10' : 'gap-x-[10px]'}`}>
                                     {TYPE_CONFIG[type].lineList.map(c => (
@@ -113,121 +114,123 @@ const Summary = ({
                                 </div>
                             </div>
                         )}
+                        <div className="flex flex-col gap-y-[2px]">
+                            {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
+                            {matchingEntries.length === 0 ? (
+                                <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-200 px-6">
+                                    준비 중입니다.
+                                </div>
+                            ) : (
+                                // 데이터가 있는 경우 각 시즌의 바 차트를 세로로 배치
+                                matchingEntries.map((entry, entryIndex) => {
+                                    const { season, seasonData } = entry;
 
-                        {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
-                        {matchingEntries.length === 0 ? (
-                            <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-200">
-                                준비 중입니다.
-                            </div>
-                        ) : (
-                            // 데이터가 있는 경우 각 시즌의 바 차트를 세로로 배치
-                            matchingEntries.map((entry, entryIndex) => {
-                                const { season, seasonData } = entry;
+                                    const seasonTooltip = (seasonData.rules ?? seasonData.power ?? []).join("\n");
 
-                                const seasonTooltip = (seasonData.rules ?? seasonData.power ?? []).join("\n");
+                                    const urlType = type === 'clashV2'
+                                        ? 'clash/v2'
+                                        : type === 'clash'
+                                            ? 'clash/v1'
+                                            : type
+                                    const seasonUrl = `/${urlType}/${season}`
 
-                                // console.log("seasonData", seasonData)
+                                    // console.log("seasonData", seasonData)
 
-                                return (
-                                    <div key={`${category}_season_${season}`} className={`flex h-[24px] mt-[-1px]`}>
-                                        {/* 시즌 정보 */}
-                                        <div className="w-full mb-1 flex items-center h-full">
-                                            {/* 마진 8px + 너비 80px */}
-                                            <div className={`min-w-[90px] flex items-center dark:text-zinc-200 ${type === 'frontier' ? 'gap-x-1' : 'gap-x-2'} ${type === 'clashV2' && 'mr-2'}`}>
-                                                <div
-                                                    data-tooltip-id="my-tooltip"
-                                                    data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
-                                                    className="hover:text-gray-400 hover:dark:text-zinc-400 whitespace-nowrap min-w-[24px] w-[24px] flex items-center font-bold text-[14px] cursor-pointer">
-                                                    {Number(season) > 10000 && (
-                                                        <>
-                                                            B{Number(season) - 10000}
-                                                        </>
+                                    return (
+                                        <Link
+                                            to={seasonUrl}
+                                            key={`${category}_season_${season}`}
+                                            className={`flex h-[24px] mt-[-1px] hover:bg-zinc-50 dark:hover:bg-zinc-800 dark:hover:brightness-110 hover:brightness-95 px-6 cursor-pointer`}>
+                                            {/* 시즌 정보 */}
+                                            <div className="w-full mb-1 flex items-center h-full">
+                                                {/* 마진 8px + 너비 80px */}
+                                                <div className={`min-w-[66px] flex items-center dark:text-zinc-200 ${type === 'frontier' ? 'gap-x-1' : 'gap-x-2'} ${type === 'clashV2' && 'mr-2'}`}>
+                                                    <div
+                                                        data-tooltip-id="my-tooltip"
+                                                        data-tooltip-content={`${seasonData?.startDate} ~ ${seasonData?.endDate}`}
+                                                        className="whitespace-nowrap min-w-[24px] w-[24px] flex items-center font-bold text-[14px]">
+                                                        {Number(season) > 10000 && (
+                                                            <>
+                                                                B{Number(season) - 10000}
+                                                            </>
+                                                        )}
+                                                        {Number(season) < 10000 && (
+                                                            <>
+                                                                S{season}
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                    {type === 'frontier' && (
+                                                        <div
+                                                            data-tooltip-id="my-tooltip"
+                                                            data-tooltip-content={`${seasonTooltip}`}
+                                                            className="w-[24px] min-w-[24px] whitespace-nowrap font-bold text-[13px]">
+                                                            권능
+                                                        </div>
                                                     )}
-                                                    {Number(season) < 10000 && (
-                                                        <>
-                                                            S{season}
-                                                        </>
-                                                    )}
-                                                </div>
-                                                {type === 'frontier' && (
-                                                    <div
-                                                        data-tooltip-id="my-tooltip"
-                                                        data-tooltip-content={`${seasonTooltip}`}
-                                                        className="hover:text-gray-400 w-[64px] min-w-[64px] whitespace-nowrap font-bold text-[13px] cursor-pointer">
-                                                        교주의권능
-                                                    </div>
-                                                )}
-                                                {(type === 'clash' || type === 'clashV2') && (
-                                                    <div
-                                                        data-tooltip-id="my-tooltip"
-                                                        data-tooltip-content={`${seasonTooltip}`}
-                                                        className="hover:text-gray-400 hover:dark:text-zinc-400 relative min-w-[24px] w-[24px] whitespace-nowrap font-bold text-[13px] cursor-pointer flex items-center">
-                                                        규칙
-                                                    </div>
-                                                )}
-                                                {type === 'clashV2' ? (
-                                                    <div
-                                                        data-tooltip-id="my-tooltip"
-                                                        data-tooltip-content={seasonData?.personality}
-                                                        className={`min-w-[28px] w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
-                                                        <PersonalityIcon personality={seasonData?.personality} size={20} />
-                                                    </div>
-                                                ) : type === 'clash' ? (
-                                                    sort === 'boss' ? (
-                                                        <div data-tooltip-id="my-tooltip" data-tooltip-content={seasonData?.personality}
-                                                            className={`min-w-[28px] w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap cursor-pointer`}>
+                                                    {type === 'clashV2' ? (
+                                                        <div
+                                                            data-tooltip-id="my-tooltip"
+                                                            data-tooltip-content={seasonData?.personality}
+                                                            className={`min-w-[28px] w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap`}>
                                                             <PersonalityIcon personality={seasonData?.personality} size={20} />
                                                         </div>
-                                                    ) : (
-                                                        <div data-tooltip-id="my-tooltip" data-tooltip-content={seasonData?.name}
-                                                            className="min-w-[28px] w-[28px] text-[12px] hover:text-gray-400 hover:dark:text-zinc-400 font-bold whitespace-nowrap cursor-pointer break-all overflow-hidden">
-                                                            {seasonData?.name === "크레용사용" ? '용사' : seasonData?.name.slice(0, 2)}
-                                                        </div>
-                                                    )
-                                                ) : (<></>)}
-                                            </div>
-
-                                            {/* 림의 이면세계/셰이디의 차원, 전/중/후열 라인바차트 */}
-                                            {type === 'clashV2' ? (
-                                                <div className={`flex gap-x-10`}>
-                                                    <div className={`${TYPE_CONFIG[type].lineBarWidth} flex`}>
-                                                        <LineBarComponent
-                                                            data={seasonData.summary}
-                                                            season={Number(season)}
-                                                            type="clashV2"
-                                                        />
-                                                    </div>
-                                                    <div className={`${TYPE_CONFIG[type].lineBarWidth} flex`}>
-                                                        <LineBarComponent
-                                                            data={seasonData.sideSummary}
-                                                            season={Number(season)}
-                                                            type="clashV2"
-                                                        />
-                                                    </div>
+                                                    ) : type === 'clash' ? (
+                                                        sort === 'boss' ? (
+                                                            <div data-tooltip-id="my-tooltip" data-tooltip-content={seasonData?.personality}
+                                                                className={`min-w-[28px] w-[28px] text-[13px] font-bold text-${seasonData?.personality} whitespace-nowrap`}>
+                                                                <PersonalityIcon personality={seasonData?.personality} size={20} />
+                                                            </div>
+                                                        ) : (
+                                                            <div data-tooltip-id="my-tooltip" data-tooltip-content={seasonData?.name}
+                                                                className="min-w-[28px] w-[28px] text-[12px] font-bold whitespace-nowrap break-all overflow-hidden">
+                                                                {seasonData?.name === "크레용사용" ? '용사' : seasonData?.name.slice(0, 2)}
+                                                            </div>
+                                                        )
+                                                    ) : (<></>)}
                                                 </div>
-                                            ) : (
-                                                <div className={`flex gap-x-[10px]`}>
-                                                    {TYPE_CONFIG[type].lineList.map((l) => (
-                                                        <div
-                                                            key={`${l}_season_${season}`}
-                                                            className={`${TYPE_CONFIG[type].lineBarWidth} flex flex-shrink-0 flex-grow-0`}
-                                                        >
+
+                                                {/* 림의 이면세계/셰이디의 차원, 전/중/후열 라인바차트 */}
+                                                {type === 'clashV2' ? (
+                                                    <div className={`flex gap-x-10`}>
+                                                        <div className={`${TYPE_CONFIG[type].lineBarWidth} flex`}>
                                                             <LineBarComponent
                                                                 data={seasonData.summary}
-                                                                line={l}
-                                                                season={Number(season)}
-                                                                type={type as "clash" | "frontier"}
                                                             />
                                                         </div>
-                                                    ))}
-                                                </div>
-                                            )}
+                                                        <div className={`${TYPE_CONFIG[type].lineBarWidth} flex`}>
+                                                            <LineBarComponent
+                                                                data={seasonData.sideSummary}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div className={`flex gap-x-[10px]`}>
+                                                        {TYPE_CONFIG[type].lineList.map((l) => (
+                                                            <div
+                                                                key={`${l}_season_${season}`}
+                                                                className={`${TYPE_CONFIG[type].lineBarWidth} flex flex-shrink-0 flex-grow-0`}
+                                                            >
+                                                                <LineBarComponent
+                                                                    data={seasonData.summary}
+                                                                    line={l}
+                                                                />
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
 
-                                        </div>
-                                    </div>
-                                );
-                            })
-                        )}
+                                                {/* 클릭 UX를 위한 화살표 */}
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 flex-shrink-0 mx-2 dark:text-zinc-200">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                                </svg>
+
+                                            </div>
+                                        </Link>
+                                    );
+                                })
+                            )}
+                        </div>
                     </div>
                 )
             })}
