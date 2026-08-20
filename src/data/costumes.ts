@@ -62,6 +62,7 @@ export const costumes: Costume[] = [
     { charName: "캐시", cosName: "차원이 다른 과학 유령", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "델리아", cosName: "모두와 함께 바다로", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "스패럿", cosName: "거침없는 앵아치", lvl: "normal", launchDate: "2026-08-13" },
+    { charName: "라이카", cosName: "지니어스 라이트닝", lvl: "normal", launchDate: "2026-08-20" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -115,6 +116,7 @@ export const costumes: Costume[] = [
     { charName: "실라", cosName: "불어오는 정복의 바람", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "니콜", cosName: "파팝 터지는 손맛", lvl: "normal", launchDate: "2026-07-16" },
     { charName: "그윈", cosName: "바다로 떠나는 모험", lvl: "normal", launchDate: "2026-07-23" },
+    { charName: "잉클", cosName: "꿈 많은 사무직 세계관", lvl: "normal", launchDate: "2026-08-20" },
 
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
@@ -169,6 +171,7 @@ export const costumes: Costume[] = [
     { charName: "셰이디", cosName: "차원 찬탈 고스트", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "스키아", cosName: "이국의 전통 체험", lvl: "normal", launchDate: "2026-07-02" },
     { charName: "헤일리(멀쩡)", cosName: "거친 파도 속으로", lvl: "normal", launchDate: "2026-07-23" },
+    { charName: "다야(퓨어샤인)", cosName: "샤이닝 비즈니스", lvl: "normal", launchDate: "2026-08-20" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
@@ -223,6 +226,7 @@ export const costumes: Costume[] = [
     { charName: "슈로", cosName: "태양 빛 아래의 뱀", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "에슈르(마도)", cosName: "힐링을 위한 해변 산책", lvl: "normal", launchDate: "2026-07-30" },
     { charName: "벨라", cosName: "존재감 넘치는 구미호", lvl: "pretty", launchDate: "2026-08-06" },
+    { charName: "셰이디(역전)", cosName: "달콤한 나의 상사님", lvl: "normal", launchDate: "2026-08-20" },
 
     // 우울
     { charName: "시온", cosName: "다크 버니", lvl: "normal", launchDate: "2024-07-25" },
@@ -278,6 +282,7 @@ export const costumes: Costume[] = [
     { charName: "힐데", cosName: "평화를 향한 의지", lvl: "normal", launchDate: "2026-06-18" },
     { charName: "오르", cosName: "차원 개발 연구원", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "리온", cosName: "히어로의 여름 바캉스", lvl: "normal", launchDate: "2026-07-23" },
+    { charName: "아사나", cosName: "유연한 팀장님의 자세", lvl: "normal", launchDate: "2026-08-20" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
