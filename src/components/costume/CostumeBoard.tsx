@@ -122,6 +122,7 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
         }
     };
 
+
     return (
         <div className={`md:w-[768px] min-h-[431px] w-full flex flex-col mx-auto ${containerDarkBG} rounded-2xl mb-[50px] overflow-hidden border border-zinc-300 dark:border-zinc-700`}>
             {/* 카테고리 */}
@@ -162,37 +163,45 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
 
             {/* 데이터 */}
             <div className="flex flex-col md:gap-y-2 gap-y-3 flex-grow h-[337px]">
-                {currentPageData && currentPageData.map((c, index) => (
-                    <div
-                        key={"costume_board_" + currentPage + index}
-                        className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px] dark:text-zinc-200">
+                {currentPageData && currentPageData.map((c, index) => {
 
-                        <div className={`py-[2px] px-2 flex items-center gap-x-2 ${boardCategoryWidthStyle('name')} md:text-[15px] text-[13px] font-bold`}>
-                            <PersonalityIcon personality={charInfo[c.charName].personality} size={16} />
-                            <span className="truncate max-w-[60px] md:max-w-[140px]">
-                                {c.charName === '시온' ? '시온 더 다크불릿' : c.charName}
-                            </span>
-                        </div>
-                        <div className={`font-bold py-[2px] px-2 flex items-center justify-center ${boardCategoryWidthStyle('count')}`}>
-                            {c.count}
-                        </div>
+                    const charaCosNameList = c?.costumes?.sort((a, b) => a.launchDate.localeCompare(b.launchDate)).map(cos => cos.cosName).join('\n');
+
+                    return (
                         <div
-                            className={`cursor-pointer py-[2px] px-2 flex items-center justify-between gap-x-4 font-bold text-red-500 ${boardCategoryWidthStyle('since')}`}>
-                            <span className={`flex items-center justify-center font-normal text-gray-700 dark:text-zinc-400`}>
-                                {c.latestDate === "2023-09-27" ? "-" : c.latestDate}
-                            </span>
-                            <span
+                            key={"costume_board_" + currentPage + index}
+                            className="flex md:gap-x-3 gap-x-1 md:text-[14px] text-[12px] dark:text-zinc-200">
+
+                            <div className={`py-[2px] px-2 flex items-center gap-x-2 ${boardCategoryWidthStyle('name')} md:text-[15px] text-[13px] font-bold`}>
+                                <PersonalityIcon personality={charInfo[c.charName].personality} size={16} />
+                                <span className="truncate max-w-[60px] md:max-w-[140px]">
+                                    {c.charName === '시온' ? '시온 더 다크불릿' : c.charName}
+                                </span>
+                            </div>
+                            <div
                                 data-tooltip-id="my-tooltip"
-                                data-tooltip-content={c?.costumes && c?.costumes[c.costumes.length - 1]?.cosName}
-                                className={`flex items-center justify-center ${getSinceColor(c.since)}`}>
-                                {c.latestDate === "2023-09-27" ? "없음" : `${c.since}일 전`}
-                            </span>
+                                data-tooltip-content={charaCosNameList}
+                                className={`font-bold py-[2px] px-2 flex items-center justify-center cursor-pointer ${boardCategoryWidthStyle('count')}`}>
+                                {c.count}
+                            </div>
+                            <div
+                                className={`cursor-pointer py-[2px] px-2 flex items-center justify-between gap-x-4 font-bold text-red-500 ${boardCategoryWidthStyle('since')}`}>
+                                <span className={`flex items-center justify-center font-normal text-gray-700 dark:text-zinc-400`}>
+                                    {c.latestDate === "2023-09-27" ? "-" : c.latestDate}
+                                </span>
+                                <span
+                                    data-tooltip-id="my-tooltip"
+                                    data-tooltip-content={c?.costumes && c?.costumes[c.costumes.length - 1]?.cosName}
+                                    className={`flex items-center justify-center ${getSinceColor(c.since)}`}>
+                                    {c.latestDate === "2023-09-27" ? "없음" : `${c.since}일 전`}
+                                </span>
+                            </div>
+                            <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 dark:text-zinc-400 ${boardCategoryWidthStyle('birthDate')}`}>
+                                {charInfo[c.charName].birthdate}
+                            </div>
                         </div>
-                        <div className={`sm:flex hidden py-[2px] px-2 mx-auto items-center justify-center text-gray-700 dark:text-zinc-400 ${boardCategoryWidthStyle('birthDate')}`}>
-                            {charInfo[c.charName].birthdate}
-                        </div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
 
             {/* 페이지 */}
