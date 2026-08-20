@@ -1,3 +1,5 @@
+type researchCurrency = 'gold' | 'sunnyrain';
+
 type StepDetail = {
     name: string;
     cost?: {
@@ -6,7 +8,7 @@ type StepDetail = {
     }[];
     time: number;
 } & {
-    gold?: number;
+    [key in researchCurrency]?: number;
 };
 
 export interface ResearchStep {
@@ -1072,7 +1074,7 @@ export const dimensionResearch: Research = {
             }, 33: {
                 name: '모험회 일일 최대 횟수 1 증가',
                 cost: [{
-                    name: '급상승 차트',
+                    name: '말랑 딱딱 인형',
                     qty: 1,
                 }, {
                     name: '꾹꾹이 화석',

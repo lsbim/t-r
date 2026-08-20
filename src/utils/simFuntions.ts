@@ -1,7 +1,7 @@
 import { Adventure, adventure, AdventureDetail, MATERIAL_YIELD_TYPES, MaterialYieldTypesData } from "../data/adventures";
 import { facilities } from "../data/facilities";
 import { materials } from "../data/materials";
-import { research } from "../data/research";
+import { dimensionResearch, research } from "../data/research";
 import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimFacilityResult, SimResponse, SimResult } from "../types/sim/simTypes";
 import { translateFacility } from "./function";
 import { getResearchStep } from "./researchFuntion";
@@ -117,7 +117,11 @@ export const simFacility = (request: FacilitySimRequest, curInventory?: Map<stri
 }
 
 // 연구 개발 (단계 단위, 주제x)
-export const simResearch = (request: ResearchSimRequest, curInventory?: Map<string, number>): SimResponse[] => {
+export const simResearch = (
+    request: ResearchSimRequest,
+    researchType: 'research' | 'dimension',
+    curInventory?: Map<string, number>,
+): SimResponse[] => {
     const { currentTier, currentStep, target } = request;
     const { tier: targetTier, step: targetStep } = target;
 
@@ -130,7 +134,7 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
 
         // 단계 단위 재료 Map
         const needMaterials = new Map<string, number>();
-        const researchInfo = research[t];
+        const researchInfo = researchType === 'research' ? research[t] : dimensionResearch[t];
         if (!researchInfo) continue;
 
         // currentTier의 시작 step. currentStep + 1부터 시작 ex) 1~5번 주제 => 2,3,4,5번 계산
@@ -141,17 +145,26 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
             continue;
         }
 
+        // console.log(needMaterials);
         // step 범위만큼 재료 구하기
         for (let s = startStep; s <= endStep; s++) {
-            const stepInfo = getResearchStep(t, s);
+            const stepInfo = getResearchStep(t, s, researchType);
             if (!stepInfo) continue;
 
             // 골드 누적
-            needMaterials.set('gold', (needMaterials.get('gold') || 0) + stepInfo.gold);
+            if (researchType === 'research') {
+                needMaterials.set('gold', (needMaterials.get('gold') || 0) + (stepInfo.gold! || 0));
+            } else {
+                needMaterials.set('sunnyrain', (needMaterials.get('sunnyrain') || 0) + (stepInfo.sunnyrain! || 0));
+            }
+
             // 재료 누적
-            stepInfo.cost.forEach(({ name, qty }) => {
-                needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
-            });
+            if (stepInfo.cost) {
+                stepInfo.cost.forEach(({ name, qty }) => {
+                    needMaterials.set(name, (needMaterials.get(name) || 0) + qty);
+                });
+            }
+
         }
 
         // 해당 Tier에서 필요한 재료가 없으면 다음 Tier로 넘어감
@@ -174,6 +187,7 @@ export const simResearch = (request: ResearchSimRequest, curInventory?: Map<stri
             tier: t,
             numlvl: endStep, // 해당 Tier에서 도달한 마지막 Step을 레벨로 표시
             gold: needMaterials.get('gold') || 0,
+            sunnyrain: needMaterials.get('sunnyrain') || 0,
         });
     }
 
@@ -209,7 +223,9 @@ export function createIntegratedPlan(
 
     // 필요 재료목록 순회하여 등록
     needMaterials.forEach((qty, name) => {
-        if (name !== 'gold') calculateBaseNeeds(name, qty);
+        if (!['gold', 'sunnyrain'].includes(name)) {
+            calculateBaseNeeds(name, qty);
+        }
     });
 
     // 필요 재료목록 확인
@@ -226,7 +242,7 @@ export function createIntegratedPlan(
     };
 
     const acquisitionPlans = Array.from(needMaterials.entries())
-        .filter(([materialName, _]) => materialName !== 'gold')
+        .filter(([materialName, _]) => !['gold', 'sunnyrain'].includes(materialName))
         .map(([materialName, quantity]) => {
             return planAcquisitionRecursive(materialName, quantity, currentAdvLvl, context);
         });
@@ -377,10 +393,6 @@ function planAcquisitionRecursive(
         };
     }
 
-    // 재료가 모험과 제작으로 얻을 수 없으면 null
-    if (materialName !== 'gold') {
-        // console.warn(`${materialName}을(를) 획득할 방법을 찾을 수 없습니다.`);
-    }
     return {
         material: materialName,
         quantity: quantity,

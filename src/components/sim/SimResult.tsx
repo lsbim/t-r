@@ -12,9 +12,9 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
 
     return (
         <div className={`w-full flex flex-col ${containerDarkBG} pt-3 px-3 shadow-md overflow-x-hidden`}>
-            {/* 시설 명 + 소모골드 */}
             <div className="flex mx-auto gap-x-5 pb-4">
-                {type !== 'research' ? (
+                {/* 시설, 종합 */}
+                {(type !== 'research' && type !== 'dimension') ? (
                     <>
                         <div className="flex items-center">
                             <FacilityIcon name={simResult.name} value={simResult.numlvl} />
@@ -22,8 +22,11 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         <div className="flex flex-col items-center gap-y-2">
                             <span className="font-bold text-[16px]">필요 재료</span>
                             <div className="grid grid-flow-row sm:grid-cols-[repeat(8,minmax(0,auto))] grid-cols-[repeat(4,minmax(0,auto))] gap-1">
-                                {simResult.gold && (
+                                {(simResult.gold || 0) > 0 && (
                                     <ItemIcon name="gold" value={simResult.gold} />
+                                )}
+                                {(simResult.sunnyrain || 0) > 0 && (
+                                    <ItemIcon name="sunnyrain" value={simResult.sunnyrain} />
                                 )}
                                 {simResult.result.acquisitionPlans.map((matObj, idx) => (
                                     <ItemIcon
@@ -35,10 +38,11 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                             </div>
                         </div>
                     </>
-                ) : type === 'research' && (
+                ) : (
+                    // 연구실, 차원연구실
                     <>
                         <div className="w-[80px] flex justify-center items-center">
-                            <div className="bg-[rgb(150,182,97)] rounded-full p-2 w-[60px] min-h-[49.86px] relative flex justify-center items-center">
+                            <div className={`${type === 'research' ? 'bg-[rgb(150,182,97)]' : type === 'dimension' && 'bg-[rgb(202,111,199)]'} rounded-full p-2 w-[60px] min-h-[49.86px] relative flex justify-center items-center`}>
                                 <img src={`/images/lab/lab.png`} />
                                 <div
                                     style={{
@@ -52,8 +56,11 @@ const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }
                         <div className="flex flex-col items-center gap-y-2">
                             <span className="font-bold text-[16px]">필요 재료</span>
                             <div className="grid grid-flow-row grid-cols-[repeat(4,minmax(0,auto))] gap-1">
-                                {simResult.gold && (
+                                {(simResult.gold || 0) > 0 && (
                                     <ItemIcon name="gold" value={simResult.gold} />
+                                )}
+                                {(simResult.sunnyrain || 0) > 0 && (
+                                    <ItemIcon name="sunnyrain" value={simResult.sunnyrain} />
                                 )}
                                 {simResult.result.acquisitionPlans.map((matObj, idx) => (
                                     <ItemIcon

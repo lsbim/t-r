@@ -484,6 +484,27 @@ export const materials: Material[] = [
             { name: '반질반질 종이', qty: 3 },
             { name: '15cm 자', qty: 4 },
         ]
+    }, {
+        name: '말랑 딱딱 인형',
+        grade: 4,
+        ingredient: [
+            { name: '배터리 팩', qty: 3 },
+            { name: '부들 천', qty: 2 },
+        ]
+    }, {
+        name: '꾹꾹이 화석',
+        grade: 4,
+        ingredient: [
+            { name: 'LED 전구', qty: 3 },
+            { name: '쭈물럭 점토', qty: 2 },
+        ]
+    }, {
+        name: '급상승 차트',
+        grade: 4,
+        ingredient: [
+            { name: 'S전자 반도체', qty: 3 },
+            { name: '팅팅탱탱 스프링', qty: 2 },
+        ]
     },
 ];
 

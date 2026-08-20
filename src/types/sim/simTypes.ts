@@ -25,6 +25,7 @@ export interface FacilitySimRequest {
 
 export interface SimResponse {
     gold?: number;
+    sunnyrain?: number;
     tier?: number;
     krName?: string; // 원본명이 영어일 경우 ex) 'adv' 한글로 바꾼 이름.
     name: string; // 원본명

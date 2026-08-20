@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { dimensionResearch, research } from "../../data/research";
 import { ResearchSimRequest } from "../../types/sim/simTypes";
-import { research } from "../../data/research";
 import { getResearchStep } from "../../utils/researchFuntion";
 
 interface BlockSliderProps {
     input: ResearchSimRequest;
     handle: (current: number, target: number) => void;
+    blockType: 'research' | 'dimension'
 }
 
-
-const BlockSlide = ({ handle, input }: BlockSliderProps) => {
+const BlockSlide = ({
+    handle,
+    input,
+    blockType
+}: BlockSliderProps) => {
 
     // 범위의 시작과 끝을 추적합니다
     // const [rangeMin, setRangeMin] = useState<number>(input.currentStep);
@@ -19,8 +22,8 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
 
     const sameTier = input.currentTier === input.target.tier; // 범위로 잡은 두 연구 단계가 같은지
 
-    const currentTierMax = maxResearchStep(input.currentTier);
-    const targetTierMax = maxResearchStep(input.target.tier);
+    const currentTierMax = maxResearchStep(input.currentTier, blockType);
+    const targetTierMax = maxResearchStep(input.target.tier, blockType);
 
     const handleBlockMin = (blockNum: number) => {
         if (blockNum === rangeMin) return;
@@ -103,7 +106,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                             key={`block_start_${index + 1}`}
                             onClick={() => handleBlockMin(index + 1)}
                             data-tooltip-id="my-tooltip"
-                            data-tooltip-content={getResearchStep(input.currentTier, index + 1)!.name}
+                            data-tooltip-content={getResearchStep(input.currentTier, index + 1, blockType)!.name}
                             className={`${blockTailwindClassName(index, 'left')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
                         />
                     ))}
@@ -112,13 +115,13 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                 {/* 현재 선택된 범위 표시 */}
                 <div className="my-2 text-sm font-semibold text-gray-700 dark:text-zinc-200 flex flex-col items-center justify-center min-h-[60px]">
                     <span>
-                        {getResearchStep(input.currentTier, input.currentStep)?.name}
+                        {getResearchStep(input.currentTier, input.currentStep, blockType)?.name}
                     </span>
                     <div>
                         ↓
                     </div>
                     <span>
-                        {getResearchStep(input.target.tier, input.target.step)?.name}
+                        {getResearchStep(input.target.tier, input.target.step, blockType)?.name}
                     </span>
                 </div>
 
@@ -129,7 +132,7 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
                             key={`block_end_${index}`}
                             onClick={() => handleBlockMax(index + 1)}
                             data-tooltip-id="my-tooltip"
-                            data-tooltip-content={getResearchStep(input.target.tier, index + 1)!.name}
+                            data-tooltip-content={getResearchStep(input.target.tier, index + 1, blockType)!.name}
                             className={`${blockTailwindClassName(index, 'right')} w-5 h-4 transition-all duration-150 cursor-pointer border-2 rounded`}
                         />
                     ))}
@@ -140,9 +143,9 @@ const BlockSlide = ({ handle, input }: BlockSliderProps) => {
 }
 
 // tier가 아닌 max step
-function maxResearchStep(tier: number): number {
+function maxResearchStep(tier: number, blockType: 'research' | 'dimension'): number {
 
-    const researchInfo = research[tier];
+    const researchInfo = blockType === 'research' ? research[tier] : dimensionResearch[tier];
     if (!researchInfo) return 0;
 
     return researchInfo.maxStep;

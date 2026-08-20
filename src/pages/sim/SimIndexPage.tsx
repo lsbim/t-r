@@ -1,22 +1,23 @@
+import { debounce } from "es-toolkit";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Loading from "../../commons/component/Loading";
+import SEO from "../../commons/component/SEO";
+import InfoIcon from "../../commons/icon/InfoIcon";
+import MyAccordion from "../../commons/rdx/MyAccordion";
+import MaterialBag from "../../components/shared/MaterialBag";
+import SimDimensionInput from "../../components/sim/SimDimensionInput";
 import SimFacilityInput from "../../components/sim/SimFacilityInput";
 import SimResearchInput from "../../components/sim/SimResearchInput";
 import SimResult from "../../components/sim/SimResult";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import TopRemote from "../../layouts/TopRemote";
-import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
-import { createIntegratedPlan, simFacility, simResearch } from "../../utils/simFuntions";
-import MyAccordion from "../../commons/rdx/MyAccordion";
-import { debounce } from "es-toolkit";
-import ItemIcon from "../../commons/icon/ItemIcon";
-import MaterialBag from "../../components/shared/MaterialBag";
-import SEO from "../../commons/component/SEO";
-import Loading from "../../commons/component/Loading";
-import InfoIcon from "../../commons/icon/InfoIcon";
 import { containerDarkBG } from "../../styles/container";
+import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
+import { simFacility, simResearch } from "../../utils/simFuntions";
+import { sunnyrainCost } from "../../data/research";
 
-const simInputArr = ['교단 시설', '연구실']
+const simInputArr = ['교단 시설', '연구실', '차원연구실']
 
 const initSimFacilityInput: FacilitySimRequest = {
     type: 'facility',
@@ -41,12 +42,24 @@ const initResearch: ResearchSimRequest = {
     }
 }
 
+const initDimension: ResearchSimRequest = {
+    type: 'research',
+    currentTier: 1,
+    currentStep: 1,
+    target: {
+        tier: 1,
+        step: 1,
+    }
+}
+
 const SimIndexPage = () => {
     // simInput으로 input을 통합할 시 모든 자식이 새로 마운트 되면서 슬라이더에 버벅임이 발생함
     const [facilityInput, setFacilityInput] = useState<FacilitySimRequest>(initSimFacilityInput);
     const [researchInput, setResearchInput] = useState<ResearchSimRequest>(initResearch)
+    const [dimensionInput, setDimensionInput] = useState<ResearchSimRequest>(initDimension)
     const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);
     const [researchSimResult, setResearchSimResult] = useState<SimResponse[]>([]);
+    const [dimensionSimResult, setDimensionSimResult] = useState<SimResponse[]>([]);
     const [selectInput, setSelectInput] = useState(0)
     const [inventory, setInventory] = useState<Map<string, number>>(new Map());
     const [bagOpen, setBagOpen] = useState(false);
@@ -58,12 +71,12 @@ const SimIndexPage = () => {
         return debounce((
             facilityReq: FacilitySimRequest,
             researchReq: ResearchSimRequest,
+            dimensionReq: ResearchSimRequest,
             initialInventory: Map<string, number>
         ) => {
 
             let currentInventory = new Map(initialInventory || []);
             let facilityResult: SimResponse[] = [];
-            let researchResult: SimResponse[] = [];
 
             const facilitySimOutput = simFacility(facilityReq, currentInventory);
             if (facilitySimOutput) {
@@ -73,26 +86,36 @@ const SimIndexPage = () => {
 
             const finalAdvLvl = Math.max(facilityReq.currentAdv, facilityReq.target.adv);
 
-            const researchSimOutput = simResearch(
+            const researchResult: SimResponse[] = simResearch(
                 { ...researchReq, currentAdv: finalAdvLvl },
-                currentInventory
+                'research',
+                currentInventory,
             );
-            if (researchSimOutput) {
-                researchResult = researchSimOutput;
-            }
+
+            const dimensionResult = simResearch(
+                { ...dimensionReq, currentAdv: finalAdvLvl },
+                'dimension',
+                currentInventory,
+            );
 
             setFacilitySimResult(facilityResult);
             setResearchSimResult(researchResult);
+            setDimensionSimResult(dimensionResult);
 
+            // console.log(dimensionResult)
         }, 300);
     }, []);
 
     // input과 인벤토리가 바뀌면 sim 함수 동작
     useEffect(() => {
-        if (facilityInput !== initSimFacilityInput || researchInput !== initResearch || inventory.size > 0) {
-            debouncedAllSims(facilityInput, researchInput, inventory);
+        if (facilityInput !== initSimFacilityInput
+            || researchInput !== initResearch
+            || dimensionInput !== initDimension
+            || inventory.size > 0) {
+
+            debouncedAllSims(facilityInput, researchInput, dimensionInput, inventory);
         }
-    }, [facilityInput, researchInput, inventory]);
+    }, [facilityInput, researchInput, dimensionInput, inventory]);
 
     // 언마운트 시 디바운스 취소
     useEffect(() => {
@@ -105,9 +128,10 @@ const SimIndexPage = () => {
 
     // 시설 결과 + 연구 결과 통합
     const allResult: SimResponse | null = useMemo(() => {
-        if (!facilitySimResult?.length && !researchSimResult?.length) return null;
+        if (!facilitySimResult?.length && !researchSimResult?.length && !dimensionSimResult?.length) return null;
 
         let totalGold = 0;
+        let totalSunnyrain = 0;
 
         // 건물 업그레이드 및 연구 결과의 모험(알바) + 재료 합산
         const mergedAcquisitionPlansMap = new Map<string, MaterialAcquisitionPlan>();
@@ -116,6 +140,9 @@ const SimIndexPage = () => {
         const mergeProcess = (sim: SimResponse) => {
             if (sim.gold) {
                 totalGold += sim.gold;
+            }
+            if (sim.sunnyrain) {
+                totalSunnyrain += sim.sunnyrain
             }
 
             // 모험(알바) 합산, Map은 forEach
@@ -136,12 +163,7 @@ const SimIndexPage = () => {
 
                     if (mergedAcquisitionPlansMap.has(plan.material)) {
                         const existing = mergedAcquisitionPlansMap.get(plan.material)!;
-                        mergedAcquisitionPlansMap.set(plan.material, {
-                            ...existing,
-                            quantity: existing.quantity + plan.quantity,
-                            // 인벤에서 꺼내쓰는 것도 합산
-                            inventoryQty: (existing.inventoryQty || 0) + (plan.inventoryQty || 0)
-                        });
+                        mergedAcquisitionPlansMap.set(plan.material, mergeAcquisitionPlans(existing, plan));
                     } else {
                         mergedAcquisitionPlansMap.set(plan.material, { ...plan });
                     }
@@ -151,6 +173,9 @@ const SimIndexPage = () => {
 
         facilitySimResult?.forEach(mergeProcess);
         researchSimResult?.forEach(mergeProcess);
+        dimensionSimResult?.forEach(mergeProcess);
+
+        // console.log(mergedAcquisitionPlansMap)
 
         // Map => Array
         const finalAcquisitionPlans = Array.from(mergedAcquisitionPlansMap.values());
@@ -158,18 +183,19 @@ const SimIndexPage = () => {
         // SimResponse 타입 형태로 반환
         return {
             gold: totalGold,
+            sunnyrain: totalSunnyrain,
             name: '종합',
             result: {
                 acquisitionPlans: finalAcquisitionPlans,
                 finalAdventureRuns: mergedAdventureRuns
             }
         };
-    }, [facilitySimResult, researchSimResult]);
+    }, [facilitySimResult, researchSimResult, dimensionSimResult]);
 
     const items = useMemo(() => {
         return [
             {
-                id: 'sim_result_2',
+                id: 'sim_result_3',
                 header: (
                     <div className="font-bold">
                         시설 레벨별
@@ -187,7 +213,7 @@ const SimIndexPage = () => {
                     </div>
                 ) : null // jsx 반환 시 &&로 false 반환 보단 null이 더 낫다고 함
             }, {
-                id: 'sim_result_1',
+                id: 'sim_result_2',
                 header: (
                     <div className="font-bold">
                         연구 단계별
@@ -204,9 +230,27 @@ const SimIndexPage = () => {
                         ))}
                     </div>
                 ) : null
+            }, {
+                id: 'sim_result_1',
+                header: (
+                    <div className="font-bold">
+                        차원연구 단계별
+                    </div>
+                ),
+                content: dimensionSimResult && dimensionSimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                        {dimensionSimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={'dimension'}
+                            />
+                        ))}
+                    </div>
+                ) : null
             }
         ];
-    }, [facilitySimResult, researchSimResult])
+    }, [facilitySimResult, researchSimResult, dimensionSimResult])
 
     if (!debouncedAllSims) return (<Loading />)
 
@@ -290,10 +334,11 @@ const SimIndexPage = () => {
 
             {/* 시설 및 연구단계 입력 */}
             <div className={`lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
-                <div className="flex items-center justify-between w-full mb-8">
+                <div className="flex items-center justify-between w-full mb-8 divide-x-2 divide-gray-400">
                     {simInputArr.map((sel, idx) => (
                         <button
-                            className={`mx-auto w-[50%] flex justify-center dark:text-zinc-200 font-bold cursor-pointer ${idx === 0 && 'border-r-2 border-gray-400'} ${selectInput === idx && 'text-orange-500 dark:text-orange-500'}`}
+                            style={{ width: `${100 / simInputArr.length}%` }}
+                            className={`mx-auto flex justify-center dark:text-zinc-200 font-bold cursor-pointer ${selectInput === idx && 'text-orange-500 dark:text-orange-500'}`}
                             onClick={() => {
                                 if (selectInput === idx) return null;
                                 setSelectInput(idx)
@@ -303,14 +348,23 @@ const SimIndexPage = () => {
                         </button>
                     ))}
                 </div>
-                {selectInput === 0 ? (
+                {selectInput === 0 && (
                     <SimFacilityInput
                         setFacilityInput={setFacilityInput}
-                        facilityInput={facilityInput} />
-                ) : selectInput === 1 && (
+                        facilityInput={facilityInput}
+                    />
+                )}
+                {selectInput === 1 && (
                     <SimResearchInput
                         setResearchInput={setResearchInput}
-                        researchInput={researchInput} />
+                        researchInput={researchInput}
+                    />
+                )}
+                {selectInput === 2 && (
+                    <SimDimensionInput
+                        setDimensionInput={setDimensionInput}
+                        dimensionInput={dimensionInput}
+                    />
                 )}
             </div>
             <div className={`lg:w-[992px] mx-auto flex text-[13px] ${containerDarkBG} dark:border-zinc-700 text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-xl border border-zinc-300 overflow-hidden`}>
@@ -337,5 +391,60 @@ const SimIndexPage = () => {
         </div>
     );
 }
+
+function mergeAcquisitionPlans(
+    planA: MaterialAcquisitionPlan,
+    planB: MaterialAcquisitionPlan
+): MaterialAcquisitionPlan {
+
+    const mergedPlan: MaterialAcquisitionPlan = {
+        ...planA,
+        quantity: planA.quantity + planB.quantity,
+        inventoryQty: (planA.inventoryQty || 0) + (planB.inventoryQty || 0),
+    };
+
+    if (planA.craftingMaterials || planB.craftingMaterials) {
+        const subMap = new Map<string, MaterialAcquisitionPlan>();
+
+        const addSubPlan = (subPlans?: MaterialAcquisitionPlan[]) => {
+            subPlans?.forEach(sub => {
+                if (subMap.has(sub.material)) {
+                    subMap.set(sub.material, mergeAcquisitionPlans(subMap.get(sub.material)!, sub));
+                } else {
+                    subMap.set(sub.material, { ...sub });
+                }
+            });
+        };
+
+        addSubPlan(planA.craftingMaterials);
+        addSubPlan(planB.craftingMaterials);
+        mergedPlan.craftingMaterials = Array.from(subMap.values());
+    }
+
+    if (planA.adventures || planB.adventures) {
+        const advMap = new Map<string, any>();
+        const addAdv = (advs?: any[]) => {
+            advs?.forEach(adv => {
+                if (advMap.has(adv.adventureName)) {
+                    const ex = advMap.get(adv.adventureName);
+                    advMap.set(adv.adventureName, {
+                        ...ex,
+                        estimatedRuns: {
+                            min: ex.estimatedRuns.min + adv.estimatedRuns.min,
+                            max: ex.estimatedRuns.max + adv.estimatedRuns.max,
+                        }
+                    });
+                } else {
+                    advMap.set(adv.adventureName, { ...adv });
+                }
+            });
+        };
+        addAdv(planA.adventures);
+        addAdv(planB.adventures);
+        mergedPlan.adventures = Array.from(advMap.values());
+    }
+
+    return mergedPlan;
+};
 
 export default SimIndexPage;

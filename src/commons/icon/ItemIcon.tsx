@@ -25,12 +25,12 @@ const ItemIcon = ({
     opacity?: number
 }) => {
 
-    if (!matSet.has(name) && name !== 'gold') {
+    if (!matSet.has(name) && name !== 'gold' && name !== 'sunnyrain') {
         return null;
     }
 
     const itemInfo = materials.find(mat => mat.name === name);
-    const bgUrl = `/images/slot/slot_${itemInfo ? `grade_${itemInfo.grade}.webp` : "gold.webp"}`;
+    const bgUrl = `/images/slot/slot_${itemInfo ? `grade_${itemInfo.grade}.webp` : `gold.webp`}`;
 
     return (
         <div
@@ -44,15 +44,15 @@ const ItemIcon = ({
         >
             <img
                 className="w-[55%] h-[55%] aspect-square object-contain pb-1 select-none"
-                src={`/images/item/${itemInfo ? `${itemInfo?.name}.webp` : 'gold.webp'}`} />
+                src={`/images/item/${itemInfo ? `${itemInfo?.name}.webp` : `${name}.webp`}`} />
 
-                <div
-                    style={{
-                        textShadow: '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)'
-                    }}
-                    className="absolute font-bold bottom-[2px] select-none text-[14px] text-black">
-                    {formatValue(value)}
-                </div>
+            <div
+                style={{
+                    textShadow: '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)'
+                }}
+                className="absolute font-bold bottom-[2px] select-none text-[14px] text-black">
+                {formatValue(value)}
+            </div>
         </div>
     );
 }

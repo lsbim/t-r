@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { materialNames, materials } from "../../data/materials";
-import ItemIcon from "../../commons/icon/ItemIcon";
 import { getChoseong } from "es-hangul";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import ItemIcon from "../../commons/icon/ItemIcon";
+import { materialNames } from "../../data/materials";
 import { containerDarkBG } from "../../styles/container";
 
 const MaterialBag = ({
