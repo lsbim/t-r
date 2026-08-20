@@ -1,23 +1,19 @@
+type StepDetail = {
+    name: string;
+    cost?: {
+        name: string;
+        qty: number;
+    }[];
+    time: number;
+} & {
+    gold?: number;
+};
+
 export interface ResearchStep {
-    [step: number]: {
-        name: string;
-        cost: {
-            name: string;
-            qty: number;
-        }[];
-        gold: number;
-        time: number;
-    };
-    iterable: {
-        name: string;
-        cost: {
-            name: string;
-            qty: number;
-        }[];
-        gold: number;
-        time: number;
-    };
+    [step: number]: StepDetail;
+    iterable: StepDetail;
 }
+
 export interface Research {
     [tier: number]: {
         maxStep: number;
@@ -31,6 +27,17 @@ export const labStatCategories = [
     { name: '방어력', v: [45, 45, 136, 181, 227, 272, 317, 363, 408, 453, 476, 476, 476, 476] },
     { name: 'HP', v: [453, 907, 1360, 1813, 2267, 2720, 3173, 3627, 4080, 4533, 4760, 4760, 4760, 4760] },
 ]
+
+
+export const dimensionLabStatCategories = [
+    { name: '공격력', v: [250, 250, 250, 250, 250,] },
+    { name: '방어력', v: [500, 500, 500, 500, 500,] },
+    { name: 'HP', v: [4998, 4998, 4998, 4998, 4998,] },
+    { name: '치명', v: [210, 210, 210, 210, 210,] },
+]
+
+// 차원연구실 단계별 햇살구름 비용
+export const sunnyrainCost = [90, 160, 290, 520, 940];
 
 export const research: Research = {
     1: {
@@ -1030,5 +1037,49 @@ export const research: Research = {
                 time: 21600
             }
         }
+    }
+}
+
+export const dimensionResearch: Research = {
+    1: {
+        maxStep: 33,
+        step: {
+            1: {
+                name: '시간 가속 시 대성공 확률 0.5% 증가',
+                time: 1800
+            }, 2: {
+                name: '세계수 새싹 일일 꽃가루 1개 증가',
+                time: 1800
+            }, 3: {
+                name: '빵주 드론 최대 누적 시간 60분 증가',
+                time: 1800
+            }, 4: {
+                name: '빵주 드론 슈카롱 10분 당 획득량 3개 증가',
+                time: 1800
+            }, 'iterable': {
+                name: '역할별 스탯 증가',
+                time: 1800
+            }, 32: {
+                name: '매일 1명의 친구 방 청소 보상 2배',
+                cost: [{
+                    name: '급상승 차트',
+                    qty: 1,
+                }, {
+                    name: '꾹꾹이 화석',
+                    qty: 1,
+                }],
+                time: 1800
+            }, 33: {
+                name: '모험회 일일 최대 횟수 1 증가',
+                cost: [{
+                    name: '급상승 차트',
+                    qty: 1,
+                }, {
+                    name: '꾹꾹이 화석',
+                    qty: 1,
+                }],
+                time: 1800
+            },
+        },
     }
 }
