@@ -597,4 +597,28 @@ export const adventure: Adventure = {
         ],
         advId: 61
     },
+    '우아한 티타임 가지기': {
+        mainAdvSkill: '뻔뻔함',
+        advLvl: 1,
+        yieldMaterials: [
+            { name: '보송 솜', yieldType: 4 },
+        ],
+        advId: 62
+    },
+    '서열전 대비 수련하기': {
+        mainAdvSkill: '운동신경',
+        advLvl: 9,
+        yieldMaterials: [
+            { name: '말랑 금속', yieldType: 2 },
+        ],
+        advId: 63
+    },
+    '엘리아스 현장학습': {
+        mainAdvSkill: '호기심',
+        advLvl: 1,
+        yieldMaterials: [
+            { name: '반짝 유리', yieldType: 1 },
+        ],
+        advId: 64
+    },
 }
