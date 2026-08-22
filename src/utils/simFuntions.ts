@@ -378,6 +378,30 @@ function planAcquisitionRecursive(
             }
         }
 
+        const impossibleChild = subPlans.find(p => p.method === 'impossible');
+        if (impossibleChild) {
+            return {
+                material: materialName,
+                quantity: quantity,
+                inventoryQty: alreadyMat,
+                method: 'impossible',
+                craftingMaterials: subPlans,
+            };
+        }
+
+        const needAdvUpChildren = subPlans.filter(p => p.method === 'needAdvUp');
+        if (needAdvUpChildren.length > 0) {
+            const maxReqLvl = Math.max(...needAdvUpChildren.map(p => p.requiredAdvLvl ?? 0));
+            return {
+                material: materialName,
+                quantity: quantity,
+                inventoryQty: alreadyMat,
+                method: 'needAdvUp',
+                requiredAdvLvl: maxReqLvl,
+                craftingMaterials: subPlans,
+            };
+        }
+
         // 제작 완료: actualNeeded만큼 생산했으므로
         // 인벤토리 기존 보유량 + 새로 제작한 양 - 실제 사용량
         const totalAvailable = alreadyMat + neededQuantity;
@@ -390,6 +414,20 @@ function planAcquisitionRecursive(
             inventoryQty: alreadyMat,
             method: 'craft',
             craftingMaterials: subPlans,
+        };
+    }
+
+    const dropAdventures = Object.values(allGameData.adventure).filter(adv =>
+        adv.yieldMaterials.some(m => m.name === materialName)
+    );
+
+    if (dropAdventures.length > 0) {
+        const minReqLvl = Math.min(...dropAdventures.map(adv => adv.advLvl));
+        return {
+            material: materialName,
+            quantity: quantity,
+            method: 'needAdvUp',
+            requiredAdvLvl: minReqLvl,
         };
     }
 
