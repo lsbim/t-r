@@ -15,7 +15,6 @@ import TopRemote from "../../layouts/TopRemote";
 import { containerDarkBG } from "../../styles/container";
 import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../../types/sim/simTypes";
 import { simFacility, simResearch } from "../../utils/simFuntions";
-import { sunnyrainCost } from "../../data/research";
 
 const simInputArr = ['교단 시설', '연구실', '차원연구실']
 
@@ -52,9 +51,24 @@ const initDimension: ResearchSimRequest = {
     }
 }
 
+const getInitialFacilityInput = (): FacilitySimRequest => {
+    const stored = localStorage.getItem('advLvl');
+    if (!stored) return initSimFacilityInput;
+    
+    const current = Number.isFinite(Number(stored)) ? Math.max(1, Number(stored)) : 0;
+
+    if (!current) return initSimFacilityInput;
+
+    return {
+        ...initSimFacilityInput,
+        currentAdv: current,
+        target: { ...initSimFacilityInput.target, adv: current },
+    };
+};
+
 const SimIndexPage = () => {
     // simInput으로 input을 통합할 시 모든 자식이 새로 마운트 되면서 슬라이더에 버벅임이 발생함
-    const [facilityInput, setFacilityInput] = useState<FacilitySimRequest>(initSimFacilityInput);
+    const [facilityInput, setFacilityInput] = useState<FacilitySimRequest>(getInitialFacilityInput);
     const [researchInput, setResearchInput] = useState<ResearchSimRequest>(initResearch)
     const [dimensionInput, setDimensionInput] = useState<ResearchSimRequest>(initDimension)
     const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);

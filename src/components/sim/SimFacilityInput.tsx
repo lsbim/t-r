@@ -34,6 +34,10 @@ const SimFacilityInput = ({ facilityInput, setFacilityInput }
         const clampedSmall = Math.max(1, Math.min(smallVal, maxlvl));
         const clampedBig = Math.max(1, Math.min(bigVal, maxlvl));
 
+        if (name === 'adv') {
+            localStorage.setItem('advLvl', JSON.stringify(clampedSmall));
+        }
+
         const config = FACILITY_CONFIG[name];
 
         setFacilityInput(prev => ({
