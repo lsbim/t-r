@@ -129,92 +129,97 @@ const SeasonPage = () => {
     // console.log("data: ", data?.type === 'season')
 
     return (
-        <div className={`${pageRootContainer} gap-4 min-h-screen`}>
+        <div className={`${pageRootContainer} min-h-screen`}>
             <SEO
                 title={`차원 대충돌 시즌${season} 집계`}
                 description={`차원 대충돌 시즌${season} 집계: ${data?.startDate} ~ ${data?.endDate}`}
             />
             <HeaderNav />
-            {/* {data?.type === 'season' && ( */}
             <SeasonRemote />
-            {/* )} */}
-            <div className={`rounded-xl border border-zinc-300 lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row ${containerDarkBG} dark:text-zinc-200 dark:border-zinc-700 p-4 mt-4 overflow-x-auto`}>
-                {data && (
-                    <PersonalityPieChart
-                        data={displaySlice}
+            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col">
+                <h1 className="text-[20px] font-bold p-2">
+                    {`차원 대충돌 시즌${season} 집계`}
+                </h1>
+                <div className={`flex flex-col xs:flex-row dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-2 mb-4 overflow-x-auto ${containerDarkBG}`}>
+                    {data && (
+                        <PersonalityPieChart
+                            data={displaySlice}
+                        />
+                    )}
+                    <InfoComponent
+                        startDate={seasonSlice?.startDate}
+                        endDate={seasonSlice?.endDate}
+                        name={seasonSlice?.name}
+                        grade={seasonSlice?.maxLvl}
+                        rules={seasonSlice?.rules}
+                        raidType="clash"
+                        personality={seasonSlice?.personality}
                     />
-                )}
-                <InfoComponent
-                    startDate={seasonSlice?.startDate}
-                    endDate={seasonSlice?.endDate}
-                    name={seasonSlice?.name}
-                    grade={seasonSlice?.maxLvl}
-                    rules={seasonSlice?.rules}
-                    raidType="clash"
-                    personality={seasonSlice?.personality}
-                />
-                {seasonSlice.type === "season" && (
-                    <RankRangeInputComponent
-                        handleCustomRank={handleCustomRank}
-                    />
-                )}
+                    {seasonSlice.type === "season" && (
+                        <RankRangeInputComponent
+                            handleCustomRank={handleCustomRank}
+                        />
+                    )}
+                </div>
+                <div className="flex flex-col gap-4">
+                    {seasonSlice.type === 'external' && (
+                        <>
+                            <AllPickRateChart
+                                data={seasonSlice}
+                            />
+                            <ExternalPickRateChart
+                                season={season}
+                                data={seasonSlice}
+                            />
+                            <div className={`rounded-xl border border-zinc-300 dark:border-zinc-700 w-full mx-auto flex h-4 ${containerDarkBG} dark:text-zinc-200 p-4 mt-1 text-[12px] lg:text-[13px] items-center justify-center`}>
+                                해당 시즌은 상세 정보를 지원하지 않습니다.
+                            </div>
+                        </>
+                    )}
+                    {seasonSlice.type === 'season' && displaySlice?.type === 'season' && (
+                        <>
+                            <AllPickRateChart
+                                data={displaySlice}
+                                setSelect={setSelect}
+                            />
+                            <PickRateChart
+                                season={season}
+                                data={displaySlice}
+                                setSelect={setSelect}
+                                select={select}
+                                fullData={seasonSlice}
+                                excludedSet={excludedSet}
+                            />
+                            {select !== '' && (
+                                <SelectCharComponent
+                                    statsForSelect={statsForSelect}
+                                    toggleExclude={toggleExclude}
+                                    scoreType="duration"
+                                />
+                            )}
+                            <CleartimeChart
+                                season={season}
+                                data={displaySlice}
+                            />
+                            {hasSkinArr && (
+                                <CostumeRank
+                                    data={data}
+                                />
+                            )}
+                            {bestComp && bestComp?.length > 0 && (
+                                <BestComp
+                                    data={bestComp}
+                                />
+                            )}
+                            <CompListComponent
+                                season={season}
+                                data={displaySlice}
+                                userCnt={displaySlice?.data?.length}
+                            />
+                        </>
+                    )}
+                </div>
             </div>
-            {seasonSlice.type === 'external' && (
-                <>
-                    <AllPickRateChart
-                        data={seasonSlice}
-                    />
-                    <ExternalPickRateChart
-                        season={season}
-                        data={seasonSlice}
-                    />
-                    <div className={`lg:w-[992px] rounded-xl border border-zinc-300 dark:border-zinc-700 w-full mx-auto flex h-4 ${containerDarkBG} dark:text-zinc-200 p-4 mt-1 text-[12px] lg:text-[13px] items-center justify-center`}>
-                        해당 시즌은 상세 정보를 지원하지 않습니다.
-                    </div>
-                </>
-            )}
-            {seasonSlice.type === 'season' && displaySlice?.type === 'season' && (
-                <>
-                    <AllPickRateChart
-                        data={displaySlice}
-                        setSelect={setSelect}
-                    />
-                    <PickRateChart
-                        season={season}
-                        data={displaySlice}
-                        setSelect={setSelect}
-                        select={select}
-                        fullData={seasonSlice}
-                        excludedSet={excludedSet}
-                    />
-                    {select !== '' && (
-                        <SelectCharComponent
-                            statsForSelect={statsForSelect}
-                            toggleExclude={toggleExclude}
-                            scoreType="duration"
-                        />
-                    )}
-                    <CleartimeChart
-                        season={season}
-                        data={displaySlice}
-                    />
-                    {hasSkinArr && (
-                        <CostumeRank
-                            data={data}
-                        />
-                    )}
-                    {bestComp && bestComp?.length > 0 && (
-                        <BestComp
-                            data={bestComp}
-                        />
-                    )}
-                    <CompListComponent
-                        season={season}
-                        data={displaySlice}
-                        userCnt={displaySlice?.data?.length}
-                    />
-                </>
-            )}
             <Footer />
         </div>
     );

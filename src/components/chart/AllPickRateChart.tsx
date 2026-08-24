@@ -166,7 +166,7 @@ const AllPickRateChart = ({ data, type, setSelect }:
 
 
     return (
-        <div className={`rounded-xl border border-zinc-300 dark:border-zinc-700 lg:w-[992px] dark:brightness-90 w-full mx-auto flex flex-col h-[400px] p-4 overflow-x-auto overflow-y-hidden ${containerDarkBG}`}>
+        <div className={`rounded-xl border border-zinc-300 dark:border-zinc-700 dark:brightness-90 w-full mx-auto flex flex-col h-[400px] p-4 overflow-x-auto overflow-y-hidden ${containerDarkBG}`}>
             <span className="text-xl font-bold dark:text-zinc-200">사도 종합</span>
             <Bar data={chartData} options={chartOptions} />
         </div>

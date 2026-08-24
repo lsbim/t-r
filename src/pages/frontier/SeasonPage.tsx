@@ -220,7 +220,7 @@ const SeasonPage = () => {
     }
 
     return (
-        <div className={`${pageRootContainer} gap-4 min-h-screen`}>
+        <div className={`${pageRootContainer} min-h-screen`}>
             <SEO
                 title={`엘리아스 프론티어 ${seasonName} 집계`}
                 description={`엘리아스 프론티어 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
@@ -229,87 +229,95 @@ const SeasonPage = () => {
             {data?.type === 'season' && (
                 <SeasonRemote />
             )}
-            <div className={`lg:w-[992px] w-full mx-auto flex flex-col xs:flex-row ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-4 overflow-x-auto`}>
-                <PersonalityPieChart
-                    data={displaySlice}
-                />
-                <InfoComponent
-                    startDate={seasonSlice?.startDate}
-                    endDate={seasonSlice?.endDate}
-                    name={seasonSlice?.name}
-                    grade={seasonSlice?.maxLvl}
-                    rules={seasonSlice?.power}
-                    raidType="frontier"
-                />
-                {seasonSlice.type === "season" && (
-                    <RankRangeInputComponent
-                        handleCustomRank={handleCustomRank}
+            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col">
+                <h1 className="text-[20px] font-bold p-2">
+                    {`엘리아스 프론티어 ${seasonName} 집계`}
+                </h1>
+                <div className={`flex flex-col xs:flex-row ${containerDarkBG} mt-2 mb-4 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto`}>
+                    <PersonalityPieChart
+                        data={displaySlice}
                     />
-                )}
+                    <InfoComponent
+                        startDate={seasonSlice?.startDate}
+                        endDate={seasonSlice?.endDate}
+                        name={seasonSlice?.name}
+                        grade={seasonSlice?.maxLvl}
+                        rules={seasonSlice?.power}
+                        raidType="frontier"
+                    />
+                    {seasonSlice.type === "season" && (
+                        <RankRangeInputComponent
+                            handleCustomRank={handleCustomRank}
+                        />
+                    )}
+                </div>
+
+                <div className="flex flex-col gap-4">
+                    {seasonSlice.type === 'external' && (
+                        <>
+                            <AllPickRateChart
+                                data={seasonSlice}
+                            />
+                            <ExternalPickRateChart
+                                season={season}
+                                data={seasonSlice}
+                                prevData={prevSlice as FrontierExternalData | undefined}
+                            />
+                            <div className={`flex h-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 mt-1 text-[12px] lg:text-[13px] items-center justify-center`}>
+                                해당 시즌은 상세 정보를 지원하지 않습니다.
+                            </div>
+                        </>
+                    )}
+                    {seasonSlice?.type === 'season' && prevSlice && displaySlice?.type === 'season' && (
+                        <>
+                            <AllPickRateChart
+                                data={displaySlice}
+                                setSelect={setSelect}
+                            />
+                            <PickRateChart
+                                season={season}
+                                data={displaySlice}
+                                setSelect={setSelect}
+                                prevData={prevSlice}
+                                select={select}
+                                fullData={seasonSlice}
+                                excludedSet={excludedSet}
+                            />
+                            {select !== '' && (
+                                <SelectCharComponent
+                                    statsForSelect={statsForSelect}
+                                    toggleExclude={toggleExclude}
+                                    scoreType="coin"
+                                />
+                            )}
+                            {compareCoin && data && (
+                                <ScoreAndCoinChart
+                                    data={displaySlice}
+                                    compareCoin={compareCoin}
+                                    level={data?.maxLvl}
+                                    bossName={data?.name}
+                                    select={select}
+                                />
+                            )}
+                            {hasSkinArr && (
+                                <CostumeRank
+                                    data={data}
+                                />
+                            )}
+                            {bestComp && bestComp?.length > 0 && (
+                                <BestComp
+                                    data={bestComp}
+                                />
+                            )}
+                            <CompListComponent
+                                season={season}
+                                data={displaySlice}
+                                userCnt={displaySlice?.data?.length}
+                            />
+                        </>
+                    )}
+                </div>
             </div>
-            {seasonSlice.type === 'external' && (
-                <>
-                    <AllPickRateChart
-                        data={seasonSlice}
-                    />
-                    <ExternalPickRateChart
-                        season={season}
-                        data={seasonSlice}
-                        prevData={prevSlice as FrontierExternalData | undefined}
-                    />
-                    <div className={`lg:w-[992px] w-full mx-auto flex h-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 mt-1 text-[12px] lg:text-[13px] items-center justify-center`}>
-                        해당 시즌은 상세 정보를 지원하지 않습니다.
-                    </div>
-                </>
-            )}
-            {seasonSlice?.type === 'season' && prevSlice && displaySlice?.type === 'season' && (
-                <>
-                    <AllPickRateChart
-                        data={displaySlice}
-                        setSelect={setSelect}
-                    />
-                    <PickRateChart
-                        season={season}
-                        data={displaySlice}
-                        setSelect={setSelect}
-                        prevData={prevSlice}
-                        select={select}
-                        fullData={seasonSlice}
-                        excludedSet={excludedSet}
-                    />
-                    {select !== '' && (
-                        <SelectCharComponent
-                            statsForSelect={statsForSelect}
-                            toggleExclude={toggleExclude}
-                            scoreType="coin"
-                        />
-                    )}
-                    {compareCoin && data && (
-                        <ScoreAndCoinChart
-                            data={displaySlice}
-                            compareCoin={compareCoin}
-                            level={data?.maxLvl}
-                            bossName={data?.name}
-                            select={select}
-                        />
-                    )}
-                    {hasSkinArr && (
-                        <CostumeRank
-                            data={data}
-                        />
-                    )}
-                    {bestComp && bestComp?.length > 0 && (
-                        <BestComp
-                            data={bestComp}
-                        />
-                    )}
-                    <CompListComponent
-                        season={season}
-                        data={displaySlice}
-                        userCnt={displaySlice?.data?.length}
-                    />
-                </>
-            )}
             <Footer />
         </div >
     );
