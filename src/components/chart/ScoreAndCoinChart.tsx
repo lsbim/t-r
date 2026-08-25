@@ -49,6 +49,8 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     select
 }) => {
 
+    console.log(data.data)
+
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
@@ -66,7 +68,9 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     let prevGrade: string | number;
 
     // 최고 난이도 100% 클리어 점수 - 보스 체력 10의자리에서 버림처리
-    const clearScore = Math.floor(bosses[bossName]?.[level]?.hp / 100)
+    const clearScore = Math.floor(bosses[bossName]?.[level]?.hp / 100);
+    // 마지막 줄 점수
+    const lastBarHp = Math.floor(bosses[bossName]?.[level]?.lastBarHp / 100);
 
     arr.forEach((pt, idx) => {
         if (pt.grade && pt.grade !== prevGrade) {
@@ -183,9 +187,27 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 callbacks: {
                     label: function (context) {
                         if (context.dataset.label === '점수' && !isNaN(clearScore)) {
+                            const pointGrade = arr[context.dataIndex]?.grade;
+
+                            if (pointGrade !== level) {
+                                return `${context.dataset.label}: ${context.formattedValue}`;
+                            }
+
                             const cleanScore = context?.formattedValue?.replaceAll(",", "");
                             const score = Number(cleanScore)
-                            return `${context.dataset.label}: ${context.formattedValue} (${Math.round(score / clearScore * 10000) / 100}%)`
+
+                            const isBossClear = clearScore - score > 0;
+                            if (isBossClear) {
+                                const scorePct = Math.round(score / clearScore * 10000) / 100;
+                                return `${context.dataset.label}: ${context.formattedValue} (${scorePct}%)`
+                            }
+
+                            const overScore = score - clearScore;
+                            const overBars = Math.floor(overScore / lastBarHp);
+                            const remainder = overScore % lastBarHp;
+                            const overPct = Math.round((remainder / lastBarHp) * 100);
+
+                            return `${context.dataset.label}: ${context.formattedValue} (+${overBars}.${overPct} 줄)`
                         }
                         return `${context.dataset.label}: ${context.formattedValue}`;
                     },
@@ -308,7 +330,7 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                         {level} 클리어 점수
                     </span>
                     <span className="font-bold sm:text-[16px] text-[14px]">
-                        {clearScore.toLocaleString()} (100%)
+                        {clearScore.toLocaleString()}
                     </span>
                 </div>
             )}

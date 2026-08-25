@@ -9,12 +9,20 @@ interface BossInfo {
 
 interface BossInfoDetail {
     hp: number;
+    lastBarHp: number;
 }
 
 export const bosses: Bosses = {
     '우로스': {
         '마그맛2': {
-            hp: 198859559796
+            hp: 198859559796,
+            lastBarHp: 39890716466
+        }
+    },
+    'M.E.O.W': {
+        '마그맛2': {
+            hp: 99447779898,
+            lastBarHp: 19945358233
         }
     }
 }
