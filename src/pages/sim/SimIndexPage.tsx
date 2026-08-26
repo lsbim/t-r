@@ -54,7 +54,7 @@ const initDimension: ResearchSimRequest = {
 const getInitialFacilityInput = (): FacilitySimRequest => {
     const stored = localStorage.getItem('advLvl');
     if (!stored) return initSimFacilityInput;
-    
+
     const current = Number.isFinite(Number(stored)) ? Math.max(1, Number(stored)) : 0;
 
     if (!current) return initSimFacilityInput;
@@ -352,7 +352,7 @@ const SimIndexPage = () => {
                     {simInputArr.map((sel, idx) => (
                         <button
                             style={{ width: `${100 / simInputArr.length}%` }}
-                            className={`mx-auto flex justify-center dark:text-zinc-200 font-bold cursor-pointer ${selectInput === idx && 'text-orange-500 dark:text-orange-500'}`}
+                            className={`mx-auto flex justify-center font-bold cursor-pointer ${selectInput === idx ? 'text-orange-500 dark:text-orange-500' : 'dark:text-zinc-200'}`}
                             onClick={() => {
                                 if (selectInput === idx) return null;
                                 setSelectInput(idx)
