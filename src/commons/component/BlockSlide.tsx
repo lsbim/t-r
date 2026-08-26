@@ -81,15 +81,16 @@ const BlockSlide = ({
     };
 
     const isMinBoundary = (blockNum: number) => blockNum === rangeMin;
-    const isMaxBoundary = (blockNum: number) => blockNum === rangeMax;
 
     const blockTailwindClassName = (idx: number, type: 'left' | 'right') => {
         const blockNum = idx + 1;
         const active = type === 'left' ? isMinActive(blockNum) : type === 'right' && isMaxActive(blockNum);
-        const boundary = type === 'left' ? isMinBoundary(blockNum) : type === 'right' && isMaxBoundary(blockNum);
-        const cls = active ? boundary
-            ? "bg-white border-[rgb(110,142,67)] shadow-sm dark:shadow-white"
-            : "bg-[rgb(150,182,97)] border-none"
+        const boundary = type === 'left' ? isMinBoundary(blockNum) : false;
+
+        const cls = active
+            ? boundary
+                ? "bg-white border-[rgb(110,142,67)] shadow-sm dark:shadow-white"
+                : "bg-[rgb(150,182,97)] border-none"
             : "bg-gray-200 hover:bg-gray-300";
 
         return cls;
