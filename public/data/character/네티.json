@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -172,18 +184,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "clashV2": [
@@ -287,17 +287,17 @@
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 47,
-      "charTotalCount": 82,
-      "rate": 57.3,
+      "cosUsedCount": 46,
+      "charTotalCount": 80,
+      "rate": 57.5,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
       "cosUsedCount": 2,
-      "charTotalCount": 82,
-      "rate": 2.4,
+      "charTotalCount": 80,
+      "rate": 2.5,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }

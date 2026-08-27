@@ -102,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 21,
+        "pickRate": 7,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 21
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -169,24 +187,6 @@
             "line": "중열",
             "rank": 4,
             "count": 42
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 300,
-        "pickRate": 100,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 300
           }
         ],
         "totalEntries": 300
@@ -281,9 +281,9 @@
   "recentSkins": [
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 29,
-      "charTotalCount": 63,
-      "rate": 46,
+      "cosUsedCount": 38,
+      "charTotalCount": 78,
+      "rate": 48.7,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

@@ -139,6 +139,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 138,
+        "pickRate": 46,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 138
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -206,24 +224,6 @@
             "line": "중열",
             "rank": 2,
             "count": 276
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 17,
-        "pickRate": 5.7,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 17
           }
         ],
         "totalEntries": 300
@@ -330,17 +330,17 @@
   "recentSkins": [
     {
       "cosName": "마법의 달빛",
-      "cosUsedCount": 78,
-      "charTotalCount": 163,
-      "rate": 47.9,
+      "cosUsedCount": 136,
+      "charTotalCount": 287,
+      "rate": 47.4,
       "lvl": "pretty",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "밤바다 선원",
-      "cosUsedCount": 27,
-      "charTotalCount": 163,
-      "rate": 16.6,
+      "cosUsedCount": 48,
+      "charTotalCount": 287,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

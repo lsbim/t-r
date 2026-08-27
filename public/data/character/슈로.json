@@ -102,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -149,18 +167,6 @@
         "personality": null,
         "startDate": "2026-03-05",
         "endDate": "2026-03-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -262,26 +268,26 @@
   },
   "recentSkins": [
     {
-      "cosName": "병약 미소뱀",
-      "cosUsedCount": 127,
-      "charTotalCount": 309,
-      "rate": 41.1,
-      "lvl": "pretty",
-      "launchDate": "2025-04-17"
-    },
-    {
       "cosName": "태양 빛 아래의 뱀",
-      "cosUsedCount": 124,
-      "charTotalCount": 309,
-      "rate": 40.1,
+      "cosUsedCount": 125,
+      "charTotalCount": 259,
+      "rate": 48.3,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
+      "cosName": "병약 미소뱀",
+      "cosUsedCount": 91,
+      "charTotalCount": 259,
+      "rate": 35.1,
+      "lvl": "pretty",
+      "launchDate": "2025-04-17"
+    },
+    {
       "cosName": "하늘하늘 슬리퍼",
-      "cosUsedCount": 32,
-      "charTotalCount": 309,
-      "rate": 10.4,
+      "cosUsedCount": 22,
+      "charTotalCount": 259,
+      "rate": 8.5,
       "lvl": "normal",
       "launchDate": "2025-02-27"
     }

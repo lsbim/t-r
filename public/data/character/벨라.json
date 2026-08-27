@@ -95,6 +95,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 18,
         "name": "R41-리뉴아",
         "personality": null,
@@ -284,6 +295,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -351,24 +380,6 @@
             "line": "전열",
             "rank": 1,
             "count": 298
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 295,
-        "pickRate": 98.3,
-        "overallRank": 6,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 295
           }
         ],
         "totalEntries": 300
@@ -474,25 +485,25 @@
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 241,
-      "charTotalCount": 871,
-      "rate": 27.7,
+      "cosUsedCount": 494,
+      "charTotalCount": 876,
+      "rate": 56.4,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 228,
-      "charTotalCount": 871,
-      "rate": 26.2,
+      "cosUsedCount": 121,
+      "charTotalCount": 876,
+      "rate": 13.8,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 223,
-      "charTotalCount": 871,
-      "rate": 25.6,
+      "cosUsedCount": 121,
+      "charTotalCount": 876,
+      "rate": 13.8,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     }

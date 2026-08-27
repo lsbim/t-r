@@ -115,6 +115,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 139,
+        "pickRate": 46.3,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 139
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -185,18 +203,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "clashV2": [
@@ -300,17 +306,17 @@
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",
-      "cosUsedCount": 236,
-      "charTotalCount": 534,
-      "rate": 44.2,
+      "cosUsedCount": 174,
+      "charTotalCount": 409,
+      "rate": 42.5,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "카우치 볼케이노",
-      "cosUsedCount": 84,
-      "charTotalCount": 534,
-      "rate": 15.7,
+      "cosUsedCount": 65,
+      "charTotalCount": 409,
+      "rate": 15.9,
       "lvl": "normal",
       "launchDate": "2025-12-18"
     }

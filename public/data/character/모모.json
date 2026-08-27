@@ -219,6 +219,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 254,
+        "pickRate": 84.7,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 254
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -280,24 +298,6 @@
             "line": "후열",
             "rank": 2,
             "count": 293
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 285,
-        "pickRate": 95,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 285
           }
         ],
         "totalEntries": 300
@@ -404,25 +404,25 @@
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 164,
-      "charTotalCount": 372,
-      "rate": 44.1,
+      "cosUsedCount": 274,
+      "charTotalCount": 626,
+      "rate": 43.8,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 136,
-      "charTotalCount": 372,
+      "cosUsedCount": 229,
+      "charTotalCount": 626,
       "rate": 36.6,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 26,
-      "charTotalCount": 372,
-      "rate": 7,
+      "cosUsedCount": 41,
+      "charTotalCount": 626,
+      "rate": 6.5,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

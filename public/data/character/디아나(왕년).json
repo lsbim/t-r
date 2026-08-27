@@ -273,6 +273,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 245,
+        "pickRate": 81.7,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 245
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -334,24 +352,6 @@
             "line": "전열",
             "rank": 3,
             "count": 263
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 300,
-        "pickRate": 100,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 300
           }
         ],
         "totalEntries": 300
@@ -456,17 +456,17 @@
   "recentSkins": [
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 259,
-      "charTotalCount": 410,
-      "rate": 63.2,
+      "cosUsedCount": 365,
+      "charTotalCount": 548,
+      "rate": 66.6,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 42,
-      "charTotalCount": 410,
-      "rate": 10.2,
+      "cosUsedCount": 50,
+      "charTotalCount": 548,
+      "rate": 9.1,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

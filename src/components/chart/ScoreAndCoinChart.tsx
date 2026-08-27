@@ -49,7 +49,7 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     select
 }) => {
 
-    console.log(data.data)
+    // console.log(data.data)
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';

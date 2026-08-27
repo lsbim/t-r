@@ -111,6 +111,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 17,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -175,24 +193,6 @@
           {
             "line": "중열",
             "rank": 8,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 14,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
             "count": 1
           }
         ],
@@ -320,27 +320,27 @@
   "recentSkins": [
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 93,
-      "charTotalCount": 214,
-      "rate": 43.5,
+      "cosUsedCount": 35,
+      "charTotalCount": 79,
+      "rate": 44.3,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
-      "cosName": "댄스 크루 달링",
-      "cosUsedCount": 42,
-      "charTotalCount": 214,
-      "rate": 19.6,
-      "lvl": "normal",
-      "launchDate": "2025-07-17"
-    },
-    {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 28,
-      "charTotalCount": 214,
-      "rate": 13.1,
+      "cosUsedCount": 12,
+      "charTotalCount": 79,
+      "rate": 15.2,
       "lvl": "normal",
       "launchDate": "2024-09-26"
+    },
+    {
+      "cosName": "댄스 크루 달링",
+      "cosUsedCount": 12,
+      "charTotalCount": 79,
+      "rate": 15.2,
+      "lvl": "normal",
+      "launchDate": "2025-07-17"
     }
   ]
 }

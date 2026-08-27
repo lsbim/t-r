@@ -29,6 +29,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -132,6 +143,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 20,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-08-27",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 19,
         "name": "우로스",
         "personality": null,
@@ -179,18 +208,6 @@
         "personality": null,
         "startDate": "2026-03-05",
         "endDate": "2026-03-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 15,
-        "name": "R41-리뉴아",
-        "personality": null,
-        "startDate": "2026-01-22",
-        "endDate": "2026-01-29",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -270,17 +287,17 @@
   "recentSkins": [
     {
       "cosName": "소녀의 단아한 발걸음",
-      "cosUsedCount": 481,
+      "cosUsedCount": 487,
       "charTotalCount": 899,
-      "rate": 53.5,
+      "rate": 54.2,
       "lvl": "pretty",
       "launchDate": "2026-06-18"
     },
     {
       "cosName": "내가 체육관의 유망주",
-      "cosUsedCount": 192,
+      "cosUsedCount": 188,
       "charTotalCount": 899,
-      "rate": 21.4,
+      "rate": 20.9,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     }
