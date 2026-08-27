@@ -283,6 +283,7 @@ export const costumes: Costume[] = [
     { charName: "오르", cosName: "차원 개발 연구원", lvl: "normal", launchDate: "2026-06-25" },
     { charName: "리온", cosName: "히어로의 여름 바캉스", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "아사나", cosName: "유연한 팀장님의 자세", lvl: "normal", launchDate: "2026-08-20" },
+    { charName: "오로라", cosName: "포근포근 반짝이는 휴식", lvl: "normal", launchDate: "2026-08-27" },
 
     // 공명
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
