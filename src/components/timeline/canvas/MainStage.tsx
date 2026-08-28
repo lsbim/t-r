@@ -109,20 +109,13 @@ const MainStage: React.FC<MainStageProps> = ({
   useEffect(() => {
     let cancelled = false;
 
-    setImagesReady(false);
-
-    if (characterNodeList.length === 0 && raidNodeList.length === 0) {
-      setImagesReady(true);
-      return;
-    }
+    if (characterNodeList.length === 0 && raidNodeList.length === 0) return;
+    if (!imageUrls) return;
 
     preloadImages(imageUrls)
       .then(() => {
         if (!cancelled) setImagesReady(true);
       })
-      .catch(() => {
-        if (!cancelled) setImagesReady(true);
-      });
 
     return () => {
       cancelled = true;
@@ -167,15 +160,12 @@ const MainStage: React.FC<MainStageProps> = ({
             timelinePx={timelinePx}
           />
 
-          <RaidCardList
-            nodes={raidNodeList}
-            rowY={getRowY('raid')}
-          />
-
-          <CharacterCardList
-            nodes={characterNodeList}
-            rowY={getRowY('character')}
-          />
+          {isFullyReady && (
+            <>
+              <RaidCardList nodes={raidNodeList} rowY={getRowY('raid')} />
+              <CharacterCardList nodes={characterNodeList} rowY={getRowY('character')} />
+            </>
+          )}
 
         </Layer>
 
