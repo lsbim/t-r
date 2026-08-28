@@ -3,6 +3,7 @@ import { CharacterNode, isCharacterNode, isRaidNode, RaidNode } from '../../type
 import { Image } from 'react-konva';
 import { dateToPx } from '../../utils/timeline/timelineFunction';
 import Konva from 'konva';
+import { getCachedImage } from '../../utils/imageCache';
 
 interface ImageNodeProps {
     node: CharacterNode | RaidNode;
@@ -21,25 +22,19 @@ const ImageNode: React.FC<ImageNodeProps> = ({
     height = 0,
     isGrayscale = false,
 }) => {
-    const [image, setImage] = useState<HTMLImageElement | null>(null);
     const imageRef = useRef<Konva.Image>(null);
 
-    useEffect(() => {
-        const img = new window.Image();
+    const imageSrc = isRaidNode(node)
+        ? node.personality
+            ? `/images/boss/${node.name}(${node.personality}).webp`
+            : `/images/boss/${node.name}.webp`
+        : isCharacterNode(node)
+            ? `/images/character/${node.name}.webp`
+            : "";
 
-        if (isRaidNode(node)) {
-            if (!node.personality) {
-                img.src = `/images/boss/${node.name}.webp`;
-            } else {
-                img.src = `/images/boss/${node.name}(${node.personality}).webp`;
-            }
-        }
-        else if (isCharacterNode(node)) {
-            img.src = `/images/character/${node.name}.webp`;
-        }
-
-        img.onload = () => setImage(img);
-    }, [node.name]);
+    const image = imageSrc
+        ? getCachedImage(imageSrc)
+        : null;
 
     // 흑백모드일 시 캐싱
     useEffect(() => {
@@ -61,6 +56,7 @@ const ImageNode: React.FC<ImageNodeProps> = ({
             width={width}
             height={height || width * aspectRatio}
             filters={isGrayscale ? [Konva.Filters.Grayscale] : []}
+            listening={false}
         />
     )
 }

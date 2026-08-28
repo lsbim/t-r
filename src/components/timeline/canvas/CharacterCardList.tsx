@@ -3,6 +3,7 @@ import { Group } from 'react-konva';
 import { CharacterNode } from '../../../types/timeline/timelineTypes';
 import { dateToPx, DAY_PX } from '../../../utils/timeline/timelineFunction';
 import CharacterCard from './CharacterCard';
+import { getCachedImage } from '../../../utils/imageCache';
 
 interface CharacterCardListProps {
     nodes: CharacterNode[];
@@ -14,13 +15,8 @@ const CharacterCardList: React.FC<CharacterCardListProps> = ({
     rowY,
 }) => {
 
-    const [bgImage, setBgImage] = useState<HTMLImageElement | null>(null);
+    const bgImage = getCachedImage("/images/background/character_bg.webp");
 
-    useEffect(() => {
-        const img = new window.Image();
-        img.src = `/images/background/character_bg.webp`;
-        img.onload = () => setBgImage(img);
-    }, []);
 
     const calXList = useMemo(() => {
 

@@ -8,6 +8,7 @@ import { RaidNode } from "../../../types/timeline/timelineTypes";
 import { getPersonalityColor, getPersonalityDarkColor } from "../../../types/trickcalTypes";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "../../../utils/timeline/timelineFunction";
 import { HOVER_LIFT_Y, ROW_HEIGHT } from "./MainStage";
+import { getCachedImage } from "../../../utils/imageCache";
 
 const CARD = {
     w: 100,
@@ -140,6 +141,8 @@ const RaidCard: React.FC<RaidCardProps> = ({
         ? `/images/personality/보스_${node.personality}.webp`
         : `/images/personality/보스_무성격.webp`
 
+    const markImage = getCachedImage(markImageSrc);
+
     const detailPath = node.type === "clash"
         ? `/clash/v1/${(node as RaidNode).season}`
         : node.type === "clashV2"
@@ -248,7 +251,7 @@ const RaidCard: React.FC<RaidCardProps> = ({
                     x={CARD.w / 2 - 25 / 2}
                     y={PLATE_BASE_Y - HILL_HEIGHT - 30 / 2}
                 >
-                    <MarkImage src={markImageSrc} size={25} isGrayscale={isGrayscale} />
+                    <MarkImage image={markImage} size={25} isGrayscale={isGrayscale} />
                 </Group>
             )}
 
@@ -281,33 +284,29 @@ const RaidCard: React.FC<RaidCardProps> = ({
 };
 
 const MarkImage: React.FC<{
-    src: string;
+    image: HTMLImageElement | null;
     size: number,
     isGrayscale: boolean
 }> = ({
-    src,
+    image,
     size,
     isGrayscale,
 }) => {
-        const [img, setImg] = React.useState<HTMLImageElement | null>(null);
         const imageRef = React.useRef<Konva.Image>(null);
 
         useEffect(() => {
-            const image = new window.Image();
-            image.src = src;
-            image.onload = () => setImg(image);
-        }, [src]);
+            if (!image || !imageRef.current || !isGrayscale) return;
 
-        useEffect(() => {
-            if (img && imageRef.current && isGrayscale) {
-                imageRef.current.cache();
-            }
-        }, [img, isGrayscale]);
+            imageRef.current.cache();
 
-        if (!img) return null;
+            imageRef.current.getLayer()?.batchDraw();
+        }, [image, isGrayscale]);
+
+        if (!image) return null;
+
         return <Image
             ref={imageRef}
-            image={img}
+            image={image}
             width={size}
             height={size}
             filters={isGrayscale ? [Konva.Filters.Grayscale] : []}

@@ -1,16 +1,17 @@
 import Konva from "konva";
 import React, { RefObject, useEffect, useMemo, useState } from 'react';
-import { Group, Layer, Stage } from 'react-konva';
+import { Layer, Stage } from 'react-konva';
+import { MiniLoading } from "../../../commons/component/Loading";
+import { containerDarkBG } from "../../../styles/container";
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from '../../../types/timeline/timelineTypes';
+import { races } from "../../../types/trickcalTypes";
+import { translateRaces } from "../../../utils/function";
 import { timelineEvents, timelineLayers, timelineStage } from "../../../utils/timeline/timelineFunction";
 import CharacterCardList from './CharacterCardList';
 import RaidCardList from "./RaidCardList";
 import RowDivider from "./RowDivider";
 import TimelineStageBg from "./TimelineStageBg";
-import { preloadImages, translateRaces } from "../../../utils/function";
-import { MiniLoading } from "../../../commons/component/Loading";
-import { personalityList, races } from "../../../types/trickcalTypes";
-import { containerDarkBG } from "../../../styles/container";
+import { preloadImages } from "../../../utils/imageCache";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;
@@ -61,60 +62,72 @@ const MainStage: React.FC<MainStageProps> = ({
       .sort((a, b) => a.startDate.localeCompare(b.startDate));
   }, [timelineMap])
 
-  const imageUrlsStr = useMemo(() => {
+  const imageUrls = useMemo<string[]>(() => {
     const urls = new Set<string>();
-    urls.add('/images/background/character_bg.webp');
+
+    // 배경
+    urls.add("/images/background/character_bg.webp");
 
     // 열
-    ['all', 'back', 'front', 'middle'].forEach(line => {
+    ["all", "back", "front", "middle",].forEach((line) => {
       urls.add(`/images/line/${line}.webp`);
     });
-    // 역할, 공격분류
-    ['dps', 'magic', 'physical', 'supporter', 'tanker'].forEach(role => {
+
+    // 역할
+    ["dps", "magic", "physical", "supporter", "tanker",].forEach((role) => {
       urls.add(`/images/role/${role}.webp`);
     });
+
     // 종족
-    races.forEach(race => {
+    races.forEach((race) => {
       urls.add(`/images/race/${translateRaces(race)}.webp`);
     });
-    // 사도, 성격
+
+    // 사도
     characterNodeList.forEach((node) => {
-      urls.add(`/images/character/${node?.name}.webp`);
-      urls.add(`/images/profile/${node?.name}.webp`);
-      urls.add(`/images/personality/${node?.personality}.webp`)
+      urls.add(`/images/character/${node.name}.webp`);
+      urls.add(`/images/profile/${node.name}.webp`);
+      urls.add(`/images/personality/${node.personality}.webp`);
     });
+
     // 보스
     raidNodeList.forEach((node) => {
       urls.add(node.personality
         ? `/images/boss/${node.name}(${node.personality}).webp`
-        : `/images/boss/${node.name}.webp`);
+        : `/images/boss/${node.name}.webp`
+      );
+
       urls.add(node.personality
         ? `/images/personality/보스_${node.personality}.webp`
-        : `/images/personality/보스_무성격.webp`);
+        : `/images/personality/보스_무성격.webp`
+      );
     });
 
-    return Array.from(urls).sort().join(',');
+    return [...urls].sort();
   }, [characterNodeList, raidNodeList]);
 
   useEffect(() => {
-    if (characterNodeList.length === 0 && raidNodeList.length === 0) return;
-
-    if (!imageUrlsStr) return;
-
     let cancelled = false;
 
-    const urlsToLoad = imageUrlsStr.split(',');
+    setImagesReady(false);
 
-    preloadImages(urlsToLoad).then(() => {
-      if (!cancelled) {
-        setImagesReady(true);
-      }
-    });
+    if (characterNodeList.length === 0 && raidNodeList.length === 0) {
+      setImagesReady(true);
+      return;
+    }
+
+    preloadImages(imageUrls)
+      .then(() => {
+        if (!cancelled) setImagesReady(true);
+      })
+      .catch(() => {
+        if (!cancelled) setImagesReady(true);
+      });
 
     return () => {
       cancelled = true;
     };
-  }, [imageUrlsStr, characterNodeList?.length, raidNodeList?.length]);
+  }, [imageUrls, characterNodeList.length, raidNodeList.length,]);
 
   const isFullyReady = isPositionReady && imagesReady;
 

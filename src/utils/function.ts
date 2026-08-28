@@ -123,17 +123,6 @@ export function translateAttackType(type: CharAttackType) {
     }
 }
 
-export function preloadImages(urls: string[]): Promise<void> {
-    return Promise.all(
-        urls.map((url) => new Promise<void>((resolve) => {
-            const img = new window.Image();
-            img.onload = () => resolve();
-            img.onerror = () => resolve();
-            img.src = url;
-        }))
-    ).then(() => undefined);
-}
-
 const CHAR_ICON_CONFIGS: {
     folder: string;
     getValue: (c: typeof charInfo[string]) => string
