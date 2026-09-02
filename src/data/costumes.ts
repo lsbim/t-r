@@ -117,7 +117,8 @@ export const costumes: Costume[] = [
     { charName: "니콜", cosName: "파팝 터지는 손맛", lvl: "normal", launchDate: "2026-07-16" },
     { charName: "그윈", cosName: "바다로 떠나는 모험", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "잉클", cosName: "꿈 많은 사무직 세계관", lvl: "normal", launchDate: "2026-08-20" },
-
+    { charName: "디아나(왕년)", cosName: "하늘을 호령하는 포효", lvl: "pretty", launchDate: "2026-09-03" },
+    
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
     { charName: "클로에", cosName: "럭셔리 테일러", lvl: "normal", launchDate: "2024-10-31" },
