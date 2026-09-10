@@ -8,13 +8,12 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
-import { Bar } from "react-chartjs-2";
-import InfoIcon from "../../../commons/icon/InfoIcon";
-import { useTheme } from "../../../hooks/useTheme";
-import { ClashV2SeasonData } from "../../../types/clashV2Types";
-import { getSideSkillBGColor, getSideSkillKrName, sideSkillList } from '../../../data/sideSkill';
 import React from 'react';
+import { Bar } from "react-chartjs-2";
+import { SIDE_SKILL_COLORS, sideSkillList } from '../../../data/sideSkill';
+import { useTheme } from "../../../hooks/useTheme";
 import { containerDarkBG } from '../../../styles/container';
+import { ClashV2SeasonData } from "../../../types/clashV2Types";
 
 // Bar 차트에 필요한 요소 등록
 ChartJS.register(
@@ -53,8 +52,8 @@ const ClashV2SkillChart = ({ data }: { data: ClashV2SeasonData }) => {
         usedSkillNames.has(skill.name)
     );
 
-    const datasets = activeSkills.map(skill => {
-        const color = getSideSkillBGColor(skill?.name);
+    const datasets = activeSkills.map((skill, index) => {
+        const color = SIDE_SKILL_COLORS[index % SIDE_SKILL_COLORS.length]
 
         return {
             label: skill?.krName,

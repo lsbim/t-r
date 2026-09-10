@@ -30,7 +30,7 @@ ChartJS.register(
     Filler
 );
 
-const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
+const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLvl: number }) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
@@ -196,6 +196,7 @@ const ClashV2Chart = ({ data }: { data: ClashV2SeasonData }) => {
             y_sideGrade: {
                 type: 'linear',
                 position: 'right',
+                max: maxSideLvl,
                 title: {
                     display: false,
                     text: '림의 이면세계',
