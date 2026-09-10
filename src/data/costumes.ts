@@ -173,6 +173,7 @@ export const costumes: Costume[] = [
     { charName: "스키아", cosName: "이국의 전통 체험", lvl: "normal", launchDate: "2026-07-02" },
     { charName: "헤일리(멀쩡)", cosName: "거친 파도 속으로", lvl: "normal", launchDate: "2026-07-23" },
     { charName: "다야(퓨어샤인)", cosName: "샤이닝 비즈니스", lvl: "normal", launchDate: "2026-08-20" },
+    { charName: "로니", cosName: "석양이 질 때쯤", lvl: "normal", launchDate: "2026-09-10" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
