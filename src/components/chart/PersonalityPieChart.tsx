@@ -13,7 +13,7 @@ import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
 import { processPersonalityPie } from "../../utils/chartFunction";
 import { useTheme } from '../../hooks/useTheme';
 import { ClashV2SeasonData } from '../../types/clashV2Types';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 // ① 필수: 사용 요소 & 플러그인 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -114,4 +114,4 @@ const PersonalityPieChart = ({
     );
 }
 
-export default PersonalityPieChart;
+export default React.memo(PersonalityPieChart);

@@ -88,6 +88,18 @@ export const sideSkillList: sideSkill[] = [
         description: '일반 공격이 5회 적중할 때마다,\n자신의 현재 고학년 스킬 재사용\n대기시간이 5초 감소한다.\n공격 속도가 n% 증가한다.\n기본 SP 회복량이 n%\n감소한다.',
         backgroundColor: 'rgba(224, 176, 142, 0.7)',
     },
+    {
+        name: 'clashV2Side14',
+        krName: '용X하지 X겠어',
+        description: '일반 공격이 9회 적중 시, 적에게\nn%의 피해를 일으키는 폭발을\n일으킨다.\n공격 속도가 n% 증가한다.\n받는 피해량이 n% 증가한다.',
+        backgroundColor: 'rgba(224, 176, 142, 0.7)',
+    },
+    {
+        name: 'clashV2Side15',
+        krName: 'X래는 X구?',
+        description: '저학년 스킬 사용 시, 5초 동안\n고학년 스킬 피해량이 n%\n증가한다.\n기본 SP 회복량이 n%\n증가한다.\n일반 공격 피해량이 n%\n증가한다.',
+        backgroundColor: 'rgba(224, 176, 142, 0.7)',
+    },
 ]
 
 export function getSideSkillKrName(name: string): string {

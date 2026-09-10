@@ -474,18 +474,22 @@ export function processPersonalityPie(
 
     const personalityData: PersonalityPieData = {};
 
-    data.forEach((user, index) => {
+    data?.forEach((user, index) => {
         // console.log(user);
 
         // 내가 수집한 자료일 때
         if ('arr' in user) {
             if (type === 'side' && 'sideArr' in user) {
                 // 캐릭터 배열 순회하며 성격 수++
-                for (const name of user.sideArr) {
+                for (const name of user?.sideArr) {
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'sideArr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name].personality;
+                    const persty = charInfo[name]?.personality;
+                    if (!persty) {
+                        console.log(`${name}의 성격이 존재하지 않음.`)
+                        continue
+                    };
                     // null 또는 undefined 라면 0 할당
                     personalityData[persty] = (personalityData[persty] ?? 0) + 1;
                 }
@@ -495,14 +499,22 @@ export function processPersonalityPie(
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'arr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name].personality;
+                    const persty = charInfo[name]?.personality;
+                    if (!persty) {
+                        console.log(`${name}의 성격이 존재하지 않음.`)
+                        continue
+                    };
                     // null 또는 undefined 라면 0 할당
                     personalityData[persty] = (personalityData[persty] ?? 0) + 1;
                 }
             }
         } else {
             // 제공받은 자료일 때
-            const persty = charInfo[user?.name].personality;
+            const persty = charInfo[user?.name]?.personality;
+            if (!persty) {
+                console.log(`${name}의 성격이 존재하지 않음.`)
+                return
+            };
             personalityData[persty] = (personalityData[persty] ?? 0) + user?.count;
         }
     });
