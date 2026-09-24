@@ -75,6 +75,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 139,
+        "pickRate": 46.3,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -305,6 +317,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 46.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -379,50 +410,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 40.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 21,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 8,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 53.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 274,
-      "charTotalCount": 626,
-      "rate": 43.8,
+      "cosUsedCount": 279,
+      "charTotalCount": 622,
+      "rate": 44.9,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 229,
-      "charTotalCount": 626,
-      "rate": 36.6,
+      "cosUsedCount": 222,
+      "charTotalCount": 622,
+      "rate": 35.7,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 41,
-      "charTotalCount": 626,
-      "rate": 6.5,
+      "cosUsedCount": 42,
+      "charTotalCount": 622,
+      "rate": 6.8,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

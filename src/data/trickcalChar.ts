@@ -72,6 +72,7 @@ export const charInfo: CharInfoType = {
     "잉클": { grade: 3, personality: "냉정", line: "후열", birthdate: "2026-02-12", role: "딜러", attackType: "마법", race: '정령' },
     "아라그니아": { grade: 3, personality: "냉정", line: "중열", birthdate: "2026-04-23", role: "서포터", attackType: "마법", race: '용족' },
     "니콜": { grade: 3, personality: "냉정", line: "후열", birthdate: "2026-07-16", role: "딜러", attackType: "물리", race: '정령' },
+    "우이(기억)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2026-09-24", role: "서포터", attackType: "마법", race: '정령', eldain: true },
     "에스피": { grade: 2, personality: "냉정", line: "후열", birthdate: "2023-09-27", role: "서포터", attackType: "마법", race: '유령' },
     "레테": { grade: 2, personality: "냉정", line: "전열", birthdate: "2024-07-04", role: "탱커", attackType: "물리", race: '유령' },
     "칸타": { grade: 2, personality: "냉정", line: "중열", birthdate: "2024-09-12", role: "딜러", attackType: "물리", race: '요정' },
@@ -166,6 +167,7 @@ export const charInfo: CharInfoType = {
 
     // 공명
     "우로스": { grade: 3, personality: "공명", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인', eldain: true },
+    "비비(신성)": { grade: 3, personality: "공명", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱', eldain: true },
 
     "우로스(순수)": { grade: 3, personality: "순수", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },
     "우로스(활발)": { grade: 3, personality: "활발", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },

@@ -97,6 +97,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10006,
         "name": "냥만 타워",
         "personality": "활발",
@@ -285,6 +297,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -351,35 +381,23 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "왕관의 주인공",
-      "cosUsedCount": 414,
-      "charTotalCount": 801,
-      "rate": 51.7,
+      "cosUsedCount": 469,
+      "charTotalCount": 899,
+      "rate": 52.2,
       "lvl": "pretty",
       "launchDate": "2026-03-28"
     },
     {
       "cosName": "일일 사제장 네르핀",
-      "cosUsedCount": 211,
-      "charTotalCount": 801,
-      "rate": 26.3,
+      "cosUsedCount": 230,
+      "charTotalCount": 899,
+      "rate": 25.6,
       "lvl": "normal",
       "launchDate": "2026-03-28"
     }

@@ -224,6 +224,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 43
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -286,44 +299,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 51.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 44
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "꿈속에서 다시 만난",
-      "cosUsedCount": 103,
-      "charTotalCount": 119,
-      "rate": 86.6,
+      "cosUsedCount": 108,
+      "charTotalCount": 129,
+      "rate": 83.7,
       "lvl": "pretty",
       "launchDate": "2026-02-19"
     },
     {
       "cosName": "잠든 별의 예지몽",
-      "cosUsedCount": 7,
-      "charTotalCount": 119,
-      "rate": 5.9,
+      "cosUsedCount": 11,
+      "charTotalCount": 129,
+      "rate": 8.5,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "꿈 같은 순간",
-      "cosUsedCount": 5,
-      "charTotalCount": 119,
-      "rate": 4.2,
+      "cosUsedCount": 6,
+      "charTotalCount": 129,
+      "rate": 4.7,
       "lvl": "pretty",
       "launchDate": "2025-01-30"
     }

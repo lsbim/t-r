@@ -7,6 +7,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 150,
+        "pickRate": 50,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -171,6 +183,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 50
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -233,36 +258,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 55.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 53.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "와일드 파티 비기너",
-      "cosUsedCount": 84,
-      "charTotalCount": 160,
-      "rate": 52.5,
+      "cosUsedCount": 81,
+      "charTotalCount": 150,
+      "rate": 54,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "쇼핑 파탈 갱스터",
-      "cosUsedCount": 7,
-      "charTotalCount": 160,
-      "rate": 4.4,
+      "cosUsedCount": 9,
+      "charTotalCount": 150,
+      "rate": 6,
       "lvl": "normal",
       "launchDate": "2025-08-07"
     }

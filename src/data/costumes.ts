@@ -64,6 +64,7 @@ export const costumes: Costume[] = [
     { charName: "스패럿", cosName: "거침없는 앵아치", lvl: "normal", launchDate: "2026-08-13" },
     { charName: "라이카", cosName: "지니어스 라이트닝", lvl: "normal", launchDate: "2026-08-20" },
     { charName: "마요(멋짐)", cosName: "바니의 신비한 마술쇼", lvl: "normal", launchDate: "2026-09-17" },
+    { charName: "이드(재활)", cosName: "성장하는 알바생", lvl: "normal", launchDate: "2026-09-24" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
@@ -120,6 +121,8 @@ export const costumes: Costume[] = [
     { charName: "잉클", cosName: "꿈 많은 사무직 세계관", lvl: "normal", launchDate: "2026-08-20" },
     { charName: "디아나(왕년)", cosName: "하늘을 호령하는 포효", lvl: "pretty", launchDate: "2026-09-03" },
     { charName: "아라그니아", cosName: "심해 속 바다토끼", lvl: "normal", launchDate: "2026-09-17" },
+    { charName: "우이(기억)", cosName: "계란빛 츄리닝 메이드", lvl: "normal", launchDate: "2026-09-24" },
+    { charName: "우이(기억)", cosName: "이슬빛 방울 의사", lvl: "pretty", launchDate: "2026-09-24" },
     
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
@@ -177,6 +180,8 @@ export const costumes: Costume[] = [
     { charName: "다야(퓨어샤인)", cosName: "샤이닝 비즈니스", lvl: "normal", launchDate: "2026-08-20" },
     { charName: "로니", cosName: "석양이 질 때쯤", lvl: "normal", launchDate: "2026-09-10" },
     { charName: "아네트", cosName: "화끈한 바니의 매직", lvl: "normal", launchDate: "2026-09-17" },
+    { charName: "다야(퓨어샤인)", cosName: "샤이닝 오리지널", lvl: "normal", launchDate: "2026-09-24" },
+    { charName: "실비아", cosName: "태동하는 은빛", lvl: "normal", launchDate: "2026-09-24" },
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
@@ -296,4 +301,6 @@ export const costumes: Costume[] = [
     { charName: "우로스", cosName: "호숫가 피싱 마스터", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "우로스", cosName: "선도부장 선배님", lvl: "normal", launchDate: "2025-09-25" },
     { charName: "우로스", cosName: "폭풍 속 검은 날개", lvl: "pretty", launchDate: "2025-09-25" },
+    { charName: "비비(신성)", cosName: "하늘빛 마음 한 스푼", lvl: "normal", launchDate: "2026-09-24" },
+    { charName: "비비(신성)", cosName: "환상통 말기 환자", lvl: "pretty", launchDate: "2026-09-24" },
 ]

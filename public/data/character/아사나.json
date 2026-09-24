@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 20
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -208,28 +221,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 29
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 25.7
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "유연한 팀장님의 자세",
+      "cosUsedCount": 35,
+      "charTotalCount": 60,
+      "rate": 58.3,
+      "lvl": "normal",
+      "launchDate": "2026-08-20"
+    },
+    {
       "cosName": "따끔한 간호의 자세",
-      "cosUsedCount": 12,
-      "charTotalCount": 51,
-      "rate": 23.5,
+      "cosUsedCount": 3,
+      "charTotalCount": 60,
+      "rate": 5,
       "lvl": "normal",
       "launchDate": "2025-11-06"
     }

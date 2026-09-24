@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -182,28 +195,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 0.7
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "고독한 천재 닌자",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2024-12-12"
+    },
+    {
       "cosName": "치어 앤 플로우",
       "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "charTotalCount": 2,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2026-03-05"
     }

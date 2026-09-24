@@ -206,6 +206,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -279,35 +298,25 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 0.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 23,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 10,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "발랄한 현장학습",
-      "cosUsedCount": 1,
-      "charTotalCount": 4,
-      "rate": 25,
+      "cosUsedCount": 2,
+      "charTotalCount": 6,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2025-02-06"
+    },
+    {
+      "cosName": "깡총이 파자마",
+      "cosUsedCount": 1,
+      "charTotalCount": 6,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
     }
   ]
 }

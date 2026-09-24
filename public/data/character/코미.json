@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -184,36 +197,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "냥냥 메이드",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
-      "lvl": "normal",
-      "launchDate": "2025-03-06"
-    },
-    {
       "cosName": "새 학기 새 학교",
-      "cosUsedCount": 1,
+      "cosUsedCount": 2,
       "charTotalCount": 3,
-      "rate": 33.3,
+      "rate": 66.7,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -202,35 +215,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 0.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "모두와 함께 바다로",
-      "cosUsedCount": 7,
-      "charTotalCount": 14,
-      "rate": 50,
+      "cosUsedCount": 6,
+      "charTotalCount": 11,
+      "rate": 54.5,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "내 꿈은 야광 공룡",
-      "cosUsedCount": 4,
-      "charTotalCount": 14,
-      "rate": 28.6,
+      "cosUsedCount": 3,
+      "charTotalCount": 11,
+      "rate": 27.3,
       "lvl": "normal",
       "launchDate": "2026-03-12"
     }

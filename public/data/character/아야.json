@@ -41,6 +41,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 162,
+        "pickRate": 54,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -247,6 +259,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 54
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -315,44 +340,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 63
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 66.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "겨울의 마녀",
-      "cosUsedCount": 132,
-      "charTotalCount": 147,
-      "rate": 89.8,
+      "cosUsedCount": 144,
+      "charTotalCount": 162,
+      "rate": 88.9,
       "lvl": "pretty",
       "launchDate": "2026-06-11"
     },
     {
       "cosName": "첫 눈송이의 춤사위",
-      "cosUsedCount": 8,
-      "charTotalCount": 147,
-      "rate": 5.4,
+      "cosUsedCount": 9,
+      "charTotalCount": 162,
+      "rate": 5.6,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "새벽의 블루문",
-      "cosUsedCount": 3,
-      "charTotalCount": 147,
-      "rate": 2,
+      "cosUsedCount": 5,
+      "charTotalCount": 162,
+      "rate": 3.1,
       "lvl": "pretty",
       "launchDate": "2025-04-24"
     }

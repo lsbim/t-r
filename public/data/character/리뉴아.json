@@ -229,6 +229,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -465,6 +477,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -538,41 +568,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 8
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 300,
-        "pickRate": 100,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 300
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 377,
+      "cosUsedCount": 375,
       "charTotalCount": 850,
-      "rate": 44.4,
+      "rate": 44.1,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 295,
+      "cosUsedCount": 298,
       "charTotalCount": 850,
-      "rate": 34.7,
+      "rate": 35.1,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

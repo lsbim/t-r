@@ -387,6 +387,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 287
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -460,51 +479,32 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 4
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 283,
-        "pickRate": 94.3,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 283
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 2
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 494,
-      "charTotalCount": 876,
-      "rate": 56.4,
+      "cosUsedCount": 741,
+      "charTotalCount": 887,
+      "rate": 83.5,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
-      "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 121,
-      "charTotalCount": 876,
-      "rate": 13.8,
-      "lvl": "pretty",
+      "cosName": "존재감 넘치는 바니",
+      "cosUsedCount": 42,
+      "charTotalCount": 887,
+      "rate": 4.7,
+      "lvl": "normal",
       "launchDate": "2025-03-27"
     },
     {
-      "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 121,
-      "charTotalCount": 876,
-      "rate": 13.8,
-      "lvl": "normal",
+      "cosName": "존재감 넘치는 인어",
+      "cosUsedCount": 31,
+      "charTotalCount": 887,
+      "rate": 3.5,
+      "lvl": "pretty",
       "launchDate": "2025-03-27"
     }
   ]

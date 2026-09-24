@@ -176,6 +176,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 40
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -244,50 +257,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 19
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 235,
-        "pickRate": 78.3,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 235
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 4.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "태양 빛 아래의 뱀",
-      "cosUsedCount": 125,
+      "cosUsedCount": 144,
       "charTotalCount": 259,
-      "rate": 48.3,
+      "rate": 55.6,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "병약 미소뱀",
-      "cosUsedCount": 91,
+      "cosUsedCount": 78,
       "charTotalCount": 259,
-      "rate": 35.1,
+      "rate": 30.1,
       "lvl": "pretty",
       "launchDate": "2025-04-17"
     },
     {
       "cosName": "하늘하늘 슬리퍼",
-      "cosUsedCount": 22,
+      "cosUsedCount": 16,
       "charTotalCount": 259,
-      "rate": 8.5,
+      "rate": 6.2,
       "lvl": "normal",
       "launchDate": "2025-02-27"
     }

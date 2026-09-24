@@ -146,6 +146,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -207,35 +220,23 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "거친 파도 속으로",
-      "cosUsedCount": 9,
-      "charTotalCount": 21,
-      "rate": 42.9,
+      "cosUsedCount": 16,
+      "charTotalCount": 20,
+      "rate": 80,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "하늘을 가르는 매버릭",
-      "cosUsedCount": 4,
-      "charTotalCount": 21,
-      "rate": 19,
+      "cosUsedCount": 2,
+      "charTotalCount": 20,
+      "rate": 10,
       "lvl": "normal",
       "launchDate": "2026-04-09"
     }

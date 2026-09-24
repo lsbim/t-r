@@ -152,6 +152,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 10,
+        "pickRate": 3.3,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 10
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 8
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -205,27 +224,15 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "이국의 전통 체험",
-      "cosUsedCount": 20,
-      "charTotalCount": 109,
-      "rate": 18.3,
+      "cosUsedCount": 17,
+      "charTotalCount": 97,
+      "rate": 17.5,
       "lvl": "normal",
       "launchDate": "2026-07-02"
     }

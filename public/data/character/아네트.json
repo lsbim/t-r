@@ -194,6 +194,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 12.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -256,34 +269,15 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 6.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 269,
-        "pickRate": 89.7,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 269
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 38,
-      "charTotalCount": 78,
-      "rate": 48.7,
+      "cosUsedCount": 42,
+      "charTotalCount": 86,
+      "rate": 48.8,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

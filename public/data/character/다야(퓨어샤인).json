@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 2.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -190,33 +203,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 4,
-        "pickRate": 1.3,
-        "overallRank": 18,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 7,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "샤이닝 바니",
-      "cosUsedCount": 3,
+      "cosName": "샤이닝 비즈니스",
+      "cosUsedCount": 4,
       "charTotalCount": 7,
-      "rate": 42.9,
+      "rate": 57.1,
+      "lvl": "normal",
+      "launchDate": "2026-08-20"
+    },
+    {
+      "cosName": "샤이닝 바니",
+      "cosUsedCount": 2,
+      "charTotalCount": 7,
+      "rate": 28.6,
       "lvl": "normal",
       "launchDate": "2026-01-29"
     }

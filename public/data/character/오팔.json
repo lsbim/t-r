@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -190,43 +203,17 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 0.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 23,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "완전 팔팔해진 오팔",
-      "cosUsedCount": 1,
+      "cosUsedCount": 2,
       "charTotalCount": 3,
-      "rate": 33.3,
+      "rate": 66.7,
       "lvl": "normal",
       "launchDate": "2025-05-01"
-    },
-    {
-      "cosName": "하늘 위의 서프라이즈",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
-      "lvl": "normal",
-      "launchDate": "2026-04-30"
     },
     {
       "cosName": "덜 팔팔해진 오팔",

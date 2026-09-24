@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -184,38 +197,17 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 1.7
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 4.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "고품격 파트너",
-      "cosUsedCount": 4,
-      "charTotalCount": 6,
+      "cosUsedCount": 2,
+      "charTotalCount": 3,
       "rate": 66.7,
       "lvl": "normal",
       "launchDate": "2026-01-08"
-    },
-    {
-      "cosName": "무미호의 전설",
-      "cosUsedCount": 1,
-      "charTotalCount": 6,
-      "rate": 16.7,
-      "lvl": "normal",
-      "launchDate": "2024-11-14"
     }
   ]
 }

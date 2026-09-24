@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -190,36 +203,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 6.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 7.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "미스 모나티엄 진",
-      "cosUsedCount": 10,
-      "charTotalCount": 13,
-      "rate": 76.9,
+      "cosUsedCount": 15,
+      "charTotalCount": 19,
+      "rate": 78.9,
       "lvl": "pretty",
       "launchDate": "2025-09-04"
     },
     {
       "cosName": "아이돌 쇼다운! 시장님",
       "cosUsedCount": 1,
-      "charTotalCount": 13,
-      "rate": 7.7,
+      "charTotalCount": 19,
+      "rate": 5.3,
       "lvl": "normal",
       "launchDate": "2025-07-31"
     }

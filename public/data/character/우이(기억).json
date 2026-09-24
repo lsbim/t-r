@@ -1,7 +1,7 @@
 {
-  "birthdate": "2024-12-05",
-  "line": "전열",
-  "personality": "우울",
+  "birthdate": "2026-09-24",
+  "line": "후열",
+  "personality": "냉정",
   "topSeasons": {
     "clash": [],
     "frontier": [],
@@ -139,18 +139,11 @@
         "personality": "활발",
         "startDate": "2026-09-03",
         "endDate": "2026-09-10",
-        "pickCount": 111,
-        "pickRate": 37,
-        "overallRank": 11,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 111
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 1
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10007,
@@ -158,18 +151,11 @@
         "personality": "광기",
         "startDate": "2026-07-23",
         "endDate": "2026-07-30",
-        "pickCount": 19,
-        "pickRate": 6.3,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 4,
-            "count": 19
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 0.7
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10006,
@@ -181,8 +167,7 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1.3
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10005,
@@ -194,8 +179,7 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1
+        "totalEntries": 0
       },
       {
         "seasonNumber": 10004,
@@ -207,35 +191,9 @@
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1.3
+        "totalEntries": 0
       }
     ]
   },
-  "recentSkins": [
-    {
-      "cosName": "히어로의 여름 바캉스",
-      "cosUsedCount": 68,
-      "charTotalCount": 114,
-      "rate": 59.6,
-      "lvl": "normal",
-      "launchDate": "2026-07-23"
-    },
-    {
-      "cosName": "사료반 반장",
-      "cosUsedCount": 29,
-      "charTotalCount": 114,
-      "rate": 25.4,
-      "lvl": "normal",
-      "launchDate": "2025-05-01"
-    },
-    {
-      "cosName": "포근포근 나들이",
-      "cosUsedCount": 17,
-      "charTotalCount": 114,
-      "rate": 14.9,
-      "lvl": "normal",
-      "launchDate": "2025-04-17"
-    }
-  ]
+  "recentSkins": []
 }

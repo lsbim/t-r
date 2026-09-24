@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 8.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -208,38 +221,25 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 9.3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 10.7
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "릴렉스 테라피스트",
-      "cosUsedCount": 7,
-      "charTotalCount": 22,
-      "rate": 31.8,
+      "cosName": "평화를 향한 의지",
+      "cosUsedCount": 14,
+      "charTotalCount": 25,
+      "rate": 56,
       "lvl": "normal",
-      "launchDate": "2025-08-21"
+      "launchDate": "2026-06-18"
     },
     {
-      "cosName": "힐링 피크닉",
-      "cosUsedCount": 3,
-      "charTotalCount": 22,
-      "rate": 13.6,
+      "cosName": "릴렉스 테라피스트",
+      "cosUsedCount": 11,
+      "charTotalCount": 25,
+      "rate": 44,
       "lvl": "normal",
-      "launchDate": "2024-08-08"
+      "launchDate": "2025-08-21"
     }
   ]
 }

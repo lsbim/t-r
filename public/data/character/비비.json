@@ -390,6 +390,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 10,
+        "pickRate": 3.3,
+        "overallRank": 16,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 10
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 27.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -458,50 +477,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 2
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 19,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 7,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 27.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 74,
-      "charTotalCount": 148,
-      "rate": 50,
+      "cosUsedCount": 76,
+      "charTotalCount": 150,
+      "rate": 50.7,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "풀하트 매직",
-      "cosUsedCount": 35,
-      "charTotalCount": 148,
-      "rate": 23.6,
+      "cosUsedCount": 38,
+      "charTotalCount": 150,
+      "rate": 25.3,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 20,
-      "charTotalCount": 148,
-      "rate": 13.5,
+      "cosUsedCount": 19,
+      "charTotalCount": 150,
+      "rate": 12.7,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     }

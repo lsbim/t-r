@@ -163,6 +163,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -213,52 +226,33 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 3
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 15,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 6,
-            "count": 7
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 4
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "유령 늪의 인기쟁이",
-      "cosUsedCount": 6,
-      "charTotalCount": 9,
-      "rate": 66.7,
+      "cosUsedCount": 5,
+      "charTotalCount": 11,
+      "rate": 45.5,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
-      "cosName": "연회루 혼돈 마담",
-      "cosUsedCount": 2,
-      "charTotalCount": 9,
-      "rate": 22.2,
-      "lvl": "pretty",
-      "launchDate": "2025-10-30"
-    },
-    {
       "cosName": "야시장의 습격자",
-      "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
+      "cosUsedCount": 3,
+      "charTotalCount": 11,
+      "rate": 27.3,
       "lvl": "normal",
       "launchDate": "2025-07-24"
+    },
+    {
+      "cosName": "연회루 혼돈 마담",
+      "cosUsedCount": 3,
+      "charTotalCount": 11,
+      "rate": 27.3,
+      "lvl": "pretty",
+      "launchDate": "2025-10-30"
     }
   ]
 }

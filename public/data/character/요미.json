@@ -231,6 +231,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 50,
+        "pickRate": 16.7,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 50
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 29.7
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -305,42 +324,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 68
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 40,
-        "pickRate": 13.3,
-        "overallRank": 12,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 40
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 64.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "마법의 달빛",
-      "cosUsedCount": 136,
-      "charTotalCount": 287,
-      "rate": 47.4,
+      "cosUsedCount": 134,
+      "charTotalCount": 280,
+      "rate": 47.9,
       "lvl": "pretty",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "밤바다 선원",
-      "cosUsedCount": 48,
-      "charTotalCount": 287,
-      "rate": 16.7,
+      "cosUsedCount": 49,
+      "charTotalCount": 280,
+      "rate": 17.5,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

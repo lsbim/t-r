@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 2.3
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -196,28 +209,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "댄스 크루 댄스킹",
-      "cosUsedCount": 3,
+      "cosUsedCount": 4,
       "charTotalCount": 7,
-      "rate": 42.9,
+      "rate": 57.1,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     },
@@ -228,14 +228,6 @@
       "rate": 28.6,
       "lvl": "normal",
       "launchDate": "2025-08-21"
-    },
-    {
-      "cosName": "콩콩 점프의 왕",
-      "cosUsedCount": 2,
-      "charTotalCount": 7,
-      "rate": 28.6,
-      "lvl": "normal",
-      "launchDate": "2025-05-15"
     }
   ]
 }

@@ -201,6 +201,30 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10008,
+        "name": "냥만 타워",
+        "personality": "활발",
+        "startDate": "2026-09-03",
+        "endDate": "2026-09-10",
+        "pickCount": 12,
+        "pickRate": 4,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 9,
+            "count": 2
+          },
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 10
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 24
+      },
+      {
         "seasonNumber": 10007,
         "name": "냥만 타워",
         "personality": "광기",
@@ -295,50 +319,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 54
-      },
-      {
-        "seasonNumber": 10003,
-        "name": "냥만 타워",
-        "personality": "순수",
-        "startDate": "2026-02-05",
-        "endDate": "2026-02-12",
-        "pickCount": 34,
-        "pickRate": 11.3,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 34
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 50
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 35,
-      "charTotalCount": 79,
-      "rate": 44.3,
+      "cosUsedCount": 41,
+      "charTotalCount": 88,
+      "rate": 46.6,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 12,
-      "charTotalCount": 79,
-      "rate": 15.2,
+      "cosUsedCount": 16,
+      "charTotalCount": 88,
+      "rate": 18.2,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "댄스 크루 달링",
-      "cosUsedCount": 12,
-      "charTotalCount": 79,
-      "rate": 15.2,
+      "cosUsedCount": 13,
+      "charTotalCount": 88,
+      "rate": 14.8,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }
