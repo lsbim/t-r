@@ -33,6 +33,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -80,18 +98,6 @@
         "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -232,25 +238,25 @@
   "recentSkins": [
     {
       "cosName": "유령 늪의 인기쟁이",
-      "cosUsedCount": 5,
-      "charTotalCount": 11,
-      "rate": 45.5,
+      "cosUsedCount": 6,
+      "charTotalCount": 12,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "야시장의 습격자",
       "cosUsedCount": 3,
-      "charTotalCount": 11,
-      "rate": 27.3,
+      "charTotalCount": 12,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "연회루 혼돈 마담",
       "cosUsedCount": 3,
-      "charTotalCount": 11,
-      "rate": 27.3,
+      "charTotalCount": 12,
+      "rate": 25,
       "lvl": "pretty",
       "launchDate": "2025-10-30"
     }

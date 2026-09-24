@@ -22,6 +22,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -88,24 +106,6 @@
           {
             "line": "후열",
             "rank": 9,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 36,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 15,
             "count": 1
           }
         ],

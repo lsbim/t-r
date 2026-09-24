@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 9,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -77,24 +95,6 @@
             "line": "전열",
             "rank": 3,
             "count": 231
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 280,
-        "pickRate": 93.3,
-        "overallRank": 3,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 280
           }
         ],
         "totalEntries": 300
@@ -292,17 +292,17 @@
   "recentSkins": [
     {
       "cosName": "기내식 준비 완료",
-      "cosUsedCount": 40,
-      "charTotalCount": 76,
-      "rate": 52.6,
+      "cosUsedCount": 35,
+      "charTotalCount": 66,
+      "rate": 53,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "사교계의 악역 영애",
-      "cosUsedCount": 7,
-      "charTotalCount": 76,
-      "rate": 9.2,
+      "cosUsedCount": 5,
+      "charTotalCount": 66,
+      "rate": 7.6,
       "lvl": "normal",
       "launchDate": "2025-04-24"
     }

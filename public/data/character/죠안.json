@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -81,29 +99,6 @@
             "line": "후열",
             "rank": 5,
             "count": 9
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 55,
-        "pickRate": 18.3,
-        "overallRank": 15,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 11,
-            "count": 4
-          },
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 51
           }
         ],
         "totalEntries": 300
@@ -325,25 +320,25 @@
   "recentSkins": [
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 41,
-      "charTotalCount": 88,
-      "rate": 46.6,
+      "cosUsedCount": 40,
+      "charTotalCount": 86,
+      "rate": 46.5,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "개인적 피크닉",
       "cosUsedCount": 16,
-      "charTotalCount": 88,
-      "rate": 18.2,
+      "charTotalCount": 86,
+      "rate": 18.6,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "댄스 크루 달링",
       "cosUsedCount": 13,
-      "charTotalCount": 88,
-      "rate": 14.8,
+      "charTotalCount": 86,
+      "rate": 15.1,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 223,
+        "pickRate": 74.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 223
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -77,24 +95,6 @@
             "line": "전열",
             "rank": 4,
             "count": 36
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 5,
-        "pickRate": 1.7,
-        "overallRank": 28,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 7,
-            "count": 5
           }
         ],
         "totalEntries": 300
@@ -263,25 +263,25 @@
   "recentSkins": [
     {
       "cosName": "교단의 성찬 파티",
-      "cosUsedCount": 52,
-      "charTotalCount": 107,
-      "rate": 48.6,
+      "cosUsedCount": 125,
+      "charTotalCount": 266,
+      "rate": 47,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "한 때 한가닥",
-      "cosUsedCount": 27,
-      "charTotalCount": 107,
-      "rate": 25.2,
+      "cosUsedCount": 65,
+      "charTotalCount": 266,
+      "rate": 24.4,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     },
     {
       "cosName": "개인 교습 나들이",
-      "cosUsedCount": 21,
-      "charTotalCount": 107,
-      "rate": 19.6,
+      "cosUsedCount": 52,
+      "charTotalCount": 266,
+      "rate": 19.5,
       "lvl": "normal",
       "launchDate": "2024-09-05"
     }

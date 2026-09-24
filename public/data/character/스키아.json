@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 256,
+        "pickRate": 85.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 256
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -57,18 +75,6 @@
         "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -230,9 +236,9 @@
   "recentSkins": [
     {
       "cosName": "이국의 전통 체험",
-      "cosUsedCount": 17,
-      "charTotalCount": 97,
-      "rate": 17.5,
+      "cosUsedCount": 66,
+      "charTotalCount": 328,
+      "rate": 20.1,
       "lvl": "normal",
       "launchDate": "2026-07-02"
     }

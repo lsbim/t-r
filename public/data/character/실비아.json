@@ -5,6 +5,17 @@
   "topSeasons": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -81,6 +92,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -134,18 +163,6 @@
         "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -305,17 +322,17 @@
   "recentSkins": [
     {
       "cosName": "소녀의 단아한 발걸음",
-      "cosUsedCount": 491,
-      "charTotalCount": 899,
-      "rate": 54.6,
+      "cosUsedCount": 496,
+      "charTotalCount": 900,
+      "rate": 55.1,
       "lvl": "pretty",
       "launchDate": "2026-06-18"
     },
     {
       "cosName": "내가 체육관의 유망주",
-      "cosUsedCount": 193,
-      "charTotalCount": 899,
-      "rate": 21.5,
+      "cosUsedCount": 198,
+      "charTotalCount": 900,
+      "rate": 22,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     }

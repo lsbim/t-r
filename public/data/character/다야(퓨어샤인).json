@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -56,24 +74,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 13,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
@@ -209,17 +209,17 @@
   "recentSkins": [
     {
       "cosName": "샤이닝 비즈니스",
-      "cosUsedCount": 4,
-      "charTotalCount": 7,
-      "rate": 57.1,
+      "cosUsedCount": 5,
+      "charTotalCount": 8,
+      "rate": 62.5,
       "lvl": "normal",
       "launchDate": "2026-08-20"
     },
     {
       "cosName": "샤이닝 바니",
       "cosUsedCount": 2,
-      "charTotalCount": 7,
-      "rate": 28.6,
+      "charTotalCount": 8,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2026-01-29"
     }

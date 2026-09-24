@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 10,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -57,18 +75,6 @@
         "personality": "냉정",
         "startDate": "2026-04-02",
         "endDate": "2026-04-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -226,17 +232,17 @@
   "recentSkins": [
     {
       "cosName": "거친 파도 속으로",
-      "cosUsedCount": 16,
-      "charTotalCount": 20,
-      "rate": 80,
+      "cosUsedCount": 18,
+      "charTotalCount": 22,
+      "rate": 81.8,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "하늘을 가르는 매버릭",
       "cosUsedCount": 2,
-      "charTotalCount": 20,
-      "rate": 10,
+      "charTotalCount": 22,
+      "rate": 9.1,
       "lvl": "normal",
       "launchDate": "2026-04-09"
     }

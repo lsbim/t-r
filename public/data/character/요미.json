@@ -47,6 +47,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 21,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -114,24 +132,6 @@
             "line": "중열",
             "rank": 6,
             "count": 19
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 87,
-        "pickRate": 29,
-        "overallRank": 12,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 87
           }
         ],
         "totalEntries": 300
@@ -338,9 +338,9 @@
     },
     {
       "cosName": "밤바다 선원",
-      "cosUsedCount": 49,
+      "cosUsedCount": 47,
       "charTotalCount": 280,
-      "rate": 17.5,
+      "rate": 16.8,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

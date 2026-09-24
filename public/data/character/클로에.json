@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 8,
+            "count": 6
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -62,24 +80,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 36,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 11,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
@@ -221,25 +221,25 @@
   "recentSkins": [
     {
       "cosName": "살구꽃과 어흥이",
-      "cosUsedCount": 53,
-      "charTotalCount": 58,
-      "rate": 91.4,
+      "cosUsedCount": 58,
+      "charTotalCount": 64,
+      "rate": 90.6,
       "lvl": "pretty",
       "launchDate": "2026-04-16"
     },
     {
       "cosName": "테디 더 나이트메어",
-      "cosUsedCount": 3,
-      "charTotalCount": 58,
-      "rate": 5.2,
+      "cosUsedCount": 4,
+      "charTotalCount": 64,
+      "rate": 6.3,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "트렌디 트로피컬",
       "cosUsedCount": 1,
-      "charTotalCount": 58,
-      "rate": 1.7,
+      "charTotalCount": 64,
+      "rate": 1.6,
       "lvl": "pretty",
       "launchDate": "2025-07-31"
     }

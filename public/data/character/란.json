@@ -78,6 +78,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 48,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2026-09-17",
+        "endDate": "2026-09-24",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 47,
         "name": "크레용사용",
         "personality": "우울",
@@ -145,24 +163,6 @@
             "line": "후열",
             "rank": 4,
             "count": 12
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 43,
-        "name": "릴1리",
-        "personality": "광기",
-        "startDate": "2026-02-19",
-        "endDate": "2026-02-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 36,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 15,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -325,24 +325,24 @@
   "recentSkins": [
     {
       "cosName": "백사당의 무녀",
-      "cosUsedCount": 70,
-      "charTotalCount": 79,
-      "rate": 88.6,
+      "cosUsedCount": 69,
+      "charTotalCount": 78,
+      "rate": 88.5,
       "lvl": "pretty",
       "launchDate": "2026-05-14"
     },
     {
       "cosName": "교단 행동대장",
       "cosUsedCount": 7,
-      "charTotalCount": 79,
-      "rate": 8.9,
+      "charTotalCount": 78,
+      "rate": 9,
       "lvl": "pretty",
       "launchDate": "2025-01-02"
     },
     {
       "cosName": "메이드 바이 메이드",
       "cosUsedCount": 1,
-      "charTotalCount": 79,
+      "charTotalCount": 78,
       "rate": 1.3,
       "lvl": "normal",
       "launchDate": "2025-01-02"
