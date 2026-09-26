@@ -21,13 +21,14 @@ import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../types/clashV2Types";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { SelectChara } from "../../types/statTypes";
 
 const initRange = { start: 0, end: 0 };
 
 const ClashV2SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState<string>('');
+    const [select, setSelect] = useState<SelectChara | null>(null);
     const { data, isLoading, error } = useRaidData<ClashV2SeasonData>('clashV2', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const [v2Type, setV2Type] = useState<'main' | 'side'>('main')
@@ -80,7 +81,7 @@ const ClashV2SeasonPage = () => {
             (endRank > data?.data?.length || startRank > data?.data?.length)) return;
 
         // 선택 사도 초기화
-        setSelect('');
+        setSelect(null);
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
@@ -113,7 +114,7 @@ const ClashV2SeasonPage = () => {
 
     const handleV2Type = (t: 'side' | 'main') => {
         setV2Type(t);
-        setSelect('');
+        setSelect(null);
         clearExcluded(); // 탭 전환 시 제외 사도 초기화
     }
 
@@ -203,7 +204,7 @@ const ClashV2SeasonPage = () => {
                         fullData={seasonSlice}
                         excludedSet={excludedSet}
                     />
-                    {select !== '' && (
+                    {select && (
                         <SelectCharComponent
                             statsForSelect={statsForSelect}
                             toggleExclude={toggleExclude}

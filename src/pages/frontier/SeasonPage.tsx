@@ -21,13 +21,14 @@ import SeasonRemote from "../../layouts/SeasonRemote";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { SelectChara } from "../../types/statTypes";
 
 const initRange = { start: 0, end: 0 };
 
 const SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState<string>('');
+    const [select, setSelect] = useState<SelectChara | null>(null);
     // const [userCnt, setUserCnt] = useState<number>(0)
 
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
@@ -141,7 +142,7 @@ const SeasonPage = () => {
                 if (idx < 0) idx = 0;
 
                 const segment = segments[idx];
-                if (r.arr.includes(select)) {
+                if (r.arr.includes(select?.name)) {
                     segment.usedRankSum += r.rank;
                     segment.usedCount++;
                 } else {
@@ -283,7 +284,7 @@ const SeasonPage = () => {
                                 fullData={seasonSlice}
                                 excludedSet={excludedSet}
                             />
-                            {select !== '' && (
+                            {select && (
                                 <SelectCharComponent
                                     statsForSelect={statsForSelect}
                                     toggleExclude={toggleExclude}
@@ -296,7 +297,7 @@ const SeasonPage = () => {
                                     compareCoin={compareCoin}
                                     level={data?.maxLvl}
                                     bossName={data?.name}
-                                    select={select}
+                                    select={select?.name}
                                 />
                             )}
                             {hasSkinArr && (

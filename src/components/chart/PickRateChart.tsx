@@ -6,16 +6,18 @@ import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTy
 import { lineList } from "../../types/trickcalTypes";
 import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
 import { containerDarkBG } from "../../styles/container";
+import { SelectChara } from "../../types/statTypes";
 
 type SeasonDataUnion = ClashSeasonData | FrontierSeasonData | ClashV2SeasonData;
 
 interface PickRateChartProps {
     data: SeasonDataUnion
     fullData: SeasonDataUnion
-    season?: string, setSelect: React.Dispatch<React.SetStateAction<string>>;
+    season?: string,
+    setSelect: React.Dispatch<React.SetStateAction<SelectChara | null>>;
     prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData;
     type?: 'side';
-    select: string;
+    select: SelectChara | null;
     excludedSet: Set<string>;
 }
 
@@ -155,6 +157,8 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
 
                                     // 제외되었는가
                                     const isExcluded = excludedSet.has(item.name);
+                                    // 선택되었는가
+                                    const isSelected = select?.name === item.name && select?.line === line;
 
                                     if (prevSeasonPickRates) {
                                         // Map에서 이전 시즌 픽률 조회
@@ -181,11 +185,16 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
 
                                     return (
                                         <div
-                                            onClick={() => setSelect((prev) => prev === item?.name ? "" : item?.name)}
+                                            onClick={() =>
+                                                setSelect((prev) =>
+                                                    prev?.name === item.name && prev?.line === line
+                                                        ? null
+                                                        : { name: item.name, line }
+                                                )}
                                             key={"clash" + item.name}
-                                            className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${item?.name === select ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
+                                            className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${(item?.name === select?.name && line === select?.line) ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
                                             <span
-                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${item?.name === select ? "font-bold" : ""} ${isExcluded ? "line-through opacity-40" : ""}`}
+                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${(item?.name === select?.name && line === select?.line) ? "font-bold" : ""} ${isExcluded ? "line-through opacity-40" : ""}`}
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
                                             </span>

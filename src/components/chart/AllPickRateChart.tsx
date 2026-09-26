@@ -16,6 +16,8 @@ import { processExternalAllData, processRankingArrAllData } from '../../utils/ch
 import { useTheme } from '../../hooks/useTheme';
 import { useMemo } from 'react';
 import { containerDarkBG } from '../../styles/container';
+import { SelectChara } from '../../types/statTypes';
+import { select } from 'framer-motion/client';
 
 ChartJS.register(
     CategoryScale,
@@ -30,7 +32,7 @@ const AllPickRateChart = ({ data, type, setSelect }:
     {
         data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData,
         type?: 'side',
-        setSelect?: React.Dispatch<React.SetStateAction<string>>
+        setSelect?: React.Dispatch<React.SetStateAction<SelectChara | null>>
     }) => {
 
     const { theme } = useTheme();
@@ -58,7 +60,7 @@ const AllPickRateChart = ({ data, type, setSelect }:
             // 해당 인덱스에 해당하는 캐릭터 이름을 추출
             const selectedCharacterName = sortedData[elementIndex].name;
 
-            setSelect(selectedCharacterName);
+            setSelect({ name: selectedCharacterName, line: '모든열' });
 
         }
     };

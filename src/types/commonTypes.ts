@@ -1,7 +1,3 @@
-export interface SelectChar {
-    cName: string;
-    cLine: string;
-}
 
 // 사도 요약 데이터
 export interface CharacterSeasonData {

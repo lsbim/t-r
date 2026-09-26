@@ -2,6 +2,7 @@ import { charInfo } from "../data/trickcalChar";
 import { ClashExternalData, ClashPlayerData } from "../types/clashTypes";
 import { ClashV2PlayerData } from "../types/clashV2Types";
 import { externalData, FrontierExternalData, FrontierPlayerData } from "../types/frontierTypes";
+import { SelectChara } from "../types/statTypes";
 import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../types/trickcalTypes";
 
 // 범용은 제네릭으로
@@ -98,11 +99,7 @@ export function processRankingArrData(
                 const info = charInfo[name];
                 if (info) {
                     let expectedLine: BaseLine | null = null;
-                    let actualLine: BaseLine | null = null;
-
-                    if (idx <= 2) actualLine = "전열";
-                    else if (idx <= 5) actualLine = "중열";
-                    else actualLine = "후열";
+                    const actualLine = getLineByIndex(idx);
 
                     if (info.line !== "모든열") {
                         expectedLine = info.line as BaseLine;
@@ -199,14 +196,7 @@ export function processRankingArrDataV2(
             const info = charInfo[name];
             if (!info) return;
 
-            let targetLine: BaseLine;
-            if (info.line === "모든열") {
-                if (idx <= 2) targetLine = "전열";
-                else if (idx <= 5) targetLine = "중열";
-                else targetLine = "후열";
-            } else {
-                targetLine = info.line as BaseLine;
-            }
+            const targetLine: BaseLine = info.line === "모든열" ? getLineByIndex(idx) : info.line as BaseLine;
 
             const key = `${name}|${targetLine}`;
 
@@ -565,7 +555,7 @@ export function computeBestComp<T extends RankRecord>(
 
 // 선택한 사도의 정보
 export function computeStatsForSelect<T extends RankRecord>(
-    select: string,
+    select: SelectChara,
     rangeData: T[], // seasonSlice, range만 적용된 데이터
     filteredData: T[], // displaySlice, 제외까지 적용된 데이터
     getArr: (r: T) => string[],
@@ -574,7 +564,13 @@ export function computeStatsForSelect<T extends RankRecord>(
 ) {
 
     // 선택된 캐릭터를 포함한 레코드만 필터
-    const combos = filteredData.filter(r => getArr(r).includes(select));
+    const combos = filteredData.filter(r => {
+        const arr = getArr(r);
+        const idx = arr.indexOf(select.name);
+        if (idx === -1) return false;
+        if (select.line === '모든열') return true;
+        return getLineByIndex(idx) === select.line;
+    });
     const totalUses = combos.length;
     const pickRate = filteredData.length > 0 ? totalUses / filteredData.length * 100 : 0;
 
@@ -592,7 +588,7 @@ export function computeStatsForSelect<T extends RankRecord>(
         const arr = getArr(r);
         const eligible = !requireFullComp || arr.length === 9;
         arr.forEach((name, idx) => {
-            if (name === select && eligible) {
+            if (name === select.name && eligible) {
                 positionCounts[idx]++;
             } else {
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
@@ -636,5 +632,11 @@ export function computeStatsForSelect<T extends RankRecord>(
         }
     });
 
-    return { totalUses, pickRate, positionCounts, cooccurrence, select, rankDistribution, firstRank, lastRank, maxScore, minScore };
+    return { totalUses, pickRate, positionCounts, cooccurrence, select: select.name, rankDistribution, firstRank, lastRank, maxScore, minScore };
+}
+
+function getLineByIndex(idx: number): BaseLine {
+    if (idx <= 2) return "전열";
+    if (idx <= 5) return "중열";
+    return "후열";
 }

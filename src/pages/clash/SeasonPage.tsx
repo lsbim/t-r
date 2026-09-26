@@ -21,13 +21,14 @@ import SeasonRemote from "../../layouts/SeasonRemote";
 import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { SelectChara } from "../../types/statTypes";
 
 const initRange = { start: 0, end: 0 };
 
 const SeasonPage = () => {
 
     const { season } = useParams();
-    const [select, setSelect] = useState<string>('');
+    const [select, setSelect] = useState<SelectChara | null>(null);
     const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
 
@@ -86,7 +87,7 @@ const SeasonPage = () => {
             (endRank > data?.data?.length || startRank > data?.data?.length)) return;
 
         // 선택 사도 초기화
-        setSelect('');
+        setSelect(null);
         setAppliedRange({ start: startRank, end: endRank })
     }, [data]);
 
@@ -190,7 +191,7 @@ const SeasonPage = () => {
                                 fullData={seasonSlice}
                                 excludedSet={excludedSet}
                             />
-                            {select !== '' && (
+                            {select && (
                                 <SelectCharComponent
                                     statsForSelect={statsForSelect}
                                     toggleExclude={toggleExclude}
