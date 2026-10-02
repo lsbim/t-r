@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { ClashBase } from "../types/clashTypes";
 import { FrontierBase } from "../types/frontierTypes";
 
@@ -16,7 +16,7 @@ const fetchNonData = async (key: 'clash' | 'frontier') => {
 
 export const useNonData = <T extends ClashBase | FrontierBase>(key: 'clash' | 'frontier') => {
 
-    return useQuery<T, Error>({
+    return useSuspenseQuery<T, Error>({
         queryKey: [`non_data_${key}`],
         queryFn: () => fetchNonData(key),
 

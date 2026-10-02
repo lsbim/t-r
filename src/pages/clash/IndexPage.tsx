@@ -11,10 +11,6 @@ const IndexPage = () => {
 
 	const { data } = useRaidData<ClashSummary>('clash', 'summary');
 
-	if (!data) {
-		return (<Loading />)
-	};
-
 	return (
 		<div className={`${raidRootContainer} min-h-screen`}>
 			<SEO

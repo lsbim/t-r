@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import CleartimeChart from "../../components/chart/CleartimeChart";
@@ -18,10 +17,10 @@ import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
-import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
-import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../types/clashTypes";
 import { SelectChara } from "../../types/statTypes";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -29,7 +28,7 @@ const SeasonPage = () => {
 
     const { season } = useParams();
     const [select, setSelect] = useState<SelectChara | null>(null);
-    const { data, isLoading, error } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
+    const { data } = useRaidData<ClashSeasonData | ClashExternalData>('clash', 'season', season);
     const [appliedRange, setAppliedRange] = useState(initRange);
 
     const hasSkinArr = data?.type === 'season' && data.data[0]?.skinArr !== undefined;
@@ -115,12 +114,6 @@ const SeasonPage = () => {
             group => processCompStat(group)
         )
     }, [displaySlice, appliedRange]);
-
-    if (isLoading) {
-        return (
-            <Loading />
-        )
-    }
 
     if (!seasonSlice || !displaySlice) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.

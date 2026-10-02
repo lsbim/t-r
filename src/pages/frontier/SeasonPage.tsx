@@ -1,6 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import Loading from "../../commons/component/Loading";
 import SEO from "../../commons/component/SEO";
 import AllPickRateChart from "../../components/chart/AllPickRateChart";
 import ExternalPickRateChart from "../../components/chart/ExternalPickRateChart";
@@ -18,10 +17,10 @@ import { useRaidData } from "../../hooks/useRaidData";
 import Footer from "../../layouts/Footer";
 import HeaderNav from "../../layouts/HeaderNav";
 import SeasonRemote from "../../layouts/SeasonRemote";
-import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
-import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../types/frontierTypes";
 import { SelectChara } from "../../types/statTypes";
+import { computeBestComp, computeStatsForSelect, processCompStat } from "../../utils/chartFunction";
 
 const initRange = { start: 0, end: 0 };
 
@@ -32,8 +31,8 @@ const SeasonPage = () => {
     // const [userCnt, setUserCnt] = useState<number>(0)
 
     const prevSeason = season === '1' ? '10002' : String(Number(season) - 1);
-    const { data, isLoading, error } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', season);
-    const { data: prevData, isLoading: prevIsLoading, error: prevError } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', prevSeason);
+    const { data } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', season);
+    const { data: prevData } = useRaidData<FrontierSeasonData | FrontierExternalData>('frontier', 'season', prevSeason);
     const [appliedRange, setAppliedRange] = useState(initRange);
     const seasonName = Number(season) >= 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
 
@@ -202,15 +201,7 @@ const SeasonPage = () => {
             prev: prevSeason
         }
     }, [seasonSlice, prevSlice])
-    // console.log(compareCoin)
 
-    if (isLoading || prevIsLoading) {
-        return (
-            <Loading />
-        )
-    }
-
-    // console.log("data: ", seasonSlice, prevSlice)
     if (!seasonSlice || !displaySlice) {
         return <Navigate to={"/"} replace />
     }

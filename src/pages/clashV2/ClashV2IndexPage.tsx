@@ -11,12 +11,6 @@ const IndexPage = () => {
 
 	const { data } = useRaidData<ClashV2Summary>('clashV2', 'summary');
 
-	if (!data) {
-		return (<Loading />)
-	};
-
-	// console.log(data)
-
 	return (
 		<div className={`${raidRootContainer} min-h-[100.5vh]`}>
 			<SEO

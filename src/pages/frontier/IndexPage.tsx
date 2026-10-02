@@ -11,10 +11,6 @@ const IndexPage = () => {
 
     const { data } = useRaidData<FrontierSummary>('frontier', 'summary');
 
-    if (!data) return (<Loading />);
-
-    // console.log(data)
-
     return (
         <div className={`${raidRootContainer} min-h-screen`}>
             <SEO

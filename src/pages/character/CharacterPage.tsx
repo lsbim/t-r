@@ -19,8 +19,6 @@ const CharacterPage = () => {
         return <Loading />
     }
 
-    console.log(data)
-
     return (
         <div className="flex flex-col items-center min-h-screen gap-y-4">
             <SEO

@@ -71,9 +71,6 @@ const IndexPage = () => {
         )
     }, [isEldain, category]);
 
-    if (!nonData || !latest) {
-        return (<Loading />);
-    }
 
     const tabs = [
         { id: 'race', label: '종족정렬' },
