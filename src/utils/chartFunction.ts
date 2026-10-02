@@ -1,9 +1,9 @@
-import { charInfo } from "../data/trickcalChar";
+import { charInfo, RESONANCE_BASE_NAMES } from "../data/trickcalChar";
 import { ClashExternalData, ClashPlayerData } from "../types/clashTypes";
 import { ClashV2PlayerData } from "../types/clashV2Types";
 import { externalData, FrontierExternalData, FrontierPlayerData } from "../types/frontierTypes";
 import { SelectChara } from "../types/statTypes";
-import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../types/trickcalTypes";
+import { AllLine, BaseLine, ExternalSummaryData, Personality, personalityBaseList, SummaryData, SynergyItem } from "../types/trickcalTypes";
 
 // 범용은 제네릭으로
 
@@ -66,7 +66,7 @@ export function processRankingArrAllData(
         });
     }
 
-    return result;
+    return addResonanceSummaryData(result, totalCount);
 }
 
 // PickRateChart 전용.
@@ -152,7 +152,7 @@ export function processRankingArrData(
 
     }
 
-    return result;
+    return addResonanceSummaryData(result, totalCount);
 }
 
 // PickRateChart 전용. 차원대충돌 2.0 전용.
@@ -238,7 +238,7 @@ export function processRankingArrDataV2(
         });
     });
 
-    return result;
+    return addResonanceSummaryData(result, totalCount);
 }
 
 export interface CompStat {
@@ -325,9 +325,6 @@ export function processCompStat(
         string,
         { count: number; front: string[]; middle: string[]; back: string[] }
     >();
-
-    // const normalizeUros = (s: unknown) =>
-    //     typeof s === 'string' && s.startsWith('우로스(') ? '우로스' : s;
 
     // console.log(type)
     for (const item of data) {
@@ -566,10 +563,8 @@ export function computeStatsForSelect<T extends RankRecord>(
     // 선택된 캐릭터를 포함한 레코드만 필터
     const combos = filteredData.filter(r => {
         const arr = getArr(r);
-        const idx = arr.indexOf(select.name);
-        if (idx === -1) return false;
-        if (select.line === '모든열') return true;
-        return getLineByIndex(idx) === select.line;
+        const idx = arr.findIndex(name => matchesSelectedName(name, select.name)); // indexOf(select.name) → findIndex
+        return idx !== -1 && getLineByIndex(idx) === select.line;
     });
     const totalUses = combos.length;
     const pickRate = filteredData.length > 0 ? totalUses / filteredData.length * 100 : 0;
@@ -588,7 +583,7 @@ export function computeStatsForSelect<T extends RankRecord>(
         const arr = getArr(r);
         const eligible = !requireFullComp || arr.length === 9;
         arr.forEach((name, idx) => {
-            if (name === select.name && eligible) {
+            if (matchesSelectedName(name, select.name) && eligible) {
                 positionCounts[idx]++;
             } else {
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
@@ -639,4 +634,71 @@ function getLineByIndex(idx: number): BaseLine {
     if (idx <= 2) return "전열";
     if (idx <= 5) return "중열";
     return "후열";
+}
+
+/* 
+    공명 사도의 성격을 제외한 본명인지 체크. 우로스 = true, 우로스(순수) = false
+*/
+function matchesSelectedName(arrName: string, selectName: string): boolean {
+    if (arrName === selectName) return true;
+    return RESONANCE_BASE_NAMES.includes(selectName) && parseResonanceBaseName(arrName)?.baseName === selectName;
+}
+
+/* 
+    processRankingArrData 등 SummaryData 타입 함수에 공명 사도 정보를 추가하는 함수
+*/
+export function addResonanceSummaryData(result: SummaryData[], totalCount: number): SummaryData[] {
+    const groups = new Map<string, SummaryData[]>(); // key: 사도 명
+
+    result.forEach(item => {
+        const parsed = parseResonanceBaseName(item.name);
+        if (!parsed) return;
+        const key = parsed.baseName;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key)!.push(item);
+    });
+
+    const aggregates: SummaryData[] = [];
+
+    groups.forEach((variants, key) => {
+        const baseName = key;
+
+        const count = variants.reduce((sum, v) => sum + v.count, 0);
+        const percent = totalCount > 0 ? Math.round((count / totalCount) * 100 * 10) / 10 : 0;
+
+        const positions: Record<number, number> = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
+        variants.forEach(v => {
+            if (!v.positions) return;
+            Object.entries(v.positions).forEach(([idx, cnt]) => {
+                positions[Number(idx)] += cnt;
+            });
+        });
+
+        aggregates.push({
+            name: baseName,
+            count,
+            percent,
+            personality: '공명',
+            line: charInfo[baseName]?.line,
+            positions,
+            percentByLine: { 전열: 0, 중열: 0, 후열: 0 },
+        });
+    });
+
+    return [...result, ...aggregates];
+}
+
+/* 
+    공명 사도 본명 파싱 함수
+*/
+export function parseResonanceBaseName(name: string): { baseName: string; personality: Personality } | null {
+    const base = RESONANCE_BASE_NAMES.find(b => name.startsWith(b)); // ex) b = "우로스", "비비(신성)"...
+    if (!base) return null;
+
+    const suffix = name.slice(base.length); // ex) "(냉정)"
+    const match = suffix.match(/^\((.+)\)$/);
+    if (!match) return null;
+    if (!personalityBaseList.includes(match[1])) return null;
+
+    return { baseName: base, personality: match[1] as Personality }; // ex) { baseName: "우로스", personality: "냉정" }
 }

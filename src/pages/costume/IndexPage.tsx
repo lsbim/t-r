@@ -11,6 +11,7 @@ import { personalityList } from "../../types/trickcalTypes";
 import SEO from "../../commons/component/SEO";
 import { getDaysSince } from "../../utils/function";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { parseResonanceBaseName } from "../../utils/chartFunction";
 
 const persList = personalityList;
 
@@ -48,7 +49,7 @@ const IndexPage = () => {
 
         const characterStatsObj = Object.entries(charInfo)
             // 성격별 찢어놓은 우로스 제외
-            .filter(([charName, info]) => info.grade !== 1 && !charName.startsWith('우로스('))
+            .filter(([charName, info]) => info.grade !== 1 && !parseResonanceBaseName(charName))
             .reduce(
                 (
                     acc: Record<string, CostumeMapItem>

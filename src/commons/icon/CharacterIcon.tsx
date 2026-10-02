@@ -1,4 +1,5 @@
 import { charInfo } from "../../data/trickcalChar";
+import { parseResonanceBaseName } from "../../utils/chartFunction";
 
 const CharacterIcon = ({
     name,
@@ -28,16 +29,11 @@ const CharacterIcon = ({
                 ? "hidden"
                 : "px-2 py-1 text-[12px]";
 
-    const imgURL = (name: string) => {
+    const charName = parseResonanceBaseName(name)?.baseName ?? name;
 
-        const charName = name.startsWith('우로스')
-            ? '우로스'
-            : name;
-
-        return type === 'micro'
-            ? `/images/profile/${charName}.webp`
-            : `/images/character/${charName}.webp`
-    }
+    const imgURL = type === 'micro'
+        ? `/images/profile/${charName}.webp`
+        : `/images/character/${charName}.webp`
 
     return (
         <div
@@ -49,12 +45,12 @@ const CharacterIcon = ({
             >
                 <img
                     className={`${type === 'mini' ? 'w-full object-cover object-top origin-[50%_20%] scale-[1.4]' : 'w-full'} ${type === 'micro' ? 'object-cover' : 'object-contain'}`}
-                    src={imgURL(name)}
+                    src={imgURL}
                     decoding="async" />
             </div>
             <div className={`${nameConfig} bg-white bg-opacity-80 font-bold w-full z-10 flex items-center justify-center`}>
                 <span className="truncate">
-                    {name.startsWith('우로스') ? '우로스' : name}
+                    {charName}
                 </span>
             </div>
         </div>

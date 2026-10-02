@@ -35,7 +35,16 @@ function sortSeasonDesc(a, b) {
     return b - a;
 }
 
-const normalizeCharName = name => name.startsWith('우로스(') ? '우로스' : name;
+// 공명 사도 목록
+const RESONANCE_BASE_NAMES = ['우로스', '비비(신성)'];
+
+// 우로스 -> false, 우로스(순수) -> true
+const isResonanceVariant = name =>
+    RESONANCE_BASE_NAMES.some(base => name !== base && name.startsWith(base));
+
+// 우로스(냉정) -> 우로스, 비비(신성)(냉정) -> 비비(신성)
+const normalizeCharName = name =>
+    RESONANCE_BASE_NAMES.find(base => name !== base && name.startsWith(base)) ?? name;
 
 
 // 동점 처리 예) [100, 100, 80] -> 1, 1, 2위(공동 1위 처리)
@@ -68,7 +77,7 @@ async function parseCharInfo() {
     const blockRe = /"([^"]+)":\s*\{([^}]+)\}/g;
 
     for (const m of content.matchAll(blockRe)) {
-        if (m[1].startsWith('우로스(')) continue;
+        if (isResonanceVariant(m[1])) continue;
 
         const name = m[1];
         const block = m[2];

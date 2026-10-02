@@ -3,6 +3,7 @@ import { findPersonalityByName } from '../../../utils/function';
 import { charInfo } from '../../../data/trickcalChar';
 import { Link } from 'react-router-dom';
 import { containerDarkBG } from '../../../styles/container';
+import { parseResonanceBaseName } from '../../../utils/chartFunction';
 
 interface SelectInfoProps {
     firstRank: number;
@@ -28,7 +29,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
     scoreType,
 }) => {
 
-    const selectUrl = select.startsWith('우로스(') ? `/character/우로스` : `/character/${select}`;
+    const selectUrl = parseResonanceBaseName(select)?.baseName ? `/character/${parseResonanceBaseName(select)?.baseName}` : `/character/${select}`;
 
     const isCoin = scoreType === 'coin'
 
@@ -56,7 +57,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                     rel="noopener noreferrer"
                     className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(select)}-dark`}>
                     <img
-                        src={`/images/profile/${select.startsWith('우로스(') ? '우로스' : select}.webp`}
+                        src={`/images/profile/${parseResonanceBaseName(select)?.baseName ?? select}.webp`}
                     />
                 </Link>
                 <div className="flex flex-col min-w-[95px]">

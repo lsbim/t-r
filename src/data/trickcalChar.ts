@@ -176,3 +176,8 @@ export const charInfo: CharInfoType = {
     "우로스(광기)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },
 };
 // 성격별 우로스처럼 찢어놓은 사도는 타임라인, 사복 목록같은 곳에 나오지 않도록 추가 조정필요
+
+// 공명 사도 본명 목록 ex) 우로스, 비비(신성) 등
+export const RESONANCE_BASE_NAMES = Object.entries(charInfo)
+    .filter(([, info]) => info.personality === '공명')
+    .map(([name]) => name);

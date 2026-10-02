@@ -15,6 +15,7 @@ import HeaderNav from "../../layouts/HeaderNav";
 import { LatestData } from "../../types/latestTypes";
 import { Personality, Race, races } from "../../types/trickcalTypes";
 import { containerDarkBG, pageRootContainer } from "../../styles/container";
+import { parseResonanceBaseName } from "../../utils/chartFunction";
 
 const IndexPage = () => {
 
@@ -31,8 +32,7 @@ const IndexPage = () => {
                 Object.entries(charInfo).reduce((acc, [name, info]) => {
                     const { race, personality, birthdate, eldain } = info;
 
-                    if (name.startsWith('우로스(')) return acc;
-                    if (isEldain && !eldain) return acc;
+                    if (parseResonanceBaseName(name) || (isEldain && !eldain)) return acc;
 
                     const key = category === 'race' ? race : personality;
 

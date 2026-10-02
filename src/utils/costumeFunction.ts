@@ -1,6 +1,7 @@
 import { Costume, costumes } from "../data/costumes";
 import { ClashSeasonData } from "../types/clashTypes";
 import { FrontierSeasonData } from "../types/frontierTypes";
+import { parseResonanceBaseName } from "./chartFunction";
 
 export interface CostumeStat {
     charName: string;
@@ -38,7 +39,7 @@ export const processCostumeData = (
         if (!charList || !skinList) return;
 
         charList.forEach((charN: string, idx: number) => {
-            const charName = charN.startsWith('우로스') ? '우로스' : charN
+            const charName = parseResonanceBaseName(charN)?.baseName ?? charN;
             charCountMap.set(charName, (charCountMap.get(charName) || 0) + 1);
 
             const skinName = skinList[idx] === '아이돌' ? '[아이돌: N.Y.A.N.Y.A]' : skinList[idx];

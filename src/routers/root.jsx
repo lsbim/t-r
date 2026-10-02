@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect, ScrollRestoration } from "react-router-dom";
 import Loading from "../commons/component/Loading";
 import { charInfo } from "../data/trickcalChar";
+import { parseResonanceBaseName } from "../utils/chartFunction";
 
 const HomePage = lazy(() => import("../pages/home/IndexPage"));
 
@@ -135,7 +136,7 @@ const router = createBrowserRouter([
                         path: ":charName",
                         loader: ({ params }) => {
                             const { charName } = params;
-                            if (!charName || !charInfo[charName] || charName.startsWith('우로스(')) {
+                            if (!charName || !charInfo[charName] || parseResonanceBaseName(charName)) {
                                 throw new Response('해당 사도를 찾을 수 없습니다.', { status: 404 });
                             }
                             return null;

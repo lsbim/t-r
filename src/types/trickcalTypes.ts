@@ -3,7 +3,8 @@ import { FrontierSeasonData } from "./frontierTypes";
 
 // 성격
 export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발" | "공명";
-export const personalityList = ["광기", "냉정", "순수", "우울", "활발", "공명"];
+export const personalityBaseList = ["광기", "냉정", "순수", "우울", "활발"];
+export const personalityList = [...personalityBaseList, "공명"];
 // 레이드 영문명
 export type TrickcalRaidEn = "clash" | "frontier" | 'clashV2';
 // 성격 시너지용
@@ -25,19 +26,13 @@ export type SeasonDataMap = { // 시즌데이터 맵핑
     clash: ClashSeasonData;
 };
 
-// '순수': { DEFAULT: '#66c17c', dark: '#4fa163' },
-// '냉정': { DEFAULT: '#83b9eb', dark: '#6199cf' },
-// '광기': { DEFAULT: '#eb839a', dark: '#cf667d' },
-// '활발': { DEFAULT: '#ebdb83', dark: '#cfbe62' },
-// '우울': { DEFAULT: '#c683ec', dark: '#a766c9' },
-
 const PERSONALITY_COLORS = {
     '순수': { defalut: '#66c17c', dark: '#4fa163' },
     '냉정': { defalut: '#83b9eb', dark: '#6199cf' },
     '광기': { defalut: '#eb839a', dark: '#cf667d' },
     '활발': { defalut: '#ebdb83', dark: '#cfbe62' },
     '우울': { defalut: '#c683ec', dark: '#a766c9' },
-    '공명': { defalut: '#DDDDDD', dark: '#BBBBBB' },
+    '공명': { defalut: '#B4ACB0', dark: '#978E92' },
 };
 
 // 헥스코드 반환

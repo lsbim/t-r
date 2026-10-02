@@ -2,6 +2,7 @@ import React from 'react';
 import InfoIcon from '../../../commons/icon/InfoIcon';
 import { findPersonalityByName } from '../../../utils/function';
 import { containerDarkBG } from '../../../styles/container';
+import { parseResonanceBaseName } from '../../../utils/chartFunction';
 
 const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
 
@@ -39,7 +40,7 @@ const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
                                 key={"co_occurrence" + statsForSelect?.select + index}>
                                 <div className={`overflow-hidden rounded-full w-14 h-14 border-4 border-${findPersonalityByName(key)}-dark`}>
                                     <img
-                                        src={`/images/profile/${key.startsWith('우로스(') ? '우로스' : key}.webp`}
+                                        src={`/images/profile/${parseResonanceBaseName(key)?.baseName ?? key}.webp`}
                                     />
                                 </div>
                                 <span className="font-bold truncate w-full text-center text-[13px]">

@@ -51,6 +51,20 @@ module.exports = {
     'to-광기/80',
     'to-활발/80',
     'to-우울/80',
+    'text-공명',
+    'text-공명-dark',
+    'bg-공명',
+    'bg-공명-dark',
+    'border-공명',
+    'border-공명-dark',
+    'hover:border-공명',
+    'hover:border-공명-dark',
+    'hover:dark:border-공명',
+    'hover:dark:border-공명-dark',
+    'from-공명',
+    'from-공명-dark',
+    'to-공명/80',
+    'to-공명/80-dark',
   ],
   theme: {
     extend: {
@@ -60,6 +74,7 @@ module.exports = {
         '광기': { DEFAULT: '#eb839a', dark: '#cf667d' },
         '활발': { DEFAULT: '#ebdb83', dark: '#cfbe62' },
         '우울': { DEFAULT: '#c683ec', dark: '#a766c9' },
+        '공명': { DEFAULT: '#B4ACB0', dark: '#978E92' },
       },
       screens: {
         'mini': '360px',

@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { charInfo } from "../../data/trickcalChar";
+import { charInfo, RESONANCE_BASE_NAMES } from "../../data/trickcalChar";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { ClashV2SeasonData } from "../../types/clashV2Types";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
@@ -157,8 +157,6 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
 
                                     // 제외되었는가
                                     const isExcluded = excludedSet.has(item.name);
-                                    // 선택되었는가
-                                    const isSelected = select?.name === item.name && select?.line === line;
 
                                     if (prevSeasonPickRates) {
                                         // Map에서 이전 시즌 픽률 조회
@@ -183,6 +181,10 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                                         }
                                     }
 
+                                    const resonanceTextColor = RESONANCE_BASE_NAMES.includes(item.name)
+                                        ? 'text-gray-500'
+                                        : '';
+
                                     return (
                                         <div
                                             onClick={() =>
@@ -194,7 +196,7 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                                             key={"clash" + item.name}
                                             className={`flex items-center w-full cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-800 px-1 rounded-md ${(item?.name === select?.name && line === select?.line) ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}>
                                             <span
-                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${(item?.name === select?.name && line === select?.line) ? "font-bold" : ""} ${isExcluded ? "line-through opacity-40" : ""}`}
+                                                className={`w-[90px] dark:text-zinc-200 whitespace-nowrap overflow-hidden text-ellipsis mr-4 text-[14px] ${(item?.name === select?.name && line === select?.line) ? "font-bold" : ""} ${isExcluded ? "line-through opacity-40" : ""} ${resonanceTextColor}`}
                                                 title={item.name === "시온" ? "시온 더 다크불릿" : item.name}>
                                                 {item.name === "시온" ? "시온 더 다크불릿" : item.name}
                                             </span>
@@ -208,7 +210,7 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                                             </div>
                                             <div className="flex items-center h-full">
                                                 <span
-                                                    className="w-10 flex justify-end text-sm dark:text-zinc-200">
+                                                    className={`w-10 flex justify-end text-sm dark:text-zinc-200 ${resonanceTextColor}`}>
                                                     {item.count}
                                                 </span>
                                                 {/* 픽률은 참여한 사도가 아닌 유저 수를 기준 */}

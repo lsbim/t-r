@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { disassemble, getChoseong } from "es-hangul";
 import { charInfo } from "../data/trickcalChar";
+import { parseResonanceBaseName } from "../utils/chartFunction";
 
 interface CharSearchProps {
     search: string;
@@ -11,7 +12,7 @@ export const useCharSearch = ({ search, showAllWhenEmpty = true }: CharSearchPro
 
     const searchData = useMemo(() => {
         return Object.entries(charInfo)
-            .filter(([key]) => !key.startsWith('우로스(')) // 성격별 우로스 제외
+            .filter(([key]) => !parseResonanceBaseName(key)) // 성격별 우로스 제외
             .map(([key, info]) => {
                 // i18n 도입 시 적용할 것
                 // const allNames = [

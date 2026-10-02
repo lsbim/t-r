@@ -7,6 +7,7 @@ import { usePopoverActions, usePopoverState } from "../../hooks/usePopper";
 import { RaidNode } from "../../types/timeline/timelineTypes";
 import { getCharacterIcons } from "../../utils/function";
 import { containerDarkBG } from "../../styles/container";
+import { parseResonanceBaseName } from "../../utils/chartFunction";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 
@@ -145,7 +146,7 @@ const PopoverCard = () => {
     const personality = ('personality' in target.node) ? target.node.personality : null;
 
     const imgUrl = target.type === "character"
-        ? `/images/profile/${targetName.startsWith('우로스(') ? '우로스' : targetName}.webp`
+        ? `/images/profile/${parseResonanceBaseName(targetName)?.baseName ?? targetName}.webp`
         : `/images/boss/${targetName}${personality ? `(${personality})` : ''}.webp`;
 
     const personalityBorder = personality
