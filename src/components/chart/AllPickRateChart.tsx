@@ -12,12 +12,13 @@ import { Bar } from "react-chartjs-2";
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
 import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
-import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
+import { parseResonanceBaseName, processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
 import { useTheme } from '../../hooks/useTheme';
 import { useMemo } from 'react';
 import { containerDarkBG } from '../../styles/container';
 import { SelectChara } from '../../types/statTypes';
 import { select } from 'framer-motion/client';
+import { charInfo } from '../../data/trickcalChar';
 
 ChartJS.register(
     CategoryScale,
@@ -60,8 +61,7 @@ const AllPickRateChart = ({ data, type, setSelect }:
             // 해당 인덱스에 해당하는 캐릭터 이름을 추출
             const selectedCharacterName = sortedData[elementIndex].name;
 
-            setSelect({ name: selectedCharacterName, line: '모든열' });
-
+            setSelect({ name: selectedCharacterName, line: charInfo[selectedCharacterName].line });
         }
     };
 
