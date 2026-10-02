@@ -3,8 +3,8 @@ import PersonalityIcon from "../../commons/icon/PersonalityIcon";
 import SortArrowIcon from "../../commons/icon/SortArrowIcon";
 import { charInfo } from "../../data/trickcalChar";
 import { CostumeMapItem } from "../../pages/costume/IndexPage";
-import { getChoseong } from "es-hangul";
 import { containerDarkBG } from "../../styles/container";
+import { matchesSearchTerm } from "../../utils/searchFunction";
 
 type SortConfig = {
     key: 'count' | 'since' | 'birthDate';
@@ -22,18 +22,9 @@ const CostumeBoard = ({ charStatList }: { charStatList: CostumeMapItem[] }) => {
     const searchList = useMemo(() => {
         const term = search.trim().toLowerCase().replace(/\s+/g, "");
         if (!term) return charStatList;
-
-
-        return charStatList.filter(item => {
-            const itemChoseong = getChoseong(item.charName);
-
-            return (
-                item.charName.includes(term) ||
-                itemChoseong.includes(term)
-            );
-        });
-
-    }, [search, charStatList])
+    
+        return charStatList.filter(item => matchesSearchTerm(item.charName, term));
+    }, [search, charStatList]);
 
     // console.log(search, searchList);
 
