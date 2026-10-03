@@ -1,12 +1,11 @@
+import { ThemeProvider } from '@/hooks/useTheme';
+import router from '@/routers/root';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import router from './routers/root';
-import { Tooltip } from 'react-tooltip';
 import { HelmetProvider } from 'react-helmet-async';
-import { ThemeProvider } from '@/hooks/useTheme';
+import { RouterProvider } from 'react-router-dom';
+import { Tooltip } from 'react-tooltip';
+import './index.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,5 +27,3 @@ root.render(
     </ThemeProvider>
   </HelmetProvider>
 );
-
-reportWebVitals();

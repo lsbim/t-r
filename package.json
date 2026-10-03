@@ -24,19 +24,12 @@
     "react-konva": "^19.2.5",
     "react-router-dom": "^7.6.2",
     "react-tooltip": "^5.29.1",
-    "react-virtuoso": "^4.14.1",
-    "web-vitals": "^2.1.4"
+    "react-virtuoso": "^4.14.1"
   },
   "scripts": {
     "start": "vite",
     "build": "node scripts/build-season-summaries.js && node scripts/build-latest-summaries.js && node scripts/build-character-info.js && vite build",
     "serve": "vite preview"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -51,11 +44,6 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/jest": "^30.0.0",
     "@types/node": "^20.19.9",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",

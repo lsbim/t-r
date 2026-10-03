@@ -33,7 +33,7 @@ export default defineConfig(({ command }) => {
                             'react-tooltip',
                             'react-helmet-async',
                         ],
-                        'vendor-utils': ['es-hangul', 'es-toolkit', 'web-vitals'],
+                        'vendor-utils': ['es-hangul', 'es-toolkit'],
                     },
                 },
             },
