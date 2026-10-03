@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import router from './routers/root';
 import { Tooltip } from 'react-tooltip';
 import { HelmetProvider } from 'react-helmet-async';
-import { ThemeProvider } from './hooks/useTheme';
+import { ThemeProvider } from '@/hooks/useTheme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

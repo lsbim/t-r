@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig(({ command }) => {
 
@@ -43,6 +44,11 @@ export default defineConfig(({ command }) => {
         ],
         esbuild: {
             drop: isProd ? ['console', 'debugger'] : ['debugger'],
+        },
+        resolve: {
+            alias: {
+                '@': fileURLToPath(new URL('./src', import.meta.url)),
+            },
         },
     };
 });

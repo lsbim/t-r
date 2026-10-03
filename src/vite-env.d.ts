@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 // TS에서 Vite 환경변수를 사용하기 위해 생성한 코드
 
 interface ImportMetaEnv {
