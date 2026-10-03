@@ -59,31 +59,31 @@ const HeaderNav = () => {
                     <nav className="flex gap-x-4 text-[14px] items-center text-gray-800 dark:text-zinc-200 lg:flex mx-auto">
                         <Link to="/clash/v1"
                             onMouseEnter={() => handleMouseEnter('clash')}
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v1") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/clash/v1") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             차원 대충돌</Link>
                         <Link to="/clash/v2"
                             onMouseEnter={() => handleMouseEnter('clashV2')}
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/clash/v2") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/clash/v2") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             차원 대충돌 2.0</Link>
                         <Link
                             to="/frontier"
                             onMouseEnter={() => handleMouseEnter('frontier')}
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/frontier") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/frontier") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             엘리아스 프론티어
                         </Link>
                         <Link
                             to="/timeline/raid"
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/timeline") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/timeline") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             타임라인
                         </Link>
                         <Link
                             to="/costume"
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/costume") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/costume") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             사복
                         </Link>
                         <Link
                             to="/sim"
-                            className={` py-3 cursor-pointer hover:text-orange-400 transition duration-300 ${pathname.startsWith("/sim") ? "text-orange-500" : ""}`}>
+                            className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/sim") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             교단 계산
                         </Link>
                     </nav>
