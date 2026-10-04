@@ -8,17 +8,16 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
+import { useMemo } from 'react';
 import { Bar } from "react-chartjs-2";
+import { charInfo } from '../../data/trickcalChar';
+import { useTheme } from '../../hooks/useTheme';
+import { containerDarkBG } from '../../styles/container';
 import { ClashExternalData, ClashSeasonData } from "../../types/clashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../types/frontierTypes";
-import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
-import { parseResonanceBaseName, processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
-import { useTheme } from '../../hooks/useTheme';
-import { useMemo } from 'react';
-import { containerDarkBG } from '../../styles/container';
 import { SelectChara } from '../../types/statTypes';
-import { select } from 'framer-motion/client';
-import { charInfo } from '../../data/trickcalChar';
+import { getPersonalityColor, Personality } from "../../types/trickcalTypes";
+import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
 
 ChartJS.register(
     CategoryScale,

@@ -564,7 +564,7 @@ export function computeStatsForSelect<T extends RankRecord>(
     const combos = filteredData.filter(r => {
         const arr = getArr(r);
         const idx = arr.findIndex(name => matchesSelectedName(name, select.name)); // indexOf(select.name) → findIndex
-        return idx !== -1 && getLineByIndex(idx) === select.line;
+        return idx !== -1 && (select.line === "모든열" || getLineByIndex(idx) === select.line);
     });
     const totalUses = combos.length;
     const pickRate = filteredData.length > 0 ? totalUses / filteredData.length * 100 : 0;
