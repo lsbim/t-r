@@ -196,7 +196,7 @@ export const simResearch = (
 };
 
 // sim 최상위 함수
-export function createIntegratedPlan(
+function createIntegratedPlan(
     currentAdvLvl: number,
     needMaterials: Map<string, number>,
     inventory: Map<string, number>,
@@ -596,27 +596,6 @@ function calculateMaterialValues(data: typeof allGameData): Map<string, number> 
 
     return finalValues;
 };
-
-// 재료별로 획득 가능한 모험 목록. 키: 재료 명, 값: 모험 목록
-function createAdventureYieldMap(): Map<string, Adventure[]> {
-    const map = new Map<string, Adventure[]>();
-
-    Object.entries(adventure).forEach(([adventureName, adventureData]) => {
-        adventureData.yieldMaterials.forEach(material => {
-            if (!map.has(material.name)) {
-                map.set(material.name, []);
-            }
-
-            map.get(material.name)!.push({
-                adventureName,
-                yieldType: material.yieldType,
-                ...adventureData
-            } as any);
-        });
-    });
-
-    return map;
-}
 
 // --------------------------------------컴포넌트에서 사용됨----------------------------------------------
 

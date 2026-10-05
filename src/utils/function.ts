@@ -7,24 +7,6 @@ export function findPersonalityByName(name: string) {
     return charInfo[name]?.personality;
 }
 
-export function findHexByName(name: string) {
-    const personality = findPersonalityByName(name);
-
-    if (!personality) return;
-
-    switch (personality) {
-        case "순수":
-            return '#66c17c';
-        case "냉정":
-            return '#83b9eb';
-        case "광기":
-            return '#eb839a';
-        case "활발":
-            return '#ebdb83';
-        case "우울":
-            return '#c683ec';
-    }
-}
 
 export function translateFacility(name: string) {
 
@@ -89,7 +71,7 @@ export function translateRaces(race: Race) {
     }
 }
 
-export function translateLine(line: AllLine) {
+function translateLine(line: AllLine) {
     switch (line) {
         case '전열':
             return 'front';
@@ -103,7 +85,7 @@ export function translateLine(line: AllLine) {
 }
 
 
-export function translateRole(role: CharRole) {
+function translateRole(role: CharRole) {
     switch (role) {
         case '딜러':
             return 'dps';
@@ -114,7 +96,7 @@ export function translateRole(role: CharRole) {
     }
 }
 
-export function translateAttackType(type: CharAttackType) {
+function translateAttackType(type: CharAttackType) {
     switch (type) {
         case '마법':
             return 'magic';

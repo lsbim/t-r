@@ -647,7 +647,7 @@ function matchesSelectedName(arrName: string, selectName: string): boolean {
 /* 
     processRankingArrData 등 SummaryData 타입 함수에 공명 사도 정보를 추가하는 함수
 */
-export function addResonanceSummaryData(result: SummaryData[], totalCount: number): SummaryData[] {
+function addResonanceSummaryData(result: SummaryData[], totalCount: number): SummaryData[] {
     const groups = new Map<string, SummaryData[]>(); // key: 사도 명
 
     result.forEach(item => {

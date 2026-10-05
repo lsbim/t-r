@@ -86,10 +86,6 @@ export const sideSkillList: sideSkill[] = [
     },
 ]
 
-export function getSideSkillKrName(name: string): string {
-    return sideSkillList.find(s => s?.name === name)?.krName || '';
-}
-
 export const SIDE_SKILL_COLORS = [
     'rgba(255, 99, 132, 0.7)',
     'rgba(255, 220, 135, 0.9)',
