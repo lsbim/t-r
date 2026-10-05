@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { charInfo } from '../../../data/trickcalChar';
-import { useCharSearch } from '../hooks/useCharSearch';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { charInfo } from '../../../data/trickcalChar';
 import { containerDarkBG } from '../../../styles/container';
+import { useCharSearch } from '../hooks/useCharSearch';
 
 const CharacterSearchList = () => {
 

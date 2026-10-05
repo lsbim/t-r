@@ -1,17 +1,17 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { useMemo, useState } from "react";
+import SEO from "../../../components/SEO";
+import TopRemote from "../../../components/TopRemote";
 import { Costume, costumes } from "../../../data/costumes";
 import { charInfo } from "../../../data/trickcalChar";
 import Footer from "../../../layouts/Footer";
 import HeaderNav from "../../../layouts/HeaderNav";
-import TopRemote from "../../../components/TopRemote";
-import { personalityList } from "../../../types/trickcalTypes";
-import SEO from "../../../components/SEO";
-import { getDaysSince } from "../../../utils/function";
 import { containerDarkBG, pageRootContainer } from "../../../styles/container";
-import { parseResonanceBaseName } from "../../raid/shared/utils/chartFunction";
-import PersCalendar from "../components/PersCalendar";
-import MostAndLeast from "../components/MostAndLeast";
+import { personalityList } from "../../../types/trickcalTypes";
+import { getDaysSince } from "../../../utils/function";
 import CostumeBoard from "../components/CostumeBoard";
+import MostAndLeast from "../components/MostAndLeast";
+import PersCalendar from "../components/PersCalendar";
 
 const persList = personalityList;
 

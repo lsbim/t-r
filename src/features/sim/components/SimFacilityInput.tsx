@@ -1,11 +1,10 @@
-import { debounce } from "es-toolkit";
-import React, { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
-import FacilityIcon from "./FacilityIcon";
+import React, { Dispatch, SetStateAction, useCallback } from "react";
 import Slide from "../../../commons/rdx/Slide";
-import { facilities } from "../data/facilities";
-import { FacilitySimRequest } from "../types/simTypes";
 import { Facility, FacilityEn } from "../../../types/trickcalTypes";
 import { translateFacility } from "../../../utils/function";
+import { facilities } from "../data/facilities";
+import { FacilitySimRequest } from "../types/simTypes";
+import FacilityIcon from "./FacilityIcon";
 
 const LAB_PLATFORM_LIST = ['lab', 'hall', 'hq', 'adv'] as const;
 

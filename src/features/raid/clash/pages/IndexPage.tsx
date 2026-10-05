@@ -1,11 +1,10 @@
-import Loading from "../../../../commons/component/Loading";
 import SEO from "../../../../components/SEO";
-import IndexComponent from "../components/IndexComponent";
 import { useRaidData } from "../../../../hooks/useRaidData";
 import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
 import { raidRootContainer } from "../../../../styles/container";
 import { ClashSummary } from "../../../../types/clashTypes";
+import IndexComponent from "../components/IndexComponent";
 
 const IndexPage = () => {
 

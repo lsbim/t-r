@@ -1,21 +1,20 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { useMemo, useState } from "react";
-import SlideColorNav from "../../../components/SlideColorNav";
-import HomeRaidCard from "../components/HomeRaidCard";
-import Loading from "../../../commons/component/Loading";
-import SEO from "../../../components/SEO";
 import ToggleSwitch from "../../../commons/component/ToggleSwitch";
-import CharacterSearchList from "../components/CharacterSearchList";
-import NoticeComponent from "../components/NoticeComponent";
-import BirthTimeline from "../components/BirthTimeline";
+import SEO from "../../../components/SEO";
+import SlideColorNav from "../../../components/SlideColorNav";
 import { charInfo } from "../../../data/trickcalChar";
 import { useNonData } from "../../../hooks/useNonData";
 import { useRaidData } from "../../../hooks/useRaidData";
 import Footer from "../../../layouts/Footer";
 import HeaderNav from "../../../layouts/HeaderNav";
+import { containerDarkBG, pageRootContainer } from "../../../styles/container";
 import { LatestData } from "../../../types/latestTypes";
 import { Personality, Race, races } from "../../../types/trickcalTypes";
-import { containerDarkBG, pageRootContainer } from "../../../styles/container";
-import { parseResonanceBaseName } from "../../raid/shared/utils/chartFunction";
+import BirthTimeline from "../components/BirthTimeline";
+import CharacterSearchList from "../components/CharacterSearchList";
+import HomeRaidCard from "../components/HomeRaidCard";
+import NoticeComponent from "../components/NoticeComponent";
 
 const IndexPage = () => {
 

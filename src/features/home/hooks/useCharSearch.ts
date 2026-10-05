@@ -1,6 +1,6 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { useMemo } from "react";
 import { charInfo } from "../../../data/trickcalChar";
-import { parseResonanceBaseName } from "../../raid/shared/utils/chartFunction";
 import { matchesSearchTerm } from "../../../utils/searchFunction";
 
 interface CharSearchProps {

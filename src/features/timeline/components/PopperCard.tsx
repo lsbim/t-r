@@ -1,13 +1,13 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import * as Popper from "@radix-ui/react-popper";
 import { Portal } from "@radix-ui/react-portal";
 import { useMemo } from "react";
 import { Costume, costumes } from "../../../data/costumes";
 import { charInfo } from "../../../data/trickcalChar";
+import { containerDarkBG } from "../../../styles/container";
+import { getCharacterIcons } from "../../../utils/function";
 import { usePopoverActions, usePopoverState } from "../hooks/usePopper";
 import { RaidNode } from "../types/timelineTypes";
-import { getCharacterIcons } from "../../../utils/function";
-import { containerDarkBG } from "../../../styles/container";
-import { parseResonanceBaseName } from "../../raid/shared/utils/chartFunction";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 

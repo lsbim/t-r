@@ -1,7 +1,7 @@
 import { Costume, costumes } from "../data/costumes";
 import { ClashSeasonData } from "../types/clashTypes";
 import { FrontierSeasonData } from "../types/frontierTypes";
-import { parseResonanceBaseName } from "../features/raid/shared/utils/chartFunction";
+import { parseResonanceBaseName } from "./resonanceFunction";
 
 export interface CostumeStat {
     charName: string;

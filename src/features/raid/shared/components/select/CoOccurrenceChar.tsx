@@ -2,7 +2,7 @@ import React from 'react';
 import InfoIcon from '../../../../../components/icons/InfoIcon';
 import { findPersonalityByName } from '../../../../../utils/function';
 import { containerDarkBG } from '../../../../../styles/container';
-import { parseResonanceBaseName } from '../../utils/chartFunction';
+import { parseResonanceBaseName } from '@/utils/resonanceFunction';
 
 const CoOccurrenceChar = ({ statsForSelect }: { statsForSelect: any }) => {
 

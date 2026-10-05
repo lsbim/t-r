@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { CharacterNode, isCharacterNode, isRaidNode, RaidNode } from '../types/timelineTypes';
-import { Image } from 'react-konva';
-import { dateToPx } from '../utils/timelineFunction';
 import Konva from 'konva';
+import React, { useEffect, useRef } from 'react';
+import { Image } from 'react-konva';
+import { CharacterNode, isCharacterNode, isRaidNode, RaidNode } from '../types/timelineTypes';
 import { getCachedImage } from '../utils/imageCache';
 
 interface ImageNodeProps {

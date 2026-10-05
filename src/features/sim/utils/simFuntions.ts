@@ -1,6 +1,6 @@
 
 import { translateFacility } from "@/utils/function";
-import { Adventure, adventure, AdventureDetail, MATERIAL_YIELD_TYPES, MaterialYieldTypesData } from "../data/adventures";
+import { adventure, AdventureDetail, MATERIAL_YIELD_TYPES, MaterialYieldTypesData } from "../data/adventures";
 import { facilities } from "../data/facilities";
 import { materials } from "../data/materials";
 import { dimensionResearch, research } from "../data/research";

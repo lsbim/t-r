@@ -29,8 +29,6 @@ export const generateWeeklySchedule = (year: number, persData: Props[]): MonthSc
         weeks: [],
     }));
 
-    const today = new Date();
-
     if (year < 2024) {
         return [];
     }

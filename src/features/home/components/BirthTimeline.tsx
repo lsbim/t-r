@@ -1,11 +1,11 @@
 import React from "react";
 import CharacterIcon from "../../../components/icons/CharacterIcon";
 import PersonalityIcon from "../../../components/icons/PersonalityIcon";
-import RaceIcon from "./RaceIcon";
 import { charInfo } from "../../../data/trickcalChar";
-import { Personality, personalityList, Race, races } from "../../../types/trickcalTypes";
-import { getDaysSince, translateRaces } from "../../../utils/function";
 import { containerDarkBG } from "../../../styles/container";
+import { Personality, personalityList, Race, races } from "../../../types/trickcalTypes";
+import { getDaysSince } from "../../../utils/function";
+import RaceIcon from "./RaceIcon";
 
 const BirthTimeline = ({ charaMap }: { charaMap: Map<Race | Personality, string[]> }) => {
 

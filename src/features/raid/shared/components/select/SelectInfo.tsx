@@ -1,9 +1,9 @@
-import React from 'react';
-import { parseResonanceBaseName } from '../../utils/chartFunction';
-import { Link } from 'react-router-dom';
-import { findPersonalityByName } from '@/utils/function';
-import { containerDarkBG } from '@/styles/container';
 import { charInfo } from '@/data/trickcalChar';
+import { containerDarkBG } from '@/styles/container';
+import { findPersonalityByName } from '@/utils/function';
+import { parseResonanceBaseName } from '@/utils/resonanceFunction';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 interface SelectInfoProps {

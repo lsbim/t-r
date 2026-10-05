@@ -1,11 +1,10 @@
-import Loading from "../../../../commons/component/Loading";
 import SEO from "../../../../components/SEO";
-import ClashV2Index from "../components/ClashV2Index";
 import { useRaidData } from "../../../../hooks/useRaidData";
 import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
 import { raidRootContainer } from "../../../../styles/container";
 import { ClashV2Summary } from "../../../../types/clashV2Types";
+import ClashV2Index from "../components/ClashV2Index";
 
 const IndexPage = () => {
 

@@ -1,4 +1,4 @@
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { ClashBase } from "../types/clashTypes";
 import { FrontierBase } from "../types/frontierTypes";
 

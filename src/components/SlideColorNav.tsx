@@ -1,6 +1,5 @@
-import { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useLayoutEffect, useRef, useState } from "react";
 
 interface SlideColorNavProps {
     tabs: readonly PropsTab[];

@@ -1,8 +1,8 @@
 import PersonalityIcon from "../../../components/icons/PersonalityIcon";
 import MyAccordion from "../../../components/MyAccordion";
 import { containerDarkBG } from "../../../styles/container";
-import { ClashBase, ClashSummary } from "../../../types/clashTypes";
-import { FrontierBase, FrontierSummary } from "../../../types/frontierTypes";
+import { ClashBase } from "../../../types/clashTypes";
+import { FrontierBase } from "../../../types/frontierTypes";
 
 const NoticeComponent = ({ nonData }: { nonData: ClashBase | FrontierBase }) => {
 

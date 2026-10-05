@@ -1,10 +1,8 @@
-import React from 'react'
-import { ContentTopSeasons, TopSeasonStat } from '../../../types/character/characterStatsTypes';
-import { keyBy } from 'es-toolkit';
-import { translateRaid } from '../../../utils/function';
-import { useTheme } from '../../../hooks/useTheme';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../../hooks/useTheme';
 import { containerDarkBG } from '../../../styles/container';
+import { ContentTopSeasons, TopSeasonStat } from '../../../types/character/characterStatsTypes';
+import { translateRaid } from '../../../utils/function';
 
 const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons }) => {
 
