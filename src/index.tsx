@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@/hooks/useTheme';
-import router from '@/routers/root';
+import router from '@/app/root';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';

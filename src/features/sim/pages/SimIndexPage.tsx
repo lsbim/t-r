@@ -1,0 +1,464 @@
+import { debounce } from "es-toolkit";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Loading from "../../../commons/component/Loading";
+import SEO from "../../../components/SEO";
+import InfoIcon from "../../../components/icons/InfoIcon";
+import MyAccordion from "../../../components/MyAccordion";
+import MaterialBag from "../components/MaterialBag";
+import SimDimensionInput from "../components/SimDimensionInput";
+import SimFacilityInput from "../components/SimFacilityInput";
+import SimResearchInput from "../components/SimResearchInput";
+import SimResult from "../components/SimResult";
+import Footer from "../../../layouts/Footer";
+import HeaderNav from "../../../layouts/HeaderNav";
+import TopRemote from "../../../components/TopRemote";
+import { containerDarkBG } from "../../../styles/container";
+import { FacilitySimRequest, MaterialAcquisitionPlan, ResearchSimRequest, SimResponse } from "../types/simTypes";
+import { simFacility, simResearch } from "../utils/simFuntions";
+
+const simInputArr = ['교단 시설', '연구실', '차원연구실']
+
+const initSimFacilityInput: FacilitySimRequest = {
+    type: 'facility',
+    currentLab: 1,
+    currentHall: 1,
+    currentHq: 1,
+    currentAdv: 1,
+    target: {
+        lab: 1,
+        hall: 1,
+        hq: 1,
+        adv: 1,
+    }
+}
+const initResearch: ResearchSimRequest = {
+    type: 'research',
+    currentTier: 1,
+    currentStep: 1,
+    target: {
+        tier: 1,
+        step: 1,
+    }
+}
+
+const initDimension: ResearchSimRequest = {
+    type: 'research',
+    currentTier: 1,
+    currentStep: 1,
+    target: {
+        tier: 1,
+        step: 1,
+    }
+}
+
+const getInitialFacilityInput = (): FacilitySimRequest => {
+    const stored = localStorage.getItem('advLvl');
+    if (!stored) return initSimFacilityInput;
+
+    const current = Number.isFinite(Number(stored)) ? Math.max(1, Number(stored)) : 0;
+
+    if (!current) return initSimFacilityInput;
+
+    return {
+        ...initSimFacilityInput,
+        currentAdv: current,
+        target: { ...initSimFacilityInput.target, adv: current },
+    };
+};
+
+const SimIndexPage = () => {
+    // simInput으로 input을 통합할 시 모든 자식이 새로 마운트 되면서 슬라이더에 버벅임이 발생함
+    const [facilityInput, setFacilityInput] = useState<FacilitySimRequest>(getInitialFacilityInput);
+    const [researchInput, setResearchInput] = useState<ResearchSimRequest>(initResearch)
+    const [dimensionInput, setDimensionInput] = useState<ResearchSimRequest>(initDimension)
+    const [facilitySimResult, setFacilitySimResult] = useState<SimResponse[]>([]);
+    const [researchSimResult, setResearchSimResult] = useState<SimResponse[]>([]);
+    const [dimensionSimResult, setDimensionSimResult] = useState<SimResponse[]>([]);
+    const [selectInput, setSelectInput] = useState(0)
+    const [inventory, setInventory] = useState<Map<string, number>>(new Map());
+    const [bagOpen, setBagOpen] = useState(false);
+
+    // console.log(facilityInput)
+
+    // 통합 sim 함수
+    const debouncedAllSims = useMemo(() => {
+        return debounce((
+            facilityReq: FacilitySimRequest,
+            researchReq: ResearchSimRequest,
+            dimensionReq: ResearchSimRequest,
+            initialInventory: Map<string, number>
+        ) => {
+
+            let currentInventory = new Map(initialInventory || []);
+            let facilityResult: SimResponse[] = [];
+
+            const facilitySimOutput = simFacility(facilityReq, currentInventory);
+            if (facilitySimOutput) {
+                facilityResult = facilitySimOutput.result;
+                currentInventory = facilitySimOutput.remainingInventory || new Map();
+            }
+
+            const finalAdvLvl = Math.max(facilityReq.currentAdv, facilityReq.target.adv);
+
+            const researchResult: SimResponse[] = simResearch(
+                { ...researchReq, currentAdv: finalAdvLvl },
+                'research',
+                currentInventory,
+            );
+
+            const dimensionResult = simResearch(
+                { ...dimensionReq, currentAdv: finalAdvLvl },
+                'dimension',
+                currentInventory,
+            );
+
+            setFacilitySimResult(facilityResult);
+            setResearchSimResult(researchResult);
+            setDimensionSimResult(dimensionResult);
+
+            // console.log(dimensionResult)
+        }, 300);
+    }, []);
+
+    // input과 인벤토리가 바뀌면 sim 함수 동작
+    useEffect(() => {
+        if (facilityInput !== initSimFacilityInput
+            || researchInput !== initResearch
+            || dimensionInput !== initDimension
+            || inventory.size > 0) {
+
+            debouncedAllSims(facilityInput, researchInput, dimensionInput, inventory);
+        }
+    }, [facilityInput, researchInput, dimensionInput, inventory]);
+
+    // 언마운트 시 디바운스 취소
+    useEffect(() => {
+        return () => {
+            if (typeof (debouncedAllSims as any).cancel === 'function') {
+                (debouncedAllSims as any).cancel();
+            }
+        };
+    }, [debouncedAllSims]);
+
+    // 시설 결과 + 연구 결과 통합
+    const allResult: SimResponse | null = useMemo(() => {
+        if (!facilitySimResult?.length && !researchSimResult?.length && !dimensionSimResult?.length) return null;
+
+        let totalGold = 0;
+        let totalSunnyrain = 0;
+
+        // 건물 업그레이드 및 연구 결과의 모험(알바) + 재료 합산
+        const mergedAcquisitionPlansMap = new Map<string, MaterialAcquisitionPlan>();
+        const mergedAdventureRuns = new Map<string, { min: number, max: number }>();
+
+        const mergeProcess = (sim: SimResponse) => {
+            if (sim.gold) {
+                totalGold += sim.gold;
+            }
+            if (sim.sunnyrain) {
+                totalSunnyrain += sim.sunnyrain
+            }
+
+            // 모험(알바) 합산, Map은 forEach
+            if (sim.result?.finalAdventureRuns) {
+                sim.result.finalAdventureRuns.forEach((runs, advName) => {
+                    const existing = mergedAdventureRuns.get(advName) || { min: 0, max: 0 };
+                    mergedAdventureRuns.set(advName, {
+                        min: existing.min + runs.min,
+                        max: existing.max + runs.max
+                    });
+                });
+            }
+
+            // 재료 합산, 중복 재료 수량만
+            if (sim.result?.acquisitionPlans) {
+                sim.result.acquisitionPlans.forEach(plan => {
+                    if (!plan) return;
+
+                    if (mergedAcquisitionPlansMap.has(plan.material)) {
+                        const existing = mergedAcquisitionPlansMap.get(plan.material)!;
+                        mergedAcquisitionPlansMap.set(plan.material, mergeAcquisitionPlans(existing, plan));
+                    } else {
+                        mergedAcquisitionPlansMap.set(plan.material, { ...plan });
+                    }
+                });
+            }
+        };
+
+        facilitySimResult?.forEach(mergeProcess);
+        researchSimResult?.forEach(mergeProcess);
+        dimensionSimResult?.forEach(mergeProcess);
+
+        // console.log(mergedAcquisitionPlansMap)
+
+        // Map => Array
+        const finalAcquisitionPlans = Array.from(mergedAcquisitionPlansMap.values());
+
+        // SimResponse 타입 형태로 반환
+        return {
+            gold: totalGold,
+            sunnyrain: totalSunnyrain,
+            name: '종합',
+            result: {
+                acquisitionPlans: finalAcquisitionPlans,
+                finalAdventureRuns: mergedAdventureRuns
+            }
+        };
+    }, [facilitySimResult, researchSimResult, dimensionSimResult]);
+
+    const items = useMemo(() => {
+        return [
+            {
+                id: 'sim_result_3',
+                header: (
+                    <div className="font-bold">
+                        시설 레벨별
+                    </div>
+                ),
+                content: facilitySimResult && facilitySimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200 dark:bg-zinc-800">
+                        {facilitySimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={sim.name}
+                            />
+                        ))}
+                    </div>
+                ) : null // jsx 반환 시 &&로 false 반환 보단 null이 더 낫다고 함
+            }, {
+                id: 'sim_result_2',
+                header: (
+                    <div className="font-bold">
+                        연구 단계별
+                    </div>
+                ),
+                content: researchSimResult && researchSimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                        {researchSimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={sim.name}
+                            />
+                        ))}
+                    </div>
+                ) : null
+            }, {
+                id: 'sim_result_1',
+                header: (
+                    <div className="font-bold">
+                        차원연구 단계별
+                    </div>
+                ),
+                content: dimensionSimResult && dimensionSimResult.length > 0 ? (
+                    <div className="lg:w-[992px] w-full mx-auto flex flex-wrap gap-y-4 justify-between overflow-x-auto bg-gray-200">
+                        {dimensionSimResult.map((sim) => (
+                            <SimResult
+                                key={`${sim.krName}-${sim.numlvl}`}
+                                simResult={sim}
+                                type={'dimension'}
+                            />
+                        ))}
+                    </div>
+                ) : null
+            }
+        ];
+    }, [facilitySimResult, researchSimResult, dimensionSimResult])
+
+    if (!debouncedAllSims) return (<Loading />)
+
+    const handleBagOpen = useCallback(() => {
+        setBagOpen((prev) => (!prev));
+    }, [])
+
+    const handleInventory = useCallback((name: string, value?: number) => {
+        setInventory((prev) => {
+
+            if (name === 'clear') {
+                return new Map();
+            }
+
+            const next = new Map(prev);
+            const newQty = value ?? 1;
+
+
+            if (newQty <= 0) {
+                next.delete(name)
+            }
+            else {
+                next.set(name, newQty)
+            }
+
+            return next;
+        })
+    }, []);
+
+    return (
+        // 하위 요소가 너비를 뚫어 빈 공간이 생기므로 overflow-hidden 적용
+        <div className="flex flex-col justify-center gap-y-4 min-h-[100.5vh] w-full overflow-hidden">
+            <SEO
+                title="교단 시설 및 연구 재화 계산"
+                description="트릭컬 리바이브의 교단 시설 레벨업 및 연구 목표에 도달하기 위한 재화와 아르바이트 요구량을 계산합니다."
+            />
+            <TopRemote />
+            <HeaderNav />
+            {/* 소개 */}
+            <div className="lg:w-[992px] w-full mx-auto flex flex-col p-2 mt-4">
+                <div className="flex flex-col dark:text-zinc-200">
+                    <div className="flex justify-start items-center">
+                        <h1 className="text-[20px] font-bold mr-2">교단 재화 계산</h1>
+                        <InfoIcon
+                            text="아르바이트는 2, 3, 4레벨 획득량을 기준
+                                부수재료는 최소 획득량 이월
+                                모험회 현재 레벨에 수행이 가능한 모험만 소개
+                                종합과 단계별 아르바이트 횟수가 다를 수 있습니다."
+                        />
+                    </div>
+                </div>
+                <div className="flex mt-2 relative">
+                    {/* wrapper 한 층 있어야 가방 텍스트와 SVG 정렬 가능 */}
+                    <div className="flex flex-col items-center justify-start">
+                        <div className="text-[12px] text-orange-500 font-bold mb-1">
+                            가방
+                        </div>
+                        <button
+                            className="cursor-pointer dark:text-zinc-200"
+                            onClick={handleBagOpen}>
+                            {bagOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 3.75H6.912a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859M12 3v8.25m0 0-3-3m3 3 3-3" />
+                                </svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+                                </svg>
+                            )}
+                        </button>
+                        {bagOpen && (
+                            <MaterialBag
+                                inventory={inventory}
+                                handleInventory={handleInventory}
+                                handleBagOpen={handleBagOpen}
+                            />
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            {/* 시설 및 연구단계 입력 */}
+            <div className={`lg:w-[992px] w-full mx-auto h-[490px] flex flex-col items-center ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
+                <div className="flex items-center justify-between w-full mb-8 divide-x-2 divide-gray-400">
+                    {simInputArr.map((sel, idx) => (
+                        <button
+                            style={{ width: `${100 / simInputArr.length}%` }}
+                            className={`mx-auto flex justify-center font-bold cursor-pointer ${selectInput === idx ? 'text-orange-500 dark:text-orange-500' : 'dark:text-zinc-200'}`}
+                            onClick={() => {
+                                if (selectInput === idx) return null;
+                                setSelectInput(idx)
+                            }}
+                            key={`sim_select_${sel}`}>
+                            {sel}
+                        </button>
+                    ))}
+                </div>
+                {selectInput === 0 && (
+                    <SimFacilityInput
+                        setFacilityInput={setFacilityInput}
+                        facilityInput={facilityInput}
+                    />
+                )}
+                {selectInput === 1 && (
+                    <SimResearchInput
+                        setResearchInput={setResearchInput}
+                        researchInput={researchInput}
+                    />
+                )}
+                {selectInput === 2 && (
+                    <SimDimensionInput
+                        setDimensionInput={setDimensionInput}
+                        dimensionInput={dimensionInput}
+                    />
+                )}
+            </div>
+            <div className={`lg:w-[992px] mx-auto flex text-[13px] ${containerDarkBG} dark:border-zinc-700 text-gray-800 dark:text-zinc-200 w-full min-h-[569px] rounded-xl border border-zinc-300 overflow-hidden`}>
+                {allResult ? (
+                    <SimResult
+                        simResult={allResult}
+                        type={'all'}
+                    />
+                ) : (
+                    <div className="w-full gap-x-3 dark:text-zinc-200 flex items-center justify-center text-[17px] xs:text-[18px] font-bold">
+                        <img src={`images/item/gold.webp`} className="aspect-square object-center w-[60px] grayscale select-none" />
+                        <span>
+                            선택된 시설 또는 연구 정보가 없습니다.
+                        </span>
+                    </div>
+                )}
+            </div>
+            <div className="lg:w-[992px] mx-auto flex text-[13px] text-gray-800 dark:text-zinc-200 w-full mb-8 overflow-hidden rounded-xl border border-zinc-300 dark:border-zinc-700">
+                <MyAccordion
+                    items={items}
+                />
+            </div>
+            <Footer />
+        </div>
+    );
+}
+
+function mergeAcquisitionPlans(
+    planA: MaterialAcquisitionPlan,
+    planB: MaterialAcquisitionPlan
+): MaterialAcquisitionPlan {
+
+    const mergedPlan: MaterialAcquisitionPlan = {
+        ...planA,
+        quantity: planA.quantity + planB.quantity,
+        inventoryQty: (planA.inventoryQty || 0) + (planB.inventoryQty || 0),
+    };
+
+    if (planA.craftingMaterials || planB.craftingMaterials) {
+        const subMap = new Map<string, MaterialAcquisitionPlan>();
+
+        const addSubPlan = (subPlans?: MaterialAcquisitionPlan[]) => {
+            subPlans?.forEach(sub => {
+                if (subMap.has(sub.material)) {
+                    subMap.set(sub.material, mergeAcquisitionPlans(subMap.get(sub.material)!, sub));
+                } else {
+                    subMap.set(sub.material, { ...sub });
+                }
+            });
+        };
+
+        addSubPlan(planA.craftingMaterials);
+        addSubPlan(planB.craftingMaterials);
+        mergedPlan.craftingMaterials = Array.from(subMap.values());
+    }
+
+    if (planA.adventures || planB.adventures) {
+        const advMap = new Map<string, any>();
+        const addAdv = (advs?: any[]) => {
+            advs?.forEach(adv => {
+                if (advMap.has(adv.adventureName)) {
+                    const ex = advMap.get(adv.adventureName);
+                    advMap.set(adv.adventureName, {
+                        ...ex,
+                        estimatedRuns: {
+                            min: ex.estimatedRuns.min + adv.estimatedRuns.min,
+                            max: ex.estimatedRuns.max + adv.estimatedRuns.max,
+                        }
+                    });
+                } else {
+                    advMap.set(adv.adventureName, { ...adv });
+                }
+            });
+        };
+        addAdv(planA.adventures);
+        addAdv(planB.adventures);
+        mergedPlan.adventures = Array.from(advMap.values());
+    }
+
+    return mergedPlan;
+};
+
+export default SimIndexPage;

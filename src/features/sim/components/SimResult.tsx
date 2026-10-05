@@ -1,0 +1,109 @@
+import React from "react";
+
+import SimMaterialPlan from "./SimMaterialPlan";
+import { SimResponse } from "@/features/sim/types/simTypes";
+import { containerDarkBG } from "@/styles/container";
+import FacilityIcon from "./FacilityIcon";
+import ItemIcon from "./ItemIcon";
+import { calculateMaxDepth } from "../utils/simFuntions";
+
+
+const SimResult = ({ simResult, type }: { simResult: SimResponse, type: string }) => {
+
+    // console.log(simResult)
+
+    return (
+        <div className={`w-full flex flex-col ${containerDarkBG} pt-3 px-3 shadow-md overflow-x-hidden`}>
+            <div className="flex mx-auto gap-x-5 pb-4">
+                {/* 시설, 종합 */}
+                {(type !== 'research' && type !== 'dimension') ? (
+                    <>
+                        <div className="flex items-center">
+                            <FacilityIcon name={simResult.name} value={simResult.numlvl} />
+                        </div>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <span className="font-bold text-[16px]">필요 재료</span>
+                            <div className="grid grid-flow-row sm:grid-cols-[repeat(8,minmax(0,auto))] grid-cols-[repeat(4,minmax(0,auto))] gap-1">
+                                {(simResult.gold || 0) > 0 && (
+                                    <ItemIcon name="gold" value={simResult.gold} />
+                                )}
+                                {(simResult.sunnyrain || 0) > 0 && (
+                                    <ItemIcon name="sunnyrain" value={simResult.sunnyrain} />
+                                )}
+                                {simResult.result.acquisitionPlans.map((matObj, idx) => (
+                                    <ItemIcon
+                                        key={`${simResult.krName}_${simResult.numlvl}_mainMaterial_${idx}`}
+                                        name={matObj?.material!}
+                                        value={matObj?.quantity}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    // 연구실, 차원연구실
+                    <>
+                        <div className="w-[80px] flex justify-center items-center">
+                            <div className={`${type === 'research' ? 'bg-[rgb(150,182,97)]' : type === 'dimension' && 'bg-[rgb(202,111,199)]'} rounded-full p-2 w-[60px] min-h-[49.86px] relative flex justify-center items-center`}>
+                                <img src={`/images/lab/lab.png`} />
+                                <div
+                                    style={{
+                                        textShadow: '0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255), 0px 0px 1.2px rgb(255, 255, 255)'
+                                    }}
+                                    className="absolute font-bold bottom-[-7px] select-none text-[15px] left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+                                    {simResult?.krName}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-y-2">
+                            <span className="font-bold text-[16px]">필요 재료</span>
+                            <div className="grid grid-flow-row grid-cols-[repeat(4,minmax(0,auto))] gap-1">
+                                {(simResult.gold || 0) > 0 && (
+                                    <ItemIcon name="gold" value={simResult.gold} />
+                                )}
+                                {(simResult.sunnyrain || 0) > 0 && (
+                                    <ItemIcon name="sunnyrain" value={simResult.sunnyrain} />
+                                )}
+                                {simResult.result.acquisitionPlans.map((matObj, idx) => (
+                                    <ItemIcon
+                                        key={`${simResult.krName}_${simResult.numlvl}_mainMaterial_${idx}`}
+                                        name={matObj?.material!}
+                                        value={matObj?.quantity} />
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
+            {/* 요구 재료 & 계획 */}
+            <div className="flex w-full overflow-x-auto border-t-2 dark:border-zinc-700">
+                <div className="flex mx-auto">
+                    {(() => {
+
+                        // 최대 깊이 선 계산
+                        const allPlanDepths = simResult.result.acquisitionPlans.map(plan =>
+                            calculateMaxDepth(plan)
+                        );
+
+                        const globalMaxDepth = Math.max(...allPlanDepths);
+
+                        return simResult.result.acquisitionPlans.map((plan, idx) => (
+                            <div
+                                key={`simresult_main_plan_wrapper_${idx}`}
+                                className={`pt-3 pb-4 px-3 ${idx % 2 === 0 ? '' : 'bg-gray-100 dark:bg-zinc-950'}`}
+                            >
+                                <SimMaterialPlan
+                                    plan={plan}
+                                    idx={idx}
+                                    maxDepth={globalMaxDepth}
+                                />
+                            </div>
+                        ));
+                    })()}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default React.memo(SimResult);

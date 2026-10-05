@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import PersonalityIcon from "../../commons/icon/PersonalityIcon";
+import PersonalityIcon from "../icons/PersonalityIcon";
 import { charInfo } from "../../data/trickcalChar";
 import { CharacterSeasonData } from "../../types/commonTypes";
 import { translateRaid } from "../../utils/function";

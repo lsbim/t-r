@@ -7,15 +7,15 @@ import { containerDarkBG } from "../styles/container";
 
 const PRELOAD_MAP = {
     'clash': {
-        chunk: () => import('../pages/clash/IndexPage'),
+        chunk: () => import('../features/raid/clash/pages/IndexPage'),
         url: '/data/clash/summaries.json',
     },
     'clashV2': {
-        chunk: () => import('../pages/clashV2/ClashV2IndexPage'),
+        chunk: () => import('../features/raid/clashV2/pages/ClashV2IndexPage'),
         url: '/data/clash_v2/summaries.json',
     },
     'frontier': {
-        chunk: () => import('../pages/frontier/IndexPage'),
+        chunk: () => import('../features/raid/frontier/pages/IndexPage'),
         url: '/data/frontier/summaries.json',
     },
 }
