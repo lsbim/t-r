@@ -1,6 +1,6 @@
 import { debounce } from "es-toolkit";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Loading from "../../../commons/component/Loading";
+import Loading from "../../../layouts/Loading";
 import SEO from "../../../components/SEO";
 import InfoIcon from "../../../components/icons/InfoIcon";
 import MyAccordion from "../../../components/MyAccordion";

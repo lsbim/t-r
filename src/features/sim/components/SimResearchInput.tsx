@@ -2,7 +2,7 @@ import { research } from "@/features/sim/data/research";
 import { ResearchSimRequest } from "@/features/sim/types/simTypes";
 import React, { Dispatch, SetStateAction, useCallback } from "react";
 import BlockSlide from "./BlockSlide";
-import Slide from "@/commons/rdx/Slide";
+import Slide from "@/features/sim/components/Slide";
 
 
 const SimResearchInput = ({ researchInput, setResearchInput }: {

@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useCallback } from "react";
 import BlockSlide from "./BlockSlide";
-import Slide from "../../../commons/rdx/Slide";
+import Slide from "./Slide";
 import { dimensionResearch } from "../data/research";
 import { ResearchSimRequest } from "../types/simTypes";
 

@@ -1,5 +1,5 @@
-import Footer from "../../layouts/Footer";
-import HeaderNav from "../../layouts/HeaderNav";
+import Footer from "./Footer";
+import HeaderNav from "./HeaderNav";
 
 const LOADING_ICONS = [
     "/images/loading/hate.png",

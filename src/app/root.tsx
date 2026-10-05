@@ -1,8 +1,8 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect, ScrollRestoration } from "react-router-dom";
-import Loading from "../commons/component/Loading";
 import { charInfo } from "../data/trickcalChar";
-import { parseResonanceBaseName } from "../features/raid/shared/utils/chartFunction";
+import Loading from "../layouts/Loading";
 
 const HomePage = lazy(() => import("../features/home/pages/IndexPage"));
 

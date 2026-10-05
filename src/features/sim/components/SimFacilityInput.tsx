@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useCallback } from "react";
-import Slide from "../../../commons/rdx/Slide";
+import Slide from "./Slide";
 import { Facility, FacilityEn } from "../../../types/trickcalTypes";
 import { translateFacility } from "../../../utils/function";
 import { facilities } from "../data/facilities";

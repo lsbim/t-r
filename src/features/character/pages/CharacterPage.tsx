@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Loading from "../../../commons/component/Loading";
+import Loading from "../../../layouts/Loading";
 import SEO from "../../../components/SEO";
 import CharacterAchievement from "../components/CharacterAchievement";
 import CharacterProfile from "../components/CharacterProfile";

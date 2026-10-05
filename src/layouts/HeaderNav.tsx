@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { Link, useLocation } from "react-router-dom";
-import ThemeToggle from "../commons/component/ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 import { fetchSummaryData } from "../hooks/useRaidData";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
 import { containerDarkBG } from "../styles/container";

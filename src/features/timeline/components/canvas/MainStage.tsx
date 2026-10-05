@@ -11,7 +11,7 @@ import { races } from "@/types/trickcalTypes";
 import { preloadImages } from "../../utils/imageCache";
 import { containerDarkBG } from "@/styles/container";
 import { timelineEvents, timelineLayers, timelineStage } from "../../utils/timelineFunction";
-import { MiniLoading } from "@/commons/component/Loading";
+import { MiniLoading } from "@/layouts/Loading";
 
 interface MainStageProps {
   layerRef: React.RefObject<Konva.Layer | null>;

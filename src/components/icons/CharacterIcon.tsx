@@ -1,5 +1,5 @@
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { charInfo } from "../../data/trickcalChar";
-import { parseResonanceBaseName } from "../../features/raid/shared/utils/chartFunction";
 
 const CharacterIcon = ({
     name,

@@ -1,6 +1,6 @@
 import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { useMemo, useState } from "react";
-import ToggleSwitch from "../../../commons/component/ToggleSwitch";
+import ToggleSwitch from "../../../components/ToggleSwitch";
 import SEO from "../../../components/SEO";
 import SlideColorNav from "../../../components/SlideColorNav";
 import { charInfo } from "../../../data/trickcalChar";
