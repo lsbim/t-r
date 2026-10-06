@@ -118,7 +118,9 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                     // console.log("bucket", bucket)
 
                     // 해당 열에 출전한 사도의 합
-                    const charSum = bucket.reduce((sum, b) => sum + b.count, 0);
+                    const charSum = bucket
+                        .filter(b => b?.personality !== '공명') // 공명은 성격 통합 데이터라 제외
+                        .reduce((sum, b) => sum + b?.count, 0);
                     const maxLineCount = Math.max(...bucket.map(({ count }) => count));
 
                     // console.log("charSum: ", charSum)
