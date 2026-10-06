@@ -184,7 +184,7 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
                                     }
 
                                     const resonanceTextColor = RESONANCE_BASE_NAMES.includes(item.name)
-                                        ? 'text-gray-500'
+                                        ? 'text-gray-500 dark:text-zinc-400'
                                         : '';
 
                                     return (
