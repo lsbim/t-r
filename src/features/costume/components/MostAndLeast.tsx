@@ -61,7 +61,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                 .slice(5)
                                 .map(m => m.charName)
                                 .join(', ')}
-                            className="text-[14px] text-orange-500 w-[80px] cursor-pointer font-bold dark:text-zinc-400 my-2">
+                            className="text-[14px] text-orange-500 w-[90px] cursor-pointer font-bold dark:text-zinc-400 my-2">
                             외 {most.length - 5}명의 사도
                         </div>
                     )}
@@ -116,7 +116,7 @@ const MostAndLeast = ({ most, least }: { most: CostumeMapItem[], least: CostumeM
                                 .slice(5)
                                 .map(m => m.charName)
                                 .join(', ')}
-                            className="text-[14px] text-gray-500 dark:text-zinc-400 my-2 w-[80px] cursor-pointer font-bold">
+                            className="text-[14px] text-gray-500 dark:text-zinc-400 my-2 w-[90px] cursor-pointer font-bold">
                             외 {least.length - 5}명의 사도
                         </div>
                     )}
