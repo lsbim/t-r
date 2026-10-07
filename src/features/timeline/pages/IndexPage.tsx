@@ -1,21 +1,20 @@
+import MainStage from "@/features/timeline/components/canvas/MainStage";
 import { useMemo } from "react";
-import SEO from "../../../components/SEO";
-import PopoverCard from "../components/PopperCard";
-import MinimapHandle from "../components/minimap/MinimapHandle";
+import TopRemote from "../../../components/TopRemote";
 import { charInfo } from "../../../data/trickcalChar";
 import { useNonData } from "../../../hooks/useNonData";
-import { PopoverProvider } from "../hooks/usePopper";
 import { useRaidData } from "../../../hooks/useRaidData";
-import useTimelineDrag from "../hooks/useTimelineDrag";
 import Footer from "../../../layouts/Footer";
 import HeaderNav from "../../../layouts/HeaderNav";
-import TopRemote from "../../../components/TopRemote";
 import { ClashBase, ClashSummary } from "../../../types/clashTypes";
 import { ClashV2Summary } from "../../../types/clashV2Types";
 import { FrontierBase, FrontierSummary } from "../../../types/frontierTypes";
+import PopoverCard from "../components/PopperCard";
+import MinimapHandle from "../components/minimap/MinimapHandle";
+import { PopoverProvider } from "../hooks/usePopper";
+import useTimelineDrag from "../hooks/useTimelineDrag";
 import { CharacterNode, RaidNode, TimelineMap } from "../types/timelineTypes";
 import { DAY_PX, START_DATE } from "../utils/timelineFunction";
-import MainStage from "@/features/timeline/components/canvas/MainStage";
 
 const EMPTY_TIMELINE_MAP: TimelineMap = {};
 
@@ -153,10 +152,6 @@ const IndexPage = () => {
     return (
         <PopoverProvider>
             <div className="flex flex-col justify-center gap-y-2 min-h-screen">
-                <SEO
-                    title="콘텐츠 출시 타임라인"
-                    description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
-                />
                 <TopRemote />
                 <HeaderNav />
                 {/* 소개 */}

@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect, ScrollRestoration } from "react-router-dom";
 import { charInfo } from "../data/trickcalChar";
 import Loading from "../layouts/Loading";
+import SEO, { CharacterSEO, RaidIndexSEO, RaidSeasonSEO } from "@/components/SEO";
 
 const HomePage = lazy(() => import("../features/home/pages/IndexPage"));
 
@@ -44,7 +45,12 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Suspense fallback={<Loading />}><HomePage /></Suspense>,
+                element: <>
+                    <SEO />
+                    <Suspense fallback={<Loading />}>
+                        <HomePage />
+                    </Suspense>
+                </>,
             },
             {
                 path: "clash",
@@ -66,24 +72,48 @@ const router = createBrowserRouter([
                         },
                         element: <ErrorPage />
                     },
+                    /* 
+                        useSuspenseQuery는 데이터 로딩 전까지 렌더링 되지 않으므로
+                        SEO를 Suspense 바깥으로 배치
+                    */
                     {
                         path: "v1",
-                        element: <Suspense fallback={<Loading />}><ClashIndex /></Suspense>,
+                        element: <>
+                            <RaidIndexSEO raidType="clash" />
+                            <Suspense fallback={<Loading />}>
+                                <ClashIndex />
+                            </Suspense>
+                        </>,
                         errorElement: <ErrorPage />
                     },
                     {
                         path: "v1/:season",
-                        element: <Suspense fallback={<Loading />}><ClashSeason /></Suspense>,
+                        element: <>
+                            <RaidSeasonSEO raidType="clash" />
+                            <Suspense fallback={<Loading />}>
+                                <ClashSeason />
+                            </Suspense>
+                        </>,
                         errorElement: <ErrorPage />
                     },
                     {
                         path: "v2",
-                        element: <Suspense fallback={<Loading />}><ClashV2Index /></Suspense>,
+                        element: <>
+                            <RaidIndexSEO raidType="clashV2" />
+                            <Suspense fallback={<Loading />}>
+                                <ClashV2Index />
+                            </Suspense>
+                        </>,
                         errorElement: <ErrorPage />
                     },
                     {
                         path: "v2/:season",
-                        element: <Suspense fallback={<Loading />}><ClashV2Season /></Suspense>,
+                        element: <>
+                            <RaidSeasonSEO raidType="clashV2" />
+                            <Suspense fallback={<Loading />}>
+                                <ClashV2Season />
+                            </Suspense>
+                        </>,
                         errorElement: <ErrorPage />
                     },
                 ],
@@ -91,28 +121,39 @@ const router = createBrowserRouter([
             },
             {
                 path: "frontier",
-                element: <Suspense fallback={<Loading />}><FrontierIndex /></Suspense>,
+                element: <>
+                    <RaidIndexSEO raidType="frontier" />
+                    <Suspense fallback={<Loading />}>
+                        <FrontierIndex />
+                    </Suspense></>,
                 errorElement: <ErrorPage />
             },
             {
                 path: "frontier/:season",
-                element: <Suspense fallback={<Loading />}><FrontierSeason /></Suspense>,
+                element: <>
+                    <RaidSeasonSEO raidType="frontier" />
+                    <Suspense fallback={<Loading />}>
+                        <FrontierSeason />
+                    </Suspense>
+                </>,
                 errorElement: <ErrorPage />
             },
             {
                 path: "timeline",
-                element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
-                children: [
-                    {
-                        index: true,
-                        element: <Navigate to="raid" replace />
-                    },
-                    {
-                        path: "raid",
-                        element: <RaidTimelineIndex />
-                    },
-                ],
+                element: <>
+                    <SEO
+                        title="콘텐츠 출시 타임라인"
+                        description="트릭컬 리바이브의 차원 대충돌, 엘리아스 프론티어, 사도 출시일 타임라인을 제공합니다."
+                    />
+                    <Suspense fallback={<Loading />}>
+                        <RaidTimelineIndex />
+                    </Suspense>
+                </>,
                 errorElement: <ErrorPage />
+            },
+            {
+                path: "timeline/raid",
+                element: <Navigate to="/timeline" replace />
             },
             {
                 path: "costume",
@@ -141,7 +182,12 @@ const router = createBrowserRouter([
                             }
                             return null;
                         },
-                        element: <Suspense fallback={<Loading />}><CharacterIndex /></Suspense>,
+                        element: <>
+                            <CharacterSEO />
+                            <Suspense fallback={<Loading />}>
+                                <CharacterIndex />
+                            </Suspense>
+                        </>,
                         errorElement: <ErrorPage />
                     },
                 ]

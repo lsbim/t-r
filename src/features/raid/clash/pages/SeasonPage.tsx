@@ -1,26 +1,25 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import SEO from "../../../../components/SEO";
-import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
-import CleartimeChart from "../components/CleartimeChart";
-import ExternalPickRateChart from "../../shared/components/charts/ExternalPickRateChart";
-import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
-import PickRateChart from "../../shared/components/charts/PickRateChart";
-import BestComp from "../../shared/components/BestComp";
-import CompListComponent from "../../shared/components/CompListComponent";
 import CostumeRank from "../../../../components/CostumeRank";
-import InfoComponent from "../../shared/components/InfoComponent";
-import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
-import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { useRaidData } from "../../../../hooks/useRaidData";
 import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
-import SeasonRemote from "../../shared/components/SeasonRemote";
 import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
 import { ClashExternalData, ClashPlayerData, ClashSeasonData } from "../../../../types/clashTypes";
+import BestComp from "../../shared/components/BestComp";
+import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
+import ExternalPickRateChart from "../../shared/components/charts/ExternalPickRateChart";
+import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
+import PickRateChart from "../../shared/components/charts/PickRateChart";
+import CompListComponent from "../../shared/components/CompListComponent";
+import InfoComponent from "../../shared/components/InfoComponent";
+import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
+import SeasonRemote from "../../shared/components/SeasonRemote";
+import SelectCharComponent from "../../shared/components/select/SelectCharComponent";
+import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { SelectChara } from "../../shared/types/statTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../shared/utils/chartFunction";
-import SelectCharComponent from "../../shared/components/select/SelectCharComponent";
+import CleartimeChart from "../components/CleartimeChart";
 
 const initRange = { start: 0, end: 0 };
 
@@ -124,10 +123,6 @@ const SeasonPage = () => {
 
     return (
         <div className={`${pageRootContainer} min-h-screen`}>
-            <SEO
-                title={`차원 대충돌 시즌${season} 집계`}
-                description={`차원 대충돌 시즌${season} 집계: ${data?.startDate} ~ ${data?.endDate}`}
-            />
             <HeaderNav />
             <SeasonRemote />
             <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col mb-4">

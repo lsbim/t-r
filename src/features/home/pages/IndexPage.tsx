@@ -1,8 +1,7 @@
 import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 import { useMemo, useState } from "react";
-import ToggleSwitch from "../../../components/ToggleSwitch";
-import SEO from "../../../components/SEO";
 import SlideColorNav from "../../../components/SlideColorNav";
+import ToggleSwitch from "../../../components/ToggleSwitch";
 import { charInfo } from "../../../data/trickcalChar";
 import { useNonData } from "../../../hooks/useNonData";
 import { useRaidData } from "../../../hooks/useRaidData";
@@ -81,7 +80,6 @@ const IndexPage = () => {
 
     return (
         <div className={`${pageRootContainer} gap-6 min-h-[100.5vh]`}> {/* 스크롤을 위한 100.5vh */}
-            <SEO />
             <HeaderNav />
             {/* 레이드 카드 */}
             <div className="md:w-[768px] w-full mx-auto flex gap-x-2 mt-28">

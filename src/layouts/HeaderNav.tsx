@@ -72,7 +72,7 @@ const HeaderNav = () => {
                             엘리아스 프론티어
                         </Link>
                         <Link
-                            to="/timeline/raid"
+                            to="/timeline"
                             className={`py-3 cursor-pointer hover:text-orange-600 transition duration-200 border-b-2 ${pathname.startsWith("/timeline") ? "text-orange-600 border-orange-600" : "border-transparent"}`}>
                             타임라인
                         </Link>

@@ -1,26 +1,25 @@
+import SelectCharComponent from "@/features/raid/shared/components/select/SelectCharComponent";
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import SEO from "../../../../components/SEO";
-import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
-import ClashV2Chart from "../components/ClashV2Chart";
-import SideSkillChart from "../components/SideSkillChart";
-import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
-import PickRateChart from "../../shared/components/charts/PickRateChart";
-import BestComp from "../../shared/components/BestComp";
-import CompListComponent from "../../shared/components/CompListComponent";
 import CostumeRank from "../../../../components/CostumeRank";
-import InfoComponent from "../../shared/components/InfoComponent";
-import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
-import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { useRaidData } from "../../../../hooks/useRaidData";
 import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
-import SeasonRemote from "../../shared/components/SeasonRemote";
 import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
 import { ClashV2PlayerData, ClashV2SeasonData } from "../../../../types/clashV2Types";
+import BestComp from "../../shared/components/BestComp";
+import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
+import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
+import PickRateChart from "../../shared/components/charts/PickRateChart";
+import CompListComponent from "../../shared/components/CompListComponent";
+import InfoComponent from "../../shared/components/InfoComponent";
+import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
+import SeasonRemote from "../../shared/components/SeasonRemote";
+import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { SelectChara } from "../../shared/types/statTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../shared/utils/chartFunction";
-import SelectCharComponent from "@/features/raid/shared/components/select/SelectCharComponent";
+import ClashV2Chart from "../components/ClashV2Chart";
+import SideSkillChart from "../components/SideSkillChart";
 
 const initRange = { start: 0, end: 0 };
 
@@ -126,10 +125,6 @@ const ClashV2SeasonPage = () => {
 
     return (
         <div className={`${pageRootContainer} min-h-screen`}>
-            <SEO
-                title={`차원 대충돌 2.0 ${seasonName} 집계`}
-                description={`차원 대충돌 2.0 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
-            />
             <HeaderNav />
             <SeasonRemote />
             {/* 림/셰이디 선택지 */}

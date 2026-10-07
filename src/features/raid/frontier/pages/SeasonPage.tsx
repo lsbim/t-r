@@ -1,26 +1,25 @@
 import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import SEO from "../../../../components/SEO";
+import CostumeRank from "../../../../components/CostumeRank";
+import { useRaidData } from "../../../../hooks/useRaidData";
+import Footer from "../../../../layouts/Footer";
+import HeaderNav from "../../../../layouts/HeaderNav";
+import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
+import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../../../types/frontierTypes";
+import BestComp from "../../shared/components/BestComp";
 import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
 import ExternalPickRateChart from "../../shared/components/charts/ExternalPickRateChart";
 import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
 import PickRateChart from "../../shared/components/charts/PickRateChart";
-import ScoreAndCoinChart from "../components/ScoreAndCoinChart";
-import BestComp from "../../shared/components/BestComp";
 import CompListComponent from "../../shared/components/CompListComponent";
-import CostumeRank from "../../../../components/CostumeRank";
 import InfoComponent from "../../shared/components/InfoComponent";
 import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
-import { useCharExclude } from "../../shared/hooks/useCharExclude";
-import { useRaidData } from "../../../../hooks/useRaidData";
-import Footer from "../../../../layouts/Footer";
-import HeaderNav from "../../../../layouts/HeaderNav";
 import SeasonRemote from "../../shared/components/SeasonRemote";
-import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
-import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData } from "../../../../types/frontierTypes";
+import SelectCharComponent from "../../shared/components/select/SelectCharComponent";
+import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { SelectChara } from "../../shared/types/statTypes";
 import { computeBestComp, computeStatsForSelect, processCompStat } from "../../shared/utils/chartFunction";
-import SelectCharComponent from "../../shared/components/select/SelectCharComponent";
+import ScoreAndCoinChart from "../components/ScoreAndCoinChart";
 
 const initRange = { start: 0, end: 0 };
 
@@ -213,10 +212,6 @@ const SeasonPage = () => {
 
     return (
         <div className={`${pageRootContainer} min-h-screen`}>
-            <SEO
-                title={`엘리아스 프론티어 ${seasonName} 집계`}
-                description={`엘리아스 프론티어 ${seasonName} 집계: ${data?.startDate} ~ ${data?.endDate}`}
-            />
             <HeaderNav />
             {data?.type === 'season' && (
                 <SeasonRemote />
