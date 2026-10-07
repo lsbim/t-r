@@ -12,12 +12,8 @@ import CharacterRecentSkin from "../components/CharacterRecentSkin";
 
 const CharacterPage = () => {
 
-    const { charName } = useParams();
-    const { data } = useCharacterData<CharacterStatsData>(charName ?? '');
-
-    if (!charName || !data) {
-        return <Loading />
-    }
+    const { charName } = useParams() as { charName: string };
+    const { data } = useCharacterData<CharacterStatsData>(charName);
 
     return (
         <div className="flex flex-col items-center min-h-screen gap-y-4">

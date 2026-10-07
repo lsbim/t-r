@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { CharacterStatsData } from "../../../types/character/characterStatsTypes";
 
 const fetchCharacterData = async (charName: string) => {
@@ -14,7 +14,7 @@ const fetchCharacterData = async (charName: string) => {
 
 export const useCharacterData = <T extends CharacterStatsData>(charName: string) => {
 
-    return useQuery<T, Error>({
+    return useSuspenseQuery<T, Error>({
         queryKey: [`character_data_${charName}`],
         queryFn: () => fetchCharacterData(charName),
 
