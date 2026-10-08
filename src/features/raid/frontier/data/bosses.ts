@@ -24,5 +24,11 @@ export const bosses: Bosses = {
             hp: 99447779898,
             lastBarHp: 19945358233
         }
+    },
+    '크레용사용': {
+        '마그맛2': {
+            hp: 174029026350,
+            lastBarHp: 34903456600
+        }
     }
 }
