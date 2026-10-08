@@ -29,6 +29,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 17,
         "name": "크레용사용",
         "personality": null,
@@ -231,6 +242,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -292,24 +321,6 @@
             "line": "후열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 293,
-        "pickRate": 97.7,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 293
           }
         ],
         "totalEntries": 300
@@ -416,25 +427,25 @@
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 181,
-      "charTotalCount": 406,
-      "rate": 44.6,
+      "cosUsedCount": 195,
+      "charTotalCount": 452,
+      "rate": 43.1,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 144,
-      "charTotalCount": 406,
-      "rate": 35.5,
+      "cosUsedCount": 162,
+      "charTotalCount": 452,
+      "rate": 35.8,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 24,
-      "charTotalCount": 406,
-      "rate": 5.9,
+      "cosUsedCount": 29,
+      "charTotalCount": 452,
+      "rate": 6.4,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

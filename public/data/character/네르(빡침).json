@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -155,18 +167,6 @@
         "personality": null,
         "startDate": "2026-04-16",
         "endDate": "2026-04-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -268,17 +268,17 @@
   "recentSkins": [
     {
       "cosName": "왕관의 수여자",
-      "cosUsedCount": 99,
-      "charTotalCount": 216,
-      "rate": 45.8,
+      "cosUsedCount": 97,
+      "charTotalCount": 211,
+      "rate": 46,
       "lvl": "pretty",
       "launchDate": "2026-03-26"
     },
     {
       "cosName": "일일 요정 여왕",
-      "cosUsedCount": 74,
-      "charTotalCount": 216,
-      "rate": 34.3,
+      "cosUsedCount": 72,
+      "charTotalCount": 211,
+      "rate": 34.1,
       "lvl": "normal",
       "launchDate": "2026-03-26"
     }

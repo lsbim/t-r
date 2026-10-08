@@ -72,6 +72,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 299
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -113,18 +131,6 @@
         "personality": null,
         "startDate": "2026-04-16",
         "endDate": "2026-04-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -195,5 +201,22 @@
       }
     ]
   },
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "환상통 말기 환자",
+      "cosUsedCount": 142,
+      "charTotalCount": 299,
+      "rate": 47.5,
+      "lvl": "pretty",
+      "launchDate": "2026-09-24"
+    },
+    {
+      "cosName": "하늘빛 마음 한 스푼",
+      "cosUsedCount": 92,
+      "charTotalCount": 299,
+      "rate": 30.8,
+      "lvl": "normal",
+      "launchDate": "2026-09-24"
+    }
+  ]
 }

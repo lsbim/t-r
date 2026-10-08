@@ -106,6 +106,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 276,
+        "pickRate": 92,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 276
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -174,24 +192,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -319,28 +319,28 @@
   },
   "recentSkins": [
     {
+      "cosName": "피어나는 꽃처럼",
+      "cosUsedCount": 200,
+      "charTotalCount": 361,
+      "rate": 55.4,
+      "lvl": "pretty",
+      "launchDate": "2026-10-01"
+    },
+    {
       "cosName": "전통의 사도",
-      "cosUsedCount": 40,
-      "charTotalCount": 86,
-      "rate": 46.5,
+      "cosUsedCount": 59,
+      "charTotalCount": 361,
+      "rate": 16.3,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 16,
-      "charTotalCount": 86,
-      "rate": 18.6,
+      "cosUsedCount": 27,
+      "charTotalCount": 361,
+      "rate": 7.5,
       "lvl": "normal",
       "launchDate": "2024-09-26"
-    },
-    {
-      "cosName": "댄스 크루 달링",
-      "cosUsedCount": 13,
-      "charTotalCount": 86,
-      "rate": 15.1,
-      "lvl": "normal",
-      "launchDate": "2025-07-17"
     }
   ]
 }

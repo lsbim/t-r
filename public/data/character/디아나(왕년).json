@@ -273,6 +273,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -337,24 +355,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 263,
-        "pickRate": 87.7,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 3,
-            "count": 263
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -455,26 +455,26 @@
   },
   "recentSkins": [
     {
-      "cosName": "교단 군기반장",
-      "cosUsedCount": 205,
-      "charTotalCount": 416,
-      "rate": 49.3,
-      "lvl": "pretty",
-      "launchDate": "2025-06-05"
-    },
-    {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 109,
-      "charTotalCount": 416,
-      "rate": 26.2,
+      "cosUsedCount": 110,
+      "charTotalCount": 172,
+      "rate": 64,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
     },
     {
+      "cosName": "교단 군기반장",
+      "cosUsedCount": 35,
+      "charTotalCount": 172,
+      "rate": 20.3,
+      "lvl": "pretty",
+      "launchDate": "2025-06-05"
+    },
+    {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 27,
-      "charTotalCount": 416,
-      "rate": 6.5,
+      "cosUsedCount": 6,
+      "charTotalCount": 172,
+      "rate": 3.5,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

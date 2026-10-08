@@ -209,10 +209,10 @@
     ]
   },
   "frontier": {
-    "seasonNumber": 20,
-    "name": "M.E.O.W",
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-27",
+    "seasonNumber": 21,
+    "name": "크레용사용",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-08",
     "summary": [
       {
         "name": "실비아",
@@ -225,9 +225,19 @@
         "count": 300
       },
       {
-        "name": "라이카",
+        "name": "죠안",
         "line": "전열",
-        "count": 24
+        "count": 276
+      },
+      {
+        "name": "비비(신성)(순수)",
+        "line": "중열",
+        "count": 291
+      },
+      {
+        "name": "리뉴아",
+        "line": "중열",
+        "count": 299
       },
       {
         "name": "에르핀(왕도)",
@@ -235,44 +245,29 @@
         "count": 300
       },
       {
-        "name": "리뉴아",
-        "line": "중열",
-        "count": 300
-      },
-      {
-        "name": "요미",
-        "line": "중열",
-        "count": 138
-      },
-      {
         "name": "우로스(순수)",
         "line": "후열",
-        "count": 293
+        "count": 290
       },
       {
         "name": "모모",
         "line": "후열",
-        "count": 254
+        "count": 300
       },
       {
-        "name": "뮤트",
+        "name": "우이(기억)",
         "line": "후열",
-        "count": 299
+        "count": 292
       },
       {
-        "name": "아네트",
-        "line": "중열",
-        "count": 21
+        "name": "우로스(우울)",
+        "line": "후열",
+        "count": 2
       },
       {
-        "name": "디아나(왕년)",
+        "name": "클로에",
         "line": "전열",
-        "count": 245
-      },
-      {
-        "name": "네르",
-        "line": "전열",
-        "count": 25
+        "count": 5
       },
       {
         "name": "에르핀",
@@ -280,64 +275,39 @@
         "count": 1
       },
       {
-        "name": "스키아",
-        "line": "후열",
-        "count": 38
-      },
-      {
-        "name": "티그(영웅)",
+        "name": "비비(신성)(냉정)",
         "line": "중열",
-        "count": 1
+        "count": 3
       },
       {
-        "name": "네르(빡침)",
+        "name": "뮤트",
         "line": "후열",
-        "count": 5
-      },
-      {
-        "name": "아일라",
-        "line": "중열",
-        "count": 139
-      },
-      {
-        "name": "우로스(우울)",
-        "line": "후열",
-        "count": 1
-      },
-      {
-        "name": "우로스(광기)",
-        "line": "후열",
-        "count": 1
-      },
-      {
-        "name": "죠안",
-        "line": "전열",
-        "count": 1
+        "count": 6
       },
       {
         "name": "비비",
         "line": "전열",
-        "count": 3
+        "count": 16
       },
       {
-        "name": "스피키(메이드)",
-        "line": "후열",
-        "count": 1
-      },
-      {
-        "name": "우이",
-        "line": "중열",
+        "name": "네티",
+        "line": "전열",
         "count": 1
       },
       {
         "name": "우로스(활발)",
         "line": "후열",
-        "count": 3
+        "count": 5
       },
       {
-        "name": "에슈르",
-        "line": "후열",
+        "name": "디아나(왕년)",
+        "line": "전열",
         "count": 1
+      },
+      {
+        "name": "요미",
+        "line": "중열",
+        "count": 2
       },
       {
         "name": "버터",
@@ -345,18 +315,28 @@
         "count": 1
       },
       {
-        "name": "리코타",
+        "name": "비비(신성)(활발)",
+        "line": "중열",
+        "count": 3
+      },
+      {
+        "name": "네르",
         "line": "전열",
         "count": 1
       },
       {
-        "name": "우로스(냉정)",
+        "name": "우로스(광기)",
         "line": "후열",
         "count": 2
       },
       {
-        "name": "슈로",
-        "line": "전열",
+        "name": "비비(신성)(광기)",
+        "line": "중열",
+        "count": 2
+      },
+      {
+        "name": "우로스(냉정)",
+        "line": "후열",
         "count": 1
       }
     ]

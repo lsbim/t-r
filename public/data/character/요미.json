@@ -139,6 +139,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -206,24 +224,6 @@
             "line": "중열",
             "rank": 3,
             "count": 164
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 276,
-        "pickRate": 92,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 276
           }
         ],
         "totalEntries": 300
@@ -330,17 +330,17 @@
   "recentSkins": [
     {
       "cosName": "마법의 달빛",
-      "cosUsedCount": 134,
-      "charTotalCount": 280,
+      "cosUsedCount": 69,
+      "charTotalCount": 144,
       "rate": 47.9,
       "lvl": "pretty",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "밤바다 선원",
-      "cosUsedCount": 47,
-      "charTotalCount": 280,
-      "rate": 16.8,
+      "cosUsedCount": 25,
+      "charTotalCount": 144,
+      "rate": 17.4,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     }

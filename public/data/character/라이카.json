@@ -84,6 +84,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -136,24 +148,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 10,
-        "pickRate": 3.3,
-        "overallRank": 12,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 10
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -239,25 +233,17 @@
   "recentSkins": [
     {
       "cosName": "지니어스 라이트닝",
-      "cosUsedCount": 22,
-      "charTotalCount": 34,
-      "rate": 64.7,
+      "cosUsedCount": 7,
+      "charTotalCount": 10,
+      "rate": 70,
       "lvl": "normal",
       "launchDate": "2026-08-20"
     },
     {
-      "cosName": "코스탈 라이트닝",
-      "cosUsedCount": 4,
-      "charTotalCount": 34,
-      "rate": 11.8,
-      "lvl": "normal",
-      "launchDate": "2025-08-21"
-    },
-    {
       "cosName": "라이트닝 강속구",
       "cosUsedCount": 2,
-      "charTotalCount": 34,
-      "rate": 5.9,
+      "charTotalCount": 10,
+      "rate": 20,
       "lvl": "normal",
       "launchDate": "2025-03-13"
     }

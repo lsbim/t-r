@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -169,24 +181,6 @@
             "line": "중열",
             "rank": 6,
             "count": 6
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 42,
-        "pickRate": 14,
-        "overallRank": 11,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 42
           }
         ],
         "totalEntries": 300
@@ -276,16 +270,16 @@
     {
       "cosName": "화끈한 바니의 매직",
       "cosUsedCount": 90,
-      "charTotalCount": 234,
-      "rate": 38.5,
+      "charTotalCount": 213,
+      "rate": 42.3,
       "lvl": "normal",
       "launchDate": "2026-09-17"
     },
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 51,
-      "charTotalCount": 234,
-      "rate": 21.8,
+      "cosUsedCount": 37,
+      "charTotalCount": 213,
+      "rate": 17.4,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

@@ -72,6 +72,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -124,24 +136,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -222,16 +216,16 @@
     {
       "cosName": "꼬끼옷 메이드",
       "cosUsedCount": 7,
-      "charTotalCount": 11,
-      "rate": 63.6,
+      "charTotalCount": 10,
+      "rate": 70,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "부스스한 아침",
-      "cosUsedCount": 2,
-      "charTotalCount": 11,
-      "rate": 18.2,
+      "cosUsedCount": 1,
+      "charTotalCount": 10,
+      "rate": 10,
       "lvl": "normal",
       "launchDate": "2025-03-06"
     }

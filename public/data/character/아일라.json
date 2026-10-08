@@ -115,6 +115,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -182,24 +194,6 @@
             "line": "중열",
             "rank": 2,
             "count": 282
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 267,
-        "pickRate": 89,
-        "overallRank": 8,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 267
           }
         ],
         "totalEntries": 300
@@ -306,17 +300,17 @@
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",
-      "cosUsedCount": 124,
-      "charTotalCount": 299,
-      "rate": 41.5,
+      "cosUsedCount": 68,
+      "charTotalCount": 160,
+      "rate": 42.5,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "카우치 볼케이노",
-      "cosUsedCount": 47,
-      "charTotalCount": 299,
-      "rate": 15.7,
+      "cosUsedCount": 25,
+      "charTotalCount": 160,
+      "rate": 15.6,
       "lvl": "normal",
       "launchDate": "2025-12-18"
     }

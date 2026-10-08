@@ -304,6 +304,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 16,
+        "pickRate": 5.3,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 16
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -365,24 +383,6 @@
             "line": "전열",
             "rank": 3,
             "count": 260
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -483,25 +483,25 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 60,
-      "charTotalCount": 116,
-      "rate": 51.7,
+      "cosUsedCount": 71,
+      "charTotalCount": 129,
+      "rate": 55,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "풀하트 매직",
       "cosUsedCount": 27,
-      "charTotalCount": 116,
-      "rate": 23.3,
+      "charTotalCount": 129,
+      "rate": 20.9,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 14,
-      "charTotalCount": 116,
-      "rate": 12.1,
+      "cosUsedCount": 16,
+      "charTotalCount": 129,
+      "rate": 12.4,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     }

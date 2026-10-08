@@ -216,6 +216,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -283,24 +295,6 @@
             "line": "중열",
             "rank": 4,
             "count": 87
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -395,25 +389,25 @@
   "recentSkins": [
     {
       "cosName": "빛바랜 기억",
-      "cosUsedCount": 128,
-      "charTotalCount": 190,
-      "rate": 67.4,
+      "cosUsedCount": 127,
+      "charTotalCount": 189,
+      "rate": 67.2,
       "lvl": "pretty",
       "launchDate": "2026-07-09"
     },
     {
       "cosName": "맑은 기도의 빗방울",
       "cosUsedCount": 27,
-      "charTotalCount": 190,
-      "rate": 14.2,
+      "charTotalCount": 189,
+      "rate": 14.3,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
       "cosUsedCount": 16,
-      "charTotalCount": 190,
-      "rate": 8.4,
+      "charTotalCount": 189,
+      "rate": 8.5,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     }

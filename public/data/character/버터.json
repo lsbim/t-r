@@ -102,6 +102,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -168,24 +186,6 @@
           {
             "line": "후열",
             "rank": 4,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 5,
             "count": 1
           }
         ],

@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -169,24 +181,6 @@
             "line": "전열",
             "rank": 2,
             "count": 290
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 285,
-        "pickRate": 95,
-        "overallRank": 6,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 285
           }
         ],
         "totalEntries": 300
@@ -292,17 +286,17 @@
   "recentSkins": [
     {
       "cosName": "기내식 준비 완료",
-      "cosUsedCount": 35,
-      "charTotalCount": 66,
-      "rate": 53,
+      "cosUsedCount": 34,
+      "charTotalCount": 65,
+      "rate": 52.3,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "사교계의 악역 영애",
       "cosUsedCount": 5,
-      "charTotalCount": 66,
-      "rate": 7.6,
+      "charTotalCount": 65,
+      "rate": 7.7,
       "lvl": "normal",
       "launchDate": "2025-04-24"
     }

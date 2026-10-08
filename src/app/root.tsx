@@ -72,7 +72,7 @@ const router = createBrowserRouter([
                         },
                         element: <ErrorPage />
                     },
-                    /* 
+                    /*
                         useSuspenseQuery는 데이터 로딩 전까지 렌더링 되지 않으므로
                         SEO를 Suspense 바깥으로 배치
                     */

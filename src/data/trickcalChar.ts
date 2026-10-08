@@ -174,6 +174,12 @@ export const charInfo: CharInfoType = {
     "우로스(우울)": { grade: 3, personality: "우울", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },
     "우로스(냉정)": { grade: 3, personality: "냉정", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },
     "우로스(광기)": { grade: 3, personality: "광기", line: "후열", birthdate: "2025-09-25", role: "서포터", attackType: "물리", race: '수인' },
+    "비비(신성)(순수)": { grade: 3, personality: "순수", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱' },
+    "비비(신성)(활발)": { grade: 3, personality: "활발", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱' },
+    "비비(신성)(우울)": { grade: 3, personality: "우울", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱' },
+    "비비(신성)(냉정)": { grade: 3, personality: "냉정", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱' },
+    "비비(신성)(광기)": { grade: 3, personality: "광기", line: "중열", birthdate: "2026-09-24", role: "딜러", attackType: "마법", race: '미스틱' },
+
 };
 // 성격별 우로스처럼 찢어놓은 사도는 타임라인, 사복 목록같은 곳에 나오지 않도록 추가 조정필요
 

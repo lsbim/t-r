@@ -102,6 +102,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -155,18 +167,6 @@
         "personality": null,
         "startDate": "2026-04-16",
         "endDate": "2026-04-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -263,25 +263,25 @@
   "recentSkins": [
     {
       "cosName": "태양 빛 아래의 뱀",
-      "cosUsedCount": 75,
-      "charTotalCount": 128,
-      "rate": 58.6,
+      "cosUsedCount": 74,
+      "charTotalCount": 127,
+      "rate": 58.3,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "병약 미소뱀",
       "cosUsedCount": 36,
-      "charTotalCount": 128,
-      "rate": 28.1,
+      "charTotalCount": 127,
+      "rate": 28.3,
       "lvl": "pretty",
       "launchDate": "2025-04-17"
     },
     {
       "cosName": "하늘하늘 슬리퍼",
       "cosUsedCount": 3,
-      "charTotalCount": 128,
-      "rate": 2.3,
+      "charTotalCount": 127,
+      "rate": 2.4,
       "lvl": "normal",
       "launchDate": "2025-02-27"
     }

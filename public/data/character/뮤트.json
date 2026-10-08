@@ -114,6 +114,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 21,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2026-10-01",
+        "endDate": "2026-10-08",
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 6
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 20,
         "name": "M.E.O.W",
         "personality": null,
@@ -181,24 +199,6 @@
             "line": "후열",
             "rank": 2,
             "count": 299
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 16,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2026-03-05",
-        "endDate": "2026-03-12",
-        "pickCount": 291,
-        "pickRate": 97,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 291
           }
         ],
         "totalEntries": 300
@@ -304,17 +304,17 @@
   "recentSkins": [
     {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 338,
-      "charTotalCount": 576,
-      "rate": 58.7,
+      "cosUsedCount": 161,
+      "charTotalCount": 283,
+      "rate": 56.9,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "위험한 옆집 스파이",
-      "cosUsedCount": 49,
-      "charTotalCount": 576,
-      "rate": 8.5,
+      "cosUsedCount": 25,
+      "charTotalCount": 283,
+      "rate": 8.8,
       "lvl": "normal",
       "launchDate": "2025-09-11"
     }
