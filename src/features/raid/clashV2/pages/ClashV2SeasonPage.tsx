@@ -199,24 +199,24 @@ const ClashV2SeasonPage = () => {
                             scoreType="duration"
                         />
                     )}
-                    <ClashV2Chart
-                        maxSideLvl={data?.maxSideLvl ?? 100}
-                        data={displaySlice}
-                    />
-                    <SideSkillChart
-                        data={displaySlice}
-                    />
+                    {bestComp && bestComp?.length > 0 && (
+                        <BestComp
+                            data={bestComp}
+                        />
+                    )}
                     {hasSkinArr && (
                         <CostumeRank
                             data={data}
                             type={v2Type === 'side' ? v2Type : undefined}
                         />
                     )}
-                    {bestComp && bestComp?.length > 0 && (
-                        <BestComp
-                            data={bestComp}
-                        />
-                    )}
+                    <SideSkillChart
+                        data={displaySlice}
+                    />
+                    <ClashV2Chart
+                        maxSideLvl={data?.maxSideLvl ?? 100}
+                        data={displaySlice}
+                    />
                     <CompListComponent
                         season={season}
                         data={displaySlice}

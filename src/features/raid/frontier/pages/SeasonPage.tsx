@@ -277,13 +277,9 @@ const SeasonPage = () => {
                                     scoreType="coin"
                                 />
                             )}
-                            {compareCoin && data && (
-                                <ScoreAndCoinChart
-                                    data={displaySlice}
-                                    compareCoin={compareCoin}
-                                    level={data?.maxLvl}
-                                    bossName={data?.name}
-                                    select={select?.name}
+                            {bestComp && bestComp?.length > 0 && (
+                                <BestComp
+                                    data={bestComp}
                                 />
                             )}
                             {hasSkinArr && (
@@ -291,9 +287,13 @@ const SeasonPage = () => {
                                     data={data}
                                 />
                             )}
-                            {bestComp && bestComp?.length > 0 && (
-                                <BestComp
-                                    data={bestComp}
+                            {compareCoin && data && (
+                                <ScoreAndCoinChart
+                                    data={displaySlice}
+                                    compareCoin={compareCoin}
+                                    level={data?.maxLvl}
+                                    bossName={data?.name}
+                                    select={select?.name}
                                 />
                             )}
                             <CompListComponent

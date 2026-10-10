@@ -186,20 +186,20 @@ const SeasonPage = () => {
                                     scoreType="duration"
                                 />
                             )}
-                            <CleartimeChart
-                                season={season}
-                                data={displaySlice}
-                            />
-                            {hasSkinArr && (
-                                <CostumeRank
-                                    data={data}
-                                />
-                            )}
                             {bestComp && bestComp?.length > 0 && (
                                 <BestComp
                                     data={bestComp}
                                 />
                             )}
+                            {hasSkinArr && (
+                                <CostumeRank
+                                    data={data}
+                                />
+                            )}
+                            <CleartimeChart
+                                season={season}
+                                data={displaySlice}
+                            />
                             <CompListComponent
                                 season={season}
                                 data={displaySlice}
