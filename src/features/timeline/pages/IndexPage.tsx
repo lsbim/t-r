@@ -15,6 +15,7 @@ import { PopoverProvider } from "../hooks/usePopper";
 import useTimelineDrag from "../hooks/useTimelineDrag";
 import { CharacterNode, RaidNode, TimelineMap } from "../types/timelineTypes";
 import { DAY_PX, START_DATE } from "../utils/timelineFunction";
+import { parseResonanceBaseName } from "@/utils/resonanceFunction";
 
 const EMPTY_TIMELINE_MAP: TimelineMap = {};
 
@@ -61,7 +62,7 @@ const IndexPage = () => {
 
         // 사도 출시일
         Object.entries(charInfo).forEach(([name, info]) => {
-            if (name.startsWith("우로스(")) return;
+            if (parseResonanceBaseName(name)) return;
             pushNode(info.birthdate, {
                 type: "character",
                 name,

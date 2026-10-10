@@ -1,7 +1,7 @@
 const imageCache = new Map<string, HTMLImageElement>();
-const loadingCache = new Map<string, Promise<HTMLImageElement>>(); // 중복호출 방지
+const loadingCache = new Map<string, Promise<HTMLImageElement | null>>(); // 중복호출 방지
 
-const createImage = (src: string): Promise<HTMLImageElement> => {
+const createImage = (src: string): Promise<HTMLImageElement | null> => {
     const cached = imageCache.get(src);
 
     if (cached) {
@@ -14,7 +14,7 @@ const createImage = (src: string): Promise<HTMLImageElement> => {
         return loading;
     }
 
-    const promise = new Promise<HTMLImageElement>((resolve) => {
+    const promise = new Promise<HTMLImageElement | null>((resolve) => {
         const image = new window.Image();
 
         image.onload = async () => {
@@ -30,6 +30,11 @@ const createImage = (src: string): Promise<HTMLImageElement> => {
             loadingCache.delete(src);
 
             resolve(image);
+        };
+
+        image.onerror = () => {
+            loadingCache.delete(src);
+            resolve(null);
         };
 
         image.src = src;
