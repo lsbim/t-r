@@ -3,10 +3,9 @@ import { LatestSummary } from "../../../types/latestTypes";
 import BossProfile from "../../../components/icons/BossProfile";
 import { containerDarkBG } from "../../../styles/container";
 
-const HomeRaidCard = ({ data, raidType, rounded }: {
+const HomeRaidCard = ({ data, raidType }: {
     data: LatestSummary,
     raidType: 'clash' | 'clashV2' | 'frontier',
-    rounded?: 'left' | 'right'
 }) => {
 
     const borderColor = 'border-[3px] ' + ('personality' in data ? `border-${data.personality}`

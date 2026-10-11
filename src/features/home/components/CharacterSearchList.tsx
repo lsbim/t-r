@@ -41,6 +41,7 @@ const CharacterSearchList = () => {
                         key={`character_search_list_${name}`}>
                         <div className={`w-[64px] h-[64px] overflow-hidden ${charInfo[name].personality === '공명' ? 'resonance-pers' : `bg-${charInfo[name].personality}`}`}>
                             <img
+                                loading='lazy'
                                 className="w-full h-full object-cover object-top origin-top scale-[1.4] group-hover:scale-[1.5] duration-300 transition-transform ease-out"
                                 src={`/images/character/${name}.webp`}
                             />
