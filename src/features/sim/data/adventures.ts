@@ -242,7 +242,8 @@ export const adventure: Adventure = {
             { name: '단단한 돌', yieldType: 2 },
         ],
         advId: 18
-    }, '피규어 채색': {
+    }
+    , '피규어 채색': {
         mainAdvSkill: '손기술',
         advSkills: ['책임감', '집중력'],
         advLvl: 7,
@@ -252,7 +253,9 @@ export const adventure: Adventure = {
         ],
         advId: 19,
         frontWidth: 100
-    }, '윈스타 맛집 설거지': {
+    }
+    ,
+    '윈스타 맛집 설거지': {
         mainAdvSkill: '노예근성',
         advSkills: ['참을성', '희생정신'],
         advLvl: 1,
@@ -620,5 +623,13 @@ export const adventure: Adventure = {
             { name: '반짝 유리', yieldType: 1 },
         ],
         advId: 64
-    },
+    }, '피규어 디오라마 제작': {
+        mainAdvSkill: '꼼꼼함',
+        advLvl: 7,
+        yieldMaterials: [
+            { name: '혼모노의 증표', yieldType: 2 },
+        ],
+        advId: 65,
+        frontWidth: 100
+    }
 }
