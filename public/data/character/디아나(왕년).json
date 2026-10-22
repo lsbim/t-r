@@ -359,6 +359,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 235,
+        "pickRate": 78.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 235
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 0.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -431,50 +450,31 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 15,
-        "pickRate": 5,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 7,
-            "count": 15
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 57.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 110,
-      "charTotalCount": 172,
-      "rate": 64,
+      "cosUsedCount": 169,
+      "charTotalCount": 239,
+      "rate": 70.7,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
     },
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 35,
-      "charTotalCount": 172,
-      "rate": 20.3,
+      "cosUsedCount": 44,
+      "charTotalCount": 239,
+      "rate": 18.4,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 6,
-      "charTotalCount": 172,
-      "rate": 3.5,
+      "cosUsedCount": 4,
+      "charTotalCount": 239,
+      "rate": 1.7,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

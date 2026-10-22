@@ -7,6 +7,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 136,
+        "pickRate": 45.3,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -177,6 +189,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 45.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -233,42 +258,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 64.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 30,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 55.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "와일드 파티 비기너",
-      "cosUsedCount": 81,
-      "charTotalCount": 150,
-      "rate": 54,
+      "cosUsedCount": 68,
+      "charTotalCount": 136,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "쇼핑 파탈 갱스터",
-      "cosUsedCount": 9,
-      "charTotalCount": 150,
-      "rate": 6,
+      "cosUsedCount": 6,
+      "charTotalCount": 136,
+      "rate": 4.4,
       "lvl": "normal",
       "launchDate": "2025-08-07"
     }

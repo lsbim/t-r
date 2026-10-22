@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 5
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -208,36 +221,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 7.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 9.3
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "하얀 토끼의 용기",
+      "cosUsedCount": 8,
+      "charTotalCount": 15,
+      "rate": 53.3,
+      "lvl": "normal",
+      "launchDate": "2026-09-17"
+    },
+    {
       "cosName": "평화를 향한 의지",
-      "cosUsedCount": 14,
-      "charTotalCount": 25,
-      "rate": 56,
+      "cosUsedCount": 6,
+      "charTotalCount": 15,
+      "rate": 40,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     },
     {
       "cosName": "릴렉스 테라피스트",
-      "cosUsedCount": 11,
-      "charTotalCount": 25,
-      "rate": 44,
+      "cosUsedCount": 1,
+      "charTotalCount": 15,
+      "rate": 6.7,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     }

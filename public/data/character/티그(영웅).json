@@ -19,6 +19,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 173,
+        "pickRate": 57.7,
+        "contentType": "side",
+        "isOverall": true,
+        "line": null
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -244,6 +256,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 57.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -305,42 +330,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 41
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 30,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 29.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 240,
-      "charTotalCount": 441,
-      "rate": 54.4,
+      "cosUsedCount": 238,
+      "charTotalCount": 436,
+      "rate": 54.6,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
       "cosUsedCount": 86,
-      "charTotalCount": 441,
-      "rate": 19.5,
+      "charTotalCount": 436,
+      "rate": 19.7,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

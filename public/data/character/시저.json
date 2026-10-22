@@ -140,6 +140,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 18
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -196,28 +209,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 6.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 9.7
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "악어는 아거! 아거!",
-      "cosUsedCount": 27,
+      "cosName": "끝내주는 악당!",
+      "cosUsedCount": 21,
       "charTotalCount": 54,
-      "rate": 50,
+      "rate": 38.9,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
+    },
+    {
+      "cosName": "악어는 아거! 아거!",
+      "cosUsedCount": 9,
+      "charTotalCount": 54,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2025-08-28"
     }

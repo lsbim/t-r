@@ -302,6 +302,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 53,
+        "pickRate": 17.7,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 5,
+            "count": 53
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 30.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -364,50 +383,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 27.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 120,
-        "pickRate": 40,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 4,
-            "count": 120
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 22
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "빛바랜 기억",
-      "cosUsedCount": 127,
-      "charTotalCount": 189,
-      "rate": 67.2,
+      "cosUsedCount": 120,
+      "charTotalCount": 201,
+      "rate": 59.7,
       "lvl": "pretty",
       "launchDate": "2026-07-09"
     },
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 27,
-      "charTotalCount": 189,
-      "rate": 14.3,
+      "cosUsedCount": 31,
+      "charTotalCount": 201,
+      "rate": 15.4,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 16,
-      "charTotalCount": 189,
-      "rate": 8.5,
+      "cosUsedCount": 19,
+      "charTotalCount": 201,
+      "rate": 9.5,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     }

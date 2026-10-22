@@ -196,6 +196,35 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 126,
+        "pickRate": 42,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 64
+          },
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 59
+          },
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 6.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -285,62 +314,33 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 51.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 19,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 10,
-            "count": 2
-          },
-          {
-            "line": "중열",
-            "rank": 12,
-            "count": 1
-          },
-          {
-            "line": "후열",
-            "rank": 6,
-            "count": 4
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 54
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "피어나는 꽃처럼",
-      "cosUsedCount": 200,
-      "charTotalCount": 361,
-      "rate": 55.4,
+      "cosUsedCount": 308,
+      "charTotalCount": 422,
+      "rate": 73,
       "lvl": "pretty",
       "launchDate": "2026-10-01"
     },
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 59,
-      "charTotalCount": 361,
-      "rate": 16.3,
+      "cosUsedCount": 26,
+      "charTotalCount": 422,
+      "rate": 6.2,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
-      "cosName": "개인적 피크닉",
-      "cosUsedCount": 27,
-      "charTotalCount": 361,
-      "rate": 7.5,
+      "cosName": "댄스 크루 달링",
+      "cosUsedCount": 21,
+      "charTotalCount": 422,
+      "rate": 5,
       "lvl": "normal",
-      "launchDate": "2024-09-26"
+      "launchDate": "2025-07-17"
     }
   ]
 }

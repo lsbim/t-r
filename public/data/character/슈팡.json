@@ -7,6 +7,18 @@
     "frontier": [],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 127,
+        "pickRate": 42.3,
+        "contentType": "side",
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 10001,
         "name": "흑화 영춘",
         "personality": "활발",
@@ -159,6 +171,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 42.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -209,44 +234,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 35.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 41.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "스카이 로지스틱스",
-      "cosUsedCount": 44,
-      "charTotalCount": 111,
-      "rate": 39.6,
+      "cosUsedCount": 47,
+      "charTotalCount": 127,
+      "rate": 37,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "슈파 드럼 비트",
-      "cosUsedCount": 24,
-      "charTotalCount": 111,
-      "rate": 21.6,
+      "cosUsedCount": 32,
+      "charTotalCount": 127,
+      "rate": 25.2,
       "lvl": "normal",
       "launchDate": "2025-06-26"
     },
     {
       "cosName": "폭주족 슈팡",
-      "cosUsedCount": 6,
-      "charTotalCount": 111,
-      "rate": 5.4,
+      "cosUsedCount": 4,
+      "charTotalCount": 127,
+      "rate": 3.1,
       "lvl": "normal",
       "launchDate": "2025-01-23"
     }

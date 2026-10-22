@@ -328,6 +328,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 272,
+        "pickRate": 90.7,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 272
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -402,50 +421,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 41.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 43,
-        "pickRate": 14.3,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 43
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 40.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 195,
-      "charTotalCount": 452,
-      "rate": 43.1,
+      "cosUsedCount": 249,
+      "charTotalCount": 595,
+      "rate": 41.8,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 162,
-      "charTotalCount": 452,
-      "rate": 35.8,
+      "cosUsedCount": 211,
+      "charTotalCount": 595,
+      "rate": 35.5,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 29,
-      "charTotalCount": 452,
-      "rate": 6.4,
+      "cosUsedCount": 50,
+      "charTotalCount": 595,
+      "rate": 8.4,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

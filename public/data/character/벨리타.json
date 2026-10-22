@@ -179,6 +179,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -229,19 +242,6 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 0.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 1
       }
     ]
   },
@@ -249,8 +249,8 @@
     {
       "cosName": "차가운 도시 여왕님",
       "cosUsedCount": 1,
-      "charTotalCount": 2,
-      "rate": 50,
+      "charTotalCount": 3,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     }

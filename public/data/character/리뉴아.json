@@ -229,6 +229,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -477,6 +489,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -549,42 +579,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 1
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 221,
-        "pickRate": 73.7,
-        "overallRank": 7,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 221
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 8
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 386,
+      "cosUsedCount": 382,
       "charTotalCount": 894,
-      "rate": 43.2,
+      "rate": 42.7,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 326,
+      "cosUsedCount": 330,
       "charTotalCount": 894,
-      "rate": 36.5,
+      "rate": 36.9,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

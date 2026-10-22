@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 0.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -184,42 +197,15 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 1.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 7,
-        "pickRate": 2.3,
-        "overallRank": 19,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 7,
-            "count": 7
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 0.7
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "완전 팔팔해진 오팔",
-      "cosUsedCount": 2,
-      "charTotalCount": 3,
-      "rate": 66.7,
-      "lvl": "normal",
-      "launchDate": "2025-05-01"
-    },
-    {
       "cosName": "덜 팔팔해진 오팔",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "cosUsedCount": 2,
+      "charTotalCount": 2,
+      "rate": 100,
       "lvl": "normal",
       "launchDate": "2025-02-06"
     }

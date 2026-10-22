@@ -152,6 +152,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 6.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -214,35 +227,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 6
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "거친 파도 속으로",
-      "cosUsedCount": 18,
-      "charTotalCount": 22,
-      "rate": 81.8,
+      "cosUsedCount": 15,
+      "charTotalCount": 21,
+      "rate": 71.4,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "하늘을 가르는 매버릭",
       "cosUsedCount": 2,
-      "charTotalCount": 22,
-      "rate": 9.1,
+      "charTotalCount": 21,
+      "rate": 9.5,
       "lvl": "normal",
       "launchDate": "2026-04-09"
     }

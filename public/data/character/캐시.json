@@ -158,6 +158,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 2.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -214,36 +227,25 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 23,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 2.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "차원이 다른 과학 유령",
-      "cosUsedCount": 7,
-      "charTotalCount": 11,
-      "rate": 63.6,
+      "cosUsedCount": 3,
+      "charTotalCount": 8,
+      "rate": 37.5,
       "lvl": "normal",
       "launchDate": "2026-06-25"
+    },
+    {
+      "cosName": "콜사인 캐시페라투",
+      "cosUsedCount": 1,
+      "charTotalCount": 8,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2025-07-03"
     }
   ]
 }

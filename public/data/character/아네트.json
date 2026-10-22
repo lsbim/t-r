@@ -188,6 +188,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 180,
+        "pickRate": 60,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 180
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 2.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -244,42 +263,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 5.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 146,
-        "pickRate": 48.7,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 3,
-            "count": 146
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 6.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "화끈한 바니의 매직",
-      "cosUsedCount": 90,
-      "charTotalCount": 213,
-      "rate": 42.3,
+      "cosUsedCount": 201,
+      "charTotalCount": 363,
+      "rate": 55.4,
       "lvl": "normal",
       "launchDate": "2026-09-17"
     },
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 37,
-      "charTotalCount": 213,
-      "rate": 17.4,
+      "cosUsedCount": 40,
+      "charTotalCount": 363,
+      "rate": 11,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

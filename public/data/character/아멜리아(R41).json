@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -190,28 +203,23 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 7.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 5.7
       }
     ]
   },
   "recentSkins": [
     {
+      "cosName": "정체 분명 엘프",
+      "cosUsedCount": 4,
+      "charTotalCount": 11,
+      "rate": 36.4,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
+    },
+    {
       "cosName": "푸른 숲속 엘프",
-      "cosUsedCount": 8,
-      "charTotalCount": 10,
-      "rate": 80,
+      "cosUsedCount": 4,
+      "charTotalCount": 11,
+      "rate": 36.4,
       "lvl": "normal",
       "launchDate": "2026-02-26"
     }

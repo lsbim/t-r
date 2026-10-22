@@ -213,6 +213,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 4.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -263,44 +276,25 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 4
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 23,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 8,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 4.3
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "호수의 해적 선장",
-      "cosUsedCount": 7,
-      "charTotalCount": 13,
-      "rate": 53.8,
-      "lvl": "normal",
-      "launchDate": "2026-06-18"
-    },
-    {
       "cosName": "템포 업! 응원 루키!",
-      "cosUsedCount": 4,
+      "cosUsedCount": 6,
       "charTotalCount": 13,
-      "rate": 30.8,
+      "rate": 46.2,
       "lvl": "normal",
       "launchDate": "2026-03-05"
+    },
+    {
+      "cosName": "호수의 해적 선장",
+      "cosUsedCount": 3,
+      "charTotalCount": 13,
+      "rate": 23.1,
+      "lvl": "normal",
+      "launchDate": "2026-06-18"
     },
     {
       "cosName": "깡총 물장난",

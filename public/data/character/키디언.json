@@ -214,6 +214,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 1.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -275,50 +288,31 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 6.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 30,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 5
       }
     ]
   },
   "recentSkins": [
     {
-      "cosName": "옵시디언 메이든",
-      "cosUsedCount": 6,
-      "charTotalCount": 13,
-      "rate": 46.2,
-      "lvl": "normal",
-      "launchDate": "2026-02-05"
-    },
-    {
       "cosName": "마음속의 은하수",
-      "cosUsedCount": 5,
-      "charTotalCount": 13,
-      "rate": 38.5,
+      "cosUsedCount": 3,
+      "charTotalCount": 5,
+      "rate": 60,
       "lvl": "pretty",
       "launchDate": "2025-03-13"
     },
     {
+      "cosName": "옵시디언 메이든",
+      "cosUsedCount": 1,
+      "charTotalCount": 5,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2026-02-05"
+    },
+    {
       "cosName": "친구따라 지상간다",
       "cosUsedCount": 1,
-      "charTotalCount": 13,
-      "rate": 7.7,
+      "charTotalCount": 5,
+      "rate": 20,
       "lvl": "normal",
       "launchDate": "2025-01-23"
     }

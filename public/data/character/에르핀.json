@@ -206,6 +206,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 1
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -279,25 +298,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 3,
-        "pickRate": 1,
-        "overallRank": 23,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 3
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 0.3
       }
     ]
   },
@@ -311,12 +311,12 @@
       "launchDate": "2025-02-06"
     },
     {
-      "cosName": "깡총이 파자마",
-      "cosUsedCount": 1,
+      "cosName": "풀오토 고딕",
+      "cosUsedCount": 2,
       "charTotalCount": 6,
-      "rate": 16.7,
+      "rate": 33.3,
       "lvl": "normal",
-      "launchDate": "2025-09-18"
+      "launchDate": "2026-02-05"
     }
   ]
 }

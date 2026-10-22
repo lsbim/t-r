@@ -134,6 +134,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -184,19 +197,6 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 2.3
       }
     ]
   },
@@ -204,16 +204,16 @@
     {
       "cosName": "검은 머리의 대마법사",
       "cosUsedCount": 4,
-      "charTotalCount": 8,
-      "rate": 50,
+      "charTotalCount": 9,
+      "rate": 44.4,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "수면에 비친 동심",
       "cosUsedCount": 3,
-      "charTotalCount": 8,
-      "rate": 37.5,
+      "charTotalCount": 9,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2025-10-23"
     }

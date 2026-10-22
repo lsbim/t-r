@@ -398,6 +398,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 299,
+        "pickRate": 99.7,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 299
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -471,50 +489,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 2.3
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 274,
-        "pickRate": 91.3,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 274
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 4
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 733,
-      "charTotalCount": 874,
-      "rate": 83.9,
+      "cosUsedCount": 727,
+      "charTotalCount": 885,
+      "rate": 82.1,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 46,
-      "charTotalCount": 874,
-      "rate": 5.3,
+      "cosUsedCount": 49,
+      "charTotalCount": 885,
+      "rate": 5.5,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 20,
-      "charTotalCount": 874,
-      "rate": 2.3,
+      "cosUsedCount": 19,
+      "charTotalCount": 885,
+      "rate": 2.1,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
     }

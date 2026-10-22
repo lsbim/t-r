@@ -179,6 +179,19 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0,
+        "sidePickRate": 5.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -241,38 +254,33 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 3.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 8.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "불어오는 정복의 바람",
-      "cosUsedCount": 5,
-      "charTotalCount": 9,
-      "rate": 55.6,
+      "cosUsedCount": 7,
+      "charTotalCount": 17,
+      "rate": 41.2,
       "lvl": "normal",
       "launchDate": "2026-06-25"
     },
     {
       "cosName": "해변의 하늬바람",
-      "cosUsedCount": 4,
-      "charTotalCount": 9,
-      "rate": 44.4,
+      "cosUsedCount": 3,
+      "charTotalCount": 17,
+      "rate": 17.6,
       "lvl": "normal",
       "launchDate": "2025-07-24"
+    },
+    {
+      "cosName": "엑스텐 스피릿",
+      "cosUsedCount": 2,
+      "charTotalCount": 17,
+      "rate": 11.8,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
     }
   ]
 }

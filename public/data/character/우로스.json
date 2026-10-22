@@ -207,6 +207,18 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 300,
+        "pickRate": 100,
+        "contentType": "main",
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -491,6 +503,24 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -561,49 +591,31 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 299,
-        "pickRate": 99.7,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 1,
-            "count": 299
-          }
-        ],
-        "totalEntries": 300
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
-      "cosUsedCount": 380,
+      "cosUsedCount": 378,
       "charTotalCount": 900,
-      "rate": 42.2,
+      "rate": 42,
       "lvl": "pretty",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "선도부장 선배님",
-      "cosUsedCount": 280,
+      "cosUsedCount": 274,
       "charTotalCount": 900,
-      "rate": 31.1,
+      "rate": 30.4,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "호숫가 피싱 마스터",
-      "cosUsedCount": 83,
+      "cosUsedCount": 80,
       "charTotalCount": 900,
-      "rate": 9.2,
+      "rate": 8.9,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     }

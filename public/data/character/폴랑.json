@@ -152,6 +152,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 9
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 19.3
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -214,44 +233,31 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 20.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0,
-        "sidePickRate": 19.3
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "승리는 당신을 위해",
-      "cosUsedCount": 33,
-      "charTotalCount": 78,
-      "rate": 42.3,
+      "cosUsedCount": 35,
+      "charTotalCount": 76,
+      "rate": 46.1,
       "lvl": "pretty",
       "launchDate": "2025-06-12"
     },
     {
       "cosName": "창공의 오퍼레이터",
-      "cosUsedCount": 25,
-      "charTotalCount": 78,
-      "rate": 32.1,
+      "cosUsedCount": 22,
+      "charTotalCount": 76,
+      "rate": 28.9,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "나들이 가는 날",
-      "cosUsedCount": 8,
-      "charTotalCount": 78,
-      "rate": 10.3,
+      "cosUsedCount": 7,
+      "charTotalCount": 76,
+      "rate": 9.2,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

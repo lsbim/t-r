@@ -188,6 +188,25 @@
     ],
     "clashV2": [
       {
+        "seasonNumber": 10009,
+        "name": "흑화 영춘",
+        "personality": "광기",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-22",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 18,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 19.7
+      },
+      {
         "seasonNumber": 10008,
         "name": "냥만 타워",
         "personality": "활발",
@@ -262,42 +281,23 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 18.7
-      },
-      {
-        "seasonNumber": 10004,
-        "name": "흑화 영춘",
-        "personality": "냉정",
-        "startDate": "2026-03-19",
-        "endDate": "2026-03-26",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 30,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300,
-        "sidePickRate": 15.7
       }
     ]
   },
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 59,
-      "charTotalCount": 103,
-      "rate": 57.3,
+      "cosUsedCount": 58,
+      "charTotalCount": 96,
+      "rate": 60.4,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
-      "cosUsedCount": 2,
-      "charTotalCount": 103,
-      "rate": 1.9,
+      "cosUsedCount": 4,
+      "charTotalCount": 96,
+      "rate": 4.2,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }
