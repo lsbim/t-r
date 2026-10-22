@@ -125,6 +125,7 @@ export const costumes: Costume[] = [
     { charName: "우이(기억)", cosName: "계란빛 츄리닝 메이드", lvl: "normal", launchDate: "2026-09-24" },
     { charName: "우이(기억)", cosName: "이슬빛 방울 의사", lvl: "pretty", launchDate: "2026-09-24" },
     { charName: "시저", cosName: "끝내주는 악당!", lvl: "normal", launchDate: "2026-10-15" },
+    { charName: "코페", cosName: "열정 가득 매니저", lvl: "normal", launchDate: "2026-10-22" },
     
     // 광기
     { charName: "클로에", cosName: "복슬복슬 사자탈", lvl: "normal", launchDate: "2024-10-31" },
