@@ -16,6 +16,7 @@ import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
 import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
 import { containerDarkBG } from '../../../styles/container';
+import { getPersonalityColor, getPersonalityDarkColor } from '@/types/trickcalTypes';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
@@ -59,6 +60,18 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                 const { label, color } = CONTENT_CONFIG[key];
                 const sorted = [...arr].reverse(); // 기본이 시간 내림차순이므로 역순 만들기
 
+                const hasBossPersonality = key !== 'frontier';
+
+                const pointColors = hasBossPersonality
+                    ? sorted.map(s => {
+                        if (!s.personality) return color;
+
+                        return theme === 'dark'
+                            ? getPersonalityDarkColor(s.personality)
+                            : getPersonalityColor(s.personality);
+                    })
+                    : color;
+
                 const hasSideData = sorted.some(s => s.sidePickRate !== undefined);
                 const dataMaxMain = sorted.length > 0 ? Math.max(...sorted.map(s => s.pickRate)) : 0;
                 const dataMaxSide = hasSideData ? Math.max(...sorted.map(s => s.sidePickRate ?? 0)) : 0;
@@ -69,17 +82,16 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                 const datasets: ChartDataset<"line", (number | Point | null)[]>[] = [{
                     label: hasSideData ? '셰이디의 차원' : label,
                     data: sorted.map(s => s.pickRate),
-                    borderColor: color,
                     backgroundColor: (ctx: any) => getGradient(ctx, color, dataMaxMain),
                     fill: 'origin',
-                    pointBackgroundColor: color,
-                    borderWidth: 2,
+                    pointBackgroundColor: pointColors,
+                    borderColor: color,
+                    borderWidth: 1,
                     tension: 0.1,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
-                    pointHoverBackgroundColor: color,
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 2,
+                    pointBorderColor: pointColors,
+                    pointRadius: 9,
+                    pointHoverRadius: 9,
+                    pointHoverBackgroundColor: pointColors,
                     spanGaps: false,
                 }];
 
@@ -93,14 +105,12 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                         borderColor: sideColor,
                         backgroundColor: (ctx: any) => getGradient(ctx, sideColor, dataMaxSide),
                         fill: 'origin',
-                        pointBackgroundColor: sideColor,
-                        borderWidth: 2,
+                        pointBackgroundColor: pointColors,
+                        borderWidth: 1,
+                        pointBorderColor: pointColors,
                         tension: 0.1,
-                        pointRadius: 5,
-                        pointHoverRadius: 7,
-                        pointHoverBackgroundColor: sideColor,
-                        pointHoverBorderColor: '#ffffff',
-                        pointHoverBorderWidth: 2,
+                        pointRadius: 9,
+                        pointHoverBackgroundColor: pointColors,
                         spanGaps: false,
                     });
                 }
