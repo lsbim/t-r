@@ -206,7 +206,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
 
                 return { key, label, color, chartData, options };
             });
-    }, [recentStats, tickColor, gridColor]);
+    }, [recentStats, tickColor, gridColor, theme]);
 
     return (
         <div className={`w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
