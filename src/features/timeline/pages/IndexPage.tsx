@@ -71,7 +71,7 @@ const IndexPage = () => {
             });
         });
 
-        // 레이드 컨텐츠
+        // 레이드 콘텐츠
         Object.entries(clash).forEach(([key, r]) => {
             const { startDate, endDate } = toIsoDates(r);
             pushNode(startDate, {
@@ -157,7 +157,7 @@ const IndexPage = () => {
                 <HeaderNav />
                 {/* 소개 */}
                 <div className="lg:w-[992px] mt-6 w-full mx-auto text-[20px] font-bold dark:text-zinc-200 p-2 rounded-xl">
-                    <h1 className="">컨텐츠 타임라인</h1>
+                    <h1 className="">콘텐츠 타임라인</h1>
 
                 </div>
 

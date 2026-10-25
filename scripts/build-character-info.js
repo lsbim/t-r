@@ -367,7 +367,7 @@ function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, co
     const skinCounts = new Map();
     let charTotalCount = 0;
 
-    // 각 컨텐츠별 최신 시즌 1개씩만 참조
+    // 각 콘텐츠별 최신 시즌 1개씩만 참조
     for (const stats of [clashStats, frontierStats, clashV2Stats]) {
         const latest = stats[0];
         if (!latest || latest.raw.type !== 'season') continue;
@@ -431,7 +431,7 @@ async function buildCharacterStats() {
     const clashV2Stats = precomputeV2(clashV2Seasons);
     console.log('✔️ 픽 통계 계산 완료');
 
-    const needRecentSeasonNumber = 5; // 가져올 컨텐츠별 시즌 갯수
+    const needRecentSeasonNumber = 10; // 가져올 콘텐츠별 시즌 갯수
 
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
 

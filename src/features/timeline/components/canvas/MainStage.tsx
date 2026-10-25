@@ -29,7 +29,7 @@ export const HOVER_LIFT_Y = -20;
 // 타임라인 주제 나열 기준
 export const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
 export const ROW_HEIGHT = 140;
-// +1은 컨텐츠가 3줄일 시 제거 생각할 것
+// +1은 콘텐츠가 3줄일 시 제거 생각할 것
 const STAGE_HEIGHT = (TIMELINE_ROW_ORDER?.length + 1) * ROW_HEIGHT + -HOVER_LIFT_Y;
 
 export function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
@@ -144,7 +144,7 @@ const MainStage: React.FC<MainStageProps> = ({
         width={stageWidth}
         height={STAGE_HEIGHT}>
 
-        {/* offsetX에 영향받는 컨텐츠 */}
+        {/* offsetX에 영향받는 콘텐츠 */}
         <Layer
           perfectDrawEnabled={false}
           ref={layerRef}>

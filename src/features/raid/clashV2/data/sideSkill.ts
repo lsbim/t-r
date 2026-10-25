@@ -7,7 +7,7 @@ export interface sideSkill {
 // 대충돌 2.0 베타 시즌 6에서 사용된 clashV2Side11의 이미지는 clashV2Side2와 같다.
 // 비슷한 사례가 더 나올 시 재활용 가능한 함수로 만들어 사용
 
-// 컨텐츠에서 빌려쓰는 스킬
+// 콘텐츠에서 빌려쓰는 스킬
 export const sideSkillList: sideSkill[] = [
     {
         name: 'clashV2Side1',

@@ -27,7 +27,7 @@ export interface TopSeasonStat {
     contentType?: "main" | 'side';
 }
 
-// 컨텐츠 별 최근 성적
+// 콘텐츠 별 최근 성적
 export interface RecentSeasonStat {
     seasonNumber: number;
     name: string | null;
@@ -61,7 +61,7 @@ export interface ContentTopSeasons {
     clashV2: TopSeasonStat[];
 }
 
-// 컨텐츠 별 최근 성적
+// 콘텐츠 별 최근 성적
 export interface ContentRecentStats {
     clash: RecentSeasonStat[];
     frontier: RecentSeasonStat[];

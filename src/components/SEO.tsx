@@ -66,7 +66,7 @@ export const CharacterSEO = () => {
     return (
         <SEO
             title={`${charName} - 사도 정보, 통계`}
-            description={`트릭컬 리바이브 ${charName}의 컨텐츠 기록을 요약하여 제공합니다.`}
+            description={`트릭컬 리바이브 ${charName}의 콘텐츠 기록을 요약하여 제공합니다.`}
         />
     );
 };

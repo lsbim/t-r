@@ -302,6 +302,96 @@
           }
         ],
         "totalEntries": 300
+      },
+      {
+        "seasonNumber": 43,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-02-19",
+        "endDate": "2026-02-26",
+        "pickCount": 218,
+        "pickRate": 72.7,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 218
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 42,
+        "name": "릴1리",
+        "personality": "활발",
+        "startDate": "2026-01-08",
+        "endDate": "2026-01-15",
+        "pickCount": 159,
+        "pickRate": 53,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 159
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 41,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2025-11-27",
+        "endDate": "2025-12-04",
+        "pickCount": 199,
+        "pickRate": 66.3,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 199
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 40,
+        "name": "크레용사용",
+        "personality": "광기",
+        "startDate": "2025-10-16",
+        "endDate": "2025-10-23",
+        "pickCount": 267,
+        "pickRate": 89,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 267
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 39,
+        "name": "크레용사용",
+        "personality": "순수",
+        "startDate": "2025-10-02",
+        "endDate": "2025-10-09",
+        "pickCount": 272,
+        "pickRate": 90.7,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 272
+          }
+        ],
+        "totalEntries": 300
       }
     ],
     "frontier": [
@@ -391,6 +481,96 @@
             "line": "전열",
             "rank": 1,
             "count": 299
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 16,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2026-03-05",
+        "endDate": "2026-03-12",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "overallRank": 3,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 298
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 15,
+        "name": "R41-리뉴아",
+        "personality": null,
+        "startDate": "2026-01-22",
+        "endDate": "2026-01-29",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 295
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 14,
+        "name": "우로스",
+        "personality": null,
+        "startDate": "2025-12-11",
+        "endDate": "2025-12-18",
+        "pickCount": 294,
+        "pickRate": 98,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 294
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 13,
+        "name": "크레용사용",
+        "personality": null,
+        "startDate": "2025-10-30",
+        "endDate": "2025-11-06",
+        "pickCount": 293,
+        "pickRate": 97.7,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 293
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
+        "seasonNumber": 12,
+        "name": "M.E.O.W",
+        "personality": null,
+        "startDate": "2025-09-18",
+        "endDate": "2025-09-25",
+        "pickCount": 285,
+        "pickRate": 95,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 285
           }
         ],
         "totalEntries": 300
@@ -489,6 +669,82 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 2.3
+      },
+      {
+        "seasonNumber": 10004,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2026-03-19",
+        "endDate": "2026-03-26",
+        "pickCount": 274,
+        "pickRate": 91.3,
+        "overallRank": 2,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 274
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4
+      },
+      {
+        "seasonNumber": 10003,
+        "name": "냥만 타워",
+        "personality": "순수",
+        "startDate": "2026-02-05",
+        "endDate": "2026-02-12",
+        "pickCount": 283,
+        "pickRate": 94.3,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 283
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 2
+      },
+      {
+        "seasonNumber": 10002,
+        "name": "흑화 영춘",
+        "personality": "냉정",
+        "startDate": "2025-12-25",
+        "endDate": "2026-01-01",
+        "pickCount": 255,
+        "pickRate": 85,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 255
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 4.7
+      },
+      {
+        "seasonNumber": 10001,
+        "name": "흑화 영춘",
+        "personality": "활발",
+        "startDate": "2025-11-13",
+        "endDate": "2025-11-20",
+        "pickCount": 196,
+        "pickRate": 65.3,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 196
+          }
+        ],
+        "totalEntries": 300,
+        "sidePickRate": 13.7
       }
     ]
   },
