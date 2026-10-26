@@ -36,7 +36,7 @@ const LineBarComponent = ({
 
     return (
         <div
-            className="w-full h-[24px] flex overflow-hidden text-[13px] dark:brightness-90 rounded-md">
+            className="w-full h-[24px] flex overflow-hidden text-[13px] rounded-md dark:brightness-90 gap-x-[1px]">
             {segments.map((seg) => {
                 // (seg.percent/total)*100 으로 재스케일하거나,
                 // 전체 백분율 그대로 seg.percent 사용
@@ -53,7 +53,7 @@ const LineBarComponent = ({
                         title={`${line ? line : ''} ${seg.personality} ${w.toFixed(1)}%`}
                     >
                         <span className="whitespace-nowrap">
-                            {Math.round(w)}%
+                            {w > 10 && `${Math.round(w)}%`}
                         </span>
                     </div>
                 );
