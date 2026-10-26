@@ -1,3 +1,4 @@
+import { getPersonalityColor, getPersonalityDarkColor } from '@/types/trickcalTypes';
 import {
     CategoryScale,
     ChartData,
@@ -14,9 +15,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
-import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
 import { containerDarkBG } from '../../../styles/container';
-import { getPersonalityColor, getPersonalityDarkColor } from '@/types/trickcalTypes';
+import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
@@ -75,7 +75,6 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                     pointBorderColor: pointColors,
                     pointRadius: 9,
                     pointHoverRadius: 9,
-                    pointHoverBackgroundColor: pointColors,
                     spanGaps: false,
                 }];
 
@@ -93,7 +92,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                         pointBorderColor: pointColors,
                         tension: 0.1,
                         pointRadius: 9,
-                        pointHoverBackgroundColor: pointColors,
+                        pointHoverRadius: 9,
                         spanGaps: false,
                     });
                 }
@@ -168,7 +167,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                     scales: {
                         x: {
                             ticks: { color: tickColor, font: { size: 12 } },
-                            grid: { display: false},
+                            grid: { display: false },
                         },
                         y: {
                             min: 0,
