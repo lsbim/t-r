@@ -39,21 +39,6 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
 
     const charts = useMemo(() => {
 
-        const getGradient = (ctxObj: any, hexColor: string, max: number) => {
-            const { ctx, chartArea, scales } = ctxObj.chart;
-            if (!chartArea) {
-                return hexColor + '1a';
-            }
-            let yTop = scales.y.getPixelForValue(max);
-            if (yTop >= chartArea.bottom) yTop = chartArea.bottom - 1;
-
-            const gradient = ctx.createLinearGradient(0, yTop, 0, chartArea.bottom);
-            gradient.addColorStop(0, hexColor + '15');
-            gradient.addColorStop(1, hexColor + '00');
-
-            return gradient;
-        };
-
         return (Object.entries(recentStats) as [keyof ContentRecentStats, RecentSeasonStat[]][])
             .filter(([, arr]) => arr.length > 0)
             .map(([key, arr]) => {
@@ -82,8 +67,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                 const datasets: ChartDataset<"line", (number | Point | null)[]>[] = [{
                     label: hasSideData ? '셰이디의 차원' : label,
                     data: sorted.map(s => s.pickRate),
-                    backgroundColor: (ctx: any) => getGradient(ctx, color, dataMaxMain),
-                    fill: 'origin',
+                    fill: false,
                     pointBackgroundColor: pointColors,
                     borderColor: color,
                     borderWidth: 1,
@@ -103,8 +87,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                         label: '림의 이면세계',
                         data: sorted.map(s => s.sidePickRate ?? 0),
                         borderColor: sideColor,
-                        backgroundColor: (ctx: any) => getGradient(ctx, sideColor, dataMaxSide),
-                        fill: 'origin',
+                        fill: false,
                         pointBackgroundColor: pointColors,
                         borderWidth: 1,
                         pointBorderColor: pointColors,
@@ -185,7 +168,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                     scales: {
                         x: {
                             ticks: { color: tickColor, font: { size: 12 } },
-                            grid: { color: gridColor },
+                            grid: { display: false},
                         },
                         y: {
                             min: 0,
@@ -196,7 +179,7 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                                 padding: 16,
                                 callback: val => Number(val) > 100 ? '' : `${val}%`,
                             },
-                            grid: { color: gridColor },
+                            grid: { display: false },
                         },
                     },
                     layout: {
