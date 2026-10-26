@@ -190,6 +190,7 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                 },
                 grid: {
                     color: gridColor,
+                    display: false
                 }
             },
             // 오른쪽 Y축 (림의 이면세계)

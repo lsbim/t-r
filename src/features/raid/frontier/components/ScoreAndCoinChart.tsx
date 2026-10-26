@@ -229,6 +229,7 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 },
                 grid: {
                     color: gridColor,
+                    display: false
                 }
             },
             // 왼쪽 Y축 (점수)

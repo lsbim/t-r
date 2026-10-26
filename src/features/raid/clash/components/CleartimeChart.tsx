@@ -260,7 +260,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
             x: {
                 title: { font: { size: 14, weight: 'bold' } },
                 ticks: { font: { size: 12 }, color: tickColor },
-                grid: { display: true, color: gridColor }
+                grid: { display: false, color: gridColor }
             },
             y_duration: {
                 type: 'linear',
@@ -271,7 +271,7 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                     color: '#8884d8',
                     callback: value => value,
                 },
-                grid: { display: true, color: gridColor },
+                grid: { color: gridColor },
             },
             // 점수 데이터가 존재할 때만 점수 스케일 활성화
             ...(hasScoreData && {

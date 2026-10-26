@@ -131,7 +131,7 @@ const AllPickRateChart = ({ data, type, setSelect }:
                     color: tickColor
                 },
                 grid: {
-                    display: true,
+                    display: false,
                     drawOnChartArea: true,
                     drawTicks: true,
                     color: gridColor
@@ -147,7 +147,6 @@ const AllPickRateChart = ({ data, type, setSelect }:
                     color: tickColor
                 },
                 grid: {
-                    display: true,
                     drawOnChartArea: true,
                     drawTicks: true,
                     color: gridColor
