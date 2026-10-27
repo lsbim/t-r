@@ -697,6 +697,22 @@
       "rate": 5,
       "lvl": "normal",
       "launchDate": "2025-07-17"
+    },
+    {
+      "cosName": "개인적 피크닉",
+      "cosUsedCount": 17,
+      "charTotalCount": 422,
+      "rate": 4,
+      "lvl": "normal",
+      "launchDate": "2024-09-26"
+    },
+    {
+      "cosName": "폭신 폭신 슬리퍼",
+      "cosUsedCount": 13,
+      "charTotalCount": 422,
+      "rate": 3.1,
+      "lvl": "normal",
+      "launchDate": "2024-09-26"
     }
   ]
 }

@@ -414,6 +414,14 @@
       "rate": 12.5,
       "lvl": "normal",
       "launchDate": "2025-06-26"
+    },
+    {
+      "cosName": "포션 가게의 휴일",
+      "cosUsedCount": 3,
+      "charTotalCount": 24,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2024-10-17"
     }
   ]
 }

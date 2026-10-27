@@ -666,6 +666,22 @@
       "rate": 9.5,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
+    },
+    {
+      "cosName": "동심의 햇살",
+      "cosUsedCount": 11,
+      "charTotalCount": 201,
+      "rate": 5.5,
+      "lvl": "normal",
+      "launchDate": "2024-08-22"
+    },
+    {
+      "cosName": "개운한 행복",
+      "cosUsedCount": 2,
+      "charTotalCount": 201,
+      "rate": 1,
+      "lvl": "normal",
+      "launchDate": "2024-08-22"
     }
   ]
 }

@@ -363,7 +363,7 @@ function getRecentStats(charName, seasonStats, n) {
 }
 
 // 최근 사복 top3
-function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
+function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
     const skinCounts = new Map();
     let charTotalCount = 0;
 
@@ -384,7 +384,6 @@ function getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, co
 
     return [...skinCounts.entries()]
         .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
         .map(([cosName, cosUsedCount]) => {
             // 사도 출전 횟수가 0이면 사용률 0 
             const rate = charTotalCount > 0
@@ -451,7 +450,7 @@ async function buildCharacterStats() {
                 frontier: getRecentStats(charName, frontierStats, needRecentSeasonNumber),
                 clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
             },
-            recentSkins: getRecentSkinTop3(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
+            recentSkins: getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
         };
 
         await fs.writeFile(

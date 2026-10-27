@@ -754,6 +754,22 @@
       "rate": 14.8,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
+    },
+    {
+      "cosName": "최후의 흑막",
+      "cosUsedCount": 2,
+      "charTotalCount": 122,
+      "rate": 1.6,
+      "lvl": "normal",
+      "launchDate": "2025-01-09"
+    },
+    {
+      "cosName": "유혹의 용족",
+      "cosUsedCount": 1,
+      "charTotalCount": 122,
+      "rate": 0.8,
+      "lvl": "normal",
+      "launchDate": "2025-01-09"
     }
   ]
 }

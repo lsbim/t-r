@@ -510,6 +510,22 @@
       "rate": 12.5,
       "lvl": "normal",
       "launchDate": "2024-07-25"
+    },
+    {
+      "cosName": "다크 넷 거너",
+      "cosUsedCount": 2,
+      "charTotalCount": 56,
+      "rate": 3.6,
+      "lvl": "pretty",
+      "launchDate": "2025-05-29"
+    },
+    {
+      "cosName": "다크 버니",
+      "cosUsedCount": 1,
+      "charTotalCount": 56,
+      "rate": 1.8,
+      "lvl": "normal",
+      "launchDate": "2024-07-25"
     }
   ]
 }
