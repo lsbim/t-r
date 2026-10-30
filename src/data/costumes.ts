@@ -243,6 +243,7 @@ export const costumes: Costume[] = [
     { charName: "셰이디(역전)", cosName: "달콤한 나의 상사님", lvl: "normal", launchDate: "2026-08-20" },
     { charName: "스피키(메이드)", cosName: "캐럿 청소 바니", lvl: "normal", launchDate: "2026-09-17" },
     { charName: "루드", cosName: "저주받은 붉은 백작", lvl: "normal", launchDate: "2026-10-15" },
+    { charName: "버터", cosName: "별밤 산책 대장", lvl: "pretty", launchDate: "2026-10-29" },
 
 
     // 우울
