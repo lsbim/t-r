@@ -42,7 +42,6 @@ export interface RaidStatSeason {
     userTotalCount: number;
     rates: RaidStatRate[];
     cuts: Partial<Record<RecordMetric, RankCuts>>;
-    rankOrderOk: Partial<Record<RecordMetric, boolean>>; 
     comboCounts: number[];
     top1Arr: string[]; // 1위의 조합
 }
