@@ -4,6 +4,7 @@ import { ClashV2SeasonData, ClashV2Summary } from "../types/clashV2Types";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData, FrontierSummary } from "../types/frontierTypes";
 import { LatestData } from "../types/latestTypes";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
+import { RaidStatsFile } from "@/features/raid/shared/types/statTypes";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -27,7 +28,7 @@ export const fetchSummaryData = async (type: TrickcalRaidEn | 'latest', category
     const typeDir = type === 'clashV2' ? 'clash_v2' : type
 
     let response = category === 'summary' ? await fetch(`/data/${typeDir}/summaries.json`)
-        : category === 'stats' ? await fetch(`/data/${typeDir}/personality.json`)
+        : category === 'stats' ? await fetch(`/data/${typeDir}/stats.json`)
             : undefined;
 
     if (!response) return null;
@@ -53,7 +54,8 @@ export const useRaidData =
         | ClashSummary
         | FrontierSummary
         | ClashV2Summary
-        | LatestData>
+        | LatestData
+        | RaidStatsFile>
         (
             type: TrickcalRaidEn | 'latest',
             category: 'season' | 'summary' | 'stats',
