@@ -1,8 +1,8 @@
 import { CharInfoType } from "../../../../data/trickcalChar";
 import { BaseLine, lineList } from "../../../../types/trickcalTypes";
 import { parseResonanceBaseName } from "../../../../utils/resonanceFunction";
-import { CompositionKey, EssentialChar, MetaChange, NewCharRate, RaidStatRate, RaidStatSeason } from "../types/statTypes";
-import { STAT_SEASON_WINDOW } from "./raidStatConfig";
+import { ComboDiversity, CompositionKey, EssentialChar, MetaChange, NewCharRate, RaidStatRate, RaidStatSeason, RankCutRatios, RankCuts, RecordMetric, Top1CompDiff } from "../types/statTypes";
+import { METRIC_META, RANK_CUT_RANKS, STAT_SEASON_WINDOW } from "./raidStatConfig";
 
 // 필수 사도로 보는 사용률 기준 %
 const ESSENTIAL_THRESHOLD = 90;
@@ -102,7 +102,7 @@ export const calcNewCharRates = (seasons: RaidStatSeason[], info: CharInfoType):
     );
 };
 
-// 사도 구성 비율(%): 모든 팀의 사도 중 속성(공격 타입·역할·종족)별 비율. 합계는 100
+// 사도 구성 비율(%): 모든 팀의 사도 중 속성(공격 타입/역할/종족)별 비율. 합계는 100
 // 사도 정보가 없는 이름은 제외
 export const calcComposition = (
     season: RaidStatSeason,
@@ -128,6 +128,49 @@ export const calcComposition = (
     });
 
     return result;
+};
+
+// 조합 다양성: 조합별 사용 팀 수(comboCounts)로 고유 조합 수, 유효 조합 수, 1위 조합 점유율 계산
+export const calcComboDiversity = (season: RaidStatSeason): ComboDiversity => {
+    const total = season.comboCounts.reduce((sum, count) => sum + count, 0);
+    if (total === 0) return { uniqueCount: 0, effectiveCount: 0, top1Share: 0 };
+
+    // 점유율 제곱합의 역수 (역심슨 지수)
+    const squareSum = season.comboCounts.reduce((sum, count) => sum + (count / total) ** 2, 0);
+
+    return {
+        uniqueCount: season.comboCounts.length,
+        effectiveCount: 1 / squareSum,
+        top1Share: (Math.max(...season.comboCounts) / total) * 100,
+    };
+};
+
+// 순위 컷별 1위 대비 비율
+export const calcRankCutRatio = (cuts: RankCuts | undefined, metric: RecordMetric): RankCutRatios => {
+    const base = cuts?.[1];
+    const multiplier = METRIC_META[metric].ratioUnit === "%" ? 100 : 1;
+
+    const ratios: RankCutRatios = {};
+    RANK_CUT_RANKS.forEach(rank => {
+        if (rank === 1) return;
+
+        const value = cuts?.[rank] ?? null;
+        ratios[rank] = base && value !== null ? (value / base) * multiplier : null;
+    });
+
+    return ratios;
+};
+
+// 1위 조합의 직전 시즌 대비 변화 (새로 들어온/빠진/유지된 사도)
+export const diffTop1Comp = (prev: RaidStatSeason, curr: RaidStatSeason): Top1CompDiff => {
+    const prevSet = new Set(prev.top1Arr);
+    const currSet = new Set(curr.top1Arr);
+
+    return {
+        added: curr.top1Arr.filter(name => !prevSet.has(name)),
+        removed: prev.top1Arr.filter(name => !currSet.has(name)),
+        kept: curr.top1Arr.filter(name => prevSet.has(name)),
+    };
 };
 
 // 최근 N시즌만 남김

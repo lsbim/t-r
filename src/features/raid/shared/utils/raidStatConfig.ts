@@ -17,19 +17,16 @@ export const METRIC_META: Record<RecordMetric, RecordMetricMeta> = {
 // 콘텐츠별 통계 설정
 export const STAT_CONFIG: Record<TrickcalRaidEn, RaidStatConfig> = {
     clash: {
-        label: "차원 대충돌",
         shortLabel: "대충돌",
         path: "/stat/clash/v1",
         metrics: ["duration"],
     },
     clashV2: {
-        label: "차원 대충돌 2.0",
         shortLabel: "대충돌 2.0",
         path: "/stat/clash/v2",
         metrics: ["duration"],
     },
     frontier: {
-        label: "엘리아스 프론티어",
         shortLabel: "프론티어",
         path: "/stat/frontier",
         metrics: ["score", "coin"],

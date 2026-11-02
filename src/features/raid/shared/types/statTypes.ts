@@ -60,7 +60,6 @@ export interface RecordMetricMeta {
 
 // 콘텐츠별 통계 설정
 export interface RaidStatConfig {
-    label: string; 
     shortLabel: string; 
     path: string;
     metrics: RecordMetric[];
@@ -89,3 +88,31 @@ export interface NewCharRate {
 
 // 사도 구성 비율 속성 (공격 타입/역할/종족)
 export type CompositionKey = "attackType" | "role" | "race";
+
+// 조합 다양성
+export interface ComboDiversity {
+    uniqueCount: number; // 고유 조합 수
+    effectiveCount: number; // 유효 조합 수 (사실상 몇 가지 조합이 쓰였는지)
+    top1Share: number; // 가장 많이 쓰인 조합의 점유율 (%)
+}
+
+// 순위 컷별 1위 대비 비율 (1위는 기준이라 제외, 기록이 없으면 null)
+export type RankCutRatios = Partial<Record<RankCutRank, number | null>>;
+
+// 1위 조합의 직전 시즌 대비 변화
+export interface Top1CompDiff {
+    added: string[]; // 새로 들어온 사도
+    removed: string[]; // 빠진 사도
+    kept: string[]; // 유지
+}
+
+export interface RaidStatsView {
+    seasons: RaidStatSeason[];
+    metaChanges: (MetaChange | null)[];
+    essentials: EssentialChar[][];
+    newChars: NewCharRate[];
+    compositions: Record<CompositionKey, Record<string, number>[]>;
+    diversities: ComboDiversity[];
+    rankCutRatios: Partial<Record<RecordMetric, RankCutRatios[]>>;
+    top1Diffs: (Top1CompDiff | null)[]; 
+}
