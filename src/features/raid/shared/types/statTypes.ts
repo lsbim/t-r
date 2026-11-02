@@ -65,3 +65,27 @@ export interface RaidStatConfig {
     path: string;
     metrics: RecordMetric[];
 }
+
+// ----------------------------- 통계 계산 결과 -----------------
+
+// 메타 변화량 (%): 직전 시즌과 비교해 다른 사도로 바뀐 자리의 비율
+export interface MetaChange {
+    total: number; // 세 열의 평균
+    lines: Record<BaseLine, number>;
+}
+
+// 필수 사도 (기준 이상 사용된 사도)
+export interface EssentialChar {
+    name: string;
+    rate: number; // 사용률 %
+}
+
+// 신규 사도 출전율: rates는 입력 시즌 순서와 같고, null은 출시 전 시즌
+export interface NewCharRate {
+    name: string;
+    birthdate: string;
+    rates: (number | null)[];
+}
+
+// 사도 구성 비율 속성 (공격 타입/역할/종족)
+export type CompositionKey = "attackType" | "role" | "race";
