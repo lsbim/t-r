@@ -61,6 +61,17 @@ export const RaidSeasonSEO = ({ raidType }: { raidType: TrickcalRaidEn }) => {
     );
 };
 
+export const RaidStatSEO = ({ raidType }: { raidType: TrickcalRaidEn }) => {
+    const raidName = translateRaid(raidType);
+
+    return (
+        <SEO
+            title={`${raidName} 통계`}
+            description={`${raidName}의 최근 시즌 통계 데이터를 제공합니다.`}
+        />
+    );
+};
+
 export const CharacterSEO = () => {
     const { charName } = useParams() as { charName: string };
     return (

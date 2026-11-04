@@ -3,7 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet, redirect, ScrollRestoration } from "react-router-dom";
 import { charInfo } from "../data/trickcalChar";
 import Loading from "../layouts/Loading";
-import SEO, { CharacterSEO, RaidIndexSEO, RaidSeasonSEO } from "@/components/SEO";
+import SEO, { CharacterSEO, RaidIndexSEO, RaidSeasonSEO, RaidStatSEO } from "@/components/SEO";
 
 const HomePage = lazy(() => import("../features/home/pages/IndexPage"));
 
@@ -15,6 +15,8 @@ const ClashV2Season = lazy(() => import("../features/raid/clashV2/pages/ClashV2S
 
 const FrontierIndex = lazy(() => import("../features/raid/frontier/pages/IndexPage"));
 const FrontierSeason = lazy(() => import("../features/raid/frontier/pages/SeasonPage"));
+
+const RaidStats = lazy(() => import("../features/raid/shared/pages/RaidStatsPage"));
 
 const RaidTimelineIndex = lazy(() => import("../features/timeline/pages/IndexPage"));
 
@@ -136,6 +138,47 @@ const router = createBrowserRouter([
                         <FrontierSeason />
                     </Suspense>
                 </>,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "stats",
+                element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
+                children: [
+                    {
+                        index: true,
+                        element: <Navigate to="clash/v1" replace />
+                    },
+                    {
+                        path: "clash/v1",
+                        element: <>
+                            <RaidStatSEO raidType="clash" />
+                            <Suspense fallback={<Loading />}>
+                                <RaidStats type="clash" />
+                            </Suspense>
+                        </>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "clash/v2",
+                        element: <>
+                            <RaidStatSEO raidType="clashV2" />
+                            <Suspense fallback={<Loading />}>
+                                <RaidStats type="clashV2" />
+                            </Suspense>
+                        </>,
+                        errorElement: <ErrorPage />
+                    },
+                    {
+                        path: "frontier",
+                        element: <>
+                            <RaidStatSEO raidType="frontier" />
+                            <Suspense fallback={<Loading />}>
+                                <RaidStats type="frontier" />
+                            </Suspense>
+                        </>,
+                        errorElement: <ErrorPage />
+                    },
+                ],
                 errorElement: <ErrorPage />
             },
             {
