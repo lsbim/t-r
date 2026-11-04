@@ -4,11 +4,9 @@ import { charInfo } from "../../data/trickcalChar";
 const CharacterIcon = ({
     name,
     type,
-    size
 }: {
     name: string,
     type?: 'small' | 'mini' | 'micro',
-    size?: number
 }) => {
 
     const personality = charInfo[name].personality;
