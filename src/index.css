@@ -34,26 +34,7 @@ body {
 
 
 .resonance-pers {
-    background:
-        conic-gradient(from 0deg,
-            var(--madness) 0deg,
-            /* 12시: 광기 */
-            var(--madness) 36deg,
-            var(--innocence) 72deg,
-            /* 2시: 순수 */
-            var(--innocence) 108deg,
-            var(--composed) 144deg,
-            /* 5시: 냉정 */
-            var(--composed) 180deg,
-            var(--depressed) 216deg,
-            /* 7시: 우울 */
-            var(--depressed) 252deg,
-            var(--vivacious) 288deg,
-            /* 10시: 활발 */
-            var(--vivacious) 324deg,
-            var(--madness) 360deg
-            /* 다시 12시로 */
-        );
+    background: url('/images/ui/resonance_bg.webp') center / cover;
 }
 
 .resonance-bar {
