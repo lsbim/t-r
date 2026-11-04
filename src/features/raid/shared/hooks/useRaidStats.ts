@@ -12,7 +12,8 @@ export const useRaidStats = (type: TrickcalRaidEn): RaidStatsView => {
     const { data } = useRaidData<RaidStatsFile>(type, "stats");
 
     return useMemo(() => {
-        const seasons = selectSeasonWindow(data.seasons);
+        const all = data.seasons;
+        const seasons = selectSeasonWindow(all);
 
         const compositions = {} as Record<CompositionKey, Record<string, number>[]>;
         COMPOSITION_KEYS.forEach(key => {
@@ -26,13 +27,12 @@ export const useRaidStats = (type: TrickcalRaidEn): RaidStatsView => {
 
         return {
             seasons,
-            metaChanges: seasons.map((season, i) => (i === 0 ? null : calcMetaChange(seasons[i - 1], season))),
-            essentials: seasons.map(season => calcEssentialChars(season)),
+            metaChanges: selectSeasonWindow(all.map((season, i) => (i === 0 ? null : calcMetaChange(all[i - 1], season)))), essentials: seasons.map(season => calcEssentialChars(season)),
             newChars: calcNewCharRates(seasons, charInfo),
             compositions,
             diversities: seasons.map(season => calcComboDiversity(season)),
             rankCutRatios,
-            top1Diffs: seasons.map((season, i) => (i === 0 ? null : diffTop1Comp(seasons[i - 1], season))),
+            top1Diffs: selectSeasonWindow(all.map((season, i) => (i === 0 ? null : diffTop1Comp(all[i - 1], season)))),
         };
     }, [data, type]);
 };

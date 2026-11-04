@@ -2,6 +2,7 @@ import { TrickcalRaidEn } from "../../../../types/trickcalTypes";
 import { RaidStatConfig, RankCutRank, RecordMetric, RecordMetricMeta } from "../types/statTypes";
 
 // 통계에 사용하는 최근 시즌 수
+// stats.json에는 비교 기준 시즌 1개가 더 들어 있음
 export const STAT_SEASON_WINDOW = 10;
 
 // 순위별 기록으로 뽑는 순위 컷
