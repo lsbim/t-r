@@ -1,11 +1,10 @@
 import { TrickcalRaidEn } from "@/types/trickcalTypes";
 import { translateRaid } from "@/utils/function";
 import { useRaidStats } from "../../hooks/useRaidStats";
+import MetaTrendChart from "./MetaTrendChart";
 
 const RaidStatsComponent = ({ type }: { type: TrickcalRaidEn }) => {
-    const { seasons } = useRaidStats(type);
-
-    // console.log(seasons)
+    const view = useRaidStats(type);
 
     return (
         <div className="w-[992px] max-w-full my-8">
@@ -14,8 +13,12 @@ const RaidStatsComponent = ({ type }: { type: TrickcalRaidEn }) => {
                     {translateRaid(type)} 통계
                 </h1>
                 <span className="mt-1 text-[13px] text-gray-600 dark:text-zinc-400">
-                    최근 {seasons.length}시즌 / 상위 300위 기준
+                    최근 {view.seasons.length}시즌 · 상위 300위 기준
                 </span>
+            </div>
+
+            <div className="flex flex-col gap-y-4">
+                <MetaTrendChart view={view} />
             </div>
         </div>
     );

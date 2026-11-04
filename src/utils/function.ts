@@ -34,6 +34,10 @@ export function translateRaid(name: string) {
     }
 }
 
+export function getSeasonName(season: number | string) {
+    return Number(season) > 10000 ? `베타 시즌${Number(season) - 10000}` : `시즌${season}`;
+}
+
 export function getDaysSince(dateString: string) {
     // 한국 시간대로 날짜만 추출
     const koreaToday = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
