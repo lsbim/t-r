@@ -181,7 +181,7 @@ const MiniTrendCard = ({
     };
 
     return (
-        <div className="flex flex-col min-w-0 p-2 rounded-lg border border-zinc-200 dark:border-zinc-700">
+        <div className="flex flex-col min-w-0 p-2">
             {/* 지표 제목 + 설명 */}
             <div className="flex items-center gap-x-1">
                 <span className="text-[13px] font-bold text-gray-600 dark:text-zinc-400">
