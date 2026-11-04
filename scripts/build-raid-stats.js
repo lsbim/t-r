@@ -98,10 +98,68 @@ function buildSeasonStats(season, raw, summary, raid) {
     };
 }
 
+function calculateChangeRate(previousRates, currentRates, targetLine = null) {
+    const getDistribution = rates => {
+        const counts = new Map();
+        let total = 0;
+
+        for (const { name, line, count } of rates) {
+            if (targetLine !== null && line !== targetLine) continue;
+
+            // 전체 비교에서는 사도 이름과 열을 모두 비교
+            // 열별 비교에서는 해당 열 안에서 사도 이름만 비교
+            const key = targetLine === null ? `${name}|${line}` : name;
+
+            counts.set(key, (counts.get(key) ?? 0) + count);
+            total += count;
+        }
+
+        return { counts, total };
+    };
+
+    const previous = getDistribution(previousRates);
+    const current = getDistribution(currentRates);
+
+    if (previous.total === 0 || current.total === 0) {
+        return null;
+    }
+
+    const allNames = new Set([
+        ...previous.counts.keys(),
+        ...current.counts.keys(),
+    ]);
+
+    // 두 시즌에 공통으로 유지된 사용 비율의 합
+    let overlap = 0;
+
+    for (const name of allNames) {
+        const previousRate = (previous.counts.get(name) ?? 0) / previous.total;
+        const currentRate = (current.counts.get(name) ?? 0) / current.total;
+
+        overlap += Math.min(previousRate, currentRate);
+    }
+
+    return Math.max(0, Math.min(100, (1 - overlap) * 100));
+}
+
+// 메타 변화량: 전체 및 전열·중열·후열
+function buildMetaChanges(previous, current) {
+    return {
+        total: calculateChangeRate(previous.rates, current.rates),
+
+        lines: Object.fromEntries(
+            LINE_ORDER.map(line => [
+                line,
+                calculateChangeRate(previous.rates, current.rates, line),
+            ])
+        ),
+    };
+}
+
 // 콘텐츠 하나 처리
 async function buildRaidStats(raid) {
     const summaries = JSON.parse(await fs.readFile(path.join(raid.dir, 'summaries.json'), 'utf-8'));
-    const seasonNumbers = (await listSeasonNumbers(raid.dir)).slice(-SEASON_WINDOW);
+    const seasonNumbers = (await listSeasonNumbers(raid.dir)).slice(-(SEASON_WINDOW + 1));
 
     const seasons = [];
     for (const season of seasonNumbers) {
@@ -119,11 +177,22 @@ async function buildRaidStats(raid) {
         seasons.push(buildSeasonStats(season, raw, summary, raid));
     }
 
-    const jsonText = JSON.stringify({ seasons });
+    // 직전 시즌과 비교해 각 시즌의 변화량 계산
+    const visibleSeasons = seasons.slice(1).map((current, index) => {
+        const previous = seasons[index];
+
+        return {
+            ...current,
+            metaChanges: buildMetaChanges(previous, current),
+        };
+    });
+
+    // 10개 시즌만 저장
+    const jsonText = JSON.stringify({ seasons: visibleSeasons });
     await fs.writeFile(path.join(raid.dir, 'stats.json'), jsonText, 'utf-8');
 
     const sizeKb = (Buffer.byteLength(jsonText) / 1024).toFixed(1);
-    console.log(`✔️  ${raid.name}/stats.json (${seasons.length} seasons, ${sizeKb}KB)`);
+    console.log(`✔️  ${raid.name}/stats.json (${visibleSeasons.length} seasons, ${sizeKb}KB)`);
 }
 
 // 실행

@@ -15,7 +15,7 @@ const OUTPUT_DIR = path.join(DATA_ROOT, 'character');
 const CHAR_INFO_PATH = path.resolve(__dirname, '../src/data/trickcalChar.ts');
 const COSTUME_DATA_PATH = path.resolve(__dirname, '../src/data/costumes.ts');
 
-const SKIP_NAMES = new Set(['summary', 'summaries', 'non_data', 'latest']);
+const SKIP_NAMES = new Set(['summary', 'summaries', 'non_data', 'latest', 'stats']);
 
 // 유틸
 const calcRate = (count, total) =>

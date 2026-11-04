@@ -32,7 +32,7 @@ async function getLatestSeasonInfo(dirPath) {
             const fileName = path.basename(file, '.json');
 
             // 요약 파일 제외
-            if (['summary', 'summaries', 'non_data', 'latest'].includes(fileName)) continue;
+            if (['summary', 'summaries', 'non_data', 'latest', 'stats'].includes(fileName)) continue;
 
             const seasonNum = Number(fileName);
 

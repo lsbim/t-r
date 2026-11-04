@@ -38,7 +38,7 @@ async function buildSummaries() {
 
         for (let filePath of files) {
             const seasonName = path.basename(filePath, '.json') // ex: '1', '2', '10'
-            if (seasonName === "summary" || seasonName === "non_data" || seasonName === "summaries") continue;
+            if (['summary', 'summaries', 'non_data', 'latest', 'stats'].includes(seasonName)) continue;
 
             const raw = JSON.parse(await fs.readFile(filePath, 'utf-8'));
             const records = raw.data // FrontierSeasonData.data 배열
@@ -48,7 +48,7 @@ async function buildSummaries() {
 
             // ① 등장 횟수 계산
             if (seasonType === "season") { // 
-                seasonData = processSummary(records);
+                seasonData = processSummary(records, undefined, filePath);
 
             } else if (seasonType === "external") {
                 seasonData = records;
@@ -74,7 +74,7 @@ async function buildSummaries() {
                 dataMap[raidType][seasonName] = {
                     ...resultData,
                     maxSideLvl: raw.maxSideLvl,
-                    sideSummary: processSummary(raw.data, 'side'),
+                    sideSummary: processSummary(raw.data, 'side', filePath),
                     sideSkills: raw.sideSkills
                 };
             } else {
@@ -142,43 +142,39 @@ buildSummaries().catch(err => {
     process.exit(1)
 })
 
-function processSummary(data, type) {
-    // 인덱스 → 줄 위치 매핑
+function processSummary(data, type, source = 'unknown') {
+    // 인덱스 -> 줄 위치 매핑
     const getLine = idx => {
         if (idx <= 2) return '전열';
         if (idx <= 5) return '중열';
         return '후열';
     };
 
-    // key: `${name}|${line}`, value: { name, line, count }
-    const map = new Map();
-    if (type === 'side') {
-        data.forEach(item => {
-            item.sideArr.forEach((name, idx) => {
-                const line = getLine(idx);
-                const key = `${name}|${line}`;
-
-                if (!map.has(key)) {
-                    map.set(key, { name, line, count: 0 });
-                }
-                map.get(key).count++;
-            });
-        });
-    } else {
-        data.forEach(item => {
-            item.arr.forEach((name, idx) => {
-                const line = getLine(idx);
-                const key = `${name}|${line}`;
-
-                if (!map.has(key)) {
-                    map.set(key, { name, line, count: 0 });
-                }
-                map.get(key).count++;
-            });
-        });
+    if (!Array.isArray(data)) {
+        throw new TypeError(`[${source}] data가 배열이 아닙니다.`);
     }
 
-    // Map 의 value 들을 배열로 만들어서 반환
-    // console.log(Array.from(map.values()));
+    // key: `${name}|${line}`, value: { name, line, count }
+    const map = new Map();
+    const field = type === 'side' ? 'sideArr' : 'arr';
+
+    data.forEach(item => {
+        if (!Array.isArray(item?.[field])) {
+            throw new TypeError(
+                `[${source}] data[${index}].${field}가 배열이 아닙니다.`
+            );
+        }
+
+        item[field].forEach((name, idx) => {
+            const line = getLine(idx);
+            const key = `${name}|${line}`;
+
+            if (!map.has(key)) {
+                map.set(key, { name, line, count: 0 });
+            }
+            map.get(key).count++;
+        });
+    });
+
     return Array.from(map.values());
 }

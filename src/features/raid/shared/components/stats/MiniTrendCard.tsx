@@ -59,22 +59,22 @@ const MiniTrendCard = ({
         ? 'rgb(161,161,170)'
         : 'rgb(113,113,122)';
 
-        console.table(
-            values.map((value, index) => ({
-                index,
-                season: seasonLabels[index],
-                value,
-                valid: value !== null && Number.isFinite(value),
-            }))
-        );
-        
-        console.log({
-            valuesLength: values.length,
-            labelsLength: seasonLabels.length,
-            validCount: values.filter(
-                value => value !== null && Number.isFinite(value)
-            ).length,
-        });
+    console.table(
+        values.map((value, index) => ({
+            index,
+            season: seasonLabels[index],
+            value,
+            valid: value !== null && Number.isFinite(value),
+        }))
+    );
+
+    console.log({
+        valuesLength: values.length,
+        labelsLength: seasonLabels.length,
+        validCount: values.filter(
+            value => value !== null && Number.isFinite(value)
+        ).length,
+    });
 
     // 난이도 변경 시즌 인덱스와 난이도명
     const difficultyByIndex = new Map(
@@ -162,7 +162,7 @@ const MiniTrendCard = ({
                 ticks: {
                     color: tickColor,
                     font: {
-                        size: 9,
+                        size: 11,
                     },
                     autoSkip: false,
                     maxRotation: 0,
@@ -177,7 +177,7 @@ const MiniTrendCard = ({
 
                         // 난이도가 변경된 시즌은 두 줄로 표시
                         if (difficulty) {
-                            return [season, difficulty];
+                            return [season, difficulty.includes('맛') ? difficulty : `${difficulty}단계`];
                         }
 
                         if (index === 0 || index === lastIndex) {
@@ -208,11 +208,11 @@ const MiniTrendCard = ({
                     {label}
                 </span>
 
-                {tooltip && <InfoIcon text={tooltip} size={3}/>}
+                {tooltip && <InfoIcon text={tooltip} size={3} />}
             </div>
 
             {/* 최신 시즌 + 직전 시즌 */}
-            <div className="flex items-baseline gap-x-2 dark:text-zinc-200">
+            <div className="flex lg:flex-row flex-col items-baseline gap-x-2 dark:text-zinc-200">
                 <span className="text-2xl font-bold">
                     {current === null ? '-' : format(current)}
                 </span>
@@ -225,7 +225,7 @@ const MiniTrendCard = ({
             </div>
 
             {/* 추이 차트 */}
-            <div className="h-[82px]">
+            <div className="h-[90px]">
                 <Line data={chartData} options={chartOptions} />
             </div>
 

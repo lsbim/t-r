@@ -20,7 +20,7 @@ const MetaTrendChart = ({ view }: { view: RaidStatsView }) => {
             season.level !== arr[index - 1].level
         );
 
-        console.log(metaChanges)
+    console.log(seasons)
 
     return (
         <>
