@@ -48,33 +48,13 @@ const MiniTrendCard = ({
     difficultyChanges,
     children,
 }: MiniTrendCardProps) => {
+
     const { theme } = useTheme();
+    const themeColor = theme === 'dark' ? '#AAAAAA' : '#666666'
 
     const lastIndex = values.length - 1;
     const current = values[lastIndex];
     const prev = lastIndex > 0 ? values[lastIndex - 1] : null;
-
-    const lineColor = theme === 'dark' ? '#71717A' : '#A1A1AA';
-    const tickColor = theme === 'dark'
-        ? 'rgb(161,161,170)'
-        : 'rgb(113,113,122)';
-
-    console.table(
-        values.map((value, index) => ({
-            index,
-            season: seasonLabels[index],
-            value,
-            valid: value !== null && Number.isFinite(value),
-        }))
-    );
-
-    console.log({
-        valuesLength: values.length,
-        labelsLength: seasonLabels.length,
-        validCount: values.filter(
-            value => value !== null && Number.isFinite(value)
-        ).length,
-    });
 
     // 난이도 변경 시즌 인덱스와 난이도명
     const difficultyByIndex = new Map(
@@ -91,7 +71,7 @@ const MiniTrendCard = ({
             type: 'line',
             xMin: index - 0.5,
             xMax: index - 0.5,
-            borderColor: lineColor,
+            borderColor: themeColor,
             borderWidth: 1,
             borderDash: [3, 3],
             drawTime: 'beforeDatasetsDraw',
@@ -104,7 +84,7 @@ const MiniTrendCard = ({
         datasets: [{
             label,
             data: values,
-            borderColor: '#AAAAAA',
+            borderColor: themeColor,
             backgroundColor: '#8884d8',
             borderWidth: 2,
             tension: 0.1,
@@ -160,7 +140,7 @@ const MiniTrendCard = ({
                 },
 
                 ticks: {
-                    color: '#333333',
+                    color: themeColor,
                     font: {
                         size: 11,
                     },
@@ -177,7 +157,7 @@ const MiniTrendCard = ({
 
                         // 난이도가 변경된 시즌은 두 줄로 표시
                         if (difficulty) {
-                            return [season, difficulty.includes('맛') ? difficulty : `${difficulty}단계`];
+                            return ['', difficulty.includes('맛') ? difficulty : `${difficulty}단계`];
                         }
 
                         if (index === 0 || index === lastIndex) {
