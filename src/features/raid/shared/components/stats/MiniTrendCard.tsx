@@ -208,7 +208,7 @@ const MiniTrendCard = ({
                     {label}
                 </span>
 
-                {tooltip && <InfoIcon text={tooltip} />}
+                {tooltip && <InfoIcon text={tooltip} size={3}/>}
             </div>
 
             {/* 최신 시즌 + 직전 시즌 */}
