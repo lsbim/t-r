@@ -216,11 +216,11 @@ const SeasonPage = () => {
             {data?.type === 'season' && (
                 <SeasonRemote />
             )}
-            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col mb-4">
+            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col mb-4 dark:text-zinc-200">
                 <h1 className="text-[20px] font-bold p-2">
                     {`엘리아스 프론티어 ${seasonName} 집계`}
                 </h1>
-                <div className={`flex flex-col xs:flex-row ${containerDarkBG} mt-2 mb-4 dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto`}>
+                <div className={`flex flex-col xs:flex-row ${containerDarkBG} mt-2 mb-4 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto`}>
                     <PersonalityPieChart
                         data={displaySlice}
                     />

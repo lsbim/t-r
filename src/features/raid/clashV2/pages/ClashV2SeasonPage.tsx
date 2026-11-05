@@ -151,11 +151,11 @@ const ClashV2SeasonPage = () => {
                 </button>
             </div>
 
-            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col mb-4">
+            <div className="lg:w-[992px] w-full mx-auto mt-8 flex flex-col mb-4 dark:text-zinc-200">
                 <h1 className="text-[20px] font-bold p-2">
                     {`차원 대충돌 2.0 ${seasonName} 집계`}
                 </h1>
-                <div className={`flex flex-col xs:flex-row dark:text-zinc-200 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-2 mb-4 overflow-x-auto ${containerDarkBG}`}>
+                <div className={`flex flex-col xs:flex-row p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-2 mb-4 overflow-x-auto ${containerDarkBG}`}>
                     {data && (
                         <PersonalityPieChart
                             data={displaySlice}
