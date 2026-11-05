@@ -6,14 +6,6 @@ import { externalData, FrontierExternalData, FrontierPlayerData } from "../../..
 import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../../../../types/trickcalTypes";
 import { SelectChara } from "../types/statTypes";
 
-// 범용은 제네릭으로
-
-const lineBuckets: Record<BaseLine, number[]> = {
-    전열: [0, 1, 2],
-    중열: [3, 4, 5],
-    후열: [6, 7, 8],
-};
-
 // AllPickRateChart 전용.
 // 인덱스가 아닌 이름별로 카운트를 세어 반환
 export function processRankingArrAllData(
@@ -76,84 +68,7 @@ export function processRankingArrData(
     data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
     type?: 'side'
 ): SummaryData[] {
-
-
-    // 1) 먼저 이름별 positions 집계 (기존대로)
-    const positions: Record<string, Record<number, number>> = {};
-
-    const targetData = (user: any) => {
-        if (type === 'side' && 'sideArr' in user) return user.sideArr;
-        return user.arr;
-    };
-
-    data.forEach((user) => {
-        const arr = targetData(user);
-        if (!arr) return;
-
-        arr.forEach((name: string, idx: number) => {
-            if (!positions[name]) {
-                positions[name] = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 };
-            }
-            positions[name][idx] += 1;
-
-            if (import.meta.env.DEV) {
-                const info = charInfo[name];
-                if (info) {
-                    let expectedLine: BaseLine | null = null;
-                    const actualLine = getLineByIndex(idx);
-
-                    if (info.line !== "모든열") {
-                        expectedLine = info.line as BaseLine;
-
-                        // 사도 정보의 line과 라인인덱스가 다르면 로그
-                        if (expectedLine !== actualLine) {
-                            console.warn(
-                                `⚠️ [Line Mismatch] Rank ${user.rank || '?'}: ${name} (${expectedLine}) -> 실제위치: ${actualLine} (idx: ${idx})`
-                            );
-                        }
-                    }
-                }
-            }
-        });
-    });
-
-    // 2) 이름별 전체 count & 총합 계산
-    const totalCount = Object.values(positions)
-        .flatMap(pos => Object.values(pos))
-        .reduce((a, b) => a + b, 0);
-
-    // 3) 이제 이름 × 라인별 SummaryData 생성
-    const result: SummaryData[] = [];
-
-    for (const name in positions) {
-        const pos = positions[name];
-        const info = charInfo[name] || { personality: "", line: "전열" as BaseLine };
-
-
-        for (const line of (Object.keys(lineBuckets) as BaseLine[])) {
-            // 해당 라인 인덱스들의 합
-            const lineCnt = lineBuckets[line].reduce((sum, idx) => sum + (pos[idx] || 0), 0);
-            if (lineCnt === 0) continue;  // 등장하지 않았으면 건너뜀
-
-            const percent = Math.round((lineCnt / totalCount) * 100 * 10) / 10;
-
-            // SummaryData 타입에 맞춰
-            result.push({
-                name,
-                count: lineCnt,
-                percent,
-                personality: info.personality,
-                line,                 // 전열 | 중열 | 후열
-                positions: pos,       // 기존 positions 전체 맵을 그대로 붙이셔도 되고
-                percentByLine: {      // 전열/중열/후열 비율 (옵션)
-                    전열: 0, 중열: 0, 후열: 0
-                }
-            });
-        }
-
-    }
-
-    return addResonanceSummaryData(result, totalCount);
+    return processRankingArrDataV2(data, type);
 }
 
 // PickRateChart 전용. 차원대충돌 2.0 전용.
@@ -197,7 +112,12 @@ export function processRankingArrDataV2(
             const info = charInfo[name];
             if (!info) return;
 
-            const targetLine: BaseLine = info.line === "모든열" ? getLineByIndex(idx) : info.line as BaseLine;
+            if (!isFullParty && info.line === "모든열") return;
+
+            const targetLine: BaseLine =
+                info.line === "모든열"
+                    ? getLineByIndex(idx)
+                    : info.line as BaseLine;
 
             const key = `${name}|${targetLine}`;
 
