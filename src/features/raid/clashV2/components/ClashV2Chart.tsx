@@ -161,7 +161,7 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                     label: '클리어 시간',
                     data: arr?.map(item => item.duration) || [],
                     borderColor: '#8884d8',
-                    backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    backgroundColor: '#8884d8',
                     yAxisID: 'y_secondary',
                     tension: 0.1,
                     pointRadius: 0,
