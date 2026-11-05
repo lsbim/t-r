@@ -130,6 +130,7 @@ export const charInfo: CharInfoType = {
     "네르(빡침)": { grade: 3, personality: "활발", line: "후열", birthdate: "2026-03-26", role: "딜러", attackType: "물리", race: '요정', eldain: true },
     "레비(졸업)": { grade: 3, personality: "활발", line: "전열", birthdate: "2026-05-07", role: "탱커", attackType: "물리", race: '마녀' },
     "에슈르(마도)": { grade: 3, personality: "활발", line: "중열", birthdate: "2026-07-30", role: "딜러", attackType: "마법", race: '요정' },
+    "두두": { grade: 3, personality: "활발", line: "전열", birthdate: "2026-11-05", role: "서포터", attackType: "물리", race: '용족' },
     "마리": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", role: "딜러", attackType: "물리", race: '요정' },
     "베니": { grade: 2, personality: "활발", line: "전열", birthdate: "2023-09-27", role: "딜러", attackType: "물리", race: '수인' },
     "쥬비": { grade: 2, personality: "활발", line: "중열", birthdate: "2023-09-27", role: "딜러", attackType: "물리", race: '정령' },
