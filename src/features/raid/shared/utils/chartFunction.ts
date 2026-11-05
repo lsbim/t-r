@@ -113,7 +113,7 @@ export function processRankingArrDataV2(
             if (!info) return;
 
             // 잘못된 위치 검증
-            if (import.meta.env.DEV  && info.line !== "모든열") {
+            if (import.meta.env.DEV && info.line !== "모든열") {
                 const indexLine = getLineByIndex(idx);
 
                 if (info.line !== indexLine) {
@@ -495,16 +495,28 @@ export function computeStatsForSelect<T extends RankRecord>(
     rangeData: T[], // seasonSlice, range만 적용된 데이터
     filteredData: T[], // displaySlice, 제외까지 적용된 데이터
     getArr: (r: T) => string[],
-    requireFullComp = false, // 9인 편성만 통계
     getScore?: (score: T) => number // 최다/최소/최장/최단 실체의코인, 클리어시간 측정용. 일단 score로 통일하여 사용함
 ) {
 
     // 선택된 캐릭터를 포함한 레코드만 필터
     const combos = filteredData.filter(r => {
         const arr = getArr(r);
-        const idx = arr.findIndex(name => matchesSelectedName(name, select.name)); // indexOf(select.name) → findIndex
-        return idx !== -1 && (select.line === "모든열" || getLineByIndex(idx) === select.line);
+        const idx = arr.findIndex(name => matchesSelectedName(name, select.name));
+
+        if (idx === -1) return false;
+        if (select.line === "모든열") return true;
+
+        // 실제 사도 정보의 열을 우선 사용
+        const characterLine = charInfo[arr[idx]]?.line;
+
+        // 모든열 사도 또는 정보가 없는 사도는 9인 편성에서만 인덱스 판정
+        if (!characterLine || characterLine === "모든열") {
+            return arr.length === 9 && getLineByIndex(idx) === select.line;
+        }
+
+        return characterLine === select.line;
     });
+
     const totalUses = combos.length;
     const pickRate = filteredData.length > 0 ? totalUses / filteredData.length * 100 : 0;
 
@@ -520,10 +532,16 @@ export function computeStatsForSelect<T extends RankRecord>(
 
     combos.forEach(r => {
         const arr = getArr(r);
-        const eligible = !requireFullComp || arr.length === 9;
+        const isFullParty = arr.length === 9;
+
         arr.forEach((name, idx) => {
-            if (matchesSelectedName(name, select.name) && eligible) {
-                positionCounts[idx]++;
+            const isSelected = matchesSelectedName(name, select.name);
+
+            if (isSelected) {
+                // 정확한 슬롯을 알 수 있는 9인 편성만 위치 집계
+                if (isFullParty) {
+                    positionCounts[idx]++;
+                }
             } else {
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
             }
