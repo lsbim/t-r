@@ -147,6 +147,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "overallRank": 4,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 2,
+            "count": 298
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -278,18 +296,6 @@
         "personality": "광기",
         "startDate": "2025-10-16",
         "endDate": "2025-10-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -596,17 +602,17 @@
   "recentSkins": [
     {
       "cosName": "왕관의 주인공",
-      "cosUsedCount": 365,
-      "charTotalCount": 678,
-      "rate": 53.8,
+      "cosUsedCount": 361,
+      "charTotalCount": 676,
+      "rate": 53.4,
       "lvl": "pretty",
       "launchDate": "2026-03-28"
     },
     {
       "cosName": "일일 사제장 네르핀",
-      "cosUsedCount": 171,
-      "charTotalCount": 678,
-      "rate": 25.2,
+      "cosUsedCount": 170,
+      "charTotalCount": 676,
+      "rate": 25.1,
       "lvl": "normal",
       "launchDate": "2026-03-28"
     }

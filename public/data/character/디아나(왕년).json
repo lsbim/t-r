@@ -181,6 +181,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 148,
+        "pickRate": 49.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 148
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -338,24 +356,6 @@
             "line": "전열",
             "rank": 1,
             "count": 298
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 13,
-        "pickRate": 4.3,
-        "overallRank": 21,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 9,
-            "count": 13
           }
         ],
         "totalEntries": 300
@@ -712,25 +712,25 @@
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 169,
-      "charTotalCount": 239,
-      "rate": 70.7,
+      "cosUsedCount": 270,
+      "charTotalCount": 385,
+      "rate": 70.1,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
     },
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 44,
-      "charTotalCount": 239,
-      "rate": 18.4,
+      "cosUsedCount": 73,
+      "charTotalCount": 385,
+      "rate": 19,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 4,
-      "charTotalCount": 239,
-      "rate": 1.7,
+      "cosUsedCount": 7,
+      "charTotalCount": 385,
+      "rate": 1.8,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

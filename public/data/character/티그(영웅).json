@@ -83,6 +83,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 29,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 14,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -277,34 +295,6 @@
             "line": "후열",
             "rank": 4,
             "count": 75
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 298,
-        "pickRate": 99.3,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 11,
-            "count": 10
-          },
-          {
-            "line": "중열",
-            "rank": 6,
-            "count": 30
-          },
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 258
           }
         ],
         "totalEntries": 300
@@ -686,17 +676,17 @@
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 238,
-      "charTotalCount": 436,
-      "rate": 54.6,
+      "cosUsedCount": 100,
+      "charTotalCount": 175,
+      "rate": 57.1,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
-      "cosUsedCount": 86,
-      "charTotalCount": 436,
-      "rate": 19.7,
+      "cosUsedCount": 29,
+      "charTotalCount": 175,
+      "rate": 16.6,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

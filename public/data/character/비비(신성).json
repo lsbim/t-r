@@ -3,7 +3,19 @@
   "line": "중열",
   "personality": "공명",
   "topSeasons": {
-    "clash": [],
+    "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "중열"
+      }
+    ],
     "frontier": [],
     "clashV2": [
       {
@@ -22,6 +34,24 @@
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -124,18 +154,6 @@
         "personality": "광기",
         "startDate": "2025-10-16",
         "endDate": "2025-10-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -391,17 +409,17 @@
   "recentSkins": [
     {
       "cosName": "환상통 말기 환자",
-      "cosUsedCount": 276,
-      "charTotalCount": 599,
-      "rate": 46.1,
+      "cosUsedCount": 403,
+      "charTotalCount": 899,
+      "rate": 44.8,
       "lvl": "pretty",
       "launchDate": "2026-09-24"
     },
     {
       "cosName": "하늘빛 마음 한 스푼",
-      "cosUsedCount": 196,
-      "charTotalCount": 599,
-      "rate": 32.7,
+      "cosUsedCount": 313,
+      "charTotalCount": 899,
+      "rate": 34.8,
       "lvl": "normal",
       "launchDate": "2026-09-24"
     }

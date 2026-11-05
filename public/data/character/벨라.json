@@ -214,6 +214,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 296,
+        "pickRate": 98.7,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 296
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -371,24 +389,6 @@
             "line": "전열",
             "rank": 2,
             "count": 267
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 272,
-        "pickRate": 90.7,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 272
           }
         ],
         "totalEntries": 300
@@ -751,25 +751,25 @@
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 727,
-      "charTotalCount": 885,
-      "rate": 82.1,
+      "cosUsedCount": 720,
+      "charTotalCount": 895,
+      "rate": 80.4,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 49,
-      "charTotalCount": 885,
-      "rate": 5.5,
+      "cosUsedCount": 54,
+      "charTotalCount": 895,
+      "rate": 6,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 19,
-      "charTotalCount": 885,
-      "rate": 2.1,
+      "cosUsedCount": 21,
+      "charTotalCount": 895,
+      "rate": 2.3,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
     }

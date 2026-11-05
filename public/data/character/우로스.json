@@ -5,6 +5,17 @@
   "topSeasons": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -319,6 +330,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -476,24 +505,6 @@
             "line": "후열",
             "rank": 1,
             "count": 295
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 298,
-        "pickRate": 99.3,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 1,
-            "count": 298
           }
         ],
         "totalEntries": 300
@@ -844,9 +855,9 @@
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
-      "cosUsedCount": 378,
+      "cosUsedCount": 351,
       "charTotalCount": 900,
-      "rate": 42,
+      "rate": 39,
       "lvl": "pretty",
       "launchDate": "2025-09-25"
     },
@@ -860,9 +871,9 @@
     },
     {
       "cosName": "호숫가 피싱 마스터",
-      "cosUsedCount": 80,
+      "cosUsedCount": 91,
       "charTotalCount": 900,
-      "rate": 8.9,
+      "rate": 10.1,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     }

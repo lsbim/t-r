@@ -10,6 +10,34 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 57,
+        "pickRate": 19,
+        "overallRank": 14,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 6,
+            "count": 29
+          },
+          {
+            "line": "중열",
+            "rank": 12,
+            "count": 1
+          },
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 27
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -201,34 +229,6 @@
             "line": "후열",
             "rank": 9,
             "count": 20
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 68,
-        "pickRate": 22.7,
-        "overallRank": 13,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 10,
-            "count": 11
-          },
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 43
-          },
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 14
           }
         ],
         "totalEntries": 300
@@ -676,41 +676,41 @@
   "recentSkins": [
     {
       "cosName": "피어나는 꽃처럼",
-      "cosUsedCount": 308,
-      "charTotalCount": 422,
-      "rate": 73,
+      "cosUsedCount": 351,
+      "charTotalCount": 478,
+      "rate": 73.4,
       "lvl": "pretty",
       "launchDate": "2026-10-01"
     },
     {
       "cosName": "전통의 사도",
-      "cosUsedCount": 26,
-      "charTotalCount": 422,
-      "rate": 6.2,
+      "cosUsedCount": 30,
+      "charTotalCount": 478,
+      "rate": 6.3,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "댄스 크루 달링",
-      "cosUsedCount": 21,
-      "charTotalCount": 422,
-      "rate": 5,
+      "cosUsedCount": 23,
+      "charTotalCount": 478,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     },
     {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 17,
-      "charTotalCount": 422,
-      "rate": 4,
+      "cosUsedCount": 21,
+      "charTotalCount": 478,
+      "rate": 4.4,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     },
     {
       "cosName": "폭신 폭신 슬리퍼",
-      "cosUsedCount": 13,
-      "charTotalCount": 422,
-      "rate": 3.1,
+      "cosUsedCount": 14,
+      "charTotalCount": 478,
+      "rate": 2.9,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     }

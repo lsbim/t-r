@@ -70,6 +70,18 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -218,18 +230,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "frontier": [
@@ -519,24 +519,24 @@
   "recentSkins": [
     {
       "cosName": "꿈속에서 다시 만난",
-      "cosUsedCount": 108,
-      "charTotalCount": 130,
-      "rate": 83.1,
+      "cosUsedCount": 107,
+      "charTotalCount": 129,
+      "rate": 82.9,
       "lvl": "pretty",
       "launchDate": "2026-02-19"
     },
     {
       "cosName": "잠든 별의 예지몽",
       "cosUsedCount": 10,
-      "charTotalCount": 130,
-      "rate": 7.7,
+      "charTotalCount": 129,
+      "rate": 7.8,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "꿈 같은 순간",
       "cosUsedCount": 7,
-      "charTotalCount": 130,
+      "charTotalCount": 129,
       "rate": 5.4,
       "lvl": "pretty",
       "launchDate": "2025-01-30"

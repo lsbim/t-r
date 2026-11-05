@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 33,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 16,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -167,24 +185,6 @@
             "line": "후열",
             "rank": 13,
             "count": 2
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 12,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -503,9 +503,9 @@
     },
     {
       "cosName": "세이프티 가드",
-      "cosUsedCount": 3,
+      "cosUsedCount": 2,
       "charTotalCount": 9,
-      "rate": 33.3,
+      "rate": 22.2,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     },

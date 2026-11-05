@@ -495,6 +495,7 @@ export function computeStatsForSelect<T extends RankRecord>(
     rangeData: T[], // seasonSlice, range만 적용된 데이터
     filteredData: T[], // displaySlice, 제외까지 적용된 데이터
     getArr: (r: T) => string[],
+    _requireFullComp = false,
     getScore?: (score: T) => number // 최다/최소/최장/최단 실체의코인, 클리어시간 측정용. 일단 score로 통일하여 사용함
 ) {
 

@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 33,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 8,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -129,18 +147,6 @@
         "personality": "광기",
         "startDate": "2025-10-16",
         "endDate": "2025-10-23",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -400,9 +406,9 @@
   "recentSkins": [
     {
       "cosName": "정식 마녀의 휴식",
-      "cosUsedCount": 15,
+      "cosUsedCount": 14,
       "charTotalCount": 25,
-      "rate": 60,
+      "rate": 56,
       "lvl": "normal",
       "launchDate": "2026-05-07"
     }

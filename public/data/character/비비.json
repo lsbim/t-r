@@ -212,6 +212,18 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -369,24 +381,6 @@
             "line": "전열",
             "rank": 11,
             "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 24,
-        "pickRate": 8,
-        "overallRank": 18,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 24
           }
         ],
         "totalEntries": 300
@@ -733,41 +727,33 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 69,
-      "charTotalCount": 122,
-      "rate": 56.6,
+      "cosUsedCount": 60,
+      "charTotalCount": 102,
+      "rate": 58.8,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 20,
-      "charTotalCount": 122,
-      "rate": 16.4,
+      "cosUsedCount": 19,
+      "charTotalCount": 102,
+      "rate": 18.6,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "풀하트 매직",
-      "cosUsedCount": 18,
-      "charTotalCount": 122,
-      "rate": 14.8,
+      "cosUsedCount": 12,
+      "charTotalCount": 102,
+      "rate": 11.8,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     },
     {
       "cosName": "최후의 흑막",
-      "cosUsedCount": 2,
-      "charTotalCount": 122,
-      "rate": 1.6,
-      "lvl": "normal",
-      "launchDate": "2025-01-09"
-    },
-    {
-      "cosName": "유혹의 용족",
       "cosUsedCount": 1,
-      "charTotalCount": 122,
-      "rate": 0.8,
+      "charTotalCount": 102,
+      "rate": 1,
       "lvl": "normal",
       "launchDate": "2025-01-09"
     }

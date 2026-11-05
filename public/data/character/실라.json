@@ -55,6 +55,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 27,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 12,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -185,18 +203,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "frontier": [
@@ -481,24 +487,24 @@
     {
       "cosName": "불어오는 정복의 바람",
       "cosUsedCount": 7,
-      "charTotalCount": 17,
-      "rate": 41.2,
+      "charTotalCount": 20,
+      "rate": 35,
       "lvl": "normal",
       "launchDate": "2026-06-25"
     },
     {
       "cosName": "해변의 하늬바람",
-      "cosUsedCount": 3,
-      "charTotalCount": 17,
-      "rate": 17.6,
+      "cosUsedCount": 5,
+      "charTotalCount": 20,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "엑스텐 스피릿",
-      "cosUsedCount": 2,
-      "charTotalCount": 17,
-      "rate": 11.8,
+      "cosUsedCount": 3,
+      "charTotalCount": 20,
+      "rate": 15,
       "lvl": "normal",
       "launchDate": "2024-11-14"
     }

@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 8,
+        "pickRate": 2.7,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 11,
+            "count": 8
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -137,24 +155,6 @@
             "line": "후열",
             "rank": 3,
             "count": 114
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 12,
-            "count": 1
           }
         ],
         "totalEntries": 300
@@ -441,25 +441,25 @@
   "recentSkins": [
     {
       "cosName": "얼음의 주주총회",
-      "cosUsedCount": 13,
-      "charTotalCount": 25,
-      "rate": 52,
+      "cosUsedCount": 17,
+      "charTotalCount": 33,
+      "rate": 51.5,
       "lvl": "pretty",
       "launchDate": "2025-05-15"
     },
     {
       "cosName": "방구석 프로 게이머",
-      "cosUsedCount": 9,
-      "charTotalCount": 25,
-      "rate": 36,
+      "cosUsedCount": 12,
+      "charTotalCount": 33,
+      "rate": 36.4,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "소녀 CEO",
-      "cosUsedCount": 2,
-      "charTotalCount": 25,
-      "rate": 8,
+      "cosUsedCount": 3,
+      "charTotalCount": 33,
+      "rate": 9.1,
       "lvl": "normal",
       "launchDate": "2025-01-30"
     }

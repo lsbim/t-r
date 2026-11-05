@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 63,
+        "pickRate": 21,
+        "overallRank": 12,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 63
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -167,24 +185,6 @@
             "line": "전열",
             "rank": 8,
             "count": 9
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 241,
-        "pickRate": 80.3,
-        "overallRank": 6,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 241
           }
         ],
         "totalEntries": 300
@@ -513,27 +513,27 @@
   "recentSkins": [
     {
       "cosName": "교단의 성찬 파티",
-      "cosUsedCount": 118,
-      "charTotalCount": 242,
-      "rate": 48.8,
+      "cosUsedCount": 46,
+      "charTotalCount": 82,
+      "rate": 56.1,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
-      "cosName": "한 때 한가닥",
-      "cosUsedCount": 52,
-      "charTotalCount": 242,
-      "rate": 21.5,
-      "lvl": "normal",
-      "launchDate": "2024-06-06"
-    },
-    {
       "cosName": "개인 교습 나들이",
-      "cosUsedCount": 50,
-      "charTotalCount": 242,
-      "rate": 20.7,
+      "cosUsedCount": 16,
+      "charTotalCount": 82,
+      "rate": 19.5,
       "lvl": "normal",
       "launchDate": "2024-09-05"
+    },
+    {
+      "cosName": "한 때 한가닥",
+      "cosUsedCount": 12,
+      "charTotalCount": 82,
+      "rate": 14.6,
+      "lvl": "normal",
+      "launchDate": "2024-06-06"
     }
   ]
 }

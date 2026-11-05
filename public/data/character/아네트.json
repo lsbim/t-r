@@ -22,6 +22,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 9,
+        "pickRate": 3,
+        "overallRank": 22,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 7,
+            "count": 9
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -167,24 +185,6 @@
             "line": "중열",
             "rank": 3,
             "count": 154
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 282,
-        "pickRate": 94,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 282
           }
         ],
         "totalEntries": 300
@@ -525,17 +525,17 @@
   "recentSkins": [
     {
       "cosName": "화끈한 바니의 매직",
-      "cosUsedCount": 201,
-      "charTotalCount": 363,
-      "rate": 55.4,
+      "cosUsedCount": 119,
+      "charTotalCount": 196,
+      "rate": 60.7,
       "lvl": "normal",
       "launchDate": "2026-09-17"
     },
     {
       "cosName": "하루의 마무리",
-      "cosUsedCount": 40,
-      "charTotalCount": 363,
-      "rate": 11,
+      "cosUsedCount": 14,
+      "charTotalCount": 196,
+      "rate": 7.1,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     }

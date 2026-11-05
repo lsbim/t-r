@@ -10,6 +10,24 @@
   "recentStats": {
     "clash": [
       {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 27,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 12,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 48,
         "name": "크레용사용",
         "personality": "순수",
@@ -155,24 +173,6 @@
             "line": "후열",
             "rank": 8,
             "count": 41
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 85,
-        "pickRate": 28.3,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 85
           }
         ],
         "totalEntries": 300
@@ -471,25 +471,25 @@
   "recentSkins": [
     {
       "cosName": "승리는 당신을 위해",
-      "cosUsedCount": 35,
-      "charTotalCount": 76,
-      "rate": 46.1,
+      "cosUsedCount": 36,
+      "charTotalCount": 70,
+      "rate": 51.4,
       "lvl": "pretty",
       "launchDate": "2025-06-12"
     },
     {
       "cosName": "창공의 오퍼레이터",
-      "cosUsedCount": 22,
-      "charTotalCount": 76,
-      "rate": 28.9,
+      "cosUsedCount": 20,
+      "charTotalCount": 70,
+      "rate": 28.6,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "나들이 가는 날",
-      "cosUsedCount": 7,
-      "charTotalCount": 76,
-      "rate": 9.2,
+      "cosUsedCount": 5,
+      "charTotalCount": 70,
+      "rate": 7.1,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }
