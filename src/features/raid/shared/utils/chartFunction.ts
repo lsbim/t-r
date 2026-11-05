@@ -112,6 +112,23 @@ export function processRankingArrDataV2(
             const info = charInfo[name];
             if (!info) return;
 
+            // 잘못된 위치 검증
+            if (import.meta.env.DEV && isFullParty && info.line !== "모든열") {
+                const indexLine = getLineByIndex(idx);
+
+                if (info.line !== indexLine) {
+                    console.warn(
+                        `[Line Mismatch] Rank ${user.rank ?? '?'}: ${name}`,
+                        {
+                            characterLine: info.line,
+                            indexLine,
+                            idx,
+                            arr
+                        }
+                    );
+                }
+            }
+
             if (!isFullParty && info.line === "모든열") return;
 
             const targetLine: BaseLine =
