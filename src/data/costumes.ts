@@ -244,6 +244,7 @@ export const costumes: Costume[] = [
     { charName: "스피키(메이드)", cosName: "캐럿 청소 바니", lvl: "normal", launchDate: "2026-09-17" },
     { charName: "루드", cosName: "저주받은 붉은 백작", lvl: "normal", launchDate: "2026-10-15" },
     { charName: "버터", cosName: "별밤 산책 대장", lvl: "pretty", launchDate: "2026-10-29" },
+    { charName: "두두", cosName: "공룡반 두두", lvl: "normal", launchDate: "2026-11-05" },
 
 
     // 우울
