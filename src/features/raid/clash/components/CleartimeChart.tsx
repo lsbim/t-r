@@ -46,7 +46,59 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
         processedData.some(item => item.score != null)
         , [processedData]);
 
-    // console.log(segments)
+    const mostCommonDurations = useMemo(() => {
+        const durationCounts = new Map<number, { count: number; ranks: number[] }>();
+
+        processedData.forEach(item => {
+            const duration = item.duration;
+
+            if (
+                duration == null ||
+                !Number.isFinite(duration) ||
+                !Number.isFinite(item.rank)
+            ) return;
+
+            const current = durationCounts.get(duration);
+
+            if (current) {
+                current.count += 1;
+                current.ranks.push(item.rank);
+            } else {
+                durationCounts.set(duration, {
+                    count: 1,
+                    ranks: [item.rank]
+                });
+            }
+        });
+
+        let maxCount = 0;
+
+        durationCounts.forEach(({ count }) => {
+            if (count > maxCount) maxCount = count;
+        });
+
+        if (maxCount === 0) return [];
+
+        return [...durationCounts.entries()]
+            .filter(([, { count }]) => count === maxCount)
+            .map(([duration, { count, ranks }]) => {
+                const sortedRanks = [...ranks].sort((a, b) => a - b);
+                const rankRanges: Array<[number, number]> = [];
+
+                sortedRanks.forEach(rank => {
+                    const lastRange = rankRanges[rankRanges.length - 1];
+
+                    if (!lastRange || rank > lastRange[1] + 1) {
+                        rankRanges.push([rank, rank]);
+                    } else if (rank > lastRange[1]) {
+                        lastRange[1] = rank;
+                    }
+                });
+
+                return { duration, count, rankRanges };
+            })
+            .sort((a, b) => a.duration - b.duration);
+    }, [processedData]);
 
     // 클리어시간
     const durationDatasets = segments
@@ -291,13 +343,40 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
     };
 
     return (
-        <div className={`dark:brightness-90 w-full mx-auto flex flex-col h-[400px] p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden ${containerDarkBG}`}>
+        <div className={`dark:brightness-90 w-full mx-auto flex flex-col h-[440px] p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 overflow-x-auto overflow-y-hidden ${containerDarkBG}`}>
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2 dark:text-zinc-200">클리어 시간</span>
                 <InfoIcon text='시간 측정이 불가능한 구간은 점수로 표기합니다.' />
             </div>
 
-            <Line data={chartData} options={chartOptions} />
+            <div className="flex-1 min-h-0">
+                <Line data={chartData} options={chartOptions} />
+            </div>
+
+            {mostCommonDurations.length > 0 && (
+                <div className="flex shrink-0 flex-nowrap items-center dark:text-zinc-200 justify-center gap-x-2 whitespace-nowrap text-[12px] sm:text-[14px]">
+                    <span className="">최빈 클리어 시간</span>
+
+                    {mostCommonDurations.map(({ duration, count, rankRanges }, index) => (
+                        <span key={duration} className="inline-flex items-center gap-x-1">
+                            {index > 0 && (
+                                <span className="mr-1">/</span>
+                            )}
+                            <span className="font-bold text-[14px] sm:text-[16px]">
+                                {duration}초
+                            </span>
+                            <span>
+                                {count}명
+                            </span>
+                            <span className="text-gray-600 dark:text-zinc-500">
+                                ({rankRanges.map(([start, end]) =>
+                                    start === end ? `${start}위` : `${start}~${end}위`
+                                ).join(', ')})
+                            </span>
+                        </span>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
