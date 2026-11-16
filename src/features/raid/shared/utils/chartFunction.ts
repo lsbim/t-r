@@ -489,6 +489,18 @@ export function computeBestComp<T extends RankRecord>(
     return result;
 }
 
+// JSON 배열 인덱스 -> 실제 배치 위치 인덱스 ex) 123 => 213
+const DISPLAY_POSITION_INDEX_MAP = [
+    1, 0, 2,
+    4, 3, 5,
+    7, 6, 8,
+] as const;
+
+// JSON 배열의 인덱스를 실제 배치 위치 인덱스로 변환
+function toDisplayPositionIndex(jsonIndex: number): number {
+    return DISPLAY_POSITION_INDEX_MAP[jsonIndex] ?? jsonIndex;
+}
+
 // 선택한 사도의 정보
 export function computeStatsForSelect<T extends RankRecord>(
     select: SelectChara,
@@ -541,7 +553,7 @@ export function computeStatsForSelect<T extends RankRecord>(
             if (isSelected) {
                 // 정확한 슬롯을 알 수 있는 9인 편성만 위치 집계
                 if (isFullParty) {
-                    positionCounts[idx]++;
+                    positionCounts[toDisplayPositionIndex(idx)]++;
                 }
             } else {
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
