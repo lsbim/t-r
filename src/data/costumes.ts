@@ -67,6 +67,7 @@ export const costumes: Costume[] = [
     { charName: "이드(재활)", cosName: "성장하는 알바생", lvl: "normal", launchDate: "2026-09-24" },
     { charName: "뮤트", cosName: "가장 은밀한 고양이", lvl: "normal", launchDate: "2026-10-15" },
     { charName: "란", cosName: "수사소랑 란묵", lvl: "normal", launchDate: "2026-11-12" },
+    { charName: "아이리스", cosName: "일상 속 드러나는 마법", lvl: "normal", launchDate: "2026-11-19" },
 
     // 냉정
     { charName: "이드", cosName: "꿈 같은 순간", lvl: "pretty", launchDate: "2025-01-30" },
