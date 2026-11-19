@@ -198,6 +198,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 290,
+        "pickRate": 96.7,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 290
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -355,24 +373,6 @@
             "line": "후열",
             "rank": 3,
             "count": 278
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 170,
-        "pickRate": 56.7,
-        "overallRank": 9,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 3,
-            "count": 170
           }
         ],
         "totalEntries": 300
@@ -552,20 +552,28 @@
   },
   "recentSkins": [
     {
+      "cosName": "가장 은밀한 고양이",
+      "cosUsedCount": 144,
+      "charTotalCount": 323,
+      "rate": 44.6,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
+    },
+    {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 16,
-      "charTotalCount": 39,
-      "rate": 41,
+      "cosUsedCount": 87,
+      "charTotalCount": 323,
+      "rate": 26.9,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
-      "cosName": "가장 은밀한 고양이",
-      "cosUsedCount": 9,
-      "charTotalCount": 39,
-      "rate": 23.1,
+      "cosName": "위험한 옆집 스파이",
+      "cosUsedCount": 14,
+      "charTotalCount": 323,
+      "rate": 4.3,
       "lvl": "normal",
-      "launchDate": "2026-10-15"
+      "launchDate": "2025-09-11"
     }
   ]
 }

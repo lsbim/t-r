@@ -388,6 +388,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -539,24 +557,6 @@
             "line": "전열",
             "rank": 4,
             "count": 23
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 244,
-        "pickRate": 81.3,
-        "overallRank": 8,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 3,
-            "count": 244
           }
         ],
         "totalEntries": 300
@@ -727,33 +727,33 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 60,
-      "charTotalCount": 102,
-      "rate": 58.8,
+      "cosUsedCount": 49,
+      "charTotalCount": 87,
+      "rate": 56.3,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
       "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 19,
-      "charTotalCount": 102,
-      "rate": 18.6,
+      "cosUsedCount": 17,
+      "charTotalCount": 87,
+      "rate": 19.5,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "풀하트 매직",
       "cosUsedCount": 12,
-      "charTotalCount": 102,
-      "rate": 11.8,
+      "charTotalCount": 87,
+      "rate": 13.8,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     },
     {
       "cosName": "최후의 흑막",
       "cosUsedCount": 1,
-      "charTotalCount": 102,
-      "rate": 1,
+      "charTotalCount": 87,
+      "rate": 1.1,
       "lvl": "normal",
       "launchDate": "2025-01-09"
     }

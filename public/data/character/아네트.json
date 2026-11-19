@@ -192,6 +192,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -343,24 +355,6 @@
             "line": "중열",
             "rank": 2,
             "count": 297
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 266,
-        "pickRate": 88.7,
-        "overallRank": 6,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 2,
-            "count": 266
           }
         ],
         "totalEntries": 300

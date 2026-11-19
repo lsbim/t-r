@@ -180,6 +180,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -295,24 +313,6 @@
             "line": "후열",
             "rank": 7,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 23,
-        "pickRate": 7.7,
-        "overallRank": 16,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 23
           }
         ],
         "totalEntries": 300
@@ -472,24 +472,24 @@
     {
       "cosName": "승리는 당신을 위해",
       "cosUsedCount": 36,
-      "charTotalCount": 70,
-      "rate": 51.4,
+      "charTotalCount": 71,
+      "rate": 50.7,
       "lvl": "pretty",
       "launchDate": "2025-06-12"
     },
     {
       "cosName": "창공의 오퍼레이터",
-      "cosUsedCount": 20,
-      "charTotalCount": 70,
-      "rate": 28.6,
+      "cosUsedCount": 21,
+      "charTotalCount": 71,
+      "rate": 29.6,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "나들이 가는 날",
       "cosUsedCount": 5,
-      "charTotalCount": 70,
-      "rate": 7.1,
+      "charTotalCount": 71,
+      "rate": 7,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

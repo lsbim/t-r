@@ -306,6 +306,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 261,
+        "pickRate": 87,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 261
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -457,24 +475,6 @@
             "line": "중열",
             "rank": 4,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 26,
-        "pickRate": 8.7,
-        "overallRank": 14,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 26
           }
         ],
         "totalEntries": 300
@@ -645,41 +645,41 @@
   "recentSkins": [
     {
       "cosName": "빛바랜 기억",
-      "cosUsedCount": 82,
-      "charTotalCount": 150,
-      "rate": 54.7,
+      "cosUsedCount": 230,
+      "charTotalCount": 411,
+      "rate": 56,
       "lvl": "pretty",
       "launchDate": "2026-07-09"
     },
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 23,
-      "charTotalCount": 150,
-      "rate": 15.3,
+      "cosUsedCount": 66,
+      "charTotalCount": 411,
+      "rate": 16.1,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 17,
-      "charTotalCount": 150,
-      "rate": 11.3,
+      "cosUsedCount": 47,
+      "charTotalCount": 411,
+      "rate": 11.4,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     },
     {
       "cosName": "동심의 햇살",
-      "cosUsedCount": 12,
-      "charTotalCount": 150,
-      "rate": 8,
+      "cosUsedCount": 27,
+      "charTotalCount": 411,
+      "rate": 6.6,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     },
     {
       "cosName": "개운한 행복",
       "cosUsedCount": 2,
-      "charTotalCount": 150,
-      "rate": 1.3,
+      "charTotalCount": 411,
+      "rate": 0.5,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     }

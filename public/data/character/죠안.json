@@ -236,6 +236,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 295,
+        "pickRate": 98.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 295
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -411,34 +429,6 @@
             "line": "후열",
             "rank": 4,
             "count": 18
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 272,
-        "pickRate": 90.7,
-        "overallRank": 5,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 2
-          },
-          {
-            "line": "중열",
-            "rank": 7,
-            "count": 3
-          },
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 267
           }
         ],
         "totalEntries": 300
@@ -676,41 +666,49 @@
   "recentSkins": [
     {
       "cosName": "피어나는 꽃처럼",
-      "cosUsedCount": 351,
-      "charTotalCount": 478,
-      "rate": 73.4,
+      "cosUsedCount": 260,
+      "charTotalCount": 497,
+      "rate": 52.3,
       "lvl": "pretty",
       "launchDate": "2026-10-01"
     },
     {
+      "cosName": "야식군사 죠갈연",
+      "cosUsedCount": 132,
+      "charTotalCount": 497,
+      "rate": 26.6,
+      "lvl": "normal",
+      "launchDate": "2026-11-12"
+    },
+    {
       "cosName": "전통의 사도",
-      "cosUsedCount": 30,
-      "charTotalCount": 478,
-      "rate": 6.3,
+      "cosUsedCount": 25,
+      "charTotalCount": 497,
+      "rate": 5,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
-      "cosName": "댄스 크루 달링",
-      "cosUsedCount": 23,
-      "charTotalCount": 478,
-      "rate": 4.8,
-      "lvl": "normal",
-      "launchDate": "2025-07-17"
-    },
-    {
       "cosName": "개인적 피크닉",
-      "cosUsedCount": 21,
-      "charTotalCount": 478,
-      "rate": 4.4,
+      "cosUsedCount": 18,
+      "charTotalCount": 497,
+      "rate": 3.6,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     },
     {
+      "cosName": "댄스 크루 달링",
+      "cosUsedCount": 16,
+      "charTotalCount": 497,
+      "rate": 3.2,
+      "lvl": "normal",
+      "launchDate": "2025-07-17"
+    },
+    {
       "cosName": "폭신 폭신 슬리퍼",
-      "cosUsedCount": 14,
-      "charTotalCount": 478,
-      "rate": 2.9,
+      "cosUsedCount": 11,
+      "charTotalCount": 497,
+      "rate": 2.2,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     }

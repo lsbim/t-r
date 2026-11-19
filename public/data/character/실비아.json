@@ -51,6 +51,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -272,6 +283,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -391,18 +420,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -542,25 +559,25 @@
   "recentSkins": [
     {
       "cosName": "태동하는 은빛",
-      "cosUsedCount": 480,
+      "cosUsedCount": 513,
       "charTotalCount": 900,
-      "rate": 53.3,
+      "rate": 57,
       "lvl": "normal",
       "launchDate": "2026-09-24"
     },
     {
       "cosName": "소녀의 단아한 발걸음",
-      "cosUsedCount": 250,
+      "cosUsedCount": 239,
       "charTotalCount": 900,
-      "rate": 27.8,
+      "rate": 26.6,
       "lvl": "pretty",
       "launchDate": "2026-06-18"
     },
     {
       "cosName": "내가 체육관의 유망주",
-      "cosUsedCount": 74,
+      "cosUsedCount": 66,
       "charTotalCount": 900,
-      "rate": 8.2,
+      "rate": 7.3,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     }

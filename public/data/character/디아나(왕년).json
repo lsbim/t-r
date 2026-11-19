@@ -363,6 +363,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -514,24 +526,6 @@
             "line": "전열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 297,
-        "pickRate": 99,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 297
           }
         ],
         "totalEntries": 300
@@ -712,8 +706,8 @@
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 270,
-      "charTotalCount": 385,
+      "cosUsedCount": 269,
+      "charTotalCount": 384,
       "rate": 70.1,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
@@ -721,7 +715,7 @@
     {
       "cosName": "교단 군기반장",
       "cosUsedCount": 73,
-      "charTotalCount": 385,
+      "charTotalCount": 384,
       "rate": 19,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
@@ -729,7 +723,7 @@
     {
       "cosName": "거친 해변의 서퍼",
       "cosUsedCount": 7,
-      "charTotalCount": 385,
+      "charTotalCount": 384,
       "rate": 1.8,
       "lvl": "normal",
       "launchDate": "2025-06-05"

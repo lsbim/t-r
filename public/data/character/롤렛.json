@@ -180,6 +180,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -292,24 +310,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 24,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 10,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -466,16 +466,16 @@
     {
       "cosName": "롱 레인지 서비스",
       "cosUsedCount": 55,
-      "charTotalCount": 95,
-      "rate": 57.9,
+      "charTotalCount": 96,
+      "rate": 57.3,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
       "cosName": "봉봉한 바캉스",
-      "cosUsedCount": 10,
-      "charTotalCount": 95,
-      "rate": 10.5,
+      "cosUsedCount": 11,
+      "charTotalCount": 96,
+      "rate": 11.5,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     }

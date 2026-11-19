@@ -487,6 +487,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 39,
+        "pickRate": 13,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 39
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -644,24 +662,6 @@
             "line": "중열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 299,
-        "pickRate": 99.7,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 299
           }
         ],
         "totalEntries": 300
@@ -840,17 +840,17 @@
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 294,
-      "charTotalCount": 717,
-      "rate": 41,
+      "cosUsedCount": 184,
+      "charTotalCount": 457,
+      "rate": 40.3,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 261,
-      "charTotalCount": 717,
-      "rate": 36.4,
+      "cosUsedCount": 168,
+      "charTotalCount": 457,
+      "rate": 36.8,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

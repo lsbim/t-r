@@ -162,6 +162,18 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -286,24 +298,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 24,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -441,25 +435,25 @@
   "recentSkins": [
     {
       "cosName": "살구꽃과 어흥이",
-      "cosUsedCount": 52,
-      "charTotalCount": 60,
-      "rate": 86.7,
+      "cosUsedCount": 47,
+      "charTotalCount": 55,
+      "rate": 85.5,
       "lvl": "pretty",
       "launchDate": "2026-04-16"
     },
     {
       "cosName": "테디 더 나이트메어",
       "cosUsedCount": 5,
-      "charTotalCount": 60,
-      "rate": 8.3,
+      "charTotalCount": 55,
+      "rate": 9.1,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "트렌디 트로피컬",
       "cosUsedCount": 1,
-      "charTotalCount": 60,
-      "rate": 1.7,
+      "charTotalCount": 55,
+      "rate": 1.8,
       "lvl": "pretty",
       "launchDate": "2025-07-31"
     }

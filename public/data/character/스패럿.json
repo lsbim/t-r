@@ -138,6 +138,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -239,18 +257,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -381,8 +387,8 @@
     {
       "cosName": "거침없는 앵아치",
       "cosUsedCount": 5,
-      "charTotalCount": 24,
-      "rate": 20.8,
+      "charTotalCount": 25,
+      "rate": 20,
       "lvl": "normal",
       "launchDate": "2026-08-13"
     }

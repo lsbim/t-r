@@ -132,6 +132,24 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -239,18 +257,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -384,17 +390,17 @@
   "recentSkins": [
     {
       "cosName": "정체 분명 엘프",
-      "cosUsedCount": 4,
-      "charTotalCount": 11,
-      "rate": 36.4,
+      "cosUsedCount": 6,
+      "charTotalCount": 14,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2026-10-15"
     },
     {
       "cosName": "푸른 숲속 엘프",
-      "cosUsedCount": 4,
-      "charTotalCount": 11,
-      "rate": 36.4,
+      "cosUsedCount": 5,
+      "charTotalCount": 14,
+      "rate": 35.7,
       "lvl": "normal",
       "launchDate": "2026-02-26"
     }
