@@ -8,13 +8,14 @@ import InfoIcon from "./icons/InfoIcon";
 import { rankBG, rankBorderShadow } from "../utils/style/styleFuntions";
 import { RecentSkin } from "../types/character/characterStatsTypes";
 import { containerDarkBG } from "../styles/container";
+import { DeepClashSeasonData } from "@/types/deepClashTypes";
 
 const CostumeRank = (
     {
         data, type
     }:
         {
-            data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
+            data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData | DeepClashSeasonData,
             type?: 'side'
         }
 ) => {

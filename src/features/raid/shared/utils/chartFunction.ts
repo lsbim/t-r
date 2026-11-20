@@ -5,6 +5,7 @@ import { ClashV2PlayerData } from "../../../../types/clashV2Types";
 import { externalData, FrontierExternalData, FrontierPlayerData } from "../../../../types/frontierTypes";
 import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../../../../types/trickcalTypes";
 import { SelectChara } from "../types/statTypes";
+import { DeepClashPlayerData } from "@/types/deepClashTypes";
 
 // AllPickRateChart 전용.
 // 인덱스가 아닌 이름별로 카운트를 세어 반환
@@ -65,7 +66,7 @@ export function processRankingArrAllData(
 // PickRateChart 전용.
 // 9인 조합 기준
 export function processRankingArrData(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
     return processRankingArrDataV2(data, type);
@@ -75,7 +76,7 @@ export function processRankingArrData(
 // 위치를 인덱스가 아닌 사도 정보의 line으로 입력한다
 // 조합 구성이 9인 미만일 경우 포지션(위치)은 제외한다
 export function processRankingArrDataV2(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
 
@@ -98,10 +99,16 @@ export function processRankingArrDataV2(
         const arr = targetData(user);
         if (!arr) return;
 
+        const isDeepClashParty = 'personalities' in user;
+        const isExpectedDeepClashParty = isDeepClashParty && arr.length === 6;
         const isFullParty = arr.length === 9;
 
         // 조합이 9인 미만일 경우 로그
-        if (!isFullParty && import.meta.env.DEV) {
+        if (
+            !isFullParty
+            && !isExpectedDeepClashParty
+            && import.meta.env.DEV
+        ) {
             console.log(`[Position Skip] Rank ${user.rank || '?'} : ${arr.length}명 편성으로 위치 집계 제외`);
             console.log(`>>> ${arr}`);
         }
@@ -113,7 +120,7 @@ export function processRankingArrDataV2(
             if (!info) return;
 
             // 잘못된 위치 검증
-            if (import.meta.env.DEV && info.line !== "모든열") {
+            if (import.meta.env.DEV && isFullParty && info.line !== "모든열") {
                 const indexLine = getLineByIndex(idx);
 
                 if (info.line !== indexLine) {
