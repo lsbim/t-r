@@ -10,6 +10,7 @@ const DATA_ROOT = path.resolve(__dirname, '../public/data');
 const CLASH_DIR = path.join(DATA_ROOT, 'clash');
 const FRONTIER_DIR = path.join(DATA_ROOT, 'frontier');
 const CLASH_V2_DIR = path.join(DATA_ROOT, 'clash_v2');
+const DEEP_CLASH_DIR = path.join(DATA_ROOT, 'deepClash');
 const OUTPUT_DIR = path.join(DATA_ROOT, 'character');
 
 const CHAR_INFO_PATH = path.resolve(__dirname, '../src/data/trickcalChar.ts');
@@ -406,11 +407,14 @@ async function buildCharacterStats() {
 
     console.log(`✔️ charInfo 파싱: ${allCharNames.length}명`);
 
-    const [clashSeasons, frontierSeasons, clashV2Seasons] = await Promise.all([
-        loadSeasons(CLASH_DIR),
-        loadSeasons(FRONTIER_DIR),
-        loadSeasons(CLASH_V2_DIR),
-    ]);
+    const [clashSeasons, frontierSeasons, clashV2Seasons, deepClashSeasons] =
+        await Promise.all([
+            loadSeasons(CLASH_DIR),
+            loadSeasons(FRONTIER_DIR),
+            loadSeasons(CLASH_V2_DIR),
+            loadSeasons(DEEP_CLASH_DIR),
+        ]);
+
     console.log(
         `✔️ 시즌 로드 clash: ${clashSeasons.length}, ` +
         `frontier: ${frontierSeasons.length}, clashV2: ${clashV2Seasons.length}`
@@ -428,6 +432,7 @@ async function buildCharacterStats() {
     const clashStats = precompute(clashSeasons);
     const frontierStats = precompute(frontierSeasons);
     const clashV2Stats = precomputeV2(clashV2Seasons);
+    const deepClashStats = precompute(deepClashSeasons);
     console.log('✔️ 픽 통계 계산 완료');
 
     const needRecentSeasonNumber = 10; // 가져올 콘텐츠별 시즌 갯수
@@ -444,11 +449,13 @@ async function buildCharacterStats() {
                 clash: getTopSeasons(charName, clashStats, charInfoMap),
                 frontier: getTopSeasons(charName, frontierStats, charInfoMap),
                 clashV2: getTopSeasons(charName, clashV2Stats, charInfoMap),
+                deepClash: getTopSeasons(charName, deepClashStats, charInfoMap),
             },
             recentStats: {
                 clash: getRecentStats(charName, clashStats, needRecentSeasonNumber),
                 frontier: getRecentStats(charName, frontierStats, needRecentSeasonNumber),
                 clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
+                deepClash: getRecentStats(charName, deepClashStats, needRecentSeasonNumber),
             },
             recentSkins: getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
         };

@@ -336,6 +336,19 @@
         "isOverall": false,
         "line": "후열"
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "후열"
+      }
     ]
   },
   "recentStats": {
@@ -867,6 +880,26 @@
         "totalEntries": 300,
         "sidePickRate": 2.3
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
   "recentSkins": [
@@ -887,12 +920,12 @@
       "launchDate": "2025-09-25"
     },
     {
-      "cosName": "암야마존 우롱스",
+      "cosName": "암야마존 우롱수",
       "cosUsedCount": 152,
       "charTotalCount": 900,
       "rate": 16.9,
       "lvl": "normal",
-      "launchDate": "-"
+      "launchDate": "2026-11-12"
     },
     {
       "cosName": "호숫가 피싱 마스터",

@@ -68,6 +68,20 @@ const DeepClashSeasonPage = () => {
         );
     }, [displaySlice, deepType]);
 
+    const durationAxisMax = useMemo(() => {
+        if (!data?.data.length) return 120;
+
+        const maxDuration = data.data.reduce((seasonMax, player) => {
+            const playerMax = Math.max(
+                ...Object.values(player.personalities).map(({ duration }) => duration)
+            );
+            return Math.max(seasonMax, playerMax);
+        }, 0);
+
+        // 20초 단위로 올림
+        return (Math.floor(maxDuration / 20) + 1) * 20;
+    }, [data]);
+
     const handleDeepType = (id: DeepClashType) => {
         setDeepType(id);
         setSelect(null);
@@ -99,8 +113,8 @@ const DeepClashSeasonPage = () => {
                     >
                         <span
                             className={`inline-block px-3 py-[2px] rounded-2xl transition-colors duration-200 ${deepType === id
-                                    ? 'bg-[rgba(224,115,6,0.6)] dark:bg-[rgba(224,115,6,0.8)]'
-                                    : 'group-hover:bg-[rgba(224,115,6,0.3)] dark:group-hover:bg-[rgba(224,115,6,0.5)]'
+                                ? 'bg-[rgba(224,115,6,0.6)] dark:bg-[rgba(224,115,6,0.8)]'
+                                : 'group-hover:bg-[rgba(224,115,6,0.3)] dark:group-hover:bg-[rgba(224,115,6,0.5)]'
                                 }`}
                         >
                             {label}
@@ -118,6 +132,7 @@ const DeepClashSeasonPage = () => {
                         data={displaySlice}
                         type={deepType}
                         select={select?.name}
+                        durationAxisMax={durationAxisMax}
                     />
                     <PickRateChart
                         season={season}

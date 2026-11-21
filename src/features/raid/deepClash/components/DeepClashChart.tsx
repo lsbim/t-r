@@ -13,7 +13,6 @@ import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../../components/icons/InfoIcon";
 import { useTheme } from "../../../../hooks/useTheme";
 import { containerDarkBG } from "../../../../styles/container";
-import { ClashPlayerData, ClashSeasonData } from "../../../../types/clashTypes";
 import { DeepClashPlayerData, DeepClashSeasonData, DeepClashType } from "../../../../types/deepClashTypes";
 import { parseResonanceBaseName } from "../../../../utils/resonanceFunction";
 
@@ -30,7 +29,17 @@ ChartJS.register(
 const SELECT_COLOR = '#D97706';
 
 // processDeepClashData로 만든 데이터를 받는다. 보스는 score, 성격해역은 grade(수심)/duration
-const DeepClashChart = ({ data, type, select }: { data: DeepClashSeasonData, type: DeepClashType, select?: string }) => {
+const DeepClashChart = ({
+    data,
+    type,
+    select,
+    durationAxisMax
+}: {
+    data: DeepClashSeasonData,
+    type: DeepClashType,
+    select?: string,
+    durationAxisMax?: number
+}) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
@@ -127,8 +136,10 @@ const DeepClashChart = ({ data, type, select }: { data: DeepClashSeasonData, typ
             y_main: {
                 type: 'linear',
                 position: 'left',
+                max: isBoss ? undefined : durationAxisMax,
                 ticks: {
                     color: '#8884d8',
+                    ...(!isBoss && { stepSize: 20 }),
                 },
                 grid: {
                     color: gridColor,

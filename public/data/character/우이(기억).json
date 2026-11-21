@@ -17,7 +17,8 @@
         "line": "후열"
       }
     ],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": []
   },
   "recentStats": {
     "clash": [
@@ -397,6 +398,26 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
+      }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 50,
+        "pickRate": 16.7,
+        "overallRank": 11,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 4,
+            "count": 50
+          }
+        ],
+        "totalEntries": 300
       }
     ]
   },

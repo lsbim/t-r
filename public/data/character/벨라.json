@@ -220,7 +220,8 @@
         "isOverall": false,
         "line": "전열"
       }
-    ]
+    ],
+    "deepClash": []
   },
   "recentStats": {
     "clash": [
@@ -756,6 +757,26 @@
         ],
         "totalEntries": 300,
         "sidePickRate": 13.7
+      }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 298
+          }
+        ],
+        "totalEntries": 300
       }
     ]
   },

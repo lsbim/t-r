@@ -5,7 +5,8 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": []
   },
   "recentStats": {
     "clash": [
@@ -489,6 +490,26 @@
         "lineRanks": [],
         "totalEntries": 0,
         "sidePickRate": 2
+      }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
       }
     ]
   },
