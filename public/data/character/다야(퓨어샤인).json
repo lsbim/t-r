@@ -402,6 +402,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 12,
+      "pickRate": 4,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "샤이닝 비즈니스",

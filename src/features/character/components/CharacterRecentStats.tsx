@@ -16,7 +16,11 @@ import { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
 import { containerDarkBG } from '../../../styles/container';
-import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
+import {
+    ContentRecentStats,
+    DeepClashPersonalityStat,
+    RecentSeasonStat,
+} from '../../../types/character/characterStatsTypes';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
@@ -32,7 +36,13 @@ const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: s
 const formatSeasonLabel = (seasonNumber: number) =>
     seasonNumber > 10000 ? `시즌B${seasonNumber - 10000}` : `시즌${seasonNumber}`;
 
-const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats }) => {
+const CharacterRecentStats = ({
+    recentStats,
+    deepClashPersonalityStats = [],
+}: {
+    recentStats: ContentRecentStats;
+    deepClashPersonalityStats?: DeepClashPersonalityStat[];
+}) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
@@ -191,6 +201,87 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
             });
     }, [recentStats, tickColor, gridColor, theme]);
 
+    const deepClashPersonalityChart = useMemo(() => {
+        if (deepClashPersonalityStats.length === 0) return null;
+
+        const sorted = [...deepClashPersonalityStats].reverse();
+        const personality = sorted[0].personality;
+        const color = theme === 'dark'
+            ? getPersonalityDarkColor(personality)
+            : getPersonalityColor(personality);
+        const chartData: ChartData<'line'> = {
+            labels: sorted.map(stat => formatSeasonLabel(stat.seasonNumber)),
+            datasets: [{
+                label: `${personality} 해역 픽률`,
+                data: sorted.map(stat => stat.pickRate),
+                borderColor: color,
+                backgroundColor: color,
+                pointBackgroundColor: color,
+                pointBorderColor: color,
+                borderWidth: 2,
+                tension: 0.1,
+                pointRadius: 9,
+                pointHoverRadius: 9,
+                fill: false,
+            }],
+        };
+
+        const options: ChartOptions<'line'> = {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        title: context => {
+                            const stat = sorted[context[0].dataIndex];
+                            return `${formatSeasonLabel(stat.seasonNumber)}${stat.name ? ` ${stat.name}` : ''}`;
+                        },
+                        label: context => {
+                            const stat = sorted[context.dataIndex];
+                            return ` 픽률: ${stat.pickRate}%`;
+                        },
+                    },
+                    backgroundColor: 'rgba(30,30,33,0.85)',
+                    titleColor: 'white',
+                    bodyColor: 'white',
+                    borderColor: '#52525b',
+                    borderWidth: 1,
+                    cornerRadius: 6,
+                },
+                datalabels: {
+                    align: 'top',
+                    anchor: 'end',
+                    color: tickColor,
+                    font: { size: 11, weight: 'bold' },
+                    formatter: (value: number) => `${value}%`,
+                },
+            },
+            scales: {
+                x: {
+                    ticks: { color: tickColor, font: { size: 12 } },
+                    grid: { display: false },
+                },
+                y: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                        color: tickColor,
+                        font: { size: 11 },
+                        padding: 16,
+                        stepSize: 20,
+                        callback: value => `${value}%`,
+                    },
+                    grid: { display: false },
+                },
+            },
+            layout: { padding: { top: 24, right: 16, left: 0, bottom: 8 } },
+        };
+
+        return { personality, chartData, options };
+    }, [deepClashPersonalityStats, tickColor, theme]);
+
     return (
         <div className={`w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
             <div className="flex flex-col">
@@ -215,6 +306,20 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                             </div>
                         </div>
                     ))}
+                {deepClashPersonalityChart && (
+                    <div className="flex flex-col gap-1">
+                        <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">
+                            심해 대격돌 {deepClashPersonalityChart.personality} 해역
+                        </span>
+                        <div className="h-[180px]">
+                            <Line
+                                data={deepClashPersonalityChart.chartData}
+                                options={deepClashPersonalityChart.options}
+                                plugins={[ChartDataLabels]}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -418,6 +418,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 19,
+      "pickRate": 6.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "정식 마녀의 휴식",

@@ -417,6 +417,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 2,
+      "pickRate": 0.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "야산의 온천 마실",

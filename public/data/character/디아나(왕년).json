@@ -724,6 +724,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 170,
+      "pickRate": 56.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",

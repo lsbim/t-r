@@ -13,6 +13,14 @@ const CLASH_V2_DIR = path.join(DATA_ROOT, 'clash_v2');
 const DEEP_CLASH_DIR = path.join(DATA_ROOT, 'deepClash');
 const OUTPUT_DIR = path.join(DATA_ROOT, 'character');
 
+const DEEP_CLASH_PERSONALITY_KEY = {
+    '순수': 'innocence',
+    '냉정': 'composed',
+    '광기': 'madness',
+    '활발': 'vivacious',
+    '우울': 'depressed',
+};
+
 const CHAR_INFO_PATH = path.resolve(__dirname, '../src/data/trickcalChar.ts');
 const COSTUME_DATA_PATH = path.resolve(__dirname, '../src/data/costumes.ts');
 
@@ -363,6 +371,35 @@ function getRecentStats(charName, seasonStats, n) {
     });
 }
 
+// 캐릭터의 기본 성격 해역에서 해당 캐릭터가 사용된 비율을 시즌별 픽률로 계산
+function getDeepClashPersonalityStats(charName, personality, seasons, n) {
+    const personalityKey = DEEP_CLASH_PERSONALITY_KEY[personality];
+    if (!personalityKey) return [];
+
+    return seasons.slice(0, n).map(season => {
+        const data = season.raw.data ?? [];
+        let pickCount = 0;
+
+        for (const entry of data) {
+            const usedChars = entry.personalities?.[personalityKey]?.arr ?? [];
+            if (usedChars.some(name => normalizeCharName(name) === charName)) {
+                pickCount++;
+            }
+        }
+
+        return {
+            seasonNumber: season.seasonNumber,
+            name: season.raw.name ?? null,
+            personality,
+            startDate: season.raw.startDate ?? null,
+            endDate: season.raw.endDate ?? null,
+            pickCount,
+            pickRate: calcRate(pickCount, data.length),
+            totalEntries: data.length,
+        };
+    });
+}
+
 // 최근 사복 top3
 function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
     const skinCounts = new Map();
@@ -457,6 +494,12 @@ async function buildCharacterStats() {
                 clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
                 deepClash: getRecentStats(charName, deepClashStats, needRecentSeasonNumber),
             },
+            deepClashPersonalityStats: getDeepClashPersonalityStats(
+                charName,
+                meta.personality,
+                deepClashSeasons,
+                needRecentSeasonNumber
+            ),
             recentSkins: getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
         };
 

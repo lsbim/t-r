@@ -44,6 +44,18 @@ export interface RecentSeasonStat {
     sidePickRate?: number;
 }
 
+// 심해 대격돌에서 사도와 같은 성격 해역의 시즌별 픽률
+export interface DeepClashPersonalityStat {
+    seasonNumber: number;
+    name: string | null;
+    personality: Personality;
+    startDate: string | null;
+    endDate: string | null;
+    pickCount: number;
+    pickRate: number;
+    totalEntries: number;
+}
+
 // 최근 사용한 사복top3
 export interface RecentSkin {
     cosName: string;
@@ -76,5 +88,6 @@ export interface CharacterStatsData {
     personality: string | null;
     topSeasons: ContentTopSeasons;
     recentStats: ContentRecentStats;
+    deepClashPersonalityStats?: DeepClashPersonalityStat[];
     recentSkins: RecentSkin[];
 }

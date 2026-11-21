@@ -414,6 +414,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 92,
+      "pickRate": 30.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "꿈 많은 사무직 세계관",

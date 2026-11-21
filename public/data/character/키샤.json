@@ -388,6 +388,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 43,
+      "pickRate": 14.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "너만의 애완 언더돌",

@@ -405,6 +405,18 @@
       }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 1,
+      "pickRate": 0.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "한겨울의 평화 사절",

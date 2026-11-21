@@ -33,6 +33,7 @@ const CharacterPage = () => {
                     <div className="lg:w-[69%] w-full">
                         <CharacterRecentStats
                             recentStats={data.recentStats}
+                            deepClashPersonalityStats={data.deepClashPersonalityStats ?? []}
                         />
                     </div>
                 </div>
