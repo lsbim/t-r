@@ -67,6 +67,7 @@ export interface ContentRecentStats {
     clash: RecentSeasonStat[];
     frontier: RecentSeasonStat[];
     clashV2: RecentSeasonStat[];
+    deepClash: RecentSeasonStat[];
 }
 
 export interface CharacterStatsData {

@@ -12,7 +12,7 @@ const BossProfile: React.FC<BossProfileProps> = ({
     background = true
 }) => {
 
-    const hasGradientBackground = name === '죽음';
+    const hasGradientBackground = name === '죽음' || name === '오리카';
 
     const bossImgUrl = personality
         ? `/images/boss/${name}(${personality}).webp`

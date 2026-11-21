@@ -26,6 +26,7 @@ const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: s
     clash: { label: '차원 대충돌', color: '#fe4a75' },
     frontier: { label: '엘리아스 프론티어', color: '#3095d2', },
     clashV2: { label: '차원 대충돌 2.0', color: '#107535', },
+    deepClash: { label: '심해 대격돌', color: '#113485', },
 };
 
 const formatSeasonLabel = (seasonNumber: number) =>

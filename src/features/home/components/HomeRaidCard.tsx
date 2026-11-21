@@ -5,14 +5,20 @@ import { containerDarkBG } from "../../../styles/container";
 
 const HomeRaidCard = ({ data, raidType }: {
     data: LatestSummary,
-    raidType: 'clash' | 'clashV2' | 'frontier',
+    raidType: 'clash' | 'clashV2' | 'frontier' | 'deepClash',
 }) => {
 
-    const borderColor = 'border-[3px] ' + ('personality' in data ? `border-${data.personality}`
-        : `border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]`);
+    const borderColor = 'border-[3px] ' + ('personality' in data
+        ? `border-${data.personality}`
+        : raidType === 'deepClash'
+            ? 'border-[rgb(15,82,169)]'
+            : `border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]`);
 
-    const bgColor = 'personality' in data ? `bg-${data.personality}`
-        : `bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.35_0.094_270.913)]`;
+    const bgColor = 'personality' in data
+        ? `bg-${data.personality}`
+        : raidType === 'deepClash'
+            ? 'bg-[rgb(15,82,169)]'
+            : `bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.35_0.094_270.913)]`;
 
     const headerTextColor = 'personality' in data ? `` : 'text-zinc-200';
 
@@ -28,11 +34,19 @@ const HomeRaidCard = ({ data, raidType }: {
     } else if (raidType === 'clashV2') {
         krName = '차원 대충돌 2.0';
         krShortName = '대충돌 2.0';
+    } else if (raidType === 'deepClash') {
+        krName = '심해 대격돌';
+        krShortName = '심해 대격돌';
     }
 
-    const typeLink = raidType.startsWith('clash') ?
-        raidType.includes('V2') ? `clash/v2` : `clash/v1`
-        : raidType;
+    const typeLink =
+        raidType === 'deepClash'
+            ? 'deep'
+            : raidType.startsWith('clash')
+                ? raidType.includes('V2')
+                    ? 'clash/v2'
+                    : 'clash/v1'
+                : raidType;
 
     return (
         <Link
