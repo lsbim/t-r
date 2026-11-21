@@ -16,6 +16,7 @@ const ClashV2Season = lazy(() => import("../features/raid/clashV2/pages/ClashV2S
 const FrontierIndex = lazy(() => import("../features/raid/frontier/pages/IndexPage"));
 const FrontierSeason = lazy(() => import("../features/raid/frontier/pages/SeasonPage"));
 
+const DeepClashIndex = lazy(() => import("../features/raid/deepClash/pages/DeepClashIndexPage"));
 const DeepClashSeason = lazy(() => import("../features/raid/deepClash/pages/DeepClashSeasonPage"));
 
 const RaidTimelineIndex = lazy(() => import("../features/timeline/pages/IndexPage"));
@@ -145,7 +146,7 @@ const router = createBrowserRouter([
                 element: <>
                     <RaidIndexSEO raidType="frontier" />
                     <Suspense fallback={<Loading />}>
-                        <FrontierIndex />
+                        <DeepClashIndex />
                     </Suspense></>,
                 errorElement: <ErrorPage />
             },

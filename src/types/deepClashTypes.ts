@@ -1,4 +1,4 @@
-import { PersonalityEn } from "./trickcalTypes";
+import { AllLine, PersonalityEn } from "./trickcalTypes";
 
 export const deepClashBossList: string[] = ["오리카"];
 
@@ -33,4 +33,15 @@ export interface DeepClashSeasonData {
     startDate: string; // "YYYY-MM-DD" 형식
     endDate: string; // "YYYY-MM-DD" 형식
     data: DeepClashPlayerData[]; // [["비비","벨라"...], [], [], ...]
+}
+
+export interface DeepClashSummary {
+    name: string;
+    startDate: string;
+    endDate: string;
+    summary: Array<{
+        name: string;
+        line: AllLine;
+        count: number;
+    }>;
 }

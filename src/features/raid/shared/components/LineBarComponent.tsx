@@ -5,7 +5,7 @@ const LineBarComponent = ({
     data,
     line,
 }: {
-    data: SummaryData[],
+    data: Array<Pick<SummaryData, "name" | "line" | "count">>,
     line?: string,
 }) => {
 

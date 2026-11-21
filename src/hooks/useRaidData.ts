@@ -4,7 +4,7 @@ import { ClashV2SeasonData, ClashV2Summary } from "../types/clashV2Types";
 import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData, FrontierSummary } from "../types/frontierTypes";
 import { LatestData } from "../types/latestTypes";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
-import { DeepClashSeasonData } from "@/types/deepClashTypes";
+import { DeepClashSeasonData, DeepClashSummary } from "@/types/deepClashTypes";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -52,6 +52,7 @@ export const useRaidData =
         | ClashExternalData
         | ClashV2SeasonData
         | DeepClashSeasonData
+        | DeepClashSummary
         | ClashSummary
         | FrontierSummary
         | ClashV2Summary
