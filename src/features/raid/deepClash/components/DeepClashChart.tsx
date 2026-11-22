@@ -213,8 +213,8 @@ const DeepClashChart = ({
         return (
             <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-3 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
                 <div className='flex shrink-0 items-center'>
-                    <span className="text-xl font-bold mr-2">순위별 점수</span>
-                    <InfoIcon text="해당 유저의 보스 종합 점수를 제공합니다." />
+                    <span className="text-xl font-bold mr-2">점수</span>
+                    <InfoIcon text="해당 유저의 보스 점수를 제공합니다." />
                 </div>
                 <div className='min-h-0 flex-1 dark:brightness-90'>
                     <Line data={chartData} options={chartOptions} />
