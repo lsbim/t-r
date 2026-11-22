@@ -12,6 +12,7 @@ import { LatestData } from "../../../types/latestTypes";
 import { Personality, Race, races } from "../../../types/trickcalTypes";
 import BirthTimeline from "../components/BirthTimeline";
 import CharacterSearchList from "../components/CharacterSearchList";
+import HomeDeepClashCard from "../components/HomeDeepClashCard";
 import HomeRaidCard from "../components/HomeRaidCard";
 import NoticeComponent from "../components/NoticeComponent";
 
@@ -82,25 +83,35 @@ const IndexPage = () => {
         <div className={`${pageRootContainer} gap-6 min-h-[100.5vh]`}> {/* 스크롤을 위한 100.5vh */}
             <HeaderNav />
             {/* 레이드 카드 */}
-            <div className="md:w-[768px] w-full mx-auto flex gap-x-2 mt-28">
-                {Object.entries(latest).map(([key, value]) => {
+            <div className="md:w-[768px] w-full mx-auto flex flex-col gap-x-2 gap-y-4">
+                {/* 심해 대격돌 */}
+                {latest.deepClash && (
+                    <div className="w-full relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
+                        <HomeDeepClashCard
+                            data={latest.deepClash}
+                        />
+                    </div>
+                )}
 
-                    return (
+                {/* 대충돌, 프론티어 */}
+                <div className="flex gap-x-2">
+                    {(['clash', 'clashV2', 'frontier'] as const).map((key) => (
                         <div
                             key={`raid_card_${key}`}
-                            className="w-[33%] relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
+                            className="w-1/3 relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200"
+                        >
                             <HomeRaidCard
-                                data={value}
-                                raidType={key as 'clash' | 'clashV2' | 'frontier'}
+                                data={latest[key]}
+                                raidType={key}
                             />
                             {key === mostLatestKey && (
-                                <div className="absolute top-[-20px] left-0 py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
+                                <div className="absolute pointer-events-none top-[-10px] left-[-5px] py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
                                     NEW
                                 </div>
                             )}
                         </div>
-                    )
-                })}
+                    ))}
+                </div>
             </div>
             {/* 사도 목록 */}
             <CharacterSearchList

@@ -1,10 +1,22 @@
 
 // 성격
 export type Personality = "광기" | "냉정" | "순수" | "우울" | "활발" | "공명";
+export type PersonalityEn = "madness" | "composed" | "innocence" | "depressed" | "vivacious" | "resonance";
 export const personalityBaseList = ["광기", "냉정", "순수", "우울", "활발"];
+export const personalityEnBaseList = ["madness", "composed", "innocence", "depressed", "vivacious"];
 export const personalityList = [...personalityBaseList, "공명"];
+
+export const personalityObjKo: Record<PersonalityEn, Personality> = {
+    madness: "광기",
+    composed: "냉정",
+    innocence: "순수",
+    depressed: "우울",
+    vivacious: "활발",
+    resonance: '공명'
+};
+
 // 레이드 영문명
-export type TrickcalRaidEn = "clash" | "frontier" | 'clashV2';
+export type TrickcalRaidEn = "clash" | "frontier" | 'clashV2' | 'deepClash';
 // 성격 시너지용
 export interface SynergyItem {
     personality: Personality;

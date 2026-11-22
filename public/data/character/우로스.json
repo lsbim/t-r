@@ -336,6 +336,54 @@
         "isOverall": false,
         "line": "후열"
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "순수",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 292,
+        "pickRate": 97.3,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "광기",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 278,
+        "pickRate": 92.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "우울",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "isOverall": false,
+        "line": "후열"
+      }
     ]
   },
   "recentStats": {
@@ -867,8 +915,80 @@
         "totalEntries": 300,
         "sidePickRate": 2.3
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 1,
+            "count": 300
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 292,
+      "pickRate": 97.3,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 282,
+      "pickRate": 94,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 278,
+      "pickRate": 92.7,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 280,
+      "pickRate": 93.3,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 287,
+      "pickRate": 95.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
@@ -887,12 +1007,12 @@
       "launchDate": "2025-09-25"
     },
     {
-      "cosName": "암야마존 우롱스",
+      "cosName": "암야마존 우롱수",
       "cosUsedCount": 152,
       "charTotalCount": 900,
       "rate": 16.9,
       "lvl": "normal",
-      "launchDate": "-"
+      "launchDate": "2026-11-12"
     },
     {
       "cosName": "호숫가 피싱 마스터",

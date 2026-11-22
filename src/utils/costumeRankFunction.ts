@@ -1,3 +1,4 @@
+import { DeepClashSeasonData } from "@/types/deepClashTypes";
 import { Costume, costumes } from "../data/costumes";
 import { ClashSeasonData } from "../types/clashTypes";
 import { FrontierSeasonData } from "../types/frontierTypes";
@@ -20,7 +21,7 @@ export interface ProcessedCostumeData {
 };
 
 export const processCostumeData = (
-    data: ClashSeasonData | FrontierSeasonData,
+    data: ClashSeasonData | FrontierSeasonData | DeepClashSeasonData,
     type?: 'side'
 ): ProcessedCostumeData => {
 

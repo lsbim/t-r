@@ -17,4 +17,5 @@ export interface LatestData {
     clash: LatestSummary;
     frontier: LatestSummary;
     clashV2: LatestSummary;
+    deepClash: LatestSummary;
 }

@@ -31,6 +31,10 @@ export function translateRaid(name: string) {
             return '차원 대충돌 2.0';
         case "frontier":
             return '엘리아스 프론티어';
+        case "deepClash":
+            return '심해 대격돌';
+        case "deepClashPersonality":
+            return '심해 대격돌 성격 해역';
     }
 }
 
@@ -119,7 +123,7 @@ const CHAR_ICON_CONFIGS: {
 
 export function getCharacterIcons(charName: string): CharacterIconInfo[] {
     const character = charInfo[charName];
-    
+
     return CHAR_ICON_CONFIGS.map(({ folder, getValue, translate }) => {
         const value = getValue(character);
         return {

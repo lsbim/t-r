@@ -7,15 +7,20 @@ import { lineList } from "../../../../../types/trickcalTypes";
 import { processExternalData, processRankingArrData, processRankingArrDataV2 } from "../../utils/chartFunction";
 import { containerDarkBG } from "../../../../../styles/container";
 import { SelectChara } from "../../types/statTypes";
+import { DeepClashSeasonData } from "@/types/deepClashTypes";
 
-type SeasonDataUnion = ClashSeasonData | FrontierSeasonData | ClashV2SeasonData;
+type SeasonDataUnion = ClashSeasonData | FrontierSeasonData | ClashV2SeasonData | DeepClashSeasonData;
+type PreviousDataUnion =
+    | SeasonDataUnion
+    | ClashExternalData
+    | FrontierExternalData;
 
 interface PickRateChartProps {
     data: SeasonDataUnion
     fullData: SeasonDataUnion
     season?: string,
     setSelect: React.Dispatch<React.SetStateAction<SelectChara | null>>;
-    prevData?: ClashSeasonData | FrontierSeasonData | ClashExternalData | FrontierExternalData | ClashV2SeasonData;
+    prevData?: PreviousDataUnion;
     type?: 'side';
     select: SelectChara | null;
     excludedSet: Set<string>;
@@ -51,17 +56,22 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
             .sort((a, b) => b.count - a.count);
     }, [data, type, fullData]);
 
-
-    const userLength = data.type === 'season'
-        ? (data.data as any).length
-        : 100;
+    const userLength = data.data.length;
 
     const processPrevData = useMemo(() => {
         if (!prevData) return null;
 
+        // DeepClashSeasonData에는 type 필드가 없다.
+        if (!('type' in prevData)) {
+            return processRankingArrData(prevData.data, type)
+                .sort((a, b) => b.percent - a.percent);
+        }
+
         return prevData.type === 'season'
-            ? processRankingArrData(prevData.data, type).sort((a, b) => b.percent - a.percent)
-            : processExternalData(prevData).sort((a, b) => b.percent - a.percent);
+            ? processRankingArrData(prevData.data, type)
+                .sort((a, b) => b.percent - a.percent)
+            : processExternalData(prevData)
+                .sort((a, b) => b.percent - a.percent);
     }, [prevData, type]);
 
     const prevSeasonPickRates = useMemo(() => {
@@ -70,9 +80,11 @@ const PickRateChart: React.FC<PickRateChartProps> = ({
         const rateMap = new Map<string, number>();
 
         // 추후 100명 이상의 사도가 사용될 수 있지만 external 시즌은 전부 100인이기 때문에
-        const prevUserLength = (prevData.data.length >= 100 && prevData.type === 'season')
-            ? (prevData.data as any).length
-            : 100;
+        const prevUserLength = !('type' in prevData)
+            ? prevData.data.length
+            : prevData.type === 'season' && prevData.data.length >= 100
+                ? prevData.data.length
+                : 100;
 
         lineList.forEach(line => {
 

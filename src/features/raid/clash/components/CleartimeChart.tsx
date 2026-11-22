@@ -10,6 +10,7 @@ import {
     ChartOptions,
     Filler,
 } from 'chart.js';
+import type { ScriptableContext } from 'chart.js';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { ClashPlayerData, ClashSeasonData } from "../../../../types/clashTypes";
 import { Line } from 'react-chartjs-2';
@@ -18,6 +19,7 @@ import { useTheme } from '../../../../hooks/useTheme';
 import { useMemo } from 'react';
 import InfoIcon from '../../../../components/icons/InfoIcon';
 import { containerDarkBG } from '../../../../styles/container';
+import { parseResonanceBaseName } from '../../../../utils/resonanceFunction';
 
 ChartJS.register(
     annotationPlugin,
@@ -32,7 +34,7 @@ ChartJS.register(
 );
 
 
-const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeasonData, season?: string }) => {
+const CleartimeChart = ({ data, season, select }: { data: ClashSeasonData | FrontierSeasonData, season?: string, select?: string }) => {
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
@@ -40,6 +42,12 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
     const arr = data?.data
 
     const processedData = useMemo(() => preprocessData(arr ?? []), [arr]);
+    const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
+    const pointRadii = useMemo(() => processedData.map(item => {
+        if (!select) return 0;
+        const isSelected = item.arr.some(name => name === select || (parseResonanceBaseName(name)?.baseName ?? name) === selectedBaseName);
+        return isSelected ? 5 : 1.5;
+    }), [processedData, select, selectedBaseName]);
     const segments = useMemo(() => buildSegments(processedData), [processedData]);
 
     const hasScoreData = useMemo(() =>
@@ -114,14 +122,14 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                 yAxisID: 'y_duration',      // 왼쪽 duration 축 사용
                 borderColor: '#8884d8',
                 backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                pointBackgroundColor: '#8884d8',
+                pointBorderWidth: 0,
                 borderWidth: 2,
                 borderDash: [],
                 tension: 0.1,
-                pointRadius: 0,
-                pointHoverRadius: 6,
-                pointHoverBackgroundColor: '#8884d8',
-                pointHoverBorderColor: '#ffffff',
-                pointHoverBorderWidth: 3,
+                pointRadius: pointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => pointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
                 fill: false,
                 spanGaps: false,
             };
@@ -142,14 +150,14 @@ const CleartimeChart = ({ data, season }: { data: ClashSeasonData | FrontierSeas
                 yAxisID: 'y_score',         // 오른쪽 score 축 사용
                 borderColor: '#82ca9d',
                 backgroundColor: 'rgba(130, 202, 157, 0.1)',
+                pointBackgroundColor: '#82ca9d',
+                pointBorderWidth: 0,
                 borderWidth: 2,
                 borderDash: [],
                 tension: 0.1,
-                pointRadius: 0,
-                pointHoverRadius: 6,
-                pointHoverBackgroundColor: '#82ca9d',
-                pointHoverBorderColor: '#ffffff',
-                pointHoverBorderWidth: 3,
+                pointRadius: pointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => pointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
                 fill: false,
                 spanGaps: false,
             };

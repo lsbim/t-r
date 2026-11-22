@@ -18,7 +18,9 @@
         "isOverall": false,
         "line": "중열"
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
@@ -508,8 +510,34 @@
         "lineRanks": [],
         "totalEntries": 0
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 273,
+      "pickRate": 91,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "버닝 다운 빌런",

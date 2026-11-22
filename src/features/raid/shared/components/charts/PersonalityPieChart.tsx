@@ -14,6 +14,7 @@ import { processPersonalityPie } from "../../utils/chartFunction";
 import { useTheme } from '../../../../../hooks/useTheme';
 import { ClashV2SeasonData } from '../../../../../types/clashV2Types';
 import React, { useMemo } from 'react';
+import { DeepClashSeasonData } from '../../../../../types/deepClashTypes';
 // ① 필수: 사용 요소 & 플러그인 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -22,7 +23,7 @@ const PersonalityPieChart = ({
     data,
     type
 }: {
-    data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData | ClashV2SeasonData,
+    data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData | ClashV2SeasonData | DeepClashSeasonData,
     type?: 'side'
 }) => {
 

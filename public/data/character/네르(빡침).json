@@ -5,7 +5,21 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "활발",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 291,
+        "pickRate": 97,
+        "isOverall": false,
+        "line": "후열"
+      }
+    ]
   },
   "recentStats": {
     "clash": [
@@ -444,8 +458,34 @@
         "lineRanks": [],
         "totalEntries": 0
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 291,
+      "pickRate": 97,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "왕관의 수여자",

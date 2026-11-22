@@ -7,7 +7,7 @@ import { translateRaid } from '../../../utils/function';
 const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons }) => {
 
     const { theme } = useTheme();
-    const hasTopSeasons = topSeasons.clash.length > 0 || topSeasons.clashV2.length > 0 || topSeasons.frontier.length > 0;
+    const hasTopSeasons = Object.values(topSeasons).some(seasons => seasons.length > 0);
 
     const shadow = theme === 'dark'
         ? '0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0), 0px 0px 1.2px rgb(0, 0, 0)'
@@ -42,7 +42,15 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                             ? `border-${season.personality}-dark`
                                             : 'border-[oklch(0.5_0.094_270.913)]'
 
-                                        const raidUrl = key === 'clashV2' ? `/clash/v2/${season.seasonNumber}` : `/${key}/${season.seasonNumber}`;
+                                        const raidUrl = key === 'clashV2'
+                                            ? `/clash/v2/${season.seasonNumber}`
+                                            : key === 'deepClash' || key === 'deepClashPersonality'
+                                                ? `/deep/${season.seasonNumber}`
+                                                : `/${key}/${season.seasonNumber}`;
+
+                                        const bossImageName = key === 'deepClashPersonality'
+                                            ? season.name
+                                            : `${season.name}${season.personality ? `(${season.personality})` : ''}`;
 
                                         const seasonNum = season.seasonNumber > 10000 ? `B${(season.seasonNumber - 10000)}` : season.seasonNumber
 
@@ -51,14 +59,14 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                                 data-tooltip-id="my-tooltip"
                                                 data-tooltip-content={`시즌${season.seasonNumber > 10000 ? `B${season.seasonNumber - 10000}` : season.seasonNumber} ${season.name}`}
                                                 to={raidUrl}
-                                                key={`${key}_${season.seasonNumber}`}
+                                                key={`${key}_${season.seasonNumber}_${season.personality ?? 'none'}_${season.line ?? 'overall'}_${season.contentType ?? 'default'}`}
                                                 className="relative select-none rounded-2xl"
                                             >
                                                 <div
                                                     className={`overflow-hidden w-[48px] h-[48px] rounded-full z-20 border-[7px] bg-black/10 dark:bg-zinc-950 ${borderColor}`}
                                                 >
                                                     <img
-                                                        src={`/images/boss/${season.name}${season.personality ? `(${season.personality})` : ''}.webp`}
+                                                        src={`/images/boss/${bossImageName}.webp`}
                                                         className="w-full h-full object-cover object-center transform-gpu scale-[1.5]" />
                                                 </div>
                                                 <span
