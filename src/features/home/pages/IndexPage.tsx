@@ -90,11 +90,6 @@ const IndexPage = () => {
                         <HomeDeepClashCard
                             data={latest.deepClash}
                         />
-                        {mostLatestKey === 'deepClash' && (
-                            <div className="absolute top-[-20px] left-0 py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
-                                NEW
-                            </div>
-                        )}
                     </div>
                 )}
 
@@ -110,7 +105,7 @@ const IndexPage = () => {
                                 raidType={key}
                             />
                             {key === mostLatestKey && (
-                                <div className="absolute top-[-20px] left-0 py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
+                                <div className="absolute pointer-events-none top-[-10px] left-[-5px] py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
                                     NEW
                                 </div>
                             )}
