@@ -10,6 +10,7 @@ import {
     Tooltip,
 } from 'chart.js';
 import type { ScriptableContext } from 'chart.js';
+import { useMemo } from 'react';
 import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../../components/icons/InfoIcon";
 import { useTheme } from "../../../../hooks/useTheme";
@@ -26,6 +27,16 @@ ChartJS.register(
     Tooltip,
     Legend
 );
+
+// 오리카 전용
+const lineCount = (score: number) => {
+    const c = 0.5681983931;
+    const k = 1.42003098e-6;
+    return -c + Math.sqrt(c * c + k * score);
+};
+
+const formatLineCount = (score: number) =>
+    (Math.floor(lineCount(score) * 100) / 100).toFixed(2);
 
 // processDeepClashData로 만든 데이터를 받는다. 보스는 score, 성격해역은 grade(수심)/duration
 const DeepClashChart = ({
@@ -47,6 +58,23 @@ const DeepClashChart = ({
     const arr = data?.data;
     const isBoss = type === 'boss';
     const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
+    const depthStats = useMemo(() => {
+        if (isBoss) return null;
+        const depths = arr
+            .map(item => item.personalities[type].depth)
+            .filter(Number.isFinite);
+        if (depths.length === 0) return null;
+
+        const maxDepth = Math.max(...depths);
+        const minDepth = Math.min(...depths);
+        return {
+            average: depths.reduce((sum, depth) => sum + depth, 0) / depths.length,
+            max: maxDepth,
+            maxCount: depths.filter(depth => depth === maxDepth).length,
+            min: minDepth,
+            minCount: depths.filter(depth => depth === minDepth).length,
+        };
+    }, [arr, isBoss, type]);
 
     // 선택한 사도를 사용한 유저 (공명 사도는 본명으로 선택해도 성격 변형을 포함)
     const isSelected = (item: DeepClashPlayerData) =>
@@ -122,6 +150,12 @@ const DeepClashChart = ({
                     },
                     label: function (context) {
                         if (context.dataset.label === '클리어 시간') return `클리어 시간: ${context.formattedValue}초`;
+                        if (isBoss && context.dataset.label === '점수(단위: 억)') {
+                            const score = arr[context.dataIndex]?.score;
+                            if (score !== undefined) {
+                                return `${context.dataset.label}: ${context.formattedValue} (약 +${formatLineCount(score)}줄)`;
+                            }
+                        }
                         return `${context.dataset.label}: ${context.formattedValue}`;
                     },
                 }
@@ -177,12 +211,12 @@ const DeepClashChart = ({
 
     if (isBoss) {
         return (
-            <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
-                <div className='flex items-center'>
+            <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-3 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
+                <div className='flex shrink-0 items-center'>
                     <span className="text-xl font-bold mr-2">순위별 점수</span>
                     <InfoIcon text="해당 유저의 보스 종합 점수를 제공합니다." />
                 </div>
-                <div className='h-[400px] dark:brightness-90'>
+                <div className='min-h-0 flex-1 dark:brightness-90'>
                     <Line data={chartData} options={chartOptions} />
                 </div>
             </div>
@@ -268,6 +302,13 @@ const DeepClashChart = ({
                     </div>
                 </div>
             </div>
+            {depthStats && (
+                <div className="flex min-h-8 shrink-0 flex-wrap items-center justify-center gap-x-10 gap-y-1 text-[13px]">
+                    <span>평균 수심 <strong>{depthStats.average.toFixed(1)}m</strong></span>
+                    <span>최고 수심 <strong>{depthStats.max}m</strong> ({depthStats.maxCount}명)</span>
+                    <span>최저 수심 <strong>{depthStats.min}m</strong> ({depthStats.minCount}명)</span>
+                </div>
+            )}
         </div>
     );
 }

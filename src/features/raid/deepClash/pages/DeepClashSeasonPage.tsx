@@ -6,6 +6,7 @@ import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
 import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
 import { DeepClashPlayerData, DeepClashSeasonData, DeepClashType } from "../../../../types/deepClashTypes";
+import { getPersonalityColor, personalityObjKo } from "../../../../types/trickcalTypes";
 import BestComp from "../../shared/components/BestComp";
 import CompListComponent from "../../shared/components/CompListComponent";
 import InfoComponent from "../../shared/components/InfoComponent";
@@ -133,9 +134,14 @@ const DeepClashSeasonPage = () => {
                         onClick={() => handleDeepType(id)}
                     >
                         <span
-                            className={`inline-block px-3 py-[2px] rounded-2xl transition-colors duration-200 ${deepType === id
-                                ? 'bg-[rgba(224,115,6,0.6)] dark:bg-[rgba(224,115,6,0.8)]'
-                                : 'group-hover:bg-[rgba(224,115,6,0.3)] dark:group-hover:bg-[rgba(224,115,6,0.5)]'
+                            style={deepType === id && id !== 'boss'
+                                ? { backgroundColor: `${getPersonalityColor(personalityObjKo[id])}99` }
+                                : undefined}
+                            className={`inline-block px-3 py-[2px] rounded-2xl transition-colors duration-200 ${id === 'boss'
+                                ? deepType === id
+                                    ? 'bg-[rgba(224,115,6,0.6)] dark:bg-[rgba(224,115,6,0.8)]'
+                                    : 'group-hover:bg-[rgba(224,115,6,0.3)] dark:group-hover:bg-[rgba(224,115,6,0.5)]'
+                                : 'dark:brightness-90'
                                 }`}
                         >
                             {label}
