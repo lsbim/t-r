@@ -13,9 +13,9 @@ interface SelectInfoProps {
     pickRate: number;
     totalUses: number;
     toggleExclude: (name: string) => void;
-    maxScore: number;
-    minScore: number;
-    scoreType: 'coin' | 'duration'
+    maxScore: number | null;
+    minScore: number | null;
+    scoreType: 'coin' | 'duration' | 'score' | 'depth'
 }
 
 const SelectInfo: React.FC<SelectInfoProps> = ({
@@ -32,7 +32,30 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
 
     const selectUrl = parseResonanceBaseName(select)?.baseName ? `/character/${parseResonanceBaseName(select)?.baseName}` : `/character/${select}`;
 
-    const isCoin = scoreType === 'coin'
+    const isCoin = scoreType === 'coin';
+    const isDuration = scoreType === 'duration';
+    const highLabel = isCoin ? '최다 코인'
+        : isDuration ? '최단 시간'
+            : scoreType === 'score' ? '최고 점수' : '최고 수심';
+    const lowLabel = isCoin ? '최소 코인'
+        : isDuration ? '최장 시간'
+            : scoreType === 'score' ? '최저 점수' : '최저 수심';
+    const formatHigh = () => {
+        const value = isCoin ? maxScore : isDuration ? minScore : maxScore;
+        if (value === null) return '-';
+        if (isCoin) return `${value.toLocaleString()}개`;
+        if (isDuration) return `${value}초`;
+        if (scoreType === 'score') return `${(value / 100_000_000).toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}억`;
+        return `${value.toLocaleString()}m`;
+    };
+    const formatLow = () => {
+        const value = isCoin ? minScore : isDuration ? maxScore : minScore;
+        if (value === null) return '-';
+        if (isCoin) return `${value.toLocaleString()}개`;
+        if (isDuration) return `${value}초`;
+        if (scoreType === 'score') return `${(value / 100_000_000).toLocaleString('ko-KR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}억`;
+        return `${value.toLocaleString()}m`;
+    };
 
     const INFO_CONFIG = [[
         { title: '픽', value: totalUses },
@@ -44,8 +67,8 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
     ],
     [
         // 위: 더 높은 성적, 아래: 더 낮은 성적
-        { title: isCoin ? '최다 코인' : '최단 시간', value: isCoin ? `${maxScore ?? '- '}개` : `${minScore ?? '- '}초` },
-        { title: isCoin ? '최소 코인' : '최장 시간', value: isCoin ? `${minScore ?? '- '}개` : `${maxScore ?? '- '}초` },
+        { title: highLabel, value: formatHigh() },
+        { title: lowLabel, value: formatLow() },
     ]]
 
     return (

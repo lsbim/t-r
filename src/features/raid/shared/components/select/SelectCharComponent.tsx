@@ -12,7 +12,7 @@ const SelectCharComponent = ({
 }: {
     statsForSelect: any,
     toggleExclude: (name: string) => void,
-    scoreType: 'coin' | 'duration'
+    scoreType: 'coin' | 'duration' | 'score' | 'depth'
 }) => {
 
     // console.log(statsForSelect)

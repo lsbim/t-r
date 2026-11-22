@@ -220,6 +220,20 @@
         "isOverall": false,
         "line": "전열"
       }
+    ],
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "활발",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 294,
+        "pickRate": 98,
+        "isOverall": false,
+        "line": "전열"
+      }
     ]
   },
   "recentStats": {
@@ -757,8 +771,40 @@
         "totalEntries": 300,
         "sidePickRate": 13.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 298
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 294,
+      "pickRate": 98,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",

@@ -14,9 +14,11 @@ import { charInfo } from '../../../../../data/trickcalChar';
 import { useTheme } from '../../../../../hooks/useTheme';
 import { containerDarkBG } from '../../../../../styles/container';
 import { ClashExternalData, ClashSeasonData } from "../../../../../types/clashTypes";
+import { DeepClashSeasonData } from "../../../../../types/deepClashTypes";
 import { FrontierExternalData, FrontierSeasonData } from "../../../../../types/frontierTypes";
 import { SelectChara } from '../../types/statTypes';
 import { getPersonalityColor, Personality } from "../../../../../types/trickcalTypes";
+import { parseResonanceBaseName } from "../../../../../utils/resonanceFunction";
 import { processExternalAllData, processRankingArrAllData } from '../../utils/chartFunction';
 
 ChartJS.register(
@@ -28,11 +30,12 @@ ChartJS.register(
     Legend
 );
 
-const AllPickRateChart = ({ data, type, setSelect }:
+const AllPickRateChart = ({ data, type, setSelect, isDeepClash = false }:
     {
-        data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData,
+        data: ClashSeasonData | ClashExternalData | FrontierSeasonData | FrontierExternalData | DeepClashSeasonData,
         type?: 'side',
-        setSelect?: React.Dispatch<React.SetStateAction<SelectChara | null>>
+        setSelect?: React.Dispatch<React.SetStateAction<SelectChara | null>>,
+        isDeepClash?: boolean
     }) => {
 
     const { theme } = useTheme();
@@ -40,10 +43,14 @@ const AllPickRateChart = ({ data, type, setSelect }:
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const sortedData = useMemo(() => {
-        return data.type === 'season'
-            ? processRankingArrAllData(data?.data, type).sort((a, b) => b.count - a.count)
-            : processExternalAllData(data).sort((a, b) => b.count - a.count)
-    }, [data, type]);
+        if (isDeepClash) {
+            return processRankingArrAllData((data as DeepClashSeasonData).data, type).sort((a, b) => b.count - a.count);
+        }
+        if ('type' in data && data.type === 'season') {
+            return processRankingArrAllData(data.data, type).sort((a, b) => b.count - a.count);
+        }
+        return processExternalAllData(data as ClashExternalData | FrontierExternalData).sort((a, b) => b.count - a.count);
+    }, [data, type, isDeepClash]);
 
     // console.log("sortedData: ", sortedData)
 
@@ -60,7 +67,8 @@ const AllPickRateChart = ({ data, type, setSelect }:
             // 해당 인덱스에 해당하는 캐릭터 이름을 추출
             const selectedCharacterName = sortedData[elementIndex].name;
 
-            setSelect({ name: selectedCharacterName, line: charInfo[selectedCharacterName].line });
+            const baseName = parseResonanceBaseName(selectedCharacterName)?.baseName ?? selectedCharacterName;
+            setSelect({ name: selectedCharacterName, line: charInfo[baseName].line });
         }
     };
 

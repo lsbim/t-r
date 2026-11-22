@@ -17,7 +17,9 @@
         "line": "후열"
       }
     ],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
@@ -548,8 +550,40 @@
         "totalEntries": 300,
         "sidePickRate": 5.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 286,
+        "pickRate": 95.3,
+        "overallRank": 7,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 2,
+            "count": 286
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 80,
+      "pickRate": 26.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "가장 은밀한 고양이",

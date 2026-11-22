@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename);
 const FRONTIER_DIR = path.resolve(__dirname, '../public/data/frontier')
 const CLASH_DIR = path.resolve(__dirname, '../public/data/clash')
 const CLASH_V2_DIR = path.resolve(__dirname, '../public/data/clash_v2')
+const DEEP_CLASH_DIR = path.resolve(__dirname, '../public/data/deepClash')
 
 // 2) 헬퍼: 폴더 내 모든 JSON 파일 경로 반환
 async function listJsonFiles(dir) {
@@ -28,10 +29,16 @@ async function buildSummaries() {
     const SOURCE_DIRS = [
         { dir: FRONTIER_DIR, key: 'frontier' },
         { dir: CLASH_DIR, key: 'clash' },
-        { dir: CLASH_V2_DIR, key: 'clashV2' }
+        { dir: CLASH_V2_DIR, key: 'clashV2' },
+        { dir: DEEP_CLASH_DIR, key: 'deepClash' },
     ];
 
-    const dataMap = { clash: {}, frontier: {}, clashV2: {} }
+    const dataMap = {
+        clash: {},
+        frontier: {},
+        clashV2: {},
+        deepClash: {},
+    };
 
     for (let { dir, key: raidType } of SOURCE_DIRS) {
         const files = await listJsonFiles(dir);
@@ -46,10 +53,12 @@ async function buildSummaries() {
 
             let seasonData = null;
 
-            // ① 등장 횟수 계산
-            if (seasonType === "season") { // 
+            // 등장 횟수 계산
+            if (raidType === 'deepClash') {
+                // Deep Clash 보스만 집계
                 seasonData = processSummary(records);
-
+            } else if (seasonType === "season") {
+                seasonData = processSummary(records);
             } else if (seasonType === "external") {
                 seasonData = records;
             }
@@ -92,7 +101,8 @@ async function buildSummaries() {
                 raid === 'clash' ? CLASH_DIR :
                     raid === 'frontier' ? FRONTIER_DIR :
                         raid === 'clashV2' ? CLASH_V2_DIR :
-                            null;
+                            raid === 'deepClash' ? DEEP_CLASH_DIR :
+                                null;
             if (!outDir) return;
 
             // 시즌 키들을 숫자 기준으로 내림차순 정렬
