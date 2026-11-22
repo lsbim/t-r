@@ -86,7 +86,8 @@
         "line": "전열"
       }
     ],
-    "deepClash": []
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [

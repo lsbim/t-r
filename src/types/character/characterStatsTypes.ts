@@ -72,6 +72,7 @@ export interface ContentTopSeasons {
     frontier: TopSeasonStat[];
     clashV2: TopSeasonStat[];
     deepClash: TopSeasonStat[];
+    deepClashPersonality: TopSeasonStat[];
 }
 
 // 콘텐츠 별 최근 성적

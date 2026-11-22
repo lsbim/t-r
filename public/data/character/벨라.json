@@ -221,7 +221,20 @@
         "line": "전열"
       }
     ],
-    "deepClash": []
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "활발",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 294,
+        "pickRate": 98,
+        "isOverall": false,
+        "line": "전열"
+      }
+    ]
   },
   "recentStats": {
     "clash": [

@@ -36,6 +36,8 @@ const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: s
 const formatSeasonLabel = (seasonNumber: number) =>
     seasonNumber > 10000 ? `시즌B${seasonNumber - 10000}` : `시즌${seasonNumber}`;
 
+const DEEP_CLASH_PERSONALITY_ORDER = ['순수', '냉정', '광기', '활발', '우울'] as const;
+
 const CharacterRecentStats = ({
     recentStats,
     deepClashPersonalityStats = [],
@@ -204,26 +206,42 @@ const CharacterRecentStats = ({
     const deepClashPersonalityChart = useMemo(() => {
         if (deepClashPersonalityStats.length === 0) return null;
 
-        const sorted = [...deepClashPersonalityStats].reverse();
-        const personality = sorted[0].personality;
-        const color = theme === 'dark'
-            ? getPersonalityDarkColor(personality)
-            : getPersonalityColor(personality);
+        const seasonNumbers = [...new Set(deepClashPersonalityStats.map(stat => stat.seasonNumber))]
+            .sort((a, b) => a - b);
+        const personalities = DEEP_CLASH_PERSONALITY_ORDER.filter(personality =>
+            deepClashPersonalityStats.some(stat => stat.personality === personality)
+        );
+        const statsBySeasonAndPersonality = new Map(
+            deepClashPersonalityStats.map(stat => [`${stat.seasonNumber}:${stat.personality}`, stat])
+        );
+        const seasonStats = new Map(
+            deepClashPersonalityStats.map(stat => [stat.seasonNumber, stat])
+        );
+
         const chartData: ChartData<'line'> = {
-            labels: sorted.map(stat => formatSeasonLabel(stat.seasonNumber)),
-            datasets: [{
-                label: `${personality} 해역 픽률`,
-                data: sorted.map(stat => stat.pickRate),
-                borderColor: color,
-                backgroundColor: color,
-                pointBackgroundColor: color,
-                pointBorderColor: color,
-                borderWidth: 2,
-                tension: 0.1,
-                pointRadius: 9,
-                pointHoverRadius: 9,
-                fill: false,
-            }],
+            labels: seasonNumbers.map(formatSeasonLabel),
+            datasets: personalities.map(personality => {
+                const color = theme === 'dark'
+                    ? getPersonalityDarkColor(personality)
+                    : getPersonalityColor(personality);
+
+                return {
+                    label: `${personality}`,
+                    data: seasonNumbers.map(seasonNumber =>
+                        statsBySeasonAndPersonality.get(`${seasonNumber}:${personality}`)?.pickRate ?? null
+                    ),
+                    borderColor: color,
+                    backgroundColor: color,
+                    pointBackgroundColor: color,
+                    pointBorderColor: color,
+                    borderWidth: 2,
+                    tension: 0.1,
+                    pointRadius: personalities.length > 1 ? 4.5 : 9,
+                    pointHoverRadius: personalities.length > 1 ? 4.5 : 9,
+                    fill: false,
+                    spanGaps: false,
+                };
+            }),
         };
 
         const options: ChartOptions<'line'> = {
@@ -231,17 +249,24 @@ const CharacterRecentStats = ({
             maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             plugins: {
-                legend: { display: false },
+                legend: {
+                    display: personalities.length > 1,
+                    labels: {
+                        color: tickColor,
+                        font: { size: 11 },
+                        boxWidth: 12,
+                        boxHeight: 2,
+                    },
+                    position: 'bottom',
+                },
                 tooltip: {
                     callbacks: {
                         title: context => {
-                            const stat = sorted[context[0].dataIndex];
-                            return `${formatSeasonLabel(stat.seasonNumber)}${stat.name ? ` ${stat.name}` : ''}`;
+                            const seasonNumber = seasonNumbers[context[0].dataIndex];
+                            const stat = seasonStats.get(seasonNumber);
+                            return `${formatSeasonLabel(seasonNumber)}${stat?.name ? ` ${stat.name}` : ''}`;
                         },
-                        label: context => {
-                            const stat = sorted[context.dataIndex];
-                            return ` 픽률: ${stat.pickRate}%`;
-                        },
+                        label: context => ` ${context.dataset.label}: ${context.parsed.y}%`,
                     },
                     backgroundColor: 'rgba(30,30,33,0.85)',
                     titleColor: 'white',
@@ -256,6 +281,17 @@ const CharacterRecentStats = ({
                     color: tickColor,
                     font: { size: 11, weight: 'bold' },
                     formatter: (value: number) => `${value}%`,
+                    display: context => {
+                        const currentValue = Number(context.dataset.data[context.dataIndex]);
+                        if (currentValue === 0) return false;
+                        if (context.chart.data.datasets.length === 1) return true;
+
+                        const valuesAtSeason = context.chart.data.datasets.map(dataset =>
+                            Number(dataset.data[context.dataIndex] ?? 0)
+                        );
+                        const maxValue = Math.max(...valuesAtSeason);
+                        return currentValue === maxValue && valuesAtSeason.indexOf(maxValue) === context.datasetIndex;
+                    },
                 },
             },
             scales: {
@@ -265,13 +301,15 @@ const CharacterRecentStats = ({
                 },
                 y: {
                     min: 0,
-                    max: 100,
+                    // 100% 값 위에 원과 데이터 라벨이 들어갈 여백을 확보
+                    max: 120,
                     ticks: {
                         color: tickColor,
                         font: { size: 11 },
                         padding: 16,
                         stepSize: 20,
-                        callback: value => `${value}%`,
+                        // 기존 픽률 차트와 같이 120%는 여백으로만 사용하고 눈금에서는 숨김
+                        callback: value => Number(value) > 100 ? '' : `${value}%`,
                     },
                     grid: { display: false },
                 },
@@ -279,7 +317,16 @@ const CharacterRecentStats = ({
             layout: { padding: { top: 24, right: 16, left: 0, bottom: 8 } },
         };
 
-        return { personality, chartData, options };
+        const title = personalities.length === 1
+            ? `심해 대격돌 ${personalities[0]} 해역`
+            : '심해 대격돌 성격 해역';
+
+        return {
+            title,
+            chartData,
+            options,
+            hasMultipleSeries: personalities.length > 1,
+        };
     }, [deepClashPersonalityStats, tickColor, theme]);
 
     return (
@@ -309,9 +356,9 @@ const CharacterRecentStats = ({
                 {deepClashPersonalityChart && (
                     <div className="flex flex-col gap-1">
                         <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">
-                            심해 대격돌 {deepClashPersonalityChart.personality} 해역
+                            {deepClashPersonalityChart.title}
                         </span>
-                        <div className="h-[180px]">
+                        <div className={deepClashPersonalityChart.hasMultipleSeries ? 'h-[210px]' : 'h-[180px]'}>
                             <Line
                                 data={deepClashPersonalityChart.chartData}
                                 options={deepClashPersonalityChart.options}

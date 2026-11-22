@@ -55,6 +55,30 @@
         "isOverall": false,
         "line": "중열"
       }
+    ],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "냉정",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 294,
+        "pickRate": 98,
+        "isOverall": false,
+        "line": "중열"
+      },
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "광기",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 293,
+        "pickRate": 97.7,
+        "isOverall": false,
+        "line": "중열"
+      }
     ]
   },
   "recentStats": {
@@ -457,7 +481,58 @@
       }
     ]
   },
-  "deepClashPersonalityStats": [],
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 294,
+      "pickRate": 98,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 294,
+      "pickRate": 98,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 293,
+      "pickRate": 97.7,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 292,
+      "pickRate": 97.3,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 294,
+      "pickRate": 98,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "환상통 말기 환자",

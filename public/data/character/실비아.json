@@ -145,6 +145,19 @@
         "isOverall": false,
         "line": "전열"
       }
+    ],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "광기",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 296,
+        "pickRate": 98.7,
+        "isOverall": false,
+        "line": "전열"
+      }
     ]
   },
   "recentStats": {

@@ -33,6 +33,8 @@ export function translateRaid(name: string) {
             return '엘리아스 프론티어';
         case "deepClash":
             return '심해 대격돌';
+        case "deepClashPersonality":
+            return '심해 대격돌 성격 해역';
     }
 }
 

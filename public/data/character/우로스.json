@@ -349,6 +349,41 @@
         "isOverall": false,
         "line": "후열"
       }
+    ],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "순수",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 292,
+        "pickRate": 97.3,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "광기",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 278,
+        "pickRate": 92.7,
+        "isOverall": false,
+        "line": "후열"
+      },
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "우울",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 287,
+        "pickRate": 95.7,
+        "isOverall": false,
+        "line": "후열"
+      }
     ]
   },
   "recentStats": {
@@ -902,7 +937,58 @@
       }
     ]
   },
-  "deepClashPersonalityStats": [],
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 292,
+      "pickRate": 97.3,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 282,
+      "pickRate": 94,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 278,
+      "pickRate": 92.7,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 280,
+      "pickRate": 93.3,
+      "totalEntries": 300
+    },
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 287,
+      "pickRate": 95.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
