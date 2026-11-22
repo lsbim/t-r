@@ -84,7 +84,7 @@ const IndexPage = () => {
             <HeaderNav />
             {/* 레이드 카드 */}
             <div className="md:w-[768px] w-full mx-auto flex flex-col gap-x-2 gap-y-4">
-                {/* 위쪽: 가로로 넓은 심해 대격돌 카드 */}
+                {/* 심해 대격돌 */}
                 {latest.deepClash && (
                     <div className="w-full relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
                         <HomeDeepClashCard
@@ -98,7 +98,7 @@ const IndexPage = () => {
                     </div>
                 )}
 
-                {/* 아래쪽: 기존 콘텐츠 카드 세 개 */}
+                {/* 대충돌, 프론티어 */}
                 <div className="flex gap-x-2">
                     {(['clash', 'clashV2', 'frontier'] as const).map((key) => (
                         <div
