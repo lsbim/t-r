@@ -65,15 +65,16 @@ const DeepClashSeasonPage = () => {
 
     // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
-        if (!select || !seasonSlice || !displaySlice) return null;
+        if (!select || !rankedSlice || !displaySlice) return null;
         return computeStatsForSelect(
             select,
             rankedSlice.data,
             displaySlice.data,
             getArr,
             true,
-            // 성격해역만 클리어 시간 측정
-            deepType === 'boss' ? undefined : (r: DeepClashPlayerData) => r.personalities[deepType].duration
+            deepType === 'boss'
+                ? (r: DeepClashPlayerData) => r.score
+                : (r: DeepClashPlayerData) => r.personalities[deepType].depth
         );
     }, [select, rankedSlice, displaySlice, deepType]);
 
@@ -182,7 +183,7 @@ const DeepClashSeasonPage = () => {
                         <SelectCharComponent
                             statsForSelect={statsForSelect}
                             toggleExclude={toggleExclude}
-                            scoreType="duration"
+                            scoreType={deepType === 'boss' ? 'score' : 'depth'}
                         />
                     )}
                     {bestComp && bestComp.length > 0 && (
