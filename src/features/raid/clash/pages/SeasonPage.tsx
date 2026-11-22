@@ -199,6 +199,7 @@ const SeasonPage = () => {
                             <CleartimeChart
                                 season={season}
                                 data={displaySlice}
+                                select={select?.name}
                             />
                             <CompListComponent
                                 season={season}

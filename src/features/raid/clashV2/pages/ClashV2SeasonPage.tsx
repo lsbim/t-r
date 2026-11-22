@@ -216,6 +216,7 @@ const ClashV2SeasonPage = () => {
                     <ClashV2Chart
                         maxSideLvl={data?.maxSideLvl ?? 100}
                         data={displaySlice}
+                        select={select?.name}
                     />
                     <CompListComponent
                         season={season}

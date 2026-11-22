@@ -10,7 +10,7 @@ import { DeepClashPlayerData } from "@/types/deepClashTypes";
 // AllPickRateChart 전용.
 // 인덱스가 아닌 이름별로 카운트를 세어 반환
 export function processRankingArrAllData(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
     // console.log(data)
@@ -43,7 +43,9 @@ export function processRankingArrAllData(
 
     for (const name in charCnt) {
         const cnt = charCnt[name];
-        const info = charInfo[name];
+        const resonance = parseResonanceBaseName(name);
+        const info = charInfo[name] ?? charInfo[resonance?.baseName ?? name];
+        if (!info) continue;
 
         const percent = Math.round((cnt / totalCount) * 100 * 10) / 10;
 
@@ -52,7 +54,7 @@ export function processRankingArrAllData(
             name,
             count: cnt,
             percent,
-            personality: info.personality,
+            personality: resonance?.personality ?? info.personality,
             line: info.line,
             percentByLine: {
                 전열: 0, 중열: 0, 후열: 0
@@ -262,7 +264,7 @@ export function processExternalData(data: ClashExternalData | FrontierExternalDa
 }
 
 export function processCompStat(
-    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     select?: string,
     type?: 'side'
 ): CompStat[] {
@@ -280,9 +282,29 @@ export function processCompStat(
         // console.log(targetArr)
 
         // 전중후열 단위로 쪼개기 (sort로 인해 배열 내 문자들을 알파벳 순서로 정렬하여 모두 같은 순서가 됨)
-        const frontArr = targetArr.slice(0, 3).sort();
-        const middleArr = targetArr.slice(3, 6).sort();
-        const backArr = targetArr.slice(6, 9).sort();
+        let frontArr: string[];
+        let middleArr: string[];
+        let backArr: string[];
+        if ('personalities' in item && targetArr.length === 6) {
+            const lines: Record<BaseLine, string[]> = { 전열: [], 중열: [], 후열: [] };
+            targetArr.forEach((name, idx) => {
+                const getBaseLine = (char: string): BaseLine | undefined => {
+                    const baseName = parseResonanceBaseName(char)?.baseName ?? char;
+                    const line = charInfo[char]?.line ?? charInfo[baseName]?.line;
+                    return line && line !== '모든열' ? line as BaseLine : undefined;
+                };
+                let line: BaseLine | undefined = getBaseLine(name);
+                for (let prev = idx - 1; !line && prev >= 0; prev--) line = getBaseLine(targetArr[prev]);
+                lines[line ?? '전열'].push(name);
+            });
+            frontArr = lines.전열.sort();
+            middleArr = lines.중열.sort();
+            backArr = lines.후열.sort();
+        } else {
+            frontArr = targetArr.slice(0, 3).sort();
+            middleArr = targetArr.slice(3, 6).sort();
+            backArr = targetArr.slice(6, 9).sort();
+        }
 
         // const frontArr = (targetArr.slice(0, 3).map(normalizeUros) as string[]).sort();
         // const middleArr = (targetArr.slice(3, 6).map(normalizeUros) as string[]).sort();
@@ -347,7 +369,7 @@ function mapToThreshold(qty: number): number | null {
 
 // 3) 시너지 통계 함수
 export function processSynergyStats(
-    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     type?: 'side'
 ): SynergyStat[] {
     // Map< key, { count, synergy } >
@@ -358,7 +380,10 @@ export function processSynergyStats(
 
         // 3.1) 각 조합의 성격별 빈도 계산
         const freq = targetArr.reduce<Record<string, number>>((acc, charName) => {
-            const p = (charInfo as Record<string, any>)[charName]?.personality;
+            const resonance = parseResonanceBaseName(charName);
+            const p = (charInfo as Record<string, any>)[charName]?.personality
+                ?? resonance?.personality
+                ?? (charInfo as Record<string, any>)[resonance?.baseName ?? charName]?.personality;
             if (p) acc[p] = (acc[p] || 0) + 1;
             return acc;
         }, {});
@@ -397,7 +422,7 @@ export function processSynergyStats(
 type PersonalityPieData = { [k in Personality]?: number };
 
 export function processPersonalityPie(
-    data: ClashPlayerData[] | FrontierPlayerData[] | externalData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | externalData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     type?: 'side'
 ) {
 
@@ -406,6 +431,12 @@ export function processPersonalityPie(
     // console.log(data);
 
     const personalityData: PersonalityPieData = {};
+    const getPersonality = (name: string) => {
+        const resonance = parseResonanceBaseName(name);
+        return charInfo[name]?.personality
+            ?? resonance?.personality
+            ?? charInfo[resonance?.baseName ?? name]?.personality;
+    };
 
     data?.forEach((user, index) => {
         // console.log(user);
@@ -418,7 +449,7 @@ export function processPersonalityPie(
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'sideArr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name]?.personality;
+                    const persty = getPersonality(name);
                     if (!persty) {
                         console.log(`${name}의 성격이 존재하지 않음.`)
                         continue
@@ -432,7 +463,7 @@ export function processPersonalityPie(
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'arr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name]?.personality;
+                    const persty = getPersonality(name);
                     if (!persty) {
                         console.log(`${name}의 성격이 존재하지 않음.`)
                         continue

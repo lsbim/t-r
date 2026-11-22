@@ -1,15 +1,18 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import CostumeRank from "../../../../components/CostumeRank";
-import SlideColorNav from "../../../../components/SlideColorNav";
 import { useRaidData } from "../../../../hooks/useRaidData";
 import Footer from "../../../../layouts/Footer";
 import HeaderNav from "../../../../layouts/HeaderNav";
-import { pageRootContainer } from "../../../../styles/container";
+import { containerDarkBG, pageRootContainer } from "../../../../styles/container";
 import { DeepClashPlayerData, DeepClashSeasonData, DeepClashType } from "../../../../types/deepClashTypes";
-import { personalityObjKo } from "../../../../types/trickcalTypes";
 import BestComp from "../../shared/components/BestComp";
+import CompListComponent from "../../shared/components/CompListComponent";
+import InfoComponent from "../../shared/components/InfoComponent";
+import AllPickRateChart from "../../shared/components/charts/AllPickRateChart";
+import PersonalityPieChart from "../../shared/components/charts/PersonalityPieChart";
 import PickRateChart from "../../shared/components/charts/PickRateChart";
+import RankRangeInputComponent from "../../shared/components/RankRangeInputComponent";
 import SeasonRemote from "../../shared/components/SeasonRemote";
 import SelectCharComponent from "../../shared/components/select/SelectCharComponent";
 import { useCharExclude } from "../../shared/hooks/useCharExclude";
@@ -27,34 +30,51 @@ const DeepClashSeasonPage = () => {
     const { season } = useParams();
     const [select, setSelect] = useState<SelectChara | null>(null);
     const [deepType, setDeepType] = useState<DeepClashType>('boss');
+    const [appliedRange, setAppliedRange] = useState(initRange);
     const { data } = useRaidData<DeepClashSeasonData>('deepClash', 'season', season);
 
     // 보스/성격해역 중 선택한 것만 기존 집계 컴포넌트가 받는 모양으로 변환
     const seasonSlice = useMemo(() => data ? processDeepClashData(data, deepType) : undefined, [data, deepType]);
 
+    const rankedSlice = useMemo(() => {
+        if (!seasonSlice || (appliedRange.start === 0 && appliedRange.end === 0)) return seasonSlice;
+        return {
+            ...seasonSlice,
+            data: seasonSlice.data.filter(player => player.rank >= appliedRange.start && player.rank <= appliedRange.end),
+        };
+    }, [seasonSlice, appliedRange]);
+
     const { excludedSet, filteredData, toggleExclude, clearExcluded } = useCharExclude({
-        data: seasonSlice?.data,
+        data: rankedSlice?.data,
         getArr
     });
 
     const displaySlice = useMemo(() => {
-        if (!seasonSlice) return seasonSlice;
-        return { ...seasonSlice, data: filteredData ?? seasonSlice.data };
-    }, [seasonSlice, filteredData]);
+        if (!rankedSlice) return rankedSlice;
+        return { ...rankedSlice, data: filteredData ?? rankedSlice.data };
+    }, [rankedSlice, filteredData]);
+
+    const handleCustomRank = useCallback((start: string, end: string) => {
+        if (!data || !start || !end) return;
+        const startRank = Number(start);
+        const endRank = Number(end);
+        if (startRank < 1 || endRank < startRank || startRank > data.data.length || endRank > data.data.length) return;
+        setAppliedRange({ start: startRank, end: endRank });
+    }, [data]);
 
     // 선택한 사도의 통계용 정보
     const statsForSelect = useMemo(() => {
         if (!select || !seasonSlice || !displaySlice) return null;
         return computeStatsForSelect(
             select,
-            seasonSlice.data,
+            rankedSlice.data,
             displaySlice.data,
             getArr,
             true,
             // 성격해역만 클리어 시간 측정
             deepType === 'boss' ? undefined : (r: DeepClashPlayerData) => r.personalities[deepType].duration
         );
-    }, [select, seasonSlice, displaySlice, deepType]);
+    }, [select, rankedSlice, displaySlice, deepType]);
 
     // 1~100/101~200/201~300 BEST COMP. 보스 9인 / 성격해역 6인 편성만 집계
     const bestComp = useMemo(() => {
@@ -62,11 +82,11 @@ const DeepClashSeasonPage = () => {
 
         return computeBestComp(
             displaySlice.data,
-            initRange,
+            appliedRange,
             initRange,
             group => processFullCompStat(group, getPartySize(deepType))
         );
-    }, [displaySlice, deepType]);
+    }, [displaySlice, appliedRange, deepType]);
 
     const durationAxisMax = useMemo(() => {
         if (!data?.data.length) return 120;
@@ -84,6 +104,7 @@ const DeepClashSeasonPage = () => {
 
     const handleDeepType = (id: DeepClashType) => {
         setDeepType(id);
+        setAppliedRange(initRange);
         setSelect(null);
         clearExcluded();
     }
@@ -128,18 +149,27 @@ const DeepClashSeasonPage = () => {
                     {`심해 대격돌 시즌${season} 집계`}
                 </h1>
                 <div className="flex flex-col gap-4">
-                    <DeepClashChart
+                    <div className={`flex flex-col xs:flex-row p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 mt-2 mb-4 overflow-x-auto ${containerDarkBG}`}>
+                        <PersonalityPieChart data={displaySlice} />
+                        <InfoComponent
+                            startDate={data.startDate}
+                            endDate={data.endDate}
+                            name={data.name}
+                            raidType="frontier"
+                        />
+                        <RankRangeInputComponent handleCustomRank={handleCustomRank} />
+                    </div>
+                    <AllPickRateChart
                         data={displaySlice}
-                        type={deepType}
-                        select={select?.name}
-                        durationAxisMax={durationAxisMax}
+                        setSelect={setSelect}
+                        isDeepClash
                     />
                     <PickRateChart
                         season={season}
                         data={displaySlice}
                         setSelect={setSelect}
                         select={select}
-                        fullData={seasonSlice}
+                        fullData={rankedSlice}
                         excludedSet={excludedSet}
                     />
                     {select && (
@@ -156,6 +186,17 @@ const DeepClashSeasonPage = () => {
                     )}
                     <CostumeRank
                         data={seasonSlice}
+                    />
+                    <DeepClashChart
+                        data={displaySlice}
+                        type={deepType}
+                        select={select?.name}
+                        durationAxisMax={durationAxisMax}
+                    />
+                    <CompListComponent
+                        season={season}
+                        data={displaySlice}
+                        userCnt={displaySlice.data.length}
                     />
                 </div>
             </div>

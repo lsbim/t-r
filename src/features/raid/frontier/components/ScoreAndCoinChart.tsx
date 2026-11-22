@@ -11,6 +11,7 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
+import type { ScriptableContext } from 'chart.js';
 import { Line } from "react-chartjs-2";
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { FrontierSeasonData } from "../../../../types/frontierTypes";
@@ -19,6 +20,7 @@ import { useTheme } from '../../../../hooks/useTheme';
 import React from 'react';
 import { bosses } from '../data/bosses';
 import { containerDarkBG } from '../../../../styles/container';
+import { parseResonanceBaseName } from '../../../../utils/resonanceFunction';
 
 
 ChartJS.register(
@@ -56,6 +58,12 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
     const arr = data?.data;
+    const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
+    const isSelected = (item: FrontierSeasonData['data'][number]) => !!select && item.arr.some(name =>
+        name === select || (parseResonanceBaseName(name)?.baseName ?? name) === selectedBaseName
+    );
+    const selectedPointRadii = arr.map(item => !select ? 0 : isSelected(item) ? 5 : 1.5);
+    const coinPointRadii = arr.map(item => !select ? 3 : isSelected(item) ? 5 : 1.5);
     const coins = arr.map(item => item.coin);
 
     const maxCoin = compareCoin?.current?.maxCoin ?? Math.max(...coins);
@@ -109,13 +117,13 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 data: arr?.map(item => item.score) || [],
                 borderColor: '#8884d8',
                 backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                pointBackgroundColor: '#8884d8',
+                pointBorderWidth: 0,
                 yAxisID: 'y_score', // 이 데이터셋이 사용할 Y축 ID
                 tension: 0.1,
-                pointRadius: 0, // 일반 상태에서 점의 크기
-                pointHoverRadius: 6, // 호버 시 점의 
-                pointHoverBackgroundColor: '#8884d8',
-                pointHoverBorderColor: '#ffffff',
-                pointHoverBorderWidth: 3,
+                pointRadius: selectedPointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => selectedPointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
             },
             {
                 label: '코인', // 두 번째 데이터셋: 코인(coin)
@@ -124,12 +132,13 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                 // 실체의 코인 색상
                 backgroundColor: coins.map((_, i) => {
                     if (i === maxCoinIndex || i === minCoinIndex) return 'red';
-                    if (select && arr[i]?.arr?.includes(select)) return '#D97706';
                     return '#82ca9d';
                 }),
                 yAxisID: 'y_coin', // 이 데이터셋이 사용할 Y축 ID
                 showLine: false, // 선을 제거하고 점만 표시
-                pointRadius: 3, // 점의 크기를 3으로 줄임 (기본값은 보통 3-4)
+                pointRadius: coinPointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => coinPointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
                 tension: 0.1,
             }
         ]
@@ -171,16 +180,6 @@ const ScoreAndCoinChart: React.FC<ScoreAndCoinChartProps> = ({
                                 datasetIndex: 1,
                             },
                         ];
-                        // 선택한 사도를 사용한 유저의 코인
-                        if (select) {
-                            items.push({
-                                text: select,
-                                fillStyle: '#D97706',
-                                strokeStyle: '#D97706',
-                                hidden: coinHidden,
-                                datasetIndex: 1,
-                            });
-                        }
                         return items;
                     }
                 }

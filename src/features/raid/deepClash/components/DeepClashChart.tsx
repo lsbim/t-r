@@ -9,6 +9,7 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
+import type { ScriptableContext } from 'chart.js';
 import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../../components/icons/InfoIcon";
 import { useTheme } from "../../../../hooks/useTheme";
@@ -25,8 +26,6 @@ ChartJS.register(
     Tooltip,
     Legend
 );
-
-const SELECT_COLOR = '#D97706';
 
 // processDeepClashData로 만든 데이터를 받는다. 보스는 score, 성격해역은 grade(수심)/duration
 const DeepClashChart = ({
@@ -47,12 +46,13 @@ const DeepClashChart = ({
 
     const arr = data?.data;
     const isBoss = type === 'boss';
+    const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
 
     // 선택한 사도를 사용한 유저 (공명 사도는 본명으로 선택해도 성격 변형을 포함)
     const isSelected = (item: DeepClashPlayerData) =>
-        !!select && item.arr.some(name => name === select || parseResonanceBaseName(name)?.baseName === select);
-
-    const dotColors = (color: string) => arr.map(item => isSelected(item) ? SELECT_COLOR : color);
+        !!select && item.arr.some(name =>
+            name === select || (parseResonanceBaseName(name)?.baseName ?? name) === selectedBaseName
+        );
 
     const chartData = {
         labels: arr?.map(item => item.rank) || [],
@@ -65,13 +65,12 @@ const DeepClashChart = ({
                     backgroundColor: 'rgba(136, 132, 216, 0.1)',
                     yAxisID: 'y_main',
                     tension: 0.1,
-                    // 선택한 사도 사용 유저만 점으로 표시
-                    pointRadius: arr.map(item => isSelected(item) ? 3 : 0),
-                    pointBackgroundColor: dotColors('#8884d8'),
-                    pointHoverRadius: 6,
-                    pointHoverBackgroundColor: '#8884d8',
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 3,
+                    // 캐릭터 선택 시 선택 기록을 강조하고, 선택이 없으면 기존 표시를 유지
+                    pointRadius: arr.map(item => !select ? 0 : isSelected(item) ? 5 : 1.5),
+                    pointBackgroundColor: '#8884d8',
+                    pointBorderWidth: 0,
+                    pointHoverRadius: (context: ScriptableContext<'line'>) => !select ? 0 : isSelected(arr[context.dataIndex]) ? 5 : 1.5,
+                    pointHoverBorderWidth: 0,
                 },
             ]
             : [
@@ -79,18 +78,24 @@ const DeepClashChart = ({
                 {
                     label: '클리어 시간',
                     data: arr.map(item => item.personalities[type].duration),
-                    backgroundColor: dotColors('#8884d8'),
+                    backgroundColor: '#8884d8',
+                    pointBackgroundColor: '#8884d8',
                     yAxisID: 'y_main',
                     showLine: false,
                     pointRadius: 3,
+                    pointHoverRadius: 3,
+                    pointHoverBorderWidth: 0,
                 },
                 {
                     label: '수심',
                     data: arr.map(item => item.personalities[type].depth),
-                    backgroundColor: dotColors('#82ca9d'),
+                    backgroundColor: '#82ca9d',
+                    pointBackgroundColor: '#82ca9d',
                     yAxisID: 'y_depth',
                     showLine: false,
                     pointRadius: 3,
+                    pointHoverRadius: 3,
+                    pointHoverBorderWidth: 0,
                 },
             ]
     };
@@ -197,7 +202,8 @@ const DeepClashChart = ({
             pointRadius: arr.map(item =>
                 !select ? 3 : isSelected(item) ? 5 : 1.5
             ),
-            pointHoverRadius: 6,
+            pointHoverRadius: (context: ScriptableContext<'line'>) => !select ? 3 : isSelected(arr[context.dataIndex]) ? 5 : 1.5,
+            pointHoverBorderWidth: 0,
         }],
     });
 

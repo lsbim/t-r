@@ -14,9 +14,11 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../../components/icons/InfoIcon";
 import { useTheme } from "../../../../hooks/useTheme";
-import { ClashV2SeasonData } from "../../../../types/clashV2Types";
+import { ClashV2PlayerData, ClashV2SeasonData } from "../../../../types/clashV2Types";
 import { containerDarkBG } from '../../../../styles/container';
 import { useMemo } from 'react';
+import { parseResonanceBaseName } from '../../../../utils/resonanceFunction';
+import type { ScriptableContext } from 'chart.js';
 
 
 ChartJS.register(
@@ -31,13 +33,19 @@ ChartJS.register(
     Filler
 );
 
-const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLvl: number }) => {
+const ClashV2Chart = ({ data, maxSideLvl, select }: { data: ClashV2SeasonData, maxSideLvl: number, select?: string }) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
-    const arr = data?.data;
+    const arr = data.data;
+    const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
+    const isSelected = (item: ClashV2PlayerData) => !!select && item.arr.some(name =>
+        name === select || (parseResonanceBaseName(name)?.baseName ?? name) === selectedBaseName
+    );
+    const selectedPointRadii = arr.map(item => !select ? 0 : isSelected(item) ? 5 : 1.5);
+    const sideGradePointRadii = arr.map(item => !select ? 3 : isSelected(item) ? 5 : 1.5);
 
     const gradeAnnotations: Record<string, any> = {};
     let prevGrade: string | number;
@@ -153,7 +161,9 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                 backgroundColor: '#82ca9d',
                 yAxisID: 'y_sideGrade',
                 showLine: false, // 점만 표시
-                pointRadius: 3,
+                pointRadius: sideGradePointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => sideGradePointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
                 tension: 0.1,
             },
             hasSideSkills
@@ -162,26 +172,26 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                     data: arr?.map(item => item.duration) || [],
                     borderColor: '#8884d8',
                     backgroundColor: '#8884d8',
+                    pointBackgroundColor: '#8884d8',
+                    pointBorderWidth: 0,
                     yAxisID: 'y_secondary',
                     tension: 0.1,
-                    pointRadius: 0,
-                    pointHoverRadius: 6,
-                    pointHoverBackgroundColor: '#8884d8',
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 3,
+                    pointRadius: selectedPointRadii,
+                    pointHoverRadius: (context: ScriptableContext<'line'>) => selectedPointRadii[context.dataIndex],
+                    pointHoverBorderWidth: 0,
                 }
                 : {
                     label: '점수(단위: 억)',
                     data: arr?.map(item => item.score / 100000000) || [],
                     borderColor: '#8884d8',
                     backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    pointBackgroundColor: '#8884d8',
+                    pointBorderWidth: 0,
                     yAxisID: 'y_secondary',
                     tension: 0.1,
-                    pointRadius: 0,
-                    pointHoverRadius: 6,
-                    pointHoverBackgroundColor: '#8884d8',
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 3,
+                    pointRadius: selectedPointRadii,
+                    pointHoverRadius: (context: ScriptableContext<'line'>) => selectedPointRadii[context.dataIndex],
+                    pointHoverBorderWidth: 0,
                 }
         ]
     };
