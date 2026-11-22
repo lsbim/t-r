@@ -6,14 +6,15 @@ import { RaidNode } from "@/features/timeline/types/timelineTypes";
 import { useTheme } from "@/hooks/useTheme";
 import { usePopoverActions } from "@/features/timeline/hooks/usePopper";
 import { dragState, isTouchDevice, timelineEvents, timelineLayers } from "@/features/timeline/utils/timelineFunction";
+import { RAID_CARD_HEIGHT, RAID_CARD_WIDTH } from "@/features/timeline/utils/timelineFunction";
 import { getPersonalityColor, getPersonalityDarkColor } from "@/types/trickcalTypes";
 import { getCachedImage } from "@/features/timeline/utils/imageCache";
 import ImageNode from "../ImageNode";
 
 
 const CARD = {
-    w: 100,
-    h: 120,
+    w: RAID_CARD_WIDTH,
+    h: RAID_CARD_HEIGHT,
 };
 
 const CORNER_RADIUS = 16;
@@ -134,9 +135,11 @@ const RaidCard: React.FC<RaidCardProps> = ({
     const isGrayscale = 'isNonData' in node ? Boolean(node?.isNonData) : false;
     const personalityColor = isGrayscale
         ? "#71717A"
-        : (theme === 'dark'
-            ? getPersonalityDarkColor(node?.personality!)
-            : getPersonalityColor(node?.personality!));
+        : node.type === "deepClash"
+            ? "#0f52a9"
+            : (theme === 'dark'
+                ? getPersonalityDarkColor(node?.personality!)
+                : getPersonalityColor(node?.personality!));
 
     const markImageSrc = node.personality
         ? `/images/personality/보스_${node.personality}.webp`
@@ -145,10 +148,12 @@ const RaidCard: React.FC<RaidCardProps> = ({
     const markImage = getCachedImage(markImageSrc);
 
     const detailPath = node.type === "clash"
-        ? `/clash/v1/${(node as RaidNode).season}`
+        ? `/clash/v1/${node.season}`
         : node.type === "clashV2"
-            ? `/clash/v2/${(node as RaidNode).season}`
-            : `/frontier/${(node as RaidNode).season}`
+            ? `/clash/v2/${node.season}`
+            : node.type === "deepClash"
+                ? `/deep/${node.season}`
+                : `/frontier/${node.season}`
 
     return (
         <Group

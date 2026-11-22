@@ -1,6 +1,6 @@
 import { Personality } from "../../../types/trickcalTypes";
 
-export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier";
+export type TimelineNodeType = "character" | "clash" | "clashV2" | "frontier" | "deepClash";
 
 export interface TimelineNode {
     type: TimelineNodeType;
@@ -33,7 +33,11 @@ export interface FrontierNode extends RaidNodeBase {
     isNonData?: boolean;
 }
 
-export type RaidNode = ClashNode | ClashV2Node | FrontierNode;
+export interface DeepClashNode extends RaidNodeBase {
+    type: "deepClash";
+}
+
+export type RaidNode = ClashNode | ClashV2Node | FrontierNode | DeepClashNode;
 
 // 사도 노드
 export interface CharacterNode extends TimelineNode {
@@ -49,5 +53,5 @@ export function isCharacterNode(node: any): node is CharacterNode {
 }
 
 export function isRaidNode(node: any): node is RaidNode {
-    return node.type === "clash" || node.type === "clashV2" || node.type === "frontier";
+    return node.type === "clash" || node.type === "clashV2" || node.type === "frontier" || node.type === "deepClash";
 }

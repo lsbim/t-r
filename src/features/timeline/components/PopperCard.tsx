@@ -8,6 +8,7 @@ import { containerDarkBG } from "../../../styles/container";
 import { getCharacterIcons } from "../../../utils/function";
 import { usePopoverActions, usePopoverState } from "../hooks/usePopper";
 import { RaidNode } from "../types/timelineTypes";
+import { deepPowerList } from "@/features/raid/deepClash/deepPower";
 
 const CharacterDetails = ({ targetName }: { targetName: string }) => {
 
@@ -124,6 +125,16 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                     ))}
                 </div>
             )}
+            {node?.type === 'deepClash' && deepPowerList.map((power) => (
+                <div key={power.name} className="flex gap-x-1">
+                    <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                        {power.name}
+                    </span>
+                    <span className="whitespace-pre-line">
+                        {power.description}
+                    </span>
+                </div>
+            ))}
         </div >
     )
 }

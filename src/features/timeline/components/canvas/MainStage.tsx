@@ -2,7 +2,7 @@ import Konva from "konva";
 import React, { RefObject, useEffect, useMemo, useState } from 'react';
 import { Layer, Stage } from 'react-konva';
 import CharacterCardList from './CharacterCardList';
-import RaidCardList from "./RaidCardList";
+import RaidCardList, { getRaidCardLayouts } from "./RaidCardList";
 import RowDivider from "./RowDivider";
 import TimelineStageBg from "./TimelineStageBg";
 import { CharacterNode, isCharacterNode, isRaidNode, RaidNode, TimelineMap } from "../../types/timelineTypes";
@@ -10,7 +10,7 @@ import { translateRaces } from "@/utils/function";
 import { races } from "@/types/trickcalTypes";
 import { preloadImages } from "../../utils/imageCache";
 import { containerDarkBG } from "@/styles/container";
-import { timelineEvents, timelineLayers, timelineStage } from "../../utils/timelineFunction";
+import { RAID_CARD_GAP, RAID_CARD_HEIGHT, timelineEvents, timelineLayers, timelineStage } from "../../utils/timelineFunction";
 import { MiniLoading } from "@/layouts/Loading";
 
 interface MainStageProps {
@@ -29,12 +29,11 @@ export const HOVER_LIFT_Y = -20;
 // 타임라인 주제 나열 기준
 export const TIMELINE_ROW_ORDER = ['raid', 'character'] as const;
 export const ROW_HEIGHT = 140;
-// +1은 콘텐츠가 3줄일 시 제거 생각할 것
-const STAGE_HEIGHT = (TIMELINE_ROW_ORDER?.length + 1) * ROW_HEIGHT + -HOVER_LIFT_Y;
-
-export function getRowY(rowName: typeof TIMELINE_ROW_ORDER[number]): number {
-  // 엣지+점프 여백
-  return 20 + (ROW_HEIGHT * (TIMELINE_ROW_ORDER.indexOf(rowName)));
+export function getRowY(
+  rowName: typeof TIMELINE_ROW_ORDER[number],
+  raidRowHeight = ROW_HEIGHT,
+): number {
+  return rowName === 'raid' ? 20 : 20 + raidRowHeight;
 }
 
 const MainStage: React.FC<MainStageProps> = ({
@@ -61,6 +60,20 @@ const MainStage: React.FC<MainStageProps> = ({
       .filter(isRaidNode)
       .sort((a, b) => a.startDate.localeCompare(b.startDate));
   }, [timelineMap])
+
+  const raidCardLayouts = useMemo(
+    () => getRaidCardLayouts(raidNodeList),
+    [raidNodeList],
+  );
+  const raidLaneCount = raidCardLayouts.reduce(
+    (maxLane, layout) => Math.max(maxLane, layout.lane + 1),
+    1,
+  );
+  const raidRowHeight = Math.max(
+    ROW_HEIGHT,
+    raidLaneCount * RAID_CARD_HEIGHT + (raidLaneCount - 1) * RAID_CARD_GAP + 20,
+  );
+  const stageHeight = raidRowHeight + ROW_HEIGHT * 2 + Math.abs(HOVER_LIFT_Y);
 
   const imageUrls = useMemo<string[]>(() => {
     const urls = new Set<string>();
@@ -131,7 +144,7 @@ const MainStage: React.FC<MainStageProps> = ({
     <div
       onDragStart={(e) => e.preventDefault()}
       ref={containerRef}
-      style={{ height: STAGE_HEIGHT }}
+      style={{ height: stageHeight }}
       className={`w-full ${containerDarkBG} rounded-sm overflow-hidden touch-none cursor-pointer relative`}>
 
       <Stage
@@ -142,7 +155,7 @@ const MainStage: React.FC<MainStageProps> = ({
         onClick={() => timelineEvents.emitDeactivateAll()}
         onPointerDown={onPointerDown}
         width={stageWidth}
-        height={STAGE_HEIGHT}>
+        height={stageHeight}>
 
         {/* offsetX에 영향받는 콘텐츠 */}
         <Layer
@@ -152,18 +165,19 @@ const MainStage: React.FC<MainStageProps> = ({
           <TimelineStageBg
             timelinePx={timelinePx}
             stageWidth={stageWidth}
-            stageHeight={STAGE_HEIGHT}
+            stageHeight={stageHeight}
           />
 
           {/* 열 구분선 */}
           <RowDivider
             timelinePx={timelinePx}
+            raidRowHeight={raidRowHeight}
           />
 
           {isFullyReady && (
             <>
-              <RaidCardList nodes={raidNodeList} rowY={getRowY('raid')} />
-              <CharacterCardList nodes={characterNodeList} rowY={getRowY('character')} />
+              <RaidCardList layouts={raidCardLayouts} rowY={getRowY('raid', raidRowHeight)} />
+              <CharacterCardList nodes={characterNodeList} rowY={getRowY('character', raidRowHeight)} />
             </>
           )}
 
