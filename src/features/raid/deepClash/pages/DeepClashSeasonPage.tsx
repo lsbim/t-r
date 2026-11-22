@@ -20,11 +20,20 @@ import { useCharExclude } from "../../shared/hooks/useCharExclude";
 import { SelectChara } from "../../shared/types/statTypes";
 import { computeBestComp, computeStatsForSelect } from "../../shared/utils/chartFunction";
 import DeepClashChart from "../components/DeepClashChart";
+import { deepPowerList } from "../deepPower";
 import { getPartySize, processDeepClashData, processFullCompStat } from "../utils/deepClashFunction";
 
 const initRange = { start: 0, end: 0 };
 
 const getArr = (r: DeepClashPlayerData) => r.arr;
+const deepClashTabs: { id: DeepClashType; label: string }[] = [
+    { id: 'boss', label: '보스' },
+    { id: 'innocence', label: '순수' },
+    { id: 'composed', label: '냉정' },
+    { id: 'madness', label: '광기' },
+    { id: 'vivacious', label: '활발' },
+    { id: 'depressed', label: '우울' },
+];
 
 const DeepClashSeasonPage = () => {
 
@@ -111,9 +120,14 @@ const DeepClashSeasonPage = () => {
         clearExcluded();
     }
 
-    if (!data || !seasonSlice || !displaySlice) {
+    if (!data || !seasonSlice || !rankedSlice || !displaySlice) {
         return <Navigate to={"/"} replace /> // "/" 페이지로 이동.
     }
+
+    const powers = data.power.flatMap(name => {
+        const power = deepPowerList.find(item => item.name === name);
+        return power ? [power] : [];
+    });
 
     return (
         <div className={`${pageRootContainer} min-h-screen`}>
@@ -121,14 +135,14 @@ const DeepClashSeasonPage = () => {
             <SeasonRemote />
             {/* 보스/성격해역 선택지 */}
             <div className="w-full flex font-bold backdrop-blur-sm justify-between h-10 border-b border-zinc-300 dark:border-zinc-700 z-50 items-center sticky top-0 bg-white/90 dark:bg-zinc-900/80 dark:text-zinc-200">
-                {([
-                    { id: 'boss', label: '보스' },
-                    { id: 'innocence', label: '순수' },
-                    { id: 'composed', label: '냉정' },
-                    { id: 'madness', label: '광기' },
-                    { id: 'vivacious', label: '활발' },
-                    { id: 'depressed', label: '우울' },
-                ] satisfies { id: DeepClashType; label: string }[]).map(({ id, label }) => (
+                {deepClashTabs.slice(1).map((_, index) => (
+                    <div
+                        key={`deep-clash-tab-divider-${index}`}
+                        className='pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-[50%] bg-zinc-500 dark:bg-zinc-700'
+                        style={{ left: `${((index + 1) / deepClashTabs.length) * 100}%` }}
+                    />
+                ))}
+                {deepClashTabs.map(({ id, label }) => (
                     <button
                         key={id}
                         className="w-1/6 h-full cursor-pointer duration-150 group"
@@ -162,7 +176,8 @@ const DeepClashSeasonPage = () => {
                             startDate={data.startDate}
                             endDate={data.endDate}
                             name={data.name}
-                            raidType="frontier"
+                            powers={powers}
+                            raidType="deepClash"
                         />
                         <RankRangeInputComponent handleCustomRank={handleCustomRank} />
                     </div>

@@ -1,9 +1,10 @@
 import BossProfile from "../../../../components/icons/BossProfile";
 import PersonalityIcon from "../../../../components/icons/PersonalityIcon";
 import { Personality } from "../../../../types/trickcalTypes";
+import type { DeepPower } from "../../deepClash/deepPower";
 
-const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, personality }:
-    { name: string, grade?: number | string, startDate: string, endDate: string, rules?: string[], raidType: string, personality?: Personality }
+const InfoComponent = ({ name, grade, startDate, endDate, rules, powers, raidType, personality }:
+    { name: string, grade?: number | string, startDate: string, endDate: string, rules?: string[], powers?: DeepPower[], raidType: string, personality?: Personality }
 ) => {
 
     return (
@@ -54,6 +55,12 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                     ))}
                 </div>
             </div>}
+            {powers?.map(power => (
+                <div key={`${raidType}-power-${power.name}`}>
+                    <div className="text-[12px] text-orange-500 font-bold">{power.name}</div>
+                    <div className="whitespace-pre-line text-[13px]">{power.description}</div>
+                </div>
+            ))}
         </div>
     );
 }

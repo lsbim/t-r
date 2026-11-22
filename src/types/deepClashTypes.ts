@@ -32,6 +32,7 @@ export interface DeepClashSeasonData {
     name: string; // 심해 대격돌 보스 이름. "오리카" ...
     startDate: string; // "YYYY-MM-DD" 형식
     endDate: string; // "YYYY-MM-DD" 형식
+    power: string[];
     data: DeepClashPlayerData[]; // [["비비","벨라"...], [], [], ...]
 }
 
