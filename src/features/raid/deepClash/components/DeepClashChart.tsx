@@ -170,16 +170,97 @@ const DeepClashChart = ({
         }
     };
 
-    return (
-        <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
-            <div className='flex items-center'>
-                <span className="text-xl font-bold mr-2">{isBoss ? '순위별 점수' : '수심 및 클리어 시간'}</span>
-                <InfoIcon text={isBoss
-                    ? '해당 유저의 보스 종합 점수를 제공합니다.'
-                    : '해당 유저의 성격해역 수심과 클리어 시간을 제공합니다. 순위는 보스 점수 기준입니다.'} />
+    if (isBoss) {
+        return (
+            <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
+                <div className='flex items-center'>
+                    <span className="text-xl font-bold mr-2">순위별 점수</span>
+                    <InfoIcon text="해당 유저의 보스 종합 점수를 제공합니다." />
+                </div>
+                <div className='h-[400px] dark:brightness-90'>
+                    <Line data={chartData} options={chartOptions} />
+                </div>
             </div>
-            <div className='h-[400px] dark:brightness-90'>
-                <Line data={chartData} options={chartOptions} />
+        );
+    }
+
+    const createPersonalityChartData = (metric: 'depth' | 'duration', label: string, color: string) => ({
+        labels: arr.map(item => item.rank),
+        datasets: [{
+            label,
+            data: arr.map(item => item.personalities[type][metric]),
+            // 측정값 색(수심/시간)은 선택 상태와 관계없이 유지하고,
+            // 선택 사도 포함 기록은 크게, 그 외 기록은 작게 표시한다.
+            backgroundColor: color,
+            pointBackgroundColor: color,
+            showLine: false,
+            pointRadius: arr.map(item =>
+                !select ? 3 : isSelected(item) ? 5 : 1.5
+            ),
+            pointHoverRadius: 6,
+        }],
+    });
+
+    const createPersonalityChartOptions = (
+        label: string,
+        unit: string,
+        max?: number
+    ): ChartOptions<'line'> => ({
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    title: context => `순위: ${context[0].label}`,
+                    label: context => `${label}: ${context.formattedValue}${unit}`,
+                },
+            },
+        },
+        scales: {
+            x: {
+                ticks: { color: tickColor, maxTicksLimit: 12 },
+                grid: { color: gridColor, display: false },
+            },
+            y: {
+                type: 'linear',
+                beginAtZero: true,
+                ...(max !== undefined && { max }),
+                ticks: {
+                    color: label === '수심' ? '#82ca9d' : '#8884d8',
+                    ...(max !== undefined && { stepSize: 20 }),
+                },
+                grid: { color: gridColor },
+            },
+        },
+        layout: { padding: { top: 5, right: 10, left: 0, bottom: 4 } },
+    });
+
+    const depthData = createPersonalityChartData('depth', '수심', '#82ca9d');
+    const durationData = createPersonalityChartData('duration', '클리어 시간', '#8884d8');
+    const depthOptions = createPersonalityChartOptions('수심', '', undefined);
+    const durationOptions = createPersonalityChartOptions('클리어 시간', '초', durationAxisMax);
+
+    return (
+        <div className={`w-full mx-auto flex flex-col h-[420px] gap-y-2 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
+            <div className="flex flex-1 min-h-0 flex-col gap-y-3">
+                <div className="flex flex-1 min-h-0 flex-col gap-y-2">
+                    <div className="flex h-6 shrink-0 items-center">
+                        <span className="text-base font-bold mr-2">수심</span>
+                    </div>
+                    <div className="min-h-0 flex-1 dark:brightness-90">
+                        <Line data={depthData} options={depthOptions} />
+                    </div>
+                </div>
+                <div className="flex flex-1 min-h-0 flex-col gap-y-2">
+                    <div className="flex h-6 shrink-0 items-center">
+                        <span className="text-base font-bold mr-2">클리어 시간</span>
+                    </div>
+                    <div className="min-h-0 flex-1 dark:brightness-90">
+                        <Line data={durationData} options={durationOptions} />
+                    </div>
+                </div>
             </div>
         </div>
     );
