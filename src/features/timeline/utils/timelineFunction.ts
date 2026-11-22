@@ -12,6 +12,20 @@ export function dateToPx(dateStr: string): number {
     return days * DAY_PX;
 }
 
+export function getDateCardPositions(dates: string[]): number[] {
+    return dates.map((date, index) => {
+        if (index === 0) return dateToPx(date);
+
+        const prevDate = new Date(dates[index - 1]);
+        const currDate = new Date(date);
+        const diffDays = Math.floor((currDate.getTime() - prevDate.getTime()) / 86400000);
+
+        return diffDays < 2
+            ? dateToPx(dates[index - 1]) + 2 * DAY_PX
+            : dateToPx(date);
+    });
+}
+
 // PC는 마우스오버 터치스크린은 토글
 export function isTouchDevice(): boolean {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;

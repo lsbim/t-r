@@ -2,7 +2,7 @@ import React from 'react';
 import { Group, Line } from 'react-konva';
 import RaidCard from './RaidCard';
 import { RaidNode } from '../../types/timelineTypes';
-import { dateToPx, RAID_CARD_GAP, RAID_CARD_WIDTH, RAID_CARD_HEIGHT } from '../../utils/timelineFunction';
+import { dateToPx, getDateCardPositions, RAID_CARD_GAP, RAID_CARD_WIDTH, RAID_CARD_HEIGHT } from '../../utils/timelineFunction';
 
 export interface RaidCardLayout {
     node: RaidNode;
@@ -11,29 +11,29 @@ export interface RaidCardLayout {
 }
 
 export const getRaidCardLayouts = (nodes: RaidNode[]): RaidCardLayout[] => {
-    const laneRightEdges: number[] = [];
+    const normalRaids = nodes
+        .filter((node) => node.type !== 'deepClash')
+        .sort((a, b) => a.startDate.localeCompare(b.startDate));
+    const deepClashes = nodes
+        .filter((node) => node.type === 'deepClash')
+        .sort((a, b) => a.startDate.localeCompare(b.startDate));
 
-    const orderedNodes = [...nodes].sort((a, b) => {
-        // 같은 기간에 겹치면 심해 대격돌 카드를 아래 레인에 배치한다.
-        if (a.type === 'deepClash' && b.type !== 'deepClash') return 1;
-        if (a.type !== 'deepClash' && b.type === 'deepClash') return -1;
-        return a.startDate.localeCompare(b.startDate);
-    });
+    // 날짜가 같은 카드만 기존 CharacterCardList와 같은 규칙으로 x축에서 살짝 어긋나게 둔다.
+    const normalXPositions = getDateCardPositions(normalRaids.map((node) => node.startDate));
+    const deepClashXPositions = getDateCardPositions(deepClashes.map((node) => node.startDate));
 
-    return orderedNodes
-        .map((node) => {
-            const calX = dateToPx(node.startDate);
-            const leftEdge = calX - RAID_CARD_WIDTH / 2;
-            let lane = laneRightEdges.findIndex(
-                (rightEdge) => leftEdge >= rightEdge + RAID_CARD_GAP
-            );
-
-            if (lane === -1) lane = laneRightEdges.length;
-
-            laneRightEdges[lane] = calX + RAID_CARD_WIDTH / 2;
-
-            return { node, calX, lane };
-        });
+    return [
+        ...normalRaids.map((node, index) => ({
+            node,
+            calX: normalXPositions[index],
+            lane: 0,
+        })),
+        ...deepClashes.map((node, index) => ({
+            node,
+            calX: deepClashXPositions[index],
+            lane: 1,
+        })),
+    ];
 };
 
 interface RaidCardListProps {

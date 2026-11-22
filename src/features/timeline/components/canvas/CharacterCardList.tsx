@@ -4,7 +4,7 @@ import { Group } from 'react-konva';
 import CharacterCard from './CharacterCard';
 import { CharacterNode } from '../../types/timelineTypes';
 import { getCachedImage } from '../../utils/imageCache';
-import { dateToPx, DAY_PX } from '../../utils/timelineFunction';
+import { getDateCardPositions } from '../../utils/timelineFunction';
 
 
 interface CharacterCardListProps {
@@ -20,22 +20,10 @@ const CharacterCardList: React.FC<CharacterCardListProps> = ({
     const bgImage = getCachedImage("/images/background/character_bg.webp");
 
 
-    const calXList = useMemo(() => {
-
-        const result = nodes.map((node, i) => {
-            if (i === 0) return dateToPx(node.birthDate);
-
-            const prevDate = new Date(nodes[i - 1].birthDate);
-            const currDate = new Date(node.birthDate);
-            const diffDays = Math.floor((currDate.getTime() - prevDate.getTime()) / 86400000);
-
-            return diffDays < 2
-                ? dateToPx(nodes[i - 1].birthDate) + 2 * DAY_PX
-                : dateToPx(node.birthDate);
-        });
-
-        return result;
-    }, [nodes])
+    const calXList = useMemo(
+        () => getDateCardPositions(nodes.map((node) => node.birthDate)),
+        [nodes],
+    );
 
     return (
         <Group>
