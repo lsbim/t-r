@@ -1,43 +1,35 @@
 import { Link } from "react-router-dom";
 import { LatestSummary } from "../../../types/latestTypes";
-import BossProfile from "../../../components/icons/BossProfile";
-import { containerDarkBG } from "../../../styles/container";
+import { getPersonalityColor, getPersonalityDarkColor } from "../../../types/trickcalTypes";
 
 const HomeRaidCard = ({ data, raidType }: {
     data: LatestSummary,
     raidType: 'clash' | 'clashV2' | 'frontier' | 'deepClash',
 }) => {
 
-    const borderColor = 'border-[3px] ' + ('personality' in data
-        ? `border-${data.personality}`
-        : raidType === 'deepClash'
-            ? 'border-[rgb(15,82,169)]'
-            : `border-[oklch(0.262_0.094_270.913)] dark:border-[oklch(0.35_0.094_270.913)]`);
+    const raidNames = {
+        clash: { krName: '차원 대충돌', krShortName: '대충돌' },
+        clashV2: { krName: '차원 대충돌 2.0', krShortName: '대충돌 2.0' },
+        frontier: { krName: '엘리아스 프론티어', krShortName: '프론티어' },
+        deepClash: { krName: '심해 대격돌', krShortName: '심해 대격돌' },
+    }[raidType];
 
-    const bgColor = 'personality' in data
-        ? `bg-${data.personality}`
-        : raidType === 'deepClash'
-            ? 'bg-[rgb(15,82,169)]'
-            : `bg-[oklch(0.262_0.094_270.913)] dark:bg-[oklch(0.35_0.094_270.913)]`;
+    const seasonLabel = Number(data.seasonNumber) >= 10000
+        ? `베타 시즌${Number(data.seasonNumber) - 10000}`
+        : `시즌${data.seasonNumber}`;
 
-    const headerTextColor = 'personality' in data ? `` : 'text-zinc-200';
-
-    let krName = '';
-    let krShortName = '';
-
-    if (raidType === 'clash') {
-        krName = '차원 대충돌';
-        krShortName = '대충돌';
-    } else if (raidType === 'frontier') {
-        krName = '엘리아스 프론티어';
-        krShortName = '프론티어';
-    } else if (raidType === 'clashV2') {
-        krName = '차원 대충돌 2.0';
-        krShortName = '대충돌 2.0';
-    } else if (raidType === 'deepClash') {
-        krName = '심해 대격돌';
-        krShortName = '심해 대격돌';
-    }
+    const isFrontier = raidType === 'frontier';
+    const personalityColor = data.personality && !isFrontier
+        ? getPersonalityColor(data.personality)
+        : '#151e51';
+    const personalityDarkColor = data.personality && !isFrontier
+        ? getPersonalityDarkColor(data.personality)
+        : '#29356b';
+    const backgroundImage = data.personality
+        ? `/images/boss/${data.name}(${data.personality}).webp`
+        : data.name === '죽음' || data.name === '오리카'
+            ? `/images/boss/${data.name}.webp`
+            : `/images/boss/bg_${data.name}.webp`;
 
     const typeLink =
         raidType === 'deepClash'
@@ -51,38 +43,30 @@ const HomeRaidCard = ({ data, raidType }: {
     return (
         <Link
             to={`/${typeLink}/${data.seasonNumber}`}
-            // 서브픽셀 문제는 will-change-transform 도입으로 해결
-            className={`w-full flex flex-col rounded-lg will-change-transform ${borderColor} ${containerDarkBG} dark:shadow-zinc-900`}>
-            <div className={`h-1/8 p-1 py-2 font-bold text-[12px] ${bgColor} ${headerTextColor} text-center`}>
-                <span className="mb-2 xs:inline hidden text-[18px]">
-                    {krName}
+            className="relative flex min-h-[150px] w-full overflow-hidden rounded-lg text-white shadow-sm will-change-transform"
+            style={{
+                background: `linear-gradient(105deg, color-mix(in srgb, ${personalityColor} 78%, #111827 22%) 0%, color-mix(in srgb, ${personalityDarkColor} 58%, #090f1d 42%) 100%)`,
+            }}
+        >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_88%_120%,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_54%)]" />
+            <img
+                src={backgroundImage}
+                alt={data.name}
+                className="pointer-events-none absolute bottom-[-18px] right-[-8px] z-[1] h-[158px] w-[75%] sm:w-[55%] object-contain object-bottom drop-shadow-xl sm:h-[184px]"
+                onError={(event) => event.currentTarget.classList.add('hidden')}
+            />
+            <div className="relative z-10 flex w-full shrink-0 flex-col justify-center gap-y-2 p-2 sm:p-5">
+                <span className="hidden text-[20px] font-bold leading-tight sm:inline">
+                    {raidNames.krName}
                 </span>
-                <span className="mb-2 xs:hidden inline text-[15px]">
-                    {krShortName}
+                <span className="inline text-[16px] font-bold leading-tight sm:hidden">
+                    {raidNames.krShortName}
                 </span>
-                <div className="mt-1 flex sm:flex-row flex-col gap-x-1 items-center justify-center">
-                    <span className="text-[12px]">
-                        {Number(data.seasonNumber) >= 10000 ? `베타 시즌${Number(data.seasonNumber) - 10000}` : `시즌${data.seasonNumber}`}
-                    </span>
-                    <span className=" text-[11px]">
-                        {data.name}
-                    </span>
-                </div>
-            </div>
-            <div className="relative min-h-[30px] overflow-hidden">
-                <div className="absolute right-0 ml-[-60px]">
-                    <BossProfile
-                        name={data?.name}
-                        personality={data?.personality}
-                    />
-                </div>
-            </div>
-            <div className="text-[12px] justify-center items-center p-2 text-zinc-700 dark:text-gray-400 flex sm:flex-row flex-col">
-                <span>
-                    {`${data.startDate} ~`}
+                <span className="text-[11px] font-semibold sm:text-[12px]">
+                    {seasonLabel} {data.name}
                 </span>
-                <span>
-                    {` ${data.endDate}`}
+                <span className="w-fit rounded-md bg-zinc-900/50 px-2.5 py-1 text-[10px] font-medium leading-snug text-zinc-200 sm:text-[11px]">
+                    {data.startDate} ~ {data.endDate}
                 </span>
             </div>
         </Link>

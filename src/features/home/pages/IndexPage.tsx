@@ -12,6 +12,7 @@ import { LatestData } from "../../../types/latestTypes";
 import { Personality, Race, races } from "../../../types/trickcalTypes";
 import BirthTimeline from "../components/BirthTimeline";
 import CharacterSearchList from "../components/CharacterSearchList";
+import HomeDeepClashCard from "../components/HomeDeepClashCard";
 import HomeRaidCard from "../components/HomeRaidCard";
 import NoticeComponent from "../components/NoticeComponent";
 
@@ -86,9 +87,8 @@ const IndexPage = () => {
                 {/* 위쪽: 가로로 넓은 심해 대격돌 카드 */}
                 {latest.deepClash && (
                     <div className="w-full relative hover:shadow-xl hover:-translate-y-[2px] transition-[transform,box-shadow] duration-200">
-                        <HomeRaidCard
+                        <HomeDeepClashCard
                             data={latest.deepClash}
-                            raidType="deepClash"
                         />
                         {mostLatestKey === 'deepClash' && (
                             <div className="absolute top-[-20px] left-0 py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
