@@ -472,17 +472,25 @@
   "recentSkins": [
     {
       "cosName": "빛나는 짙은 밤",
-      "cosUsedCount": 3,
-      "charTotalCount": 5,
-      "rate": 60,
+      "cosUsedCount": 5,
+      "charTotalCount": 14,
+      "rate": 35.7,
       "lvl": "pretty",
       "launchDate": "2025-11-27"
     },
     {
+      "cosName": "학생회장의 품격",
+      "cosUsedCount": 4,
+      "charTotalCount": 14,
+      "rate": 28.6,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
+    },
+    {
       "cosName": "초강력 안전요원",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 3,
+      "charTotalCount": 14,
+      "rate": 21.4,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     }

@@ -420,10 +420,18 @@
   ],
   "recentSkins": [
     {
+      "cosName": "에어라인 레스큐",
+      "cosUsedCount": 3,
+      "charTotalCount": 5,
+      "rate": 60,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
+    },
+    {
       "cosName": "핑크 산호초의 요정",
-      "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "cosUsedCount": 2,
+      "charTotalCount": 5,
+      "rate": 40,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     }

@@ -493,26 +493,26 @@
   ],
   "recentSkins": [
     {
-      "cosName": "템포 업! 응원 루키!",
-      "cosUsedCount": 6,
-      "charTotalCount": 13,
-      "rate": 46.2,
-      "lvl": "normal",
-      "launchDate": "2026-03-05"
-    },
-    {
       "cosName": "호수의 해적 선장",
-      "cosUsedCount": 3,
-      "charTotalCount": 13,
-      "rate": 23.1,
+      "cosUsedCount": 17,
+      "charTotalCount": 50,
+      "rate": 34,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     },
     {
+      "cosName": "템포 업! 응원 루키!",
+      "cosUsedCount": 15,
+      "charTotalCount": 50,
+      "rate": 30,
+      "lvl": "normal",
+      "launchDate": "2026-03-05"
+    },
+    {
       "cosName": "깡총 물장난",
-      "cosUsedCount": 1,
-      "charTotalCount": 13,
-      "rate": 7.7,
+      "cosUsedCount": 10,
+      "charTotalCount": 50,
+      "rate": 20,
       "lvl": "normal",
       "launchDate": "2025-05-29"
     }

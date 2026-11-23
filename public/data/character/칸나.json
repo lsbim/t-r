@@ -412,10 +412,18 @@
   ],
   "recentSkins": [
     {
+      "cosName": "한여름의 서퍼",
+      "cosUsedCount": 2,
+      "charTotalCount": 3,
+      "rate": 66.7,
+      "lvl": "normal",
+      "launchDate": "2025-07-24"
+    },
+    {
       "cosName": "석관의 엘프",
       "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "charTotalCount": 3,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     }

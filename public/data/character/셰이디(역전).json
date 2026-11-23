@@ -400,20 +400,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "달콤한 나의 상사님",
-      "cosUsedCount": 5,
-      "charTotalCount": 9,
-      "rate": 55.6,
-      "lvl": "normal",
-      "launchDate": "2026-08-20"
-    },
-    {
       "cosName": "유령 수장의 이중생활",
-      "cosUsedCount": 3,
-      "charTotalCount": 9,
-      "rate": 33.3,
+      "cosUsedCount": 11,
+      "charTotalCount": 25,
+      "rate": 44,
       "lvl": "normal",
       "launchDate": "2026-01-15"
+    },
+    {
+      "cosName": "달콤한 나의 상사님",
+      "cosUsedCount": 10,
+      "charTotalCount": 25,
+      "rate": 40,
+      "lvl": "normal",
+      "launchDate": "2026-08-20"
     }
   ]
 }

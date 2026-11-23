@@ -399,5 +399,14 @@
       "totalEntries": 300
     }
   ],
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "퓨어 펌킨",
+      "cosUsedCount": 8,
+      "charTotalCount": 11,
+      "rate": 72.7,
+      "lvl": "normal",
+      "launchDate": "2025-08-28"
+    }
+  ]
 }

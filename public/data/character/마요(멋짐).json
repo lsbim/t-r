@@ -438,26 +438,26 @@
   ],
   "recentSkins": [
     {
-      "cosName": "바니의 신비한 마술쇼",
-      "cosUsedCount": 17,
-      "charTotalCount": 36,
-      "rate": 47.2,
-      "lvl": "normal",
-      "launchDate": "2026-09-17"
-    },
-    {
       "cosName": "계속될 수집을 위해",
-      "cosUsedCount": 14,
-      "charTotalCount": 36,
-      "rate": 38.9,
+      "cosUsedCount": 68,
+      "charTotalCount": 113,
+      "rate": 60.2,
       "lvl": "pretty",
       "launchDate": "2025-07-10"
     },
     {
+      "cosName": "바니의 신비한 마술쇼",
+      "cosUsedCount": 19,
+      "charTotalCount": 113,
+      "rate": 16.8,
+      "lvl": "normal",
+      "launchDate": "2026-09-17"
+    },
+    {
       "cosName": "마리너 호의 선장",
-      "cosUsedCount": 1,
-      "charTotalCount": 36,
-      "rate": 2.8,
+      "cosUsedCount": 7,
+      "charTotalCount": 113,
+      "rate": 6.2,
       "lvl": "normal",
       "launchDate": "2025-05-08"
     }

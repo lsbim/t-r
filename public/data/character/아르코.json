@@ -469,17 +469,17 @@
   "recentSkins": [
     {
       "cosName": "베이케이션 스윙",
-      "cosUsedCount": 9,
-      "charTotalCount": 22,
-      "rate": 40.9,
+      "cosUsedCount": 20,
+      "charTotalCount": 65,
+      "rate": 30.8,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "스트릿 스쿨러",
-      "cosUsedCount": 4,
-      "charTotalCount": 22,
-      "rate": 18.2,
+      "cosUsedCount": 16,
+      "charTotalCount": 65,
+      "rate": 24.6,
       "lvl": "normal",
       "launchDate": "2025-06-19"
     }

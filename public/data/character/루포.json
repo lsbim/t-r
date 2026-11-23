@@ -413,11 +413,19 @@
   "recentSkins": [
     {
       "cosName": "고독한 천재 닌자",
-      "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "cosUsedCount": 2,
+      "charTotalCount": 4,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2024-12-12"
+    },
+    {
+      "cosName": "치어 앤 플로우",
+      "cosUsedCount": 2,
+      "charTotalCount": 4,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2026-03-05"
     }
   ]
 }

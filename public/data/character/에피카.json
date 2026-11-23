@@ -487,26 +487,34 @@
   "recentSkins": [
     {
       "cosName": "오케스토리의 지휘자",
-      "cosUsedCount": 81,
-      "charTotalCount": 93,
-      "rate": 87.1,
+      "cosUsedCount": 272,
+      "charTotalCount": 315,
+      "rate": 86.3,
       "lvl": "pretty",
       "launchDate": "2026-03-19"
     },
     {
       "cosName": "화살촉에 실려 온 이야기",
-      "cosUsedCount": 7,
-      "charTotalCount": 93,
-      "rate": 7.5,
+      "cosUsedCount": 22,
+      "charTotalCount": 315,
+      "rate": 7,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "오직 당신만을 위한",
-      "cosUsedCount": 2,
-      "charTotalCount": 93,
+      "cosUsedCount": 7,
+      "charTotalCount": 315,
       "rate": 2.2,
       "lvl": "pretty",
+      "launchDate": "2024-10-03"
+    },
+    {
+      "cosName": "열심 열심 응원단장",
+      "cosUsedCount": 1,
+      "charTotalCount": 315,
+      "rate": 0.3,
+      "lvl": "normal",
       "launchDate": "2024-10-03"
     }
   ]

@@ -740,25 +740,25 @@
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 269,
-      "charTotalCount": 384,
-      "rate": 70.1,
+      "cosUsedCount": 596,
+      "charTotalCount": 1407,
+      "rate": 42.4,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
     },
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 73,
-      "charTotalCount": 384,
-      "rate": 19,
+      "cosUsedCount": 514,
+      "charTotalCount": 1407,
+      "rate": 36.5,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 7,
-      "charTotalCount": 384,
-      "rate": 1.8,
+      "cosUsedCount": 68,
+      "charTotalCount": 1407,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

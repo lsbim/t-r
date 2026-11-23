@@ -420,20 +420,28 @@
   ],
   "recentSkins": [
     {
+      "cosName": "가시 장미 수녀",
+      "cosUsedCount": 2,
+      "charTotalCount": 10,
+      "rate": 20,
+      "lvl": "normal",
+      "launchDate": "2024-10-17"
+    },
+    {
       "cosName": "한겨울의 평화 사절",
       "cosUsedCount": 1,
-      "charTotalCount": 4,
-      "rate": 25,
+      "charTotalCount": 10,
+      "rate": 10,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
-      "cosName": "가시 장미 수녀",
+      "cosName": "오늘도 열혈 트레이닝",
       "cosUsedCount": 1,
-      "charTotalCount": 4,
-      "rate": 25,
+      "charTotalCount": 10,
+      "rate": 10,
       "lvl": "normal",
-      "launchDate": "2024-10-17"
+      "launchDate": "2026-03-26"
     }
   ]
 }

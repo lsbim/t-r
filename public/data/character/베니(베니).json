@@ -409,5 +409,14 @@
       "totalEntries": 300
     }
   ],
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "포레스트 빌런 베어",
+      "cosUsedCount": 1,
+      "charTotalCount": 1,
+      "rate": 100,
+      "lvl": "normal",
+      "launchDate": "2026-05-28"
+    }
+  ]
 }

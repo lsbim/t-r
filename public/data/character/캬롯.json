@@ -421,5 +421,22 @@
       "totalEntries": 300
     }
   ],
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "다라랑근 베이시스트",
+      "cosUsedCount": 2,
+      "charTotalCount": 6,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
+    },
+    {
+      "cosName": "순박한 사교 파티",
+      "cosUsedCount": 2,
+      "charTotalCount": 6,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2026-01-08"
+    }
+  ]
 }

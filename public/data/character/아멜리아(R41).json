@@ -417,20 +417,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "정체 분명 엘프",
-      "cosUsedCount": 6,
-      "charTotalCount": 14,
-      "rate": 42.9,
-      "lvl": "normal",
-      "launchDate": "2026-10-15"
-    },
-    {
       "cosName": "푸른 숲속 엘프",
-      "cosUsedCount": 5,
-      "charTotalCount": 14,
-      "rate": 35.7,
+      "cosUsedCount": 26,
+      "charTotalCount": 58,
+      "rate": 44.8,
       "lvl": "normal",
       "launchDate": "2026-02-26"
+    },
+    {
+      "cosName": "정체 분명 엘프",
+      "cosUsedCount": 14,
+      "charTotalCount": 58,
+      "rate": 24.1,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
     }
   ]
 }

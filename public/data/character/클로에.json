@@ -463,27 +463,35 @@
   "recentSkins": [
     {
       "cosName": "살구꽃과 어흥이",
-      "cosUsedCount": 47,
-      "charTotalCount": 55,
-      "rate": 85.5,
+      "cosUsedCount": 184,
+      "charTotalCount": 213,
+      "rate": 86.4,
       "lvl": "pretty",
       "launchDate": "2026-04-16"
     },
     {
       "cosName": "테디 더 나이트메어",
-      "cosUsedCount": 5,
-      "charTotalCount": 55,
-      "rate": 9.1,
+      "cosUsedCount": 15,
+      "charTotalCount": 213,
+      "rate": 7,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "트렌디 트로피컬",
-      "cosUsedCount": 1,
-      "charTotalCount": 55,
-      "rate": 1.8,
+      "cosUsedCount": 4,
+      "charTotalCount": 213,
+      "rate": 1.9,
       "lvl": "pretty",
       "launchDate": "2025-07-31"
+    },
+    {
+      "cosName": "럭셔리 테일러",
+      "cosUsedCount": 1,
+      "charTotalCount": 213,
+      "rate": 0.5,
+      "lvl": "normal",
+      "launchDate": "2024-10-31"
     }
   ]
 }

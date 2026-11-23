@@ -421,17 +421,17 @@
   "recentSkins": [
     {
       "cosName": "온수통의 마녀",
-      "cosUsedCount": 3,
-      "charTotalCount": 6,
-      "rate": 50,
+      "cosUsedCount": 17,
+      "charTotalCount": 26,
+      "rate": 65.4,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
       "cosName": "버거통의 마녀",
-      "cosUsedCount": 1,
-      "charTotalCount": 6,
-      "rate": 16.7,
+      "cosUsedCount": 4,
+      "charTotalCount": 26,
+      "rate": 15.4,
       "lvl": "normal",
       "launchDate": "2025-08-14"
     }

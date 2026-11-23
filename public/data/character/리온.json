@@ -421,19 +421,27 @@
   "recentSkins": [
     {
       "cosName": "히어로의 여름 바캉스",
-      "cosUsedCount": 4,
-      "charTotalCount": 5,
-      "rate": 80,
+      "cosUsedCount": 86,
+      "charTotalCount": 142,
+      "rate": 60.6,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "사료반 반장",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 37,
+      "charTotalCount": 142,
+      "rate": 26.1,
       "lvl": "normal",
       "launchDate": "2025-05-01"
+    },
+    {
+      "cosName": "포근포근 나들이",
+      "cosUsedCount": 19,
+      "charTotalCount": 142,
+      "rate": 13.4,
+      "lvl": "normal",
+      "launchDate": "2025-04-17"
     }
   ]
 }

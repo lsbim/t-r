@@ -511,25 +511,25 @@
   "recentSkins": [
     {
       "cosName": "태양 빛 아래의 뱀",
-      "cosUsedCount": 64,
-      "charTotalCount": 116,
-      "rate": 55.2,
+      "cosUsedCount": 271,
+      "charTotalCount": 517,
+      "rate": 52.4,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "병약 미소뱀",
-      "cosUsedCount": 36,
-      "charTotalCount": 116,
-      "rate": 31,
+      "cosUsedCount": 166,
+      "charTotalCount": 517,
+      "rate": 32.1,
       "lvl": "pretty",
       "launchDate": "2025-04-17"
     },
     {
       "cosName": "하늘하늘 슬리퍼",
-      "cosUsedCount": 3,
-      "charTotalCount": 116,
-      "rate": 2.6,
+      "cosUsedCount": 29,
+      "charTotalCount": 517,
+      "rate": 5.6,
       "lvl": "normal",
       "launchDate": "2025-02-27"
     }

@@ -467,36 +467,36 @@
   ],
   "recentSkins": [
     {
+      "cosName": "유령 늪의 인기쟁이",
+      "cosUsedCount": 13,
+      "charTotalCount": 30,
+      "rate": 43.3,
+      "lvl": "normal",
+      "launchDate": "2026-04-02"
+    },
+    {
       "cosName": "연회루 혼돈 마담",
-      "cosUsedCount": 4,
-      "charTotalCount": 9,
-      "rate": 44.4,
+      "cosUsedCount": 9,
+      "charTotalCount": 30,
+      "rate": 30,
       "lvl": "pretty",
       "launchDate": "2025-10-30"
     },
     {
       "cosName": "야시장의 습격자",
-      "cosUsedCount": 3,
-      "charTotalCount": 9,
-      "rate": 33.3,
+      "cosUsedCount": 7,
+      "charTotalCount": 30,
+      "rate": 23.3,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "카오틱 에이프런",
       "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
+      "charTotalCount": 30,
+      "rate": 3.3,
       "lvl": "normal",
       "launchDate": "2025-01-16"
-    },
-    {
-      "cosName": "유령 늪의 인기쟁이",
-      "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
-      "lvl": "normal",
-      "launchDate": "2026-04-02"
     }
   ]
 }

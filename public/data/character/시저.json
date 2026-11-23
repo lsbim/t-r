@@ -450,20 +450,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "끝내주는 악당!",
-      "cosUsedCount": 21,
-      "charTotalCount": 54,
-      "rate": 38.9,
-      "lvl": "normal",
-      "launchDate": "2026-10-15"
-    },
-    {
       "cosName": "악어는 아거! 아거!",
-      "cosUsedCount": 9,
-      "charTotalCount": 54,
-      "rate": 16.7,
+      "cosUsedCount": 64,
+      "charTotalCount": 195,
+      "rate": 32.8,
       "lvl": "normal",
       "launchDate": "2025-08-28"
+    },
+    {
+      "cosName": "끝내주는 악당!",
+      "cosUsedCount": 31,
+      "charTotalCount": 195,
+      "rate": 15.9,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
     }
   ]
 }

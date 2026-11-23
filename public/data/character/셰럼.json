@@ -421,25 +421,25 @@
   "recentSkins": [
     {
       "cosName": "픽션 앤 노벨리스트",
-      "cosUsedCount": 3,
-      "charTotalCount": 7,
-      "rate": 42.9,
+      "cosUsedCount": 8,
+      "charTotalCount": 24,
+      "rate": 33.3,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "핑크빛 데이트 나들이",
-      "cosUsedCount": 1,
-      "charTotalCount": 7,
-      "rate": 14.3,
+      "cosUsedCount": 4,
+      "charTotalCount": 24,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     },
     {
       "cosName": "레코드 레코더",
-      "cosUsedCount": 1,
-      "charTotalCount": 7,
-      "rate": 14.3,
+      "cosUsedCount": 4,
+      "charTotalCount": 24,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2024-12-12"
     }

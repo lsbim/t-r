@@ -70,13 +70,15 @@ function buildDenseRankMap(items, keyFn, valueFn) {
 
 // 사복 카운트
 function countSkin(arr, skinArr, charName, skinCounts) {
-    if (!arr || !skinArr) return;
+    if (!arr) return false;
 
     const idx = arr.findIndex(n => normalizeCharName(n) === charName);
 
-    if (idx !== -1 && skinArr[idx]) {
+    if (idx !== -1 && skinArr?.[idx]) {
         skinCounts.set(skinArr[idx], (skinCounts.get(skinArr[idx]) ?? 0) + 1);
     }
+
+    return idx !== -1;
 }
 
 // charInfo 텍스트로 정규식을 거쳐 가져오기
@@ -405,22 +407,30 @@ function getDeepClashPersonalityStats(charName, personality, seasons, n) {
 }
 
 // 최근 사복 top3
-function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
+function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, deepClashSeasons, costumeMap) {
     const skinCounts = new Map();
     let charTotalCount = 0;
 
-    // 각 콘텐츠별 최신 시즌 1개씩만 참조
+    // 각 콘텐츠별 최신 시즌 3개 참조
     for (const stats of [clashStats, frontierStats, clashV2Stats]) {
-        const latest = stats[0];
-        if (!latest || latest.raw.type !== 'season') continue;
+        for (const season of stats.slice(0, 3)) {
+            if (!season || season.raw.type !== 'season') continue;
 
-        const mainCount = latest.pickStats?.get(charName)?.count ?? 0;
-        const sideCount = latest.sidePickStats?.get(charName)?.count ?? 0;
-        charTotalCount += mainCount + sideCount;
+            for (const entry of season.raw.data ?? []) {
+                if (countSkin(entry.arr, entry.skinArr, charName, skinCounts)) charTotalCount++;
+                if (countSkin(entry.sideArr, entry.sideSkinArr, charName, skinCounts)) charTotalCount++;
+            }
+        }
+    }
 
-        for (const entry of latest.raw.data) {
-            countSkin(entry.arr, entry.skinArr, charName, skinCounts);
-            countSkin(entry.sideArr, entry.sideSkinArr, charName, skinCounts);
+    // 심해 대격돌은 보스 팀과 각 시즌의 5개 성격 해역을 각각 하나의 사용처로 집계
+    for (const season of deepClashSeasons.slice(0, 3)) {
+        for (const entry of season.raw.data ?? []) {
+            if (countSkin(entry.arr, entry.skinArr, charName, skinCounts)) charTotalCount++;
+
+            for (const area of Object.values(entry.personalities ?? {})) {
+                if (countSkin(area.arr, area.skinArr, charName, skinCounts)) charTotalCount++;
+            }
         }
     }
 
@@ -535,7 +545,14 @@ async function buildCharacterStats() {
                 deepClashSeasons,
                 needRecentSeasonNumber
             ),
-            recentSkins: getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
+            recentSkins: getRecentSkins(
+                charName,
+                clashStats,
+                frontierStats,
+                clashV2Stats,
+                deepClashSeasons,
+                costumeMap
+            ),
         };
 
         await fs.writeFile(

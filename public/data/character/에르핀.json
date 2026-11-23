@@ -593,19 +593,27 @@
   "recentSkins": [
     {
       "cosName": "발랄한 현장학습",
-      "cosUsedCount": 3,
-      "charTotalCount": 6,
-      "rate": 50,
+      "cosUsedCount": 7,
+      "charTotalCount": 17,
+      "rate": 41.2,
       "lvl": "normal",
       "launchDate": "2025-02-06"
     },
     {
       "cosName": "풀오토 고딕",
       "cosUsedCount": 2,
-      "charTotalCount": 6,
-      "rate": 33.3,
+      "charTotalCount": 17,
+      "rate": 11.8,
       "lvl": "normal",
       "launchDate": "2026-02-05"
+    },
+    {
+      "cosName": "깡총이 파자마",
+      "cosUsedCount": 1,
+      "charTotalCount": 17,
+      "rate": 5.9,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
     }
   ]
 }

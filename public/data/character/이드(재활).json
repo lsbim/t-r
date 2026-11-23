@@ -409,20 +409,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "성장하는 알바생",
-      "cosUsedCount": 4,
-      "charTotalCount": 8,
-      "rate": 50,
-      "lvl": "normal",
-      "launchDate": "2026-09-24"
-    },
-    {
       "cosName": "하이스쿨 모닝",
-      "cosUsedCount": 2,
-      "charTotalCount": 8,
-      "rate": 25,
+      "cosUsedCount": 27,
+      "charTotalCount": 63,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2026-05-21"
+    },
+    {
+      "cosName": "성장하는 알바생",
+      "cosUsedCount": 16,
+      "charTotalCount": 63,
+      "rate": 25.4,
+      "lvl": "normal",
+      "launchDate": "2026-09-24"
     }
   ]
 }

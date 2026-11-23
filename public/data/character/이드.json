@@ -553,26 +553,34 @@
   "recentSkins": [
     {
       "cosName": "꿈속에서 다시 만난",
-      "cosUsedCount": 107,
-      "charTotalCount": 129,
-      "rate": 82.9,
+      "cosUsedCount": 469,
+      "charTotalCount": 559,
+      "rate": 83.9,
       "lvl": "pretty",
       "launchDate": "2026-02-19"
     },
     {
       "cosName": "잠든 별의 예지몽",
-      "cosUsedCount": 10,
-      "charTotalCount": 129,
-      "rate": 7.8,
+      "cosUsedCount": 42,
+      "charTotalCount": 559,
+      "rate": 7.5,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "꿈 같은 순간",
-      "cosUsedCount": 7,
-      "charTotalCount": 129,
+      "cosUsedCount": 30,
+      "charTotalCount": 559,
       "rate": 5.4,
       "lvl": "pretty",
+      "launchDate": "2025-01-30"
+    },
+    {
+      "cosName": "영원의 기다림",
+      "cosUsedCount": 3,
+      "charTotalCount": 559,
+      "rate": 0.5,
+      "lvl": "normal",
       "launchDate": "2025-01-30"
     }
   ]

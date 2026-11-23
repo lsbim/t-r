@@ -529,33 +529,33 @@
   "recentSkins": [
     {
       "cosName": "에이프런 매그넘",
-      "cosUsedCount": 4,
-      "charTotalCount": 9,
-      "rate": 44.4,
+      "cosUsedCount": 12,
+      "charTotalCount": 28,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
-      "cosName": "별밤 산책 대장",
-      "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
-      "lvl": "pretty",
-      "launchDate": "2026-10-29"
-    },
-    {
       "cosName": "세이프티 가드",
-      "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
+      "cosUsedCount": 7,
+      "charTotalCount": 28,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2024-06-06"
     },
     {
+      "cosName": "별밤 산책 대장",
+      "cosUsedCount": 2,
+      "charTotalCount": 28,
+      "rate": 7.1,
+      "lvl": "pretty",
+      "launchDate": "2026-10-29"
+    },
+    {
       "cosName": "동시 대회 다크 호스",
-      "cosUsedCount": 1,
-      "charTotalCount": 9,
-      "rate": 11.1,
+      "cosUsedCount": 2,
+      "charTotalCount": 28,
+      "rate": 7.1,
       "lvl": "normal",
       "launchDate": "2025-05-01"
     }

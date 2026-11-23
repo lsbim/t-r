@@ -474,10 +474,18 @@
   ],
   "recentSkins": [
     {
+      "cosName": "방구석 강철",
+      "cosUsedCount": 4,
+      "charTotalCount": 12,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
+    },
+    {
       "cosName": "망토 속 사냥꾼",
       "cosUsedCount": 3,
-      "charTotalCount": 4,
-      "rate": 75,
+      "charTotalCount": 12,
+      "rate": 25,
       "lvl": "normal",
       "launchDate": "2026-10-15"
     }

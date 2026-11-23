@@ -808,35 +808,35 @@
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 595,
-      "charTotalCount": 895,
-      "rate": 66.5,
+      "cosUsedCount": 2299,
+      "charTotalCount": 3237,
+      "rate": 71,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
-      "cosName": "겁령독희 벨소화",
-      "cosUsedCount": 135,
-      "charTotalCount": 895,
-      "rate": 15.1,
-      "lvl": "normal",
-      "launchDate": "2026-11-12"
-    },
-    {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 49,
-      "charTotalCount": 895,
-      "rate": 5.5,
+      "cosUsedCount": 251,
+      "charTotalCount": 3237,
+      "rate": 7.8,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 22,
-      "charTotalCount": 895,
-      "rate": 2.5,
+      "cosUsedCount": 179,
+      "charTotalCount": 3237,
+      "rate": 5.5,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
+    },
+    {
+      "cosName": "겁령독희 벨소화",
+      "cosUsedCount": 135,
+      "charTotalCount": 3237,
+      "rate": 4.2,
+      "lvl": "normal",
+      "launchDate": "2026-11-12"
     }
   ]
 }

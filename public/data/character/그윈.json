@@ -414,10 +414,18 @@
     {
       "cosName": "바다로 떠나는 모험",
       "cosUsedCount": 2,
-      "charTotalCount": 2,
-      "rate": 100,
+      "charTotalCount": 3,
+      "rate": 66.7,
       "lvl": "normal",
       "launchDate": "2026-07-23"
+    },
+    {
+      "cosName": "설국의 노천탕",
+      "cosUsedCount": 1,
+      "charTotalCount": 3,
+      "rate": 33.3,
+      "lvl": "normal",
+      "launchDate": "2025-10-16"
     }
   ]
 }

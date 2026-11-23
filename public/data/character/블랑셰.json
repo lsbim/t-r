@@ -426,20 +426,28 @@
   ],
   "recentSkins": [
     {
-      "cosName": "시상식의 액트리스",
-      "cosUsedCount": 2,
-      "charTotalCount": 5,
-      "rate": 40,
-      "lvl": "normal",
-      "launchDate": "2024-11-14"
-    },
-    {
       "cosName": "스타디움의 푸른 장미",
-      "cosUsedCount": 2,
-      "charTotalCount": 5,
-      "rate": 40,
+      "cosUsedCount": 8,
+      "charTotalCount": 18,
+      "rate": 44.4,
       "lvl": "normal",
       "launchDate": "2026-03-05"
+    },
+    {
+      "cosName": "도전! 액트리스 바니",
+      "cosUsedCount": 4,
+      "charTotalCount": 18,
+      "rate": 22.2,
+      "lvl": "normal",
+      "launchDate": "2025-05-29"
+    },
+    {
+      "cosName": "시상식의 액트리스",
+      "cosUsedCount": 3,
+      "charTotalCount": 18,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2024-11-14"
     }
   ]
 }

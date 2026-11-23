@@ -420,11 +420,27 @@
   "recentSkins": [
     {
       "cosName": "덜 팔팔해진 오팔",
-      "cosUsedCount": 2,
-      "charTotalCount": 2,
-      "rate": 100,
+      "cosUsedCount": 4,
+      "charTotalCount": 8,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2025-02-06"
+    },
+    {
+      "cosName": "완전 팔팔해진 오팔",
+      "cosUsedCount": 3,
+      "charTotalCount": 8,
+      "rate": 37.5,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
+    },
+    {
+      "cosName": "하늘 위의 서프라이즈",
+      "cosUsedCount": 1,
+      "charTotalCount": 8,
+      "rate": 12.5,
+      "lvl": "normal",
+      "launchDate": "2026-04-30"
     }
   ]
 }

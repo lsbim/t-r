@@ -711,25 +711,25 @@
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 134,
-      "charTotalCount": 302,
-      "rate": 44.4,
+      "cosUsedCount": 836,
+      "charTotalCount": 1899,
+      "rate": 44,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 97,
-      "charTotalCount": 302,
-      "rate": 32.1,
+      "cosUsedCount": 663,
+      "charTotalCount": 1899,
+      "rate": 34.9,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 28,
-      "charTotalCount": 302,
-      "rate": 9.3,
+      "cosUsedCount": 135,
+      "charTotalCount": 1899,
+      "rate": 7.1,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

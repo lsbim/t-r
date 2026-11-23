@@ -418,17 +418,17 @@
   "recentSkins": [
     {
       "cosName": "샤이닝 비즈니스",
-      "cosUsedCount": 2,
-      "charTotalCount": 5,
-      "rate": 40,
+      "cosUsedCount": 12,
+      "charTotalCount": 32,
+      "rate": 37.5,
       "lvl": "normal",
       "launchDate": "2026-08-20"
     },
     {
       "cosName": "샤이닝 바니",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 10,
+      "charTotalCount": 32,
+      "rate": 31.3,
       "lvl": "normal",
       "launchDate": "2026-01-29"
     }

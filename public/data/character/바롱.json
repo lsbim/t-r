@@ -426,28 +426,28 @@
   ],
   "recentSkins": [
     {
+      "cosName": "댄스 크루 댄스킹",
+      "cosUsedCount": 9,
+      "charTotalCount": 21,
+      "rate": 42.9,
+      "lvl": "normal",
+      "launchDate": "2025-07-17"
+    },
+    {
       "cosName": "바캉스의 왕",
-      "cosUsedCount": 2,
-      "charTotalCount": 7,
+      "cosUsedCount": 6,
+      "charTotalCount": 21,
       "rate": 28.6,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "콩콩 점프의 왕",
-      "cosUsedCount": 2,
-      "charTotalCount": 7,
-      "rate": 28.6,
+      "cosUsedCount": 4,
+      "charTotalCount": 21,
+      "rate": 19,
       "lvl": "normal",
       "launchDate": "2025-05-15"
-    },
-    {
-      "cosName": "댄스 크루 댄스킹",
-      "cosUsedCount": 2,
-      "charTotalCount": 7,
-      "rate": 28.6,
-      "lvl": "normal",
-      "launchDate": "2025-07-17"
     }
   ]
 }

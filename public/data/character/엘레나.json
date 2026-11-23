@@ -449,11 +449,19 @@
   "recentSkins": [
     {
       "cosName": "느긋한 주말의 집냥이",
-      "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "cosUsedCount": 2,
+      "charTotalCount": 4,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2025-09-18"
+    },
+    {
+      "cosName": "차원이 다른 여왕님",
+      "cosUsedCount": 1,
+      "charTotalCount": 4,
+      "rate": 25,
+      "lvl": "pretty",
+      "launchDate": "2025-10-02"
     }
   ]
 }

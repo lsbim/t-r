@@ -428,20 +428,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "심해 속 바다토끼",
-      "cosUsedCount": 18,
-      "charTotalCount": 35,
-      "rate": 51.4,
-      "lvl": "normal",
-      "launchDate": "2026-09-17"
-    },
-    {
       "cosName": "푸른 바다의 전학생",
-      "cosUsedCount": 4,
-      "charTotalCount": 35,
-      "rate": 11.4,
+      "cosUsedCount": 191,
+      "charTotalCount": 670,
+      "rate": 28.5,
       "lvl": "normal",
       "launchDate": "2026-04-23"
+    },
+    {
+      "cosName": "심해 속 바다토끼",
+      "cosUsedCount": 157,
+      "charTotalCount": 670,
+      "rate": 23.4,
+      "lvl": "normal",
+      "launchDate": "2026-09-17"
     }
   ]
 }

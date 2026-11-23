@@ -541,17 +541,17 @@
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 39,
-      "charTotalCount": 62,
-      "rate": 62.9,
+      "cosUsedCount": 183,
+      "charTotalCount": 304,
+      "rate": 60.2,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
-      "cosUsedCount": 3,
-      "charTotalCount": 62,
-      "rate": 4.8,
+      "cosUsedCount": 11,
+      "charTotalCount": 304,
+      "rate": 3.6,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }

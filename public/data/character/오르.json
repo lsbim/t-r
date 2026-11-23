@@ -475,11 +475,19 @@
   "recentSkins": [
     {
       "cosName": "차원 개발 연구원",
-      "cosUsedCount": 6,
-      "charTotalCount": 10,
-      "rate": 60,
+      "cosUsedCount": 23,
+      "charTotalCount": 49,
+      "rate": 46.9,
       "lvl": "normal",
       "launchDate": "2026-06-25"
+    },
+    {
+      "cosName": "농장의 아르바이트생",
+      "cosUsedCount": 3,
+      "charTotalCount": 49,
+      "rate": 6.1,
+      "lvl": "normal",
+      "launchDate": "2025-05-22"
     }
   ]
 }

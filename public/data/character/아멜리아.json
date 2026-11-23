@@ -427,19 +427,27 @@
   "recentSkins": [
     {
       "cosName": "아이돌",
-      "cosUsedCount": 4,
-      "charTotalCount": 5,
-      "rate": 80,
+      "cosUsedCount": 12,
+      "charTotalCount": 18,
+      "rate": 66.7,
       "lvl": "normal",
       "launchDate": "-"
     },
     {
       "cosName": "파티 애프터 모나티엄",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 3,
+      "charTotalCount": 18,
+      "rate": 16.7,
       "lvl": "normal",
       "launchDate": "2025-06-05"
+    },
+    {
+      "cosName": "당신의 토끼 집사장",
+      "cosUsedCount": 3,
+      "charTotalCount": 18,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-05-29"
     }
   ]
 }

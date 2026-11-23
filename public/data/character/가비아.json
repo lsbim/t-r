@@ -418,20 +418,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "봄날의 약속",
-      "cosUsedCount": 2,
-      "charTotalCount": 3,
-      "rate": 66.7,
-      "lvl": "normal",
-      "launchDate": "2025-03-27"
-    },
-    {
       "cosName": "대지의 대마법사",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "cosUsedCount": 6,
+      "charTotalCount": 10,
+      "rate": 60,
       "lvl": "normal",
       "launchDate": "2025-10-30"
+    },
+    {
+      "cosName": "봄날의 약속",
+      "cosUsedCount": 4,
+      "charTotalCount": 10,
+      "rate": 40,
+      "lvl": "normal",
+      "launchDate": "2025-03-27"
     }
   ]
 }

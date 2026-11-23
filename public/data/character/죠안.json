@@ -700,49 +700,49 @@
   "recentSkins": [
     {
       "cosName": "피어나는 꽃처럼",
-      "cosUsedCount": 260,
-      "charTotalCount": 497,
-      "rate": 52.3,
+      "cosUsedCount": 764,
+      "charTotalCount": 1358,
+      "rate": 56.3,
       "lvl": "pretty",
       "launchDate": "2026-10-01"
     },
     {
-      "cosName": "야식군사 죠갈연",
-      "cosUsedCount": 132,
-      "charTotalCount": 497,
-      "rate": 26.6,
-      "lvl": "normal",
-      "launchDate": "2026-11-12"
-    },
-    {
       "cosName": "전통의 사도",
-      "cosUsedCount": 25,
-      "charTotalCount": 497,
-      "rate": 5,
+      "cosUsedCount": 154,
+      "charTotalCount": 1358,
+      "rate": 11.3,
       "lvl": "pretty",
       "launchDate": "2024-09-26"
     },
     {
-      "cosName": "개인적 피크닉",
-      "cosUsedCount": 18,
-      "charTotalCount": 497,
-      "rate": 3.6,
+      "cosName": "야식군사 죠갈연",
+      "cosUsedCount": 132,
+      "charTotalCount": 1358,
+      "rate": 9.7,
       "lvl": "normal",
-      "launchDate": "2024-09-26"
+      "launchDate": "2026-11-12"
     },
     {
       "cosName": "댄스 크루 달링",
-      "cosUsedCount": 16,
-      "charTotalCount": 497,
-      "rate": 3.2,
+      "cosUsedCount": 79,
+      "charTotalCount": 1358,
+      "rate": 5.8,
       "lvl": "normal",
       "launchDate": "2025-07-17"
     },
     {
+      "cosName": "개인적 피크닉",
+      "cosUsedCount": 75,
+      "charTotalCount": 1358,
+      "rate": 5.5,
+      "lvl": "normal",
+      "launchDate": "2024-09-26"
+    },
+    {
       "cosName": "폭신 폭신 슬리퍼",
-      "cosUsedCount": 11,
-      "charTotalCount": 497,
-      "rate": 2.2,
+      "cosUsedCount": 48,
+      "charTotalCount": 1358,
+      "rate": 3.5,
       "lvl": "normal",
       "launchDate": "2024-09-26"
     }

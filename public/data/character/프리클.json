@@ -445,11 +445,19 @@
   "recentSkins": [
     {
       "cosName": "크리미널 하우스키핑",
-      "cosUsedCount": 2,
-      "charTotalCount": 2,
-      "rate": 100,
+      "cosUsedCount": 5,
+      "charTotalCount": 6,
+      "rate": 83.3,
       "lvl": "normal",
       "launchDate": "2026-02-05"
+    },
+    {
+      "cosName": "오늘의 날씨는 맑음",
+      "cosUsedCount": 1,
+      "charTotalCount": 6,
+      "rate": 16.7,
+      "lvl": "normal",
+      "launchDate": "2025-09-25"
     }
   ]
 }

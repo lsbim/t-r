@@ -450,20 +450,28 @@
   ],
   "recentSkins": [
     {
+      "cosName": "꼬끼옷 메이드",
+      "cosUsedCount": 18,
+      "charTotalCount": 34,
+      "rate": 52.9,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
+    },
+    {
       "cosName": "캐럿 청소 바니",
       "cosUsedCount": 4,
-      "charTotalCount": 10,
-      "rate": 40,
+      "charTotalCount": 34,
+      "rate": 11.8,
       "lvl": "normal",
       "launchDate": "2026-09-17"
     },
     {
-      "cosName": "꼬끼옷 메이드",
+      "cosName": "부스스한 아침",
       "cosUsedCount": 3,
-      "charTotalCount": 10,
-      "rate": 30,
+      "charTotalCount": 34,
+      "rate": 8.8,
       "lvl": "normal",
-      "launchDate": "2025-09-18"
+      "launchDate": "2025-03-06"
     }
   ]
 }

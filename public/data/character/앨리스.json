@@ -403,25 +403,25 @@
   "recentSkins": [
     {
       "cosName": "주사위 잡이 토끼",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "cosUsedCount": 3,
+      "charTotalCount": 7,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2025-05-29"
     },
     {
       "cosName": "치명적인 맹독 점괘",
-      "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "cosUsedCount": 3,
+      "charTotalCount": 7,
+      "rate": 42.9,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
       "cosName": "숲속 꼬마 유령",
       "cosUsedCount": 1,
-      "charTotalCount": 3,
-      "rate": 33.3,
+      "charTotalCount": 7,
+      "rate": 14.3,
       "lvl": "normal",
       "launchDate": "2024-12-18"
     }

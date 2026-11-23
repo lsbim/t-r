@@ -420,10 +420,18 @@
   ],
   "recentSkins": [
     {
+      "cosName": "새 학기 새 학교",
+      "cosUsedCount": 4,
+      "charTotalCount": 14,
+      "rate": 28.6,
+      "lvl": "normal",
+      "launchDate": "2025-06-05"
+    },
+    {
       "cosName": "냥냥 메이드",
-      "cosUsedCount": 1,
-      "charTotalCount": 6,
-      "rate": 16.7,
+      "cosUsedCount": 3,
+      "charTotalCount": 14,
+      "rate": 21.4,
       "lvl": "normal",
       "launchDate": "2025-03-06"
     }

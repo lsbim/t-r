@@ -606,27 +606,43 @@
   "recentSkins": [
     {
       "cosName": "겨울의 마녀",
-      "cosUsedCount": 169,
-      "charTotalCount": 188,
-      "rate": 89.9,
+      "cosUsedCount": 546,
+      "charTotalCount": 621,
+      "rate": 87.9,
       "lvl": "pretty",
       "launchDate": "2026-06-11"
     },
     {
       "cosName": "첫 눈송이의 춤사위",
-      "cosUsedCount": 7,
-      "charTotalCount": 188,
-      "rate": 3.7,
+      "cosUsedCount": 33,
+      "charTotalCount": 621,
+      "rate": 5.3,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "새벽의 블루문",
-      "cosUsedCount": 4,
-      "charTotalCount": 188,
-      "rate": 2.1,
+      "cosUsedCount": 16,
+      "charTotalCount": 621,
+      "rate": 2.6,
       "lvl": "pretty",
       "launchDate": "2025-04-24"
+    },
+    {
+      "cosName": "빙상 레이스",
+      "cosUsedCount": 1,
+      "charTotalCount": 621,
+      "rate": 0.2,
+      "lvl": "normal",
+      "launchDate": "2024-11-28"
+    },
+    {
+      "cosName": "추억과 피안화",
+      "cosUsedCount": 1,
+      "charTotalCount": 621,
+      "rate": 0.2,
+      "lvl": "normal",
+      "launchDate": "2024-11-28"
     }
   ]
 }

@@ -414,11 +414,19 @@
   "recentSkins": [
     {
       "cosName": "오! 나의 회장님",
-      "cosUsedCount": 1,
-      "charTotalCount": 1,
-      "rate": 100,
+      "cosUsedCount": 4,
+      "charTotalCount": 8,
+      "rate": 50,
       "lvl": "normal",
       "launchDate": "2026-04-02"
+    },
+    {
+      "cosName": "꿈나라 모험가",
+      "cosUsedCount": 4,
+      "charTotalCount": 8,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
     }
   ]
 }

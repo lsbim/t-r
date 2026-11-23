@@ -992,35 +992,35 @@
   "recentSkins": [
     {
       "cosName": "폭풍 속 검은 날개",
-      "cosUsedCount": 276,
-      "charTotalCount": 900,
-      "rate": 30.7,
+      "cosUsedCount": 1703,
+      "charTotalCount": 4418,
+      "rate": 38.5,
       "lvl": "pretty",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "선도부장 선배님",
-      "cosUsedCount": 230,
-      "charTotalCount": 900,
-      "rate": 25.6,
+      "cosUsedCount": 1322,
+      "charTotalCount": 4418,
+      "rate": 29.9,
+      "lvl": "normal",
+      "launchDate": "2025-09-25"
+    },
+    {
+      "cosName": "호숫가 피싱 마스터",
+      "cosUsedCount": 386,
+      "charTotalCount": 4418,
+      "rate": 8.7,
       "lvl": "normal",
       "launchDate": "2025-09-25"
     },
     {
       "cosName": "암야마존 우롱수",
       "cosUsedCount": 152,
-      "charTotalCount": 900,
-      "rate": 16.9,
+      "charTotalCount": 4418,
+      "rate": 3.4,
       "lvl": "normal",
       "launchDate": "2026-11-12"
-    },
-    {
-      "cosName": "호숫가 피싱 마스터",
-      "cosUsedCount": 79,
-      "charTotalCount": 900,
-      "rate": 8.8,
-      "lvl": "normal",
-      "launchDate": "2025-09-25"
     }
   ]
 }

@@ -412,20 +412,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "라크로스 림크로스",
-      "cosUsedCount": 1,
-      "charTotalCount": 2,
-      "rate": 50,
-      "lvl": "normal",
-      "launchDate": "2024-09-05"
-    },
-    {
       "cosName": "차분한 파티 호스트",
-      "cosUsedCount": 1,
-      "charTotalCount": 2,
-      "rate": 50,
+      "cosUsedCount": 5,
+      "charTotalCount": 8,
+      "rate": 62.5,
       "lvl": "normal",
       "launchDate": "2026-03-26"
+    },
+    {
+      "cosName": "라크로스 림크로스",
+      "cosUsedCount": 3,
+      "charTotalCount": 8,
+      "rate": 37.5,
+      "lvl": "normal",
+      "launchDate": "2024-09-05"
     }
   ]
 }

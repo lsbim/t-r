@@ -439,19 +439,27 @@
   "recentSkins": [
     {
       "cosName": "트윙클 스윗 리본",
-      "cosUsedCount": 17,
-      "charTotalCount": 19,
-      "rate": 89.5,
+      "cosUsedCount": 43,
+      "charTotalCount": 55,
+      "rate": 78.2,
       "lvl": "normal",
       "launchDate": "2026-01-08"
     },
     {
       "cosName": "반짝 별빛 마녀",
-      "cosUsedCount": 2,
-      "charTotalCount": 19,
-      "rate": 10.5,
+      "cosUsedCount": 8,
+      "charTotalCount": 55,
+      "rate": 14.5,
       "lvl": "normal",
       "launchDate": "2025-02-06"
+    },
+    {
+      "cosName": "천재 영재 마녀",
+      "cosUsedCount": 4,
+      "charTotalCount": 55,
+      "rate": 7.3,
+      "lvl": "normal",
+      "launchDate": "2025-05-01"
     }
   ]
 }

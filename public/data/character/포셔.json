@@ -421,35 +421,35 @@
   "recentSkins": [
     {
       "cosName": "묘약의 랩실 연구원",
-      "cosUsedCount": 9,
-      "charTotalCount": 24,
-      "rate": 37.5,
+      "cosUsedCount": 85,
+      "charTotalCount": 227,
+      "rate": 37.4,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "공포의 간호사",
-      "cosUsedCount": 6,
-      "charTotalCount": 24,
-      "rate": 25,
+      "cosUsedCount": 67,
+      "charTotalCount": 227,
+      "rate": 29.5,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
-      "cosName": "방과 후 밴드 활동",
-      "cosUsedCount": 3,
-      "charTotalCount": 24,
-      "rate": 12.5,
-      "lvl": "normal",
-      "launchDate": "2025-06-26"
-    },
-    {
       "cosName": "포션 가게의 휴일",
-      "cosUsedCount": 3,
-      "charTotalCount": 24,
-      "rate": 12.5,
+      "cosUsedCount": 31,
+      "charTotalCount": 227,
+      "rate": 13.7,
       "lvl": "normal",
       "launchDate": "2024-10-17"
+    },
+    {
+      "cosName": "방과 후 밴드 활동",
+      "cosUsedCount": 26,
+      "charTotalCount": 227,
+      "rate": 11.5,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
     }
   ]
 }

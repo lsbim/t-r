@@ -773,33 +773,41 @@
   "recentSkins": [
     {
       "cosName": "칠흑의 다크 스완",
-      "cosUsedCount": 49,
-      "charTotalCount": 87,
-      "rate": 56.3,
+      "cosUsedCount": 333,
+      "charTotalCount": 643,
+      "rate": 51.8,
       "lvl": "pretty",
       "launchDate": "2026-01-22"
     },
     {
-      "cosName": "스며드는 잿빛 장막",
-      "cosUsedCount": 17,
-      "charTotalCount": 87,
-      "rate": 19.5,
-      "lvl": "normal",
-      "launchDate": "2025-11-13"
-    },
-    {
       "cosName": "풀하트 매직",
-      "cosUsedCount": 12,
-      "charTotalCount": 87,
-      "rate": 13.8,
+      "cosUsedCount": 129,
+      "charTotalCount": 643,
+      "rate": 20.1,
       "lvl": "pretty",
       "launchDate": "2025-04-03"
     },
     {
+      "cosName": "스며드는 잿빛 장막",
+      "cosUsedCount": 101,
+      "charTotalCount": 643,
+      "rate": 15.7,
+      "lvl": "normal",
+      "launchDate": "2025-11-13"
+    },
+    {
+      "cosName": "유혹의 용족",
+      "cosUsedCount": 11,
+      "charTotalCount": 643,
+      "rate": 1.7,
+      "lvl": "normal",
+      "launchDate": "2025-01-09"
+    },
+    {
       "cosName": "최후의 흑막",
-      "cosUsedCount": 1,
-      "charTotalCount": 87,
-      "rate": 1.1,
+      "cosUsedCount": 10,
+      "charTotalCount": 643,
+      "rate": 1.6,
       "lvl": "normal",
       "launchDate": "2025-01-09"
     }

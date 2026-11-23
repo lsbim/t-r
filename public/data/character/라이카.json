@@ -451,25 +451,25 @@
   "recentSkins": [
     {
       "cosName": "지니어스 라이트닝",
-      "cosUsedCount": 4,
-      "charTotalCount": 12,
-      "rate": 33.3,
+      "cosUsedCount": 31,
+      "charTotalCount": 63,
+      "rate": 49.2,
       "lvl": "normal",
       "launchDate": "2026-08-20"
     },
     {
       "cosName": "코스탈 라이트닝",
-      "cosUsedCount": 3,
-      "charTotalCount": 12,
-      "rate": 25,
+      "cosUsedCount": 15,
+      "charTotalCount": 63,
+      "rate": 23.8,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     },
     {
       "cosName": "라이트닝 강속구",
-      "cosUsedCount": 2,
-      "charTotalCount": 12,
-      "rate": 16.7,
+      "cosUsedCount": 7,
+      "charTotalCount": 63,
+      "rate": 11.1,
       "lvl": "normal",
       "launchDate": "2025-03-13"
     }

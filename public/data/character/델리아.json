@@ -417,20 +417,20 @@
   ],
   "recentSkins": [
     {
-      "cosName": "내 꿈은 야광 공룡",
-      "cosUsedCount": 2,
-      "charTotalCount": 8,
-      "rate": 25,
-      "lvl": "normal",
-      "launchDate": "2026-03-12"
-    },
-    {
       "cosName": "모두와 함께 바다로",
-      "cosUsedCount": 2,
-      "charTotalCount": 8,
-      "rate": 25,
+      "cosUsedCount": 17,
+      "charTotalCount": 36,
+      "rate": 47.2,
       "lvl": "normal",
       "launchDate": "2026-07-23"
+    },
+    {
+      "cosName": "내 꿈은 야광 공룡",
+      "cosUsedCount": 10,
+      "charTotalCount": 36,
+      "rate": 27.8,
+      "lvl": "normal",
+      "launchDate": "2026-03-12"
     }
   ]
 }

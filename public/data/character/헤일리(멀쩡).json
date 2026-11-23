@@ -429,17 +429,17 @@
   "recentSkins": [
     {
       "cosName": "거친 파도 속으로",
-      "cosUsedCount": 13,
-      "charTotalCount": 19,
-      "rate": 68.4,
+      "cosUsedCount": 42,
+      "charTotalCount": 66,
+      "rate": 63.6,
       "lvl": "normal",
       "launchDate": "2026-07-23"
     },
     {
       "cosName": "하늘을 가르는 매버릭",
-      "cosUsedCount": 2,
-      "charTotalCount": 19,
-      "rate": 10.5,
+      "cosUsedCount": 8,
+      "charTotalCount": 66,
+      "rate": 12.1,
       "lvl": "normal",
       "launchDate": "2026-04-09"
     }

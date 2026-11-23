@@ -586,26 +586,26 @@
   ],
   "recentSkins": [
     {
-      "cosName": "가장 은밀한 고양이",
-      "cosUsedCount": 144,
-      "charTotalCount": 323,
-      "rate": 44.6,
-      "lvl": "normal",
-      "launchDate": "2026-10-15"
-    },
-    {
       "cosName": "수온 측정의 여운",
-      "cosUsedCount": 87,
-      "charTotalCount": 323,
-      "rate": 26.9,
+      "cosUsedCount": 638,
+      "charTotalCount": 1460,
+      "rate": 43.7,
       "lvl": "normal",
       "launchDate": "2025-10-16"
     },
     {
+      "cosName": "가장 은밀한 고양이",
+      "cosUsedCount": 291,
+      "charTotalCount": 1460,
+      "rate": 19.9,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
+    },
+    {
       "cosName": "위험한 옆집 스파이",
-      "cosUsedCount": 14,
-      "charTotalCount": 323,
-      "rate": 4.3,
+      "cosUsedCount": 95,
+      "charTotalCount": 1460,
+      "rate": 6.5,
       "lvl": "normal",
       "launchDate": "2025-09-11"
     }

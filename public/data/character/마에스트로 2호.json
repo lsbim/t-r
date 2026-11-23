@@ -407,5 +407,14 @@
       "totalEntries": 300
     }
   ],
-  "recentSkins": []
+  "recentSkins": [
+    {
+      "cosName": "영 앤 와일드",
+      "cosUsedCount": 1,
+      "charTotalCount": 2,
+      "rate": 50,
+      "lvl": "normal",
+      "launchDate": "2024-07-11"
+    }
+  ]
 }

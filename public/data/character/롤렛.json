@@ -493,17 +493,17 @@
   "recentSkins": [
     {
       "cosName": "롱 레인지 서비스",
-      "cosUsedCount": 55,
-      "charTotalCount": 96,
-      "rate": 57.3,
+      "cosUsedCount": 130,
+      "charTotalCount": 208,
+      "rate": 62.5,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
       "cosName": "봉봉한 바캉스",
-      "cosUsedCount": 11,
-      "charTotalCount": 96,
-      "rate": 11.5,
+      "cosUsedCount": 16,
+      "charTotalCount": 208,
+      "rate": 7.7,
       "lvl": "normal",
       "launchDate": "2025-08-21"
     }

@@ -438,28 +438,36 @@
   ],
   "recentSkins": [
     {
-      "cosName": "하얀 토끼의 용기",
-      "cosUsedCount": 8,
-      "charTotalCount": 15,
-      "rate": 53.3,
+      "cosName": "릴렉스 테라피스트",
+      "cosUsedCount": 22,
+      "charTotalCount": 81,
+      "rate": 27.2,
       "lvl": "normal",
-      "launchDate": "2026-09-17"
+      "launchDate": "2025-08-21"
     },
     {
       "cosName": "평화를 향한 의지",
-      "cosUsedCount": 6,
-      "charTotalCount": 15,
-      "rate": 40,
+      "cosUsedCount": 21,
+      "charTotalCount": 81,
+      "rate": 25.9,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     },
     {
-      "cosName": "릴렉스 테라피스트",
-      "cosUsedCount": 1,
-      "charTotalCount": 15,
-      "rate": 6.7,
+      "cosName": "하얀 토끼의 용기",
+      "cosUsedCount": 16,
+      "charTotalCount": 81,
+      "rate": 19.8,
       "lvl": "normal",
-      "launchDate": "2025-08-21"
+      "launchDate": "2026-09-17"
+    },
+    {
+      "cosName": "힐링 피크닉",
+      "cosUsedCount": 8,
+      "charTotalCount": 81,
+      "rate": 9.9,
+      "lvl": "normal",
+      "launchDate": "2024-08-08"
     }
   ]
 }

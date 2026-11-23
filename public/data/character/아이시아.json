@@ -463,25 +463,25 @@
   "recentSkins": [
     {
       "cosName": "얼음의 주주총회",
-      "cosUsedCount": 17,
-      "charTotalCount": 33,
-      "rate": 51.5,
+      "cosUsedCount": 54,
+      "charTotalCount": 104,
+      "rate": 51.9,
       "lvl": "pretty",
       "launchDate": "2025-05-15"
     },
     {
       "cosName": "방구석 프로 게이머",
-      "cosUsedCount": 12,
-      "charTotalCount": 33,
-      "rate": 36.4,
+      "cosUsedCount": 37,
+      "charTotalCount": 104,
+      "rate": 35.6,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "소녀 CEO",
-      "cosUsedCount": 3,
-      "charTotalCount": 33,
-      "rate": 9.1,
+      "cosUsedCount": 5,
+      "charTotalCount": 104,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-01-30"
     }

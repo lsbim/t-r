@@ -508,25 +508,25 @@
   "recentSkins": [
     {
       "cosName": "불어오는 정복의 바람",
-      "cosUsedCount": 7,
-      "charTotalCount": 20,
-      "rate": 35,
+      "cosUsedCount": 22,
+      "charTotalCount": 47,
+      "rate": 46.8,
       "lvl": "normal",
       "launchDate": "2026-06-25"
     },
     {
       "cosName": "해변의 하늬바람",
-      "cosUsedCount": 5,
-      "charTotalCount": 20,
-      "rate": 25,
+      "cosUsedCount": 14,
+      "charTotalCount": 47,
+      "rate": 29.8,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "엑스텐 스피릿",
-      "cosUsedCount": 3,
-      "charTotalCount": 20,
-      "rate": 15,
+      "cosUsedCount": 5,
+      "charTotalCount": 47,
+      "rate": 10.6,
       "lvl": "normal",
       "launchDate": "2024-11-14"
     }

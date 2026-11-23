@@ -616,26 +616,26 @@
   ],
   "recentSkins": [
     {
-      "cosName": "태동하는 은빛",
-      "cosUsedCount": 513,
-      "charTotalCount": 900,
-      "rate": 57,
-      "lvl": "normal",
-      "launchDate": "2026-09-24"
-    },
-    {
       "cosName": "소녀의 단아한 발걸음",
-      "cosUsedCount": 239,
-      "charTotalCount": 900,
-      "rate": 26.6,
+      "cosUsedCount": 1311,
+      "charTotalCount": 3295,
+      "rate": 39.8,
       "lvl": "pretty",
       "launchDate": "2026-06-18"
     },
     {
+      "cosName": "태동하는 은빛",
+      "cosUsedCount": 985,
+      "charTotalCount": 3295,
+      "rate": 29.9,
+      "lvl": "normal",
+      "launchDate": "2026-09-24"
+    },
+    {
       "cosName": "내가 체육관의 유망주",
-      "cosUsedCount": 66,
-      "charTotalCount": 900,
-      "rate": 7.3,
+      "cosUsedCount": 464,
+      "charTotalCount": 3295,
+      "rate": 14.1,
       "lvl": "normal",
       "launchDate": "2026-06-18"
     }
