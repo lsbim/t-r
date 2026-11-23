@@ -87,13 +87,13 @@ const DeepClashChart = ({
         datasets: type === 'boss'
             ? [
                 {
-                    label: '점수(단위: 억)',
+                    label: '점수',
                     data: arr.map(item => item.score / 100000000),
                     borderColor: '#8884d8',
                     backgroundColor: 'rgba(136, 132, 216, 0.1)',
                     yAxisID: 'y_main',
                     tension: 0.1,
-                    // 캐릭터 선택 시 선택 기록을 강조하고, 선택이 없으면 기존 표시를 유지
+                    // 사도 선택 시 선택 기록을 강조하고, 선택이 없으면 기존 표시를 유지
                     pointRadius: arr.map(item => !select ? 0 : isSelected(item) ? 5 : 1.5),
                     pointBackgroundColor: '#8884d8',
                     pointBorderWidth: 0,
@@ -150,10 +150,10 @@ const DeepClashChart = ({
                     },
                     label: function (context) {
                         if (context.dataset.label === '클리어 시간') return `클리어 시간: ${context.formattedValue}초`;
-                        if (isBoss && context.dataset.label === '점수(단위: 억)') {
+                        if (isBoss && context.dataset.label === '점수') {
                             const score = arr[context.dataIndex]?.score;
                             if (score !== undefined) {
-                                return `${context.dataset.label}: ${context.formattedValue} (약 +${formatLineCount(score)}줄)`;
+                                return `${context.dataset.label}: ${context.formattedValue}억 (약 +${formatLineCount(score)}줄)`;
                             }
                         }
                         return `${context.dataset.label}: ${context.formattedValue}`;
