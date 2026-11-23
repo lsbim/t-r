@@ -5,10 +5,30 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 8,
+        "pickRate": 2.7,
+        "overallRank": 23,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 11,
+            "count": 8
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -140,27 +160,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -276,24 +290,6 @@
           {
             "line": "후열",
             "rank": 8,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 11,
             "count": 1
           }
         ],
@@ -436,30 +432,56 @@
         "totalEntries": 0,
         "sidePickRate": 28.3
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 2,
+      "pickRate": 0.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "얼음의 주주총회",
-      "cosUsedCount": 13,
-      "charTotalCount": 25,
-      "rate": 52,
+      "cosUsedCount": 54,
+      "charTotalCount": 104,
+      "rate": 51.9,
       "lvl": "pretty",
       "launchDate": "2025-05-15"
     },
     {
       "cosName": "방구석 프로 게이머",
-      "cosUsedCount": 9,
-      "charTotalCount": 25,
-      "rate": 36,
+      "cosUsedCount": 37,
+      "charTotalCount": 104,
+      "rate": 35.6,
       "lvl": "normal",
       "launchDate": "2026-04-02"
     },
     {
       "cosName": "소녀 CEO",
-      "cosUsedCount": 2,
-      "charTotalCount": 25,
-      "rate": 8,
+      "cosUsedCount": 5,
+      "charTotalCount": 104,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-01-30"
     }

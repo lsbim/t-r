@@ -65,10 +65,36 @@
         "isOverall": false,
         "line": "전열"
       }
+    ],
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "냉정",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 181,
+        "pickRate": 60.3,
+        "isOverall": false,
+        "line": "전열"
+      }
     ]
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -218,21 +244,21 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -352,24 +378,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 11,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -514,31 +522,65 @@
         "totalEntries": 300,
         "sidePickRate": 51
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 181,
+      "pickRate": 60.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "꿈속에서 다시 만난",
-      "cosUsedCount": 108,
-      "charTotalCount": 130,
-      "rate": 83.1,
+      "cosUsedCount": 469,
+      "charTotalCount": 559,
+      "rate": 83.9,
       "lvl": "pretty",
       "launchDate": "2026-02-19"
     },
     {
       "cosName": "잠든 별의 예지몽",
-      "cosUsedCount": 10,
-      "charTotalCount": 130,
-      "rate": 7.7,
+      "cosUsedCount": 42,
+      "charTotalCount": 559,
+      "rate": 7.5,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "꿈 같은 순간",
-      "cosUsedCount": 7,
-      "charTotalCount": 130,
+      "cosUsedCount": 30,
+      "charTotalCount": 559,
       "rate": 5.4,
       "lvl": "pretty",
+      "launchDate": "2025-01-30"
+    },
+    {
+      "cosName": "영원의 기다림",
+      "cosUsedCount": 3,
+      "charTotalCount": 559,
+      "rate": 0.5,
+      "lvl": "normal",
       "launchDate": "2025-01-30"
     }
   ]

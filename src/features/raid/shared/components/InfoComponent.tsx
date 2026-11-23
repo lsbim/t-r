@@ -1,9 +1,10 @@
 import BossProfile from "../../../../components/icons/BossProfile";
 import PersonalityIcon from "../../../../components/icons/PersonalityIcon";
 import { Personality } from "../../../../types/trickcalTypes";
+import type { DeepPower } from "../../deepClash/deepPower";
 
-const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, personality }:
-    { name: string, grade: number | string, startDate: string, endDate: string, rules: string[], raidType: string, personality?: Personality }
+const InfoComponent = ({ name, grade, startDate, endDate, rules, powers, raidType, personality }:
+    { name: string, grade?: number | string, startDate: string, endDate: string, rules?: string[], powers?: DeepPower[], raidType: string, personality?: Personality }
 ) => {
 
     return (
@@ -32,16 +33,16 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                     </div>
                     <span className="text-[15px]">{startDate} ~ {endDate}</span>
                 </div>
-                <div className="flex-col">
+                {grade !== undefined && <div className="flex-col">
                     <div className="text-[12px] text-orange-500 font-bold">
                         최고단계
                     </div>
                     <span className=" text-[15px]">
                         {grade}단계
                     </span>
-                </div>
+                </div>}
             </div>
-            <div className="flex-col">
+            {rules && rules.length > 0 && <div className="flex-col">
                 <div className="text-[12px] text-orange-500 font-bold">
                     {raidType === "clash" ? (<>규칙</>) : (<>교주의 권능</>)}
                 </div>
@@ -53,7 +54,13 @@ const InfoComponent = ({ name, grade, startDate, endDate, rules, raidType, perso
                         </div>
                     ))}
                 </div>
-            </div>
+            </div>}
+            {powers?.map(power => (
+                <div key={`${raidType}-power-${power.name}`}>
+                    <div className="text-[12px] text-orange-500 font-bold">{power.name}</div>
+                    <div className="whitespace-pre-line text-[13px]">{power.description}</div>
+                </div>
+            ))}
         </div>
     );
 }

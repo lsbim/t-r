@@ -30,5 +30,11 @@ export const bosses: Bosses = {
             hp: 174029026350,
             lastBarHp: 34903456600
         }
+    },
+    '죽음': {
+        '마그맛2': {
+            hp: 223762093242,
+            lastBarHp: 44877976332
+        }
     }
 }

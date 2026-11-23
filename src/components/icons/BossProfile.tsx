@@ -12,17 +12,23 @@ const BossProfile: React.FC<BossProfileProps> = ({
     background = true
 }) => {
 
-    const bossImgUrl = personality ? `/images/boss/${name}(${personality}).webp`
-        : `/images/boss/bg_${name}.webp`
+    const hasGradientBackground = name === '죽음' || name === '오리카';
+
+    const bossImgUrl = personality
+        ? `/images/boss/${name}(${personality}).webp`
+        : hasGradientBackground
+            ? `/images/boss/${name}.webp`
+            : `/images/boss/bg_${name}.webp`;
 
     const customTranslateY = personality && name !== '냥만 타워' ? '-translate-y-[25%]'
         : name === '크레용사용' ? '-translate-y-[40%]'
             : name === '냥만 타워' ? '-translate-y-[10%]'
-                : '-translate-y-[30%]';
+                : name === '죽음' ? '-translate-y-[15%]'
+                    : '-translate-y-[30%]';
 
 
     return (
-        <div className="relative ml-8 flex justify-end w-[218px] aspect-[218/30] [mask-image:linear-gradient(to_left,rgba(0,0,0,1)_30%,transparent_75%)] h-[30px] overflow-hidden">
+        <div className={`relative ml-8 flex justify-end w-[218px] aspect-[218/30] [mask-image:linear-gradient(to_left,rgba(0,0,0,1)_30%,transparent_75%)] h-[30px] overflow-hidden ${hasGradientBackground ? 'bg-[linear-gradient(90deg,_#f4f5f7_0%,_#d1d4dc_24%,_#8994ad_47%,_#293d66_72%,_#07172f_100%)]' : ''}`}>
             <img
                 src={bossImgUrl}
                 alt={name}

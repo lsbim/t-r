@@ -10,6 +10,7 @@ const DATA_ROOT = path.resolve(__dirname, '../public/data');
 const CLASH_DIR = path.join(DATA_ROOT, 'clash');
 const FRONTIER_DIR = path.join(DATA_ROOT, 'frontier');
 const CLASH_V2_DIR = path.join(DATA_ROOT, 'clash_v2');
+const DEEP_CLASH_DIR = path.join(DATA_ROOT, 'deepClash');
 
 const OUTPUT_FILE = path.join(DATA_ROOT, 'latest.json');
 
@@ -70,16 +71,18 @@ async function getLatestSeasonInfo(dirPath) {
 
 async function buildLatestSummary() {
 
-    const [clash, frontier, clashV2] = await Promise.all([
+    const [clash, frontier, clashV2, deepClash] = await Promise.all([
         getLatestSeasonInfo(CLASH_DIR),
         getLatestSeasonInfo(FRONTIER_DIR),
-        getLatestSeasonInfo(CLASH_V2_DIR)
+        getLatestSeasonInfo(CLASH_V2_DIR),
+        getLatestSeasonInfo(DEEP_CLASH_DIR),
     ]);
 
     const result = {
-        clash: clash,
-        frontier: frontier,
-        clashV2: clashV2
+        clash,
+        frontier,
+        clashV2,
+        deepClash,
     };
 
     await fs.writeFile(OUTPUT_FILE, JSON.stringify(result, null, 2), 'utf-8');

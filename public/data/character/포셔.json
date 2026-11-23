@@ -5,10 +5,24 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -122,21 +136,21 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -245,18 +259,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -388,40 +390,66 @@
         "totalEntries": 300,
         "sidePickRate": 6
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 171,
+      "pickRate": 57,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "묘약의 랩실 연구원",
-      "cosUsedCount": 9,
-      "charTotalCount": 24,
-      "rate": 37.5,
+      "cosUsedCount": 85,
+      "charTotalCount": 227,
+      "rate": 37.4,
       "lvl": "normal",
       "launchDate": "2026-01-01"
     },
     {
       "cosName": "공포의 간호사",
-      "cosUsedCount": 6,
-      "charTotalCount": 24,
-      "rate": 25,
+      "cosUsedCount": 67,
+      "charTotalCount": 227,
+      "rate": 29.5,
       "lvl": "normal",
       "launchDate": "2026-05-28"
     },
     {
-      "cosName": "방과 후 밴드 활동",
-      "cosUsedCount": 3,
-      "charTotalCount": 24,
-      "rate": 12.5,
-      "lvl": "normal",
-      "launchDate": "2025-06-26"
-    },
-    {
       "cosName": "포션 가게의 휴일",
-      "cosUsedCount": 3,
-      "charTotalCount": 24,
-      "rate": 12.5,
+      "cosUsedCount": 31,
+      "charTotalCount": 227,
+      "rate": 13.7,
       "lvl": "normal",
       "launchDate": "2024-10-17"
+    },
+    {
+      "cosName": "방과 후 밴드 활동",
+      "cosUsedCount": 26,
+      "charTotalCount": 227,
+      "rate": 11.5,
+      "lvl": "normal",
+      "launchDate": "2025-06-26"
     }
   ]
 }

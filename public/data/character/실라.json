@@ -50,10 +50,30 @@
       }
     ],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 27,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 12,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -185,21 +205,21 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -316,24 +336,6 @@
             "line": "후열",
             "rank": 5,
             "count": 5
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 69,
-        "pickRate": 23,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 69
           }
         ],
         "totalEntries": 300
@@ -475,30 +477,56 @@
         "totalEntries": 300,
         "sidePickRate": 21.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 0,
+      "pickRate": 0,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "불어오는 정복의 바람",
-      "cosUsedCount": 7,
-      "charTotalCount": 17,
-      "rate": 41.2,
+      "cosUsedCount": 22,
+      "charTotalCount": 47,
+      "rate": 46.8,
       "lvl": "normal",
       "launchDate": "2026-06-25"
     },
     {
       "cosName": "해변의 하늬바람",
-      "cosUsedCount": 3,
-      "charTotalCount": 17,
-      "rate": 17.6,
+      "cosUsedCount": 14,
+      "charTotalCount": 47,
+      "rate": 29.8,
       "lvl": "normal",
       "launchDate": "2025-07-24"
     },
     {
       "cosName": "엑스텐 스피릿",
-      "cosUsedCount": 2,
-      "charTotalCount": 17,
-      "rate": 11.8,
+      "cosUsedCount": 5,
+      "charTotalCount": 47,
+      "rate": 10.6,
       "lvl": "normal",
       "launchDate": "2024-11-14"
     }

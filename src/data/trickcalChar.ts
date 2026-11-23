@@ -41,6 +41,7 @@ export const charInfo: CharInfoType = {
     "에르핀(왕도)": { grade: 3, personality: "순수", line: "중열", birthdate: "2026-03-28", role: "딜러", attackType: "마법", race: '요정', eldain: true },
     "이드(재활)": { grade: 3, personality: "순수", line: "전열", birthdate: "2026-05-21", role: "탱커", attackType: "마법", race: '엘프' },
     "스패럿": { grade: 3, personality: "순수", line: "후열", birthdate: "2026-08-13", role: "서포터", attackType: "물리", race: '수인' },
+    "아이리스": { grade: 3, personality: "순수", line: "후열", birthdate: "2026-11-19", role: "딜러", attackType: "물리", race: '엘프' },
     "가비아": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", role: "서포터", attackType: "마법", race: '정령' },
     "로네": { grade: 2, personality: "순수", line: "전열", birthdate: "2023-09-27", role: "탱커", attackType: "물리", race: '엘프' },
     "마고": { grade: 2, personality: "순수", line: "중열", birthdate: "2023-09-27", role: "서포터", attackType: "마법", race: '수인' },

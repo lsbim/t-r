@@ -2,11 +2,28 @@ import Konva from "konva";
 
 export const DAY_PX = 12;
 export const START_DATE = new Date(2023, 8, 27);
+export const RAID_CARD_WIDTH = 100;
+export const RAID_CARD_HEIGHT = 120;
+export const RAID_CARD_GAP = 8;
 
 export function dateToPx(dateStr: string): number {
     const date = new Date(dateStr);
     const days = Math.floor((date.getTime() - START_DATE.getTime()) / 86400000);
     return days * DAY_PX;
+}
+
+export function getDateCardPositions(dates: string[]): number[] {
+    return dates.map((date, index) => {
+        if (index === 0) return dateToPx(date);
+
+        const prevDate = new Date(dates[index - 1]);
+        const currDate = new Date(date);
+        const diffDays = Math.floor((currDate.getTime() - prevDate.getTime()) / 86400000);
+
+        return diffDays < 2
+            ? dateToPx(dates[index - 1]) + 2 * DAY_PX
+            : dateToPx(date);
+    });
 }
 
 // PC는 마우스오버 터치스크린은 토글

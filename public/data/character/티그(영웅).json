@@ -78,10 +78,30 @@
         "isOverall": true,
         "line": null
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 29,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 14,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -280,37 +300,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 298,
-        "pickRate": 99.3,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 11,
-            "count": 10
-          },
-          {
-            "line": "중열",
-            "rank": 6,
-            "count": 30
-          },
-          {
-            "line": "후열",
-            "rank": 2,
-            "count": 258
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -494,18 +498,6 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
       }
     ],
     "clashV2": [
@@ -681,22 +673,54 @@
         "totalEntries": 300,
         "sidePickRate": 20
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 249,
+      "pickRate": 83,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "창공의 하얀 날개",
-      "cosUsedCount": 238,
-      "charTotalCount": 436,
-      "rate": 54.6,
+      "cosUsedCount": 556,
+      "charTotalCount": 1042,
+      "rate": 53.4,
       "lvl": "pretty",
       "launchDate": "2025-09-27"
     },
     {
       "cosName": "수인마을 북부 대공",
-      "cosUsedCount": 86,
-      "charTotalCount": 436,
-      "rate": 19.7,
+      "cosUsedCount": 198,
+      "charTotalCount": 1042,
+      "rate": 19,
       "lvl": "normal",
       "launchDate": "2025-09-27"
     }

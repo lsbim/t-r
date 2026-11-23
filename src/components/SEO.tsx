@@ -16,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
 
     const DEFAULT_TITLE = '트릭컬 레코드';
-    const DEFAULT_DESCRIPTION = '트릭컬 리바이브 차원 대충돌, 엘리아스 프론티어의 시즌 별 랭킹 집계 데이터를 제공합니다.';
+    const DEFAULT_DESCRIPTION = '트릭컬 리바이브 차원 대충돌, 엘리아스 프론티어의 시즌별 랭킹 집계 데이터를 제공합니다.';
 
     const pageTitle = title
         ? `${title} - ${DEFAULT_TITLE}`

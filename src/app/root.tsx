@@ -18,6 +18,10 @@ const FrontierSeason = lazy(() => import("../features/raid/frontier/pages/Season
 
 const RaidStats = lazy(() => import("../features/raid/shared/pages/RaidStatsPage"));
 
+const DeepClashIndex = lazy(() => import("../features/raid/deepClash/pages/DeepClashIndexPage"));
+const DeepClashSeason = lazy(() => import("../features/raid/deepClash/pages/DeepClashSeasonPage"));
+
+
 const RaidTimelineIndex = lazy(() => import("../features/timeline/pages/IndexPage"));
 
 const CostumeIndex = lazy(() => import("../features/costume/pages/IndexPage"));
@@ -141,6 +145,7 @@ const router = createBrowserRouter([
                 errorElement: <ErrorPage />
             },
             {
+
                 path: "stats",
                 element: <Suspense fallback={<Loading />}><Outlet /></Suspense>,
                 children: [
@@ -179,6 +184,25 @@ const router = createBrowserRouter([
                         errorElement: <ErrorPage />
                     },
                 ],
+            },
+            {
+                path: "deep",
+                element: <>
+                    <RaidIndexSEO raidType="frontier" />
+                    <Suspense fallback={<Loading />}>
+                        <DeepClashIndex />
+                    </Suspense></>,
+                errorElement: <ErrorPage />
+            },
+            {
+                path: "deep/:season",
+                element: <>
+                    <RaidSeasonSEO raidType="deepClash" />
+                    <Suspense fallback={<Loading />}>
+                        <DeepClashSeason />
+                    </Suspense>
+                </>,
+
                 errorElement: <ErrorPage />
             },
             {

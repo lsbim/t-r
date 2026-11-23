@@ -5,6 +5,7 @@ import { FrontierExternalData, FrontierPlayerData, FrontierSeasonData, FrontierS
 import { LatestData } from "../types/latestTypes";
 import { TrickcalRaidEn } from "../types/trickcalTypes";
 import { RaidStatsFile } from "@/features/raid/shared/types/statTypes";
+import { DeepClashSeasonData, DeepClashSummary } from "@/types/deepClashTypes";
 
 
 const fetchSeasonData = async (season: string, type: TrickcalRaidEn) => {
@@ -51,6 +52,8 @@ export const useRaidData =
         | ClashSeasonData
         | ClashExternalData
         | ClashV2SeasonData
+        | DeepClashSeasonData
+        | DeepClashSummary
         | ClashSummary
         | FrontierSummary
         | ClashV2Summary

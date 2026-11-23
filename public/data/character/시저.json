@@ -5,10 +5,24 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -146,21 +160,21 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -263,18 +277,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -418,24 +420,50 @@
         "totalEntries": 300,
         "sidePickRate": 16
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 44,
+      "pickRate": 14.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
-      "cosName": "끝내주는 악당!",
-      "cosUsedCount": 21,
-      "charTotalCount": 54,
-      "rate": 38.9,
-      "lvl": "normal",
-      "launchDate": "2026-10-15"
-    },
-    {
       "cosName": "악어는 아거! 아거!",
-      "cosUsedCount": 9,
-      "charTotalCount": 54,
-      "rate": 16.7,
+      "cosUsedCount": 64,
+      "charTotalCount": 195,
+      "rate": 32.8,
       "lvl": "normal",
       "launchDate": "2025-08-28"
+    },
+    {
+      "cosName": "끝내주는 악당!",
+      "cosUsedCount": 31,
+      "charTotalCount": 195,
+      "rate": 15.9,
+      "lvl": "normal",
+      "launchDate": "2026-10-15"
     }
   ]
 }

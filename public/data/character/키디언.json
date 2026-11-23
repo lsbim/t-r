@@ -85,10 +85,24 @@
         "isOverall": false,
         "line": "전열"
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -220,27 +234,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 25,
-        "pickRate": 8.3,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 7,
-            "count": 25
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -348,24 +356,6 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 2,
-        "pickRate": 0.7,
-        "overallRank": 24,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 8,
-            "count": 2
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "clashV2": [
@@ -521,30 +511,56 @@
         "totalEntries": 300,
         "sidePickRate": 3
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 9,
+      "pickRate": 3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
-      "cosName": "마음속의 은하수",
-      "cosUsedCount": 3,
-      "charTotalCount": 5,
-      "rate": 60,
-      "lvl": "pretty",
-      "launchDate": "2025-03-13"
-    },
-    {
       "cosName": "옵시디언 메이든",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 17,
+      "charTotalCount": 35,
+      "rate": 48.6,
       "lvl": "normal",
       "launchDate": "2026-02-05"
     },
     {
+      "cosName": "마음속의 은하수",
+      "cosUsedCount": 15,
+      "charTotalCount": 35,
+      "rate": 42.9,
+      "lvl": "pretty",
+      "launchDate": "2025-03-13"
+    },
+    {
       "cosName": "친구따라 지상간다",
-      "cosUsedCount": 1,
-      "charTotalCount": 5,
-      "rate": 20,
+      "cosUsedCount": 2,
+      "charTotalCount": 35,
+      "rate": 5.7,
       "lvl": "normal",
       "launchDate": "2025-01-23"
     }

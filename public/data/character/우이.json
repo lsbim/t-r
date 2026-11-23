@@ -119,10 +119,42 @@
         "isOverall": false,
         "line": "중열"
       }
+    ],
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "활발",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 293,
+        "pickRate": 97.7,
+        "isOverall": false,
+        "line": "중열"
+      }
     ]
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 6,
+        "pickRate": 2,
+        "overallRank": 25,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 9,
+            "count": 6
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -284,27 +316,27 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 128,
-        "pickRate": 42.7,
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 261,
+        "pickRate": 87,
         "overallRank": 9,
         "lineRanks": [
           {
             "line": "중열",
             "rank": 3,
-            "count": 128
+            "count": 261
           }
         ],
         "totalEntries": 300
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -457,24 +489,6 @@
             "line": "중열",
             "rank": 4,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 26,
-        "pickRate": 8.7,
-        "overallRank": 14,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 5,
-            "count": 26
           }
         ],
         "totalEntries": 300
@@ -640,46 +654,72 @@
         "totalEntries": 300,
         "sidePickRate": 29.3
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 293,
+      "pickRate": 97.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "빛바랜 기억",
-      "cosUsedCount": 120,
-      "charTotalCount": 201,
-      "rate": 59.7,
+      "cosUsedCount": 756,
+      "charTotalCount": 1219,
+      "rate": 62,
       "lvl": "pretty",
       "launchDate": "2026-07-09"
     },
     {
       "cosName": "맑은 기도의 빗방울",
-      "cosUsedCount": 31,
-      "charTotalCount": 201,
-      "rate": 15.4,
+      "cosUsedCount": 172,
+      "charTotalCount": 1219,
+      "rate": 14.1,
       "lvl": "normal",
       "launchDate": "2025-11-13"
     },
     {
       "cosName": "행복한 어린 왕녀",
-      "cosUsedCount": 19,
-      "charTotalCount": 201,
-      "rate": 9.5,
+      "cosUsedCount": 140,
+      "charTotalCount": 1219,
+      "rate": 11.5,
       "lvl": "pretty",
       "launchDate": "2025-08-28"
     },
     {
       "cosName": "동심의 햇살",
-      "cosUsedCount": 11,
-      "charTotalCount": 201,
-      "rate": 5.5,
+      "cosUsedCount": 57,
+      "charTotalCount": 1219,
+      "rate": 4.7,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     },
     {
       "cosName": "개운한 행복",
-      "cosUsedCount": 2,
-      "charTotalCount": 201,
-      "rate": 1,
+      "cosUsedCount": 5,
+      "charTotalCount": 1219,
+      "rate": 0.4,
       "lvl": "normal",
       "launchDate": "2024-08-22"
     }

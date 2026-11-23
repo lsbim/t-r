@@ -300,10 +300,30 @@
         "isOverall": false,
         "line": "중열"
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 118,
+        "pickRate": 39.3,
+        "overallRank": 9,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 118
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -465,27 +485,27 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 296,
-        "pickRate": 98.7,
-        "overallRank": 3,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 296
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 39,
+        "pickRate": 13,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 4,
+            "count": 39
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -644,24 +664,6 @@
             "line": "중열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 299,
-        "pickRate": 99.7,
-        "overallRank": 1,
-        "lineRanks": [
-          {
-            "line": "중열",
-            "rank": 1,
-            "count": 299
           }
         ],
         "totalEntries": 300
@@ -835,22 +837,54 @@
         "totalEntries": 300,
         "sidePickRate": 11
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 289,
+        "pickRate": 96.3,
+        "overallRank": 6,
+        "lineRanks": [
+          {
+            "line": "중열",
+            "rank": 3,
+            "count": 289
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 127,
+      "pickRate": 42.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "여신 강림",
-      "cosUsedCount": 382,
-      "charTotalCount": 894,
-      "rate": 42.7,
+      "cosUsedCount": 1123,
+      "charTotalCount": 2617,
+      "rate": 42.9,
       "lvl": "pretty",
       "launchDate": "2025-02-20"
     },
     {
       "cosName": "여유로운 시간",
-      "cosUsedCount": 330,
-      "charTotalCount": 894,
-      "rate": 36.9,
+      "cosUsedCount": 950,
+      "charTotalCount": 2617,
+      "rate": 36.3,
       "lvl": "normal",
       "launchDate": "2025-02-20"
     }

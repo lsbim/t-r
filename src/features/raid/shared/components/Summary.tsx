@@ -7,14 +7,15 @@ import { frontierBossList, FrontierSummary } from "../../../../types/frontierTyp
 import { clashV2Category, lineList, personalityList } from "../../../../types/trickcalTypes";
 import BossProfile from "../../../../components/icons/BossProfile";
 import PersonalityIcon from "../../../../components/icons/PersonalityIcon";
+import { deepClashBossList, DeepClashSummary } from "@/types/deepClashTypes";
 
 const Summary = ({
     summary,
     type,
     sort = 'boss'
 }: {
-    summary: ClashSummary | ClashV2Summary | FrontierSummary,
-    type: 'clash' | 'clashV2' | 'frontier',
+    summary: ClashSummary | ClashV2Summary | FrontierSummary | DeepClashSummary,
+    type: 'clash' | 'clashV2' | 'frontier' | 'deepClash',
     sort?: 'boss' | 'pers'
 }) => {
 
@@ -24,12 +25,15 @@ const Summary = ({
             ? clashBossList
             : type === 'clashV2'
                 ? clashV2BossList
-                : frontierBossList;
+                : type === 'frontier'
+                    ? frontierBossList
+                    : deepClashBossList;
 
     const TYPE_CONFIG = {
         'clash': { lineList: lineList, lineWidth: 'xs:w-[275px] w-[200px]', lineBarWidth: 'xs:w-[275px] w-[200px]' },
         'clashV2': { lineList: clashV2Category, lineWidth: 'xs:w-[400px] w-[280px]', lineBarWidth: 'xs:w-[398.5px] w-[280px]' },
         'frontier': { lineList: lineList, lineWidth: 'xs:w-[275px] w-[200px]', lineBarWidth: 'xs:w-[275px] w-[200px]' },
+        'deepClash': { lineList: lineList, lineWidth: 'xs:w-[275px] w-[200px]', lineBarWidth: 'xs:w-[275px] w-[200px]', },
     }
 
     return (
@@ -125,13 +129,19 @@ const Summary = ({
                                 matchingEntries.map((entry, entryIndex) => {
                                     const { season, seasonData } = entry;
 
-                                    const seasonTooltip = (seasonData.rules ?? seasonData.power ?? []).join("\n");
+                                    const tooltipData =
+                                        'rules' in seasonData ? seasonData.rules
+                                            : 'power' in seasonData ? seasonData.power
+                                                : [];
 
-                                    const urlType = type === 'clashV2'
-                                        ? 'clash/v2'
-                                        : type === 'clash'
-                                            ? 'clash/v1'
-                                            : type
+                                    const seasonTooltip = tooltipData.join("\n");
+
+                                    const urlType =
+                                        type === 'clashV2' ? 'clash/v2'
+                                            : type === 'clash' ? 'clash/v1'
+                                                : type === 'deepClash' ? 'deep'
+                                                    : type;
+
                                     const seasonUrl = `/${urlType}/${season}`
 
                                     // console.log("seasonData", seasonData)

@@ -10,7 +10,16 @@ const DATA_ROOT = path.resolve(__dirname, '../public/data');
 const CLASH_DIR = path.join(DATA_ROOT, 'clash');
 const FRONTIER_DIR = path.join(DATA_ROOT, 'frontier');
 const CLASH_V2_DIR = path.join(DATA_ROOT, 'clash_v2');
+const DEEP_CLASH_DIR = path.join(DATA_ROOT, 'deepClash');
 const OUTPUT_DIR = path.join(DATA_ROOT, 'character');
+
+const DEEP_CLASH_PERSONALITY_KEY = {
+    '순수': 'innocence',
+    '냉정': 'composed',
+    '광기': 'madness',
+    '활발': 'vivacious',
+    '우울': 'depressed',
+};
 
 const CHAR_INFO_PATH = path.resolve(__dirname, '../src/data/trickcalChar.ts');
 const COSTUME_DATA_PATH = path.resolve(__dirname, '../src/data/costumes.ts');
@@ -61,13 +70,15 @@ function buildDenseRankMap(items, keyFn, valueFn) {
 
 // 사복 카운트
 function countSkin(arr, skinArr, charName, skinCounts) {
-    if (!arr || !skinArr) return;
+    if (!arr) return false;
 
     const idx = arr.findIndex(n => normalizeCharName(n) === charName);
 
-    if (idx !== -1 && skinArr[idx]) {
+    if (idx !== -1 && skinArr?.[idx]) {
         skinCounts.set(skinArr[idx], (skinCounts.get(skinArr[idx]) ?? 0) + 1);
     }
+
+    return idx !== -1;
 }
 
 // charInfo 텍스트로 정규식을 거쳐 가져오기
@@ -110,7 +121,7 @@ async function parseCostumeInfo() {
 
     return costumeMap;
 }
-// 폴더 별 시즌 데이터 가져오기
+// 폴더별 시즌 데이터 가져오기
 async function loadSeasons(dirPath) {
     const files = await fs.readdir(dirPath);
 
@@ -362,23 +373,64 @@ function getRecentStats(charName, seasonStats, n) {
     });
 }
 
+// 캐릭터의 기본 성격 해역에서 해당 캐릭터가 사용된 비율을 시즌별 픽률로 계산
+function getDeepClashPersonalityStats(charName, personality, seasons, n) {
+    const personalityEntries = personality === '공명'
+        ? Object.entries(DEEP_CLASH_PERSONALITY_KEY)
+        : DEEP_CLASH_PERSONALITY_KEY[personality]
+            ? [[personality, DEEP_CLASH_PERSONALITY_KEY[personality]]]
+            : [];
+    if (personalityEntries.length === 0) return [];
+
+    return seasons.slice(0, n).flatMap(season => personalityEntries.map(([areaPersonality, personalityKey]) => {
+        const data = season.raw.data ?? [];
+        let pickCount = 0;
+
+        for (const entry of data) {
+            const usedChars = entry.personalities?.[personalityKey]?.arr ?? [];
+            if (usedChars.some(name => normalizeCharName(name) === charName)) {
+                pickCount++;
+            }
+        }
+
+        return {
+            seasonNumber: season.seasonNumber,
+            name: season.raw.name ?? null,
+            personality: areaPersonality,
+            startDate: season.raw.startDate ?? null,
+            endDate: season.raw.endDate ?? null,
+            pickCount,
+            pickRate: calcRate(pickCount, data.length),
+            totalEntries: data.length,
+        };
+    }));
+}
+
 // 최근 사복 top3
-function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap) {
+function getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, deepClashSeasons, costumeMap) {
     const skinCounts = new Map();
     let charTotalCount = 0;
 
-    // 각 콘텐츠별 최신 시즌 1개씩만 참조
+    // 각 콘텐츠별 최신 시즌 3개 참조
     for (const stats of [clashStats, frontierStats, clashV2Stats]) {
-        const latest = stats[0];
-        if (!latest || latest.raw.type !== 'season') continue;
+        for (const season of stats.slice(0, 3)) {
+            if (!season || season.raw.type !== 'season') continue;
 
-        const mainCount = latest.pickStats?.get(charName)?.count ?? 0;
-        const sideCount = latest.sidePickStats?.get(charName)?.count ?? 0;
-        charTotalCount += mainCount + sideCount;
+            for (const entry of season.raw.data ?? []) {
+                if (countSkin(entry.arr, entry.skinArr, charName, skinCounts)) charTotalCount++;
+                if (countSkin(entry.sideArr, entry.sideSkinArr, charName, skinCounts)) charTotalCount++;
+            }
+        }
+    }
 
-        for (const entry of latest.raw.data) {
-            countSkin(entry.arr, entry.skinArr, charName, skinCounts);
-            countSkin(entry.sideArr, entry.sideSkinArr, charName, skinCounts);
+    // 심해 대격돌은 보스 팀과 각 시즌의 5개 성격 해역을 각각 하나의 사용처로 집계
+    for (const season of deepClashSeasons.slice(0, 3)) {
+        for (const entry of season.raw.data ?? []) {
+            if (countSkin(entry.arr, entry.skinArr, charName, skinCounts)) charTotalCount++;
+
+            for (const area of Object.values(entry.personalities ?? {})) {
+                if (countSkin(area.arr, area.skinArr, charName, skinCounts)) charTotalCount++;
+            }
         }
     }
 
@@ -406,11 +458,14 @@ async function buildCharacterStats() {
 
     console.log(`✔️ charInfo 파싱: ${allCharNames.length}명`);
 
-    const [clashSeasons, frontierSeasons, clashV2Seasons] = await Promise.all([
-        loadSeasons(CLASH_DIR),
-        loadSeasons(FRONTIER_DIR),
-        loadSeasons(CLASH_V2_DIR),
-    ]);
+    const [clashSeasons, frontierSeasons, clashV2Seasons, deepClashSeasons] =
+        await Promise.all([
+            loadSeasons(CLASH_DIR),
+            loadSeasons(FRONTIER_DIR),
+            loadSeasons(CLASH_V2_DIR),
+            loadSeasons(DEEP_CLASH_DIR),
+        ]);
+
     console.log(
         `✔️ 시즌 로드 clash: ${clashSeasons.length}, ` +
         `frontier: ${frontierSeasons.length}, clashV2: ${clashV2Seasons.length}`
@@ -428,6 +483,27 @@ async function buildCharacterStats() {
     const clashStats = precompute(clashSeasons);
     const frontierStats = precompute(frontierSeasons);
     const clashV2Stats = precomputeV2(clashV2Seasons);
+    const deepClashStats = precompute(deepClashSeasons);
+    const deepClashPersonalityStats = Object.fromEntries(
+        Object.entries(DEEP_CLASH_PERSONALITY_KEY).map(([personality, personalityKey]) => [
+            personality,
+            deepClashSeasons.map(season => {
+                const personalityEntries = season.raw.data.map(entry => ({
+                    arr: entry.personalities?.[personalityKey]?.arr ?? [],
+                }));
+
+                return {
+                    ...season,
+                    raw: { ...season.raw, personality },
+                    pickStats: computeSeasonStats(
+                        personalityEntries,
+                        charInfoMap,
+                        'arr'
+                    ),
+                };
+            }),
+        ])
+    );
     console.log('✔️ 픽 통계 계산 완료');
 
     const needRecentSeasonNumber = 10; // 가져올 콘텐츠별 시즌 갯수
@@ -436,6 +512,16 @@ async function buildCharacterStats() {
 
     await Promise.all(allCharNames.map(async charName => {
         const meta = charInfoMap[charName];
+        const deepClashPersonalityTopSeasons = meta.personality === '공명'
+            ? Object.values(deepClashPersonalityStats).flatMap(personalitySeasons =>
+                getTopSeasons(charName, personalitySeasons, charInfoMap)
+            )
+            : getTopSeasons(
+                charName,
+                deepClashPersonalityStats[meta.personality] ?? [],
+                charInfoMap
+            );
+
         const output = {
             birthdate: meta.birthdate,
             line: meta.line,
@@ -444,13 +530,29 @@ async function buildCharacterStats() {
                 clash: getTopSeasons(charName, clashStats, charInfoMap),
                 frontier: getTopSeasons(charName, frontierStats, charInfoMap),
                 clashV2: getTopSeasons(charName, clashV2Stats, charInfoMap),
+                deepClash: getTopSeasons(charName, deepClashStats, charInfoMap),
+                deepClashPersonality: deepClashPersonalityTopSeasons,
             },
             recentStats: {
                 clash: getRecentStats(charName, clashStats, needRecentSeasonNumber),
                 frontier: getRecentStats(charName, frontierStats, needRecentSeasonNumber),
                 clashV2: getRecentStats(charName, clashV2Stats, needRecentSeasonNumber),
+                deepClash: getRecentStats(charName, deepClashStats, needRecentSeasonNumber),
             },
-            recentSkins: getRecentSkins(charName, clashStats, frontierStats, clashV2Stats, costumeMap),
+            deepClashPersonalityStats: getDeepClashPersonalityStats(
+                charName,
+                meta.personality,
+                deepClashSeasons,
+                needRecentSeasonNumber
+            ),
+            recentSkins: getRecentSkins(
+                charName,
+                clashStats,
+                frontierStats,
+                clashV2Stats,
+                deepClashSeasons,
+                costumeMap
+            ),
         };
 
         await fs.writeFile(

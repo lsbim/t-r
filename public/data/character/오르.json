@@ -5,10 +5,24 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -146,27 +160,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 34,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 12,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -269,18 +277,6 @@
         "personality": null,
         "startDate": "2025-10-30",
         "endDate": "2025-11-06",
-        "pickCount": 0,
-        "pickRate": 0,
-        "overallRank": null,
-        "lineRanks": [],
-        "totalEntries": 0
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
         "pickCount": 0,
         "pickRate": 0,
         "overallRank": null,
@@ -448,16 +444,50 @@
         "totalEntries": 300,
         "sidePickRate": 1
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "우울",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 14,
+      "pickRate": 4.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "차원 개발 연구원",
-      "cosUsedCount": 6,
-      "charTotalCount": 10,
-      "rate": 60,
+      "cosUsedCount": 23,
+      "charTotalCount": 49,
+      "rate": 46.9,
       "lvl": "normal",
       "launchDate": "2026-06-25"
+    },
+    {
+      "cosName": "농장의 아르바이트생",
+      "cosUsedCount": 3,
+      "charTotalCount": 49,
+      "rate": 6.1,
+      "lvl": "normal",
+      "launchDate": "2025-05-22"
     }
   ]
 }

@@ -17,10 +17,30 @@
       }
     ],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 33,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 16,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -182,27 +202,27 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
         "pickCount": 1,
         "pickRate": 0.3,
-        "overallRank": 34,
+        "overallRank": 13,
         "lineRanks": [
           {
             "line": "후열",
-            "rank": 12,
+            "rank": 5,
             "count": 1
           }
         ],
         "totalEntries": 300
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -360,24 +380,6 @@
           {
             "line": "후열",
             "rank": 8,
-            "count": 1
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 1,
-        "pickRate": 0.3,
-        "overallRank": 27,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 11,
             "count": 1
           }
         ],
@@ -554,24 +556,64 @@
         "totalEntries": 300,
         "sidePickRate": 2
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 15,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 7,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "순수",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 0,
+      "pickRate": 0,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "발랄한 현장학습",
-      "cosUsedCount": 2,
-      "charTotalCount": 6,
-      "rate": 33.3,
+      "cosUsedCount": 7,
+      "charTotalCount": 17,
+      "rate": 41.2,
       "lvl": "normal",
       "launchDate": "2025-02-06"
     },
     {
       "cosName": "풀오토 고딕",
       "cosUsedCount": 2,
-      "charTotalCount": 6,
-      "rate": 33.3,
+      "charTotalCount": 17,
+      "rate": 11.8,
       "lvl": "normal",
       "launchDate": "2026-02-05"
+    },
+    {
+      "cosName": "깡총이 파자마",
+      "cosUsedCount": 1,
+      "charTotalCount": 17,
+      "rate": 5.9,
+      "lvl": "normal",
+      "launchDate": "2025-09-18"
     }
   ]
 }

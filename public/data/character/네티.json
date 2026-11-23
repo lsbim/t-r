@@ -5,10 +5,30 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 2,
+        "pickRate": 0.7,
+        "overallRank": 29,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 7,
+            "count": 2
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -152,27 +172,21 @@
         "overallRank": null,
         "lineRanks": [],
         "totalEntries": 0
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 28,
-        "pickRate": 9.3,
-        "overallRank": 15,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 28
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -319,24 +333,6 @@
             "line": "전열",
             "rank": 5,
             "count": 2
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 21,
-        "pickRate": 7,
-        "overallRank": 17,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 5,
-            "count": 21
           }
         ],
         "totalEntries": 300
@@ -514,22 +510,48 @@
         "totalEntries": 300,
         "sidePickRate": 13.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 59,
+      "pickRate": 19.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "생선학자 길냥이",
-      "cosUsedCount": 58,
-      "charTotalCount": 96,
-      "rate": 60.4,
+      "cosUsedCount": 183,
+      "charTotalCount": 304,
+      "rate": 60.2,
       "lvl": "normal",
       "launchDate": "2025-09-18"
     },
     {
       "cosName": "포크레인 드래곤",
-      "cosUsedCount": 4,
-      "charTotalCount": 96,
-      "rate": 4.2,
+      "cosUsedCount": 11,
+      "charTotalCount": 304,
+      "rate": 3.6,
       "lvl": "normal",
       "launchDate": "2025-04-10"
     }

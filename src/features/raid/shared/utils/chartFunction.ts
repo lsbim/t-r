@@ -5,11 +5,12 @@ import { ClashV2PlayerData } from "../../../../types/clashV2Types";
 import { externalData, FrontierExternalData, FrontierPlayerData } from "../../../../types/frontierTypes";
 import { AllLine, BaseLine, ExternalSummaryData, Personality, SummaryData, SynergyItem } from "../../../../types/trickcalTypes";
 import { SelectChara } from "../types/statTypes";
+import { DeepClashPlayerData } from "@/types/deepClashTypes";
 
 // AllPickRateChart 전용.
 // 인덱스가 아닌 이름별로 카운트를 세어 반환
 export function processRankingArrAllData(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
     // console.log(data)
@@ -42,7 +43,9 @@ export function processRankingArrAllData(
 
     for (const name in charCnt) {
         const cnt = charCnt[name];
-        const info = charInfo[name];
+        const resonance = parseResonanceBaseName(name);
+        const info = charInfo[name] ?? charInfo[resonance?.baseName ?? name];
+        if (!info) continue;
 
         const percent = Math.round((cnt / totalCount) * 100 * 10) / 10;
 
@@ -51,7 +54,7 @@ export function processRankingArrAllData(
             name,
             count: cnt,
             percent,
-            personality: info.personality,
+            personality: resonance?.personality ?? info.personality,
             line: info.line,
             percentByLine: {
                 전열: 0, 중열: 0, 후열: 0
@@ -65,17 +68,15 @@ export function processRankingArrAllData(
 // PickRateChart 전용.
 // 9인 조합 기준
 export function processRankingArrData(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
     return processRankingArrDataV2(data, type);
 }
 
-// PickRateChart 전용. 차원대충돌 2.0 전용.
-// 위치를 인덱스가 아닌 사도 정보의 line으로 입력한다
-// 조합 구성이 9인 미만일 경우 포지션(위치)은 제외한다
+// PickRateChart 전용. 9인은 슬롯 인덱스, 6인 심해 대격돌은 사도 열 기준으로 집계한다.
 export function processRankingArrDataV2(
-    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData>,
+    data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
 ): SummaryData[] {
 
@@ -98,10 +99,16 @@ export function processRankingArrDataV2(
         const arr = targetData(user);
         if (!arr) return;
 
+        const isDeepClashParty = 'personalities' in user;
+        const isExpectedDeepClashParty = isDeepClashParty && arr.length === 6;
         const isFullParty = arr.length === 9;
 
         // 조합이 9인 미만일 경우 로그
-        if (!isFullParty && import.meta.env.DEV) {
+        if (
+            !isFullParty
+            && !isExpectedDeepClashParty
+            && import.meta.env.DEV
+        ) {
             console.log(`[Position Skip] Rank ${user.rank || '?'} : ${arr.length}명 편성으로 위치 집계 제외`);
             console.log(`>>> ${arr}`);
         }
@@ -113,7 +120,7 @@ export function processRankingArrDataV2(
             if (!info) return;
 
             // 잘못된 위치 검증
-            if (import.meta.env.DEV && info.line !== "모든열") {
+            if (import.meta.env.DEV && isFullParty && info.line !== "모든열") {
                 const indexLine = getLineByIndex(idx);
 
                 if (info.line !== indexLine) {
@@ -130,11 +137,13 @@ export function processRankingArrDataV2(
                 }
             }
 
-            if (!isFullParty && info.line === "모든열") return;
+            if (!isFullParty && !isExpectedDeepClashParty && info.line === "모든열") return;
 
             const targetLine: BaseLine =
                 info.line === "모든열"
-                    ? getLineByIndex(idx)
+                    ? isExpectedDeepClashParty
+                        ? getLineInComp(arr, idx)
+                        : getLineByIndex(idx)
                     : info.line as BaseLine;
 
             const key = `${name}|${targetLine}`;
@@ -255,7 +264,7 @@ export function processExternalData(data: ClashExternalData | FrontierExternalDa
 }
 
 export function processCompStat(
-    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     select?: string,
     type?: 'side'
 ): CompStat[] {
@@ -273,9 +282,29 @@ export function processCompStat(
         // console.log(targetArr)
 
         // 전중후열 단위로 쪼개기 (sort로 인해 배열 내 문자들을 알파벳 순서로 정렬하여 모두 같은 순서가 됨)
-        const frontArr = targetArr.slice(0, 3).sort();
-        const middleArr = targetArr.slice(3, 6).sort();
-        const backArr = targetArr.slice(6, 9).sort();
+        let frontArr: string[];
+        let middleArr: string[];
+        let backArr: string[];
+        if ('personalities' in item && targetArr.length === 6) {
+            const lines: Record<BaseLine, string[]> = { 전열: [], 중열: [], 후열: [] };
+            targetArr.forEach((name, idx) => {
+                const getBaseLine = (char: string): BaseLine | undefined => {
+                    const baseName = parseResonanceBaseName(char)?.baseName ?? char;
+                    const line = charInfo[char]?.line ?? charInfo[baseName]?.line;
+                    return line && line !== '모든열' ? line as BaseLine : undefined;
+                };
+                let line: BaseLine | undefined = getBaseLine(name);
+                for (let prev = idx - 1; !line && prev >= 0; prev--) line = getBaseLine(targetArr[prev]);
+                lines[line ?? '전열'].push(name);
+            });
+            frontArr = lines.전열.sort();
+            middleArr = lines.중열.sort();
+            backArr = lines.후열.sort();
+        } else {
+            frontArr = targetArr.slice(0, 3).sort();
+            middleArr = targetArr.slice(3, 6).sort();
+            backArr = targetArr.slice(6, 9).sort();
+        }
 
         // const frontArr = (targetArr.slice(0, 3).map(normalizeUros) as string[]).sort();
         // const middleArr = (targetArr.slice(3, 6).map(normalizeUros) as string[]).sort();
@@ -340,7 +369,7 @@ function mapToThreshold(qty: number): number | null {
 
 // 3) 시너지 통계 함수
 export function processSynergyStats(
-    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     type?: 'side'
 ): SynergyStat[] {
     // Map< key, { count, synergy } >
@@ -351,7 +380,10 @@ export function processSynergyStats(
 
         // 3.1) 각 조합의 성격별 빈도 계산
         const freq = targetArr.reduce<Record<string, number>>((acc, charName) => {
-            const p = (charInfo as Record<string, any>)[charName]?.personality;
+            const resonance = parseResonanceBaseName(charName);
+            const p = (charInfo as Record<string, any>)[charName]?.personality
+                ?? resonance?.personality
+                ?? (charInfo as Record<string, any>)[resonance?.baseName ?? charName]?.personality;
             if (p) acc[p] = (acc[p] || 0) + 1;
             return acc;
         }, {});
@@ -390,7 +422,7 @@ export function processSynergyStats(
 type PersonalityPieData = { [k in Personality]?: number };
 
 export function processPersonalityPie(
-    data: ClashPlayerData[] | FrontierPlayerData[] | externalData[] | ClashV2PlayerData[],
+    data: ClashPlayerData[] | FrontierPlayerData[] | externalData[] | ClashV2PlayerData[] | DeepClashPlayerData[],
     type?: 'side'
 ) {
 
@@ -399,6 +431,12 @@ export function processPersonalityPie(
     // console.log(data);
 
     const personalityData: PersonalityPieData = {};
+    const getPersonality = (name: string) => {
+        const resonance = parseResonanceBaseName(name);
+        return charInfo[name]?.personality
+            ?? resonance?.personality
+            ?? charInfo[resonance?.baseName ?? name]?.personality;
+    };
 
     data?.forEach((user, index) => {
         // console.log(user);
@@ -411,7 +449,7 @@ export function processPersonalityPie(
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'sideArr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name]?.personality;
+                    const persty = getPersonality(name);
                     if (!persty) {
                         console.log(`${name}의 성격이 존재하지 않음.`)
                         continue
@@ -425,7 +463,7 @@ export function processPersonalityPie(
                     if (name.startsWith('clashV2Side')) {
                         console.log(`'arr' [index: ${index}] ${name} << 보유중`)
                     }
-                    const persty = charInfo[name]?.personality;
+                    const persty = getPersonality(name);
                     if (!persty) {
                         console.log(`${name}의 성격이 존재하지 않음.`)
                         continue
@@ -489,12 +527,25 @@ export function computeBestComp<T extends RankRecord>(
     return result;
 }
 
+// JSON 배열 인덱스 -> 실제 배치 위치 인덱스 ex) 123 => 213
+const DISPLAY_POSITION_INDEX_MAP = [
+    1, 0, 2,
+    4, 3, 5,
+    7, 6, 8,
+] as const;
+
+// JSON 배열의 인덱스를 실제 배치 위치 인덱스로 변환
+function toDisplayPositionIndex(jsonIndex: number): number {
+    return DISPLAY_POSITION_INDEX_MAP[jsonIndex] ?? jsonIndex;
+}
+
 // 선택한 사도의 정보
 export function computeStatsForSelect<T extends RankRecord>(
     select: SelectChara,
     rangeData: T[], // seasonSlice, range만 적용된 데이터
     filteredData: T[], // displaySlice, 제외까지 적용된 데이터
     getArr: (r: T) => string[],
+    _requireFullComp = false,
     getScore?: (score: T) => number // 최다/최소/최장/최단 실체의코인, 클리어시간 측정용. 일단 score로 통일하여 사용함
 ) {
 
@@ -509,9 +560,12 @@ export function computeStatsForSelect<T extends RankRecord>(
         // 실제 사도 정보의 열을 우선 사용
         const characterLine = charInfo[arr[idx]]?.line;
 
-        // 모든열 사도 또는 정보가 없는 사도는 9인 편성에서만 인덱스 판정
+        // 모든열 사도는 9인 슬롯 또는 6인 심해 대격돌의 편성 열로 판정한다.
         if (!characterLine || characterLine === "모든열") {
-            return arr.length === 9 && getLineByIndex(idx) === select.line;
+            if (arr.length === 9) return getLineByIndex(idx) === select.line;
+            return 'personalities' in r
+                && arr.length === 6
+                && getLineInComp(arr, idx) === select.line;
         }
 
         return characterLine === select.line;
@@ -540,7 +594,7 @@ export function computeStatsForSelect<T extends RankRecord>(
             if (isSelected) {
                 // 정확한 슬롯을 알 수 있는 9인 편성만 위치 집계
                 if (isFullParty) {
-                    positionCounts[idx]++;
+                    positionCounts[toDisplayPositionIndex(idx)]++;
                 }
             } else {
                 cooccurrence[name] = (cooccurrence[name] || 0) + 1;
@@ -591,6 +645,16 @@ function getLineByIndex(idx: number): BaseLine {
     if (idx <= 2) return "전열";
     if (idx <= 5) return "중열";
     return "후열";
+}
+
+// 9인은 슬롯 인덱스로, 6인 심해 대격돌은 주변 사도의 열로 모든열 사도 위치를 판정한다.
+export function getLineInComp(arr: string[], idx: number): BaseLine {
+    if (arr.length === 9) return getLineByIndex(idx);
+
+    const line = charInfo[arr[idx]]?.line;
+    if (line && line !== "모든열") return line;
+
+    return idx > 0 ? getLineInComp(arr, idx - 1) : "전열";
 }
 
 /* 

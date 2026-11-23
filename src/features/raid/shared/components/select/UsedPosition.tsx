@@ -79,7 +79,7 @@ const UsedPosition = ({ statsForSelect }: { statsForSelect: any }) => {
                     />
                     <span className="text-gray-700 dark:text-zinc-400 font-bold text-center">
                         {statsForSelect.totalUses > 0
-                            ? '9인 편성 데이터가 없어 위치를 표시할 수 없습니다.'
+                            ? '위치 통계는 9인 편성만 집계합니다.'
                             : '집계된 데이터가 없습니다.'}
                     </span>
                 </div>

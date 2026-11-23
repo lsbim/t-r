@@ -9,6 +9,7 @@ import HeaderNav from "../../../layouts/HeaderNav";
 import { ClashBase, ClashSummary } from "../../../types/clashTypes";
 import { ClashV2Summary } from "../../../types/clashV2Types";
 import { FrontierBase, FrontierSummary } from "../../../types/frontierTypes";
+import { DeepClashSummary } from "@/types/deepClashTypes";
 import PopoverCard from "../components/PopperCard";
 import MinimapHandle from "../components/minimap/MinimapHandle";
 import { PopoverProvider } from "../hooks/usePopper";
@@ -23,6 +24,7 @@ const IndexPage = () => {
     const { data: frontier } = useRaidData<FrontierSummary>('frontier', 'summary');
     const { data: clash } = useRaidData<ClashSummary>('clash', 'summary');
     const { data: clashV2 } = useRaidData<ClashV2Summary>('clashV2', 'summary');
+    const { data: deepClash } = useRaidData<DeepClashSummary>('deepClash', 'summary');
     const { data: nonClash } = useNonData<ClashBase>('clash');
     const { data: nonFrontier } = useNonData<FrontierBase>('frontier');
 
@@ -46,7 +48,7 @@ const IndexPage = () => {
 
     // 키: 날짜, 값: 레이드/사도 정보 객체[]
     const timelineMap: TimelineMap = useMemo(() => {
-        if (!frontier || !clash || !clashV2 || !nonClash || !nonFrontier) return EMPTY_TIMELINE_MAP;
+        if (!frontier || !clash || !clashV2 || !deepClash || !nonClash || !nonFrontier) return EMPTY_TIMELINE_MAP;
 
         const map: TimelineMap = {};
 
@@ -99,6 +101,18 @@ const IndexPage = () => {
             });
         });
 
+        Object.entries(deepClash).forEach(([key, r]) => {
+            const { startDate, endDate } = toIsoDates(r);
+            pushNode(startDate, {
+                type: "deepClash",
+                name: r.name,
+                season: key,
+                startDate,
+                endDate,
+                personality: null,
+            });
+        });
+
         Object.entries(frontier).forEach(([key, r]) => {
             const { startDate, endDate } = toIsoDates(r);
             pushNode(startDate, {
@@ -142,7 +156,7 @@ const IndexPage = () => {
         });
 
         return map;
-    }, [clash, frontier, clashV2, nonClash, nonFrontier]);
+    }, [clash, frontier, clashV2, deepClash, nonClash, nonFrontier]);
 
 
 

@@ -95,6 +95,17 @@
     ],
     "frontier": [
       {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 300,
+        "pickRate": 100,
+        "isOverall": false,
+        "line": "전열"
+      },
+      {
         "seasonNumber": 21,
         "name": "크레용사용",
         "personality": null,
@@ -209,10 +220,42 @@
         "isOverall": false,
         "line": "전열"
       }
+    ],
+    "deepClash": [],
+    "deepClashPersonality": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": "활발",
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 294,
+        "pickRate": 98,
+        "isOverall": false,
+        "line": "전열"
+      }
     ]
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 296,
+        "pickRate": 98.7,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 296
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -374,27 +417,27 @@
           }
         ],
         "totalEntries": 300
-      },
+      }
+    ],
+    "frontier": [
       {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 272,
-        "pickRate": 90.7,
-        "overallRank": 5,
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 300,
+        "pickRate": 100,
+        "overallRank": 1,
         "lineRanks": [
           {
             "line": "전열",
             "rank": 1,
-            "count": 272
+            "count": 300
           }
         ],
         "totalEntries": 300
-      }
-    ],
-    "frontier": [
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -553,24 +596,6 @@
             "line": "전열",
             "rank": 2,
             "count": 293
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 285,
-        "pickRate": 95,
-        "overallRank": 4,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 2,
-            "count": 285
           }
         ],
         "totalEntries": 300
@@ -746,32 +771,72 @@
         "totalEntries": 300,
         "sidePickRate": 13.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 298,
+        "pickRate": 99.3,
+        "overallRank": 5,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 2,
+            "count": 298
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 294,
+      "pickRate": 98,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "존재감 넘치는 구미호",
-      "cosUsedCount": 727,
-      "charTotalCount": 885,
-      "rate": 82.1,
+      "cosUsedCount": 2299,
+      "charTotalCount": 3237,
+      "rate": 71,
       "lvl": "pretty",
       "launchDate": "2026-08-06"
     },
     {
       "cosName": "존재감 넘치는 바니",
-      "cosUsedCount": 49,
-      "charTotalCount": 885,
-      "rate": 5.5,
+      "cosUsedCount": 251,
+      "charTotalCount": 3237,
+      "rate": 7.8,
       "lvl": "normal",
       "launchDate": "2025-03-27"
     },
     {
       "cosName": "존재감 넘치는 인어",
-      "cosUsedCount": 19,
-      "charTotalCount": 885,
-      "rate": 2.1,
+      "cosUsedCount": 179,
+      "charTotalCount": 3237,
+      "rate": 5.5,
       "lvl": "pretty",
       "launchDate": "2025-03-27"
+    },
+    {
+      "cosName": "겁령독희 벨소화",
+      "cosUsedCount": 135,
+      "charTotalCount": 3237,
+      "rate": 4.2,
+      "lvl": "normal",
+      "launchDate": "2026-11-12"
     }
   ]
 }

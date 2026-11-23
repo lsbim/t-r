@@ -16,7 +16,11 @@ import { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '../../../hooks/useTheme';
 import { containerDarkBG } from '../../../styles/container';
-import { ContentRecentStats, RecentSeasonStat } from '../../../types/character/characterStatsTypes';
+import {
+    ContentRecentStats,
+    DeepClashPersonalityStat,
+    RecentSeasonStat,
+} from '../../../types/character/characterStatsTypes';
 
 // ChartDataLabels를 register에서 제거
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Filler);
@@ -26,12 +30,21 @@ const CONTENT_CONFIG: Record<keyof ContentRecentStats, { label: string; color: s
     clash: { label: '차원 대충돌', color: '#fe4a75' },
     frontier: { label: '엘리아스 프론티어', color: '#3095d2', },
     clashV2: { label: '차원 대충돌 2.0', color: '#107535', },
+    deepClash: { label: '심해 대격돌', color: '#113485', },
 };
 
 const formatSeasonLabel = (seasonNumber: number) =>
     seasonNumber > 10000 ? `시즌B${seasonNumber - 10000}` : `시즌${seasonNumber}`;
 
-const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats }) => {
+const DEEP_CLASH_PERSONALITY_ORDER = ['순수', '냉정', '광기', '활발', '우울'] as const;
+
+const CharacterRecentStats = ({
+    recentStats,
+    deepClashPersonalityStats = [],
+}: {
+    recentStats: ContentRecentStats;
+    deepClashPersonalityStats?: DeepClashPersonalityStat[];
+}) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
@@ -190,12 +203,138 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
             });
     }, [recentStats, tickColor, gridColor, theme]);
 
+    const deepClashPersonalityChart = useMemo(() => {
+        if (deepClashPersonalityStats.length === 0) return null;
+
+        const seasonNumbers = [...new Set(deepClashPersonalityStats.map(stat => stat.seasonNumber))]
+            .sort((a, b) => a - b);
+        const personalities = DEEP_CLASH_PERSONALITY_ORDER.filter(personality =>
+            deepClashPersonalityStats.some(stat => stat.personality === personality)
+        );
+        const statsBySeasonAndPersonality = new Map(
+            deepClashPersonalityStats.map(stat => [`${stat.seasonNumber}:${stat.personality}`, stat])
+        );
+        const seasonStats = new Map(
+            deepClashPersonalityStats.map(stat => [stat.seasonNumber, stat])
+        );
+
+        const chartData: ChartData<'line'> = {
+            labels: seasonNumbers.map(formatSeasonLabel),
+            datasets: personalities.map(personality => {
+                const color = theme === 'dark'
+                    ? getPersonalityDarkColor(personality)
+                    : getPersonalityColor(personality);
+
+                return {
+                    label: `${personality}`,
+                    data: seasonNumbers.map(seasonNumber =>
+                        statsBySeasonAndPersonality.get(`${seasonNumber}:${personality}`)?.pickRate ?? null
+                    ),
+                    borderColor: color,
+                    backgroundColor: color,
+                    pointBackgroundColor: color,
+                    pointBorderColor: color,
+                    borderWidth: 2,
+                    tension: 0.1,
+                    pointRadius: personalities.length > 1 ? 4.5 : 9,
+                    pointHoverRadius: personalities.length > 1 ? 4.5 : 9,
+                    fill: false,
+                    spanGaps: false,
+                };
+            }),
+        };
+
+        const options: ChartOptions<'line'> = {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: {
+                    display: personalities.length > 1,
+                    labels: {
+                        color: tickColor,
+                        font: { size: 11 },
+                        boxWidth: 12,
+                        boxHeight: 2,
+                    },
+                    position: 'bottom',
+                },
+                tooltip: {
+                    callbacks: {
+                        title: context => {
+                            const seasonNumber = seasonNumbers[context[0].dataIndex];
+                            const stat = seasonStats.get(seasonNumber);
+                            return `${formatSeasonLabel(seasonNumber)}${stat?.name ? ` ${stat.name}` : ''}`;
+                        },
+                        label: context => ` ${context.dataset.label}: ${context.parsed.y}%`,
+                    },
+                    backgroundColor: 'rgba(30,30,33,0.85)',
+                    titleColor: 'white',
+                    bodyColor: 'white',
+                    borderColor: '#52525b',
+                    borderWidth: 1,
+                    cornerRadius: 6,
+                },
+                datalabels: {
+                    align: 'top',
+                    anchor: 'end',
+                    color: tickColor,
+                    font: { size: 11, weight: 'bold' },
+                    formatter: (value: number) => `${value}%`,
+                    display: context => {
+                        const currentValue = Number(context.dataset.data[context.dataIndex]);
+                        if (currentValue === 0) return false;
+                        if (context.chart.data.datasets.length === 1) return true;
+
+                        const valuesAtSeason = context.chart.data.datasets.map(dataset =>
+                            Number(dataset.data[context.dataIndex] ?? 0)
+                        );
+                        const maxValue = Math.max(...valuesAtSeason);
+                        return currentValue === maxValue && valuesAtSeason.indexOf(maxValue) === context.datasetIndex;
+                    },
+                },
+            },
+            scales: {
+                x: {
+                    ticks: { color: tickColor, font: { size: 12 } },
+                    grid: { display: false },
+                },
+                y: {
+                    min: 0,
+                    // 100% 값 위에 원과 데이터 라벨이 들어갈 여백을 확보
+                    max: 120,
+                    ticks: {
+                        color: tickColor,
+                        font: { size: 11 },
+                        padding: 16,
+                        stepSize: 20,
+                        // 기존 픽률 차트와 같이 120%는 여백으로만 사용하고 눈금에서는 숨김
+                        callback: value => Number(value) > 100 ? '' : `${value}%`,
+                    },
+                    grid: { display: false },
+                },
+            },
+            layout: { padding: { top: 24, right: 16, left: 0, bottom: 8 } },
+        };
+
+        const title = personalities.length === 1
+            ? `심해 대격돌 ${personalities[0]} 해역`
+            : '심해 대격돌 성격 해역';
+
+        return {
+            title,
+            chartData,
+            options,
+            hasMultipleSeries: personalities.length > 1,
+        };
+    }, [deepClashPersonalityStats, tickColor, theme]);
+
     return (
         <div className={`w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">픽률 통계</span>
                 <span className="text-[12px] dark:text-zinc-400 text-gray-600">
-                    콘텐츠 별 최대 10개 시즌의 데이터를 제공합니다.
+                    콘텐츠별 최대 10개 시즌의 데이터를 제공합니다.
                 </span>
             </div>
             <div className="flex-1 gap-y-2 flex flex-col">
@@ -214,6 +353,20 @@ const CharacterRecentStats = ({ recentStats }: { recentStats: ContentRecentStats
                             </div>
                         </div>
                     ))}
+                {deepClashPersonalityChart && (
+                    <div className="flex flex-col gap-1">
+                        <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">
+                            {deepClashPersonalityChart.title}
+                        </span>
+                        <div className={deepClashPersonalityChart.hasMultipleSeries ? 'h-[210px]' : 'h-[180px]'}>
+                            <Line
+                                data={deepClashPersonalityChart.chartData}
+                                options={deepClashPersonalityChart.options}
+                                plugins={[ChartDataLabels]}
+                            />
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

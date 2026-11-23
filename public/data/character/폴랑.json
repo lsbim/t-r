@@ -5,10 +5,30 @@
   "topSeasons": {
     "clash": [],
     "frontier": [],
-    "clashV2": []
+    "clashV2": [],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 3,
+        "pickRate": 1,
+        "overallRank": 27,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 12,
+            "count": 3
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -158,27 +178,27 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 85,
-        "pickRate": 28.3,
-        "overallRank": 10,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 4,
-            "count": 85
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 1,
+        "pickRate": 0.3,
+        "overallRank": 13,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 5,
+            "count": 1
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -295,24 +315,6 @@
             "line": "후열",
             "rank": 7,
             "count": 4
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 23,
-        "pickRate": 7.7,
-        "overallRank": 16,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 7,
-            "count": 23
           }
         ],
         "totalEntries": 300
@@ -466,30 +468,56 @@
         "totalEntries": 300,
         "sidePickRate": 24.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "광기",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 142,
+      "pickRate": 47.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "승리는 당신을 위해",
-      "cosUsedCount": 35,
-      "charTotalCount": 76,
-      "rate": 46.1,
+      "cosUsedCount": 180,
+      "charTotalCount": 362,
+      "rate": 49.7,
       "lvl": "pretty",
       "launchDate": "2025-06-12"
     },
     {
       "cosName": "창공의 오퍼레이터",
-      "cosUsedCount": 22,
-      "charTotalCount": 76,
-      "rate": 28.9,
+      "cosUsedCount": 102,
+      "charTotalCount": 362,
+      "rate": 28.2,
       "lvl": "normal",
       "launchDate": "2026-04-30"
     },
     {
       "cosName": "나들이 가는 날",
-      "cosUsedCount": 7,
-      "charTotalCount": 76,
-      "rate": 9.2,
+      "cosUsedCount": 29,
+      "charTotalCount": 362,
+      "rate": 8,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }

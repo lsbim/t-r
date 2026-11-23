@@ -176,10 +176,30 @@
         "isOverall": false,
         "line": "전열"
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 148,
+        "pickRate": 49.3,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 3,
+            "count": 148
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -341,27 +361,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 13,
-        "pickRate": 4.3,
-        "overallRank": 21,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 9,
-            "count": 13
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -514,24 +528,6 @@
             "line": "전열",
             "rank": 1,
             "count": 300
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 297,
-        "pickRate": 99,
-        "overallRank": 2,
-        "lineRanks": [
-          {
-            "line": "전열",
-            "rank": 1,
-            "count": 297
           }
         ],
         "totalEntries": 300
@@ -707,30 +703,62 @@
         "totalEntries": 300,
         "sidePickRate": 43
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 133,
+        "pickRate": 44.3,
+        "overallRank": 10,
+        "lineRanks": [
+          {
+            "line": "전열",
+            "rank": 4,
+            "count": 133
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "냉정",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 170,
+      "pickRate": 56.7,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "하늘을 호령하는 포효",
-      "cosUsedCount": 169,
-      "charTotalCount": 239,
-      "rate": 70.7,
+      "cosUsedCount": 596,
+      "charTotalCount": 1407,
+      "rate": 42.4,
       "lvl": "pretty",
       "launchDate": "2026-09-03"
     },
     {
       "cosName": "교단 군기반장",
-      "cosUsedCount": 44,
-      "charTotalCount": 239,
-      "rate": 18.4,
+      "cosUsedCount": 514,
+      "charTotalCount": 1407,
+      "rate": 36.5,
       "lvl": "pretty",
       "launchDate": "2025-06-05"
     },
     {
       "cosName": "거친 해변의 서퍼",
-      "cosUsedCount": 4,
-      "charTotalCount": 239,
-      "rate": 1.7,
+      "cosUsedCount": 68,
+      "charTotalCount": 1407,
+      "rate": 4.8,
       "lvl": "normal",
       "launchDate": "2025-06-05"
     }

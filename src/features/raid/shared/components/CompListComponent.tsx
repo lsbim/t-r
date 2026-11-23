@@ -7,6 +7,7 @@ import React from "react";
 import { Virtuoso } from "react-virtuoso";
 import { ClashV2SeasonData } from "../../../../types/clashV2Types";
 import { containerDarkBG, raidRootContainer } from "../../../../styles/container";
+import { DeepClashSeasonData } from "../../../../types/deepClashTypes";
 
 const CompListComponent = ({
     data,
@@ -14,7 +15,7 @@ const CompListComponent = ({
     userCnt,
     type
 }: {
-    data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData,
+    data: ClashSeasonData | FrontierSeasonData | ClashV2SeasonData | DeepClashSeasonData,
     season?: string,
     userCnt?: number,
     type?: 'side'

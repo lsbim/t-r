@@ -14,8 +14,11 @@ import annotationPlugin from 'chartjs-plugin-annotation';
 import { Line } from "react-chartjs-2";
 import InfoIcon from "../../../../components/icons/InfoIcon";
 import { useTheme } from "../../../../hooks/useTheme";
-import { ClashV2SeasonData } from "../../../../types/clashV2Types";
+import { ClashV2PlayerData, ClashV2SeasonData } from "../../../../types/clashV2Types";
 import { containerDarkBG } from '../../../../styles/container';
+import { useMemo } from 'react';
+import { parseResonanceBaseName } from '../../../../utils/resonanceFunction';
+import type { ScriptableContext } from 'chart.js';
 
 
 ChartJS.register(
@@ -30,13 +33,19 @@ ChartJS.register(
     Filler
 );
 
-const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLvl: number }) => {
+const ClashV2Chart = ({ data, maxSideLvl, select }: { data: ClashV2SeasonData, maxSideLvl: number, select?: string }) => {
 
     const { theme } = useTheme();
     const tickColor = theme === 'dark' ? 'rgb(244,244,245)' : 'rgb(82,82,91)';
     const gridColor = theme === 'dark' ? 'rgb(39,39,42)' : 'rgb(228,228,231)';
 
-    const arr = data?.data;
+    const arr = data.data;
+    const selectedBaseName = select ? parseResonanceBaseName(select)?.baseName ?? select : undefined;
+    const isSelected = (item: ClashV2PlayerData) => !!select && item.arr.some(name =>
+        name === select || (parseResonanceBaseName(name)?.baseName ?? name) === selectedBaseName
+    );
+    const selectedPointRadii = arr.map(item => !select ? 0 : isSelected(item) ? 5 : 1.5);
+    const sideGradePointRadii = arr.map(item => !select ? 3 : isSelected(item) ? 5 : 1.5);
 
     const gradeAnnotations: Record<string, any> = {};
     let prevGrade: string | number;
@@ -44,6 +53,62 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
     let isStaggered = false;   // 지그재그 상태 스태그
 
     const hasSideSkills = !!data?.sideSkills;
+
+    const mostCommonDurations = useMemo(() => {
+        if (!hasSideSkills) return [];
+
+        const durationCounts = new Map<number, { count: number; ranks: number[] }>();
+
+        arr.forEach(item => {
+            const duration = item.duration;
+
+            if (
+                duration == null ||
+                !Number.isFinite(duration) ||
+                !Number.isFinite(item.rank)
+            ) return;
+
+            const current = durationCounts.get(duration);
+
+            if (current) {
+                current.count += 1;
+                current.ranks.push(item.rank);
+            } else {
+                durationCounts.set(duration, {
+                    count: 1,
+                    ranks: [item.rank]
+                });
+            }
+        });
+
+        let maxCount = 0;
+
+        durationCounts.forEach(({ count }) => {
+            if (count > maxCount) maxCount = count;
+        });
+
+        if (maxCount === 0) return [];
+
+        return [...durationCounts.entries()]
+            .filter(([, { count }]) => count === maxCount)
+            .map(([duration, { count, ranks }]) => {
+                const sortedRanks = [...ranks].sort((a, b) => a - b);
+                const rankRanges: Array<[number, number]> = [];
+
+                sortedRanks.forEach(rank => {
+                    const lastRange = rankRanges[rankRanges.length - 1];
+
+                    if (!lastRange || rank > lastRange[1] + 1) {
+                        rankRanges.push([rank, rank]);
+                    } else if (rank > lastRange[1]) {
+                        lastRange[1] = rank;
+                    }
+                });
+
+                return { duration, count, rankRanges };
+            })
+            .sort((a, b) => a.duration - b.duration);
+    }, [arr, hasSideSkills]);
 
     arr.forEach((pt, idx) => {
         // if(pt.grade !== 17) return;
@@ -96,7 +161,9 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                 backgroundColor: '#82ca9d',
                 yAxisID: 'y_sideGrade',
                 showLine: false, // 점만 표시
-                pointRadius: 3,
+                pointRadius: sideGradePointRadii,
+                pointHoverRadius: (context: ScriptableContext<'line'>) => sideGradePointRadii[context.dataIndex],
+                pointHoverBorderWidth: 0,
                 tension: 0.1,
             },
             hasSideSkills
@@ -104,27 +171,27 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
                     label: '클리어 시간',
                     data: arr?.map(item => item.duration) || [],
                     borderColor: '#8884d8',
-                    backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    backgroundColor: '#8884d8',
+                    pointBackgroundColor: '#8884d8',
+                    pointBorderWidth: 0,
                     yAxisID: 'y_secondary',
                     tension: 0.1,
-                    pointRadius: 0,
-                    pointHoverRadius: 6,
-                    pointHoverBackgroundColor: '#8884d8',
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 3,
+                    pointRadius: selectedPointRadii,
+                    pointHoverRadius: (context: ScriptableContext<'line'>) => selectedPointRadii[context.dataIndex],
+                    pointHoverBorderWidth: 0,
                 }
                 : {
                     label: '점수(단위: 억)',
                     data: arr?.map(item => item.score / 100000000) || [],
                     borderColor: '#8884d8',
                     backgroundColor: 'rgba(136, 132, 216, 0.1)',
+                    pointBackgroundColor: '#8884d8',
+                    pointBorderWidth: 0,
                     yAxisID: 'y_secondary',
                     tension: 0.1,
-                    pointRadius: 0,
-                    pointHoverRadius: 6,
-                    pointHoverBackgroundColor: '#8884d8',
-                    pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 3,
+                    pointRadius: selectedPointRadii,
+                    pointHoverRadius: (context: ScriptableContext<'line'>) => selectedPointRadii[context.dataIndex],
+                    pointHoverBorderWidth: 0,
                 }
         ]
     };
@@ -257,15 +324,40 @@ const ClashV2Chart = ({ data, maxSideLvl }: { data: ClashV2SeasonData, maxSideLv
         : '점수 및 림의 이면세계';
 
     return (
-        <div className={`w-full mx-auto flex flex-col h-[466px] gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
+        <div className={`w-full mx-auto flex flex-col ${mostCommonDurations.length > 0 ? 'h-[516px]' : 'h-[466px]'} gap-y-4 ${containerDarkBG} dark:text-zinc-200 p-4 rounded-xl border dark:border-zinc-700 border-zinc-300 overflow-x-auto overflow-y-hidden`}>
             <div className='flex items-center'>
                 <span className="text-xl font-bold mr-2">{chartTitle}</span>
                 <InfoIcon text={infoText} />
             </div>
-            <div className='h-[400px] dark:brightness-90'>
 
+            <div className='h-[400px] dark:brightness-90'>
                 <Line data={chartData} options={chartOptions} />
             </div>
+
+            {mostCommonDurations.length > 0 && (
+                <div className="flex shrink-0 flex-nowrap items-center dark:text-zinc-200 justify-center gap-x-2 whitespace-nowrap text-[12px] sm:text-[14px]">
+                    <span className="">최빈 클리어 시간</span>
+
+                    {mostCommonDurations.map(({ duration, count, rankRanges }, index) => (
+                        <span key={duration} className="inline-flex items-center gap-x-1">
+                            {index > 0 && (
+                                <span className="mr-1">/</span>
+                            )}
+                            <span className="font-bold text-[14px] sm:text-[16px]">
+                                {duration}초
+                            </span>
+                            <span>
+                                {count}명
+                            </span>
+                            <span className="text-gray-600 dark:text-zinc-500">
+                                ({rankRanges.map(([start, end]) =>
+                                    start === end ? `${start}위` : `${start}~${end}위`
+                                ).join(', ')})
+                            </span>
+                        </span>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

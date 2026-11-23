@@ -145,10 +145,30 @@
         "isOverall": false,
         "line": "후열"
       }
-    ]
+    ],
+    "deepClash": [],
+    "deepClashPersonality": []
   },
   "recentStats": {
     "clash": [
+      {
+        "seasonNumber": 49,
+        "name": "릴1리",
+        "personality": "광기",
+        "startDate": "2026-10-29",
+        "endDate": "2026-11-05",
+        "pickCount": 18,
+        "pickRate": 6,
+        "overallRank": 20,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 9,
+            "count": 18
+          }
+        ],
+        "totalEntries": 300
+      },
       {
         "seasonNumber": 48,
         "name": "크레용사용",
@@ -310,27 +330,21 @@
           }
         ],
         "totalEntries": 300
-      },
-      {
-        "seasonNumber": 39,
-        "name": "크레용사용",
-        "personality": "순수",
-        "startDate": "2025-10-02",
-        "endDate": "2025-10-09",
-        "pickCount": 18,
-        "pickRate": 6,
-        "overallRank": 19,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 6,
-            "count": 18
-          }
-        ],
-        "totalEntries": 300
       }
     ],
     "frontier": [
+      {
+        "seasonNumber": 22,
+        "name": "죽음",
+        "personality": null,
+        "startDate": "2026-11-12",
+        "endDate": "2026-11-19",
+        "pickCount": 0,
+        "pickRate": 0,
+        "overallRank": null,
+        "lineRanks": [],
+        "totalEntries": 0
+      },
       {
         "seasonNumber": 21,
         "name": "크레용사용",
@@ -482,24 +496,6 @@
           {
             "line": "후열",
             "rank": 2,
-            "count": 287
-          }
-        ],
-        "totalEntries": 300
-      },
-      {
-        "seasonNumber": 12,
-        "name": "M.E.O.W",
-        "personality": null,
-        "startDate": "2025-09-18",
-        "endDate": "2025-09-25",
-        "pickCount": 287,
-        "pickRate": 95.7,
-        "overallRank": 3,
-        "lineRanks": [
-          {
-            "line": "후열",
-            "rank": 1,
             "count": 287
           }
         ],
@@ -678,30 +674,62 @@
         "totalEntries": 300,
         "sidePickRate": 33.7
       }
+    ],
+    "deepClash": [
+      {
+        "seasonNumber": 1,
+        "name": "오리카",
+        "personality": null,
+        "startDate": "2026-08-20",
+        "endDate": "2026-11-12",
+        "pickCount": 236,
+        "pickRate": 78.7,
+        "overallRank": 8,
+        "lineRanks": [
+          {
+            "line": "후열",
+            "rank": 3,
+            "count": 236
+          }
+        ],
+        "totalEntries": 300
+      }
     ]
   },
+  "deepClashPersonalityStats": [
+    {
+      "seasonNumber": 1,
+      "name": "오리카",
+      "personality": "활발",
+      "startDate": "2026-08-20",
+      "endDate": "2026-11-12",
+      "pickCount": 283,
+      "pickRate": 94.3,
+      "totalEntries": 300
+    }
+  ],
   "recentSkins": [
     {
       "cosName": "카게닌자 모모",
-      "cosUsedCount": 249,
-      "charTotalCount": 595,
-      "rate": 41.8,
+      "cosUsedCount": 836,
+      "charTotalCount": 1899,
+      "rate": 44,
       "lvl": "pretty",
       "launchDate": "2025-08-07"
     },
     {
       "cosName": "스위트 닌자 스노우",
-      "cosUsedCount": 211,
-      "charTotalCount": 595,
-      "rate": 35.5,
+      "cosUsedCount": 663,
+      "charTotalCount": 1899,
+      "rate": 34.9,
       "lvl": "normal",
       "launchDate": "2025-12-11"
     },
     {
       "cosName": "닌자의 휴일",
-      "cosUsedCount": 50,
-      "charTotalCount": 595,
-      "rate": 8.4,
+      "cosUsedCount": 135,
+      "charTotalCount": 1899,
+      "rate": 7.1,
       "lvl": "normal",
       "launchDate": "2025-04-17"
     }
