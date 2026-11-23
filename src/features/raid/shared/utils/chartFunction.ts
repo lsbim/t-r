@@ -74,9 +74,7 @@ export function processRankingArrData(
     return processRankingArrDataV2(data, type);
 }
 
-// PickRateChart 전용. 차원대충돌 2.0 전용.
-// 위치를 인덱스가 아닌 사도 정보의 line으로 입력한다
-// 조합 구성이 9인 미만일 경우 포지션(위치)은 제외한다
+// PickRateChart 전용. 9인은 슬롯 인덱스, 6인 심해 대격돌은 사도 열 기준으로 집계한다.
 export function processRankingArrDataV2(
     data: Array<ClashPlayerData | FrontierPlayerData | ClashV2PlayerData | DeepClashPlayerData>,
     type?: 'side'
@@ -139,11 +137,13 @@ export function processRankingArrDataV2(
                 }
             }
 
-            if (!isFullParty && info.line === "모든열") return;
+            if (!isFullParty && !isExpectedDeepClashParty && info.line === "모든열") return;
 
             const targetLine: BaseLine =
                 info.line === "모든열"
-                    ? getLineByIndex(idx)
+                    ? isExpectedDeepClashParty
+                        ? getLineInComp(arr, idx)
+                        : getLineByIndex(idx)
                     : info.line as BaseLine;
 
             const key = `${name}|${targetLine}`;
@@ -560,9 +560,12 @@ export function computeStatsForSelect<T extends RankRecord>(
         // 실제 사도 정보의 열을 우선 사용
         const characterLine = charInfo[arr[idx]]?.line;
 
-        // 모든열 사도 또는 정보가 없는 사도는 9인 편성에서만 인덱스 판정
+        // 모든열 사도는 9인 슬롯 또는 6인 심해 대격돌의 편성 열로 판정한다.
         if (!characterLine || characterLine === "모든열") {
-            return arr.length === 9 && getLineByIndex(idx) === select.line;
+            if (arr.length === 9) return getLineByIndex(idx) === select.line;
+            return 'personalities' in r
+                && arr.length === 6
+                && getLineInComp(arr, idx) === select.line;
         }
 
         return characterLine === select.line;
@@ -642,6 +645,16 @@ function getLineByIndex(idx: number): BaseLine {
     if (idx <= 2) return "전열";
     if (idx <= 5) return "중열";
     return "후열";
+}
+
+// 9인은 슬롯 인덱스로, 6인 심해 대격돌은 주변 사도의 열로 모든열 사도 위치를 판정한다.
+export function getLineInComp(arr: string[], idx: number): BaseLine {
+    if (arr.length === 9) return getLineByIndex(idx);
+
+    const line = charInfo[arr[idx]]?.line;
+    if (line && line !== "모든열") return line;
+
+    return idx > 0 ? getLineInComp(arr, idx - 1) : "전열";
 }
 
 /* 

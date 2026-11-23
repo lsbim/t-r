@@ -1,7 +1,7 @@
-import { charInfo } from "../../../../data/trickcalChar";
 import { DeepClashPlayerData, DeepClashSeasonData, DeepClashType } from "../../../../types/deepClashTypes";
 import { BaseLine } from "../../../../types/trickcalTypes";
-import { CompStat } from "../../shared/utils/chartFunction";
+import { getLineInComp } from "../../shared/utils/chartFunction";
+import type { CompStat } from "../../shared/utils/chartFunction";
 
 // 최대 편성 인원. 보스 9인, 성격해역 6인
 export const getPartySize = (type: DeepClashType) => (type === "boss" ? 9 : 6);
@@ -18,17 +18,6 @@ export const processDeepClashData = (season: DeepClashSeasonData, type: DeepClas
         }),
     };
 };
-
-// 사도 한 명이 속한 열. 9인은 인덱스가 곧 위치, 그 외에는 사도 정보의 열을 따른다
-function getLineInComp(arr: string[], idx: number): BaseLine {
-    if (arr.length === 9) return idx <= 2 ? "전열" : idx <= 5 ? "중열" : "후열";
-
-    const line = charInfo[arr[idx]]?.line;
-    if (line && line !== "모든열") return line;
-
-    // 모든열 사도(죠안, 티그(영웅))는 열을 알 수 없어 arr(전열 -> 후열 순)의 앞 사도 열을 따른다
-    return idx > 0 ? getLineInComp(arr, idx - 1) : "전열";
-}
 
 // BestComp 전용. processCompStat과 같은 CompStat을 반환한다
 export function processFullCompStat(data: DeepClashPlayerData[], partySize: number): CompStat[] {
