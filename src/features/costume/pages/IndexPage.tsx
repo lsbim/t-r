@@ -110,7 +110,7 @@ const IndexPage = () => {
         costumeMap.set('mostCostumes', mostCostumes);
         costumeMap.set('leastCostumes', leastCostumes);
 
-        // 성격 별로 나누기
+        // 성격별로 나누기
         persList.forEach(p => {
 
             const persCostume = characterStatList.filter(item => charInfo[item.charName]?.personality === p)

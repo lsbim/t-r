@@ -95,7 +95,7 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
 const findCharacterChanges = (prevComp: CompStat, currentComp: CompStat) => {
     const changes: { position: string; removed: string; added: string }[] = [];
 
-    // 포지션 별 순회 lineListEn: BaseLineEn[] = ["back", "mid", "front"];
+    // 포지션별 순회 lineListEn: BaseLineEn[] = ["back", "mid", "front"];
     lineListEn.forEach(position => {
         const prevChars = prevComp[position];
         const currentChars = currentComp[position];

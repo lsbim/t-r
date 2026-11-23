@@ -121,7 +121,7 @@ async function parseCostumeInfo() {
 
     return costumeMap;
 }
-// 폴더 별 시즌 데이터 가져오기
+// 폴더별 시즌 데이터 가져오기
 async function loadSeasons(dirPath) {
     const files = await fs.readdir(dirPath);
 
