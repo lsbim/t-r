@@ -67,6 +67,25 @@ function buildCuts(records, metrics) {
     return cuts;
 }
 
+// 실체의 코인 중앙값: 1~10위, 11~100위, 101~300위 구간
+function buildCoinMedians(records) {
+    const ranges = [[1, 10], [11, 100], [101, 300]];
+
+    return ranges.map(([start, end]) => {
+        const values = records
+            .filter(record => record.rank >= start && record.rank <= end && Number.isFinite(record.coin))
+            .map(record => record.coin)
+            .sort((a, b) => a - b);
+
+        if (values.length === 0) return null;
+
+        const middle = Math.floor(values.length / 2);
+        return values.length % 2 === 0
+            ? (values[middle - 1] + values[middle]) / 2
+            : values[middle];
+    });
+}
+
 // 조합별 사용 팀 수 (내림차순)
 // 9인 편성만 집계하고, 슬롯 위치와 무관하게 사도 구성이 같으면 같은 조합으로 봄
 function buildComboCounts(records) {
@@ -94,6 +113,7 @@ function buildSeasonStats(season, raw, summary, raid) {
         userTotalCount: records.length,
         rates: buildRates(summary),
         cuts: buildCuts(records, raid.metrics),
+        ...(raid.metrics.includes('coin') && { coinMedians: buildCoinMedians(records) }),
         comboCounts: buildComboCounts(records),
         top1Arr: (rank1?.arr ?? []).filter(Boolean).map(normalizeCharName),
     };

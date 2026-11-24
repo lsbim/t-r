@@ -1,5 +1,4 @@
-import { TrickcalRaidEn } from "../../../../types/trickcalTypes";
-import { RaidStatConfig, RankCutRank, RecordMetric, RecordMetricMeta } from "../types/statTypes";
+import { RaidStatConfig, RankCutRank, RecordMetric, RecordMetricMeta, StatsRaidType } from "../types/statTypes";
 
 // 통계에 사용하는 최근 시즌 수
 // stats.json에는 비교 기준 시즌 1개가 더 들어 있음
@@ -16,7 +15,7 @@ export const METRIC_META: Record<RecordMetric, RecordMetricMeta> = {
 };
 
 // 콘텐츠별 통계 설정
-export const STAT_CONFIG: Record<TrickcalRaidEn, RaidStatConfig> = {
+export const STAT_CONFIG: Record<StatsRaidType, RaidStatConfig> = {
     clash: {
         shortLabel: "대충돌",
         path: "/stats/clash/v1",
@@ -35,4 +34,4 @@ export const STAT_CONFIG: Record<TrickcalRaidEn, RaidStatConfig> = {
 };
 
 // nav 하위 메뉴/드롭다운 표시 순서
-export const STAT_CONTENT_ORDER: TrickcalRaidEn[] = ["clash", "clashV2", "frontier"];
+export const STAT_CONTENT_ORDER: StatsRaidType[] = ["clash", "clashV2", "frontier"];

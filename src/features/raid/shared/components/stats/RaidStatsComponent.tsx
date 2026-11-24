@@ -1,9 +1,11 @@
-import { TrickcalRaidEn } from "@/types/trickcalTypes";
 import { getSeasonName, translateRaid } from "@/utils/function";
 import { useRaidStats } from "../../hooks/useRaidStats";
+import { StatsRaidType } from "../../types/statTypes";
 import MetaTrendChart from "./MetaTrendChart";
+import RankCutChart from "./RankCutChart";
+import { STAT_CONFIG } from "../../utils/raidStatConfig";
 
-const RaidStatsComponent = ({ type }: { type: TrickcalRaidEn }) => {
+const RaidStatsComponent = ({ type }: { type: StatsRaidType }) => {
     const view = useRaidStats(type);
 
     const firstSeason = view.seasons[0];
@@ -28,6 +30,7 @@ const RaidStatsComponent = ({ type }: { type: TrickcalRaidEn }) => {
 
             <div className="flex flex-col gap-y-4">
                 <MetaTrendChart view={view} />
+                <RankCutChart view={view} metrics={STAT_CONFIG[type].metrics} />
             </div>
         </div>
     );

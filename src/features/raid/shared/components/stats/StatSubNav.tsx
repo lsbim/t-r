@@ -1,10 +1,10 @@
 import { containerDarkBG } from "@/styles/container";
-import { TrickcalRaidEn } from "@/types/trickcalTypes";
 import { Link } from "react-router-dom";
 import { STAT_CONFIG, STAT_CONTENT_ORDER } from "../../utils/raidStatConfig";
+import { StatsRaidType } from "../../types/statTypes";
 
 // HeaderNav 아래에 붙는 통계 페이지 하위 메뉴
-const StatSubNav = ({ type }: { type: TrickcalRaidEn }) => {
+const StatSubNav = ({ type }: { type: StatsRaidType }) => {
     return (
         <nav aria-label="통계 콘텐츠" className={`w-full ${containerDarkBG} border-b border-zinc-300 dark:border-zinc-700`}>
             <div className="lg:w-[992px] w-full mx-auto flex justify-center items-center gap-x-5 font-bold text-[13px] text-gray-800 dark:text-zinc-200">

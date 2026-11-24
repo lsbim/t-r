@@ -4,6 +4,7 @@ import { RaidStatsView } from "../../types/statTypes";
 import MiniTrendCard from "./MiniTrendCard";
 import StatSection from "./StatSection";
 import CharacterIcon from "@/components/icons/CharacterIcon";
+import { getDifficultyChanges } from "../../utils/raidStats";
 
 // 메타 다양성(유효/고유 조합 수, 1위 조합 점유, 필수 사도)과 메타 변화량(전체/열별)
 const MetaTrendChart = ({ view }: { view: RaidStatsView }) => {
@@ -11,15 +12,7 @@ const MetaTrendChart = ({ view }: { view: RaidStatsView }) => {
     const seasonLabels = seasons.map(season => getSeasonName(season.season));
     const essentialNames = essentials[essentials.length - 1].map(char => char.name);
 
-    const difficultyChanges = seasons
-        .map((season, index) => ({
-            index,
-            level: season.maxLvl,
-        }))
-        .filter((season, index, arr) =>
-            index === 0 ||
-            season.level !== arr[index - 1].level
-        );
+    const difficultyChanges = getDifficultyChanges(seasons);
 
     console.log(seasons)
 

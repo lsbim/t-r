@@ -1,4 +1,6 @@
-import { AllLine, BaseLine, Personality } from "../../../../types/trickcalTypes";
+import { AllLine, BaseLine, Personality, TrickcalRaidEn } from "../../../../types/trickcalTypes";
+
+export type StatsRaidType = Exclude<TrickcalRaidEn, "deepClash">;
 
 export interface PickRankData {
     name: string;
@@ -42,6 +44,8 @@ export interface RaidStatSeason {
     userTotalCount: number;
     rates: RaidStatRate[];
     cuts: Partial<Record<RecordMetric, RankCuts>>;
+    /** 코인 중앙값: 1~10위, 11~100위, 101~300위 순서 */
+    coinMedians?: [number | null, number | null, number | null];
     comboCounts: number[];
     top1Arr: string[]; // 1위의 조합
 }

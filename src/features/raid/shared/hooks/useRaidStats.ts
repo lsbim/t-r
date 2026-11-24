@@ -1,14 +1,13 @@
 import { charInfo } from "@/data/trickcalChar";
 import { useRaidData } from "@/hooks/useRaidData";
-import { TrickcalRaidEn } from "@/types/trickcalTypes";
 import { useMemo } from "react";
-import { CompositionKey, RaidStatsFile, RaidStatsView, RankCutRatios, RecordMetric } from "../types/statTypes";
+import { CompositionKey, RaidStatsFile, RaidStatsView, RankCutRatios, RecordMetric, StatsRaidType } from "../types/statTypes";
 import { STAT_CONFIG } from "../utils/raidStatConfig";
 import { calcComboDiversity, calcComposition, calcEssentialChars, calcMetaChange, calcNewCharRates, calcRankCutRatio, diffTop1Comp, selectSeasonWindow } from "../utils/raidStats";
 
 const COMPOSITION_KEYS: CompositionKey[] = ["attackType", "role", "race"];
 
-export const useRaidStats = (type: TrickcalRaidEn): RaidStatsView => {
+export const useRaidStats = (type: StatsRaidType): RaidStatsView => {
     const { data } = useRaidData<RaidStatsFile>(type, "stats");
 
     return useMemo(() => {
@@ -22,6 +21,7 @@ export const useRaidStats = (type: TrickcalRaidEn): RaidStatsView => {
 
         const rankCutRatios: Partial<Record<RecordMetric, RankCutRatios[]>> = {};
         STAT_CONFIG[type].metrics.forEach(metric => {
+            if (metric === "coin") return;
             rankCutRatios[metric] = seasons.map(season => calcRankCutRatio(season.cuts[metric], metric));
         });
 

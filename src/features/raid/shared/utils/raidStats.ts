@@ -176,3 +176,11 @@ export const diffTop1Comp = (prev: RaidStatSeason, curr: RaidStatSeason): Top1Co
 // 최근 N시즌만 남김
 export const selectSeasonWindow = <T>(seasons: T[], size: number = STAT_SEASON_WINDOW): T[] =>
     seasons.slice(-size);
+
+// 새 최고 단계가 시작된 시즌의 인덱스와 난이도
+export const getDifficultyChanges = (seasons: RaidStatSeason[]) =>
+    seasons
+        .map((season, index) => ({ index, level: season.maxLvl }))
+        .filter((season, index, all) =>
+            index === 0 || season.level !== all[index - 1].level
+        );

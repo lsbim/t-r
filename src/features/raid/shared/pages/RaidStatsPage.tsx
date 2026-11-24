@@ -1,11 +1,11 @@
 import Footer from "@/layouts/Footer";
 import HeaderNav from "@/layouts/HeaderNav";
 import { raidRootContainer } from "@/styles/container";
-import { TrickcalRaidEn } from "@/types/trickcalTypes";
 import RaidStatsComponent from "../components/stats/RaidStatsComponent";
 import StatSubNav from "../components/stats/StatSubNav";
+import { StatsRaidType } from "../types/statTypes";
 
-const RaidStatsPage = ({ type }: { type: TrickcalRaidEn }) => {
+const RaidStatsPage = ({ type }: { type: StatsRaidType }) => {
     return (
         <div className={`${raidRootContainer} min-h-screen`}>
             <HeaderNav />
