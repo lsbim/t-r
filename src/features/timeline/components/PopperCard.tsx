@@ -27,13 +27,13 @@ const CharacterDetails = ({ targetName }: { targetName: string }) => {
     return (
         <div className="flex flex-col gap-y-1 text-[12px] cursor-default">
             <div className="flex gap-x-1">
-                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                     출시일
                 </span>
                 <span>{charInfo[targetName].birthdate}</span>
             </div>
             <div className="flex gap-x-1">
-                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                     사복 개수
                 </span>
                 <span>{characterLatestCostume.count}개</span>
@@ -41,7 +41,7 @@ const CharacterDetails = ({ targetName }: { targetName: string }) => {
             {/* 사복이 있으면 출력 */}
             {characterLatestCostume.latest && (
                 <div className="flex gap-x-1">
-                    <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                    <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                         마지막 사복
                     </span>
                     <span>
@@ -58,7 +58,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
     return (
         <div className="flex flex-col gap-y-1 text-[12px] cursor-default">
             <div className="flex gap-x-1">
-                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                     기간
                 </span>
                 <span>
@@ -70,7 +70,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                     {node?.rules?.map((rule, index) => (
                         <div key={rule}
                             className="flex gap-x-1">
-                            <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                            <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                                 {index === 0 ? '규칙' : ''}
                             </span>
                             <span className={`${rule?.endsWith('!') ? 'text-red-600 dark:text-red-400' : ''}`}>
@@ -86,7 +86,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                         {node?.rules?.map((rule, index) => (
                             <div key={rule}
                                 className="flex gap-x-1">
-                                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                                     {index === 0 ? '규칙' : ''}
                                 </span>
                                 <span>
@@ -99,7 +99,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                         {node?.sideSkills?.map((skill, index) => (
                             <div key={skill}
                                 className="flex gap-x-1">
-                                <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                                <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                                     {index === 0 ? '이면의 파편' : ''}
                                 </span>
                                 <span>
@@ -115,7 +115,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
                     {node?.power?.map((po, index) => (
                         <div key={po}
                             className="flex gap-x-1">
-                            <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                            <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                                 {index === 0 ? '교주의 권능' : ''}
                             </span>
                             <span>
@@ -127,7 +127,7 @@ const RaidDetails = ({ node }: { node: RaidNode }) => {
             )}
             {node?.type === 'deepClash' && deepPowerList.map((power) => (
                 <div key={power.name} className="flex gap-x-1">
-                    <span className="text-gray-600 dark:text-zinc-400 w-[60px]">
+                    <span className="text-gray-700 dark:text-zinc-400 w-[60px]">
                         {power.name}
                     </span>
                     <span className="whitespace-pre-line">

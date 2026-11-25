@@ -24,7 +24,7 @@ const BestComp = ({ data }: { data: CompStat[] }) => {
                     return (
                         <div key={"best_comp_" + ci}
                             className={`flex flex-col gap-y-3 text-[12px] font-bold px-4 dark:brightness-90`}>
-                            <span className="text-[13px] text-gray-600 dark:text-zinc-400 font-normal">
+                            <span className="text-[13px] text-gray-700 dark:text-zinc-400 font-normal">
                                 {rankMsg && rankMsg[ci]}
                             </span>
                             <div className={`flex gap-x-2 ${ci > 0 && isEquals ? 'opacity-60' : ''}`}>

@@ -64,7 +64,7 @@ export interface RecordMetricMeta {
 
 // 콘텐츠별 통계 설정
 export interface RaidStatConfig {
-    shortLabel: string; 
+    shortLabel: string;
     path: string;
     metrics: RecordMetric[];
 }
@@ -83,11 +83,12 @@ export interface EssentialChar {
     rate: number; // 사용률 %
 }
 
-// 신규 사도 출전율: rates는 입력 시즌 순서와 같고, null은 출시 전 시즌
+// 신규 사도 출전율: rates, counts는 입력 시즌 순서와 같고, null은 출시 전 시즌
 export interface NewCharRate {
     name: string;
     birthdate: string;
     rates: (number | null)[];
+    counts: (number | null)[]; // 시즌별 사용 팀 수
 }
 
 // 사도 구성 비율 속성 (공격 타입/역할/종족)
@@ -118,5 +119,5 @@ export interface RaidStatsView {
     compositions: Record<CompositionKey, Record<string, number>[]>;
     diversities: ComboDiversity[];
     rankCutRatios: Partial<Record<RecordMetric, RankCutRatios[]>>;
-    top1Diffs: (Top1CompDiff | null)[]; 
+    top1Diffs: (Top1CompDiff | null)[];
 }

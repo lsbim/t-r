@@ -88,7 +88,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                     <span className="font-bold truncate text-start text-[14px]">
                         {select === '시온' ? '시온 더 다크불릿' : select}
                     </span>
-                    <span className="truncate text-start text-[12px] text-gray-600 dark:text-zinc-400">
+                    <span className="truncate text-start text-[12px] text-gray-700 dark:text-zinc-400">
                         {`${charInfo[select]?.personality}, ${charInfo[select]?.grade}성`}
                     </span>
                 </div>
@@ -109,7 +109,7 @@ const SelectInfo: React.FC<SelectInfoProps> = ({
                         {info?.map((fo, i) => (
                             <div className="flex flex-col"
                                 key={`select_info_${index}_child_${i}`}>
-                                <span className=" dark:text-zinc-400 text-gray-600">
+                                <span className=" dark:text-zinc-400 text-gray-700">
                                     {fo.title}
                                 </span>
                                 <span className="text-[13px] font-bold">

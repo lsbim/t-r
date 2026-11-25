@@ -101,7 +101,6 @@ function buildComboCounts(records) {
 // 시즌 하나의 통계 만들기
 function buildSeasonStats(season, raw, summary, raid) {
     const records = raw.data;
-    const rank1 = records.find(record => record.rank === 1);
 
     return {
         season,
@@ -115,7 +114,6 @@ function buildSeasonStats(season, raw, summary, raid) {
         cuts: buildCuts(records, raid.metrics),
         ...(raid.metrics.includes('coin') && { coinMedians: buildCoinMedians(records) }),
         comboCounts: buildComboCounts(records),
-        top1Arr: (rank1?.arr ?? []).filter(Boolean).map(normalizeCharName),
     };
 }
 

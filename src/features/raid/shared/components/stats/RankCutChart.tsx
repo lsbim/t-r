@@ -224,7 +224,7 @@ const RankCutLine = ({ view, metric, showTitle }: { view: RaidStatsView, metric:
     return (
         <div className="min-w-0 flex flex-col gap-y-2">
             {showTitle && (
-                <span className="text-[13px] font-bold text-gray-600 dark:text-zinc-400">{meta.label}</span>
+                <span className="text-[13px] font-bold text-gray-700 dark:text-zinc-400">{meta.label}</span>
             )}
             <div className="h-[300px]">
                 {/* ChartDataLabels를 이 차트에만 plugin으로 붙여야 다른 그래프에 적용되지 않음 */}

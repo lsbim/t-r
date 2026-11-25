@@ -3,6 +3,7 @@ import { useRaidStats } from "../../hooks/useRaidStats";
 import { StatsRaidType } from "../../types/statTypes";
 import MetaTrendChart from "./MetaTrendChart";
 import RankCutChart from "./RankCutChart";
+import NewCharPickGrid from "./NewCharPickGrid";
 import { STAT_CONFIG } from "../../utils/raidStatConfig";
 
 const RaidStatsComponent = ({ type }: { type: StatsRaidType }) => {
@@ -13,12 +14,12 @@ const RaidStatsComponent = ({ type }: { type: StatsRaidType }) => {
     const months = getApproxMonthsBetween(firstSeason.startDate, lastSeason.endDate);
 
     return (
-        <div className="w-[992px] max-w-full my-8">
+        <div className="lg:w-[992px] w-full mx-auto my-8">
             <div className="p-2 mb-2 flex flex-col dark:text-zinc-200">
                 <h1 className="text-[20px] font-bold mr-2">
                     {translateRaid(type)} 통계
                 </h1>
-                <span className="mt-1 text-[13px] flex gap-x-2 text-gray-600 dark:text-zinc-400">
+                <span className="mt-1 flex flex-wrap gap-x-2 gap-y-1 text-[13px] text-gray-700 dark:text-zinc-400 sm:flex-nowrap">
                     <span className="whitespace-nowrap">
                         {getSeasonName(firstSeason.season)} ~ {getSeasonName(lastSeason.season)}.
                     </span>
@@ -31,6 +32,7 @@ const RaidStatsComponent = ({ type }: { type: StatsRaidType }) => {
             <div className="flex flex-col gap-y-4">
                 <MetaTrendChart view={view} />
                 <RankCutChart view={view} metrics={STAT_CONFIG[type].metrics} />
+                <NewCharPickGrid view={view} />
             </div>
         </div>
     );

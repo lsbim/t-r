@@ -31,7 +31,7 @@ const CharacterAchievement = ({ topSeasons }: { topSeasons: ContentTopSeasons })
                                 key={`character_achievement_${key}_${index}`}
                                 className="flex flex-col gap-y-2"
                             >
-                                <span className="text-gray-600 text-[13px] dark:text-zinc-400">
+                                <span className="text-gray-700 text-[13px] dark:text-zinc-400">
                                     {`${translateRaid(key)} (${value.length})`}
                                 </span>
                                 {/* 시즌별 아이콘 */}

@@ -376,7 +376,7 @@ const CleartimeChart = ({ data, season, select }: { data: ClashSeasonData | Fron
                             <span>
                                 {count}명
                             </span>
-                            <span className="text-gray-600 dark:text-zinc-500">
+                            <span className="text-gray-700 dark:text-zinc-500">
                                 ({rankRanges.map(([start, end]) =>
                                     start === end ? `${start}위` : `${start}~${end}위`
                                 ).join(', ')})

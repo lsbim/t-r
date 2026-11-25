@@ -24,6 +24,7 @@ ChartJS.register(
 interface DifficultyChange {
     index: number;  // 새로운 난이도가 시작되는 시즌 인덱스
     level: string | number;  // 변경된 난이도
+    label?: string; // 난이도 대신 표시할 이벤트 문구
 }
 
 interface MiniTrendCardProps {
@@ -55,12 +56,19 @@ const MiniTrendCard = ({
     const lastIndex = values.length - 1;
     const current = values[lastIndex];
     const prev = lastIndex > 0 ? values[lastIndex - 1] : null;
+    const highestValue = values.reduce((max, value) => value === null ? max : Math.max(max, value), -Infinity);
+    const chartYRange = yRange?.max !== undefined && highestValue >= yRange.max * 0.9
+        ? { ...yRange, max: yRange.max * 1.1 }
+        : yRange;
 
     // 난이도 변경 시즌 인덱스와 난이도명
     const difficultyByIndex = new Map(
         (difficultyChanges ?? [])
             .filter(({ index }) => index > 0 && index <= lastIndex)
-            .map(({ index, level }) => [index, String(level)])
+            .map(({ index, level, label }) => [
+                index,
+                label ?? (String(level).includes('맛') ? String(level) : `${level}단계`),
+            ])
     );
 
     // 난이도 변경 경계선
@@ -157,7 +165,7 @@ const MiniTrendCard = ({
 
                         // 난이도가 변경된 시즌은 두 줄로 표시
                         if (difficulty) {
-                            return ['', difficulty.includes('맛') ? difficulty : `${difficulty}단계`];
+                            return ['', difficulty];
                         }
 
                         if (index === 0 || index === lastIndex) {
@@ -168,7 +176,7 @@ const MiniTrendCard = ({
                     },
                 },
             },
-            y: { display: false, grace: '10%', ...yRange },
+            y: { display: false, grace: '10%', ...chartYRange },
         },
         layout: {
             padding: {
@@ -184,7 +192,7 @@ const MiniTrendCard = ({
         <div className="flex flex-col min-w-0 p-2">
             {/* 지표 제목 + 설명 */}
             <div className="flex items-center gap-x-1">
-                <span className="text-[13px] font-bold text-gray-600 dark:text-zinc-400">
+                <span className="text-[13px] font-bold text-gray-700 dark:text-zinc-400">
                     {label}
                 </span>
 
@@ -198,7 +206,7 @@ const MiniTrendCard = ({
                 </span>
 
                 {prev !== null && (
-                    <span className="text-[12px] text-gray-600 dark:text-zinc-400">
+                    <span className="text-[12px] text-gray-700 dark:text-zinc-400">
                         {seasonLabels[lastIndex - 1]} {format(prev)}
                     </span>
                 )}

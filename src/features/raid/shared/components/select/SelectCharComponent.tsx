@@ -61,7 +61,7 @@ const SelectCharComponent = ({
                         </div>
                     </div>
                 ) : (
-                    <div className="text-gray-600">
+                    <div className="text-gray-700">
                         사도를 선택해 주세요.
                     </div>
                 )}

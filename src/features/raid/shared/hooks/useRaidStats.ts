@@ -13,6 +13,8 @@ export const useRaidStats = (type: StatsRaidType): RaidStatsView => {
     return useMemo(() => {
         const all = data.seasons;
         const seasons = selectSeasonWindow(all);
+        // 조회 구간 바로 앞의 비교 기준 시즌 (저장된 시즌이 구간뿐이면 없음)
+        const baseline = all.length > seasons.length ? all[all.length - seasons.length - 1] : undefined;
 
         const compositions = {} as Record<CompositionKey, Record<string, number>[]>;
         COMPOSITION_KEYS.forEach(key => {
@@ -28,7 +30,7 @@ export const useRaidStats = (type: StatsRaidType): RaidStatsView => {
         return {
             seasons,
             metaChanges: selectSeasonWindow(all.map((season, i) => (i === 0 ? null : calcMetaChange(all[i - 1], season)))), essentials: seasons.map(season => calcEssentialChars(season)),
-            newChars: calcNewCharRates(seasons, charInfo),
+            newChars: calcNewCharRates(seasons, charInfo, baseline),
             compositions,
             diversities: seasons.map(season => calcComboDiversity(season)),
             rankCutRatios,

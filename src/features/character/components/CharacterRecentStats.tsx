@@ -333,7 +333,7 @@ const CharacterRecentStats = ({
         <div className={`w-full mx-auto flex flex-col gap-y-4 ${containerDarkBG} p-4 rounded-xl border border-zinc-300 dark:border-zinc-700`}>
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">픽률 통계</span>
-                <span className="text-[12px] dark:text-zinc-400 text-gray-600">
+                <span className="text-[12px] dark:text-zinc-400 text-gray-700">
                     콘텐츠별 최대 10개 시즌의 데이터를 제공합니다.
                 </span>
             </div>
@@ -342,7 +342,7 @@ const CharacterRecentStats = ({
                     .filter(({ key }) => recentStats[key].length > 0)
                     .map(({ key, label, chartData, options }) => (
                         <div key={key} className="flex flex-col gap-1">
-                            <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">{label}</span>
+                            <span className="text-[16px] font-bold text-gray-700 dark:text-zinc-400">{label}</span>
                             <div className={key === 'clashV2' ? 'h-[210px]' : 'h-[180px]'}>
                                 <Line
                                     data={chartData}
@@ -355,7 +355,7 @@ const CharacterRecentStats = ({
                     ))}
                 {deepClashPersonalityChart && (
                     <div className="flex flex-col gap-1">
-                        <span className="text-[16px] font-bold text-gray-600 dark:text-zinc-400">
+                        <span className="text-[16px] font-bold text-gray-700 dark:text-zinc-400">
                             {deepClashPersonalityChart.title}
                         </span>
                         <div className={deepClashPersonalityChart.hasMultipleSeries ? 'h-[210px]' : 'h-[180px]'}>

@@ -14,6 +14,7 @@ import BirthTimeline from "../components/BirthTimeline";
 import CharacterSearchList from "../components/CharacterSearchList";
 import HomeDeepClashCard from "../components/HomeDeepClashCard";
 import HomeRaidCard from "../components/HomeRaidCard";
+import NewBadge from "@/components/NewBadge";
 import NoticeComponent from "../components/NoticeComponent";
 
 const IndexPage = () => {
@@ -105,9 +106,7 @@ const IndexPage = () => {
                                 raidType={key}
                             />
                             {key === mostLatestKey && (
-                                <div className="absolute pointer-events-none top-[-10px] left-[-5px] py-[2px] px-2 bg-gradient-to-r from-[rgb(20,173,138)] to-[rgb(19,115,194)] font-bold text-zinc-100 text-[11px] rounded-md border-2 border-zinc-100 shadow-md shadow-zinc-800/50">
-                                    NEW
-                                </div>
+                                <NewBadge className="absolute top-[-10px] left-[-5px]" />
                             )}
                         </div>
                     ))}
@@ -124,7 +123,7 @@ const IndexPage = () => {
                             <p className="text-[16px]">
                                 사도 출시 타임라인
                             </p>
-                            <p className="text-[12px] dark:text-zinc-400 text-gray-600 font-normal">
+                            <p className="text-[12px] dark:text-zinc-400 text-gray-700 font-normal">
                                 카테고리별 최근 3인의 사도 출시 타임라인을 제공합니다.
                             </p>
                         </div>

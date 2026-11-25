@@ -45,7 +45,7 @@ const CharacterProfile = ({ charName }: { charName: string }) => {
                 </div>
                 <div>
                     <div className="flex flex-col">
-                        <span className="text-[11px] text-gray-600 dark:text-zinc-400">
+                        <span className="text-[11px] text-gray-700 dark:text-zinc-400">
                             출시일
                         </span>
                         <span className="text-[13px] font-bold text-gray-800 dark:text-zinc-200">

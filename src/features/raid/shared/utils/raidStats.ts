@@ -71,12 +71,17 @@ export const calcEssentialChars = (season: RaidStatSeason, threshold: number = E
     return result.sort((a, b) => b.rate - a.rate || (a.name < b.name ? -1 : 1));
 };
 
-// 신캐 출전율: 조회 구간 중에 출시된 사도의 시즌별 사용률(%)
-// 출시일이 콘텐츠별 첫 시즌 시작일보다 뒤인 사도만 대상
-export const calcNewCharRates = (seasons: RaidStatSeason[], info: CharInfoType): NewCharRate[] => {
+// 신캐 출전율: 조회 구간 안에서 처음 집계되는 사도의 시즌별 사용률(%)
+// baseline: 조회 구간 바로 앞 시즌(비교 기준 시즌). 이 시즌 시작일 이후에 출시된 사도가 대상이다.
+// baseline이 없으면(저장된 시즌이 조회 구간뿐이면) 구간 첫 시즌 시작일을 기준으로 한다.
+export const calcNewCharRates = (
+    seasons: RaidStatSeason[],
+    info: CharInfoType,
+    baseline?: RaidStatSeason
+): NewCharRate[] => {
     if (seasons.length === 0) return [];
 
-    const firstStart = seasons[0].startDate;
+    const newSince = baseline?.startDate ?? seasons[0].startDate;
     const nameTotals = seasons.map(season => getNameTotals(season.rates));
     const result: NewCharRate[] = [];
 
@@ -84,16 +89,20 @@ export const calcNewCharRates = (seasons: RaidStatSeason[], info: CharInfoType):
         if (parseResonanceBaseName(name)) return; // 공명 사도의 성격 변형은 본체와 별개 행으로 만들지 않음
 
         const { birthdate } = info[name];
-        if (birthdate <= firstStart) return;
+        if (birthdate <= newSince) return;
 
-        const rates = seasons.map((season, i) => {
-            if (birthdate > season.startDate) return null;
+        // 시즌별 사용 팀 수 (시즌 시작 뒤에 출시됐으면 null)
+        const counts = seasons.map((season, i) =>
+            birthdate > season.startDate ? null : (nameTotals[i].get(name) ?? 0)
+        );
+        const rates = counts.map((count, i) => {
+            if (count === null) return null;
 
-            return season.userTotalCount === 0 ? 0 : ((nameTotals[i].get(name) ?? 0) / season.userTotalCount) * 100;
+            return seasons[i].userTotalCount === 0 ? 0 : (count / seasons[i].userTotalCount) * 100;
         });
 
         if (rates.some(rate => rate !== null)) {
-            result.push({ name, birthdate, rates });
+            result.push({ name, birthdate, rates, counts });
         }
     });
 
@@ -162,7 +171,9 @@ export const calcRankCutRatio = (cuts: RankCuts | undefined, metric: RecordMetri
 };
 
 // 1위 조합의 직전 시즌 대비 변화 (새로 들어온/빠진/유지된 사도)
-export const diffTop1Comp = (prev: RaidStatSeason, curr: RaidStatSeason): Top1CompDiff => {
+export const diffTop1Comp = (prev: RaidStatSeason, curr: RaidStatSeason): Top1CompDiff | null => {
+    if (!Array.isArray(prev.top1Arr) || !Array.isArray(curr.top1Arr)) return null;
+
     const prevSet = new Set(prev.top1Arr);
     const currSet = new Set(curr.top1Arr);
 
@@ -178,9 +189,11 @@ export const selectSeasonWindow = <T>(seasons: T[], size: number = STAT_SEASON_W
     seasons.slice(-size);
 
 // 새 최고 단계가 시작된 시즌의 인덱스와 난이도
-export const getDifficultyChanges = (seasons: RaidStatSeason[]) =>
-    seasons
+export const getDifficultyChanges = (seasons: RaidStatSeason[]) => {
+
+    return seasons
         .map((season, index) => ({ index, level: season.maxLvl }))
         .filter((season, index, all) =>
             index === 0 || season.level !== all[index - 1].level
         );
+}

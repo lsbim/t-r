@@ -163,7 +163,7 @@ const MinimapHandle: React.FC<MinimapHandleProps> = ({
                             labels.push(
                                 <span
                                     key={`minimap_handle_year_${y}`}
-                                    className="absolute text-[11px] text-gray-600 dark:text-zinc-400 whitespace-nowrap translate-x-[-50%]"
+                                    className="absolute text-[11px] text-gray-700 dark:text-zinc-400 whitespace-nowrap translate-x-[-50%]"
                                     style={{ left: `${pct}%` }}>
                                     {y}
                                 </span>

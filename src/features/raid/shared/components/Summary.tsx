@@ -107,7 +107,7 @@ const Summary = ({
                                 {/* 왼쪽 여백을 위한 빈 div */}
                                 <div className={`${type === 'clashV2' && 'mr-2'} w-[66px] flex-shrink-0`} />
                                 <div
-                                    className={`flex items-center justify-start text-[13px] text-gray-600 dark:text-zinc-400 ${type === 'clashV2' ? 'gap-x-10' : 'gap-x-[10px]'}`}>
+                                    className={`flex items-center justify-start text-[13px] text-gray-700 dark:text-zinc-400 ${type === 'clashV2' ? 'gap-x-10' : 'gap-x-[10px]'}`}>
                                     {TYPE_CONFIG[type].lineList.map(c => (
                                         <div
                                             key={`line_text_` + c}
@@ -121,7 +121,7 @@ const Summary = ({
                         <div className="flex flex-col gap-y-[2px]">
                             {/* 데이터가 없는 보스의 경우 빈 차트 한 세트만 표시 */}
                             {matchingEntries.length === 0 ? (
-                                <div className="flex gap-8 mb-1 text-[12px] text-gray-600 dark:text-zinc-200 px-6">
+                                <div className="flex gap-8 mb-1 text-[12px] text-gray-700 dark:text-zinc-200 px-6">
                                     준비 중입니다.
                                 </div>
                             ) : (

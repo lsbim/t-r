@@ -349,7 +349,7 @@ const ClashV2Chart = ({ data, maxSideLvl, select }: { data: ClashV2SeasonData, m
                             <span>
                                 {count}명
                             </span>
-                            <span className="text-gray-600 dark:text-zinc-500">
+                            <span className="text-gray-700 dark:text-zinc-500">
                                 ({rankRanges.map(([start, end]) =>
                                     start === end ? `${start}위` : `${start}~${end}위`
                                 ).join(', ')})

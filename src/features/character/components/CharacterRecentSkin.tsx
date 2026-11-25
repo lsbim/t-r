@@ -57,7 +57,7 @@ const CharacterRecentSkin = ({ recentSkin, charName }: { recentSkin: RecentSkin[
         <div className={`flex flex-col gap-y-4 rounded-xl w-full min-h-[270px] border border-zinc-300 ${containerDarkBG} dark:border-zinc-700 p-4`}>
             <div className="flex flex-col">
                 <span className="text-[18px] font-bold dark:text-zinc-200">사복 통계</span>
-                <span className="text-[12px] dark:text-zinc-400 text-gray-600">
+                <span className="text-[12px] dark:text-zinc-400 text-gray-700">
                     각 콘텐츠별 3시즌의 사복 통계를 제공합니다.
                 </span>
             </div>
