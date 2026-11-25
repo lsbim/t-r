@@ -30,7 +30,7 @@ export const useRaidStats = (type: StatsRaidType): RaidStatsView => {
         return {
             seasons,
             metaChanges: selectSeasonWindow(all.map((season, i) => (i === 0 ? null : calcMetaChange(all[i - 1], season)))), essentials: seasons.map(season => calcEssentialChars(season)),
-            newChars: calcNewCharRates(seasons, charInfo, baseline),
+            newChars: calcNewCharRates(seasons, charInfo),
             compositions,
             diversities: seasons.map(season => calcComboDiversity(season)),
             rankCutRatios,

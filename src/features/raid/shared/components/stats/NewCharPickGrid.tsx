@@ -6,7 +6,7 @@ import { NewCharRate, RaidStatSeason, RaidStatsView } from "../../types/statType
 import MiniTrendCard from "./MiniTrendCard";
 import StatSection from "./StatSection";
 
-// 출전율 구간: 0%는 중립 회색, 1% 이상은 보라 단계색
+// 픽률 구간: 0%는 중립 회색, 1% 이상은 보라 단계색
 const RATE_BINS = [
     { max: 0, alpha: 0 },
     { max: 5, alpha: 0.3 },
@@ -149,7 +149,7 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
 
     return (
         <StatSection
-            title="신규 사도 출전율"
+            title="신규 사도 픽율"
         >
             {chars.length === 0 || !selectedChar ? (
                 <p className="text-[13px] text-gray-700 dark:text-zinc-400">조회 구간에 새로 집계되는 사도가 없습니다.</p>
@@ -161,7 +161,7 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
                         <div className="w-full min-w-[300px] [--name-col:112px] sm:[--name-col:140px]">
                             {/* 시즌 헤더 */}
                             <div
-                                className="grid items-end border-l-2 border-transparent px-1 pb-1"
+                                className="grid items-end px-1 pb-1"
                                 style={rowStyle}>
                                 <span className="pr-1 text-right text-[12px] text-gray-700 dark:text-zinc-400">
                                     {isBeta ? "베타 시즌" : "시즌"}
@@ -179,7 +179,6 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
                             <div className="flex flex-col">
                                 {chars.map(({ name, birthdate, rates, counts }) => {
                                     const isSelected = name === selectedChar.name;
-                                    const firstIndex = rates.findIndex(rate => rate !== null);
 
                                     return (
                                         <button
@@ -187,12 +186,12 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
                                             type="button"
                                             aria-pressed={isSelected}
                                             onClick={() => setSelectedName(name)}
-                                            className={`grid w-full items-stretch rounded-sm border-l-2 p-1 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-500 ${isSelected ? "border-violet-500 bg-violet-50 dark:bg-zinc-800" : "border-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800/60"}`}
+                                            className={`grid w-full items-stretch rounded-md px-1 text-left transition-colors hover:bg-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-500 dark:hover:bg-zinc-800 ${isSelected ? "bg-zinc-100 dark:bg-zinc-800" : ""}`}
                                             style={rowStyle}>
-                                            <span className="flex min-w-0 items-center gap-x-1 py-0.5">
+                                            <span className="flex min-w-0 items-center gap-x-1 py-1.5">
                                                 <CharacterIcon name={name} type="micro" />
                                                 <span className="flex min-w-0 flex-col leading-tight">
-                                                    <span className="truncate text-[14px] font-bold dark:text-zinc-200">{name}</span>
+                                                    <span className={`truncate text-[14px] dark:text-zinc-200 ${isSelected ? "font-bold" : ""}`}>{name}</span>
                                                     <span className="text-[12px] text-gray-700 dark:text-zinc-400">{formatDate(birthdate)}</span>
                                                 </span>
                                             </span>
@@ -221,7 +220,7 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
                                                         data-tooltip-id="my-tooltip"
                                                         data-tooltip-content={tooltip}>
                                                         <span
-                                                            className="block h-6 w-full rounded-[2px] group-hover:ring-2 group-hover:ring-violet-500 dark:group-hover:ring-violet-300"
+                                                            className="block h-6 w-full rounded-[2px] group-hover:ring-2 group-hover:ring-zinc-700 dark:group-hover:ring-zinc-200"
                                                             style={{ backgroundColor: getBinColor(getBinIndex(rate), isDark) }} />
                                                     </span>
                                                 );

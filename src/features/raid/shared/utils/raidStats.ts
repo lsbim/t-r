@@ -71,17 +71,29 @@ export const calcEssentialChars = (season: RaidStatSeason, threshold: number = E
     return result.sort((a, b) => b.rate - a.rate || (a.name < b.name ? -1 : 1));
 };
 
-// 신캐 출전율: 조회 구간 안에서 처음 집계되는 사도의 시즌별 사용률(%)
-// baseline: 조회 구간 바로 앞 시즌(비교 기준 시즌). 이 시즌 시작일 이후에 출시된 사도가 대상이다.
-// baseline이 없으면(저장된 시즌이 조회 구간뿐이면) 구간 첫 시즌 시작일을 기준으로 한다.
-export const calcNewCharRates = (
-    seasons: RaidStatSeason[],
-    info: CharInfoType,
-    baseline?: RaidStatSeason
-): NewCharRate[] => {
+const MS_PER_DAY = 86400000;
+const DEFAULT_SEASON_GAP_DAYS = 42;
+
+// 시즌 시작일 간격(일)의 중앙값. 시즌이 1개뿐이면 기본값
+const getTypicalSeasonGap = (seasons: RaidStatSeason[]) => {
+    const gaps = seasons.slice(1)
+        .map((season, i) => Math.round((Date.parse(season.startDate) - Date.parse(seasons[i].startDate)) / MS_PER_DAY))
+        .sort((a, b) => a - b);
+
+    return gaps.length === 0 ? DEFAULT_SEASON_GAP_DAYS : gaps[Math.floor(gaps.length / 2)];
+};
+
+// YYYY-MM-DD에서 days일 전 날짜 (문자열 비교용)
+const subtractDays = (date: string, days: number) =>
+    new Date(Date.parse(date) - days * MS_PER_DAY).toISOString().slice(0, 10);
+
+
+// 신캐 출전율: 구간 첫 시즌 시작일보다 한 시즌 주기 앞까지 출시된 사도의 시즌별 사용률(%)
+export const calcNewCharRates = (seasons: RaidStatSeason[], info: CharInfoType): NewCharRate[] => {
     if (seasons.length === 0) return [];
 
-    const newSince = baseline?.startDate ?? seasons[0].startDate;
+    const newSince = subtractDays(seasons[0].startDate, getTypicalSeasonGap(seasons));
+    // 이하 nameTotals, result, forEach, sort는 기존 그대로
     const nameTotals = seasons.map(season => getNameTotals(season.rates));
     const result: NewCharRate[] = [];
 
