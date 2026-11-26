@@ -190,6 +190,7 @@ export const costumes: Costume[] = [
     { charName: "실비아", cosName: "태동하는 은빛", lvl: "normal", launchDate: "2026-09-24" },
     { charName: "리츠", cosName: "망토 속 사냥꾼", lvl: "normal", launchDate: "2026-10-15" },
     { charName: "티그(영웅)", cosName: "화화호검 티백", lvl: "normal", launchDate: "2026-11-12" },
+    { charName: "리뉴아", cosName: "영겁을 머금은 수정 꽃", lvl: "pretty", launchDate: "2026-11-26" }, // 꼬까꼬까옷
 
     // 활발
     { charName: "벨라", cosName: "존재감 넘치는 바니", lvl: "normal", launchDate: "2025-03-27" },
