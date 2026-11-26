@@ -75,13 +75,6 @@ const SelectedCharCard = ({ char, seasons, seasonLabels }: {
             value: formatRate(average),
             sub: `${eligible.length}개 시즌 기준`,
         },
-        {
-            label: "최신",
-            value: formatRate(latest.rate),
-            sub: delta === null
-                ? seasonLabels[latest.index]
-                : `${seasonLabels[latest.index]}, 직전 ${delta > 0 ? "+" : ""}${delta.toFixed(1)}%`,
-        },
     ];
 
     const releaseMarker = first.index > 0
