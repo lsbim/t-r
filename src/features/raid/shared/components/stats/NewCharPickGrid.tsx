@@ -55,12 +55,13 @@ const SelectedCharCard = ({ char, seasons, seasonLabels }: {
     const prev = eligible.length > 1 ? eligible[eligible.length - 2] : null;
     const peak = eligible.reduce((best, cur) => (cur.rate > best.rate ? cur : best), first);
 
+    const average = eligible.reduce((sum, { rate }) => sum + rate, 0) / eligible.length;
     const delta = prev ? latest.rate - prev.rate : null;
     const waitDays = daysBetween(char.birthdate, seasons[first.index].startDate);
 
     const stats = [
         {
-            label: "첫 집계",
+            label: first.index === 0 ? "구간 시작" : "첫 집계",
             value: formatRate(first.rate),
             sub: `${seasonLabels[first.index]}, 출시 ${waitDays}일 후`,
         },
@@ -68,6 +69,11 @@ const SelectedCharCard = ({ char, seasons, seasonLabels }: {
             label: "최고",
             value: formatRate(peak.rate),
             sub: seasonLabels[peak.index],
+        },
+        {
+            label: "평균",
+            value: formatRate(average),
+            sub: `${eligible.length}개 시즌 기준`,
         },
         {
             label: "최신",
@@ -106,7 +112,7 @@ const SelectedCharCard = ({ char, seasons, seasonLabels }: {
                 <div className="flex flex-col gap-y-1.5">
                     {stats.map(({ label, value, sub }) => (
                         <div key={label} className="flex flex-wrap items-baseline gap-x-2">
-                            <span className="w-[44px] shrink-0 text-[12px] text-gray-700 dark:text-zinc-400">{label}</span>
+                            <span className="w-[52px] shrink-0 text-[12px] text-gray-700 dark:text-zinc-400">{label}</span>
                             <span className="text-[16px] font-bold dark:text-zinc-200">{value}</span>
                             <span className="text-[12px] text-gray-700 dark:text-zinc-400">{sub}</span>
                         </div>
@@ -141,6 +147,7 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
     const seasonLabels = seasons.map(season => getSeasonName(season.season));
     const shortLabels = seasons.map(season => getShortSeason(season.season));
     const isBeta = seasons[0]?.season > 10000;
+    const unitLabel = isBeta ? "베타 시즌" : "시즌";
 
     // 칸 폭은 컨테이너를 꽉 채우고(1fr), 이름 열 폭은 --name-col로 반응형 지정. 헤더와 행이 같은 템플릿을 써서 열을 맞춤
     const rowStyle = {
@@ -149,7 +156,7 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
 
     return (
         <StatSection
-            title="신규 사도 픽율"
+            title="신규 사도 픽률"
         >
             {chars.length === 0 || !selectedChar ? (
                 <p className="text-[13px] text-gray-700 dark:text-zinc-400">조회 구간에 새로 집계되는 사도가 없습니다.</p>
@@ -159,26 +166,40 @@ const NewCharPickGrid = ({ view }: { view: RaidStatsView }) => {
 
                     <div className="w-full min-w-0 overflow-x-auto">
                         <div className="w-full min-w-[300px] [--name-col:112px] sm:[--name-col:140px]">
-                            {/* 시즌 헤더 */}
-                            <div
-                                className="grid items-end px-1 pb-1"
-                                style={rowStyle}>
-                                <span className="pr-1 text-right text-[12px] text-gray-700 dark:text-zinc-400">
-                                    {isBeta ? "베타 시즌" : "시즌"}
-                                </span>
-                                {shortLabels.map((label, index) => (
+                            {/* 시즌 헤더: 마지막 열 위에만 '최신' (InfoComponent 안내 텍스트 규격) */}
+                            <div className="px-1 pb-1 flex flex-col gap-y-1">
+                                <div className="grid" style={rowStyle}>
                                     <span
-                                        key={seasons[index].season}
-                                        className="text-center text-[12px] leading-4 text-gray-700 dark:text-zinc-400">
-                                        {label}
+                                        className="text-center text-[12px] font-bold leading-4 text-orange-500"
+                                        style={{ gridColumn: seasons.length + 1 }}>
+                                        최신
                                     </span>
-                                ))}
+                                </div>
+                                <div className="grid items-end" style={rowStyle}>
+                                    {/* 좁은 화면: 왼쪽에 단위 표기, md 이상: 숫자 아래에 표기 (자리는 유지) */}
+                                    <span className="pr-1 text-right text-[12px] text-gray-700 dark:text-zinc-400 md:invisible">
+                                        {unitLabel}
+                                    </span>
+                                    {shortLabels.map((label, index) => (
+                                        <span
+                                            key={seasons[index].season}
+                                            className="flex flex-col items-center text-center leading-4">
+                                            <span className="text-[14px] font-bold dark:text-zinc-200">
+                                                {label}
+                                            </span>
+                                            <span className="hidden whitespace-nowrap text-[12px] text-gray-700 dark:text-zinc-400 md:block">
+                                                {unitLabel}
+                                            </span>
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* 사도 목록 */}
                             <div className="flex flex-col">
                                 {chars.map(({ name, birthdate, rates, counts }) => {
                                     const isSelected = name === selectedChar.name;
+                                    const firstIndex = rates.findIndex(rate => rate !== null);
 
                                     return (
                                         <button
